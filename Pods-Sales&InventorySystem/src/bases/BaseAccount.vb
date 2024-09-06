@@ -17,7 +17,7 @@ Public Class BaseAccount
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT * FROM tblaccount", conn)
+            cmd = New SqlCommand("SELECT id as 'ID', concat(first_name,' ',last_name) as 'Fullname' FROM tblaccount", conn)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
             adapter.Fill(dTable)

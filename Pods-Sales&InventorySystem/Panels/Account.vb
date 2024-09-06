@@ -1,5 +1,4 @@
-﻿Imports System.Data.SqlClient
-
+﻿
 Public Class Account
     Implements IObserverPanel
     Private _subject As IObservablePanel
