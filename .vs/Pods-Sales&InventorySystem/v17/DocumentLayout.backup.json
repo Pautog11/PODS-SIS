@@ -1,0 +1,69 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Christian\\source\\repos\\Pods-Sales\u0026InventorySystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|c:\\users\\christian\\source\\repos\\pods-sales\u0026inventorysystem\\pods-sales\u0026inventorysystem\\panels\\maintenance.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|solutionrelative:pods-sales\u0026inventorysystem\\panels\\maintenance.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|c:\\users\\christian\\source\\repos\\pods-sales\u0026inventorysystem\\pods-sales\u0026inventorysystem\\forms\\dashboard.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|solutionrelative:pods-sales\u0026inventorysystem\\forms\\dashboard.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|c:\\users\\christian\\source\\repos\\pods-sales\u0026inventorysystem\\pods-sales\u0026inventorysystem\\forms\\dashboard.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|solutionrelative:pods-sales\u0026inventorysystem\\forms\\dashboard.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Maintenance.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\Christian\\source\\repos\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\Panels\\Maintenance.vb",
+              "RelativeDocumentMoniker": "Pods-Sales\u0026InventorySystem\\Panels\\Maintenance.vb",
+              "ToolTip": "C:\\Users\\Christian\\source\\repos\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\Panels\\Maintenance.vb [Design]*",
+              "RelativeToolTip": "Pods-Sales\u0026InventorySystem\\Panels\\Maintenance.vb [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-09-06T03:50:31.973Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Dashboard.vb",
+              "DocumentMoniker": "C:\\Users\\Christian\\source\\repos\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\Forms\\Dashboard.vb",
+              "RelativeDocumentMoniker": "Pods-Sales\u0026InventorySystem\\Forms\\Dashboard.vb",
+              "ToolTip": "C:\\Users\\Christian\\source\\repos\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\Forms\\Dashboard.vb",
+              "RelativeToolTip": "Pods-Sales\u0026InventorySystem\\Forms\\Dashboard.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-09-06T03:41:41.697Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Dashboard.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\Christian\\source\\repos\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\Forms\\Dashboard.vb",
+              "RelativeDocumentMoniker": "Pods-Sales\u0026InventorySystem\\Forms\\Dashboard.vb",
+              "ToolTip": "C:\\Users\\Christian\\source\\repos\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\Forms\\Dashboard.vb [Design]",
+              "RelativeToolTip": "Pods-Sales\u0026InventorySystem\\Forms\\Dashboard.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-09-06T03:40:45.108Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Pods-Sales&InventorySystem
+</name>
+</assembly>
+<members>
+<member name="T:Pods_Sales_InventorySystem.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:Pods_Sales_InventorySystem.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:Pods_Sales_InventorySystem.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="M:Pods_Sales_InventorySystem.IObservablePanel.RegisterObserver(Pods_Sales_InventorySystem.IObserverPanel)">
+ <summary>
+ Register the observer to the observable.
+ </summary>
+ <param name="o">An IObserverPanel to register in the observable.</param>
+</member>
+<member name="M:Pods_Sales_InventorySystem.IObservablePanel.NotifyObserver">
+ <summary>
+ Notifies all the observes that are listed in observable.
+ </summary>
+</member>
+<member name="M:Pods_Sales_InventorySystem.IObserverPanel.Update">
+ <summary>
+ Updates the data of the panel.
+ </summary>
+</member>
+</members>
+</doc>

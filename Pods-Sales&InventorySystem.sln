@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35219.272
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Pods-Sales&InventorySystem", "Pods-Sales&InventorySystem\Pods-Sales&InventorySystem.vbproj", "{38FAD0A8-B421-4167-BFC1-981D1DE1328A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{38FAD0A8-B421-4167-BFC1-981D1DE1328A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38FAD0A8-B421-4167-BFC1-981D1DE1328A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38FAD0A8-B421-4167-BFC1-981D1DE1328A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38FAD0A8-B421-4167-BFC1-981D1DE1328A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0FE89072-0870-4813-8407-6FF586E16250}
+	EndGlobalSection
+EndGlobal
