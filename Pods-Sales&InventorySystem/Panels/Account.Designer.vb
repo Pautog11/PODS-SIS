@@ -48,6 +48,7 @@ Partial Class Account
         Me.TableLayoutPanel1.RowCount = 2
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(895, 576)
         Me.TableLayoutPanel1.TabIndex = 0
         '
@@ -63,6 +64,7 @@ Partial Class Account
         Me.AccountHeaderLayoutPanel.Name = "AccountHeaderLayoutPanel"
         Me.AccountHeaderLayoutPanel.RowCount = 1
         Me.AccountHeaderLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.AccountHeaderLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44.0!))
         Me.AccountHeaderLayoutPanel.Size = New System.Drawing.Size(887, 44)
         Me.AccountHeaderLayoutPanel.TabIndex = 0
         '

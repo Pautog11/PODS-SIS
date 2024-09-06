@@ -31,6 +31,7 @@ Partial Class Dashboard
         Me.Maintenance = New System.Windows.Forms.TabPage()
         Me.Maintenance1 = New Pods_Sales_InventorySystem.Maintenance()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
         Me.DashboardTableLayoutPanel.SuspendLayout()
         Me.DashboardPanel.SuspendLayout()
         Me.DashboardTabControl.SuspendLayout()
@@ -46,13 +47,14 @@ Partial Class Dashboard
         Me.DashboardTableLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100.0!))
         Me.DashboardTableLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.DashboardTableLayoutPanel.Controls.Add(Me.DashboardPanel, 0, 1)
+        Me.DashboardTableLayoutPanel.Controls.Add(Me.Guna2Button1, 1, 0)
         Me.DashboardTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DashboardTableLayoutPanel.Location = New System.Drawing.Point(0, 0)
         Me.DashboardTableLayoutPanel.Name = "DashboardTableLayoutPanel"
         Me.DashboardTableLayoutPanel.RowCount = 2
         Me.DashboardTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
         Me.DashboardTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.DashboardTableLayoutPanel.Size = New System.Drawing.Size(800, 450)
+        Me.DashboardTableLayoutPanel.Size = New System.Drawing.Size(1184, 561)
         Me.DashboardTableLayoutPanel.TabIndex = 0
         '
         'DashboardPanel
@@ -62,7 +64,7 @@ Partial Class Dashboard
         Me.DashboardPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DashboardPanel.Location = New System.Drawing.Point(4, 35)
         Me.DashboardPanel.Name = "DashboardPanel"
-        Me.DashboardPanel.Size = New System.Drawing.Size(792, 411)
+        Me.DashboardPanel.Size = New System.Drawing.Size(1176, 522)
         Me.DashboardPanel.TabIndex = 0
         '
         'DashboardTabControl
@@ -76,7 +78,7 @@ Partial Class Dashboard
         Me.DashboardTabControl.Location = New System.Drawing.Point(0, 0)
         Me.DashboardTabControl.Name = "DashboardTabControl"
         Me.DashboardTabControl.SelectedIndex = 0
-        Me.DashboardTabControl.Size = New System.Drawing.Size(792, 411)
+        Me.DashboardTabControl.Size = New System.Drawing.Size(1176, 522)
         Me.DashboardTabControl.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty
         Me.DashboardTabControl.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.DashboardTabControl.TabButtonHoverState.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!)
@@ -139,7 +141,7 @@ Partial Class Dashboard
         Me.Maintenance.Location = New System.Drawing.Point(184, 4)
         Me.Maintenance.Name = "Maintenance"
         Me.Maintenance.Padding = New System.Windows.Forms.Padding(3)
-        Me.Maintenance.Size = New System.Drawing.Size(604, 403)
+        Me.Maintenance.Size = New System.Drawing.Size(988, 514)
         Me.Maintenance.TabIndex = 1
         Me.Maintenance.Text = "Maintenance"
         Me.Maintenance.UseVisualStyleBackColor = True
@@ -149,7 +151,7 @@ Partial Class Dashboard
         Me.Maintenance1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Maintenance1.Location = New System.Drawing.Point(3, 3)
         Me.Maintenance1.Name = "Maintenance1"
-        Me.Maintenance1.Size = New System.Drawing.Size(598, 397)
+        Me.Maintenance1.Size = New System.Drawing.Size(982, 508)
         Me.Maintenance1.TabIndex = 0
         '
         'TabPage1
@@ -161,11 +163,25 @@ Partial Class Dashboard
         Me.TabPage1.Text = "TabPage1"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
+        'Guna2Button1
+        '
+        Me.Guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.Guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.Guna2Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.Guna2Button1.ForeColor = System.Drawing.Color.White
+        Me.Guna2Button1.Location = New System.Drawing.Point(105, 4)
+        Me.Guna2Button1.Name = "Guna2Button1"
+        Me.Guna2Button1.Size = New System.Drawing.Size(180, 24)
+        Me.Guna2Button1.TabIndex = 1
+        Me.Guna2Button1.Text = "Guna2Button1"
+        '
         'Dashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(1184, 561)
         Me.Controls.Add(Me.DashboardTableLayoutPanel)
         Me.Name = "Dashboard"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -190,4 +206,5 @@ Partial Class Dashboard
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Label1 As Label
+    Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
 End Class
