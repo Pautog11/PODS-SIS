@@ -9,8 +9,9 @@ C:\Users\Christian\source\repos\Pods-Sales&InventorySystem\Pods-Sales&InventoryS
 C:\Users\Christian\source\repos\Pods-Sales&InventorySystem\Pods-Sales&InventorySystem\obj\Debug\Pods-Sales&InventorySystem.exe
 C:\Users\Christian\source\repos\Pods-Sales&InventorySystem\Pods-Sales&InventorySystem\obj\Debug\Pods-Sales&InventorySystem.xml
 C:\Users\Christian\source\repos\Pods-Sales&InventorySystem\Pods-Sales&InventorySystem\obj\Debug\Pods-Sales&InventorySystem.pdb
-C:\Users\Christian\source\repos\Pods-Sales&InventorySystem\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Home.resources
 C:\Users\Christian\source\repos\Pods-Sales&InventorySystem\Pods-Sales&InventorySystem\bin\Debug\Guna.UI2.dll
 C:\Users\Christian\source\repos\Pods-Sales&InventorySystem\Pods-Sales&InventorySystem\obj\Debug\Pods-Sal.DAA97C95.Up2Date
 C:\Users\Christian\source\repos\Pods-Sales&InventorySystem\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Dashboard.resources
 C:\Users\Christian\source\repos\Pods-Sales&InventorySystem\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Maintenance.resources
+C:\Users\Christian\source\repos\Pods-Sales&InventorySystem\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Account.resources
+C:\Users\Christian\source\repos\Pods-Sales&InventorySystem\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.AccountDialog.resources

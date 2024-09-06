@@ -22,6 +22,17 @@ Pods-Sales&InventorySystem
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="T:Pods_Sales_InventorySystem.SqlBaseConnetion.SqlBaseConnection">
+ <summary>
+ A base class for the commands to inherit.
+ </summary>
+</member>
+<member name="M:Pods_Sales_InventorySystem.SqlConnectionPods.GetInstance">
+ <summary>
+ Connection string for all operation
+ </summary>
+ <returns>an open instance of the connection</returns>
+</member>
 <member name="M:Pods_Sales_InventorySystem.IObservablePanel.RegisterObserver(Pods_Sales_InventorySystem.IObserverPanel)">
  <summary>
  Register the observer to the observable.

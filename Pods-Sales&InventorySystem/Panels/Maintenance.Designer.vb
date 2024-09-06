@@ -25,9 +25,11 @@ Partial Class Maintenance
         Me.MaintenaceTabControl = New Guna.UI2.WinForms.Guna2TabControl()
         Me.Accounts = New System.Windows.Forms.TabPage()
         Me.Categories = New System.Windows.Forms.TabPage()
-        Me.Products = New System.Windows.Forms.TabPage()
         Me.SubCategory = New System.Windows.Forms.TabPage()
+        Me.Products = New System.Windows.Forms.TabPage()
+        Me.Account1 = New Pods_Sales_InventorySystem.Account()
         Me.MaintenaceTabControl.SuspendLayout()
+        Me.Accounts.SuspendLayout()
         Me.SuspendLayout()
         '
         'MaintenaceTabControl
@@ -64,6 +66,7 @@ Partial Class Maintenance
         '
         'Accounts
         '
+        Me.Accounts.Controls.Add(Me.Account1)
         Me.Accounts.Location = New System.Drawing.Point(4, 44)
         Me.Accounts.Name = "Accounts"
         Me.Accounts.Padding = New System.Windows.Forms.Padding(3)
@@ -82,15 +85,6 @@ Partial Class Maintenance
         Me.Categories.Text = "Categories"
         Me.Categories.UseVisualStyleBackColor = True
         '
-        'Products
-        '
-        Me.Products.Location = New System.Drawing.Point(4, 44)
-        Me.Products.Name = "Products"
-        Me.Products.Size = New System.Drawing.Size(861, 532)
-        Me.Products.TabIndex = 2
-        Me.Products.Text = "Products"
-        Me.Products.UseVisualStyleBackColor = True
-        '
         'SubCategory
         '
         Me.SubCategory.Location = New System.Drawing.Point(4, 44)
@@ -100,6 +94,23 @@ Partial Class Maintenance
         Me.SubCategory.Text = "Sub Category"
         Me.SubCategory.UseVisualStyleBackColor = True
         '
+        'Products
+        '
+        Me.Products.Location = New System.Drawing.Point(4, 44)
+        Me.Products.Name = "Products"
+        Me.Products.Size = New System.Drawing.Size(861, 532)
+        Me.Products.TabIndex = 2
+        Me.Products.Text = "Products"
+        Me.Products.UseVisualStyleBackColor = True
+        '
+        'Account1
+        '
+        Me.Account1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Account1.Location = New System.Drawing.Point(3, 3)
+        Me.Account1.Name = "Account1"
+        Me.Account1.Size = New System.Drawing.Size(855, 526)
+        Me.Account1.TabIndex = 0
+        '
         'Maintenance
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -108,6 +119,7 @@ Partial Class Maintenance
         Me.Name = "Maintenance"
         Me.Size = New System.Drawing.Size(869, 580)
         Me.MaintenaceTabControl.ResumeLayout(False)
+        Me.Accounts.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -117,4 +129,5 @@ Partial Class Maintenance
     Friend WithEvents Categories As TabPage
     Friend WithEvents SubCategory As TabPage
     Friend WithEvents Products As TabPage
+    Friend WithEvents Account1 As Account
 End Class
