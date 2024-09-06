@@ -85,6 +85,7 @@ Partial Class Account
         '
         'AccountSearchTextBox
         '
+        Me.AccountSearchTextBox.BorderRadius = 15
         Me.AccountSearchTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.AccountSearchTextBox.DefaultText = ""
         Me.AccountSearchTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
