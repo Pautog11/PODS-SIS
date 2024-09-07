@@ -128,6 +128,9 @@
     <Compile Include="src\bases\BaseAccount.vb" />
     <Compile Include="src\classes\SqlBaseConnetion.vb" />
     <Compile Include="src\classes\SqlConnectionPods.vb" />
+    <Compile Include="src\commands\AddCommand.vb" />
+    <Compile Include="src\interface\ICommandInvoker.vb" />
+    <Compile Include="src\interface\ICommandPanel.vb" />
     <Compile Include="src\interface\IObservablePanel.vb" />
     <Compile Include="src\interface\IObserverPanel.vb" />
   </ItemGroup>

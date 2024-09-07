@@ -1,6 +1,41 @@
 ﻿Imports System.Data.SqlClient
+Imports Pods_Sales_InventorySystem.SqlBaseConnetion
 
 Public Class BaseAccount
+    Inherits SqlBaseConnection
+    Implements ICommandPanel
+
+    Private ReadOnly _data As Dictionary(Of String, String)
+
+    Public Sub New(data As Dictionary(Of String, String))
+        _data = data
+    End Sub
+
+    Public Sub Delete() Implements ICommandPanel.Delete
+        Throw New NotImplementedException()
+    End Sub
+
+    Public Sub Update() Implements ICommandPanel.Update
+        Throw New NotImplementedException()
+    End Sub
+
+    Public Sub Add() Implements ICommandPanel.Add
+        Try
+            _sqlCommand = New SqlCommand("INSERT INTO tblaccount (role_id, first_name, middle_name, last_name, birthday, phone_number, address, username, password) values (@role_id, @first_name, @middle_name, @last_name, @birthday, @phone_number, @address, @username, @password)", _sqlConnection)
+            _sqlCommand.Parameters.AddWithValue("@role_id", _data.Item("role_id"))
+            _sqlCommand.Parameters.AddWithValue("@first_name", _data.Item("first_name"))
+            _sqlCommand.Parameters.AddWithValue("@middle_name", _data.Item("middle_name"))
+            _sqlCommand.Parameters.AddWithValue("@last_name", _data.Item("last_name"))
+            _sqlCommand.Parameters.AddWithValue("@birthday", _data.Item("birthday"))
+            _sqlCommand.Parameters.AddWithValue("@phone_number", _data.Item("phone_number"))
+            _sqlCommand.Parameters.AddWithValue("@address", _data.Item("address"))
+            _sqlCommand.Parameters.AddWithValue("@username", _data.Item("username"))
+            _sqlCommand.Parameters.AddWithValue("@password", _data.Item("password"))
+            _sqlCommand.ExecuteNonQuery()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
 
     Public Shared Function ScalarAccount() As Integer
         Try

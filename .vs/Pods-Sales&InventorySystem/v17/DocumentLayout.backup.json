@@ -3,40 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\pods-sales\u0026inventorysystem\\src\\interface\\iobserverpanel.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|solutionrelative:pods-sales\u0026inventorysystem\\src\\interface\\iobserverpanel.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+      "AbsoluteMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|c:\\users\\christian\\desktop\\pods-sales\u0026inventorysystem\\pods-sales\u0026inventorysystem\\src\\classes\\sqlbaseconnetion.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|solutionrelative:pods-sales\u0026inventorysystem\\src\\classes\\sqlbaseconnetion.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|c:\\users\\christian\\desktop\\pods-sales\u0026inventorysystem\\pods-sales\u0026inventorysystem\\panels\\account.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|solutionrelative:pods-sales\u0026inventorysystem\\panels\\account.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+      "AbsoluteMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|c:\\users\\christian\\desktop\\pods-sales\u0026inventorysystem\\pods-sales\u0026inventorysystem\\src\\bases\\baseaccount.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|solutionrelative:pods-sales\u0026inventorysystem\\src\\bases\\baseaccount.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\pods-sales\u0026inventorysystem\\panels\\maintenance.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|solutionrelative:pods-sales\u0026inventorysystem\\panels\\maintenance.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+      "AbsoluteMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|c:\\users\\christian\\desktop\\pods-sales\u0026inventorysystem\\pods-sales\u0026inventorysystem\\src\\interface\\icommandpanel.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|solutionrelative:pods-sales\u0026inventorysystem\\src\\interface\\icommandpanel.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\pods-sales\u0026inventorysystem\\dialogs\\accountdialog.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|solutionrelative:pods-sales\u0026inventorysystem\\dialogs\\accountdialog.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+      "AbsoluteMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|c:\\users\\christian\\desktop\\pods-sales\u0026inventorysystem\\pods-sales\u0026inventorysystem\\src\\interface\\icommandinvoker.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|solutionrelative:pods-sales\u0026inventorysystem\\src\\interface\\icommandinvoker.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\pods-sales\u0026inventorysystem\\forms\\dashboard.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|solutionrelative:pods-sales\u0026inventorysystem\\forms\\dashboard.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+      "AbsoluteMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|c:\\users\\christian\\desktop\\pods-sales\u0026inventorysystem\\pods-sales\u0026inventorysystem\\src\\commands\\addcommand.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|solutionrelative:pods-sales\u0026inventorysystem\\src\\commands\\addcommand.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\pods-sales\u0026inventorysystem\\src\\interface\\iobservablepanel.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
-      "RelativeMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|solutionrelative:pods-sales\u0026inventorysystem\\src\\interface\\iobservablepanel.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\pods-sales\u0026inventorysystem\\forms\\dashboard.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "AbsoluteMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|c:\\users\\christian\\desktop\\pods-sales\u0026inventorysystem\\pods-sales\u0026inventorysystem\\forms\\dashboard.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
       "RelativeMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|solutionrelative:pods-sales\u0026inventorysystem\\forms\\dashboard.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\pods-sales\u0026inventorysystem\\panels\\account.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|solutionrelative:pods-sales\u0026inventorysystem\\panels\\account.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\pods-sales\u0026inventorysystem\\dialogs\\accountdialog.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|solutionrelative:pods-sales\u0026inventorysystem\\dialogs\\accountdialog.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -51,108 +39,79 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "IObserverPanel.vb",
-              "DocumentMoniker": "C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\src\\interface\\IObserverPanel.vb",
-              "RelativeDocumentMoniker": "Pods-Sales\u0026InventorySystem\\src\\interface\\IObserverPanel.vb",
-              "ToolTip": "C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\src\\interface\\IObserverPanel.vb",
-              "RelativeToolTip": "Pods-Sales\u0026InventorySystem\\src\\interface\\IObserverPanel.vb",
-              "ViewState": "AgIAAAAAAAAAAAAAAAA6wAAAAAARAAAAAAAAAA==",
+              "Title": "SqlBaseConnetion.vb",
+              "DocumentMoniker": "C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\src\\classes\\SqlBaseConnetion.vb",
+              "RelativeDocumentMoniker": "Pods-Sales\u0026InventorySystem\\src\\classes\\SqlBaseConnetion.vb",
+              "ToolTip": "C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\src\\classes\\SqlBaseConnetion.vb",
+              "RelativeToolTip": "Pods-Sales\u0026InventorySystem\\src\\classes\\SqlBaseConnetion.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-09-06T16:45:39.806Z",
+              "WhenOpened": "2024-09-07T01:10:55.146Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BaseAccount.vb",
+              "DocumentMoniker": "C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\src\\bases\\BaseAccount.vb",
+              "RelativeDocumentMoniker": "Pods-Sales\u0026InventorySystem\\src\\bases\\BaseAccount.vb",
+              "ToolTip": "C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\src\\bases\\BaseAccount.vb",
+              "RelativeToolTip": "Pods-Sales\u0026InventorySystem\\src\\bases\\BaseAccount.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-09-07T01:05:26.288Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AddCommand.vb",
+              "DocumentMoniker": "C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\src\\commands\\AddCommand.vb",
+              "RelativeDocumentMoniker": "Pods-Sales\u0026InventorySystem\\src\\commands\\AddCommand.vb",
+              "ToolTip": "C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\src\\commands\\AddCommand.vb",
+              "RelativeToolTip": "Pods-Sales\u0026InventorySystem\\src\\commands\\AddCommand.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-09-07T01:04:02.086Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ICommandInvoker.vb",
+              "DocumentMoniker": "C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\src\\interface\\ICommandInvoker.vb",
+              "RelativeDocumentMoniker": "Pods-Sales\u0026InventorySystem\\src\\interface\\ICommandInvoker.vb",
+              "ToolTip": "C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\src\\interface\\ICommandInvoker.vb",
+              "RelativeToolTip": "Pods-Sales\u0026InventorySystem\\src\\interface\\ICommandInvoker.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-09-07T00:59:27.562Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ICommandPanel.vb",
+              "DocumentMoniker": "C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\src\\interface\\ICommandPanel.vb",
+              "RelativeDocumentMoniker": "Pods-Sales\u0026InventorySystem\\src\\interface\\ICommandPanel.vb",
+              "ToolTip": "C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\src\\interface\\ICommandPanel.vb",
+              "RelativeToolTip": "Pods-Sales\u0026InventorySystem\\src\\interface\\ICommandPanel.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-09-07T00:58:45.185Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "IObservablePanel.vb",
-              "DocumentMoniker": "C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\src\\interface\\IObservablePanel.vb",
-              "RelativeDocumentMoniker": "Pods-Sales\u0026InventorySystem\\src\\interface\\IObservablePanel.vb",
-              "ToolTip": "C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\src\\interface\\IObservablePanel.vb",
-              "RelativeToolTip": "Pods-Sales\u0026InventorySystem\\src\\interface\\IObservablePanel.vb",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAAAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-09-06T16:45:34.975Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Dashboard.vb",
-              "DocumentMoniker": "C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\Forms\\Dashboard.vb",
-              "RelativeDocumentMoniker": "Pods-Sales\u0026InventorySystem\\Forms\\Dashboard.vb",
-              "ToolTip": "C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\Forms\\Dashboard.vb",
-              "RelativeToolTip": "Pods-Sales\u0026InventorySystem\\Forms\\Dashboard.vb",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-09-06T16:30:35.482Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AccountDialog.vb",
-              "DocumentMoniker": "C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\Dialogs\\AccountDialog.vb",
-              "RelativeDocumentMoniker": "Pods-Sales\u0026InventorySystem\\Dialogs\\AccountDialog.vb",
-              "ToolTip": "C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\Dialogs\\AccountDialog.vb",
-              "RelativeToolTip": "Pods-Sales\u0026InventorySystem\\Dialogs\\AccountDialog.vb",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAgwB8AAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-09-06T16:38:38.646Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Maintenance.vb [Design]",
-              "DocumentMoniker": "C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\Panels\\Maintenance.vb",
-              "RelativeDocumentMoniker": "Pods-Sales\u0026InventorySystem\\Panels\\Maintenance.vb",
-              "ToolTip": "C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\Panels\\Maintenance.vb [Design]",
-              "RelativeToolTip": "Pods-Sales\u0026InventorySystem\\Panels\\Maintenance.vb [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-09-06T16:38:12.132Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Account.vb",
-              "DocumentMoniker": "C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\Panels\\Account.vb",
-              "RelativeDocumentMoniker": "Pods-Sales\u0026InventorySystem\\Panels\\Account.vb",
-              "ToolTip": "C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\Panels\\Account.vb",
-              "RelativeToolTip": "Pods-Sales\u0026InventorySystem\\Panels\\Account.vb",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-09-06T16:24:50.498Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Account.vb [Design]",
-              "DocumentMoniker": "C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\Panels\\Account.vb",
-              "RelativeDocumentMoniker": "Pods-Sales\u0026InventorySystem\\Panels\\Account.vb",
-              "ToolTip": "C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\Panels\\Account.vb [Design]",
-              "RelativeToolTip": "Pods-Sales\u0026InventorySystem\\Panels\\Account.vb [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-09-06T16:24:48.372Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "AccountDialog.vb [Design]",
-              "DocumentMoniker": "C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\Dialogs\\AccountDialog.vb",
-              "RelativeDocumentMoniker": "Pods-Sales\u0026InventorySystem\\Dialogs\\AccountDialog.vb",
-              "ToolTip": "C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\Dialogs\\AccountDialog.vb [Design]",
-              "RelativeToolTip": "Pods-Sales\u0026InventorySystem\\Dialogs\\AccountDialog.vb [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-09-06T16:24:45.835Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "Dashboard.vb [Design]",
               "DocumentMoniker": "C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\Forms\\Dashboard.vb",
               "RelativeDocumentMoniker": "Pods-Sales\u0026InventorySystem\\Forms\\Dashboard.vb",
               "ToolTip": "C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\Forms\\Dashboard.vb [Design]",
               "RelativeToolTip": "Pods-Sales\u0026InventorySystem\\Forms\\Dashboard.vb [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-09-06T16:21:58.55Z"
+              "WhenOpened": "2024-09-07T00:57:51.6Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

@@ -22,7 +22,7 @@ Pods-Sales&InventorySystem
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
-<member name="T:Pods_Sales_InventorySystem.SqlBaseConnetion.SqlBaseConnection">
+<member name="T:Pods_Sales_InventorySystem.SqlBaseConnection">
  <summary>
  A base class for the commands to inherit.
  </summary>
@@ -32,6 +32,26 @@ Pods-Sales&InventorySystem
  Connection string for all operation
  </summary>
  <returns>an open instance of the connection</returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.ICommandInvoker.Execute">
+ <summary>
+ Invokes the command passed to the command class.
+ </summary>
+</member>
+<member name="M:Pods_Sales_InventorySystem.ICommandPanel.Delete">
+ <summary>
+ Serves as a delete command to tables
+ </summary>
+</member>
+<member name="M:Pods_Sales_InventorySystem.ICommandPanel.Update">
+ <summary>
+ Serves as an update command to tables
+ </summary>
+</member>
+<member name="M:Pods_Sales_InventorySystem.ICommandPanel.Add">
+ <summary>
+ Serves as an add command to tables
+ </summary>
 </member>
 <member name="M:Pods_Sales_InventorySystem.IObservablePanel.RegisterObserver(Pods_Sales_InventorySystem.IObserverPanel)">
  <summary>

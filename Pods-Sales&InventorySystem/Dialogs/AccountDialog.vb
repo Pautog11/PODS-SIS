@@ -3,10 +3,13 @@ Imports System.Windows.Forms
 Imports Guna.UI2.WinForms
 
 Public Class AccountDialog
+    Private _data As Dictionary(Of String, String)
     Private _subject As IObservablePanel
-    Public Sub New(Optional subject As IObservablePanel = Nothing)
+    Public Sub New(Optional data As Dictionary(Of String, String) = Nothing,
+                   Optional subject As IObservablePanel = Nothing)
         InitializeComponent()
         _subject = subject
+        _data = data
     End Sub
 
     Private Sub AccountDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -15,24 +18,23 @@ Public Class AccountDialog
 
     Private Sub AddAccountButton_Click(sender As Object, e As EventArgs) Handles AddAccountButton.Click
         'Guna2TextBox1.BorderColor = Color.Red
-        Try
-            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As New SqlCommand("INSERT INTO tblaccount (role_id, first_name, middle_name, last_name, birthday, phone_number, address, username, password) values (@role_id, @first_name, @middle_name, @last_name, @birthday, @phone_number, @address, @username, @password)", conn)
-            cmd.Parameters.AddWithValue("@role_id", "1")
-            cmd.Parameters.AddWithValue("@first_name", "Proktoy")
-            cmd.Parameters.AddWithValue("@middle_name", "Apyot")
-            cmd.Parameters.AddWithValue("@last_name", "Dilalamon")
-            cmd.Parameters.AddWithValue("@birthday", "1999-12-25")
-            cmd.Parameters.AddWithValue("@phone_number", "09568456985")
-            cmd.Parameters.AddWithValue("@address", "Taguig City")
-            cmd.Parameters.AddWithValue("@username", "sample")
-            cmd.Parameters.AddWithValue("@password", "pas123")
-            cmd.ExecuteNonQuery()
-            _subject?.NotifyObserver()
-            Me.Close()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
+        Dim data As New Dictionary(Of String, String) From {
+                {"role_id", "1"},
+                {"first_name", "sample"},
+                {"middle_name", "sample"},
+                {"last_name", "sample"},
+                {"birthday", "1999-12-07"},
+                {"phone_number", "sample"},
+                {"address", "sample"},
+                {"username", "sample"},
+                {"password", "sample"}
+        }
+        Dim baseCommand As New BaseAccount(data)
+        Dim invoker As ICommandInvoker = Nothing
+        invoker = New AddCommand(baseCommand)
+        invoker?.Execute()
+        _subject.NotifyObserver()
+
     End Sub
 
     'Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
