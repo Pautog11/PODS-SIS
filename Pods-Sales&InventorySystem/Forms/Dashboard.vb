@@ -27,12 +27,4 @@
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
         Label1.Text = BaseAccount.ScalarAccount
     End Sub
-
-    Private Sub Dashboard_Click(sender As Object, e As EventArgs) Handles MyBase.Click
-        MessageBox.Show("clicjecd")
-    End Sub
-
-    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs)
-        NotifyObserver()
-    End Sub
 End Class

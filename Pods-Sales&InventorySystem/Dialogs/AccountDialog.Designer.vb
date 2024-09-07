@@ -279,7 +279,7 @@ Partial Class AccountDialog
         Me.Name = "AccountDialog"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "AccountDialog"
+        Me.Text = "Account Dialog"
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.ResumeLayout(False)
 

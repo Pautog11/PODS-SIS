@@ -29,8 +29,8 @@ Partial Class Dashboard
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Maintenance = New System.Windows.Forms.TabPage()
-        Me.Maintenance1 = New Pods_Sales_InventorySystem.Maintenance()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.Maintenance1 = New Pods_Sales_InventorySystem.Maintenance()
         Me.DashboardTableLayoutPanel.SuspendLayout()
         Me.DashboardPanel.SuspendLayout()
         Me.DashboardTabControl.SuspendLayout()
@@ -144,14 +144,6 @@ Partial Class Dashboard
         Me.Maintenance.Text = "Maintenance"
         Me.Maintenance.UseVisualStyleBackColor = True
         '
-        'Maintenance1
-        '
-        Me.Maintenance1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Maintenance1.Location = New System.Drawing.Point(3, 3)
-        Me.Maintenance1.Name = "Maintenance1"
-        Me.Maintenance1.Size = New System.Drawing.Size(982, 508)
-        Me.Maintenance1.TabIndex = 0
-        '
         'TabPage1
         '
         Me.TabPage1.Location = New System.Drawing.Point(184, 4)
@@ -160,6 +152,14 @@ Partial Class Dashboard
         Me.TabPage1.TabIndex = 2
         Me.TabPage1.Text = "TabPage1"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'Maintenance1
+        '
+        Me.Maintenance1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Maintenance1.Location = New System.Drawing.Point(3, 3)
+        Me.Maintenance1.Name = "Maintenance1"
+        Me.Maintenance1.Size = New System.Drawing.Size(982, 508)
+        Me.Maintenance1.TabIndex = 0
         '
         'Dashboard
         '
