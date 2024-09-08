@@ -126,6 +126,7 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="src\bases\BaseAccount.vb" />
+    <Compile Include="src\classes\InputValidation.vb" />
     <Compile Include="src\classes\SqlBaseConnetion.vb" />
     <Compile Include="src\classes\SqlConnectionPods.vb" />
     <Compile Include="src\commands\AddCommand.vb" />

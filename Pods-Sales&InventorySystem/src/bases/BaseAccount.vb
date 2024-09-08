@@ -21,16 +21,15 @@ Public Class BaseAccount
 
     Public Sub Add() Implements ICommandPanel.Add
         Try
-            _sqlCommand = New SqlCommand("INSERT INTO tblaccount (role_id, first_name, middle_name, last_name, birthday, phone_number, address, username, password) values (@role_id, @first_name, @middle_name, @last_name, @birthday, @phone_number, @address, @username, @password)", _sqlConnection)
+            _sqlCommand = New SqlCommand("INSERT INTO tblaccount (role_id, first_name, middle_name, last_name, birthday, address, username, password, phone_number) values (@role_id, @first_name, @middle_name, @last_name, @birthday, @phone_number, @address, @username, @password, @phone_number)", _sqlConnection)
             _sqlCommand.Parameters.AddWithValue("@role_id", _data.Item("role_id"))
             _sqlCommand.Parameters.AddWithValue("@first_name", _data.Item("first_name"))
             _sqlCommand.Parameters.AddWithValue("@middle_name", _data.Item("middle_name"))
             _sqlCommand.Parameters.AddWithValue("@last_name", _data.Item("last_name"))
-            _sqlCommand.Parameters.AddWithValue("@birthday", _data.Item("birthday"))
-            _sqlCommand.Parameters.AddWithValue("@phone_number", _data.Item("phone_number"))
             _sqlCommand.Parameters.AddWithValue("@address", _data.Item("address"))
             _sqlCommand.Parameters.AddWithValue("@username", _data.Item("username"))
             _sqlCommand.Parameters.AddWithValue("@password", _data.Item("password"))
+            _sqlCommand.Parameters.AddWithValue("@phone_number", _data.Item("phone_number"))
             _sqlCommand.ExecuteNonQuery()
         Catch ex As Exception
             MessageBox.Show(ex.Message)
@@ -53,6 +52,21 @@ Public Class BaseAccount
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
             cmd = New SqlCommand("SELECT id as 'ID', concat(first_name,' ',last_name) as 'Fullname' FROM tblaccount", conn)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+            Return New DataTable
+        End Try
+    End Function
+
+    Public Shared Function FillByRoles() As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT id, role FROM tblrole", conn)
+
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
             adapter.Fill(dTable)

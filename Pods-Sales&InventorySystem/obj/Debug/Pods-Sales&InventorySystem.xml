@@ -22,6 +22,14 @@ Pods-Sales&InventorySystem
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="M:Pods_Sales_InventorySystem.InputValidation.ValidateInputString(System.Object,Pods_Sales_InventorySystem.DataInput)">
+ <summary>
+ to validate the control's text
+ </summary>
+ <param name="control"></param>
+ <param name="type"></param>
+ <returns></returns>
+</member>
 <member name="T:Pods_Sales_InventorySystem.SqlBaseConnection">
  <summary>
  A base class for the commands to inherit.

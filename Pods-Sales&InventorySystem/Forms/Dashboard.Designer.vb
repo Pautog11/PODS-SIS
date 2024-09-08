@@ -22,35 +22,43 @@ Partial Class Dashboard
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.DashboardTableLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.DashboardPanel = New Guna.UI2.WinForms.Guna2Panel()
         Me.DashboardTabControl = New Guna.UI2.WinForms.Guna2TabControl()
         Me.Home = New System.Windows.Forms.TabPage()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
         Me.Maintenance = New System.Windows.Forms.TabPage()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Maintenance1 = New Pods_Sales_InventorySystem.Maintenance()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.Guna2ControlBox2 = New Guna.UI2.WinForms.Guna2ControlBox()
+        Me.Guna2ControlBox3 = New Guna.UI2.WinForms.Guna2ControlBox()
+        Me.Guna2ControlBox1 = New Guna.UI2.WinForms.Guna2ControlBox()
+        Me.Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(Me.components)
         Me.DashboardTableLayoutPanel.SuspendLayout()
         Me.DashboardPanel.SuspendLayout()
         Me.DashboardTabControl.SuspendLayout()
         Me.Home.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Maintenance.SuspendLayout()
+        Me.FlowLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'DashboardTableLayoutPanel
         '
-        Me.DashboardTableLayoutPanel.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.[Single]
         Me.DashboardTableLayoutPanel.ColumnCount = 2
-        Me.DashboardTableLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100.0!))
+        Me.DashboardTableLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150.0!))
         Me.DashboardTableLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.DashboardTableLayoutPanel.Controls.Add(Me.DashboardPanel, 0, 1)
+        Me.DashboardTableLayoutPanel.Controls.Add(Me.FlowLayoutPanel1, 1, 0)
         Me.DashboardTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DashboardTableLayoutPanel.Location = New System.Drawing.Point(0, 0)
         Me.DashboardTableLayoutPanel.Name = "DashboardTableLayoutPanel"
         Me.DashboardTableLayoutPanel.RowCount = 2
-        Me.DashboardTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
+        Me.DashboardTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
         Me.DashboardTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.DashboardTableLayoutPanel.Size = New System.Drawing.Size(1184, 561)
         Me.DashboardTableLayoutPanel.TabIndex = 0
@@ -60,9 +68,9 @@ Partial Class Dashboard
         Me.DashboardTableLayoutPanel.SetColumnSpan(Me.DashboardPanel, 2)
         Me.DashboardPanel.Controls.Add(Me.DashboardTabControl)
         Me.DashboardPanel.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DashboardPanel.Location = New System.Drawing.Point(4, 35)
+        Me.DashboardPanel.Location = New System.Drawing.Point(3, 43)
         Me.DashboardPanel.Name = "DashboardPanel"
-        Me.DashboardPanel.Size = New System.Drawing.Size(1176, 522)
+        Me.DashboardPanel.Size = New System.Drawing.Size(1178, 522)
         Me.DashboardPanel.TabIndex = 0
         '
         'DashboardTabControl
@@ -76,7 +84,7 @@ Partial Class Dashboard
         Me.DashboardTabControl.Location = New System.Drawing.Point(0, 0)
         Me.DashboardTabControl.Name = "DashboardTabControl"
         Me.DashboardTabControl.SelectedIndex = 0
-        Me.DashboardTabControl.Size = New System.Drawing.Size(1176, 522)
+        Me.DashboardTabControl.Size = New System.Drawing.Size(1178, 522)
         Me.DashboardTabControl.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty
         Me.DashboardTabControl.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.DashboardTabControl.TabButtonHoverState.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!)
@@ -115,6 +123,7 @@ Partial Class Dashboard
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334!))
         Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.Guna2Separator1, 1, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(3, 3)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -133,16 +142,33 @@ Partial Class Dashboard
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Label1"
         '
+        'Guna2Separator1
+        '
+        Me.Guna2Separator1.FillColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.Guna2Separator1.FillThickness = 2
+        Me.Guna2Separator1.Location = New System.Drawing.Point(330, 4)
+        Me.Guna2Separator1.Name = "Guna2Separator1"
+        Me.Guna2Separator1.Size = New System.Drawing.Size(85, 40)
+        Me.Guna2Separator1.TabIndex = 1
+        '
         'Maintenance
         '
         Me.Maintenance.Controls.Add(Me.Maintenance1)
         Me.Maintenance.Location = New System.Drawing.Point(184, 4)
         Me.Maintenance.Name = "Maintenance"
         Me.Maintenance.Padding = New System.Windows.Forms.Padding(3)
-        Me.Maintenance.Size = New System.Drawing.Size(988, 514)
+        Me.Maintenance.Size = New System.Drawing.Size(990, 514)
         Me.Maintenance.TabIndex = 1
         Me.Maintenance.Text = "Maintenance"
         Me.Maintenance.UseVisualStyleBackColor = True
+        '
+        'Maintenance1
+        '
+        Me.Maintenance1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Maintenance1.Location = New System.Drawing.Point(3, 3)
+        Me.Maintenance1.Name = "Maintenance1"
+        Me.Maintenance1.Size = New System.Drawing.Size(984, 508)
+        Me.Maintenance1.TabIndex = 0
         '
         'TabPage1
         '
@@ -153,13 +179,59 @@ Partial Class Dashboard
         Me.TabPage1.Text = "TabPage1"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
-        'Maintenance1
+        'FlowLayoutPanel1
         '
-        Me.Maintenance1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Maintenance1.Location = New System.Drawing.Point(3, 3)
-        Me.Maintenance1.Name = "Maintenance1"
-        Me.Maintenance1.Size = New System.Drawing.Size(982, 508)
-        Me.Maintenance1.TabIndex = 0
+        Me.FlowLayoutPanel1.Controls.Add(Me.Guna2ControlBox2)
+        Me.FlowLayoutPanel1.Controls.Add(Me.Guna2ControlBox3)
+        Me.FlowLayoutPanel1.Controls.Add(Me.Guna2ControlBox1)
+        Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(150, 0)
+        Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
+        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1034, 40)
+        Me.FlowLayoutPanel1.TabIndex = 1
+        '
+        'Guna2ControlBox2
+        '
+        Me.Guna2ControlBox2.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.Guna2ControlBox2.FillColor = System.Drawing.Color.White
+        Me.Guna2ControlBox2.HoverState.FillColor = System.Drawing.Color.Red
+        Me.Guna2ControlBox2.IconColor = System.Drawing.Color.Black
+        Me.Guna2ControlBox2.Location = New System.Drawing.Point(986, 3)
+        Me.Guna2ControlBox2.Name = "Guna2ControlBox2"
+        Me.Guna2ControlBox2.Size = New System.Drawing.Size(45, 37)
+        Me.Guna2ControlBox2.TabIndex = 1
+        '
+        'Guna2ControlBox3
+        '
+        Me.Guna2ControlBox3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Guna2ControlBox3.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox
+        Me.Guna2ControlBox3.FillColor = System.Drawing.Color.White
+        Me.Guna2ControlBox3.HoverState.FillColor = System.Drawing.Color.Silver
+        Me.Guna2ControlBox3.IconColor = System.Drawing.Color.Black
+        Me.Guna2ControlBox3.Location = New System.Drawing.Point(935, 3)
+        Me.Guna2ControlBox3.Name = "Guna2ControlBox3"
+        Me.Guna2ControlBox3.Size = New System.Drawing.Size(45, 37)
+        Me.Guna2ControlBox3.TabIndex = 2
+        '
+        'Guna2ControlBox1
+        '
+        Me.Guna2ControlBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Guna2ControlBox1.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox
+        Me.Guna2ControlBox1.FillColor = System.Drawing.Color.White
+        Me.Guna2ControlBox1.HoverState.FillColor = System.Drawing.Color.Silver
+        Me.Guna2ControlBox1.IconColor = System.Drawing.Color.Black
+        Me.Guna2ControlBox1.Location = New System.Drawing.Point(884, 3)
+        Me.Guna2ControlBox1.Name = "Guna2ControlBox1"
+        Me.Guna2ControlBox1.Size = New System.Drawing.Size(45, 37)
+        Me.Guna2ControlBox1.TabIndex = 3
+        '
+        'Guna2BorderlessForm1
+        '
+        Me.Guna2BorderlessForm1.ContainerControl = Me
+        Me.Guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6R
+        Me.Guna2BorderlessForm1.TransparentWhileDrag = True
         '
         'Dashboard
         '
@@ -167,6 +239,7 @@ Partial Class Dashboard
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1184, 561)
         Me.Controls.Add(Me.DashboardTableLayoutPanel)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Dashboard"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Dashboard"
@@ -177,6 +250,7 @@ Partial Class Dashboard
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
         Me.Maintenance.ResumeLayout(False)
+        Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -190,4 +264,10 @@ Partial Class Dashboard
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Label1 As Label
+    Friend WithEvents Guna2Separator1 As Guna.UI2.WinForms.Guna2Separator
+    Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
+    Friend WithEvents Guna2ControlBox2 As Guna.UI2.WinForms.Guna2ControlBox
+    Friend WithEvents Guna2BorderlessForm1 As Guna.UI2.WinForms.Guna2BorderlessForm
+    Friend WithEvents Guna2ControlBox3 As Guna.UI2.WinForms.Guna2ControlBox
+    Friend WithEvents Guna2ControlBox1 As Guna.UI2.WinForms.Guna2ControlBox
 End Class

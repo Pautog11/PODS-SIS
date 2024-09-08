@@ -21,16 +21,17 @@ Public Class Account
     End Sub
 
     Private Sub AddAccountButton_Click(sender As Object, e As EventArgs) Handles AddAccountButton.Click
-        Dim Dialog As New AccountDialog(subject:=_subject)
-        Dialog.StartPosition = FormStartPosition.CenterParent
+        Dim Dialog As New AccountDialog(subject:=_subject) With {
+            .StartPosition = FormStartPosition.CenterParent}
         Dialog.ShowDialog()
     End Sub
 
     Private Sub AccountDataGridView_Click(sender As Object, e As EventArgs) Handles AccountDataGridView.Click
-        MessageBox.Show("sample")
-    End Sub
 
-    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs)
-
+        If AccountDataGridView.SelectedRows.Count > 0 Then
+            Dim selected As DataGridViewRow = AccountDataGridView.SelectedRows(0)
+            Dim cellValue As Object = selected.Cells("Fullname").Value
+            MessageBox.Show(cellValue)
+        End If
     End Sub
 End Class
