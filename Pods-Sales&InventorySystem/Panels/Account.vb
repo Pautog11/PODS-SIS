@@ -30,8 +30,17 @@ Public Class Account
 
         If AccountDataGridView.SelectedRows.Count > 0 Then
             Dim selected As DataGridViewRow = AccountDataGridView.SelectedRows(0)
-            Dim cellValue As Object = selected.Cells("Fullname").Value
-            MessageBox.Show(cellValue)
+            Dim cellValue As Object = selected.Cells("id").Value
+            Dim a As New AccountDialog(a:=cellValue)
+            a.Show()
+
+            '===================================
+            'Dim cols As IList(Of DataGridView) = AccountDataGridView.SelectedCells()
+            ''Dim full_name As String() = cols.Item(0).Item(1).ToString.Split(" ")
+            'Dim data As New Dictionary(Of String, String) From {
+            '    {"id", }
+            'Dim a As New AccountDialog(data, _subject)
+            'a.Show()
         End If
     End Sub
 End Class

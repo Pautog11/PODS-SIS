@@ -1,5 +1,4 @@
 ﻿Imports System.Data.SqlClient
-Imports Pods_Sales_InventorySystem.SqlBaseConnetion
 
 Public Class BaseAccount
     Inherits SqlBaseConnection
@@ -12,7 +11,16 @@ Public Class BaseAccount
     End Sub
 
     Public Sub Delete() Implements ICommandPanel.Delete
-        Throw New NotImplementedException()
+        Try
+            _sqlCommand = New SqlCommand("DELETE tblaccount WHERE id = @id", _sqlConnection)
+            If _sqlCommand.ExecuteNonQuery() <= 0 Then
+                MessageBox.Show("An error occured!")
+            Else
+                MessageBox.Show("Account has been deleted successfully!")
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
     End Sub
 
     Public Sub Update() Implements ICommandPanel.Update
@@ -30,7 +38,11 @@ Public Class BaseAccount
             _sqlCommand.Parameters.AddWithValue("@username", _data.Item("username"))
             _sqlCommand.Parameters.AddWithValue("@password", _data.Item("password"))
             _sqlCommand.Parameters.AddWithValue("@phone_number", _data.Item("phone_number"))
-            _sqlCommand.ExecuteNonQuery()
+            If _sqlCommand.ExecuteNonQuery() <= 0 Then
+                MessageBox.Show("An error occured!")
+            Else
+                MessageBox.Show("Account has been updated successfully!")
+            End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
@@ -74,6 +86,19 @@ Public Class BaseAccount
         Catch ex As Exception
             MessageBox.Show(ex.Message)
             Return New DataTable
+        End Try
+    End Function
+
+    Public Shared Function Exists(data As String) As Integer
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblaccount WHERE lower(username) = @data", conn)
+            cmd.Parameters.AddWithValue("@data", data.Trim.ToLower)
+
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+            Return 0
         End Try
     End Function
 End Class

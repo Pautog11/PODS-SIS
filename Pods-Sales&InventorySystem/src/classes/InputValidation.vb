@@ -1,53 +1,48 @@
-﻿Imports System.Text.RegularExpressions
-
+﻿
 Public Class InputValidation
+
     ''' <summary>
-    ''' to validate the control's text
+    ''' Use to validate the control's text
     ''' </summary>
-    ''' <param name="control"></param>
-    ''' <param name="type"></param>
+    ''' <param name="control">Control to be validated</param>
+    ''' <param name="type">Type of string validation</param>
     ''' <returns></returns>
     Public Shared Function ValidateInputString(control As Object, type As DataInput) As Object()
         Dim stringInput As String = Nothing
 
-
-        'The have different properties so we have distinguish them
-        'Select Case True
-        '    Case TypeOf control Is System.Windows.Controls.TextBox
-        '        stringInput = TryCast(control, System.Windows.Controls.TextBox).Text
-        '    Case TypeOf control Is TextBox
-        '        stringInput = TryCast(control, TextBox).Text
-        '    Case TypeOf control Is System.Windows.Controls.PasswordBox
-        '        stringInput = TryCast(control, System.Windows.Controls.PasswordBox).Password
-        '    Case TypeOf control Is ComboBox
-        '        stringInput = TryCast(control, ComboBox).Text
-        'End Select
-
+        ' The have different properties so we have distinguish them
         Select Case True
-            Case TypeOf control Is System.Windows.Controls.TextBox
-                stringInput = TryCast(control, System.Windows.Controls.TextBox).Text
+            Case TypeOf control Is Guna.UI2.WinForms.Guna2TextBox
+                stringInput = TryCast(control, Guna.UI2.WinForms.Guna2TextBox).Text
                 'Case TypeOf control Is TextBox
                 '    stringInput = TryCast(control, TextBox).Text
-                'Case TypeOf control Is Guna.UI.WinForms.GunaComboBox
-                '    stringInput = TryCast(control, Guna.UI.WinForms.GunaComboBox).Text
+                'Case TypeOf control Is System.Windows.Controls.PasswordBox
+                '    stringInput = TryCast(control, System.Windows.Controls.PasswordBox).Password
+                'Case TypeOf control Is ComboBox
+                '    stringInput = TryCast(control, ComboBox).Text
+
+                'Case TypeOf control Is TextBox
+                '    stringInput = CType(control, TextBox).Text
+                '    'Case TypeOf control Is PasswordBox
+                '    '    stringInput = CType(control, PasswordBox).Password
+                '    'Case TypeOf control Is ComboBox
+                '    '    stringInput = CType(control, ComboBox).Text'
+
                 'Case Else
-                '    ' Handle other cases or provide a default action
-                '    stringInput = String.Empty
+                '    stringInput = CType(control, TextBox).Text
+                'Case Else
+                '    stringInput = CType(control, Guna.UI2.WinForms.Guna2TextBox).Text
         End Select
 
-
-
-        'stringInput = stringInput.Trim()
-        'Dim start_trim_o As String = stringInput
-        'stringInput = stringInput.TrimStart("0")
+        stringInput = stringInput.Trim()
+        Dim start_trim_o As String = stringInput
+        stringInput = stringInput.TrimStart("0")
         If String.IsNullOrEmpty(stringInput) OrElse String.IsNullOrWhiteSpace(stringInput) Then
+            control.BorderColor = Color.Red
             'control.BorderBrush = Brushes.Red
-            'gunatextbox.BorderColor.Red
             Return {False, stringInput}
         End If
 
-
-        'control.BorderColor.Red
         'control.BorderBrush = New BrushConverter().ConvertFromString("#FFE0E0E0")
         Select Case type
             Case DataInput.STRING_STRING
@@ -73,32 +68,44 @@ Public Class InputValidation
                     Return {True, String.Join(" ", nameString)}
                 End If
             Case DataInput.STRING_PASSWORD
-                If Regex.IsMatch(stringInput, "^(?=.*[0-9])(?=.*[@#$%^&+=]).{8,}$") Then
-                    Return {True, stringInput}
-                End If
-            'Case DataInput.STRING_PHONE
-            '    If Regex.IsMatch(start_trim_o, "^(\+639|09)\d{2}[-\s]?\d{3}[-\s]?\d{4}$") Then
-            '        Return {True, start_trim_o}
-            '    End If
+                ' If Regex.IsMatch(stringInput, "^(?=.*[0-9])(?=.*[@#$%^&+=]).{8,}$") Then
+                Return {True, stringInput}
+                'End If
+
+            Case DataInput.STRING_PHONE
+                'If Regex.IsMatch(start_trim_o, "^(\+639|09)\d{2}[-\s]?\d{3}[-\s]?\d{4}$") Then
+                Return {True, start_trim_o}
+               'End If
             Case DataInput.STRING_USERNAME
-                If Not Regex.IsMatch(stringInput, "[^\w]+") Then
-                    Return {True, stringInput}
-                End If
+                'f Not Regex.IsMatch(stringInput, "[^\w]+") Then
+                Return {True, stringInput}
+                'End If
             Case DataInput.STRING_INTEGER
-                If Regex.IsMatch(stringInput, "^\d+$") AndAlso Not stringInput = "0" Then
-                    Return {True, stringInput}
-                End If
+                'If Regex.IsMatch(stringInput, "^\d+$") AndAlso Not stringInput = "0" Then
+                Return {True, stringInput}
+                'End If
+
+                'If System.Text.RegularExpressions.Regex.IsMatch(stringInput, "^[1-9]\d*$") Then
+                '    Return {True, stringInput}
+                'End If
             Case DataInput.STRING_PRICE
-                If Regex.IsMatch(stringInput, "^(\d+)?\.?(\d+)$") Then
-                    Return {True, stringInput}
-                End If
+                'If Regex.IsMatch(stringInput, "^(\d+)?\.?(\d+)$") Then
+                Return {True, stringInput}
+                'End If
         End Select
 
-        'control.BorderBrush = Brushes.Red
+        control.BorderBrush = Brushes.Red
         Return {False, stringInput}
-    End Function
 
+
+
+
+
+
+    End Function
 End Class
+
+
 Public Enum DataInput
     STRING_STRING
     STRING_NAME

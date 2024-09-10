@@ -97,6 +97,18 @@
     <Compile Include="Forms\Dashboard.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Login.Designer.vb">
+      <DependentUpon>Login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Login.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -127,9 +139,11 @@
     </Compile>
     <Compile Include="src\bases\BaseAccount.vb" />
     <Compile Include="src\classes\InputValidation.vb" />
+    <Compile Include="src\classes\LoginModule.vb" />
     <Compile Include="src\classes\SqlBaseConnetion.vb" />
     <Compile Include="src\classes\SqlConnectionPods.vb" />
     <Compile Include="src\commands\AddCommand.vb" />
+    <Compile Include="src\commands\DeleteCommand.vb" />
     <Compile Include="src\interface\ICommandInvoker.vb" />
     <Compile Include="src\interface\ICommandPanel.vb" />
     <Compile Include="src\interface\IObservablePanel.vb" />
@@ -141,6 +155,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard.resx">
       <DependentUpon>Dashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Login.resx">
+      <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

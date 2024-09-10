@@ -24,10 +24,10 @@ Pods-Sales&InventorySystem
 </member>
 <member name="M:Pods_Sales_InventorySystem.InputValidation.ValidateInputString(System.Object,Pods_Sales_InventorySystem.DataInput)">
  <summary>
- to validate the control's text
+ Use to validate the control's text
  </summary>
- <param name="control"></param>
- <param name="type"></param>
+ <param name="control">Control to be validated</param>
+ <param name="type">Type of string validation</param>
  <returns></returns>
 </member>
 <member name="T:Pods_Sales_InventorySystem.SqlBaseConnection">

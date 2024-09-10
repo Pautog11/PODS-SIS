@@ -56,8 +56,8 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Server=192.168.55.104;Initial Catalog=podsdb;Persist Security Info=True;User ID=a"& _ 
-            "dmin;Password=admin")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Server=127.0.0.1;Initial Catalog=podsdb;Persist Security Info=True;User ID=admin;"& _ 
+            "Password=admin")>  _
         Public ReadOnly Property con() As String
             Get
                 Return CType(Me("con"),String)

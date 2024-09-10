@@ -60,7 +60,7 @@ Partial Class Dashboard
         Me.DashboardTableLayoutPanel.RowCount = 2
         Me.DashboardTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
         Me.DashboardTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.DashboardTableLayoutPanel.Size = New System.Drawing.Size(1184, 561)
+        Me.DashboardTableLayoutPanel.Size = New System.Drawing.Size(1183, 648)
         Me.DashboardTableLayoutPanel.TabIndex = 0
         '
         'DashboardPanel
@@ -70,7 +70,7 @@ Partial Class Dashboard
         Me.DashboardPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DashboardPanel.Location = New System.Drawing.Point(3, 43)
         Me.DashboardPanel.Name = "DashboardPanel"
-        Me.DashboardPanel.Size = New System.Drawing.Size(1178, 522)
+        Me.DashboardPanel.Size = New System.Drawing.Size(1178, 602)
         Me.DashboardPanel.TabIndex = 0
         '
         'DashboardTabControl
@@ -84,7 +84,7 @@ Partial Class Dashboard
         Me.DashboardTabControl.Location = New System.Drawing.Point(0, 0)
         Me.DashboardTabControl.Name = "DashboardTabControl"
         Me.DashboardTabControl.SelectedIndex = 0
-        Me.DashboardTabControl.Size = New System.Drawing.Size(1178, 522)
+        Me.DashboardTabControl.Size = New System.Drawing.Size(1178, 602)
         Me.DashboardTabControl.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty
         Me.DashboardTabControl.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.DashboardTabControl.TabButtonHoverState.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!)
@@ -110,7 +110,7 @@ Partial Class Dashboard
         Me.Home.Location = New System.Drawing.Point(184, 4)
         Me.Home.Name = "Home"
         Me.Home.Padding = New System.Windows.Forms.Padding(3)
-        Me.Home.Size = New System.Drawing.Size(988, 514)
+        Me.Home.Size = New System.Drawing.Size(990, 594)
         Me.Home.TabIndex = 0
         Me.Home.Text = "Home"
         Me.Home.UseVisualStyleBackColor = True
@@ -130,7 +130,7 @@ Partial Class Dashboard
         Me.TableLayoutPanel1.RowCount = 2
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(982, 508)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(984, 588)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'Label1
@@ -146,7 +146,7 @@ Partial Class Dashboard
         '
         Me.Guna2Separator1.FillColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.Guna2Separator1.FillThickness = 2
-        Me.Guna2Separator1.Location = New System.Drawing.Point(330, 4)
+        Me.Guna2Separator1.Location = New System.Drawing.Point(331, 4)
         Me.Guna2Separator1.Name = "Guna2Separator1"
         Me.Guna2Separator1.Size = New System.Drawing.Size(85, 40)
         Me.Guna2Separator1.TabIndex = 1
@@ -174,7 +174,7 @@ Partial Class Dashboard
         '
         Me.TabPage1.Location = New System.Drawing.Point(184, 4)
         Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Size = New System.Drawing.Size(988, 514)
+        Me.TabPage1.Size = New System.Drawing.Size(990, 514)
         Me.TabPage1.TabIndex = 2
         Me.TabPage1.Text = "TabPage1"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -195,7 +195,7 @@ Partial Class Dashboard
         'Guna2ControlBox2
         '
         Me.Guna2ControlBox2.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.Guna2ControlBox2.FillColor = System.Drawing.Color.White
+        Me.Guna2ControlBox2.FillColor = System.Drawing.Color.Transparent
         Me.Guna2ControlBox2.HoverState.FillColor = System.Drawing.Color.Red
         Me.Guna2ControlBox2.IconColor = System.Drawing.Color.Black
         Me.Guna2ControlBox2.Location = New System.Drawing.Point(986, 3)
@@ -207,7 +207,7 @@ Partial Class Dashboard
         '
         Me.Guna2ControlBox3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Guna2ControlBox3.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox
-        Me.Guna2ControlBox3.FillColor = System.Drawing.Color.White
+        Me.Guna2ControlBox3.FillColor = System.Drawing.Color.Transparent
         Me.Guna2ControlBox3.HoverState.FillColor = System.Drawing.Color.Silver
         Me.Guna2ControlBox3.IconColor = System.Drawing.Color.Black
         Me.Guna2ControlBox3.Location = New System.Drawing.Point(935, 3)
@@ -219,7 +219,7 @@ Partial Class Dashboard
         '
         Me.Guna2ControlBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Guna2ControlBox1.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox
-        Me.Guna2ControlBox1.FillColor = System.Drawing.Color.White
+        Me.Guna2ControlBox1.FillColor = System.Drawing.Color.Transparent
         Me.Guna2ControlBox1.HoverState.FillColor = System.Drawing.Color.Silver
         Me.Guna2ControlBox1.IconColor = System.Drawing.Color.Black
         Me.Guna2ControlBox1.Location = New System.Drawing.Point(884, 3)
@@ -237,7 +237,7 @@ Partial Class Dashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1184, 561)
+        Me.ClientSize = New System.Drawing.Size(1183, 648)
         Me.Controls.Add(Me.DashboardTableLayoutPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Dashboard"
