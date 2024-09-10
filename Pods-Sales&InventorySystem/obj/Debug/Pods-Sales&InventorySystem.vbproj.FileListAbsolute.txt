@@ -34,3 +34,13 @@ C:\Users\Christian\Desktop\Pods-Sales&InventorySystem\Pods-Sales&InventorySystem
 C:\Users\Christian\Desktop\Pods-Sales&InventorySystem\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Form1.resources
 C:\Users\Christian\Desktop\Pods-Sales&InventorySystem\Pods-Sales&InventorySystem\obj\Debug\Pods-Sales&InventorySystem.vbproj.CopyComplete
 C:\Users\Christian\Desktop\Pods-Sales&InventorySystem\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Login.resources
+C:\Users\Christian\Desktop\Pods-Sales&InventorySystem\Pods-Sales&InventorySystem\bin\Debug\BCrypt.Net-Next.dll
+C:\Users\Christian\Desktop\Pods-Sales&InventorySystem\Pods-Sales&InventorySystem\bin\Debug\System.Buffers.dll
+C:\Users\Christian\Desktop\Pods-Sales&InventorySystem\Pods-Sales&InventorySystem\bin\Debug\System.Memory.dll
+C:\Users\Christian\Desktop\Pods-Sales&InventorySystem\Pods-Sales&InventorySystem\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Christian\Desktop\Pods-Sales&InventorySystem\Pods-Sales&InventorySystem\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Christian\Desktop\Pods-Sales&InventorySystem\Pods-Sales&InventorySystem\bin\Debug\BCrypt.Net-Next.xml
+C:\Users\Christian\Desktop\Pods-Sales&InventorySystem\Pods-Sales&InventorySystem\bin\Debug\System.Buffers.xml
+C:\Users\Christian\Desktop\Pods-Sales&InventorySystem\Pods-Sales&InventorySystem\bin\Debug\System.Memory.xml
+C:\Users\Christian\Desktop\Pods-Sales&InventorySystem\Pods-Sales&InventorySystem\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Christian\Desktop\Pods-Sales&InventorySystem\Pods-Sales&InventorySystem\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml

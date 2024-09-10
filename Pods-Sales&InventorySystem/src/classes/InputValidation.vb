@@ -1,4 +1,4 @@
-﻿
+﻿Imports System.Text.RegularExpressions
 Public Class InputValidation
 
     ''' <summary>
@@ -14,24 +14,8 @@ Public Class InputValidation
         Select Case True
             Case TypeOf control Is Guna.UI2.WinForms.Guna2TextBox
                 stringInput = TryCast(control, Guna.UI2.WinForms.Guna2TextBox).Text
-                'Case TypeOf control Is TextBox
-                '    stringInput = TryCast(control, TextBox).Text
-                'Case TypeOf control Is System.Windows.Controls.PasswordBox
-                '    stringInput = TryCast(control, System.Windows.Controls.PasswordBox).Password
-                'Case TypeOf control Is ComboBox
-                '    stringInput = TryCast(control, ComboBox).Text
-
-                'Case TypeOf control Is TextBox
-                '    stringInput = CType(control, TextBox).Text
-                '    'Case TypeOf control Is PasswordBox
-                '    '    stringInput = CType(control, PasswordBox).Password
-                '    'Case TypeOf control Is ComboBox
-                '    '    stringInput = CType(control, ComboBox).Text'
-
-                'Case Else
-                '    stringInput = CType(control, TextBox).Text
-                'Case Else
-                '    stringInput = CType(control, Guna.UI2.WinForms.Guna2TextBox).Text
+            Case TypeOf control Is TextBox
+                stringInput = TryCast(control, TextBox).Text
         End Select
 
         stringInput = stringInput.Trim()
@@ -68,7 +52,7 @@ Public Class InputValidation
                     Return {True, String.Join(" ", nameString)}
                 End If
             Case DataInput.STRING_PASSWORD
-                ' If Regex.IsMatch(stringInput, "^(?=.*[0-9])(?=.*[@#$%^&+=]).{8,}$") Then
+                'If Regex.IsMatch(stringInput, "^(?=.*[0-9])(?=.*[@#$%^&+=]).{8,}$") Then
                 Return {True, stringInput}
                 'End If
 
@@ -78,12 +62,14 @@ Public Class InputValidation
                'End If
             Case DataInput.STRING_USERNAME
                 'f Not Regex.IsMatch(stringInput, "[^\w]+") Then
+                control.BorderColor = Color.LightGray
                 Return {True, stringInput}
+
                 'End If
             Case DataInput.STRING_INTEGER
-                'If Regex.IsMatch(stringInput, "^\d+$") AndAlso Not stringInput = "0" Then
-                Return {True, stringInput}
-                'End If
+                If Regex.IsMatch(stringInput, "^\d+$") AndAlso Not stringInput = "0" Then
+                    Return {True, stringInput}
+                End If
 
                 'If System.Text.RegularExpressions.Regex.IsMatch(stringInput, "^[1-9]\d*$") Then
                 '    Return {True, stringInput}
@@ -93,15 +79,8 @@ Public Class InputValidation
                 Return {True, stringInput}
                 'End If
         End Select
-
-        control.BorderBrush = Brushes.Red
+        control.BorderColor = Color.Red
         Return {False, stringInput}
-
-
-
-
-
-
     End Function
 End Class
 

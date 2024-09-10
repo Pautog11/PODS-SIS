@@ -5,5 +5,8 @@
     <Setting Name="con" Type="System.String" Scope="Application">
       <Value Profile="(Default)">Server=127.0.0.1;Initial Catalog=podsdb;Persist Security Info=True;User ID=admin;Password=admin</Value>
     </Setting>
+    <Setting Name="myid" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

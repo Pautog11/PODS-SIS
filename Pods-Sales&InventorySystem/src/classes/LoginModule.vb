@@ -6,18 +6,27 @@ Public Class LoginModule
     Private _sqlAdapter As SqlDataAdapter
 
     Public Function LoginAccount(username As String, password As String) As Object()
-        _sqlCommand = New SqlCommand("SELECT id, role_id, status_id, password WHERE username = @username", _sqlConnection)
+        _sqlCommand = New SqlCommand("SELECT id, role_id, status_id, password FROM tblaccount WHERE username = @username", _sqlConnection)
         _sqlCommand.Parameters.AddWithValue("@username", username)
         _sqlAdapter = New SqlDataAdapter(_sqlCommand)
         _dataSet = New DataTable
         _sqlAdapter.Fill(_dataSet)
 
         If _dataSet.Rows.Count > 0 Then
-            Return {True}
-            MsgBox("meron")
+            If _dataSet.Rows(0)(2) = 1 Then
+                If BCrypt.Net.BCrypt.Verify(password, _dataSet.Rows(0)(3)) Then
+                    'My.Settings.myid = _dataSet.Rows(0).ToString("id")
+                    My.Settings.myid = _dataSet.Rows(0).Item("id")
+                    My.Settings.Save()
+                    Return {True}
+                Else
+                    Return {False, "Incorrect password"}
+                End If
+            Else
+                MessageBox.Show("Your account is deactivated!")
+            End If
         Else
-            Return {False}
-            MsgBox("wala")
+            Return {False, "Incorrect  username or password!"}
         End If
         Return {False, "Unknown error please try again."}
     End Function
