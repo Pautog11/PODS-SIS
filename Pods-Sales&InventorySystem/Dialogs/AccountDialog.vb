@@ -14,16 +14,16 @@ Public Class AccountDialog
     End Sub
 
     Private Sub AccountDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'If _id IsNot Nothing Then
-        '    AddAccountButton.Text = "Update"
-        '    FirstnameTextBox.Text = _id
-        'Else
-        '    DeleteAccountButton.Visible = False
-        'End If
+        If _id IsNot Nothing Then
+            AddAccountButton.Text = "Update"
+            IdTextBox.Text = _id
+        Else
+            DeleteAccountButton.Visible = False
+        End If
         '''MessageBox.Show("load")
-        'RoleComboBox.DataSource = BaseAccount.FillByRoles() '.DefaultView
-        'RoleComboBox.DisplayMember = "role"
-        'RoleComboBox.SelectedItem = "id"
+        RoleComboBox.DataSource = BaseAccount.FillByRoles() '.DefaultView
+        RoleComboBox.DisplayMember = "role"
+        RoleComboBox.SelectedItem = "id"
     End Sub
 
     Private Sub AddAccountButton_Click(sender As Object, e As EventArgs) Handles AddAccountButton.Click

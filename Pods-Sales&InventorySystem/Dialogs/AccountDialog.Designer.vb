@@ -31,14 +31,14 @@ Partial Class AccountDialog
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.Guna2ComboBox1 = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.Guna2TextBox1 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.RoleComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.FirstnameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2TextBox2 = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2TextBox3 = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2TextBox4 = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2TextBox5 = New Guna.UI2.WinForms.Guna2TextBox()
         Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.Guna2TextBox6 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.IdTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2TextBox7 = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2TextBox8 = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2TextBox9 = New Guna.UI2.WinForms.Guna2TextBox()
@@ -48,6 +48,9 @@ Partial Class AccountDialog
         Me.Guna2HtmlLabel2 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Guna2HtmlLabel3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Guna2HtmlLabel4 = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.Guna2HtmlLabel5 = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.Guna2HtmlLabel6 = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.Guna2HtmlLabel7 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.AccountDialogLayoutPanel.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.FlowLayoutPanel2.SuspendLayout()
@@ -181,8 +184,8 @@ Partial Class AccountDialog
         '
         'FlowLayoutPanel1
         '
-        Me.FlowLayoutPanel1.Controls.Add(Me.Guna2ComboBox1)
-        Me.FlowLayoutPanel1.Controls.Add(Me.Guna2TextBox1)
+        Me.FlowLayoutPanel1.Controls.Add(Me.RoleComboBox)
+        Me.FlowLayoutPanel1.Controls.Add(Me.FirstnameTextBox)
         Me.FlowLayoutPanel1.Controls.Add(Me.Guna2TextBox2)
         Me.FlowLayoutPanel1.Controls.Add(Me.Guna2TextBox3)
         Me.FlowLayoutPanel1.Controls.Add(Me.Guna2TextBox4)
@@ -194,39 +197,39 @@ Partial Class AccountDialog
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(176, 349)
         Me.FlowLayoutPanel1.TabIndex = 0
         '
-        'Guna2ComboBox1
+        'RoleComboBox
         '
-        Me.Guna2ComboBox1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.Guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.Guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2ComboBox1.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.Guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.Guna2ComboBox1.ItemHeight = 30
-        Me.Guna2ComboBox1.Location = New System.Drawing.Point(0, 3)
-        Me.Guna2ComboBox1.Name = "Guna2ComboBox1"
-        Me.Guna2ComboBox1.Size = New System.Drawing.Size(173, 36)
-        Me.Guna2ComboBox1.TabIndex = 0
+        Me.RoleComboBox.BackColor = System.Drawing.Color.Transparent
+        Me.RoleComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.RoleComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.RoleComboBox.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.RoleComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.RoleComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.RoleComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.RoleComboBox.ItemHeight = 30
+        Me.RoleComboBox.Location = New System.Drawing.Point(0, 3)
+        Me.RoleComboBox.Name = "RoleComboBox"
+        Me.RoleComboBox.Size = New System.Drawing.Size(173, 36)
+        Me.RoleComboBox.TabIndex = 0
         '
-        'Guna2TextBox1
+        'FirstnameTextBox
         '
-        Me.Guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.Guna2TextBox1.DefaultText = ""
-        Me.Guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.Guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.Guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox1.Location = New System.Drawing.Point(0, 45)
-        Me.Guna2TextBox1.Name = "Guna2TextBox1"
-        Me.Guna2TextBox1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.Guna2TextBox1.PlaceholderText = ""
-        Me.Guna2TextBox1.SelectedText = ""
-        Me.Guna2TextBox1.Size = New System.Drawing.Size(173, 36)
-        Me.Guna2TextBox1.TabIndex = 1
+        Me.FirstnameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.FirstnameTextBox.DefaultText = ""
+        Me.FirstnameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.FirstnameTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.FirstnameTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.FirstnameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.FirstnameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.FirstnameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.FirstnameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.FirstnameTextBox.Location = New System.Drawing.Point(0, 45)
+        Me.FirstnameTextBox.Name = "FirstnameTextBox"
+        Me.FirstnameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.FirstnameTextBox.PlaceholderText = ""
+        Me.FirstnameTextBox.SelectedText = ""
+        Me.FirstnameTextBox.Size = New System.Drawing.Size(173, 36)
+        Me.FirstnameTextBox.TabIndex = 1
         '
         'Guna2TextBox2
         '
@@ -306,7 +309,7 @@ Partial Class AccountDialog
         '
         'FlowLayoutPanel3
         '
-        Me.FlowLayoutPanel3.Controls.Add(Me.Guna2TextBox6)
+        Me.FlowLayoutPanel3.Controls.Add(Me.IdTextBox)
         Me.FlowLayoutPanel3.Controls.Add(Me.Guna2TextBox7)
         Me.FlowLayoutPanel3.Controls.Add(Me.Guna2TextBox8)
         Me.FlowLayoutPanel3.Controls.Add(Me.Guna2TextBox9)
@@ -319,24 +322,24 @@ Partial Class AccountDialog
         Me.FlowLayoutPanel3.Size = New System.Drawing.Size(178, 349)
         Me.FlowLayoutPanel3.TabIndex = 1
         '
-        'Guna2TextBox6
+        'IdTextBox
         '
-        Me.Guna2TextBox6.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.Guna2TextBox6.DefaultText = ""
-        Me.Guna2TextBox6.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.Guna2TextBox6.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.Guna2TextBox6.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox6.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox6.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox6.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Guna2TextBox6.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox6.Location = New System.Drawing.Point(2, 3)
-        Me.Guna2TextBox6.Name = "Guna2TextBox6"
-        Me.Guna2TextBox6.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.Guna2TextBox6.PlaceholderText = ""
-        Me.Guna2TextBox6.SelectedText = ""
-        Me.Guna2TextBox6.Size = New System.Drawing.Size(173, 36)
-        Me.Guna2TextBox6.TabIndex = 2
+        Me.IdTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.IdTextBox.DefaultText = ""
+        Me.IdTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.IdTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.IdTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.IdTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.IdTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.IdTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.IdTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.IdTextBox.Location = New System.Drawing.Point(2, 3)
+        Me.IdTextBox.Name = "IdTextBox"
+        Me.IdTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.IdTextBox.PlaceholderText = ""
+        Me.IdTextBox.SelectedText = ""
+        Me.IdTextBox.Size = New System.Drawing.Size(173, 36)
+        Me.IdTextBox.TabIndex = 2
         '
         'Guna2TextBox7
         '
@@ -436,20 +439,22 @@ Partial Class AccountDialog
         'FlowLayoutPanel4
         '
         Me.FlowLayoutPanel4.Controls.Add(Me.Guna2HtmlLabel2)
-        Me.FlowLayoutPanel4.Controls.Add(Me.Guna2HtmlLabel4)
         Me.FlowLayoutPanel4.Controls.Add(Me.Guna2HtmlLabel3)
-        Me.FlowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FlowLayoutPanel4.Controls.Add(Me.Guna2HtmlLabel4)
+        Me.FlowLayoutPanel4.Controls.Add(Me.Guna2HtmlLabel5)
+        Me.FlowLayoutPanel4.Controls.Add(Me.Guna2HtmlLabel6)
+        Me.FlowLayoutPanel4.Controls.Add(Me.Guna2HtmlLabel7)
         Me.FlowLayoutPanel4.Location = New System.Drawing.Point(3, 3)
         Me.FlowLayoutPanel4.Name = "FlowLayoutPanel4"
-        Me.FlowLayoutPanel4.Size = New System.Drawing.Size(176, 349)
+        Me.FlowLayoutPanel4.Size = New System.Drawing.Size(61, 349)
         Me.FlowLayoutPanel4.TabIndex = 2
         '
         'Guna2HtmlLabel2
         '
         Me.Guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent
         Me.Guna2HtmlLabel2.Font = New System.Drawing.Font("MS PGothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2HtmlLabel2.Location = New System.Drawing.Point(3, 20)
-        Me.Guna2HtmlLabel2.Margin = New System.Windows.Forms.Padding(3, 20, 3, 3)
+        Me.Guna2HtmlLabel2.Location = New System.Drawing.Point(3, 25)
+        Me.Guna2HtmlLabel2.Margin = New System.Windows.Forms.Padding(3, 25, 3, 3)
         Me.Guna2HtmlLabel2.Name = "Guna2HtmlLabel2"
         Me.Guna2HtmlLabel2.Size = New System.Drawing.Size(28, 15)
         Me.Guna2HtmlLabel2.TabIndex = 0
@@ -459,8 +464,8 @@ Partial Class AccountDialog
         '
         Me.Guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent
         Me.Guna2HtmlLabel3.Font = New System.Drawing.Font("MS PGothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2HtmlLabel3.Location = New System.Drawing.Point(71, 20)
-        Me.Guna2HtmlLabel3.Margin = New System.Windows.Forms.Padding(3, 20, 3, 3)
+        Me.Guna2HtmlLabel3.Location = New System.Drawing.Point(3, 68)
+        Me.Guna2HtmlLabel3.Margin = New System.Windows.Forms.Padding(3, 25, 3, 3)
         Me.Guna2HtmlLabel3.Name = "Guna2HtmlLabel3"
         Me.Guna2HtmlLabel3.Size = New System.Drawing.Size(28, 15)
         Me.Guna2HtmlLabel3.TabIndex = 1
@@ -470,12 +475,45 @@ Partial Class AccountDialog
         '
         Me.Guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent
         Me.Guna2HtmlLabel4.Font = New System.Drawing.Font("MS PGothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2HtmlLabel4.Location = New System.Drawing.Point(37, 20)
-        Me.Guna2HtmlLabel4.Margin = New System.Windows.Forms.Padding(3, 20, 3, 3)
+        Me.Guna2HtmlLabel4.Location = New System.Drawing.Point(3, 111)
+        Me.Guna2HtmlLabel4.Margin = New System.Windows.Forms.Padding(3, 25, 3, 3)
         Me.Guna2HtmlLabel4.Name = "Guna2HtmlLabel4"
         Me.Guna2HtmlLabel4.Size = New System.Drawing.Size(28, 15)
         Me.Guna2HtmlLabel4.TabIndex = 2
         Me.Guna2HtmlLabel4.Text = "Role"
+        '
+        'Guna2HtmlLabel5
+        '
+        Me.Guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2HtmlLabel5.Font = New System.Drawing.Font("MS PGothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2HtmlLabel5.Location = New System.Drawing.Point(3, 154)
+        Me.Guna2HtmlLabel5.Margin = New System.Windows.Forms.Padding(3, 25, 3, 3)
+        Me.Guna2HtmlLabel5.Name = "Guna2HtmlLabel5"
+        Me.Guna2HtmlLabel5.Size = New System.Drawing.Size(28, 15)
+        Me.Guna2HtmlLabel5.TabIndex = 3
+        Me.Guna2HtmlLabel5.Text = "Role"
+        '
+        'Guna2HtmlLabel6
+        '
+        Me.Guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2HtmlLabel6.Font = New System.Drawing.Font("MS PGothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2HtmlLabel6.Location = New System.Drawing.Point(3, 197)
+        Me.Guna2HtmlLabel6.Margin = New System.Windows.Forms.Padding(3, 25, 3, 3)
+        Me.Guna2HtmlLabel6.Name = "Guna2HtmlLabel6"
+        Me.Guna2HtmlLabel6.Size = New System.Drawing.Size(28, 15)
+        Me.Guna2HtmlLabel6.TabIndex = 4
+        Me.Guna2HtmlLabel6.Text = "Role"
+        '
+        'Guna2HtmlLabel7
+        '
+        Me.Guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2HtmlLabel7.Font = New System.Drawing.Font("MS PGothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2HtmlLabel7.Location = New System.Drawing.Point(3, 240)
+        Me.Guna2HtmlLabel7.Margin = New System.Windows.Forms.Padding(3, 25, 3, 3)
+        Me.Guna2HtmlLabel7.Name = "Guna2HtmlLabel7"
+        Me.Guna2HtmlLabel7.Size = New System.Drawing.Size(28, 15)
+        Me.Guna2HtmlLabel7.TabIndex = 5
+        Me.Guna2HtmlLabel7.Text = "Role"
         '
         'AccountDialog
         '
@@ -511,14 +549,14 @@ Partial Class AccountDialog
     Friend WithEvents FlowLayoutPanel2 As FlowLayoutPanel
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
-    Friend WithEvents Guna2ComboBox1 As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents Guna2TextBox1 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents RoleComboBox As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents FirstnameTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2TextBox2 As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2TextBox3 As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2TextBox4 As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2TextBox5 As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents FlowLayoutPanel3 As FlowLayoutPanel
-    Friend WithEvents Guna2TextBox6 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents IdTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2TextBox7 As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2TextBox8 As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2TextBox9 As Guna.UI2.WinForms.Guna2TextBox
@@ -528,4 +566,7 @@ Partial Class AccountDialog
     Friend WithEvents Guna2HtmlLabel2 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Guna2HtmlLabel3 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Guna2HtmlLabel4 As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents Guna2HtmlLabel5 As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents Guna2HtmlLabel6 As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents Guna2HtmlLabel7 As Guna.UI2.WinForms.Guna2HtmlLabel
 End Class
