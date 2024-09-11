@@ -14,17 +14,21 @@
         If Not vres.Any(Function(item As Object()) Not item(0)) Then
             res = _loginModule.LoginAccount(UsernameTextBox.Text, PasswordTextBox.Text)
             If res?(0) Then
-                MsgBox("mern")
+                Dim dash As New Dashboard
+                If My.Settings.myid = 1 Then
+                    dash.Maintenance.Visible = False
+                End If
+                dash.Show()
             Else
-                MessageBox.Show("Login Failed!")
+                MessageBox.Show("Incorrect username or password!", "PODS-SIS")
             End If
             'MsgBox("good")
-        Else
-            MessageBox.Show("Login Failed!")
+            'Else
+            '    MessageBox.Show("Login Failed!")
         End If
     End Sub
 
-    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
+    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs)
         MsgBox(My.Settings.myid)
     End Sub
 End Class

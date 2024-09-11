@@ -2,25 +2,25 @@
 Public Class AccountDialog
     Private _data As Dictionary(Of String, String)
     Private _subject As IObservablePanel
-    Private _a As String
+    Private _id As String
     Public Sub New(Optional data As Dictionary(Of String, String) = Nothing,
                    Optional subject As IObservablePanel = Nothing,
-                   Optional a As String = Nothing)
+                   Optional id As String = Nothing)
         InitializeComponent()
         _subject = subject
         _data = data
         'MessageBox.Show(data.ToString)
-        _a = a
+        _id = id
     End Sub
 
     Private Sub AccountDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If _a IsNot Nothing Then
-            AddAccountButton.Text = "Update"
-            Guna2TextBox1.Text = _a
-        Else
-            DeleteAccountButton.Visible = False
-        End If
-        ''MessageBox.Show("load")
+        'If _id IsNot Nothing Then
+        '    AddAccountButton.Text = "Update"
+        '    FirstnameTextBox.Text = _id
+        'Else
+        '    DeleteAccountButton.Visible = False
+        'End If
+        '''MessageBox.Show("load")
         'RoleComboBox.DataSource = BaseAccount.FillByRoles() '.DefaultView
         'RoleComboBox.DisplayMember = "role"
         'RoleComboBox.SelectedItem = "id"
@@ -29,16 +29,16 @@ Public Class AccountDialog
     Private Sub AddAccountButton_Click(sender As Object, e As EventArgs) Handles AddAccountButton.Click
         'Try
         '    'Guna2TextBox1.BorderColor = Color.Red
-        '    Dim controls As Object() = {
-        '        FirstnameTextBox} ', MiddlenameTextBox.Text, LastnameTextBox.Text,
+        '    'Dim controls As Object() = {
+        '    '    'FirstnameTextBox, MiddlenameTextBox.Text, LastnameTextBox.Text,
         '    'AddressTextBox.Text, UsernameTextBox.Text, PasswordTextBox.Text
         '    '}
         '    'MessageBox.Show(controls)
-        '    Dim types As DataInput() = {
-        '        DataInput.STRING_NAME} ', DataInput.STRING_NAME, DataInput.STRING_NAME,
-        '    'DataInput.STRING_PHONE, DataInput.STRING_STRING,
-        '    '    DataInput.STRING_USERNAME, DataInput.STRING_PASSWORD
-        '    '}  s
+        '    'Dim types As DataInput() = {
+        '    '    DataInput.STRING_NAME} ', DataInput.STRING_NAME, DataInput.STRING_NAME,
+        '    ''DataInput.STRING_PHONE, DataInput.STRING_STRING,
+        '    ''    DataInput.STRING_USERNAME, DataInput.STRING_PASSWORD
+        '    ''}  s
 
         '    Dim result As New List(Of Object())
         '    For i = 0 To controls.Count - 1
@@ -87,11 +87,11 @@ Public Class AccountDialog
 
     Private Sub DeleteAccountButton_Click(sender As Object, e As EventArgs) Handles DeleteAccountButton.Click
 
-        Dim baseCommand As New BaseAccount(_data)
-        Dim invoker As New DeleteCommand(baseCommand)
+        'Dim baseCommand As New BaseAccount()
+        'Dim invoker As New DeleteCommand(baseCommand)
 
-        invoker.Execute()
-        _subject.NotifyObserver()
-        Me.Close()
+        'invoker.Execute()
+        '_subject.NotifyObserver()
+        'Me.Close()
     End Sub
 End Class

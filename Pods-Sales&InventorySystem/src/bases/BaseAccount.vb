@@ -13,6 +13,7 @@ Public Class BaseAccount
     Public Sub Delete() Implements ICommandPanel.Delete
         Try
             _sqlCommand = New SqlCommand("DELETE tblaccount WHERE id = @id", _sqlConnection)
+            _sqlCommand.Parameters.AddWithValue("@id", "id")
             If _sqlCommand.ExecuteNonQuery() <= 0 Then
                 MessageBox.Show("An error occured!")
             Else

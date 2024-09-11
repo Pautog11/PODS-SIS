@@ -160,6 +160,7 @@
     <Compile Include="src\classes\SqlConnectionPods.vb" />
     <Compile Include="src\commands\AddCommand.vb" />
     <Compile Include="src\commands\DeleteCommand.vb" />
+    <Compile Include="src\Helpers.vb" />
     <Compile Include="src\interface\ICommandInvoker.vb" />
     <Compile Include="src\interface\ICommandPanel.vb" />
     <Compile Include="src\interface\IObservablePanel.vb" />
