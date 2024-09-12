@@ -16,11 +16,15 @@ Public Class InputValidation
                 stringInput = TryCast(control, Guna.UI2.WinForms.Guna2TextBox).Text
             Case TypeOf control Is TextBox
                 stringInput = TryCast(control, TextBox).Text
+            Case TypeOf control Is Guna.UI2.WinForms.Guna2ComboBox
+                stringInput = TryCast(control, Guna.UI2.WinForms.Guna2ComboBox).Text
+            Case TypeOf control Is ComboBox
+                stringInput = TryCast(control, ComboBox).Text
         End Select
 
-        stringInput = stringInput.Trim()
-        Dim start_trim_o As String = stringInput
-        stringInput = stringInput.TrimStart("0")
+        'stringInput = stringInput.Trim()
+        'Dim start_trim_o As String = stringInput
+        'stringInput = stringInput.TrimStart("0")
         If String.IsNullOrEmpty(stringInput) OrElse String.IsNullOrWhiteSpace(stringInput) Then
             control.BorderColor = Color.Red
             'control.BorderBrush = Brushes.Red
@@ -53,12 +57,14 @@ Public Class InputValidation
                 End If
             Case DataInput.STRING_PASSWORD
                 'If Regex.IsMatch(stringInput, "^(?=.*[0-9])(?=.*[@#$%^&+=]).{8,}$") Then
+                control.BorderColor = Color.LightGray
                 Return {True, stringInput}
                 'End If
 
             Case DataInput.STRING_PHONE
                 'If Regex.IsMatch(start_trim_o, "^(\+639|09)\d{2}[-\s]?\d{3}[-\s]?\d{4}$") Then
-                Return {True, start_trim_o}
+                control.BorderColor = Color.LightGray
+                Return {True}', start_trim_o}
                'End If
             Case DataInput.STRING_USERNAME
                 'f Not Regex.IsMatch(stringInput, "[^\w]+") Then
@@ -68,6 +74,7 @@ Public Class InputValidation
                 'End If
             Case DataInput.STRING_INTEGER
                 If Regex.IsMatch(stringInput, "^\d+$") AndAlso Not stringInput = "0" Then
+                    control.BorderColor = Color.LightGray
                     Return {True, stringInput}
                 End If
 
@@ -76,6 +83,7 @@ Public Class InputValidation
                 'End If
             Case DataInput.STRING_PRICE
                 'If Regex.IsMatch(stringInput, "^(\d+)?\.?(\d+)$") Then
+                control.BorderColor = Color.LightGray
                 Return {True, stringInput}
                 'End If
         End Select
