@@ -135,7 +135,8 @@ Partial Class Login
         Me.Guna2ControlBox1.FillColor = System.Drawing.Color.Transparent
         Me.Guna2ControlBox1.HoverState.FillColor = System.Drawing.Color.Red
         Me.Guna2ControlBox1.IconColor = System.Drawing.Color.Black
-        Me.Guna2ControlBox1.Location = New System.Drawing.Point(752, 3)
+        Me.Guna2ControlBox1.Location = New System.Drawing.Point(755, 0)
+        Me.Guna2ControlBox1.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2ControlBox1.Name = "Guna2ControlBox1"
         Me.Guna2ControlBox1.Size = New System.Drawing.Size(45, 29)
         Me.Guna2ControlBox1.TabIndex = 1

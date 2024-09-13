@@ -29,15 +29,15 @@ Partial Class Dashboard
         Me.Home = New System.Windows.Forms.TabPage()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
         Me.Maintenance = New System.Windows.Forms.TabPage()
-        Me.Maintenance1 = New Pods_Sales_InventorySystem.Maintenance()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Guna2ControlBox2 = New Guna.UI2.WinForms.Guna2ControlBox()
         Me.Guna2ControlBox3 = New Guna.UI2.WinForms.Guna2ControlBox()
         Me.Guna2ControlBox1 = New Guna.UI2.WinForms.Guna2ControlBox()
         Me.Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(Me.components)
+        Me.Maintenance1 = New Pods_Sales_InventorySystem.Maintenance()
+        Me.Guna2VSeparator1 = New Guna.UI2.WinForms.Guna2VSeparator()
         Me.DashboardTableLayoutPanel.SuspendLayout()
         Me.DashboardPanel.SuspendLayout()
         Me.DashboardTabControl.SuspendLayout()
@@ -123,7 +123,7 @@ Partial Class Dashboard
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334!))
         Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.Guna2Separator1, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.Guna2VSeparator1, 1, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(3, 3)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -142,15 +142,6 @@ Partial Class Dashboard
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Label1"
         '
-        'Guna2Separator1
-        '
-        Me.Guna2Separator1.FillColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.Guna2Separator1.FillThickness = 2
-        Me.Guna2Separator1.Location = New System.Drawing.Point(339, 4)
-        Me.Guna2Separator1.Name = "Guna2Separator1"
-        Me.Guna2Separator1.Size = New System.Drawing.Size(85, 40)
-        Me.Guna2Separator1.TabIndex = 1
-        '
         'Maintenance
         '
         Me.Maintenance.Controls.Add(Me.Maintenance1)
@@ -161,14 +152,6 @@ Partial Class Dashboard
         Me.Maintenance.TabIndex = 1
         Me.Maintenance.Text = "Maintenance"
         Me.Maintenance.UseVisualStyleBackColor = True
-        '
-        'Maintenance1
-        '
-        Me.Maintenance1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Maintenance1.Location = New System.Drawing.Point(3, 3)
-        Me.Maintenance1.Name = "Maintenance1"
-        Me.Maintenance1.Size = New System.Drawing.Size(1007, 588)
-        Me.Maintenance1.TabIndex = 0
         '
         'TabPage1
         '
@@ -236,6 +219,22 @@ Partial Class Dashboard
         Me.Guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6R
         Me.Guna2BorderlessForm1.TransparentWhileDrag = True
         '
+        'Maintenance1
+        '
+        Me.Maintenance1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Maintenance1.Location = New System.Drawing.Point(3, 3)
+        Me.Maintenance1.Name = "Maintenance1"
+        Me.Maintenance1.Size = New System.Drawing.Size(1007, 588)
+        Me.Maintenance1.TabIndex = 0
+        '
+        'Guna2VSeparator1
+        '
+        Me.Guna2VSeparator1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Guna2VSeparator1.Location = New System.Drawing.Point(339, 4)
+        Me.Guna2VSeparator1.Name = "Guna2VSeparator1"
+        Me.Guna2VSeparator1.Size = New System.Drawing.Size(328, 94)
+        Me.Guna2VSeparator1.TabIndex = 1
+        '
         'Dashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -267,10 +266,10 @@ Partial Class Dashboard
     Friend WithEvents TabPage1 As TabPage
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Label1 As Label
-    Friend WithEvents Guna2Separator1 As Guna.UI2.WinForms.Guna2Separator
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents Guna2ControlBox2 As Guna.UI2.WinForms.Guna2ControlBox
     Friend WithEvents Guna2BorderlessForm1 As Guna.UI2.WinForms.Guna2BorderlessForm
     Friend WithEvents Guna2ControlBox3 As Guna.UI2.WinForms.Guna2ControlBox
     Friend WithEvents Guna2ControlBox1 As Guna.UI2.WinForms.Guna2ControlBox
+    Friend WithEvents Guna2VSeparator1 As Guna.UI2.WinForms.Guna2VSeparator
 End Class

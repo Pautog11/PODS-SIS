@@ -44,4 +44,7 @@ Public Class Account
             AccountDialog.ShowDialog()
         End If
     End Sub
+    Private Sub AccountSearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles AccountSearchTextBox.TextChanged
+        AccountDataGridView.DataSource = BaseAccount.Search(AccountSearchTextBox.Text).DefaultView
+    End Sub
 End Class

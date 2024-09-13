@@ -7,7 +7,6 @@
         InitializeComponent()
         RegisterObserver(Me)
         NotifyObserver()
-        ' Add any initialization after the InitializeComponent() call.
     End Sub
 
     Private Sub Dashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load

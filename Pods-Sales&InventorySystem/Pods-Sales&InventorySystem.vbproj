@@ -47,6 +47,9 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BCrypt.Net-Next, Version=4.0.3.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
       <HintPath>..\packages\BCrypt.Net-Next.4.0.3\lib\net472\BCrypt.Net-Next.dll</HintPath>
@@ -75,6 +78,11 @@
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Text.RegularExpressions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.RegularExpressions.4.3.1\lib\net463\System.Text.RegularExpressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
@@ -101,6 +109,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Dialogs\AccountDialog.Designer.vb">
       <DependentUpon>AccountDialog.vb</DependentUpon>
     </Compile>
@@ -113,16 +122,16 @@
     <Compile Include="Forms\Dashboard.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Form1.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Forms\Login.Designer.vb">
       <DependentUpon>Login.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Login.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Server.Designer.vb">
+      <DependentUpon>Server.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Server.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -147,6 +156,12 @@
     <Compile Include="Panels\Account.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Panels\Category.Designer.vb">
+      <DependentUpon>Category.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Category.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Panels\Maintenance.Designer.vb">
       <DependentUpon>Maintenance.vb</DependentUpon>
     </Compile>
@@ -154,12 +169,14 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="src\bases\BaseAccount.vb" />
+    <Compile Include="src\bases\BaseCategory.vb" />
     <Compile Include="src\classes\InputValidation.vb" />
     <Compile Include="src\classes\LoginModule.vb" />
     <Compile Include="src\classes\SqlBaseConnetion.vb" />
     <Compile Include="src\classes\SqlConnectionPods.vb" />
     <Compile Include="src\commands\AddCommand.vb" />
     <Compile Include="src\commands\DeleteCommand.vb" />
+    <Compile Include="src\commands\UpdateCommand.vb" />
     <Compile Include="src\Helpers.vb" />
     <Compile Include="src\interface\ICommandInvoker.vb" />
     <Compile Include="src\interface\ICommandPanel.vb" />
@@ -173,11 +190,11 @@
     <EmbeddedResource Include="Forms\Dashboard.resx">
       <DependentUpon>Dashboard.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Server.resx">
+      <DependentUpon>Server.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -188,11 +205,15 @@
     <EmbeddedResource Include="Panels\Account.resx">
       <DependentUpon>Account.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Panels\Category.resx">
+      <DependentUpon>Category.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Panels\Maintenance.resx">
       <DependentUpon>Maintenance.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

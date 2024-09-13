@@ -70,7 +70,7 @@ Partial Class Account
         '
         'AddAccountButton
         '
-        Me.AddAccountButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.AddAccountButton.Anchor = System.Windows.Forms.AnchorStyles.Right
         Me.AddAccountButton.BackColor = System.Drawing.Color.Transparent
         Me.AddAccountButton.BorderRadius = 15
         Me.AddAccountButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
@@ -79,7 +79,7 @@ Partial Class Account
         Me.AddAccountButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.AddAccountButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddAccountButton.ForeColor = System.Drawing.Color.White
-        Me.AddAccountButton.Location = New System.Drawing.Point(734, 3)
+        Me.AddAccountButton.Location = New System.Drawing.Point(734, 4)
         Me.AddAccountButton.Name = "AddAccountButton"
         Me.AddAccountButton.Size = New System.Drawing.Size(150, 35)
         Me.AddAccountButton.TabIndex = 2
@@ -87,6 +87,7 @@ Partial Class Account
         '
         'AccountSearchTextBox
         '
+        Me.AccountSearchTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.AccountSearchTextBox.BorderRadius = 15
         Me.AccountSearchTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.AccountSearchTextBox.DefaultText = ""
@@ -97,7 +98,7 @@ Partial Class Account
         Me.AccountSearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.AccountSearchTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AccountSearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.AccountSearchTextBox.Location = New System.Drawing.Point(3, 3)
+        Me.AccountSearchTextBox.Location = New System.Drawing.Point(3, 4)
         Me.AccountSearchTextBox.Name = "AccountSearchTextBox"
         Me.AccountSearchTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.AccountSearchTextBox.PlaceholderText = ""

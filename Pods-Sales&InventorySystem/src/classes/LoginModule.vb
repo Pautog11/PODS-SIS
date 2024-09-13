@@ -13,17 +13,17 @@ Public Class LoginModule
         _sqlAdapter.Fill(_dataSet)
 
         If _dataSet.Rows.Count > 0 Then
-            If _dataSet.Rows(0)(2) = 1 Then
-                If BCrypt.Net.BCrypt.Verify(password, _dataSet.Rows(0)(3)) Then
-                    'My.Settings.myid = _dataSet.Rows(0).ToString("id")
+            'If _dataSet.Rows(0)(2) = 1 Then
+            If BCrypt.Net.BCrypt.Verify(password, _dataSet.Rows(0)(3)) Then
+                If _dataSet.Rows(0)(2) = 1 Then
                     My.Settings.myid = _dataSet.Rows(0).Item("id")
                     My.Settings.Save()
                     Return {True}
                 Else
-                    Return {False, "Incorrect password"}
+                    Return {False, "Your account is deactivated"}
                 End If
             Else
-                MessageBox.Show("Your account is deactivated!")
+                Return {False, "Incorrect  username or password!"}
             End If
         Else
             Return {False, "Incorrect  username or password!"}

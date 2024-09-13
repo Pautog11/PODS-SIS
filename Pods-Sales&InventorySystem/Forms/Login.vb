@@ -15,20 +15,15 @@
             res = _loginModule.LoginAccount(UsernameTextBox.Text, PasswordTextBox.Text)
             If res?(0) Then
                 Dim dash As New Dashboard
-                If My.Settings.myid = 1 Then
-                    dash.Maintenance.Visible = False
-                End If
                 dash.Show()
-            Else
-                MessageBox.Show("Incorrect username or password!", "PODS-SIS")
-            End If
-            'MsgBox("good")
-            'Else
-            '    MessageBox.Show("Login Failed!")
-        End If
-    End Sub
+                'Else
+                '    'Console.WriteLine("The result is: ")
+                '    MessageBox.Show("Incorrect username or password!", "PODS-SIS")
+            ElseIf res IsNot Nothing Then
 
-    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs)
-        MsgBox(My.Settings.myid)
+            End If
+        Else
+            MessageBox.Show("Login Failed!")
+        End If
     End Sub
 End Class
