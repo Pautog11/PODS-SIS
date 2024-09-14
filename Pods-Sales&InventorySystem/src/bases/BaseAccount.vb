@@ -83,15 +83,25 @@ Public Class BaseAccount
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT * FROM tblaccount", conn)
-            '       a.id, 
-            '       b.role, 
+            cmd = New SqlCommand("SELECT a.id,
+                                         b.role, 
+                                         c.status, 
+                                         CONCAT(first_name, ' ',last_name) AS 'Firstname', 
+                                         phone_number, 
+                                         address, 
+                                         username,
+                                         date_updated 
+                                    FROM tblaccount a 
+                                    JOIN tblrole b ON a.role_id = b.id 
+                                    JOIN tblaccount_status c ON c.id = a.status_id", conn)
+            'cmd = New SqlCommand("SELECT 
+            '      b.role, 
             '       c.status, 
             '       first_name, 
             '       middle_name, 
             '       last_name, 
             '       phone_number, 
-            '       address, 
+            '      address, 
             '       username, 
             '       password, 
             '       date_updated 
@@ -150,18 +160,18 @@ Public Class BaseAccount
         End Try
     End Function
 
-    Public Shared Function Search(query As String) As DataTable
+    Public Shared Function Search(query As String) As pods.tblaccountDataTable
         Try
-            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As New SqlCommand("SELECT * FROM tblaccount WHERE first_name = @query", conn)
+            Dim conn As New SqlConnection(My.Settings.podsdbConnectionString)
+            Dim cmd As New SqlCommand("SELECT * FROM tblaccount WHERE id <> 1 AND first_name LIKE CONCAT('%', @query, '%') OR username LIKE CONCAT('%', @query, '%')", conn)
             cmd.Parameters.AddWithValue("@query", query)
-            Dim dTable As New DataTable
+            Dim dTable As New pods.tblaccountDataTable
             Dim adapter As New SqlDataAdapter(cmd)
             adapter.Fill(dTable)
             Return dTable
         Catch ex As Exception
             MessageBox.Show(ex.Message)
-            Return Nothing
+            Return New pods.tblaccountDataTable
         End Try
     End Function
 End Class

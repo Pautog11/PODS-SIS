@@ -22,7 +22,6 @@ Partial Class Login
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
@@ -30,7 +29,6 @@ Partial Class Login
         Me.PasswordTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.UsernameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2ControlBox1 = New Guna.UI2.WinForms.Guna2ControlBox()
-        Me.Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(Me.components)
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
@@ -55,8 +53,8 @@ Partial Class Login
         'TableLayoutPanel2
         '
         Me.TableLayoutPanel2.ColumnCount = 2
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.46096!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.53904!))
         Me.TableLayoutPanel2.Controls.Add(Me.Guna2Panel1, 1, 0)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 153)
@@ -72,20 +70,21 @@ Partial Class Login
         Me.Guna2Panel1.Controls.Add(Me.PasswordTextBox)
         Me.Guna2Panel1.Controls.Add(Me.UsernameTextBox)
         Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Guna2Panel1.Location = New System.Drawing.Point(400, 3)
+        Me.Guna2Panel1.Location = New System.Drawing.Point(491, 3)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Size = New System.Drawing.Size(391, 138)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(300, 138)
         Me.Guna2Panel1.TabIndex = 0
         '
         'LoginButton
         '
+        Me.LoginButton.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.LoginButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.LoginButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.LoginButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.LoginButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.LoginButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.LoginButton.ForeColor = System.Drawing.Color.White
-        Me.LoginButton.Location = New System.Drawing.Point(104, 87)
+        Me.LoginButton.Location = New System.Drawing.Point(54, 87)
         Me.LoginButton.Name = "LoginButton"
         Me.LoginButton.Size = New System.Drawing.Size(180, 45)
         Me.LoginButton.TabIndex = 2
@@ -93,6 +92,7 @@ Partial Class Login
         '
         'PasswordTextBox
         '
+        Me.PasswordTextBox.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.PasswordTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.PasswordTextBox.DefaultText = ""
         Me.PasswordTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
@@ -102,7 +102,7 @@ Partial Class Login
         Me.PasswordTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.PasswordTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.PasswordTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.PasswordTextBox.Location = New System.Drawing.Point(93, 45)
+        Me.PasswordTextBox.Location = New System.Drawing.Point(43, 45)
         Me.PasswordTextBox.Name = "PasswordTextBox"
         Me.PasswordTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.PasswordTextBox.PlaceholderText = "Password"
@@ -112,6 +112,7 @@ Partial Class Login
         '
         'UsernameTextBox
         '
+        Me.UsernameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.UsernameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.UsernameTextBox.DefaultText = ""
         Me.UsernameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
@@ -121,7 +122,7 @@ Partial Class Login
         Me.UsernameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.UsernameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.UsernameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.UsernameTextBox.Location = New System.Drawing.Point(93, 3)
+        Me.UsernameTextBox.Location = New System.Drawing.Point(43, 3)
         Me.UsernameTextBox.Name = "UsernameTextBox"
         Me.UsernameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.UsernameTextBox.PlaceholderText = "Username"
@@ -140,12 +141,6 @@ Partial Class Login
         Me.Guna2ControlBox1.Name = "Guna2ControlBox1"
         Me.Guna2ControlBox1.Size = New System.Drawing.Size(45, 29)
         Me.Guna2ControlBox1.TabIndex = 1
-        '
-        'Guna2BorderlessForm1
-        '
-        Me.Guna2BorderlessForm1.ContainerControl = Me
-        Me.Guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6R
-        Me.Guna2BorderlessForm1.TransparentWhileDrag = True
         '
         'Login
         '
@@ -171,5 +166,4 @@ Partial Class Login
     Friend WithEvents PasswordTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents UsernameTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2ControlBox1 As Guna.UI2.WinForms.Guna2ControlBox
-    Friend WithEvents Guna2BorderlessForm1 As Guna.UI2.WinForms.Guna2BorderlessForm
 End Class

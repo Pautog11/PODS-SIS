@@ -29,15 +29,15 @@ Partial Class Dashboard
         Me.Home = New System.Windows.Forms.TabPage()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Guna2VSeparator1 = New Guna.UI2.WinForms.Guna2VSeparator()
         Me.Maintenance = New System.Windows.Forms.TabPage()
+        Me.Maintenance1 = New Pods_Sales_InventorySystem.Maintenance()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Guna2ControlBox2 = New Guna.UI2.WinForms.Guna2ControlBox()
         Me.Guna2ControlBox3 = New Guna.UI2.WinForms.Guna2ControlBox()
         Me.Guna2ControlBox1 = New Guna.UI2.WinForms.Guna2ControlBox()
         Me.Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(Me.components)
-        Me.Maintenance1 = New Pods_Sales_InventorySystem.Maintenance()
-        Me.Guna2VSeparator1 = New Guna.UI2.WinForms.Guna2VSeparator()
         Me.DashboardTableLayoutPanel.SuspendLayout()
         Me.DashboardPanel.SuspendLayout()
         Me.DashboardTabControl.SuspendLayout()
@@ -142,6 +142,14 @@ Partial Class Dashboard
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Label1"
         '
+        'Guna2VSeparator1
+        '
+        Me.Guna2VSeparator1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Guna2VSeparator1.Location = New System.Drawing.Point(339, 4)
+        Me.Guna2VSeparator1.Name = "Guna2VSeparator1"
+        Me.Guna2VSeparator1.Size = New System.Drawing.Size(328, 94)
+        Me.Guna2VSeparator1.TabIndex = 1
+        '
         'Maintenance
         '
         Me.Maintenance.Controls.Add(Me.Maintenance1)
@@ -153,10 +161,19 @@ Partial Class Dashboard
         Me.Maintenance.Text = "Maintenance"
         Me.Maintenance.UseVisualStyleBackColor = True
         '
+        'Maintenance1
+        '
+        Me.Maintenance1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Maintenance1.Location = New System.Drawing.Point(3, 3)
+        Me.Maintenance1.Name = "Maintenance1"
+        Me.Maintenance1.Size = New System.Drawing.Size(1007, 588)
+        Me.Maintenance1.TabIndex = 0
+        '
         'TabPage1
         '
         Me.TabPage1.Location = New System.Drawing.Point(184, 4)
         Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage1.Size = New System.Drawing.Size(1013, 594)
         Me.TabPage1.TabIndex = 2
         Me.TabPage1.Text = "TabPage1"
@@ -218,22 +235,6 @@ Partial Class Dashboard
         Me.Guna2BorderlessForm1.ContainerControl = Me
         Me.Guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6R
         Me.Guna2BorderlessForm1.TransparentWhileDrag = True
-        '
-        'Maintenance1
-        '
-        Me.Maintenance1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Maintenance1.Location = New System.Drawing.Point(3, 3)
-        Me.Maintenance1.Name = "Maintenance1"
-        Me.Maintenance1.Size = New System.Drawing.Size(1007, 588)
-        Me.Maintenance1.TabIndex = 0
-        '
-        'Guna2VSeparator1
-        '
-        Me.Guna2VSeparator1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Guna2VSeparator1.Location = New System.Drawing.Point(339, 4)
-        Me.Guna2VSeparator1.Name = "Guna2VSeparator1"
-        Me.Guna2VSeparator1.Size = New System.Drawing.Size(328, 94)
-        Me.Guna2VSeparator1.TabIndex = 1
         '
         'Dashboard
         '

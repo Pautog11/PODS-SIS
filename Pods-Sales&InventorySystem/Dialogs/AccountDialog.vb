@@ -22,12 +22,10 @@ Public Class AccountDialog
             RoleComboBox.SelectedItem = _data.Item("role")
             StatusTextBox.Text = _data.Item("status")
             FirstnameTextBox.Text = _data.Item("first_name")
-            MiddlenameTextBox.Text = _data.Item("middle_name")
             LastnameTextBox.Text = _data.Item("last_name")
             Phone_numberTextBox.Text = _data.Item("phone_number")
             AddressTextBox.Text = _data.Item("address")
             UsernameTextBox.Text = _data.Item("username")
-            PasswordTextBox.Text = _data.Item("password")
             'MsgBox(_data.Item("role"))
         Else
             RoleComboBox.DataSource = BaseAccount.FillByRoles().DefaultView
@@ -35,6 +33,9 @@ Public Class AccountDialog
             RoleComboBox.SelectedItem = "id"
 
             DeleteAccountButton.Visible = False
+
+            IdTextBox.Visible = False
+            StatusTextBox.Visible = False
         End If
     End Sub
 

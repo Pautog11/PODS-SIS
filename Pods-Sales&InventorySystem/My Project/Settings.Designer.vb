@@ -56,8 +56,8 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Server=127.0.0.1;Initial Catalog=podsdb;Persist Security Info=True;User ID=admin;"& _ 
-            "Password=admin")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Server=192.168.55.101;Initial Catalog=podsdb;Persist Security Info=True;User ID=a"& _ 
+            "dmin;Password=admin")>  _
         Public ReadOnly Property con() As String
             Get
                 Return CType(Me("con"),String)
@@ -66,13 +66,36 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
-        Public Property myid() As String
+         Global.System.Configuration.DefaultSettingValueAttribute("-1")>  _
+        Public Property myId() As String
             Get
-                Return CType(Me("myid"),String)
+                Return CType(Me("myId"),String)
             End Get
             Set
-                Me("myid") = value
+                Me("myId") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Server=192.168.55.101;Initial Catalog=podsdb;Persist Security Info=True;User ID=a"& _ 
+            "dmin;Password=admin")>  _
+        Public ReadOnly Property podsdbConnectionString() As String
+            Get
+                Return CType(Me("podsdbConnectionString"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("-1")>  _
+        Public Property roleId() As String
+            Get
+                Return CType(Me("roleId"),String)
+            End Get
+            Set
+                Me("roleId") = value
             End Set
         End Property
     End Class

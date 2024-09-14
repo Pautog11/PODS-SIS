@@ -84,6 +84,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
@@ -168,6 +169,11 @@
     <Compile Include="Panels\Maintenance.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="pods.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>pods.xsd</DependentUpon>
+    </Compile>
     <Compile Include="src\bases\BaseAccount.vb" />
     <Compile Include="src\bases\BaseCategory.vb" />
     <Compile Include="src\classes\InputValidation.vb" />
@@ -225,6 +231,17 @@
     </None>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="pods.xsc">
+      <DependentUpon>pods.xsd</DependentUpon>
+    </None>
+    <None Include="pods.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>pods.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="pods.xss">
+      <DependentUpon>pods.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />

@@ -22,6 +22,91 @@ Pods-Sales&InventorySystem
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="T:Pods_Sales_InventorySystem.pods">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.tblaccountDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.tblcategoryDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.tblaccountRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.tblcategoryRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.tblaccountRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.tblcategoryRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.tblaccountTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.tblcategoryTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:Pods_Sales_InventorySystem.podsTableAdapters.TableAdapterManager.UpdateUpdatedRows(Pods_Sales_InventorySystem.pods,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:Pods_Sales_InventorySystem.podsTableAdapters.TableAdapterManager.UpdateInsertedRows(Pods_Sales_InventorySystem.pods,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:Pods_Sales_InventorySystem.podsTableAdapters.TableAdapterManager.UpdateDeletedRows(Pods_Sales_InventorySystem.pods,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:Pods_Sales_InventorySystem.podsTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:Pods_Sales_InventorySystem.podsTableAdapters.TableAdapterManager.UpdateAll(Pods_Sales_InventorySystem.pods)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
 <member name="M:Pods_Sales_InventorySystem.InputValidation.ValidateInputString(System.Object,Pods_Sales_InventorySystem.DataInput)">
  <summary>
  Use to validate the control's text
