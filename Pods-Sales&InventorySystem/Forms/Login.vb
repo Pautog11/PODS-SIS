@@ -15,6 +15,12 @@
             res = _loginModule.LoginAccount(UsernameTextBox.Text, PasswordTextBox.Text)
             If res?(0) Then
                 Dim dash As New Dashboard
+                Select Case My.Settings.roleId
+                    Case 1
+                        'dash.DashboardTabControl.TabPageCollection.Maintenance = False
+                        AddHandler dash.DashboardTabControl.Selecting, AddressOf TabControl_Selecting
+                End Select
+
                 dash.Show()
                 'Else
                 '    'Console.WriteLine("The result is: ")
@@ -24,6 +30,15 @@
             End If
         Else
             MessageBox.Show("Login Failed!")
+        End If
+    End Sub
+
+    Private Sub TabControl_Selecting(sender As Object, e As TabControlCancelEventArgs)
+        ' Index of the tab page you want to disable
+        Dim tabIndexToDisable As Integer = 2 ' Replace with the index of the tab you want to disable
+        If e.TabPageIndex = tabIndexToDisable Then
+            ' Prevent selection of the tab
+            e.Cancel = True
         End If
     End Sub
 End Class

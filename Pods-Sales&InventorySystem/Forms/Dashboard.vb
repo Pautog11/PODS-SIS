@@ -26,4 +26,13 @@
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
         Label1.Text = BaseAccount.ScalarAccount
     End Sub
+
+    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
+        MsgBox(My.Settings.myId)
+
+    End Sub
+
+    Private Sub Guna2Button2_Click(sender As Object, e As EventArgs) Handles Guna2Button2.Click
+        MsgBox(My.Settings.roleId)
+    End Sub
 End Class

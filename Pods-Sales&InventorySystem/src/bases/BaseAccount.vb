@@ -27,11 +27,10 @@ Public Class BaseAccount
     Public Sub Update() Implements ICommandPanel.Update
         'Throw New NotImplementedException()
         Try
-            _sqlCommand = New SqlCommand("UPDATE tblaccount SET role_id = @role_id, first_name = @first_name, middle_name = @middle_name, last_name = @last_name, phone_number = @phone_number, address = @address, username = @username, password = @password WHERE id = @id", _sqlConnection)
+            _sqlCommand = New SqlCommand("UPDATE tblaccount SET role_id = @role_id, first_name = @first_name, last_name = @last_name, phone_number = @phone_number, address = @address, username = @username, password = @password WHERE id = @id", _sqlConnection)
             _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
             _sqlCommand.Parameters.AddWithValue("@role_id", _data.Item("role_id"))
             _sqlCommand.Parameters.AddWithValue("@first_name", _data.Item("first_name"))
-            _sqlCommand.Parameters.AddWithValue("@middle_name", _data.Item("middle_name"))
             _sqlCommand.Parameters.AddWithValue("@last_name", _data.Item("last_name"))
             _sqlCommand.Parameters.AddWithValue("@phone_number", _data.Item("phone_number"))
             _sqlCommand.Parameters.AddWithValue("@address", _data.Item("address"))

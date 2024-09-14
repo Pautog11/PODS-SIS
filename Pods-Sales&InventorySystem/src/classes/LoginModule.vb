@@ -16,7 +16,8 @@ Public Class LoginModule
             'If _dataSet.Rows(0)(2) = 1 Then
             If BCrypt.Net.BCrypt.Verify(password, _dataSet.Rows(0)(3)) Then
                 If _dataSet.Rows(0)(2) = 1 Then
-                    My.Settings.myId = _dataSet.Rows(0).Item("id")
+                    My.Settings.myId = _dataSet.Rows(0).Item("id").ToString
+                    My.Settings.roleId = _dataSet.Rows(0).Item("role_id").ToString
                     My.Settings.Save()
                     Return {True}
                 Else
