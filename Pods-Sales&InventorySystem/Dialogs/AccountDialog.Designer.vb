@@ -35,7 +35,6 @@ Partial Class AccountDialog
         Me.RoleComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.StatusTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.FirstnameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.MiddlenameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.LastnameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Phone_numberTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.AddressTextBox = New Guna.UI2.WinForms.Guna2TextBox()
@@ -181,7 +180,6 @@ Partial Class AccountDialog
         Me.FlowLayoutPanel1.Controls.Add(Me.RoleComboBox)
         Me.FlowLayoutPanel1.Controls.Add(Me.StatusTextBox)
         Me.FlowLayoutPanel1.Controls.Add(Me.FirstnameTextBox)
-        Me.FlowLayoutPanel1.Controls.Add(Me.MiddlenameTextBox)
         Me.FlowLayoutPanel1.Controls.Add(Me.LastnameTextBox)
         Me.FlowLayoutPanel1.Controls.Add(Me.Phone_numberTextBox)
         Me.FlowLayoutPanel1.Controls.Add(Me.AddressTextBox)
@@ -264,25 +262,6 @@ Partial Class AccountDialog
         Me.FirstnameTextBox.Size = New System.Drawing.Size(173, 36)
         Me.FirstnameTextBox.TabIndex = 1
         '
-        'MiddlenameTextBox
-        '
-        Me.MiddlenameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.MiddlenameTextBox.DefaultText = ""
-        Me.MiddlenameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.MiddlenameTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.MiddlenameTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.MiddlenameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.MiddlenameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.MiddlenameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.MiddlenameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.MiddlenameTextBox.Location = New System.Drawing.Point(0, 171)
-        Me.MiddlenameTextBox.Name = "MiddlenameTextBox"
-        Me.MiddlenameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MiddlenameTextBox.PlaceholderText = "Middlename"
-        Me.MiddlenameTextBox.SelectedText = ""
-        Me.MiddlenameTextBox.Size = New System.Drawing.Size(173, 36)
-        Me.MiddlenameTextBox.TabIndex = 2
-        '
         'LastnameTextBox
         '
         Me.LastnameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
@@ -294,7 +273,7 @@ Partial Class AccountDialog
         Me.LastnameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.LastnameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.LastnameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.LastnameTextBox.Location = New System.Drawing.Point(0, 213)
+        Me.LastnameTextBox.Location = New System.Drawing.Point(0, 171)
         Me.LastnameTextBox.Name = "LastnameTextBox"
         Me.LastnameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.LastnameTextBox.PlaceholderText = "Lastname"
@@ -313,7 +292,7 @@ Partial Class AccountDialog
         Me.Phone_numberTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Phone_numberTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.Phone_numberTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Phone_numberTextBox.Location = New System.Drawing.Point(0, 255)
+        Me.Phone_numberTextBox.Location = New System.Drawing.Point(0, 213)
         Me.Phone_numberTextBox.Name = "Phone_numberTextBox"
         Me.Phone_numberTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.Phone_numberTextBox.PlaceholderText = "Phone_number"
@@ -332,7 +311,7 @@ Partial Class AccountDialog
         Me.AddressTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.AddressTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddressTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.AddressTextBox.Location = New System.Drawing.Point(0, 297)
+        Me.AddressTextBox.Location = New System.Drawing.Point(0, 255)
         Me.AddressTextBox.Name = "AddressTextBox"
         Me.AddressTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.AddressTextBox.PlaceholderText = "Address"
@@ -423,7 +402,6 @@ Partial Class AccountDialog
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents RoleComboBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents FirstnameTextBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents MiddlenameTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents UsernameTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents AddressTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents FlowLayoutPanel3 As FlowLayoutPanel

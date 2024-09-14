@@ -279,7 +279,7 @@ Partial Class Server
         Me.Guna2Button2.Name = "Guna2Button2"
         Me.Guna2Button2.Size = New System.Drawing.Size(132, 35)
         Me.Guna2Button2.TabIndex = 5
-        Me.Guna2Button2.Text = "Add"
+        Me.Guna2Button2.Text = "Next"
         '
         'TestButton
         '

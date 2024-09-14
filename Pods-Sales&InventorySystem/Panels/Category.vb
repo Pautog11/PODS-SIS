@@ -18,4 +18,14 @@
         _tableAapter.Fill(_dataTable)
         CategoryDataGridView.DataSource = _dataTable
     End Sub
+
+    Private Sub CategorySearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles CategorySearchTextBox.TextChanged
+        _dataTable = BaseCategory.Search(CategorySearchTextBox.Text)
+        CategoryDataGridView.DataSource = _dataTable
+    End Sub
+
+    Private Sub AddAccountButton_Click(sender As Object, e As EventArgs) Handles AddAccountButton.Click
+        Dim Dialog As New CategoryDialog(subject:=_subject)
+        Dialog.ShowDialog()
+    End Sub
 End Class

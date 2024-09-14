@@ -26,13 +26,15 @@ Partial Class Maintenance
         Me.Accounts = New System.Windows.Forms.TabPage()
         Me.Account1 = New Pods_Sales_InventorySystem.Account()
         Me.Categories = New System.Windows.Forms.TabPage()
+        Me.Category1 = New Pods_Sales_InventorySystem.Category()
         Me.SubCategory = New System.Windows.Forms.TabPage()
         Me.Products = New System.Windows.Forms.TabPage()
         Me.Suppliers = New System.Windows.Forms.TabPage()
-        Me.Category1 = New Pods_Sales_InventorySystem.Category()
+        Me.Supplier1 = New Pods_Sales_InventorySystem.Supplier()
         Me.MaintenaceTabControl.SuspendLayout()
         Me.Accounts.SuspendLayout()
         Me.Categories.SuspendLayout()
+        Me.Suppliers.SuspendLayout()
         Me.SuspendLayout()
         '
         'MaintenaceTabControl
@@ -98,6 +100,14 @@ Partial Class Maintenance
         Me.Categories.Text = "Categories"
         Me.Categories.UseVisualStyleBackColor = True
         '
+        'Category1
+        '
+        Me.Category1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Category1.Location = New System.Drawing.Point(3, 3)
+        Me.Category1.Name = "Category1"
+        Me.Category1.Size = New System.Drawing.Size(893, 526)
+        Me.Category1.TabIndex = 0
+        '
         'SubCategory
         '
         Me.SubCategory.Location = New System.Drawing.Point(4, 44)
@@ -118,6 +128,7 @@ Partial Class Maintenance
         '
         'Suppliers
         '
+        Me.Suppliers.Controls.Add(Me.Supplier1)
         Me.Suppliers.Location = New System.Drawing.Point(4, 44)
         Me.Suppliers.Name = "Suppliers"
         Me.Suppliers.Size = New System.Drawing.Size(899, 532)
@@ -125,13 +136,13 @@ Partial Class Maintenance
         Me.Suppliers.Text = "Suppliers"
         Me.Suppliers.UseVisualStyleBackColor = True
         '
-        'Category1
+        'Supplier1
         '
-        Me.Category1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Category1.Location = New System.Drawing.Point(3, 3)
-        Me.Category1.Name = "Category1"
-        Me.Category1.Size = New System.Drawing.Size(893, 526)
-        Me.Category1.TabIndex = 0
+        Me.Supplier1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Supplier1.Location = New System.Drawing.Point(0, 0)
+        Me.Supplier1.Name = "Supplier1"
+        Me.Supplier1.Size = New System.Drawing.Size(899, 532)
+        Me.Supplier1.TabIndex = 0
         '
         'Maintenance
         '
@@ -143,6 +154,7 @@ Partial Class Maintenance
         Me.MaintenaceTabControl.ResumeLayout(False)
         Me.Accounts.ResumeLayout(False)
         Me.Categories.ResumeLayout(False)
+        Me.Suppliers.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -155,4 +167,5 @@ Partial Class Maintenance
     Friend WithEvents Account1 As Account
     Friend WithEvents Suppliers As TabPage
     Friend WithEvents Category1 As Category
+    Friend WithEvents Supplier1 As Supplier
 End Class

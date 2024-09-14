@@ -18,7 +18,8 @@ Public Class Server
             Next
 
             'Dim default_connection As String = "Server=" + ServerTextBox.Text + ";Initial Catalog=podsdb;Persist Security Info=True;User ID=" + UsernameTextBox.Text + ";Password=" + PasswordTextBox.Text + ""
-            Dim default_connection As String = $"Server={ServerTextBox.Text};Initial Catalog=;Persist Security Info=True;User ID={"admin"};Password={"admin"}"
+            'Dim default_connection As String = $"Server={ServerTextBox.Text};Initial Catalog=;Persist Security Info=True;User ID={UsernameTextBox.Text};Password={PasswordTextBox.Text}"
+            Dim default_connection As String = $"Server={ServerTextBox.Text};Initial Catalog=;Persist Security Info=True;User ID={UsernameTextBox.Text};Password={PasswordTextBox.Text}"
 
             Dim con As New SqlConnection(default_connection)
             Dim cmd As New SqlCommand
@@ -33,6 +34,19 @@ Public Class Server
             DatabaseComboBox.DataSource = d.DefaultView
             DatabaseComboBox.DisplayMember = "name"
 
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Error")
+        End Try
+    End Sub
+
+    Private Sub Guna2Button2_Click(sender As Object, e As EventArgs) Handles Guna2Button2.Click
+        Try
+            Dim podsconnection As String = $"Server={ServerTextBox.Text};Initial Catalog={DatabaseComboBox.Text};Persist Security Info=True;User ID={UsernameTextBox.Text};Password={PasswordTextBox.Text}"
+            My.Settings.con = podsconnection
+            'My.Settings.podsdbConnectionString = podsconnection
+            My.Settings.Save()
+            Dim dash As New Dashboard
+            dash.Show()
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try

@@ -54,14 +54,17 @@ Namespace My
             End Get
         End Property
         
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("Server=192.168.55.101;Initial Catalog=podsdb;Persist Security Info=True;User ID=a"& _ 
             "dmin;Password=admin")>  _
-        Public ReadOnly Property con() As String
+        Public Property con() As String
             Get
                 Return CType(Me("con"),String)
             End Get
+            Set
+                Me("con") = value
+            End Set
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
@@ -76,6 +79,18 @@ Namespace My
             End Set
         End Property
         
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("-1")>  _
+        Public Property roleId() As String
+            Get
+                Return CType(Me("roleId"),String)
+            End Get
+            Set
+                Me("roleId") = value
+            End Set
+        End Property
+        
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
@@ -87,16 +102,14 @@ Namespace My
             End Get
         End Property
         
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("-1")>  _
-        Public Property roleId() As String
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.55.101;Initial Catalog=podsdb;User ID=admin;Password=admin")>  _
+        Public ReadOnly Property podsdbConnectionString1() As String
             Get
-                Return CType(Me("roleId"),String)
+                Return CType(Me("podsdbConnectionString1"),String)
             End Get
-            Set
-                Me("roleId") = value
-            End Set
         End Property
     End Class
 End Namespace

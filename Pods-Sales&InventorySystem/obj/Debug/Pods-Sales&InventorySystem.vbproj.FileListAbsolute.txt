@@ -45,3 +45,4 @@ C:\Users\Christian\Desktop\Pods-Sales&InventorySystem\Pods-Sales&InventorySystem
 C:\Users\Christian\Desktop\Pods-Sales&InventorySystem\Pods-Sales&InventorySystem\obj\Debug\Pods-Sales&InventorySystem.vbproj.CopyComplete
 C:\Users\Christian\Desktop\Pods-Sales&InventorySystem\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Category.resources
 C:\Users\Christian\Desktop\Pods-Sales&InventorySystem\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Server.resources
+C:\Users\Christian\Desktop\Pods-Sales&InventorySystem\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Supplier.resources

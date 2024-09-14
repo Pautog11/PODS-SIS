@@ -117,6 +117,12 @@
     <Compile Include="Dialogs\AccountDialog.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Dialogs\CategoryDialog.Designer.vb">
+      <DependentUpon>CategoryDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\CategoryDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Dashboard.Designer.vb">
       <DependentUpon>Dashboard.vb</DependentUpon>
     </Compile>
@@ -169,9 +175,18 @@
     <Compile Include="Panels\Maintenance.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Panels\Supplier.Designer.vb">
+      <DependentUpon>Supplier.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Supplier.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="pods.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>pods.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="pods.vb">
       <DependentUpon>pods.xsd</DependentUpon>
     </Compile>
     <Compile Include="src\bases\BaseAccount.vb" />
@@ -216,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\Maintenance.resx">
       <DependentUpon>Maintenance.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\Supplier.resx">
+      <DependentUpon>Supplier.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

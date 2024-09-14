@@ -7,10 +7,13 @@
     ' NetworkAvailabilityChanged: Raised when the network connection is connected or disconnected.
     Partial Friend Class MyApplication
         Private Sub Application_Startup(sender As Object, e As EventArgs) Handles Me.Startup
-            'MsgBox("start_up")
-            'If My.Settings.con IsNot Nothing Then
+            'My.Settings.podsdbConnectionString = ""
+            'My.Settings.con = ""
+            'My.Settings.Save()
 
-            'End If
+            If My.Settings.podsdbConnectionString = "" And My.Settings.con = "" Then
+                Me.MainForm = New Server
+            End If
         End Sub
     End Class
 End Namespace
