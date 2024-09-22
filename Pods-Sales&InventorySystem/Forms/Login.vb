@@ -17,28 +17,14 @@
                 Dim dash As New Dashboard
                 Select Case My.Settings.roleId
                     Case 1
-                        'dash.DashboardTabControl.TabPageCollection.Maintenance = False
-                        AddHandler dash.DashboardTabControl.Selecting, AddressOf TabControl_Selecting
+                        dash.DashboardTabControl.TabPages.Remove(dash.TabPage1)
                 End Select
-
                 dash.Show()
-                'Else
-                '    'Console.WriteLine("The result is: ")
-                '    MessageBox.Show("Incorrect username or password!", "PODS-SIS")
-            ElseIf res IsNot Nothing Then
-
             End If
         Else
-            MessageBox.Show("Login Failed!")
+            MessageBox.Show("Login Failed!", "PODS-SIS")
         End If
-    End Sub
-
-    Private Sub TabControl_Selecting(sender As Object, e As TabControlCancelEventArgs)
-        ' Index of the tab page you want to disable
-        Dim tabIndexToDisable As Integer = 2 ' Replace with the index of the tab you want to disable
-        If e.TabPageIndex = tabIndexToDisable Then
-            ' Prevent selection of the tab
-            e.Cancel = True
-        End If
+        UsernameTextBox.Text = ""
+        PasswordTextBox.Text = ""
     End Sub
 End Class

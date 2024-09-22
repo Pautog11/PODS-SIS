@@ -26,7 +26,8 @@ Public Class AccountDialog
             Phone_numberTextBox.Text = _data.Item("phone_number")
             AddressTextBox.Text = _data.Item("address")
             UsernameTextBox.Text = _data.Item("username")
-            'MsgBox(_data.Item("role"))
+            UsernameTextBox.ReadOnly = True
+
         Else
             RoleComboBox.DataSource = BaseAccount.FillByRoles().DefaultView
             RoleComboBox.DisplayMember = "role"

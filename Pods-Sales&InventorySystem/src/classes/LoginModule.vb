@@ -6,14 +6,13 @@ Public Class LoginModule
     Private _sqlAdapter As SqlDataAdapter
 
     Public Function LoginAccount(username As String, password As String) As Object()
-        _sqlCommand = New SqlCommand("SELECT id, role_id, status_id, password FROM tblaccount WHERE username = @username", _sqlConnection)
+        _sqlCommand = New SqlCommand("SELECT id, role_id, status_id, password FROM tblaccounts WHERE username = @username", _sqlConnection)
         _sqlCommand.Parameters.AddWithValue("@username", username)
         _sqlAdapter = New SqlDataAdapter(_sqlCommand)
         _dataSet = New DataTable
         _sqlAdapter.Fill(_dataSet)
 
         If _dataSet.Rows.Count > 0 Then
-            'If _dataSet.Rows(0)(2) = 1 Then
             If BCrypt.Net.BCrypt.Verify(password, _dataSet.Rows(0)(3)) Then
                 If _dataSet.Rows(0)(2) = 1 Then
                     My.Settings.myId = _dataSet.Rows(0).Item("id").ToString
@@ -21,14 +20,17 @@ Public Class LoginModule
                     My.Settings.Save()
                     Return {True}
                 Else
-                    Return {False, "Your account is deactivated"}
+                    MessageBox.Show("Your account is on hold!", "PODS-SIS")
+                    Return {False}
                 End If
             Else
-                Return {False, "Incorrect  username or password!"}
+                MessageBox.Show("Incorrect  username or password!", "PODS-SIS")
+                Return {False}
             End If
         Else
-            Return {False, "Incorrect  username or password!"}
+            MessageBox.Show("Incorrect  username or password!", "PODS-SIS")
+            Return {False}
         End If
-        Return {False, "Unknown error please try again."}
+        Return {False, "Unknown error please try again.", "PODS-SIS"}
     End Function
 End Class
