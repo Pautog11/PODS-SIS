@@ -15,9 +15,14 @@
             res = _loginModule.LoginAccount(UsernameTextBox.Text, PasswordTextBox.Text)
             If res?(0) Then
                 Dim dash As New Dashboard
+                Dim main As New Maintenance
                 Select Case My.Settings.roleId
                     Case 1
                         dash.DashboardTabControl.TabPages.Remove(dash.TabPage1)
+                    Case 2
+                        'main.MaintenaceTabControl.TabPages.Remove(main.Accounts)
+                        ''Dim tabss As TabControl = dash.Maintenance.TabIndex. .TabControlContainer.Items()
+                        ''Dim tabs As TabControl = dash.Maintenance.TabPageControlCollection 'MaintainanceContainer.TabControlContainer.Items(
                 End Select
                 dash.Show()
             End If

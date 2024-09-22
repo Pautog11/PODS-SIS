@@ -27,29 +27,19 @@ Pods-Sales&InventorySystem
 Represents a strongly typed in-memory cache of data.
 </summary>
 </member>
-<member name="T:Pods_Sales_InventorySystem.pods.tblcategoryDataTable">
-<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member>
-<member name="T:Pods_Sales_InventorySystem.pods.tblsupplierDataTable">
-<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member>
 <member name="T:Pods_Sales_InventorySystem.pods.tblaccountsDataTable">
 <summary>
 Represents the strongly named DataTable class.
 </summary>
 </member>
-<member name="T:Pods_Sales_InventorySystem.pods.tblcategoryRow">
+<member name="T:Pods_Sales_InventorySystem.pods.tblcategoriesDataTable">
 <summary>
-Represents strongly named DataRow class.
+Represents the strongly named DataTable class.
 </summary>
 </member>
-<member name="T:Pods_Sales_InventorySystem.pods.tblsupplierRow">
+<member name="T:Pods_Sales_InventorySystem.pods.tblsuppliersDataTable">
 <summary>
-Represents strongly named DataRow class.
+Represents the strongly named DataTable class.
 </summary>
 </member>
 <member name="T:Pods_Sales_InventorySystem.pods.tblaccountsRow">
@@ -57,14 +47,14 @@ Represents strongly named DataRow class.
 Represents strongly named DataRow class.
 </summary>
 </member>
-<member name="T:Pods_Sales_InventorySystem.pods.tblcategoryRowChangeEvent">
+<member name="T:Pods_Sales_InventorySystem.pods.tblcategoriesRow">
 <summary>
-Row event argument class
+Represents strongly named DataRow class.
 </summary>
 </member>
-<member name="T:Pods_Sales_InventorySystem.pods.tblsupplierRowChangeEvent">
+<member name="T:Pods_Sales_InventorySystem.pods.tblsuppliersRow">
 <summary>
-Row event argument class
+Represents strongly named DataRow class.
 </summary>
 </member>
 <member name="T:Pods_Sales_InventorySystem.pods.tblaccountsRowChangeEvent">
@@ -72,17 +62,27 @@ Row event argument class
 Row event argument class
 </summary>
 </member>
-<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.tblcategoryTableAdapter">
+<member name="T:Pods_Sales_InventorySystem.pods.tblcategoriesRowChangeEvent">
 <summary>
-Represents the connection and commands used to retrieve and save data.
+Row event argument class
 </summary>
 </member>
-<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.tblsupplierTableAdapter">
+<member name="T:Pods_Sales_InventorySystem.pods.tblsuppliersRowChangeEvent">
 <summary>
-Represents the connection and commands used to retrieve and save data.
+Row event argument class
 </summary>
 </member>
 <member name="T:Pods_Sales_InventorySystem.podsTableAdapters.tblaccountsTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.tblcategoriesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.tblsuppliersTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
