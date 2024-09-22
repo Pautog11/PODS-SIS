@@ -15,7 +15,7 @@ Option Explicit On
 Namespace My
     
     <Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0"),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.11.0.0"),  _
      Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
     Partial Friend NotInheritable Class MySettings
         Inherits Global.System.Configuration.ApplicationSettingsBase
@@ -56,7 +56,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Server=192.168.55.101;Initial Catalog=podsdb;Persist Security Info=True;User ID=a"& _ 
+         Global.System.Configuration.DefaultSettingValueAttribute("Server=192.168.55.106;Initial Catalog=podsdb;Persist Security Info=True;User ID=a"& _ 
             "dmin;Password=admin")>  _
         Public Property con() As String
             Get
@@ -94,7 +94,7 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Server=192.168.55.101;Initial Catalog=podsdb;Persist Security Info=True;User ID=a"& _ 
+         Global.System.Configuration.DefaultSettingValueAttribute("Server=192.168.55.106;Initial Catalog=podsdb;Persist Security Info=True;User ID=a"& _ 
             "dmin;Password=admin")>  _
         Public ReadOnly Property podsdbConnectionString() As String
             Get
@@ -105,7 +105,7 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.55.101;Initial Catalog=podsdb;User ID=admin;Password=admin")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.55.106;Initial Catalog=podsdb;User ID=admin;Password=admin")>  _
         Public ReadOnly Property podsdbConnectionString1() As String
             Get
                 Return CType(Me("podsdbConnectionString1"),String)

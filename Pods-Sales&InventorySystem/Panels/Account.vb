@@ -2,8 +2,8 @@
 Public Class Account
     Implements IObserverPanel
     Private _subject As IObservablePanel
-    Private _tableAapter As New podsTableAdapters.tblaccountTableAdapter
-    Private _dataTable As New pods.tblaccountDataTable
+    Private _tableAapter As New podsTableAdapters.tblaccountsTableAdapter
+    Private _dataTable As New pods.tblaccountsDataTable
 
     Private Sub Account_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
@@ -40,7 +40,7 @@ Public Class Account
                 {"address", row.Cells(6).Value.ToString()},
                 {"username", row.Cells(7).Value.ToString()}
             }
-            Dim AccountDialog As New AccountDialog(data:=data)
+            Dim AccountDialog As New AccountDialog(data:=data, subject:=_subject)
             AccountDialog.ShowDialog()
         End If
 

@@ -32,12 +32,12 @@ Represents a strongly typed in-memory cache of data.
 Represents the strongly named DataTable class.
 </summary>
 </member>
-<member name="T:Pods_Sales_InventorySystem.pods.tblaccountDataTable">
+<member name="T:Pods_Sales_InventorySystem.pods.tblsupplierDataTable">
 <summary>
 Represents the strongly named DataTable class.
 </summary>
 </member>
-<member name="T:Pods_Sales_InventorySystem.pods.tblsupplierDataTable">
+<member name="T:Pods_Sales_InventorySystem.pods.tblaccountsDataTable">
 <summary>
 Represents the strongly named DataTable class.
 </summary>
@@ -47,12 +47,12 @@ Represents the strongly named DataTable class.
 Represents strongly named DataRow class.
 </summary>
 </member>
-<member name="T:Pods_Sales_InventorySystem.pods.tblaccountRow">
+<member name="T:Pods_Sales_InventorySystem.pods.tblsupplierRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
 </member>
-<member name="T:Pods_Sales_InventorySystem.pods.tblsupplierRow">
+<member name="T:Pods_Sales_InventorySystem.pods.tblaccountsRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
@@ -62,12 +62,12 @@ Represents strongly named DataRow class.
 Row event argument class
 </summary>
 </member>
-<member name="T:Pods_Sales_InventorySystem.pods.tblaccountRowChangeEvent">
+<member name="T:Pods_Sales_InventorySystem.pods.tblsupplierRowChangeEvent">
 <summary>
 Row event argument class
 </summary>
 </member>
-<member name="T:Pods_Sales_InventorySystem.pods.tblsupplierRowChangeEvent">
+<member name="T:Pods_Sales_InventorySystem.pods.tblaccountsRowChangeEvent">
 <summary>
 Row event argument class
 </summary>
@@ -77,12 +77,12 @@ Row event argument class
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member>
-<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.tblaccountTableAdapter">
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.tblsupplierTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member>
-<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.tblsupplierTableAdapter">
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.tblaccountsTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

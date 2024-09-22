@@ -46,3 +46,65 @@ C:\Users\Christian\Desktop\Pods-Sales&InventorySystem\Pods-Sales&InventorySystem
 C:\Users\Christian\Desktop\Pods-Sales&InventorySystem\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Category.resources
 C:\Users\Christian\Desktop\Pods-Sales&InventorySystem\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Server.resources
 C:\Users\Christian\Desktop\Pods-Sales&InventorySystem\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Supplier.resources
+C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\Pods-Sales&InventorySystem.exe.config
+C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\Pods-Sales&InventorySystem.exe
+C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\Pods-Sales&InventorySystem.pdb
+C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\Pods-Sales&InventorySystem.xml
+C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\BCrypt.Net-Next.dll
+C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\Guna.UI2.dll
+C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\System.Buffers.dll
+C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\System.Memory.dll
+C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\BCrypt.Net-Next.xml
+C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\System.Buffers.xml
+C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\System.Memory.xml
+C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods-Sales&InventorySystem.vbproj.AssemblyReference.cache
+C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.AccountDialog.resources
+C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Dashboard.resources
+C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Login.resources
+C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Server.resources
+C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Resources.resources
+C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Account.resources
+C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Category.resources
+C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Maintenance.resources
+C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Supplier.resources
+C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods-Sales&InventorySystem.vbproj.GenerateResource.cache
+C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods-Sales&InventorySystem.vbproj.CoreCompileInputs.cache
+C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods-Sales&InventorySystem.vbproj.CopyComplete
+C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods-Sales&InventorySystem.exe
+C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods-Sales&InventorySystem.xml
+C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods-Sales&InventorySystem.pdb
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\Pods-Sales&InventorySystem.exe.config
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\Pods-Sales&InventorySystem.exe
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\Pods-Sales&InventorySystem.pdb
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\Pods-Sales&InventorySystem.xml
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\BCrypt.Net-Next.dll
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\Guna.UI2.dll
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\System.Buffers.dll
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\System.Memory.dll
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\BCrypt.Net-Next.xml
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\System.Buffers.xml
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\System.Memory.xml
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods-Sales&InventorySystem.vbproj.AssemblyReference.cache
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.AccountDialog.resources
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Dashboard.resources
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Login.resources
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Server.resources
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Resources.resources
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Account.resources
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Category.resources
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Maintenance.resources
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Supplier.resources
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods-Sales&InventorySystem.vbproj.GenerateResource.cache
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods-Sales&InventorySystem.vbproj.CoreCompileInputs.cache
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods-Sales&InventorySystem.exe
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods-Sales&InventorySystem.xml
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods-Sales&InventorySystem.pdb
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods-Sales&InventorySystem.vbproj.CopyComplete

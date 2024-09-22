@@ -45,7 +45,7 @@ Public Class AccountDialog
                 FirstnameTextBox, LastnameTextBox, Phone_numberTextBox, AddressTextBox, UsernameTextBox, PasswordTextBox
             }
             Dim types As DataInput() = {
-                DataInput.STRING_NAME, DataInput.STRING_NAME, DataInput.STRING_INTEGER, DataInput.STRING_STRING, DataInput.STRING_USERNAME, DataInput.STRING_PASSWORD
+                DataInput.STRING_NAME, DataInput.STRING_NAME, DataInput.STRING_PHONE, DataInput.STRING_STRING, DataInput.STRING_USERNAME, DataInput.STRING_PASSWORD
             }
             Dim result As New List(Of Object())
             For i = 0 To controls.Count - 1
@@ -64,7 +64,7 @@ Public Class AccountDialog
                 }
                 Dim baseCommand As New BaseAccount(data)
                 Dim invoker As ICommandInvoker = Nothing
-                If BaseAccount.Exists(result(5)(1)) = 0 AndAlso _data Is Nothing Then
+                If BaseAccount.Exists(result(4)(1)) = 0 AndAlso _data Is Nothing Then
                     invoker = New AddCommand(baseCommand)
                 ElseIf _data IsNot Nothing Then
                     invoker = New UpdateCommand(baseCommand)
