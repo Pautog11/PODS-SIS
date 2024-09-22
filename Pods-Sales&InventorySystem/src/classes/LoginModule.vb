@@ -11,7 +11,6 @@ Public Class LoginModule
         _sqlAdapter = New SqlDataAdapter(_sqlCommand)
         _dataSet = New DataTable
         _sqlAdapter.Fill(_dataSet)
-
         If _dataSet.Rows.Count > 0 Then
             If BCrypt.Net.BCrypt.Verify(password, _dataSet.Rows(0)(3)) Then
                 If _dataSet.Rows(0)(2) = 1 Then

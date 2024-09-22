@@ -1,9 +1,16 @@
 ﻿Partial Class pods
-    Partial Public Class tblaccountDataTable
+    'Partial Public Class viewtblaccountsDataTable
+    '    Private Sub viewtblaccountsDataTable_viewtblaccountsRowChanging(sender As Object, e As viewtblaccountsRowChangeEvent) Handles Me.viewtblaccountsRowChanging
 
-    End Class
+    '    End Sub
 
-    Partial Public Class tblcategoryDataTable
+    'End Class
 
-    End Class
+    'Partial Public Class tblaccountDataTable
+
+    'End Class
+
+    'Partial Public Class tblcategoryDataTable
+
+    'End Class
 End Class

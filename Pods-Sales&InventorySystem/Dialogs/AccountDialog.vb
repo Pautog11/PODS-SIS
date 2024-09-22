@@ -11,32 +11,41 @@ Public Class AccountDialog
     End Sub
 
     Private Sub AccountDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'For Roles
+        RoleComboBox.DataSource = BaseAccount.FillByRoles().DefaultView
+        RoleComboBox.DisplayMember = "role"
+        RoleComboBox.SelectedItem = "id"
+
+        'For Status
+        StatusComboBox.DataSource = BaseAccount.FillByStatus().DefaultView
+        StatusComboBox.DisplayMember = "status"
+        StatusComboBox.SelectedItem = "id"
+
         If _data IsNot Nothing Then
+            'To update the button from add to update
             AddAccountButton.Text = "Update"
 
-            RoleComboBox.DataSource = BaseAccount.FillByRoles().DefaultView
-            RoleComboBox.DisplayMember = "role"
-            RoleComboBox.SelectedItem = "id"
 
             IdTextBox.Text = _data.Item("id")
-            RoleComboBox.SelectedItem = _data.Item("role")
-            StatusTextBox.Text = _data.Item("status")
+            RoleComboBox.Text = BaseAccount.Fetchroles(_data.Item("role")) '_data.Item("role")
+            'StatusTextBox.Text = _data.Item("status")
+
+            'StatusComboBox.Text = BaseAccount.Fetchstatus(_data.Item("status"))
             FirstnameTextBox.Text = _data.Item("first_name")
             LastnameTextBox.Text = _data.Item("last_name")
             Phone_numberTextBox.Text = _data.Item("phone_number")
             AddressTextBox.Text = _data.Item("address")
             UsernameTextBox.Text = _data.Item("username")
-            UsernameTextBox.ReadOnly = True
+            PasswordTextBox.Text = BaseAccount.Fetchroles(_data.Item("role"))
+            'UsernameTextBox.ReadOnly = True
+            'MsgBox(_data.Item("status"))
 
         Else
-            RoleComboBox.DataSource = BaseAccount.FillByRoles().DefaultView
-            RoleComboBox.DisplayMember = "role"
-            RoleComboBox.SelectedItem = "id"
-
+            'To disable the delete button
             DeleteAccountButton.Visible = False
 
             IdTextBox.Visible = False
-            StatusTextBox.Visible = False
+            StatusComboBox.Visible = False
         End If
     End Sub
 
@@ -56,6 +65,7 @@ Public Class AccountDialog
                 Dim data As New Dictionary(Of String, String) From {
                     {"id", _data?.Item("id")},
                     {"role_id", RoleComboBox.SelectedItem("id")},
+                    {"status_id", StatusComboBox.SelectedItem("id")},
                     {"first_name", result(0)(1)},
                     {"last_name", result(1)(1)},
                     {"phone_number", result(2)(1)},

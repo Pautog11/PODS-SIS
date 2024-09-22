@@ -1,8 +1,8 @@
 ﻿Public Class Supplier
     Implements IObserverPanel
     Private _subject As IObservablePanel
-    Private _tableAapter As New podsTableAdapters.tblsuppliersTableAdapter
-    Private _dataTable As New pods.tblsuppliersDataTable
+    Private _tableAapter As New podsTableAdapters.viewtblsuppliersTableAdapter
+    Private _dataTable As New pods.viewtblsuppliersDataTable
 
     Private Sub Supplier_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
