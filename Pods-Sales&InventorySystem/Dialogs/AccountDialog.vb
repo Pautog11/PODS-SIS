@@ -1,8 +1,8 @@
 ﻿Imports System.Windows.Forms
 
 Public Class AccountDialog
-    Private _data As Dictionary(Of String, String)
-    Private _subject As IObservablePanel
+    Private ReadOnly _data As Dictionary(Of String, String)
+    Private ReadOnly _subject As IObservablePanel
     Public Sub New(Optional data As Dictionary(Of String, String) = Nothing,
                    Optional subject As IObservablePanel = Nothing)
         InitializeComponent()
@@ -76,7 +76,7 @@ Public Class AccountDialog
                 Dim invoker As ICommandInvoker = Nothing
                 If BaseAccount.Exists(result(4)(1)) = 0 AndAlso _data Is Nothing Then
                     invoker = New AddCommand(baseCommand)
-                ElseIf _data IsNot Nothing Then
+                ElseIf _data IsNot Nothing And BaseAccount.Exists(result(4)(1)) = 0 Then
                     invoker = New UpdateCommand(baseCommand)
                 Else
                     MessageBox.Show("Username exists!")
@@ -90,6 +90,7 @@ Public Class AccountDialog
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
+            'MessageBox.Show(ex.Message, "Title Here", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End Try
     End Sub
 

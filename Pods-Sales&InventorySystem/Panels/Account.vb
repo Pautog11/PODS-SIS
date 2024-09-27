@@ -11,7 +11,7 @@ Public Class Account
             _subject?.RegisterObserver(Me)
             _subject?.NotifyObserver()
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Observer Error")
+            MessageBox.Show(ex.Message, "Observer Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
     End Sub
@@ -24,9 +24,12 @@ Public Class Account
     Private Sub AddAccountButton_Click(sender As Object, e As EventArgs) Handles AddAccountButton.Click
         Dim Dialog As New AccountDialog(subject:=_subject)
         Dialog.ShowDialog()
+
+        'MessageBox.Show("Your message here.", "Title Here", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+
     End Sub
 
-    Private Sub AccountDataGridView_Click(sender As Object, e As EventArgs) Handles AccountsDataGridView.Click
+    Private Sub AccountDataGridView_Click(sender As Object, e As EventArgs) Handles AccountsDataGridView.CellClick
         If AccountsDataGridView.SelectedRows.Count > 0 Then
             Dim selectedRows As DataGridViewSelectedRowCollection = AccountsDataGridView.SelectedRows
             Dim row As DataGridViewRow = selectedRows(0)
@@ -41,10 +44,8 @@ Public Class Account
                 {"address", row.Cells(6).Value.ToString()},
                 {"username", row.Cells(7).Value.ToString()}
             }
-            Dim AccountDialog As New AccountDialog(data:=data, subject:=_subject)
-            AccountDialog.ShowDialog()
-        Else
-            MsgBox("no selected")
+            Dim Dialog As New AccountDialog(data:=data, subject:=_subject)
+            Dialog.ShowDialog()
         End If
 
         'If AccountDataGridView.SelectedRows.Count > 0 Then

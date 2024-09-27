@@ -10,12 +10,8 @@
             _subject?.RegisterObserver(Me)
             _subject?.NotifyObserver()
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Observer Error")
+            MessageBox.Show(ex.Message, "Observer Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
-
-        'Guna2ComboBox1.DataSource = BaseCategory.FillByCategories().DefaultView
-        'Guna2ComboBox1.DisplayMember = "category"
-        'Guna2ComboBox1.SelectedItem = "id"
     End Sub
 
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
@@ -33,10 +29,17 @@
         Dialog.ShowDialog()
     End Sub
 
-    Private Sub AddAccountButton_Click_1(sender As Object, e As EventArgs) Handles AddCategoryButton.Click
-
-    End Sub
-    Private Sub CategoryDataGridView_Click(sender As Object, e As EventArgs) Handles CategoryDataGridView.Click
-        MsgBox("jhkjhkjh")
+    Private Sub CategoryDataGridView_Click(sender As Object, e As EventArgs) Handles CategoryDataGridView.CellClick
+        If CategoryDataGridView.SelectedRows.Count > 0 Then
+            Dim selectedRows As DataGridViewSelectedRowCollection = CategoryDataGridView.SelectedRows
+            Dim row As DataGridViewRow = selectedRows(0)
+            Dim data As New Dictionary(Of String, String) From {
+                {"id", row.Cells(0).Value.ToString()},
+                {"category", row.Cells(1).Value.ToString()},'row.Cells(1).Value.ToString()},
+                {"description", row.Cells(2).Value.ToString()}
+            }
+            Dim Dialog As New CategoryDialog(data:=data, subject:=_subject)
+            Dialog.ShowDialog()
+        End If
     End Sub
 End Class

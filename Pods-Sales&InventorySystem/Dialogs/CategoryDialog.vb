@@ -1,17 +1,30 @@
 ﻿Imports System.Windows.Forms
+Imports Pods_Sales_InventorySystem.pods
 
 Public Class CategoryDialog
     Private _data As Dictionary(Of String, String)
     Private _subject As IObservablePanel
-    Public Sub New(Optional data As Dictionary(Of String, String) = Nothing,
+    Public Sub New(Optional data As Dictionary(Of String, String) = Nothing, 'Optional data As viewtblcategoriesRow = Nothing,
                    Optional subject As IObservablePanel = Nothing)
+
+        'Optional data As Dictionary(Of String, String) = Nothing,
         InitializeComponent()
         _subject = subject
         _data = data
     End Sub
 
     Private Sub CategoryDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If _data IsNot Nothing Then
+            'To update the button
+            AddCategoryButton.Text = "Update"
 
+            'To populate the data
+            CategoryNameTextBox.Text = _data("category")
+            DescriptionTextBox.Text = _data("description")
+        Else
+            'To disable the delete button
+            DeleteCategoryButton.Visible = False
+        End If
     End Sub
 
     Private Sub AddCategoryButton_Click(sender As Object, e As EventArgs) Handles AddCategoryButton.Click
@@ -34,16 +47,23 @@ Public Class CategoryDialog
             If BaseCategory.Exists(result(0)(1)) = 0 AndAlso _data Is Nothing Then
                 baseCommand = New BaseCategory(data)
                 invoker = New AddCommand(baseCommand)
+            ElseIf _data IsNot Nothing AndAlso BaseCategory.Exists(result(0)(1)) = 0 Then
+                baseCommand = New BaseCategory(data)
+                invoker = New UpdateCommand(baseCommand)
+            Else
+                MessageBox.Show("Category exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
-
-        End If
-
             invoker?.Execute()
-        _subject.NotifyObserver()
-        Me.Close()
+            _subject.NotifyObserver()
+            Me.Close()
+        End If
     End Sub
 
     Private Sub DeleteCategoryButton_Click(sender As Object, e As EventArgs) Handles DeleteCategoryButton.Click
-
+        Dim baseCommand As New BaseCategory(_data)
+        Dim invoker As New DeleteCommand(baseCommand)
+        invoker?.Execute()
+        _subject.NotifyObserver()
+        Me.Close()
     End Sub
 End Class

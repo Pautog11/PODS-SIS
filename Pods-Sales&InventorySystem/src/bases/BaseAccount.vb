@@ -15,9 +15,9 @@ Public Class BaseAccount
             _sqlCommand = New SqlCommand("DELETE tblaccounts WHERE id = @id", _sqlConnection)
             _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
             If _sqlCommand.ExecuteNonQuery() <= 0 Then
-                MessageBox.Show("An error occured!")
+                MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
-                MessageBox.Show("Account has been deleted successfully!")
+                MessageBox.Show("Account has been deleted successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
@@ -26,7 +26,7 @@ Public Class BaseAccount
 
     Public Sub Update() Implements ICommandPanel.Update
         Try
-            _sqlCommand = New SqlCommand("UPDATE tblaccounts SET role_id = @role_id, status_id = @status_id, first_name = @first_name, last_name = @last_name, phone_number = @phone_number, address = @address, username = @username WHERE id = @id", _sqlConnection)
+            _sqlCommand = New SqlCommand("UPDATE tblaccounts SET role_id = @role_id, status_id = @status_id, first_name = @first_name, last_name = @last_name, phone_number = @phone_number, address = @address, username = @username, date_updated = @date_updated WHERE id = @id", _sqlConnection)
             _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
             _sqlCommand.Parameters.AddWithValue("@role_id", _data.Item("role_id"))
             _sqlCommand.Parameters.AddWithValue("@status_id", _data.Item("status_id"))
@@ -35,14 +35,14 @@ Public Class BaseAccount
             _sqlCommand.Parameters.AddWithValue("@phone_number", _data.Item("phone_number"))
             _sqlCommand.Parameters.AddWithValue("@address", _data.Item("address"))
             _sqlCommand.Parameters.AddWithValue("@username", _data.Item("username"))
-            '_sqlCommand.Parameters.AddWithValue("@password", BCrypt.Net.BCrypt.HashPassword(_data.Item("password")))
+            _sqlCommand.Parameters.AddWithValue("@date_updated", DateTime.Now)
             If _sqlCommand.ExecuteNonQuery() <= 0 Then
                 MessageBox.Show("An error occured!")
             Else
-                MessageBox.Show("Account has been updated successfully!")
+                MessageBox.Show("Account has been updated successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End Try
     End Sub
 
@@ -57,9 +57,9 @@ Public Class BaseAccount
             _sqlCommand.Parameters.AddWithValue("@username", _data.Item("username"))
             _sqlCommand.Parameters.AddWithValue("@password", BCrypt.Net.BCrypt.HashPassword(_data.Item("password")))
             If _sqlCommand.ExecuteNonQuery() <= 0 Then
-                MessageBox.Show("An error occured!")
+                MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
-                MessageBox.Show("Account has been added successfully!")
+                MessageBox.Show("Account has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
@@ -72,7 +72,7 @@ Public Class BaseAccount
             Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblaccounts", conn)
             Return cmd.ExecuteScalar()
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Database Error")
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return 0
         End Try
     End Function
@@ -86,7 +86,7 @@ Public Class BaseAccount
 
             Return cmd.ExecuteScalar()
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return 0
         End Try
     End Function
@@ -99,7 +99,7 @@ Public Class BaseAccount
 
             Return cmd.ExecuteScalar()
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return 0
         End Try
     End Function
@@ -114,7 +114,7 @@ Public Class BaseAccount
             adapter.Fill(dTable)
             Return dTable
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return New DataTable
         End Try
     End Function
@@ -129,7 +129,7 @@ Public Class BaseAccount
             adapter.Fill(dTable)
             Return dTable
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return New DataTable
         End Try
     End Function
@@ -142,7 +142,7 @@ Public Class BaseAccount
 
             Return cmd.ExecuteScalar()
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return 0
         End Try
     End Function
@@ -156,7 +156,7 @@ Public Class BaseAccount
 
             Return cmd.ExecuteScalar()
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return 0
         End Try
     End Function
@@ -169,7 +169,7 @@ Public Class BaseAccount
 
             Return cmd.ExecuteScalar()
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return 0
         End Try
     End Function
@@ -184,7 +184,7 @@ Public Class BaseAccount
             adapter.Fill(dTable)
             Return dTable
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return New pods.viewtblaccountsDataTable
         End Try
     End Function
