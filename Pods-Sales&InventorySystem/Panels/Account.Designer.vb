@@ -84,7 +84,7 @@ Partial Class Account
         Me.AccountSearchTextBox.Location = New System.Drawing.Point(3, 4)
         Me.AccountSearchTextBox.Name = "AccountSearchTextBox"
         Me.AccountSearchTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.AccountSearchTextBox.PlaceholderText = ""
+        Me.AccountSearchTextBox.PlaceholderText = "Search"
         Me.AccountSearchTextBox.SelectedText = ""
         Me.AccountSearchTextBox.Size = New System.Drawing.Size(200, 36)
         Me.AccountSearchTextBox.TabIndex = 3

@@ -2,6 +2,7 @@
 
 Public Class SqlConnectionPods
     Private Shared ReadOnly _sqlConnection As New SqlConnection(My.Settings.con)
+    'Private Shared ReadOnly _sqlConnection As New SqlConnection(My.Settings.con)
     ''' <summary>
     ''' Connection string for all operation
     ''' </summary>

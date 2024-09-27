@@ -1,4 +1,5 @@
-﻿
+﻿Imports System.Windows.Forms
+
 Public Class AccountDialog
     Private _data As Dictionary(Of String, String)
     Private _subject As IObservablePanel
@@ -7,10 +8,8 @@ Public Class AccountDialog
         InitializeComponent()
         _subject = subject
         _data = data
-        'MessageBox.Show(data.ToString)
     End Sub
-
-    Private Sub AccountDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub Account_Dialog(sender As Object, e As EventArgs) Handles MyBase.Load
         'For Roles
         RoleComboBox.DataSource = BaseAccount.FillByRoles().DefaultView
         RoleComboBox.DisplayMember = "role"

@@ -3,17 +3,21 @@
   "WorkspaceRootPath": "C:\\Users\\Christian\\Desktop\\PODS-SIS\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|c:\\users\\christian\\desktop\\pods-sis\\pods-sales\u0026inventorysystem\\forms\\form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|solutionrelative:pods-sales\u0026inventorysystem\\forms\\form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|Pods-Sales\u0026InventorySystem||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|C:\\Users\\Christian\\Desktop\\PODS-SIS\\pods-sales\u0026inventorysystem\\forms\\dashboard.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|solutionrelative:pods-sales\u0026inventorysystem\\forms\\dashboard.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\Forms\\Form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\Forms\\Form1.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|c:\\users\\christian\\desktop\\pods-sis\\pods-sales\u0026inventorysystem\\my project\\settings.settings||{6D2695F9-5365-4A78-89ED-F205C045BFE6}",
-      "RelativeMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|solutionrelative:pods-sales\u0026inventorysystem\\my project\\settings.settings||{6D2695F9-5365-4A78-89ED-F205C045BFE6}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,11 +27,36 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "Form1.vb",
+              "DocumentMoniker": "C:\\Users\\Christian\\Desktop\\PODS-SIS\\Pods-Sales\u0026InventorySystem\\Forms\\Form1.vb",
+              "RelativeDocumentMoniker": "Pods-Sales\u0026InventorySystem\\Forms\\Form1.vb",
+              "ToolTip": "C:\\Users\\Christian\\Desktop\\PODS-SIS\\Pods-Sales\u0026InventorySystem\\Forms\\Form1.vb",
+              "RelativeToolTip": "Pods-Sales\u0026InventorySystem\\Forms\\Form1.vb",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAACIAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-09-24T11:46:36.824Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Dashboard.vb",
+              "DocumentMoniker": "C:\\Users\\Christian\\Desktop\\PODS-SIS\\Pods-Sales\u0026InventorySystem\\Forms\\Dashboard.vb",
+              "RelativeDocumentMoniker": "Pods-Sales\u0026InventorySystem\\Forms\\Dashboard.vb",
+              "ToolTip": "C:\\Users\\Christian\\Desktop\\PODS-SIS\\Pods-Sales\u0026InventorySystem\\Forms\\Dashboard.vb",
+              "RelativeToolTip": "Pods-Sales\u0026InventorySystem\\Forms\\Dashboard.vb",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAAAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-09-24T11:46:10.131Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Form1.vb",
               "DocumentMoniker": "C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\Forms\\Form1.vb",
               "RelativeDocumentMoniker": "..\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\Forms\\Form1.vb",
@@ -39,7 +68,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "Form1.vb",
               "DocumentMoniker": "C:\\Users\\Christian\\Desktop\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\Forms\\Form1.vb",
               "RelativeDocumentMoniker": "..\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem\\Forms\\Form1.vb",
@@ -50,15 +79,14 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Pods-Sales\u0026InventorySystem",
               "DocumentMoniker": "C:\\Users\\Christian\\Desktop\\PODS-SIS\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj",
               "RelativeDocumentMoniker": "Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj",
-              "ToolTip": "C:\\Users\\Christian\\Desktop\\PODS-SIS\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj",
-              "RelativeToolTip": "Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj",
+              "ToolTip": "C:\\Users\\Christian\\Desktop\\PODS-SIS\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj*",
+              "RelativeToolTip": "Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-09-10T09:35:47.67Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-10T09:35:47.67Z"
             }
           ]
         }

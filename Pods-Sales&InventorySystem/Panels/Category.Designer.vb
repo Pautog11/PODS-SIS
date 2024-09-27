@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Category
     Inherits System.Windows.Forms.UserControl
 
     'UserControl overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,19 +20,21 @@ Partial Class Category
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.CategoryDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.AddAccountButton = New Guna.UI2.WinForms.Guna2Button()
         Me.CategorySearchTextBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.AddCategoryButton = New Guna.UI2.WinForms.Guna2Button()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.CategoryDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel2.SuspendLayout()
+        Me.Guna2Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -58,24 +60,24 @@ Partial Class Category
         Me.CategoryDataGridView.AllowUserToDeleteRows = False
         Me.CategoryDataGridView.AllowUserToResizeColumns = False
         Me.CategoryDataGridView.AllowUserToResizeRows = False
-        DataGridViewCellStyle10.BackColor = System.Drawing.Color.White
-        Me.CategoryDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle10
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.CategoryDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle11
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle12.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.CategoryDataGridView.DefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
+        Me.CategoryDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.CategoryDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.CategoryDataGridView.DefaultCellStyle = DataGridViewCellStyle6
         Me.CategoryDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.CategoryDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CategoryDataGridView.Location = New System.Drawing.Point(4, 55)
@@ -113,8 +115,8 @@ Partial Class Category
         Me.TableLayoutPanel2.ColumnCount = 2
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.AddAccountButton, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.CategorySearchTextBox, 0, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.Guna2Panel1, 1, 0)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(4, 4)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
@@ -122,23 +124,6 @@ Partial Class Category
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(884, 44)
         Me.TableLayoutPanel2.TabIndex = 3
-        '
-        'AddAccountButton
-        '
-        Me.AddAccountButton.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.AddAccountButton.BackColor = System.Drawing.Color.Transparent
-        Me.AddAccountButton.BorderRadius = 15
-        Me.AddAccountButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.AddAccountButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.AddAccountButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.AddAccountButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.AddAccountButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.AddAccountButton.ForeColor = System.Drawing.Color.White
-        Me.AddAccountButton.Location = New System.Drawing.Point(731, 4)
-        Me.AddAccountButton.Name = "AddAccountButton"
-        Me.AddAccountButton.Size = New System.Drawing.Size(150, 35)
-        Me.AddAccountButton.TabIndex = 5
-        Me.AddAccountButton.Text = "Add"
         '
         'CategorySearchTextBox
         '
@@ -156,10 +141,37 @@ Partial Class Category
         Me.CategorySearchTextBox.Location = New System.Drawing.Point(3, 4)
         Me.CategorySearchTextBox.Name = "CategorySearchTextBox"
         Me.CategorySearchTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.CategorySearchTextBox.PlaceholderText = ""
+        Me.CategorySearchTextBox.PlaceholderText = "Search"
         Me.CategorySearchTextBox.SelectedText = ""
         Me.CategorySearchTextBox.Size = New System.Drawing.Size(200, 36)
         Me.CategorySearchTextBox.TabIndex = 4
+        '
+        'Guna2Panel1
+        '
+        Me.Guna2Panel1.Controls.Add(Me.AddCategoryButton)
+        Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Guna2Panel1.Location = New System.Drawing.Point(442, 0)
+        Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Guna2Panel1.Name = "Guna2Panel1"
+        Me.Guna2Panel1.Size = New System.Drawing.Size(442, 44)
+        Me.Guna2Panel1.TabIndex = 5
+        '
+        'AddCategoryButton
+        '
+        Me.AddCategoryButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.AddCategoryButton.BackColor = System.Drawing.Color.Transparent
+        Me.AddCategoryButton.BorderRadius = 15
+        Me.AddCategoryButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.AddCategoryButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.AddCategoryButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.AddCategoryButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.AddCategoryButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.AddCategoryButton.ForeColor = System.Drawing.Color.White
+        Me.AddCategoryButton.Location = New System.Drawing.Point(289, 4)
+        Me.AddCategoryButton.Name = "AddCategoryButton"
+        Me.AddCategoryButton.Size = New System.Drawing.Size(150, 35)
+        Me.AddCategoryButton.TabIndex = 3
+        Me.AddCategoryButton.Text = "Add"
         '
         'Category
         '
@@ -171,6 +183,7 @@ Partial Class Category
         Me.TableLayoutPanel1.ResumeLayout(False)
         CType(Me.CategoryDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel2.ResumeLayout(False)
+        Me.Guna2Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -179,5 +192,6 @@ Partial Class Category
     Friend WithEvents CategoryDataGridView As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents CategorySearchTextBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents AddAccountButton As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents AddCategoryButton As Guna.UI2.WinForms.Guna2Button
 End Class

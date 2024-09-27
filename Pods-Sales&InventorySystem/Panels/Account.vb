@@ -43,6 +43,8 @@ Public Class Account
             }
             Dim AccountDialog As New AccountDialog(data:=data, subject:=_subject)
             AccountDialog.ShowDialog()
+        Else
+            MsgBox("no selected")
         End If
 
         'If AccountDataGridView.SelectedRows.Count > 0 Then
