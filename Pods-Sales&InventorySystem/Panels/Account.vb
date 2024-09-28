@@ -13,7 +13,6 @@ Public Class Account
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Observer Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
-
     End Sub
 
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
@@ -24,9 +23,6 @@ Public Class Account
     Private Sub AddAccountButton_Click(sender As Object, e As EventArgs) Handles AddAccountButton.Click
         Dim Dialog As New AccountDialog(subject:=_subject)
         Dialog.ShowDialog()
-
-        'MessageBox.Show("Your message here.", "Title Here", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
-
     End Sub
 
     Private Sub AccountDataGridView_Click(sender As Object, e As EventArgs) Handles AccountsDataGridView.CellClick
@@ -47,11 +43,6 @@ Public Class Account
             Dim Dialog As New AccountDialog(data:=data, subject:=_subject)
             Dialog.ShowDialog()
         End If
-
-        'If AccountDataGridView.SelectedRows.Count > 0 Then
-        '    Dim a As New AccountDialog(_subject, AccountDataGridView.SelectedRows(0))
-        '    a.Show()
-        'End If
     End Sub
     Private Sub AccountSearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles AccountSearchTextBox.TextChanged
         _dataTable = BaseAccount.Search(AccountSearchTextBox.Text)

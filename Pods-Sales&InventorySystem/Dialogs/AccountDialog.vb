@@ -24,18 +24,21 @@ Public Class AccountDialog
             'To update the button from add to update
             AddAccountButton.Text = "Update"
 
+            'IdTextBox.Visible = False
+            'IdTextBox.Text = _data.Item("id")
 
-            IdTextBox.Text = _data.Item("id")
-            RoleComboBox.Text = BaseAccount.Fetchroles(_data.Item("role")) '_data.Item("role")
-            'StatusTextBox.Text = _data.Item("status")
+            'For fetching data to combobox
+            RoleComboBox.Text = BaseAccount.Fetchroles(_data.Item("role"))
+            StatusComboBox.Text = BaseAccount.Fetchstatus(_data.Item("status"))
 
-            'StatusComboBox.Text = BaseAccount.Fetchstatus(_data.Item("status"))
+            'To populate data to texboxes
             FirstnameTextBox.Text = _data.Item("first_name")
             LastnameTextBox.Text = _data.Item("last_name")
             Phone_numberTextBox.Text = _data.Item("phone_number")
             AddressTextBox.Text = _data.Item("address")
             UsernameTextBox.Text = _data.Item("username")
-            PasswordTextBox.Text = BaseAccount.Fetchroles(_data.Item("role"))
+
+            'PasswordTextBox.Text = BaseAccount.Fetchroles(_data.Item("role"))
             'UsernameTextBox.ReadOnly = True
             'MsgBox(_data.Item("status"))
 
@@ -43,7 +46,7 @@ Public Class AccountDialog
             'To disable the delete button
             DeleteAccountButton.Visible = False
 
-            IdTextBox.Visible = False
+            'IdTextBox.Visible = False
             StatusComboBox.Visible = False
         End If
     End Sub
@@ -76,7 +79,7 @@ Public Class AccountDialog
                 Dim invoker As ICommandInvoker = Nothing
                 If BaseAccount.Exists(result(4)(1)) = 0 AndAlso _data Is Nothing Then
                     invoker = New AddCommand(baseCommand)
-                ElseIf _data IsNot Nothing And BaseAccount.Exists(result(4)(1)) = 0 Then
+                ElseIf _data IsNot Nothing Then
                     invoker = New UpdateCommand(baseCommand)
                 Else
                     MessageBox.Show("Username exists!")

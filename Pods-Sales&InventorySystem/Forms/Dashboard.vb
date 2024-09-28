@@ -1,6 +1,6 @@
 ﻿Public Class Dashboard
     Implements IObservablePanel, IObserverPanel
-    Private _observables As New List(Of IObserverPanel)
+    Private ReadOnly _observables As New List(Of IObserverPanel)
 
     Public Sub New()
         ' This call is required by the designer.
@@ -25,14 +25,5 @@
 
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
         Label1.Text = BaseAccount.ScalarAccount
-    End Sub
-
-    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
-        MsgBox(My.Settings.myId)
-
-    End Sub
-
-    Private Sub Guna2Button2_Click(sender As Object, e As EventArgs) Handles Guna2Button2.Click
-        MsgBox(My.Settings.roleId)
     End Sub
 End Class

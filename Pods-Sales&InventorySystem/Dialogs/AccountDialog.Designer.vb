@@ -26,7 +26,6 @@ Partial Class AccountDialog
         Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
         Me.UsernameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.IdTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.RoleComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.StatusComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.FirstnameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
@@ -96,7 +95,6 @@ Partial Class AccountDialog
         '
         'FlowLayoutPanel1
         '
-        Me.FlowLayoutPanel1.Controls.Add(Me.IdTextBox)
         Me.FlowLayoutPanel1.Controls.Add(Me.RoleComboBox)
         Me.FlowLayoutPanel1.Controls.Add(Me.StatusComboBox)
         Me.FlowLayoutPanel1.Controls.Add(Me.FirstnameTextBox)
@@ -110,25 +108,6 @@ Partial Class AccountDialog
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(179, 298)
         Me.FlowLayoutPanel1.TabIndex = 0
         '
-        'IdTextBox
-        '
-        Me.IdTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.IdTextBox.DefaultText = ""
-        Me.IdTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.IdTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.IdTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.IdTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.IdTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.IdTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.IdTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.IdTextBox.Location = New System.Drawing.Point(3, 3)
-        Me.IdTextBox.Name = "IdTextBox"
-        Me.IdTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.IdTextBox.PlaceholderText = "Id"
-        Me.IdTextBox.SelectedText = ""
-        Me.IdTextBox.Size = New System.Drawing.Size(173, 36)
-        Me.IdTextBox.TabIndex = 6
-        '
         'RoleComboBox
         '
         Me.RoleComboBox.BackColor = System.Drawing.Color.Transparent
@@ -139,7 +118,7 @@ Partial Class AccountDialog
         Me.RoleComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.RoleComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.RoleComboBox.ItemHeight = 30
-        Me.RoleComboBox.Location = New System.Drawing.Point(3, 45)
+        Me.RoleComboBox.Location = New System.Drawing.Point(3, 3)
         Me.RoleComboBox.Name = "RoleComboBox"
         Me.RoleComboBox.Size = New System.Drawing.Size(173, 36)
         Me.RoleComboBox.TabIndex = 0
@@ -154,7 +133,7 @@ Partial Class AccountDialog
         Me.StatusComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.StatusComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.StatusComboBox.ItemHeight = 30
-        Me.StatusComboBox.Location = New System.Drawing.Point(3, 87)
+        Me.StatusComboBox.Location = New System.Drawing.Point(3, 45)
         Me.StatusComboBox.Name = "StatusComboBox"
         Me.StatusComboBox.Size = New System.Drawing.Size(173, 36)
         Me.StatusComboBox.TabIndex = 7
@@ -170,7 +149,7 @@ Partial Class AccountDialog
         Me.FirstnameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.FirstnameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.FirstnameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.FirstnameTextBox.Location = New System.Drawing.Point(3, 129)
+        Me.FirstnameTextBox.Location = New System.Drawing.Point(3, 87)
         Me.FirstnameTextBox.Name = "FirstnameTextBox"
         Me.FirstnameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.FirstnameTextBox.PlaceholderText = "Firstname"
@@ -189,7 +168,7 @@ Partial Class AccountDialog
         Me.LastnameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.LastnameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.LastnameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.LastnameTextBox.Location = New System.Drawing.Point(3, 171)
+        Me.LastnameTextBox.Location = New System.Drawing.Point(3, 129)
         Me.LastnameTextBox.Name = "LastnameTextBox"
         Me.LastnameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.LastnameTextBox.PlaceholderText = "Lastname"
@@ -208,7 +187,7 @@ Partial Class AccountDialog
         Me.Phone_numberTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Phone_numberTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.Phone_numberTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Phone_numberTextBox.Location = New System.Drawing.Point(3, 213)
+        Me.Phone_numberTextBox.Location = New System.Drawing.Point(3, 171)
         Me.Phone_numberTextBox.Name = "Phone_numberTextBox"
         Me.Phone_numberTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.Phone_numberTextBox.PlaceholderText = "Phone_number"
@@ -227,7 +206,7 @@ Partial Class AccountDialog
         Me.AddressTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.AddressTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddressTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.AddressTextBox.Location = New System.Drawing.Point(3, 255)
+        Me.AddressTextBox.Location = New System.Drawing.Point(3, 213)
         Me.AddressTextBox.Name = "AddressTextBox"
         Me.AddressTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.AddressTextBox.PlaceholderText = "Address"
@@ -344,7 +323,6 @@ Partial Class AccountDialog
     Friend WithEvents FlowLayoutPanel3 As FlowLayoutPanel
     Friend WithEvents UsernameTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
-    Friend WithEvents IdTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents RoleComboBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents StatusComboBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents FirstnameTextBox As Guna.UI2.WinForms.Guna2TextBox

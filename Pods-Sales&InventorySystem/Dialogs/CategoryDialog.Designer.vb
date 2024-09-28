@@ -27,8 +27,8 @@ Partial Class CategoryDialog
         Me.AddCategoryButton = New Guna.UI2.WinForms.Guna2Button()
         Me.DeleteCategoryButton = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.CategoryNameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.DescriptionTextBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.CategoryNameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
@@ -108,25 +108,6 @@ Partial Class CategoryDialog
         Me.Guna2Panel1.Size = New System.Drawing.Size(438, 178)
         Me.Guna2Panel1.TabIndex = 1
         '
-        'CategoryNameTextBox
-        '
-        Me.CategoryNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.CategoryNameTextBox.DefaultText = ""
-        Me.CategoryNameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.CategoryNameTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.CategoryNameTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.CategoryNameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.CategoryNameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CategoryNameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.CategoryNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CategoryNameTextBox.Location = New System.Drawing.Point(184, 12)
-        Me.CategoryNameTextBox.Name = "CategoryNameTextBox"
-        Me.CategoryNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.CategoryNameTextBox.PlaceholderText = ""
-        Me.CategoryNameTextBox.SelectedText = ""
-        Me.CategoryNameTextBox.Size = New System.Drawing.Size(200, 36)
-        Me.CategoryNameTextBox.TabIndex = 0
-        '
         'DescriptionTextBox
         '
         Me.DescriptionTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
@@ -138,13 +119,32 @@ Partial Class CategoryDialog
         Me.DescriptionTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DescriptionTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DescriptionTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DescriptionTextBox.Location = New System.Drawing.Point(184, 54)
+        Me.DescriptionTextBox.Location = New System.Drawing.Point(212, 54)
         Me.DescriptionTextBox.Name = "DescriptionTextBox"
         Me.DescriptionTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.DescriptionTextBox.PlaceholderText = ""
         Me.DescriptionTextBox.SelectedText = ""
         Me.DescriptionTextBox.Size = New System.Drawing.Size(200, 36)
         Me.DescriptionTextBox.TabIndex = 1
+        '
+        'CategoryNameTextBox
+        '
+        Me.CategoryNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.CategoryNameTextBox.DefaultText = ""
+        Me.CategoryNameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.CategoryNameTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.CategoryNameTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.CategoryNameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.CategoryNameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CategoryNameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.CategoryNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CategoryNameTextBox.Location = New System.Drawing.Point(212, 12)
+        Me.CategoryNameTextBox.Name = "CategoryNameTextBox"
+        Me.CategoryNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.CategoryNameTextBox.PlaceholderText = ""
+        Me.CategoryNameTextBox.SelectedText = ""
+        Me.CategoryNameTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.CategoryNameTextBox.TabIndex = 0
         '
         'CategoryDialog
         '

@@ -18,7 +18,7 @@
                 Dim main As New Maintenance
                 Select Case My.Settings.roleId
                     Case 1
-                        dash.DashboardTabControl.TabPages.Remove(dash.TabPage1)
+                        dash.DashboardTabControl.TabPages.Remove(dash.AuditTrail)
                     Case 2
                         'main.MaintenaceTabControl.TabPages.Remove(main.Accounts)
                         ''Dim tabss As TabControl = dash.Maintenance.TabIndex. .TabControlContainer.Items()

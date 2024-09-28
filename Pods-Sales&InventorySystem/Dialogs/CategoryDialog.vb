@@ -2,12 +2,10 @@
 Imports Pods_Sales_InventorySystem.pods
 
 Public Class CategoryDialog
-    Private _data As Dictionary(Of String, String)
-    Private _subject As IObservablePanel
-    Public Sub New(Optional data As Dictionary(Of String, String) = Nothing, 'Optional data As viewtblcategoriesRow = Nothing,
+    Private ReadOnly _data As Dictionary(Of String, String)
+    Private ReadOnly _subject As IObservablePanel
+    Public Sub New(Optional data As Dictionary(Of String, String) = Nothing,
                    Optional subject As IObservablePanel = Nothing)
-
-        'Optional data As Dictionary(Of String, String) = Nothing,
         InitializeComponent()
         _subject = subject
         _data = data
@@ -47,7 +45,7 @@ Public Class CategoryDialog
             If BaseCategory.Exists(result(0)(1)) = 0 AndAlso _data Is Nothing Then
                 baseCommand = New BaseCategory(data)
                 invoker = New AddCommand(baseCommand)
-            ElseIf _data IsNot Nothing AndAlso BaseCategory.Exists(result(0)(1)) = 0 Then
+            ElseIf _data IsNot Nothing Then
                 baseCommand = New BaseCategory(data)
                 invoker = New UpdateCommand(baseCommand)
             Else

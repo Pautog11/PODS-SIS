@@ -20,7 +20,7 @@ Public Class BaseAccount
                 MessageBox.Show("Account has been deleted successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End Try
     End Sub
 
@@ -177,7 +177,7 @@ Public Class BaseAccount
     Public Shared Function Search(query As String) As pods.viewtblaccountsDataTable 'pods.tblaccountsDataTable
         Try
             Dim conn As New SqlConnection(My.Settings.podsdbConnectionString)
-            Dim cmd As New SqlCommand("SELECT id, role, status, first_name, last_name, phone_number, address, username, date_updated FROM viewtblaccounts WHERE id <> 1 AND first_name LIKE CONCAT('%', @query, '%') OR username LIKE CONCAT('%', @query, '%')", conn)
+            Dim cmd As New SqlCommand("SELECT * FROM viewtblaccounts WHERE id <> 1 AND FIRSTNAME LIKE CONCAT('%', @query, '%') OR USERNAME LIKE CONCAT('%', @query, '%')", conn)
             cmd.Parameters.AddWithValue("@query", query)
             Dim dTable As New pods.viewtblaccountsDataTable
             Dim adapter As New SqlDataAdapter(cmd)

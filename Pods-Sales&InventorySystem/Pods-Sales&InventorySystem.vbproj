@@ -124,6 +124,18 @@
     <Compile Include="Dialogs\AccountDialog.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Dialogs\ProductDialog.Designer.vb">
+      <DependentUpon>ProductDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ProductDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\SubCategoryDialog.Designer.vb">
+      <DependentUpon>SubCategoryDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\SubCategoryDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Dashboard.Designer.vb">
       <DependentUpon>Dashboard.vb</DependentUpon>
     </Compile>
@@ -176,6 +188,18 @@
     <Compile Include="Panels\Maintenance.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Panels\Product.Designer.vb">
+      <DependentUpon>Product.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Product.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panels\SubCategory.Designer.vb">
+      <DependentUpon>SubCategory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\SubCategory.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Panels\Supplier.Designer.vb">
       <DependentUpon>Supplier.vb</DependentUpon>
     </Compile>
@@ -192,6 +216,8 @@
     </Compile>
     <Compile Include="src\bases\BaseAccount.vb" />
     <Compile Include="src\bases\BaseCategory.vb" />
+    <Compile Include="src\bases\BaseProduct.vb" />
+    <Compile Include="src\bases\BaseSubCategory.vb" />
     <Compile Include="src\classes\InputValidation.vb" />
     <Compile Include="src\classes\LoginModule.vb" />
     <Compile Include="src\classes\SqlBaseConnetion.vb" />
@@ -211,6 +237,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\AccountDialog.resx">
       <DependentUpon>AccountDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\ProductDialog.resx">
+      <DependentUpon>ProductDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\SubCategoryDialog.resx">
+      <DependentUpon>SubCategoryDialog.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard.resx">
       <DependentUpon>Dashboard.vb</DependentUpon>
@@ -235,6 +267,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\Maintenance.resx">
       <DependentUpon>Maintenance.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\Product.resx">
+      <DependentUpon>Product.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\SubCategory.resx">
+      <DependentUpon>SubCategory.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\Supplier.resx">
       <DependentUpon>Supplier.vb</DependentUpon>
