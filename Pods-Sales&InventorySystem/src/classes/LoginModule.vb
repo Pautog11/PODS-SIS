@@ -17,6 +17,7 @@ Public Class LoginModule
                     My.Settings.myId = _dataSet.Rows(0).Item("id").ToString
                     My.Settings.roleId = _dataSet.Rows(0).Item("role_id").ToString
                     My.Settings.Save()
+                    BaseAccountLog.Login(My.Settings.myId, "Login")
                     Return {True}
                 Else
                     MessageBox.Show("Your account is on hold!", "PODS-SIS")

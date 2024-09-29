@@ -142,6 +142,12 @@
     <Compile Include="Forms\Dashboard.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Login.Designer.vb">
       <DependentUpon>Login.vb</DependentUpon>
     </Compile>
@@ -176,10 +182,16 @@
     <Compile Include="Panels\Account.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Panels\AuditTrail.Designer.vb">
-      <DependentUpon>AuditTrail.vb</DependentUpon>
+    <Compile Include="Panels\AccountLog.Designer.vb">
+      <DependentUpon>AccountLog.vb</DependentUpon>
     </Compile>
-    <Compile Include="Panels\AuditTrail.vb">
+    <Compile Include="Panels\AccountLog.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panels\Activity.Designer.vb">
+      <DependentUpon>Activity.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Activity.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Panels\Category.Designer.vb">
@@ -221,6 +233,7 @@
       <DependentUpon>pods.xsd</DependentUpon>
     </Compile>
     <Compile Include="src\bases\BaseAccount.vb" />
+    <Compile Include="src\bases\BaseAccountLog.vb" />
     <Compile Include="src\bases\BaseCategory.vb" />
     <Compile Include="src\bases\BaseProduct.vb" />
     <Compile Include="src\bases\BaseSubCategory.vb" />
@@ -253,6 +266,9 @@
     <EmbeddedResource Include="Forms\Dashboard.resx">
       <DependentUpon>Dashboard.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
@@ -268,8 +284,11 @@
     <EmbeddedResource Include="Panels\Account.resx">
       <DependentUpon>Account.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Panels\AuditTrail.resx">
-      <DependentUpon>AuditTrail.vb</DependentUpon>
+    <EmbeddedResource Include="Panels\AccountLog.resx">
+      <DependentUpon>AccountLog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\Activity.resx">
+      <DependentUpon>Activity.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\Category.resx">
       <DependentUpon>Category.vb</DependentUpon>
@@ -312,6 +331,14 @@
       <DependentUpon>pods.xsd</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\pods_icon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-setting-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-setting-16.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
