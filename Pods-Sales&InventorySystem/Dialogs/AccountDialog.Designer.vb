@@ -22,57 +22,103 @@ Partial Class AccountDialog
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.PasswordTextBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.DeleteAccountButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.AddAccountButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.AccountDialogLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
+        Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.UsernameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.PasswordTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
         Me.RoleComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.StatusComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.FirstnameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.LastnameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Phone_numberTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.AddressTextBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.DeleteAccountButton = New Guna.UI2.WinForms.Guna2Button()
-        Me.AddAccountButton = New Guna.UI2.WinForms.Guna2Button()
-        Me.AccountDialogLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.FlowLayoutPanel3.SuspendLayout()
-        Me.FlowLayoutPanel1.SuspendLayout()
         Me.FlowLayoutPanel2.SuspendLayout()
         Me.AccountDialogLayoutPanel.SuspendLayout()
-        Me.TableLayoutPanel1.SuspendLayout()
+        Me.Guna2Panel1.SuspendLayout()
+        Me.FlowLayoutPanel1.SuspendLayout()
+        Me.FlowLayoutPanel3.SuspendLayout()
         Me.SuspendLayout()
         '
-        'PasswordTextBox
+        'FlowLayoutPanel2
         '
-        Me.PasswordTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.PasswordTextBox.DefaultText = ""
-        Me.PasswordTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.PasswordTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.PasswordTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.PasswordTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.PasswordTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.PasswordTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.PasswordTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.PasswordTextBox.Location = New System.Drawing.Point(4, 45)
-        Me.PasswordTextBox.Name = "PasswordTextBox"
-        Me.PasswordTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.PasswordTextBox.PlaceholderText = "Password"
-        Me.PasswordTextBox.SelectedText = ""
-        Me.PasswordTextBox.Size = New System.Drawing.Size(173, 36)
-        Me.PasswordTextBox.TabIndex = 5
+        Me.FlowLayoutPanel2.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.FlowLayoutPanel2.Controls.Add(Me.DeleteAccountButton)
+        Me.FlowLayoutPanel2.Controls.Add(Me.AddAccountButton)
+        Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FlowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
+        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 266)
+        Me.FlowLayoutPanel2.Margin = New System.Windows.Forms.Padding(0)
+        Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(586, 55)
+        Me.FlowLayoutPanel2.TabIndex = 8
         '
-        'FlowLayoutPanel3
+        'DeleteAccountButton
         '
-        Me.FlowLayoutPanel3.Controls.Add(Me.UsernameTextBox)
-        Me.FlowLayoutPanel3.Controls.Add(Me.PasswordTextBox)
-        Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.FlowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
-        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(558, 3)
-        Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
-        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(180, 298)
-        Me.FlowLayoutPanel3.TabIndex = 1
+        Me.DeleteAccountButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.DeleteAccountButton.BackColor = System.Drawing.Color.Transparent
+        Me.DeleteAccountButton.BorderRadius = 15
+        Me.DeleteAccountButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.DeleteAccountButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.DeleteAccountButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.DeleteAccountButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.DeleteAccountButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.DeleteAccountButton.ForeColor = System.Drawing.Color.White
+        Me.DeleteAccountButton.Location = New System.Drawing.Point(455, 9)
+        Me.DeleteAccountButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
+        Me.DeleteAccountButton.Name = "DeleteAccountButton"
+        Me.DeleteAccountButton.Size = New System.Drawing.Size(128, 35)
+        Me.DeleteAccountButton.TabIndex = 4
+        Me.DeleteAccountButton.Text = "Delete"
+        '
+        'AddAccountButton
+        '
+        Me.AddAccountButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.AddAccountButton.BackColor = System.Drawing.Color.Transparent
+        Me.AddAccountButton.BorderRadius = 15
+        Me.AddAccountButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.AddAccountButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.AddAccountButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.AddAccountButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.AddAccountButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.AddAccountButton.ForeColor = System.Drawing.Color.White
+        Me.AddAccountButton.Location = New System.Drawing.Point(321, 8)
+        Me.AddAccountButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
+        Me.AddAccountButton.Name = "AddAccountButton"
+        Me.AddAccountButton.Size = New System.Drawing.Size(128, 37)
+        Me.AddAccountButton.TabIndex = 3
+        Me.AddAccountButton.Text = "Add"
+        '
+        'AccountDialogLayoutPanel
+        '
+        Me.AccountDialogLayoutPanel.ColumnCount = 1
+        Me.AccountDialogLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.AccountDialogLayoutPanel.Controls.Add(Me.FlowLayoutPanel2, 0, 1)
+        Me.AccountDialogLayoutPanel.Controls.Add(Me.Guna2Panel1, 0, 0)
+        Me.AccountDialogLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.AccountDialogLayoutPanel.Location = New System.Drawing.Point(0, 0)
+        Me.AccountDialogLayoutPanel.Name = "AccountDialogLayoutPanel"
+        Me.AccountDialogLayoutPanel.RowCount = 2
+        Me.AccountDialogLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.AccountDialogLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55.0!))
+        Me.AccountDialogLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.AccountDialogLayoutPanel.Size = New System.Drawing.Size(586, 321)
+        Me.AccountDialogLayoutPanel.TabIndex = 18
+        '
+        'Guna2Panel1
+        '
+        Me.Guna2Panel1.Controls.Add(Me.FlowLayoutPanel3)
+        Me.Guna2Panel1.Controls.Add(Me.FlowLayoutPanel1)
+        Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Guna2Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Guna2Panel1.Name = "Guna2Panel1"
+        Me.Guna2Panel1.Size = New System.Drawing.Size(586, 266)
+        Me.Guna2Panel1.TabIndex = 9
         '
         'UsernameTextBox
         '
@@ -85,28 +131,54 @@ Partial Class AccountDialog
         Me.UsernameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.UsernameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.UsernameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.UsernameTextBox.Location = New System.Drawing.Point(4, 3)
+        Me.UsernameTextBox.Location = New System.Drawing.Point(3, 3)
         Me.UsernameTextBox.Name = "UsernameTextBox"
         Me.UsernameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.UsernameTextBox.PlaceholderText = "Username"
         Me.UsernameTextBox.SelectedText = ""
         Me.UsernameTextBox.Size = New System.Drawing.Size(173, 36)
-        Me.UsernameTextBox.TabIndex = 3
+        Me.UsernameTextBox.TabIndex = 22
+        '
+        'PasswordTextBox
+        '
+        Me.PasswordTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.PasswordTextBox.DefaultText = ""
+        Me.PasswordTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.PasswordTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.PasswordTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.PasswordTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.PasswordTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.PasswordTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.PasswordTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.PasswordTextBox.Location = New System.Drawing.Point(3, 45)
+        Me.PasswordTextBox.Name = "PasswordTextBox"
+        Me.PasswordTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.PasswordTextBox.PlaceholderText = "Password"
+        Me.PasswordTextBox.SelectedText = ""
+        Me.PasswordTextBox.Size = New System.Drawing.Size(173, 36)
+        Me.PasswordTextBox.TabIndex = 23
         '
         'FlowLayoutPanel1
         '
-        Me.FlowLayoutPanel1.Controls.Add(Me.RoleComboBox)
-        Me.FlowLayoutPanel1.Controls.Add(Me.StatusComboBox)
-        Me.FlowLayoutPanel1.Controls.Add(Me.FirstnameTextBox)
-        Me.FlowLayoutPanel1.Controls.Add(Me.LastnameTextBox)
-        Me.FlowLayoutPanel1.Controls.Add(Me.Phone_numberTextBox)
-        Me.FlowLayoutPanel1.Controls.Add(Me.AddressTextBox)
-        Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(188, 3)
+        Me.FlowLayoutPanel1.Controls.Add(Me.UsernameTextBox)
+        Me.FlowLayoutPanel1.Controls.Add(Me.PasswordTextBox)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(376, 3)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(179, 298)
-        Me.FlowLayoutPanel1.TabIndex = 0
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(178, 259)
+        Me.FlowLayoutPanel1.TabIndex = 24
+        '
+        'FlowLayoutPanel3
+        '
+        Me.FlowLayoutPanel3.Controls.Add(Me.RoleComboBox)
+        Me.FlowLayoutPanel3.Controls.Add(Me.StatusComboBox)
+        Me.FlowLayoutPanel3.Controls.Add(Me.FirstnameTextBox)
+        Me.FlowLayoutPanel3.Controls.Add(Me.LastnameTextBox)
+        Me.FlowLayoutPanel3.Controls.Add(Me.Phone_numberTextBox)
+        Me.FlowLayoutPanel3.Controls.Add(Me.AddressTextBox)
+        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(83, 3)
+        Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
+        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(183, 259)
+        Me.FlowLayoutPanel3.TabIndex = 25
         '
         'RoleComboBox
         '
@@ -121,7 +193,7 @@ Partial Class AccountDialog
         Me.RoleComboBox.Location = New System.Drawing.Point(3, 3)
         Me.RoleComboBox.Name = "RoleComboBox"
         Me.RoleComboBox.Size = New System.Drawing.Size(173, 36)
-        Me.RoleComboBox.TabIndex = 0
+        Me.RoleComboBox.TabIndex = 22
         '
         'StatusComboBox
         '
@@ -136,7 +208,7 @@ Partial Class AccountDialog
         Me.StatusComboBox.Location = New System.Drawing.Point(3, 45)
         Me.StatusComboBox.Name = "StatusComboBox"
         Me.StatusComboBox.Size = New System.Drawing.Size(173, 36)
-        Me.StatusComboBox.TabIndex = 7
+        Me.StatusComboBox.TabIndex = 27
         '
         'FirstnameTextBox
         '
@@ -155,7 +227,7 @@ Partial Class AccountDialog
         Me.FirstnameTextBox.PlaceholderText = "Firstname"
         Me.FirstnameTextBox.SelectedText = ""
         Me.FirstnameTextBox.Size = New System.Drawing.Size(173, 36)
-        Me.FirstnameTextBox.TabIndex = 1
+        Me.FirstnameTextBox.TabIndex = 23
         '
         'LastnameTextBox
         '
@@ -174,7 +246,7 @@ Partial Class AccountDialog
         Me.LastnameTextBox.PlaceholderText = "Lastname"
         Me.LastnameTextBox.SelectedText = ""
         Me.LastnameTextBox.Size = New System.Drawing.Size(173, 36)
-        Me.LastnameTextBox.TabIndex = 3
+        Me.LastnameTextBox.TabIndex = 24
         '
         'Phone_numberTextBox
         '
@@ -193,7 +265,7 @@ Partial Class AccountDialog
         Me.Phone_numberTextBox.PlaceholderText = "Phone_number"
         Me.Phone_numberTextBox.SelectedText = ""
         Me.Phone_numberTextBox.Size = New System.Drawing.Size(173, 36)
-        Me.Phone_numberTextBox.TabIndex = 4
+        Me.Phone_numberTextBox.TabIndex = 25
         '
         'AddressTextBox
         '
@@ -212,96 +284,13 @@ Partial Class AccountDialog
         Me.AddressTextBox.PlaceholderText = "Address"
         Me.AddressTextBox.SelectedText = ""
         Me.AddressTextBox.Size = New System.Drawing.Size(173, 36)
-        Me.AddressTextBox.TabIndex = 4
-        '
-        'FlowLayoutPanel2
-        '
-        Me.FlowLayoutPanel2.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.FlowLayoutPanel2.Controls.Add(Me.DeleteAccountButton)
-        Me.FlowLayoutPanel2.Controls.Add(Me.AddAccountButton)
-        Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.FlowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
-        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 310)
-        Me.FlowLayoutPanel2.Margin = New System.Windows.Forms.Padding(0)
-        Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(747, 55)
-        Me.FlowLayoutPanel2.TabIndex = 8
-        '
-        'DeleteAccountButton
-        '
-        Me.DeleteAccountButton.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.DeleteAccountButton.BackColor = System.Drawing.Color.Transparent
-        Me.DeleteAccountButton.BorderRadius = 15
-        Me.DeleteAccountButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.DeleteAccountButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.DeleteAccountButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.DeleteAccountButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.DeleteAccountButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.DeleteAccountButton.ForeColor = System.Drawing.Color.White
-        Me.DeleteAccountButton.Location = New System.Drawing.Point(616, 9)
-        Me.DeleteAccountButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
-        Me.DeleteAccountButton.Name = "DeleteAccountButton"
-        Me.DeleteAccountButton.Size = New System.Drawing.Size(128, 35)
-        Me.DeleteAccountButton.TabIndex = 4
-        Me.DeleteAccountButton.Text = "Delete"
-        '
-        'AddAccountButton
-        '
-        Me.AddAccountButton.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.AddAccountButton.BackColor = System.Drawing.Color.Transparent
-        Me.AddAccountButton.BorderRadius = 15
-        Me.AddAccountButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.AddAccountButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.AddAccountButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.AddAccountButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.AddAccountButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.AddAccountButton.ForeColor = System.Drawing.Color.White
-        Me.AddAccountButton.Location = New System.Drawing.Point(482, 8)
-        Me.AddAccountButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
-        Me.AddAccountButton.Name = "AddAccountButton"
-        Me.AddAccountButton.Size = New System.Drawing.Size(128, 37)
-        Me.AddAccountButton.TabIndex = 3
-        Me.AddAccountButton.Text = "Add"
-        '
-        'AccountDialogLayoutPanel
-        '
-        Me.AccountDialogLayoutPanel.ColumnCount = 1
-        Me.AccountDialogLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.AccountDialogLayoutPanel.Controls.Add(Me.FlowLayoutPanel2, 0, 1)
-        Me.AccountDialogLayoutPanel.Controls.Add(Me.TableLayoutPanel1, 0, 0)
-        Me.AccountDialogLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AccountDialogLayoutPanel.Location = New System.Drawing.Point(0, 0)
-        Me.AccountDialogLayoutPanel.Name = "AccountDialogLayoutPanel"
-        Me.AccountDialogLayoutPanel.RowCount = 2
-        Me.AccountDialogLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.AccountDialogLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55.0!))
-        Me.AccountDialogLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.AccountDialogLayoutPanel.Size = New System.Drawing.Size(747, 365)
-        Me.AccountDialogLayoutPanel.TabIndex = 18
-        '
-        'TableLayoutPanel1
-        '
-        Me.TableLayoutPanel1.ColumnCount = 4
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.FlowLayoutPanel1, 1, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.FlowLayoutPanel3, 3, 0)
-        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(3, 3)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 1
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(741, 304)
-        Me.TableLayoutPanel1.TabIndex = 9
+        Me.AddressTextBox.TabIndex = 26
         '
         'AccountDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(747, 365)
+        Me.ClientSize = New System.Drawing.Size(586, 321)
         Me.Controls.Add(Me.AccountDialogLayoutPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
@@ -310,28 +299,27 @@ Partial Class AccountDialog
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Account Dialog"
-        Me.FlowLayoutPanel3.ResumeLayout(False)
-        Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.FlowLayoutPanel2.ResumeLayout(False)
         Me.AccountDialogLayoutPanel.ResumeLayout(False)
-        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.Guna2Panel1.ResumeLayout(False)
+        Me.FlowLayoutPanel1.ResumeLayout(False)
+        Me.FlowLayoutPanel3.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
-
+    Friend WithEvents FlowLayoutPanel2 As FlowLayoutPanel
+    Friend WithEvents DeleteAccountButton As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents AddAccountButton As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents AccountDialogLayoutPanel As TableLayoutPanel
+    Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents UsernameTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents PasswordTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents FlowLayoutPanel3 As FlowLayoutPanel
-    Friend WithEvents UsernameTextBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents RoleComboBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents StatusComboBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents FirstnameTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents LastnameTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Phone_numberTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents AddressTextBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents FlowLayoutPanel2 As FlowLayoutPanel
-    Friend WithEvents DeleteAccountButton As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents AddAccountButton As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents AccountDialogLayoutPanel As TableLayoutPanel
-    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
 End Class

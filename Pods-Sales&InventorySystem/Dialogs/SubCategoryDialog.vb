@@ -58,6 +58,8 @@ Public Class SubCategoryDialog
             invoker?.Execute()
             _subject.NotifyObserver()
             Me.Close()
+        Else
+            MessageBox.Show("Please fill out all textboxes or provide all valid inputs.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
     End Sub
 

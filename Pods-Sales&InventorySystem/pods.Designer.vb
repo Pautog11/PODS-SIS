@@ -1794,13 +1794,13 @@ Partial Public Class pods
         
         Private columnBARCODE As Global.System.Data.DataColumn
         
-        Private columnPRODUCT_NAME As Global.System.Data.DataColumn
+        Private columnPRODUCT As Global.System.Data.DataColumn
         
         Private columnDESCRIPTION As Global.System.Data.DataColumn
         
-        Private columnQUANTITY As Global.System.Data.DataColumn
-        
         Private columnPRICE As Global.System.Data.DataColumn
+        
+        Private columnCOST As Global.System.Data.DataColumn
         
         Private columnSTOCK_LEVEL As Global.System.Data.DataColumn
         
@@ -1865,9 +1865,9 @@ Partial Public Class pods
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property PRODUCT_NAMEColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property PRODUCTColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnPRODUCT_NAME
+                Return Me.columnPRODUCT
             End Get
         End Property
         
@@ -1881,17 +1881,17 @@ Partial Public Class pods
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property QUANTITYColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property PRICEColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnQUANTITY
+                Return Me.columnPRICE
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property PRICEColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property COSTColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnPRICE
+                Return Me.columnCOST
             End Get
         End Property
         
@@ -1940,9 +1940,9 @@ Partial Public Class pods
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddviewtblproductsRow(ByVal ID As Integer, ByVal SUBCATEGORY As String, ByVal BARCODE As String, ByVal PRODUCT_NAME As String, ByVal DESCRIPTION As String, ByVal QUANTITY As Integer, ByVal PRICE As Decimal, ByVal STOCK_LEVEL As Integer) As viewtblproductsRow
+        Public Overloads Function AddviewtblproductsRow(ByVal ID As Integer, ByVal SUBCATEGORY As String, ByVal BARCODE As String, ByVal PRODUCT As String, ByVal DESCRIPTION As String, ByVal PRICE As Decimal, ByVal COST As Decimal, ByVal STOCK_LEVEL As Integer) As viewtblproductsRow
             Dim rowviewtblproductsRow As viewtblproductsRow = CType(Me.NewRow,viewtblproductsRow)
-            Dim columnValuesArray() As Object = New Object() {ID, SUBCATEGORY, BARCODE, PRODUCT_NAME, DESCRIPTION, QUANTITY, PRICE, STOCK_LEVEL}
+            Dim columnValuesArray() As Object = New Object() {ID, SUBCATEGORY, BARCODE, PRODUCT, DESCRIPTION, PRICE, COST, STOCK_LEVEL}
             rowviewtblproductsRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowviewtblproductsRow)
             Return rowviewtblproductsRow
@@ -1974,10 +1974,10 @@ Partial Public Class pods
             Me.columnID = MyBase.Columns("ID")
             Me.columnSUBCATEGORY = MyBase.Columns("SUBCATEGORY")
             Me.columnBARCODE = MyBase.Columns("BARCODE")
-            Me.columnPRODUCT_NAME = MyBase.Columns("PRODUCT_NAME")
+            Me.columnPRODUCT = MyBase.Columns("PRODUCT")
             Me.columnDESCRIPTION = MyBase.Columns("DESCRIPTION")
-            Me.columnQUANTITY = MyBase.Columns("QUANTITY")
             Me.columnPRICE = MyBase.Columns("PRICE")
+            Me.columnCOST = MyBase.Columns("COST")
             Me.columnSTOCK_LEVEL = MyBase.Columns("STOCK_LEVEL")
         End Sub
         
@@ -1990,14 +1990,14 @@ Partial Public Class pods
             MyBase.Columns.Add(Me.columnSUBCATEGORY)
             Me.columnBARCODE = New Global.System.Data.DataColumn("BARCODE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnBARCODE)
-            Me.columnPRODUCT_NAME = New Global.System.Data.DataColumn("PRODUCT_NAME", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnPRODUCT_NAME)
+            Me.columnPRODUCT = New Global.System.Data.DataColumn("PRODUCT", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPRODUCT)
             Me.columnDESCRIPTION = New Global.System.Data.DataColumn("DESCRIPTION", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDESCRIPTION)
-            Me.columnQUANTITY = New Global.System.Data.DataColumn("QUANTITY", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnQUANTITY)
             Me.columnPRICE = New Global.System.Data.DataColumn("PRICE", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnPRICE)
+            Me.columnCOST = New Global.System.Data.DataColumn("COST", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCOST)
             Me.columnSTOCK_LEVEL = New Global.System.Data.DataColumn("STOCK_LEVEL", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnSTOCK_LEVEL)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
@@ -2006,11 +2006,9 @@ Partial Public Class pods
             Me.columnSUBCATEGORY.AllowDBNull = false
             Me.columnSUBCATEGORY.MaxLength = 50
             Me.columnBARCODE.MaxLength = 2147483647
-            Me.columnPRODUCT_NAME.AllowDBNull = false
-            Me.columnPRODUCT_NAME.MaxLength = 50
+            Me.columnPRODUCT.AllowDBNull = false
+            Me.columnPRODUCT.MaxLength = 50
             Me.columnDESCRIPTION.MaxLength = 2147483647
-            Me.columnQUANTITY.AllowDBNull = false
-            Me.columnSTOCK_LEVEL.AllowDBNull = false
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2817,12 +2815,12 @@ Partial Public Class pods
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property PRODUCT_NAME() As String
+        Public Property PRODUCT() As String
             Get
-                Return CType(Me(Me.tableviewtblproducts.PRODUCT_NAMEColumn),String)
+                Return CType(Me(Me.tableviewtblproducts.PRODUCTColumn),String)
             End Get
             Set
-                Me(Me.tableviewtblproducts.PRODUCT_NAMEColumn) = value
+                Me(Me.tableviewtblproducts.PRODUCTColumn) = value
             End Set
         End Property
         
@@ -2843,17 +2841,6 @@ Partial Public Class pods
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property QUANTITY() As Integer
-            Get
-                Return CType(Me(Me.tableviewtblproducts.QUANTITYColumn),Integer)
-            End Get
-            Set
-                Me(Me.tableviewtblproducts.QUANTITYColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property PRICE() As Decimal
             Get
                 Try 
@@ -2869,9 +2856,28 @@ Partial Public Class pods
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property COST() As Decimal
+            Get
+                Try 
+                    Return CType(Me(Me.tableviewtblproducts.COSTColumn),Decimal)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'COST' in table 'viewtblproducts' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableviewtblproducts.COSTColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property STOCK_LEVEL() As Integer
             Get
-                Return CType(Me(Me.tableviewtblproducts.STOCK_LEVELColumn),Integer)
+                Try 
+                    Return CType(Me(Me.tableviewtblproducts.STOCK_LEVELColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'STOCK_LEVEL' in table 'viewtblproducts' is DBNull.", e)
+                End Try
             End Get
             Set
                 Me(Me.tableviewtblproducts.STOCK_LEVELColumn) = value
@@ -2912,6 +2918,30 @@ Partial Public Class pods
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetPRICENull()
             Me(Me.tableviewtblproducts.PRICEColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsCOSTNull() As Boolean
+            Return Me.IsNull(Me.tableviewtblproducts.COSTColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetCOSTNull()
+            Me(Me.tableviewtblproducts.COSTColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsSTOCK_LEVELNull() As Boolean
+            Return Me.IsNull(Me.tableviewtblproducts.STOCK_LEVELColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetSTOCK_LEVELNull()
+            Me(Me.tableviewtblproducts.STOCK_LEVELColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -3944,10 +3974,10 @@ Namespace podsTableAdapters
             tableMapping.ColumnMappings.Add("ID", "ID")
             tableMapping.ColumnMappings.Add("SUBCATEGORY", "SUBCATEGORY")
             tableMapping.ColumnMappings.Add("BARCODE", "BARCODE")
-            tableMapping.ColumnMappings.Add("PRODUCT_NAME", "PRODUCT_NAME")
+            tableMapping.ColumnMappings.Add("PRODUCT", "PRODUCT")
             tableMapping.ColumnMappings.Add("DESCRIPTION", "DESCRIPTION")
-            tableMapping.ColumnMappings.Add("QUANTITY", "QUANTITY")
             tableMapping.ColumnMappings.Add("PRICE", "PRICE")
+            tableMapping.ColumnMappings.Add("COST", "COST")
             tableMapping.ColumnMappings.Add("STOCK_LEVEL", "STOCK_LEVEL")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
@@ -3965,8 +3995,8 @@ Namespace podsTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ID, SUBCATEGORY, BARCODE, PRODUCT_NAME, DESCRIPTION, QUANTITY, PRICE, STOC"& _ 
-                "K_LEVEL FROM dbo.viewtblproducts"
+            Me._commandCollection(0).CommandText = "SELECT ID, SUBCATEGORY, BARCODE, PRODUCT, DESCRIPTION, PRICE, COST, STOCK_LEVEL F"& _ 
+                "ROM dbo.viewtblproducts"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         

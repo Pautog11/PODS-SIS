@@ -22,29 +22,23 @@ Partial Class Dashboard
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Dashboard))
         Me.DashboardTableLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.DashboardPanel = New Guna.UI2.WinForms.Guna2Panel()
         Me.DashboardTabControl = New Guna.UI2.WinForms.Guna2TabControl()
         Me.Home = New System.Windows.Forms.TabPage()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Guna2VSeparator1 = New Guna.UI2.WinForms.Guna2VSeparator()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Maintenance = New System.Windows.Forms.TabPage()
         Me.Maintenance1 = New Pods_Sales_InventorySystem.Maintenance()
         Me.AuditTrail = New System.Windows.Forms.TabPage()
+        Me.AuditTrail1 = New Pods_Sales_InventorySystem.AuditTrail()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Guna2ControlBox2 = New Guna.UI2.WinForms.Guna2ControlBox()
         Me.Guna2ControlBox3 = New Guna.UI2.WinForms.Guna2ControlBox()
         Me.Guna2ControlBox1 = New Guna.UI2.WinForms.Guna2ControlBox()
-        Me.Guna2GradientCircleButton1 = New Guna.UI2.WinForms.Guna2GradientCircleButton()
-        Me.Guna2TileButton1 = New Guna.UI2.WinForms.Guna2TileButton()
-        Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
-        Me.Guna2CircleButton1 = New Guna.UI2.WinForms.Guna2CircleButton()
-        Me.Guna2CustomRadioButton1 = New Guna.UI2.WinForms.Guna2CustomRadioButton()
-        Me.Guna2ImageButton1 = New Guna.UI2.WinForms.Guna2ImageButton()
-        Me.Guna2RadioButton1 = New Guna.UI2.WinForms.Guna2RadioButton()
-        Me.Guna2TileButton2 = New Guna.UI2.WinForms.Guna2TileButton()
+        Me.Product = New System.Windows.Forms.TabPage()
+        Me.Product1 = New Pods_Sales_InventorySystem.Product()
         Me.DashboardTableLayoutPanel.SuspendLayout()
         Me.DashboardPanel.SuspendLayout()
         Me.DashboardTabControl.SuspendLayout()
@@ -53,6 +47,7 @@ Partial Class Dashboard
         Me.Maintenance.SuspendLayout()
         Me.AuditTrail.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
+        Me.Product.SuspendLayout()
         Me.SuspendLayout()
         '
         'DashboardTableLayoutPanel
@@ -85,6 +80,7 @@ Partial Class Dashboard
         '
         Me.DashboardTabControl.Alignment = System.Windows.Forms.TabAlignment.Left
         Me.DashboardTabControl.Controls.Add(Me.Home)
+        Me.DashboardTabControl.Controls.Add(Me.Product)
         Me.DashboardTabControl.Controls.Add(Me.Maintenance)
         Me.DashboardTabControl.Controls.Add(Me.AuditTrail)
         Me.DashboardTabControl.Cursor = System.Windows.Forms.Cursors.Hand
@@ -143,6 +139,14 @@ Partial Class Dashboard
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(1007, 588)
         Me.TableLayoutPanel1.TabIndex = 0
         '
+        'Guna2VSeparator1
+        '
+        Me.Guna2VSeparator1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Guna2VSeparator1.Location = New System.Drawing.Point(674, 4)
+        Me.Guna2VSeparator1.Name = "Guna2VSeparator1"
+        Me.Guna2VSeparator1.Size = New System.Drawing.Size(329, 94)
+        Me.Guna2VSeparator1.TabIndex = 1
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -151,14 +155,6 @@ Partial Class Dashboard
         Me.Label1.Size = New System.Drawing.Size(39, 13)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Label1"
-        '
-        'Guna2VSeparator1
-        '
-        Me.Guna2VSeparator1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Guna2VSeparator1.Location = New System.Drawing.Point(674, 4)
-        Me.Guna2VSeparator1.Name = "Guna2VSeparator1"
-        Me.Guna2VSeparator1.Size = New System.Drawing.Size(329, 94)
-        Me.Guna2VSeparator1.TabIndex = 1
         '
         'Maintenance
         '
@@ -181,14 +177,7 @@ Partial Class Dashboard
         '
         'AuditTrail
         '
-        Me.AuditTrail.Controls.Add(Me.Guna2TileButton2)
-        Me.AuditTrail.Controls.Add(Me.Guna2RadioButton1)
-        Me.AuditTrail.Controls.Add(Me.Guna2ImageButton1)
-        Me.AuditTrail.Controls.Add(Me.Guna2CustomRadioButton1)
-        Me.AuditTrail.Controls.Add(Me.Guna2CircleButton1)
-        Me.AuditTrail.Controls.Add(Me.Guna2Button1)
-        Me.AuditTrail.Controls.Add(Me.Guna2TileButton1)
-        Me.AuditTrail.Controls.Add(Me.Guna2GradientCircleButton1)
+        Me.AuditTrail.Controls.Add(Me.AuditTrail1)
         Me.AuditTrail.Location = New System.Drawing.Point(184, 4)
         Me.AuditTrail.Name = "AuditTrail"
         Me.AuditTrail.Padding = New System.Windows.Forms.Padding(3)
@@ -196,6 +185,14 @@ Partial Class Dashboard
         Me.AuditTrail.TabIndex = 2
         Me.AuditTrail.Text = "Audit Trail"
         Me.AuditTrail.UseVisualStyleBackColor = True
+        '
+        'AuditTrail1
+        '
+        Me.AuditTrail1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.AuditTrail1.Location = New System.Drawing.Point(3, 3)
+        Me.AuditTrail1.Name = "AuditTrail1"
+        Me.AuditTrail1.Size = New System.Drawing.Size(1007, 588)
+        Me.AuditTrail1.TabIndex = 0
         '
         'FlowLayoutPanel1
         '
@@ -248,125 +245,23 @@ Partial Class Dashboard
         Me.Guna2ControlBox1.Size = New System.Drawing.Size(45, 37)
         Me.Guna2ControlBox1.TabIndex = 3
         '
-        'Guna2GradientCircleButton1
+        'Product
         '
-        Me.Guna2GradientCircleButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2GradientCircleButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2GradientCircleButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.Guna2GradientCircleButton1.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.Guna2GradientCircleButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.Guna2GradientCircleButton1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Guna2GradientCircleButton1.ForeColor = System.Drawing.Color.White
-        Me.Guna2GradientCircleButton1.Location = New System.Drawing.Point(56, 63)
-        Me.Guna2GradientCircleButton1.Name = "Guna2GradientCircleButton1"
-        Me.Guna2GradientCircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
-        Me.Guna2GradientCircleButton1.Size = New System.Drawing.Size(148, 148)
-        Me.Guna2GradientCircleButton1.TabIndex = 0
-        Me.Guna2GradientCircleButton1.Text = "Guna2GradientCircleButton1"
+        Me.Product.Controls.Add(Me.Product1)
+        Me.Product.Location = New System.Drawing.Point(184, 4)
+        Me.Product.Name = "Product"
+        Me.Product.Size = New System.Drawing.Size(1013, 594)
+        Me.Product.TabIndex = 3
+        Me.Product.Text = "Product"
+        Me.Product.UseVisualStyleBackColor = True
         '
-        'Guna2TileButton1
+        'Product1
         '
-        Me.Guna2TileButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2TileButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2TileButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.Guna2TileButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.Guna2TileButton1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Guna2TileButton1.ForeColor = System.Drawing.Color.White
-        Me.Guna2TileButton1.Location = New System.Drawing.Point(251, 46)
-        Me.Guna2TileButton1.Name = "Guna2TileButton1"
-        Me.Guna2TileButton1.Size = New System.Drawing.Size(180, 180)
-        Me.Guna2TileButton1.TabIndex = 1
-        Me.Guna2TileButton1.Text = "Guna2TileButton1"
-        '
-        'Guna2Button1
-        '
-        Me.Guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.Guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.Guna2Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Guna2Button1.ForeColor = System.Drawing.Color.White
-        Me.Guna2Button1.Location = New System.Drawing.Point(56, 260)
-        Me.Guna2Button1.Name = "Guna2Button1"
-        Me.Guna2Button1.Size = New System.Drawing.Size(180, 45)
-        Me.Guna2Button1.TabIndex = 2
-        Me.Guna2Button1.Text = "Guna2Button1"
-        '
-        'Guna2CircleButton1
-        '
-        Me.Guna2CircleButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2CircleButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2CircleButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.Guna2CircleButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.Guna2CircleButton1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Guna2CircleButton1.ForeColor = System.Drawing.Color.White
-        Me.Guna2CircleButton1.Location = New System.Drawing.Point(276, 269)
-        Me.Guna2CircleButton1.Name = "Guna2CircleButton1"
-        Me.Guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
-        Me.Guna2CircleButton1.Size = New System.Drawing.Size(167, 116)
-        Me.Guna2CircleButton1.TabIndex = 3
-        Me.Guna2CircleButton1.Text = "Guna2CircleButton1"
-        '
-        'Guna2CustomRadioButton1
-        '
-        Me.Guna2CustomRadioButton1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2CustomRadioButton1.CheckedState.BorderThickness = 0
-        Me.Guna2CustomRadioButton1.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2CustomRadioButton1.CheckedState.InnerColor = System.Drawing.Color.White
-        Me.Guna2CustomRadioButton1.Location = New System.Drawing.Point(535, 170)
-        Me.Guna2CustomRadioButton1.Name = "Guna2CustomRadioButton1"
-        Me.Guna2CustomRadioButton1.Size = New System.Drawing.Size(20, 20)
-        Me.Guna2CustomRadioButton1.TabIndex = 4
-        Me.Guna2CustomRadioButton1.Text = "Guna2CustomRadioButton1"
-        Me.Guna2CustomRadioButton1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
-        Me.Guna2CustomRadioButton1.UncheckedState.BorderThickness = 2
-        Me.Guna2CustomRadioButton1.UncheckedState.FillColor = System.Drawing.Color.Transparent
-        Me.Guna2CustomRadioButton1.UncheckedState.InnerColor = System.Drawing.Color.Transparent
-        '
-        'Guna2ImageButton1
-        '
-        Me.Guna2ImageButton1.CheckedState.ImageSize = New System.Drawing.Size(64, 64)
-        Me.Guna2ImageButton1.HoverState.ImageSize = New System.Drawing.Size(64, 64)
-        Me.Guna2ImageButton1.Image = CType(resources.GetObject("Guna2ImageButton1.Image"), System.Drawing.Image)
-        Me.Guna2ImageButton1.ImageOffset = New System.Drawing.Point(0, 0)
-        Me.Guna2ImageButton1.ImageRotate = 0!
-        Me.Guna2ImageButton1.Location = New System.Drawing.Point(479, 63)
-        Me.Guna2ImageButton1.Name = "Guna2ImageButton1"
-        Me.Guna2ImageButton1.PressedState.ImageSize = New System.Drawing.Size(64, 64)
-        Me.Guna2ImageButton1.Size = New System.Drawing.Size(64, 54)
-        Me.Guna2ImageButton1.TabIndex = 5
-        '
-        'Guna2RadioButton1
-        '
-        Me.Guna2RadioButton1.AutoSize = True
-        Me.Guna2RadioButton1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2RadioButton1.CheckedState.BorderThickness = 0
-        Me.Guna2RadioButton1.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2RadioButton1.CheckedState.InnerColor = System.Drawing.Color.White
-        Me.Guna2RadioButton1.CheckedState.InnerOffset = -4
-        Me.Guna2RadioButton1.Location = New System.Drawing.Point(433, 132)
-        Me.Guna2RadioButton1.Name = "Guna2RadioButton1"
-        Me.Guna2RadioButton1.Size = New System.Drawing.Size(122, 17)
-        Me.Guna2RadioButton1.TabIndex = 6
-        Me.Guna2RadioButton1.Text = "Guna2RadioButton1"
-        Me.Guna2RadioButton1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
-        Me.Guna2RadioButton1.UncheckedState.BorderThickness = 2
-        Me.Guna2RadioButton1.UncheckedState.FillColor = System.Drawing.Color.Transparent
-        Me.Guna2RadioButton1.UncheckedState.InnerColor = System.Drawing.Color.Transparent
-        '
-        'Guna2TileButton2
-        '
-        Me.Guna2TileButton2.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2TileButton2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2TileButton2.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.Guna2TileButton2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.Guna2TileButton2.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Guna2TileButton2.ForeColor = System.Drawing.Color.White
-        Me.Guna2TileButton2.Location = New System.Drawing.Point(607, 46)
-        Me.Guna2TileButton2.Name = "Guna2TileButton2"
-        Me.Guna2TileButton2.Size = New System.Drawing.Size(180, 180)
-        Me.Guna2TileButton2.TabIndex = 7
-        Me.Guna2TileButton2.Text = "Guna2TileButton2"
+        Me.Product1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Product1.Location = New System.Drawing.Point(0, 0)
+        Me.Product1.Name = "Product1"
+        Me.Product1.Size = New System.Drawing.Size(1013, 594)
+        Me.Product1.TabIndex = 0
         '
         'Dashboard
         '
@@ -386,8 +281,8 @@ Partial Class Dashboard
         Me.TableLayoutPanel1.PerformLayout()
         Me.Maintenance.ResumeLayout(False)
         Me.AuditTrail.ResumeLayout(False)
-        Me.AuditTrail.PerformLayout()
         Me.FlowLayoutPanel1.ResumeLayout(False)
+        Me.Product.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -398,7 +293,6 @@ Partial Class Dashboard
     Friend WithEvents Home As TabPage
     Friend WithEvents Maintenance As TabPage
     Friend WithEvents Maintenance1 As Maintenance
-    Friend WithEvents AuditTrail As TabPage
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Label1 As Label
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
@@ -406,12 +300,8 @@ Partial Class Dashboard
     Friend WithEvents Guna2ControlBox3 As Guna.UI2.WinForms.Guna2ControlBox
     Friend WithEvents Guna2ControlBox1 As Guna.UI2.WinForms.Guna2ControlBox
     Friend WithEvents Guna2VSeparator1 As Guna.UI2.WinForms.Guna2VSeparator
-    Friend WithEvents Guna2GradientCircleButton1 As Guna.UI2.WinForms.Guna2GradientCircleButton
-    Friend WithEvents Guna2TileButton2 As Guna.UI2.WinForms.Guna2TileButton
-    Friend WithEvents Guna2RadioButton1 As Guna.UI2.WinForms.Guna2RadioButton
-    Friend WithEvents Guna2ImageButton1 As Guna.UI2.WinForms.Guna2ImageButton
-    Friend WithEvents Guna2CustomRadioButton1 As Guna.UI2.WinForms.Guna2CustomRadioButton
-    Friend WithEvents Guna2CircleButton1 As Guna.UI2.WinForms.Guna2CircleButton
-    Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents Guna2TileButton1 As Guna.UI2.WinForms.Guna2TileButton
+    Friend WithEvents AuditTrail As TabPage
+    Friend WithEvents AuditTrail1 As AuditTrail
+    Friend WithEvents Product As TabPage
+    Friend WithEvents Product1 As Product
 End Class

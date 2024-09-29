@@ -99,7 +99,7 @@
               <DbSource ConnectionRef="podsdbConnectionString1 (MySettings)" DbObjectName="podsdb.dbo.viewtblproducts" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT ID, SUBCATEGORY, BARCODE, PRODUCT_NAME, DESCRIPTION, QUANTITY, PRICE, STOCK_LEVEL FROM dbo.viewtblproducts</CommandText>
+                    <CommandText>SELECT ID, SUBCATEGORY, BARCODE, PRODUCT, DESCRIPTION, PRICE, COST, STOCK_LEVEL FROM dbo.viewtblproducts</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -109,10 +109,10 @@
               <Mapping SourceColumn="ID" DataSetColumn="ID" />
               <Mapping SourceColumn="SUBCATEGORY" DataSetColumn="SUBCATEGORY" />
               <Mapping SourceColumn="BARCODE" DataSetColumn="BARCODE" />
-              <Mapping SourceColumn="PRODUCT_NAME" DataSetColumn="PRODUCT_NAME" />
+              <Mapping SourceColumn="PRODUCT" DataSetColumn="PRODUCT" />
               <Mapping SourceColumn="DESCRIPTION" DataSetColumn="DESCRIPTION" />
-              <Mapping SourceColumn="QUANTITY" DataSetColumn="QUANTITY" />
               <Mapping SourceColumn="PRICE" DataSetColumn="PRICE" />
+              <Mapping SourceColumn="COST" DataSetColumn="COST" />
               <Mapping SourceColumn="STOCK_LEVEL" DataSetColumn="STOCK_LEVEL" />
             </Mappings>
             <Sources />
@@ -125,7 +125,7 @@
   <xs:element name="pods" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="pods" msprop:Generator_UserDSName="pods">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="viewtblcategories" msprop:Generator_TableClassName="viewtblcategoriesDataTable" msprop:Generator_RowEvArgName="viewtblcategoriesRowChangeEvent" msprop:Generator_TableVarName="tableviewtblcategories" msprop:Generator_TablePropName="viewtblcategories" msprop:Generator_RowDeletingName="viewtblcategoriesRowDeleting" msprop:Generator_RowChangingName="viewtblcategoriesRowChanging" msprop:Generator_RowEvHandlerName="viewtblcategoriesRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtblcategoriesRowDeleted" msprop:Generator_RowChangedName="viewtblcategoriesRowChanged" msprop:Generator_UserTableName="viewtblcategories" msprop:Generator_RowClassName="viewtblcategoriesRow">
+        <xs:element name="viewtblcategories" msprop:Generator_TableClassName="viewtblcategoriesDataTable" msprop:Generator_RowEvArgName="viewtblcategoriesRowChangeEvent" msprop:Generator_TableVarName="tableviewtblcategories" msprop:Generator_TablePropName="viewtblcategories" msprop:Generator_RowDeletingName="viewtblcategoriesRowDeleting" msprop:Generator_RowChangingName="viewtblcategoriesRowChanging" msprop:Generator_RowEvHandlerName="viewtblcategoriesRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtblcategoriesRowDeleted" msprop:Generator_UserTableName="viewtblcategories" msprop:Generator_RowChangedName="viewtblcategoriesRowChanged" msprop:Generator_RowClassName="viewtblcategoriesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -146,7 +146,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="viewtblsubcategories" msprop:Generator_TableClassName="viewtblsubcategoriesDataTable" msprop:Generator_RowEvArgName="viewtblsubcategoriesRowChangeEvent" msprop:Generator_TableVarName="tableviewtblsubcategories" msprop:Generator_TablePropName="viewtblsubcategories" msprop:Generator_RowDeletingName="viewtblsubcategoriesRowDeleting" msprop:Generator_RowChangingName="viewtblsubcategoriesRowChanging" msprop:Generator_RowEvHandlerName="viewtblsubcategoriesRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtblsubcategoriesRowDeleted" msprop:Generator_RowChangedName="viewtblsubcategoriesRowChanged" msprop:Generator_UserTableName="viewtblsubcategories" msprop:Generator_RowClassName="viewtblsubcategoriesRow">
+        <xs:element name="viewtblsubcategories" msprop:Generator_TableClassName="viewtblsubcategoriesDataTable" msprop:Generator_RowEvArgName="viewtblsubcategoriesRowChangeEvent" msprop:Generator_TableVarName="tableviewtblsubcategories" msprop:Generator_TablePropName="viewtblsubcategories" msprop:Generator_RowDeletingName="viewtblsubcategoriesRowDeleting" msprop:Generator_RowChangingName="viewtblsubcategoriesRowChanging" msprop:Generator_RowEvHandlerName="viewtblsubcategoriesRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtblsubcategoriesRowDeleted" msprop:Generator_UserTableName="viewtblsubcategories" msprop:Generator_RowChangedName="viewtblsubcategoriesRowChanged" msprop:Generator_RowClassName="viewtblsubcategoriesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -325,7 +325,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="PRODUCT_NAME" msprop:Generator_ColumnVarNameInTable="columnPRODUCT_NAME" msprop:Generator_ColumnPropNameInRow="PRODUCT_NAME" msprop:Generator_ColumnPropNameInTable="PRODUCT_NAMEColumn" msprop:Generator_UserColumnName="PRODUCT_NAME">
+              <xs:element name="PRODUCT" msprop:Generator_ColumnVarNameInTable="columnPRODUCT" msprop:Generator_ColumnPropNameInRow="PRODUCT" msprop:Generator_ColumnPropNameInTable="PRODUCTColumn" msprop:Generator_UserColumnName="PRODUCT">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -339,9 +339,9 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="QUANTITY" msprop:Generator_ColumnVarNameInTable="columnQUANTITY" msprop:Generator_ColumnPropNameInRow="QUANTITY" msprop:Generator_ColumnPropNameInTable="QUANTITYColumn" msprop:Generator_UserColumnName="QUANTITY" type="xs:int" />
               <xs:element name="PRICE" msprop:Generator_ColumnVarNameInTable="columnPRICE" msprop:Generator_ColumnPropNameInRow="PRICE" msprop:Generator_ColumnPropNameInTable="PRICEColumn" msprop:Generator_UserColumnName="PRICE" type="xs:decimal" minOccurs="0" />
-              <xs:element name="STOCK_LEVEL" msprop:Generator_ColumnVarNameInTable="columnSTOCK_LEVEL" msprop:Generator_ColumnPropNameInRow="STOCK_LEVEL" msprop:Generator_ColumnPropNameInTable="STOCK_LEVELColumn" msprop:Generator_UserColumnName="STOCK_LEVEL" type="xs:int" />
+              <xs:element name="COST" msprop:Generator_ColumnVarNameInTable="columnCOST" msprop:Generator_ColumnPropNameInRow="COST" msprop:Generator_ColumnPropNameInTable="COSTColumn" msprop:Generator_UserColumnName="COST" type="xs:decimal" minOccurs="0" />
+              <xs:element name="STOCK_LEVEL" msprop:Generator_ColumnVarNameInTable="columnSTOCK_LEVEL" msprop:Generator_ColumnPropNameInRow="STOCK_LEVEL" msprop:Generator_ColumnPropNameInTable="STOCK_LEVELColumn" msprop:Generator_UserColumnName="STOCK_LEVEL" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
