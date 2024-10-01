@@ -11,9 +11,9 @@
             'My.Settings.con = ""
             'My.Settings.Save()
 
-            If My.Settings.con = "" Then
-                Me.MainForm = New Server
-            End If
+            'If My.Settings.con = "" Then
+            '    Me.MainForm = New Server
+            'End If
         End Sub
     End Class
 End Namespace

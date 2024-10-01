@@ -1,8 +1,8 @@
 ﻿Public Class AccountLog
     Implements IObserverPanel
     Private _subject As IObservablePanel
-    Private _tableAapter As New podsTableAdapters.viewtbaccount_logsTableAdapter
-    Private _dataTable As New pods.viewtbaccount_logsDataTable
+    Private _tableAapter As New podsTableAdapters.viewtblaccount_logsTableAdapter
+    Private _dataTable As New pods.viewtblaccount_logsDataTable
     Private Sub AccountLog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             _subject = Application.OpenForms.OfType(Of Dashboard).FirstOrDefault
