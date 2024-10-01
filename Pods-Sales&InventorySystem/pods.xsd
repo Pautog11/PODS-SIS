@@ -45,55 +45,6 @@
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="viewtblsuppliersTableAdapter" GeneratorDataComponentClassName="viewtblsuppliersTableAdapter" Name="viewtblsuppliers" UserDataComponentName="viewtblsuppliersTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="podsdbConnectionString1 (MySettings)" DbObjectName="podsdb.dbo.viewtblsuppliers" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT ID, COMPANY_NAME, COMPANY_CONTACT_NUMBER, COMPANY_ADDRESS, FIRSTNAME, LASTNAME, PHONE_NUMBER, DATE_UPDATED, DATE_CREATED FROM dbo.viewtblsuppliers</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="ID" DataSetColumn="ID" />
-              <Mapping SourceColumn="COMPANY_NAME" DataSetColumn="COMPANY_NAME" />
-              <Mapping SourceColumn="COMPANY_CONTACT_NUMBER" DataSetColumn="COMPANY_CONTACT_NUMBER" />
-              <Mapping SourceColumn="COMPANY_ADDRESS" DataSetColumn="COMPANY_ADDRESS" />
-              <Mapping SourceColumn="FIRSTNAME" DataSetColumn="FIRSTNAME" />
-              <Mapping SourceColumn="LASTNAME" DataSetColumn="LASTNAME" />
-              <Mapping SourceColumn="PHONE_NUMBER" DataSetColumn="PHONE_NUMBER" />
-              <Mapping SourceColumn="DATE_UPDATED" DataSetColumn="DATE_UPDATED" />
-              <Mapping SourceColumn="DATE_CREATED" DataSetColumn="DATE_CREATED" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="viewtblaccountsTableAdapter" GeneratorDataComponentClassName="viewtblaccountsTableAdapter" Name="viewtblaccounts" UserDataComponentName="viewtblaccountsTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="podsdbConnectionString1 (MySettings)" DbObjectName="podsdb.dbo.viewtblaccounts" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT ID, ROLE, STATUS, FIRSTNAME, LASTNAME, PHONE_NUMBER, ADDRESS, USERNAME, DATE_UPDATED, DATE_CREATED FROM dbo.viewtblaccounts</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="ID" DataSetColumn="ID" />
-              <Mapping SourceColumn="ROLE" DataSetColumn="ROLE" />
-              <Mapping SourceColumn="STATUS" DataSetColumn="STATUS" />
-              <Mapping SourceColumn="FIRSTNAME" DataSetColumn="FIRSTNAME" />
-              <Mapping SourceColumn="LASTNAME" DataSetColumn="LASTNAME" />
-              <Mapping SourceColumn="PHONE_NUMBER" DataSetColumn="PHONE_NUMBER" />
-              <Mapping SourceColumn="ADDRESS" DataSetColumn="ADDRESS" />
-              <Mapping SourceColumn="USERNAME" DataSetColumn="USERNAME" />
-              <Mapping SourceColumn="DATE_UPDATED" DataSetColumn="DATE_UPDATED" />
-              <Mapping SourceColumn="DATE_CREATED" DataSetColumn="DATE_CREATED" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="viewtblproductsTableAdapter" GeneratorDataComponentClassName="viewtblproductsTableAdapter" Name="viewtblproducts" UserDataComponentName="viewtblproductsTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="podsdbConnectionString1 (MySettings)" DbObjectName="podsdb.dbo.viewtblproducts" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
@@ -137,6 +88,51 @@
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="viewtblaccountsTableAdapter" GeneratorDataComponentClassName="viewtblaccountsTableAdapter" Name="viewtblaccounts" UserDataComponentName="viewtblaccountsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="podsdbConnectionString1 (MySettings)" DbObjectName="podsdb.dbo.viewtblaccounts" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ID, ROLE, STATUS, NAME, PHONE_NUMBER, ADDRESS, USERNAME, DATE_UPDATED FROM dbo.viewtblaccounts</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="ROLE" DataSetColumn="ROLE" />
+              <Mapping SourceColumn="STATUS" DataSetColumn="STATUS" />
+              <Mapping SourceColumn="NAME" DataSetColumn="NAME" />
+              <Mapping SourceColumn="PHONE_NUMBER" DataSetColumn="PHONE_NUMBER" />
+              <Mapping SourceColumn="ADDRESS" DataSetColumn="ADDRESS" />
+              <Mapping SourceColumn="USERNAME" DataSetColumn="USERNAME" />
+              <Mapping SourceColumn="DATE_UPDATED" DataSetColumn="DATE_UPDATED" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="viewtblsuppliersTableAdapter" GeneratorDataComponentClassName="viewtblsuppliersTableAdapter" Name="viewtblsuppliers" UserDataComponentName="viewtblsuppliersTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="podsdbConnectionString1 (MySettings)" DbObjectName="podsdb.dbo.viewtblsuppliers" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ID, COMPANY, CONTACT_NUMBER, ADRESS, NAME, PHONE_NUMBER, DATE_UPDATED FROM dbo.viewtblsuppliers</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="COMPANY" DataSetColumn="COMPANY" />
+              <Mapping SourceColumn="CONTACT_NUMBER" DataSetColumn="CONTACT_NUMBER" />
+              <Mapping SourceColumn="ADRESS" DataSetColumn="ADRESS" />
+              <Mapping SourceColumn="NAME" DataSetColumn="NAME" />
+              <Mapping SourceColumn="PHONE_NUMBER" DataSetColumn="PHONE_NUMBER" />
+              <Mapping SourceColumn="DATE_UPDATED" DataSetColumn="DATE_UPDATED" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -145,7 +141,7 @@
   <xs:element name="pods" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="pods" msprop:Generator_UserDSName="pods">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="viewtblcategories" msprop:Generator_TableClassName="viewtblcategoriesDataTable" msprop:Generator_RowEvArgName="viewtblcategoriesRowChangeEvent" msprop:Generator_TableVarName="tableviewtblcategories" msprop:Generator_TablePropName="viewtblcategories" msprop:Generator_RowDeletingName="viewtblcategoriesRowDeleting" msprop:Generator_RowChangingName="viewtblcategoriesRowChanging" msprop:Generator_RowEvHandlerName="viewtblcategoriesRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtblcategoriesRowDeleted" msprop:Generator_RowChangedName="viewtblcategoriesRowChanged" msprop:Generator_UserTableName="viewtblcategories" msprop:Generator_RowClassName="viewtblcategoriesRow">
+        <xs:element name="viewtblcategories" msprop:Generator_TableClassName="viewtblcategoriesDataTable" msprop:Generator_RowEvArgName="viewtblcategoriesRowChangeEvent" msprop:Generator_TableVarName="tableviewtblcategories" msprop:Generator_TablePropName="viewtblcategories" msprop:Generator_RowDeletingName="viewtblcategoriesRowDeleting" msprop:Generator_RowChangingName="viewtblcategoriesRowChanging" msprop:Generator_RowEvHandlerName="viewtblcategoriesRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtblcategoriesRowDeleted" msprop:Generator_UserTableName="viewtblcategories" msprop:Generator_RowChangedName="viewtblcategoriesRowChanged" msprop:Generator_RowClassName="viewtblcategoriesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -166,7 +162,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="viewtblsubcategories" msprop:Generator_TableClassName="viewtblsubcategoriesDataTable" msprop:Generator_RowEvArgName="viewtblsubcategoriesRowChangeEvent" msprop:Generator_TableVarName="tableviewtblsubcategories" msprop:Generator_TablePropName="viewtblsubcategories" msprop:Generator_RowDeletingName="viewtblsubcategoriesRowDeleting" msprop:Generator_RowChangingName="viewtblsubcategoriesRowChanging" msprop:Generator_RowEvHandlerName="viewtblsubcategoriesRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtblsubcategoriesRowDeleted" msprop:Generator_RowChangedName="viewtblsubcategoriesRowChanged" msprop:Generator_UserTableName="viewtblsubcategories" msprop:Generator_RowClassName="viewtblsubcategoriesRow">
+        <xs:element name="viewtblsubcategories" msprop:Generator_TableClassName="viewtblsubcategoriesDataTable" msprop:Generator_RowEvArgName="viewtblsubcategoriesRowChangeEvent" msprop:Generator_TableVarName="tableviewtblsubcategories" msprop:Generator_TablePropName="viewtblsubcategories" msprop:Generator_RowDeletingName="viewtblsubcategoriesRowDeleting" msprop:Generator_RowChangingName="viewtblsubcategoriesRowChanging" msprop:Generator_RowEvHandlerName="viewtblsubcategoriesRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtblsubcategoriesRowDeleted" msprop:Generator_UserTableName="viewtblsubcategories" msprop:Generator_RowChangedName="viewtblsubcategoriesRowChanged" msprop:Generator_RowClassName="viewtblsubcategoriesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -194,140 +190,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="viewtblsuppliers" msprop:Generator_TableClassName="viewtblsuppliersDataTable" msprop:Generator_RowEvArgName="viewtblsuppliersRowChangeEvent" msprop:Generator_TableVarName="tableviewtblsuppliers" msprop:Generator_TablePropName="viewtblsuppliers" msprop:Generator_RowDeletingName="viewtblsuppliersRowDeleting" msprop:Generator_RowChangingName="viewtblsuppliersRowChanging" msprop:Generator_RowDeletedName="viewtblsuppliersRowDeleted" msprop:Generator_RowClassName="viewtblsuppliersRow" msprop:Generator_RowEvHandlerName="viewtblsuppliersRowChangeEventHandler" msprop:Generator_RowChangedName="viewtblsuppliersRowChanged" msprop:Generator_UserTableName="viewtblsuppliers">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
-              <xs:element name="COMPANY_NAME" msprop:Generator_ColumnVarNameInTable="columnCOMPANY_NAME" msprop:Generator_ColumnPropNameInRow="COMPANY_NAME" msprop:Generator_ColumnPropNameInTable="COMPANY_NAMEColumn" msprop:Generator_UserColumnName="COMPANY_NAME" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="COMPANY_CONTACT_NUMBER" msprop:Generator_ColumnVarNameInTable="columnCOMPANY_CONTACT_NUMBER" msprop:Generator_ColumnPropNameInRow="COMPANY_CONTACT_NUMBER" msprop:Generator_ColumnPropNameInTable="COMPANY_CONTACT_NUMBERColumn" msprop:Generator_UserColumnName="COMPANY_CONTACT_NUMBER" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="20" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="COMPANY_ADDRESS" msprop:Generator_ColumnVarNameInTable="columnCOMPANY_ADDRESS" msprop:Generator_ColumnPropNameInRow="COMPANY_ADDRESS" msprop:Generator_ColumnPropNameInTable="COMPANY_ADDRESSColumn" msprop:Generator_UserColumnName="COMPANY_ADDRESS" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="FIRSTNAME" msprop:Generator_ColumnVarNameInTable="columnFIRSTNAME" msprop:Generator_ColumnPropNameInRow="FIRSTNAME" msprop:Generator_ColumnPropNameInTable="FIRSTNAMEColumn" msprop:Generator_UserColumnName="FIRSTNAME">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="LASTNAME" msprop:Generator_ColumnVarNameInTable="columnLASTNAME" msprop:Generator_ColumnPropNameInRow="LASTNAME" msprop:Generator_ColumnPropNameInTable="LASTNAMEColumn" msprop:Generator_UserColumnName="LASTNAME">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="PHONE_NUMBER" msprop:Generator_ColumnVarNameInTable="columnPHONE_NUMBER" msprop:Generator_ColumnPropNameInRow="PHONE_NUMBER" msprop:Generator_ColumnPropNameInTable="PHONE_NUMBERColumn" msprop:Generator_UserColumnName="PHONE_NUMBER" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="20" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="DATE_UPDATED" msprop:Generator_ColumnVarNameInTable="columnDATE_UPDATED" msprop:Generator_ColumnPropNameInRow="DATE_UPDATED" msprop:Generator_ColumnPropNameInTable="DATE_UPDATEDColumn" msprop:Generator_UserColumnName="DATE_UPDATED">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="DATE_CREATED" msprop:Generator_ColumnVarNameInTable="columnDATE_CREATED" msprop:Generator_ColumnPropNameInRow="DATE_CREATED" msprop:Generator_ColumnPropNameInTable="DATE_CREATEDColumn" msprop:Generator_UserColumnName="DATE_CREATED">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="viewtblaccounts" msprop:Generator_TableClassName="viewtblaccountsDataTable" msprop:Generator_RowEvArgName="viewtblaccountsRowChangeEvent" msprop:Generator_TableVarName="tableviewtblaccounts" msprop:Generator_TablePropName="viewtblaccounts" msprop:Generator_RowDeletingName="viewtblaccountsRowDeleting" msprop:Generator_RowChangingName="viewtblaccountsRowChanging" msprop:Generator_RowDeletedName="viewtblaccountsRowDeleted" msprop:Generator_RowClassName="viewtblaccountsRow" msprop:Generator_RowEvHandlerName="viewtblaccountsRowChangeEventHandler" msprop:Generator_RowChangedName="viewtblaccountsRowChanged" msprop:Generator_UserTableName="viewtblaccounts">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
-              <xs:element name="ROLE" msprop:Generator_ColumnVarNameInTable="columnROLE" msprop:Generator_ColumnPropNameInRow="ROLE" msprop:Generator_ColumnPropNameInTable="ROLEColumn" msprop:Generator_UserColumnName="ROLE" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="STATUS" msprop:Generator_ColumnVarNameInTable="columnSTATUS" msprop:Generator_ColumnPropNameInRow="STATUS" msprop:Generator_ColumnPropNameInTable="STATUSColumn" msprop:Generator_UserColumnName="STATUS" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="FIRSTNAME" msprop:Generator_ColumnVarNameInTable="columnFIRSTNAME" msprop:Generator_ColumnPropNameInRow="FIRSTNAME" msprop:Generator_ColumnPropNameInTable="FIRSTNAMEColumn" msprop:Generator_UserColumnName="FIRSTNAME" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="LASTNAME" msprop:Generator_ColumnVarNameInTable="columnLASTNAME" msprop:Generator_ColumnPropNameInRow="LASTNAME" msprop:Generator_ColumnPropNameInTable="LASTNAMEColumn" msprop:Generator_UserColumnName="LASTNAME" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="PHONE_NUMBER" msprop:Generator_ColumnVarNameInTable="columnPHONE_NUMBER" msprop:Generator_ColumnPropNameInRow="PHONE_NUMBER" msprop:Generator_ColumnPropNameInTable="PHONE_NUMBERColumn" msprop:Generator_UserColumnName="PHONE_NUMBER" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="20" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="ADDRESS" msprop:Generator_ColumnVarNameInTable="columnADDRESS" msprop:Generator_ColumnPropNameInRow="ADDRESS" msprop:Generator_ColumnPropNameInTable="ADDRESSColumn" msprop:Generator_UserColumnName="ADDRESS" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="USERNAME" msprop:Generator_ColumnVarNameInTable="columnUSERNAME" msprop:Generator_ColumnPropNameInRow="USERNAME" msprop:Generator_ColumnPropNameInTable="USERNAMEColumn" msprop:Generator_UserColumnName="USERNAME" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="DATE_UPDATED" msprop:Generator_ColumnVarNameInTable="columnDATE_UPDATED" msprop:Generator_ColumnPropNameInRow="DATE_UPDATED" msprop:Generator_ColumnPropNameInTable="DATE_UPDATEDColumn" msprop:Generator_UserColumnName="DATE_UPDATED" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="DATE_CREATED" msprop:Generator_ColumnVarNameInTable="columnDATE_CREATED" msprop:Generator_ColumnPropNameInRow="DATE_CREATED" msprop:Generator_ColumnPropNameInTable="DATE_CREATEDColumn" msprop:Generator_UserColumnName="DATE_CREATED" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="viewtblproducts" msprop:Generator_TableClassName="viewtblproductsDataTable" msprop:Generator_TableVarName="tableviewtblproducts" msprop:Generator_RowChangedName="viewtblproductsRowChanged" msprop:Generator_TablePropName="viewtblproducts" msprop:Generator_RowDeletingName="viewtblproductsRowDeleting" msprop:Generator_RowChangingName="viewtblproductsRowChanging" msprop:Generator_RowEvHandlerName="viewtblproductsRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtblproductsRowDeleted" msprop:Generator_RowClassName="viewtblproductsRow" msprop:Generator_UserTableName="viewtblproducts" msprop:Generator_RowEvArgName="viewtblproductsRowChangeEvent">
+        <xs:element name="viewtblproducts" msprop:Generator_TableClassName="viewtblproductsDataTable" msprop:Generator_TableVarName="tableviewtblproducts" msprop:Generator_TablePropName="viewtblproducts" msprop:Generator_RowDeletingName="viewtblproductsRowDeleting" msprop:Generator_RowChangingName="viewtblproductsRowChanging" msprop:Generator_RowEvHandlerName="viewtblproductsRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtblproductsRowDeleted" msprop:Generator_UserTableName="viewtblproducts" msprop:Generator_RowChangedName="viewtblproductsRowChanged" msprop:Generator_RowEvArgName="viewtblproductsRowChangeEvent" msprop:Generator_RowClassName="viewtblproductsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -365,7 +228,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="viewtbaccount_logs" msprop:Generator_TableClassName="viewtbaccount_logsDataTable" msprop:Generator_TableVarName="tableviewtbaccount_logs" msprop:Generator_TablePropName="viewtbaccount_logs" msprop:Generator_RowDeletingName="viewtbaccount_logsRowDeleting" msprop:Generator_RowChangingName="viewtbaccount_logsRowChanging" msprop:Generator_RowEvHandlerName="viewtbaccount_logsRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtbaccount_logsRowDeleted" msprop:Generator_UserTableName="viewtbaccount_logs" msprop:Generator_RowChangedName="viewtbaccount_logsRowChanged" msprop:Generator_RowEvArgName="viewtbaccount_logsRowChangeEvent" msprop:Generator_RowClassName="viewtbaccount_logsRow">
+        <xs:element name="viewtbaccount_logs" msprop:Generator_TableClassName="viewtbaccount_logsDataTable" msprop:Generator_TableVarName="tableviewtbaccount_logs" msprop:Generator_RowChangedName="viewtbaccount_logsRowChanged" msprop:Generator_TablePropName="viewtbaccount_logs" msprop:Generator_RowDeletingName="viewtbaccount_logsRowDeleting" msprop:Generator_RowChangingName="viewtbaccount_logsRowChanging" msprop:Generator_RowEvHandlerName="viewtbaccount_logsRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtbaccount_logsRowDeleted" msprop:Generator_RowClassName="viewtbaccount_logsRow" msprop:Generator_UserTableName="viewtbaccount_logs" msprop:Generator_RowEvArgName="viewtbaccount_logsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -388,6 +251,111 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="viewtblaccounts" msprop:Generator_TableClassName="viewtblaccountsDataTable" msprop:Generator_TableVarName="tableviewtblaccounts" msprop:Generator_RowChangedName="viewtblaccountsRowChanged" msprop:Generator_TablePropName="viewtblaccounts" msprop:Generator_RowDeletingName="viewtblaccountsRowDeleting" msprop:Generator_RowChangingName="viewtblaccountsRowChanging" msprop:Generator_RowEvHandlerName="viewtblaccountsRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtblaccountsRowDeleted" msprop:Generator_RowClassName="viewtblaccountsRow" msprop:Generator_UserTableName="viewtblaccounts" msprop:Generator_RowEvArgName="viewtblaccountsRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="ROLE" msprop:Generator_ColumnVarNameInTable="columnROLE" msprop:Generator_ColumnPropNameInRow="ROLE" msprop:Generator_ColumnPropNameInTable="ROLEColumn" msprop:Generator_UserColumnName="ROLE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="STATUS" msprop:Generator_ColumnVarNameInTable="columnSTATUS" msprop:Generator_ColumnPropNameInRow="STATUS" msprop:Generator_ColumnPropNameInTable="STATUSColumn" msprop:Generator_UserColumnName="STATUS" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAME" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNAME" msprop:Generator_ColumnPropNameInRow="NAME" msprop:Generator_ColumnPropNameInTable="NAMEColumn" msprop:Generator_UserColumnName="NAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="101" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PHONE_NUMBER" msprop:Generator_ColumnVarNameInTable="columnPHONE_NUMBER" msprop:Generator_ColumnPropNameInRow="PHONE_NUMBER" msprop:Generator_ColumnPropNameInTable="PHONE_NUMBERColumn" msprop:Generator_UserColumnName="PHONE_NUMBER" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ADDRESS" msprop:Generator_ColumnVarNameInTable="columnADDRESS" msprop:Generator_ColumnPropNameInRow="ADDRESS" msprop:Generator_ColumnPropNameInTable="ADDRESSColumn" msprop:Generator_UserColumnName="ADDRESS" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="USERNAME" msprop:Generator_ColumnVarNameInTable="columnUSERNAME" msprop:Generator_ColumnPropNameInRow="USERNAME" msprop:Generator_ColumnPropNameInTable="USERNAMEColumn" msprop:Generator_UserColumnName="USERNAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DATE_UPDATED" msprop:Generator_ColumnVarNameInTable="columnDATE_UPDATED" msprop:Generator_ColumnPropNameInRow="DATE_UPDATED" msprop:Generator_ColumnPropNameInTable="DATE_UPDATEDColumn" msprop:Generator_UserColumnName="DATE_UPDATED" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="viewtblsuppliers" msprop:Generator_TableClassName="viewtblsuppliersDataTable" msprop:Generator_TableVarName="tableviewtblsuppliers" msprop:Generator_TablePropName="viewtblsuppliers" msprop:Generator_RowDeletingName="viewtblsuppliersRowDeleting" msprop:Generator_RowChangingName="viewtblsuppliersRowChanging" msprop:Generator_RowEvHandlerName="viewtblsuppliersRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtblsuppliersRowDeleted" msprop:Generator_UserTableName="viewtblsuppliers" msprop:Generator_RowChangedName="viewtblsuppliersRowChanged" msprop:Generator_RowEvArgName="viewtblsuppliersRowChangeEvent" msprop:Generator_RowClassName="viewtblsuppliersRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="COMPANY" msprop:Generator_ColumnVarNameInTable="columnCOMPANY" msprop:Generator_ColumnPropNameInRow="COMPANY" msprop:Generator_ColumnPropNameInTable="COMPANYColumn" msprop:Generator_UserColumnName="COMPANY" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CONTACT_NUMBER" msprop:Generator_ColumnVarNameInTable="columnCONTACT_NUMBER" msprop:Generator_ColumnPropNameInRow="CONTACT_NUMBER" msprop:Generator_ColumnPropNameInTable="CONTACT_NUMBERColumn" msprop:Generator_UserColumnName="CONTACT_NUMBER" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ADRESS" msprop:Generator_ColumnVarNameInTable="columnADRESS" msprop:Generator_ColumnPropNameInRow="ADRESS" msprop:Generator_ColumnPropNameInTable="ADRESSColumn" msprop:Generator_UserColumnName="ADRESS" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAME" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNAME" msprop:Generator_ColumnPropNameInRow="NAME" msprop:Generator_ColumnPropNameInTable="NAMEColumn" msprop:Generator_UserColumnName="NAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="101" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PHONE_NUMBER" msprop:Generator_ColumnVarNameInTable="columnPHONE_NUMBER" msprop:Generator_ColumnPropNameInRow="PHONE_NUMBER" msprop:Generator_ColumnPropNameInTable="PHONE_NUMBERColumn" msprop:Generator_UserColumnName="PHONE_NUMBER" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DATE_UPDATED" msprop:Generator_ColumnVarNameInTable="columnDATE_UPDATED" msprop:Generator_ColumnPropNameInRow="DATE_UPDATED" msprop:Generator_ColumnPropNameInTable="DATE_UPDATEDColumn" msprop:Generator_UserColumnName="DATE_UPDATED">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -398,20 +366,20 @@
       <xs:selector xpath=".//mstns:viewtblsubcategories" />
       <xs:field xpath="mstns:ID" />
     </xs:unique>
-    <xs:unique name="viewtblsuppliers_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:viewtblsuppliers" />
-      <xs:field xpath="mstns:ID" />
-    </xs:unique>
-    <xs:unique name="viewtblaccounts_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:viewtblaccounts" />
-      <xs:field xpath="mstns:ID" />
-    </xs:unique>
     <xs:unique name="viewtblproducts_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:viewtblproducts" />
       <xs:field xpath="mstns:ID" />
     </xs:unique>
     <xs:unique name="viewtbaccount_logs_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:viewtbaccount_logs" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="viewtblaccounts_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:viewtblaccounts" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="viewtblsuppliers_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:viewtblsuppliers" />
       <xs:field xpath="mstns:ID" />
     </xs:unique>
   </xs:element>

@@ -177,7 +177,7 @@ Public Class BaseAccount
     Public Shared Function Search(query As String) As pods.viewtblaccountsDataTable 'pods.tblaccountsDataTable
         Try
             Dim conn As New SqlConnection(My.Settings.podsdbConnectionString)
-            Dim cmd As New SqlCommand("SELECT * FROM viewtblaccounts WHERE id <> 1 AND FIRSTNAME LIKE CONCAT('%', @query, '%') OR USERNAME LIKE CONCAT('%', @query, '%')", conn)
+            Dim cmd As New SqlCommand("SELECT * FROM viewtblaccounts WHERE id <> 1 AND NAME LIKE CONCAT('%', @query, '%') OR USERNAME LIKE CONCAT('%', @query, '%')", conn)
             cmd.Parameters.AddWithValue("@query", query)
             Dim dTable As New pods.viewtblaccountsDataTable
             Dim adapter As New SqlDataAdapter(cmd)

@@ -18,4 +18,9 @@
         _tableAapter.Fill(_dataTable)
         SupplierDataGridView.DataSource = _dataTable
     End Sub
+
+    Private Sub AddSupplierButton_Click(sender As Object, e As EventArgs) Handles AddSupplierButton.Click
+        Dim dialog As New SupplierDialog
+        dialog.ShowDialog()
+    End Sub
 End Class

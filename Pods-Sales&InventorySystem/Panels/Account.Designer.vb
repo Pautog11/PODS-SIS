@@ -43,12 +43,12 @@ Partial Class Account
         Me.AccountHeaderLayoutPanel.Controls.Add(Me.AddAccountButton, 1, 0)
         Me.AccountHeaderLayoutPanel.Controls.Add(Me.AccountSearchTextBox, 0, 0)
         Me.AccountHeaderLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AccountHeaderLayoutPanel.Location = New System.Drawing.Point(4, 4)
+        Me.AccountHeaderLayoutPanel.Location = New System.Drawing.Point(3, 3)
         Me.AccountHeaderLayoutPanel.Name = "AccountHeaderLayoutPanel"
         Me.AccountHeaderLayoutPanel.RowCount = 1
         Me.AccountHeaderLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.AccountHeaderLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44.0!))
-        Me.AccountHeaderLayoutPanel.Size = New System.Drawing.Size(887, 44)
+        Me.AccountHeaderLayoutPanel.Size = New System.Drawing.Size(889, 44)
         Me.AccountHeaderLayoutPanel.TabIndex = 0
         '
         'AddAccountButton
@@ -62,7 +62,7 @@ Partial Class Account
         Me.AddAccountButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.AddAccountButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddAccountButton.ForeColor = System.Drawing.Color.White
-        Me.AddAccountButton.Location = New System.Drawing.Point(734, 4)
+        Me.AddAccountButton.Location = New System.Drawing.Point(736, 4)
         Me.AddAccountButton.Name = "AddAccountButton"
         Me.AddAccountButton.Size = New System.Drawing.Size(150, 35)
         Me.AddAccountButton.TabIndex = 2
@@ -91,7 +91,6 @@ Partial Class Account
         '
         'TableLayoutPanel1
         '
-        Me.TableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.[Single]
         Me.TableLayoutPanel1.ColumnCount = 1
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel1.Controls.Add(Me.AccountsDataGridView, 0, 1)
@@ -132,13 +131,13 @@ Partial Class Account
         Me.AccountsDataGridView.DefaultCellStyle = DataGridViewCellStyle3
         Me.AccountsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AccountsDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.AccountsDataGridView.Location = New System.Drawing.Point(4, 55)
+        Me.AccountsDataGridView.Location = New System.Drawing.Point(3, 53)
         Me.AccountsDataGridView.MultiSelect = False
         Me.AccountsDataGridView.Name = "AccountsDataGridView"
         Me.AccountsDataGridView.ReadOnly = True
         Me.AccountsDataGridView.RowHeadersVisible = False
         Me.AccountsDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.AccountsDataGridView.Size = New System.Drawing.Size(887, 517)
+        Me.AccountsDataGridView.Size = New System.Drawing.Size(889, 520)
         Me.AccountsDataGridView.TabIndex = 4
         Me.AccountsDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.AccountsDataGridView.ThemeStyle.AlternatingRowsStyle.Font = Nothing

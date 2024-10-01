@@ -61,13 +61,13 @@ Partial Class Product
         Me.ProductsDataGridView.DefaultCellStyle = DataGridViewCellStyle3
         Me.ProductsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ProductsDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ProductsDataGridView.Location = New System.Drawing.Point(4, 55)
+        Me.ProductsDataGridView.Location = New System.Drawing.Point(3, 53)
         Me.ProductsDataGridView.MultiSelect = False
         Me.ProductsDataGridView.Name = "ProductsDataGridView"
         Me.ProductsDataGridView.ReadOnly = True
         Me.ProductsDataGridView.RowHeadersVisible = False
         Me.ProductsDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.ProductsDataGridView.Size = New System.Drawing.Size(623, 358)
+        Me.ProductsDataGridView.Size = New System.Drawing.Size(625, 361)
         Me.ProductsDataGridView.TabIndex = 4
         Me.ProductsDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.ProductsDataGridView.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -100,12 +100,12 @@ Partial Class Product
         Me.ProductHeaderLayoutPanel.Controls.Add(Me.ProductSearchTextBox, 0, 0)
         Me.ProductHeaderLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ProductHeaderLayoutPanel.ForeColor = System.Drawing.SystemColors.Control
-        Me.ProductHeaderLayoutPanel.Location = New System.Drawing.Point(4, 4)
+        Me.ProductHeaderLayoutPanel.Location = New System.Drawing.Point(3, 3)
         Me.ProductHeaderLayoutPanel.Name = "ProductHeaderLayoutPanel"
         Me.ProductHeaderLayoutPanel.RowCount = 1
         Me.ProductHeaderLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.ProductHeaderLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44.0!))
-        Me.ProductHeaderLayoutPanel.Size = New System.Drawing.Size(623, 44)
+        Me.ProductHeaderLayoutPanel.Size = New System.Drawing.Size(625, 44)
         Me.ProductHeaderLayoutPanel.TabIndex = 0
         '
         'AddProductButton
@@ -119,7 +119,7 @@ Partial Class Product
         Me.AddProductButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.AddProductButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddProductButton.ForeColor = System.Drawing.Color.White
-        Me.AddProductButton.Location = New System.Drawing.Point(470, 4)
+        Me.AddProductButton.Location = New System.Drawing.Point(472, 4)
         Me.AddProductButton.Name = "AddProductButton"
         Me.AddProductButton.Size = New System.Drawing.Size(150, 35)
         Me.AddProductButton.TabIndex = 2
@@ -148,7 +148,6 @@ Partial Class Product
         '
         'ProductTableLayoutPanel
         '
-        Me.ProductTableLayoutPanel.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.[Single]
         Me.ProductTableLayoutPanel.ColumnCount = 1
         Me.ProductTableLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.ProductTableLayoutPanel.Controls.Add(Me.ProductsDataGridView, 0, 1)

@@ -33,9 +33,12 @@ Partial Class Dashboard
         Me.DashboardTabControl = New Guna.UI2.WinForms.Guna2TabControl()
         Me.Home = New System.Windows.Forms.TabPage()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Product = New System.Windows.Forms.TabPage()
         Me.Product1 = New Pods_Sales_InventorySystem.Product()
         Me.Maintenance = New System.Windows.Forms.TabPage()
@@ -52,6 +55,9 @@ Partial Class Dashboard
         Me.DashboardTabControl.SuspendLayout()
         Me.Home.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
+        Me.Panel3.SuspendLayout()
+        Me.Panel2.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.Product.SuspendLayout()
         Me.Maintenance.SuspendLayout()
         Me.Activity.SuspendLayout()
@@ -148,7 +154,7 @@ Partial Class Dashboard
         '
         Me.Guna2ImageButton1.CheckedState.ImageSize = New System.Drawing.Size(64, 64)
         Me.Guna2ImageButton1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Guna2ImageButton1.HoverState.ImageSize = New System.Drawing.Size(144, 34)
+        Me.Guna2ImageButton1.HoverState.ImageSize = New System.Drawing.Size(180, 40)
         Me.Guna2ImageButton1.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.icon_pods
         Me.Guna2ImageButton1.ImageOffset = New System.Drawing.Point(0, 0)
         Me.Guna2ImageButton1.ImageRotate = 0!
@@ -156,7 +162,7 @@ Partial Class Dashboard
         Me.Guna2ImageButton1.Location = New System.Drawing.Point(0, 0)
         Me.Guna2ImageButton1.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2ImageButton1.Name = "Guna2ImageButton1"
-        Me.Guna2ImageButton1.PressedState.ImageSize = New System.Drawing.Size(175, 40)
+        Me.Guna2ImageButton1.PressedState.ImageSize = New System.Drawing.Size(180, 35)
         Me.Guna2ImageButton1.Size = New System.Drawing.Size(180, 40)
         Me.Guna2ImageButton1.TabIndex = 2
         '
@@ -187,7 +193,7 @@ Partial Class Dashboard
         Me.DashboardTabControl.SelectedIndex = 0
         Me.DashboardTabControl.Size = New System.Drawing.Size(1201, 574)
         Me.DashboardTabControl.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty
-        Me.DashboardTabControl.TabButtonHoverState.FillColor = System.Drawing.Color.White
+        Me.DashboardTabControl.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(161, Byte), Integer), CType(CType(195, Byte), Integer))
         Me.DashboardTabControl.TabButtonHoverState.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!)
         Me.DashboardTabControl.TabButtonHoverState.ForeColor = System.Drawing.Color.Black
         Me.DashboardTabControl.TabButtonHoverState.InnerColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -195,18 +201,19 @@ Partial Class Dashboard
         Me.DashboardTabControl.TabButtonIdleState.FillColor = System.Drawing.Color.Transparent
         Me.DashboardTabControl.TabButtonIdleState.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!)
         Me.DashboardTabControl.TabButtonIdleState.ForeColor = System.Drawing.Color.Black
-        Me.DashboardTabControl.TabButtonIdleState.InnerColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(57, Byte), Integer))
+        Me.DashboardTabControl.TabButtonIdleState.InnerColor = System.Drawing.Color.Transparent
         Me.DashboardTabControl.TabButtonSelectedState.BorderColor = System.Drawing.Color.Transparent
-        Me.DashboardTabControl.TabButtonSelectedState.FillColor = System.Drawing.Color.DimGray
+        Me.DashboardTabControl.TabButtonSelectedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(161, Byte), Integer), CType(CType(195, Byte), Integer))
         Me.DashboardTabControl.TabButtonSelectedState.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!)
         Me.DashboardTabControl.TabButtonSelectedState.ForeColor = System.Drawing.Color.Black
-        Me.DashboardTabControl.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(57, Byte), Integer))
+        Me.DashboardTabControl.TabButtonSelectedState.InnerColor = System.Drawing.Color.Transparent
         Me.DashboardTabControl.TabButtonSize = New System.Drawing.Size(180, 40)
         Me.DashboardTabControl.TabIndex = 0
         Me.DashboardTabControl.TabMenuBackColor = System.Drawing.Color.White
         '
         'Home
         '
+        Me.Home.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Home.Controls.Add(Me.TableLayoutPanel1)
         Me.Home.ForeColor = System.Drawing.Color.Black
         Me.Home.Location = New System.Drawing.Point(184, 4)
@@ -223,45 +230,79 @@ Partial Class Dashboard
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334!))
-        Me.TableLayoutPanel1.Controls.Add(Me.Label3, 2, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label1, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.Label2, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.Panel3, 2, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.Panel2, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.Panel1, 0, 0)
         Me.TableLayoutPanel1.Cursor = System.Windows.Forms.Cursors.Arrow
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(3, 3)
+        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 2
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1007, 560)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1005, 558)
         Me.TableLayoutPanel1.TabIndex = 0
+        '
+        'Panel3
+        '
+        Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel3.Controls.Add(Me.Label3)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel3.Location = New System.Drawing.Point(669, 0)
+        Me.Panel3.Margin = New System.Windows.Forms.Padding(0)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(336, 100)
+        Me.Panel3.TabIndex = 5
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(673, 0)
+        Me.Label3.Location = New System.Drawing.Point(25, 47)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(39, 13)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Label3"
         '
-        'Label1
+        'Panel2
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(3, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(39, 13)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Label1"
+        Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel2.Controls.Add(Me.Label2)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel2.Location = New System.Drawing.Point(337, 0)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(329, 100)
+        Me.Panel2.TabIndex = 4
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(338, 0)
+        Me.Label2.Location = New System.Drawing.Point(58, 47)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(39, 13)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Label2"
+        '
+        'Panel1
+        '
+        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(334, 100)
+        Me.Panel1.TabIndex = 3
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(176, 47)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(39, 13)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Label1"
         '
         'Product
         '
@@ -275,6 +316,7 @@ Partial Class Dashboard
         '
         'Product1
         '
+        Me.Product1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Product1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Product1.Location = New System.Drawing.Point(0, 0)
         Me.Product1.Name = "Product1"
@@ -371,7 +413,12 @@ Partial Class Dashboard
         Me.DashboardTabControl.ResumeLayout(False)
         Me.Home.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
-        Me.TableLayoutPanel1.PerformLayout()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.Product.ResumeLayout(False)
         Me.Maintenance.ResumeLayout(False)
         Me.Activity.ResumeLayout(False)
@@ -404,4 +451,7 @@ Partial Class Dashboard
     Friend WithEvents Guna2ContextMenuStrip1 As Guna.UI2.WinForms.Guna2ContextMenuStrip
     Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents LogoutToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents Panel2 As Panel
 End Class

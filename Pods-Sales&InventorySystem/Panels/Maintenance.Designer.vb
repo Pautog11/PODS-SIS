@@ -85,6 +85,7 @@ Partial Class Maintenance
         '
         'Account1
         '
+        Me.Account1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Account1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Account1.Location = New System.Drawing.Point(3, 3)
         Me.Account1.Margin = New System.Windows.Forms.Padding(0)

@@ -136,6 +136,12 @@
     <Compile Include="Dialogs\SubCategoryDialog.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Dialogs\SupplierDialog.Designer.vb">
+      <DependentUpon>SupplierDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\SupplierDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Dashboard.Designer.vb">
       <DependentUpon>Dashboard.vb</DependentUpon>
     </Compile>
@@ -234,9 +240,11 @@
     </Compile>
     <Compile Include="src\bases\BaseAccount.vb" />
     <Compile Include="src\bases\BaseAccountLog.vb" />
+    <Compile Include="src\bases\BaseAuditTrail.vb" />
     <Compile Include="src\bases\BaseCategory.vb" />
     <Compile Include="src\bases\BaseProduct.vb" />
     <Compile Include="src\bases\BaseSubCategory.vb" />
+    <Compile Include="src\bases\BaseSupplier.vb" />
     <Compile Include="src\classes\InputValidation.vb" />
     <Compile Include="src\classes\LoginModule.vb" />
     <Compile Include="src\classes\SqlBaseConnetion.vb" />
@@ -262,6 +270,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\SubCategoryDialog.resx">
       <DependentUpon>SubCategoryDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\SupplierDialog.resx">
+      <DependentUpon>SupplierDialog.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard.resx">
       <DependentUpon>Dashboard.vb</DependentUpon>
@@ -333,9 +344,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pods_icon.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-setting-50.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-setting-16.png" />

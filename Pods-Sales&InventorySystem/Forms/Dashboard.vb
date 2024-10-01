@@ -45,10 +45,6 @@
         Guna2ContextMenuStrip1.Show(SettingButton, New Point(0, SettingButton.Height))
     End Sub
 
-    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
-
-    End Sub
-
     Private Sub LogoutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogoutToolStripMenuItem.Click
         BaseAccountLog.Logout(My.Settings.myId, "Logout")
         Me.Close()

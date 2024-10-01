@@ -29,16 +29,16 @@ Public Class Account
         If AccountsDataGridView.SelectedRows.Count > 0 Then
             Dim selectedRows As DataGridViewSelectedRowCollection = AccountsDataGridView.SelectedRows
             Dim row As DataGridViewRow = selectedRows(0)
-            'Dim full_name As String() = row.Cells(3).Value.ToString().ToString.Split(" ")
+            Dim full_name As String() = row.Cells(3).Value.ToString().ToString.Split(" ")
             Dim data As New Dictionary(Of String, String) From {
                 {"id", row.Cells(0).Value.ToString()},
                 {"role", BaseAccount.ScalarRoleName(row.Cells(1).Value.ToString())},'row.Cells(1).Value.ToString()},
                 {"status", BaseAccount.ScalarStatusName(row.Cells(2).Value.ToString())},
-                {"first_name", row.Cells(3).Value.ToString()},'String.Join(" ", full_name.Take(full_name.Count - 1))},  '{"first_name", row.Cells(3).Value.ToString()},
-                {"last_name", row.Cells(4).Value.ToString()},'full_name.Last},
-                {"phone_number", row.Cells(5).Value.ToString()},
-                {"address", row.Cells(6).Value.ToString()},
-                {"username", row.Cells(7).Value.ToString()}
+                {"first_name", String.Join(" ", full_name.Take(full_name.Count - 1))},  '{"first_name", row.Cells(3).Value.ToString()}, 'row.Cells(3).Value.ToString()},
+                {"last_name", full_name.Last}, 'row.Cells(4).Value.ToString()},'
+                {"phone_number", row.Cells(4).Value.ToString()},
+                {"address", row.Cells(5).Value.ToString()},
+                {"username", row.Cells(6).Value.ToString()}
             }
             Dim Dialog As New AccountDialog(data:=data, subject:=_subject)
             Dialog.ShowDialog()

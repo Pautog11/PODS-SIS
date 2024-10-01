@@ -60,7 +60,7 @@ Partial Class AccountLog
         Me.AccountLogDataGridView.DefaultCellStyle = DataGridViewCellStyle3
         Me.AccountLogDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AccountLogDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.AccountLogDataGridView.Location = New System.Drawing.Point(4, 55)
+        Me.AccountLogDataGridView.Location = New System.Drawing.Point(5, 57)
         Me.AccountLogDataGridView.MultiSelect = False
         Me.AccountLogDataGridView.Name = "AccountLogDataGridView"
         Me.AccountLogDataGridView.ReadOnly = True
@@ -97,7 +97,7 @@ Partial Class AccountLog
         Me.AccountHeaderLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.AccountHeaderLayoutPanel.Controls.Add(Me.AccountLogSearchTextBox, 0, 0)
         Me.AccountHeaderLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AccountHeaderLayoutPanel.Location = New System.Drawing.Point(4, 4)
+        Me.AccountHeaderLayoutPanel.Location = New System.Drawing.Point(5, 5)
         Me.AccountHeaderLayoutPanel.Name = "AccountHeaderLayoutPanel"
         Me.AccountHeaderLayoutPanel.RowCount = 1
         Me.AccountHeaderLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -128,7 +128,7 @@ Partial Class AccountLog
         '
         'TableLayoutPanel1
         '
-        Me.TableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.[Single]
+        Me.TableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Outset
         Me.TableLayoutPanel1.ColumnCount = 1
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel1.Controls.Add(Me.AccountLogDataGridView, 0, 1)
