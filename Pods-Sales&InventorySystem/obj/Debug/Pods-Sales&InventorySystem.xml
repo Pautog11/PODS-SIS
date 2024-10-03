@@ -67,6 +67,11 @@ Represents the strongly named DataTable class.
 Represents the strongly named DataTable class.
 </summary>
 </member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblinventoriesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
 <member name="T:Pods_Sales_InventorySystem.pods.viewtblcategoriesRow">
 <summary>
 Represents strongly named DataRow class.
@@ -93,6 +98,11 @@ Represents strongly named DataRow class.
 </summary>
 </member>
 <member name="T:Pods_Sales_InventorySystem.pods.viewtblaccount_logsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblinventoriesRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
@@ -127,6 +137,11 @@ Row event argument class
 Row event argument class
 </summary>
 </member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblinventoriesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
 <member name="T:Pods_Sales_InventorySystem.podsTableAdapters.viewtblcategoriesTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
@@ -153,6 +168,11 @@ Represents the connection and commands used to retrieve and save data.
 </summary>
 </member>
 <member name="T:Pods_Sales_InventorySystem.podsTableAdapters.viewtblaccount_logsTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.viewtblinventoriesTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

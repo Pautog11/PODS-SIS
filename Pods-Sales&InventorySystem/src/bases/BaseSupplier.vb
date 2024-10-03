@@ -11,7 +11,7 @@ Public Class BaseSupplier
 
     Public Sub Delete() Implements ICommandPanel.Delete
         Try
-            _sqlCommand = New SqlCommand("DELETE FROM WHERE id = @id", _sqlConnection)
+            _sqlCommand = New SqlCommand("DELETE tblsuppliers WHERE id = @id", _sqlConnection)
             _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
             If _sqlCommand.ExecuteNonQuery() <= 0 Then
                 MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)

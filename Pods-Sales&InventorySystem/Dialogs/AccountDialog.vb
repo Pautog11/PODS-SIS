@@ -11,12 +11,13 @@ Public Class AccountDialog
     End Sub
     Private Sub Account_Dialog(sender As Object, e As EventArgs) Handles MyBase.Load
         'For Roles
-        RoleComboBox.DataSource = BaseAccount.FillByRoles().DefaultView
+        Dim roles As DataTable = BaseAccount.FillByRoles()
+        RoleComboBox.DataSource = roles
         RoleComboBox.DisplayMember = "role"
-        RoleComboBox.SelectedItem = "id"
+        RoleComboBox.ValueMember = "id"
 
         'For Status
-        StatusComboBox.DataSource = BaseAccount.FillByStatus().DefaultView
+        StatusComboBox.DataSource = BaseAccount.FillByStatus()
         StatusComboBox.DisplayMember = "status"
         StatusComboBox.SelectedItem = "id"
 
@@ -43,6 +44,10 @@ Public Class AccountDialog
             'MsgBox(_data.Item("status"))
 
         Else
+            'Auto select "None" for roles
+            roles.Rows.Add(-1, "None")
+            RoleComboBox.SelectedValue = -1
+
             'To disable the delete button
             DeleteAccountButton.Visible = False
 
@@ -62,6 +67,11 @@ Public Class AccountDialog
         For i = 0 To controls.Count - 1
             result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
         Next
+        If RoleComboBox.SelectedValue = -1 OrElse RoleComboBox.SelectedIndex = -1 Then
+            'MessageBox.Show("Please select a role", "POS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
         If Not result.Any(Function(item As Object()) Not item(0)) Then
             Dim data As New Dictionary(Of String, String) From {
                 {"id", _data?.Item("id")},

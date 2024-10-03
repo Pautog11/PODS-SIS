@@ -124,6 +124,18 @@
     <Compile Include="Dialogs\AccountDialog.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Dialogs\DeliveryCartDialog.Designer.vb">
+      <DependentUpon>DeliveryCartDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\DeliveryCartDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\DeliveryProductDialog.Designer.vb">
+      <DependentUpon>DeliveryProductDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\DeliveryProductDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Dialogs\ProductDialog.Designer.vb">
       <DependentUpon>ProductDialog.vb</DependentUpon>
     </Compile>
@@ -206,6 +218,18 @@
     <Compile Include="Panels\Category.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Panels\Delivery.Designer.vb">
+      <DependentUpon>Delivery.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Delivery.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panels\Inventory.Designer.vb">
+      <DependentUpon>Inventory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Inventory.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Panels\Maintenance.Designer.vb">
       <DependentUpon>Maintenance.vb</DependentUpon>
     </Compile>
@@ -242,6 +266,7 @@
     <Compile Include="src\bases\BaseAccountLog.vb" />
     <Compile Include="src\bases\BaseAuditTrail.vb" />
     <Compile Include="src\bases\BaseCategory.vb" />
+    <Compile Include="src\bases\BaseDelivery.vb" />
     <Compile Include="src\bases\BaseProduct.vb" />
     <Compile Include="src\bases\BaseSubCategory.vb" />
     <Compile Include="src\bases\BaseSupplier.vb" />
@@ -264,6 +289,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\AccountDialog.resx">
       <DependentUpon>AccountDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\DeliveryCartDialog.resx">
+      <DependentUpon>DeliveryCartDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\DeliveryProductDialog.resx">
+      <DependentUpon>DeliveryProductDialog.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ProductDialog.resx">
       <DependentUpon>ProductDialog.vb</DependentUpon>
@@ -303,6 +334,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\Category.resx">
       <DependentUpon>Category.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\Delivery.resx">
+      <DependentUpon>Delivery.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\Inventory.resx">
+      <DependentUpon>Inventory.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\Maintenance.resx">
       <DependentUpon>Maintenance.vb</DependentUpon>

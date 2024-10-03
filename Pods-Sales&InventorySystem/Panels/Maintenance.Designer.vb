@@ -32,11 +32,13 @@ Partial Class Maintenance
         Me.Suppliers = New System.Windows.Forms.TabPage()
         Me.Supplier1 = New Pods_Sales_InventorySystem.Supplier()
         Me.Deliveries = New System.Windows.Forms.TabPage()
+        Me.Delivery1 = New Pods_Sales_InventorySystem.Delivery()
         Me.MaintenaceTabControl.SuspendLayout()
         Me.Accounts.SuspendLayout()
         Me.Categories.SuspendLayout()
         Me.SubCategory.SuspendLayout()
         Me.Suppliers.SuspendLayout()
+        Me.Deliveries.SuspendLayout()
         Me.SuspendLayout()
         '
         'MaintenaceTabControl
@@ -49,6 +51,7 @@ Partial Class Maintenance
         Me.MaintenaceTabControl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.MaintenaceTabControl.ItemSize = New System.Drawing.Size(180, 40)
         Me.MaintenaceTabControl.Location = New System.Drawing.Point(0, 0)
+        Me.MaintenaceTabControl.Margin = New System.Windows.Forms.Padding(0)
         Me.MaintenaceTabControl.Name = "MaintenaceTabControl"
         Me.MaintenaceTabControl.SelectedIndex = 0
         Me.MaintenaceTabControl.Size = New System.Drawing.Size(907, 580)
@@ -106,6 +109,7 @@ Partial Class Maintenance
         '
         'Category1
         '
+        Me.Category1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Category1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Category1.Location = New System.Drawing.Point(3, 3)
         Me.Category1.Margin = New System.Windows.Forms.Padding(0)
@@ -151,12 +155,22 @@ Partial Class Maintenance
         '
         'Deliveries
         '
+        Me.Deliveries.Controls.Add(Me.Delivery1)
         Me.Deliveries.Location = New System.Drawing.Point(4, 44)
         Me.Deliveries.Name = "Deliveries"
         Me.Deliveries.Size = New System.Drawing.Size(899, 532)
         Me.Deliveries.TabIndex = 5
         Me.Deliveries.Text = "Deliveries"
         Me.Deliveries.UseVisualStyleBackColor = True
+        '
+        'Delivery1
+        '
+        Me.Delivery1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Delivery1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Delivery1.Location = New System.Drawing.Point(0, 0)
+        Me.Delivery1.Name = "Delivery1"
+        Me.Delivery1.Size = New System.Drawing.Size(899, 532)
+        Me.Delivery1.TabIndex = 0
         '
         'Maintenance
         '
@@ -170,6 +184,7 @@ Partial Class Maintenance
         Me.Categories.ResumeLayout(False)
         Me.SubCategory.ResumeLayout(False)
         Me.Suppliers.ResumeLayout(False)
+        Me.Deliveries.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -184,4 +199,5 @@ Partial Class Maintenance
     Friend WithEvents Category1 As Category
     Friend WithEvents Account1 As Account
     Friend WithEvents Deliveries As TabPage
+    Friend WithEvents Delivery1 As Delivery
 End Class

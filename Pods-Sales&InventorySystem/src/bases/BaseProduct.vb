@@ -10,7 +10,17 @@ Public Class BaseProduct
     End Sub
 
     Public Sub Delete() Implements ICommandPanel.Delete
-        Throw New NotImplementedException()
+        Try
+            _sqlCommand = New SqlCommand("DELETE tblproducts WHERE id = @id", _sqlConnection)
+            _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
+            If _sqlCommand.ExecuteNonQuery() <= 0 Then
+                MessageBox.Show("An error occured!")
+            Else
+                MessageBox.Show("Account has been deleted successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End Try
     End Sub
 
     Public Sub Update() Implements ICommandPanel.Update
@@ -119,6 +129,21 @@ Public Class BaseProduct
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return New pods.viewtblproductsDataTable
+        End Try
+    End Function
+
+    Public Shared Function ProductInfo(id As String) As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT BARCODE, PRICE, COST FROM viewtblproducts WHERE id = @id", conn)
+            cmd.Parameters.AddWithValue("@id", id)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
         End Try
     End Function
 End Class

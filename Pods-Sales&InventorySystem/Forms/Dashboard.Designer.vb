@@ -43,9 +43,10 @@ Partial Class Dashboard
         Me.Product1 = New Pods_Sales_InventorySystem.Product()
         Me.Maintenance = New System.Windows.Forms.TabPage()
         Me.Maintenance1 = New Pods_Sales_InventorySystem.Maintenance()
+        Me.Inventory = New System.Windows.Forms.TabPage()
+        Me.Inventory1 = New Pods_Sales_InventorySystem.Inventory()
         Me.Activity = New System.Windows.Forms.TabPage()
         Me.AuditTrail1 = New Pods_Sales_InventorySystem.Activity()
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.Guna2ContextMenuStrip1 = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -60,6 +61,7 @@ Partial Class Dashboard
         Me.Panel1.SuspendLayout()
         Me.Product.SuspendLayout()
         Me.Maintenance.SuspendLayout()
+        Me.Inventory.SuspendLayout()
         Me.Activity.SuspendLayout()
         Me.Guna2ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -182,8 +184,8 @@ Partial Class Dashboard
         Me.DashboardTabControl.Controls.Add(Me.Home)
         Me.DashboardTabControl.Controls.Add(Me.Product)
         Me.DashboardTabControl.Controls.Add(Me.Maintenance)
+        Me.DashboardTabControl.Controls.Add(Me.Inventory)
         Me.DashboardTabControl.Controls.Add(Me.Activity)
-        Me.DashboardTabControl.Controls.Add(Me.TabPage1)
         Me.DashboardTabControl.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DashboardTabControl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DashboardTabControl.ItemSize = New System.Drawing.Size(180, 40)
@@ -342,6 +344,25 @@ Partial Class Dashboard
         Me.Maintenance1.Size = New System.Drawing.Size(1007, 560)
         Me.Maintenance1.TabIndex = 0
         '
+        'Inventory
+        '
+        Me.Inventory.Controls.Add(Me.Inventory1)
+        Me.Inventory.Location = New System.Drawing.Point(184, 4)
+        Me.Inventory.Name = "Inventory"
+        Me.Inventory.Size = New System.Drawing.Size(1013, 566)
+        Me.Inventory.TabIndex = 4
+        Me.Inventory.Text = "Inventory"
+        Me.Inventory.UseVisualStyleBackColor = True
+        '
+        'Inventory1
+        '
+        Me.Inventory1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Inventory1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Inventory1.Location = New System.Drawing.Point(0, 0)
+        Me.Inventory1.Name = "Inventory1"
+        Me.Inventory1.Size = New System.Drawing.Size(1013, 566)
+        Me.Inventory1.TabIndex = 0
+        '
         'Activity
         '
         Me.Activity.Controls.Add(Me.AuditTrail1)
@@ -360,15 +381,6 @@ Partial Class Dashboard
         Me.AuditTrail1.Name = "AuditTrail1"
         Me.AuditTrail1.Size = New System.Drawing.Size(1007, 560)
         Me.AuditTrail1.TabIndex = 0
-        '
-        'TabPage1
-        '
-        Me.TabPage1.Location = New System.Drawing.Point(184, 4)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Size = New System.Drawing.Size(1013, 566)
-        Me.TabPage1.TabIndex = 4
-        Me.TabPage1.Text = "TabPage1"
-        Me.TabPage1.UseVisualStyleBackColor = True
         '
         'Guna2ContextMenuStrip1
         '
@@ -421,6 +433,7 @@ Partial Class Dashboard
         Me.Panel1.PerformLayout()
         Me.Product.ResumeLayout(False)
         Me.Maintenance.ResumeLayout(False)
+        Me.Inventory.ResumeLayout(False)
         Me.Activity.ResumeLayout(False)
         Me.Guna2ContextMenuStrip1.ResumeLayout(False)
         Me.ResumeLayout(False)
@@ -445,7 +458,7 @@ Partial Class Dashboard
     Friend WithEvents Product1 As Product
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents Inventory As TabPage
     Friend WithEvents Guna2ImageButton1 As Guna.UI2.WinForms.Guna2ImageButton
     Friend WithEvents SettingButton As Guna.UI2.WinForms.Guna2ImageButton
     Friend WithEvents Guna2ContextMenuStrip1 As Guna.UI2.WinForms.Guna2ContextMenuStrip
@@ -454,4 +467,5 @@ Partial Class Dashboard
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Panel2 As Panel
+    Friend WithEvents Inventory1 As Inventory
 End Class

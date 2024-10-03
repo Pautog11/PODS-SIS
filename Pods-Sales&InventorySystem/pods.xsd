@@ -133,6 +133,25 @@
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="viewtblinventoriesTableAdapter" GeneratorDataComponentClassName="viewtblinventoriesTableAdapter" Name="viewtblinventories" UserDataComponentName="viewtblinventoriesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="podsdbConnectionString1 (MySettings)" DbObjectName="podsdb.dbo.viewtblinventories" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ID, BARCODE, PRODUCT_NAME, QUANTITY FROM dbo.viewtblinventories</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="BARCODE" DataSetColumn="BARCODE" />
+              <Mapping SourceColumn="PRODUCT_NAME" DataSetColumn="PRODUCT_NAME" />
+              <Mapping SourceColumn="QUANTITY" DataSetColumn="QUANTITY" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -141,7 +160,7 @@
   <xs:element name="pods" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="pods" msprop:Generator_UserDSName="pods">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="viewtblcategories" msprop:Generator_TableClassName="viewtblcategoriesDataTable" msprop:Generator_RowEvArgName="viewtblcategoriesRowChangeEvent" msprop:Generator_TableVarName="tableviewtblcategories" msprop:Generator_TablePropName="viewtblcategories" msprop:Generator_RowDeletingName="viewtblcategoriesRowDeleting" msprop:Generator_RowChangingName="viewtblcategoriesRowChanging" msprop:Generator_RowEvHandlerName="viewtblcategoriesRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtblcategoriesRowDeleted" msprop:Generator_RowChangedName="viewtblcategoriesRowChanged" msprop:Generator_UserTableName="viewtblcategories" msprop:Generator_RowClassName="viewtblcategoriesRow">
+        <xs:element name="viewtblcategories" msprop:Generator_TableClassName="viewtblcategoriesDataTable" msprop:Generator_RowEvArgName="viewtblcategoriesRowChangeEvent" msprop:Generator_TableVarName="tableviewtblcategories" msprop:Generator_TablePropName="viewtblcategories" msprop:Generator_RowDeletingName="viewtblcategoriesRowDeleting" msprop:Generator_RowChangingName="viewtblcategoriesRowChanging" msprop:Generator_RowEvHandlerName="viewtblcategoriesRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtblcategoriesRowDeleted" msprop:Generator_UserTableName="viewtblcategories" msprop:Generator_RowChangedName="viewtblcategoriesRowChanged" msprop:Generator_RowClassName="viewtblcategoriesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -162,7 +181,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="viewtblsubcategories" msprop:Generator_TableClassName="viewtblsubcategoriesDataTable" msprop:Generator_RowEvArgName="viewtblsubcategoriesRowChangeEvent" msprop:Generator_TableVarName="tableviewtblsubcategories" msprop:Generator_TablePropName="viewtblsubcategories" msprop:Generator_RowDeletingName="viewtblsubcategoriesRowDeleting" msprop:Generator_RowChangingName="viewtblsubcategoriesRowChanging" msprop:Generator_RowEvHandlerName="viewtblsubcategoriesRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtblsubcategoriesRowDeleted" msprop:Generator_RowChangedName="viewtblsubcategoriesRowChanged" msprop:Generator_UserTableName="viewtblsubcategories" msprop:Generator_RowClassName="viewtblsubcategoriesRow">
+        <xs:element name="viewtblsubcategories" msprop:Generator_TableClassName="viewtblsubcategoriesDataTable" msprop:Generator_RowEvArgName="viewtblsubcategoriesRowChangeEvent" msprop:Generator_TableVarName="tableviewtblsubcategories" msprop:Generator_TablePropName="viewtblsubcategories" msprop:Generator_RowDeletingName="viewtblsubcategoriesRowDeleting" msprop:Generator_RowChangingName="viewtblsubcategoriesRowChanging" msprop:Generator_RowEvHandlerName="viewtblsubcategoriesRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtblsubcategoriesRowDeleted" msprop:Generator_UserTableName="viewtblsubcategories" msprop:Generator_RowChangedName="viewtblsubcategoriesRowChanged" msprop:Generator_RowClassName="viewtblsubcategoriesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -190,7 +209,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="viewtblproducts" msprop:Generator_TableClassName="viewtblproductsDataTable" msprop:Generator_TableVarName="tableviewtblproducts" msprop:Generator_RowChangedName="viewtblproductsRowChanged" msprop:Generator_TablePropName="viewtblproducts" msprop:Generator_RowDeletingName="viewtblproductsRowDeleting" msprop:Generator_RowChangingName="viewtblproductsRowChanging" msprop:Generator_RowEvHandlerName="viewtblproductsRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtblproductsRowDeleted" msprop:Generator_RowClassName="viewtblproductsRow" msprop:Generator_UserTableName="viewtblproducts" msprop:Generator_RowEvArgName="viewtblproductsRowChangeEvent">
+        <xs:element name="viewtblproducts" msprop:Generator_TableClassName="viewtblproductsDataTable" msprop:Generator_TableVarName="tableviewtblproducts" msprop:Generator_TablePropName="viewtblproducts" msprop:Generator_RowDeletingName="viewtblproductsRowDeleting" msprop:Generator_RowChangingName="viewtblproductsRowChanging" msprop:Generator_RowEvHandlerName="viewtblproductsRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtblproductsRowDeleted" msprop:Generator_UserTableName="viewtblproducts" msprop:Generator_RowChangedName="viewtblproductsRowChanged" msprop:Generator_RowEvArgName="viewtblproductsRowChangeEvent" msprop:Generator_RowClassName="viewtblproductsRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -228,7 +247,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="viewtblaccounts" msprop:Generator_TableClassName="viewtblaccountsDataTable" msprop:Generator_TableVarName="tableviewtblaccounts" msprop:Generator_TablePropName="viewtblaccounts" msprop:Generator_RowDeletingName="viewtblaccountsRowDeleting" msprop:Generator_RowChangingName="viewtblaccountsRowChanging" msprop:Generator_RowEvHandlerName="viewtblaccountsRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtblaccountsRowDeleted" msprop:Generator_UserTableName="viewtblaccounts" msprop:Generator_RowChangedName="viewtblaccountsRowChanged" msprop:Generator_RowEvArgName="viewtblaccountsRowChangeEvent" msprop:Generator_RowClassName="viewtblaccountsRow">
+        <xs:element name="viewtblaccounts" msprop:Generator_TableClassName="viewtblaccountsDataTable" msprop:Generator_TableVarName="tableviewtblaccounts" msprop:Generator_RowChangedName="viewtblaccountsRowChanged" msprop:Generator_TablePropName="viewtblaccounts" msprop:Generator_RowDeletingName="viewtblaccountsRowDeleting" msprop:Generator_RowChangingName="viewtblaccountsRowChanging" msprop:Generator_RowEvHandlerName="viewtblaccountsRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtblaccountsRowDeleted" msprop:Generator_RowClassName="viewtblaccountsRow" msprop:Generator_UserTableName="viewtblaccounts" msprop:Generator_RowEvArgName="viewtblaccountsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -284,7 +303,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="viewtblsuppliers" msprop:Generator_TableClassName="viewtblsuppliersDataTable" msprop:Generator_TableVarName="tableviewtblsuppliers" msprop:Generator_RowChangedName="viewtblsuppliersRowChanged" msprop:Generator_TablePropName="viewtblsuppliers" msprop:Generator_RowDeletingName="viewtblsuppliersRowDeleting" msprop:Generator_RowChangingName="viewtblsuppliersRowChanging" msprop:Generator_RowEvHandlerName="viewtblsuppliersRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtblsuppliersRowDeleted" msprop:Generator_RowClassName="viewtblsuppliersRow" msprop:Generator_UserTableName="viewtblsuppliers" msprop:Generator_RowEvArgName="viewtblsuppliersRowChangeEvent">
+        <xs:element name="viewtblsuppliers" msprop:Generator_TableClassName="viewtblsuppliersDataTable" msprop:Generator_TableVarName="tableviewtblsuppliers" msprop:Generator_TablePropName="viewtblsuppliers" msprop:Generator_RowDeletingName="viewtblsuppliersRowDeleting" msprop:Generator_RowChangingName="viewtblsuppliersRowChanging" msprop:Generator_RowEvHandlerName="viewtblsuppliersRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtblsuppliersRowDeleted" msprop:Generator_UserTableName="viewtblsuppliers" msprop:Generator_RowChangedName="viewtblsuppliersRowChanged" msprop:Generator_RowEvArgName="viewtblsuppliersRowChangeEvent" msprop:Generator_RowClassName="viewtblsuppliersRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -333,7 +352,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="viewtblaccount_logs" msprop:Generator_TableClassName="viewtblaccount_logsDataTable" msprop:Generator_TableVarName="tableviewtblaccount_logs" msprop:Generator_TablePropName="viewtblaccount_logs" msprop:Generator_RowDeletingName="viewtblaccount_logsRowDeleting" msprop:Generator_RowChangingName="viewtblaccount_logsRowChanging" msprop:Generator_RowEvHandlerName="viewtblaccount_logsRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtblaccount_logsRowDeleted" msprop:Generator_UserTableName="viewtblaccount_logs" msprop:Generator_RowChangedName="viewtblaccount_logsRowChanged" msprop:Generator_RowEvArgName="viewtblaccount_logsRowChangeEvent" msprop:Generator_RowClassName="viewtblaccount_logsRow">
+        <xs:element name="viewtblaccount_logs" msprop:Generator_TableClassName="viewtblaccount_logsDataTable" msprop:Generator_TableVarName="tableviewtblaccount_logs" msprop:Generator_RowChangedName="viewtblaccount_logsRowChanged" msprop:Generator_TablePropName="viewtblaccount_logs" msprop:Generator_RowDeletingName="viewtblaccount_logsRowDeleting" msprop:Generator_RowChangingName="viewtblaccount_logsRowChanging" msprop:Generator_RowEvHandlerName="viewtblaccount_logsRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtblaccount_logsRowDeleted" msprop:Generator_RowClassName="viewtblaccount_logsRow" msprop:Generator_UserTableName="viewtblaccount_logs" msprop:Generator_RowEvArgName="viewtblaccount_logsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -353,6 +372,28 @@
               </xs:element>
               <xs:element name="DATE" msprop:Generator_ColumnVarNameInTable="columnDATE" msprop:Generator_ColumnPropNameInRow="_DATE" msprop:Generator_ColumnPropNameInTable="DATEColumn" msprop:Generator_UserColumnName="DATE" type="xs:dateTime" minOccurs="0" />
               <xs:element name="TIME" msprop:Generator_ColumnVarNameInTable="columnTIME" msprop:Generator_ColumnPropNameInRow="TIME" msprop:Generator_ColumnPropNameInTable="TIMEColumn" msprop:Generator_UserColumnName="TIME" type="xs:duration" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="viewtblinventories" msprop:Generator_TableClassName="viewtblinventoriesDataTable" msprop:Generator_TableVarName="tableviewtblinventories" msprop:Generator_TablePropName="viewtblinventories" msprop:Generator_RowDeletingName="viewtblinventoriesRowDeleting" msprop:Generator_RowChangingName="viewtblinventoriesRowChanging" msprop:Generator_RowEvHandlerName="viewtblinventoriesRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtblinventoriesRowDeleted" msprop:Generator_UserTableName="viewtblinventories" msprop:Generator_RowChangedName="viewtblinventoriesRowChanged" msprop:Generator_RowEvArgName="viewtblinventoriesRowChangeEvent" msprop:Generator_RowClassName="viewtblinventoriesRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="BARCODE" msprop:Generator_ColumnVarNameInTable="columnBARCODE" msprop:Generator_ColumnPropNameInRow="BARCODE" msprop:Generator_ColumnPropNameInTable="BARCODEColumn" msprop:Generator_UserColumnName="BARCODE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PRODUCT_NAME" msprop:Generator_ColumnVarNameInTable="columnPRODUCT_NAME" msprop:Generator_ColumnPropNameInRow="PRODUCT_NAME" msprop:Generator_ColumnPropNameInTable="PRODUCT_NAMEColumn" msprop:Generator_UserColumnName="PRODUCT_NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="QUANTITY" msprop:Generator_ColumnVarNameInTable="columnQUANTITY" msprop:Generator_ColumnPropNameInRow="QUANTITY" msprop:Generator_ColumnPropNameInTable="QUANTITYColumn" msprop:Generator_UserColumnName="QUANTITY" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -376,6 +417,10 @@
     </xs:unique>
     <xs:unique name="viewtblsuppliers_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:viewtblsuppliers" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="viewtblinventories_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:viewtblinventories" />
       <xs:field xpath="mstns:ID" />
     </xs:unique>
   </xs:element>
