@@ -39,7 +39,6 @@ Partial Class SubCategory
         '
         'SubCategoryTableLayoutPanel
         '
-        Me.SubCategoryTableLayoutPanel.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.[Single]
         Me.SubCategoryTableLayoutPanel.ColumnCount = 1
         Me.SubCategoryTableLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.SubCategoryTableLayoutPanel.Controls.Add(Me.SubCategoryDataGridView, 0, 1)
@@ -80,13 +79,13 @@ Partial Class SubCategory
         Me.SubCategoryDataGridView.DefaultCellStyle = DataGridViewCellStyle3
         Me.SubCategoryDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SubCategoryDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.SubCategoryDataGridView.Location = New System.Drawing.Point(4, 55)
+        Me.SubCategoryDataGridView.Location = New System.Drawing.Point(3, 53)
         Me.SubCategoryDataGridView.MultiSelect = False
         Me.SubCategoryDataGridView.Name = "SubCategoryDataGridView"
         Me.SubCategoryDataGridView.ReadOnly = True
         Me.SubCategoryDataGridView.RowHeadersVisible = False
         Me.SubCategoryDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.SubCategoryDataGridView.Size = New System.Drawing.Size(781, 543)
+        Me.SubCategoryDataGridView.Size = New System.Drawing.Size(783, 546)
         Me.SubCategoryDataGridView.TabIndex = 4
         Me.SubCategoryDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.SubCategoryDataGridView.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -118,11 +117,11 @@ Partial Class SubCategory
         Me.TableLayoutPanel2.Controls.Add(Me.SubCategorySearchTextBox, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Guna2Panel1, 1, 0)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(4, 4)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 3)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(781, 44)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(783, 44)
         Me.TableLayoutPanel2.TabIndex = 3
         '
         'SubCategorySearchTextBox
@@ -150,10 +149,10 @@ Partial Class SubCategory
         '
         Me.Guna2Panel1.Controls.Add(Me.AddSubCategoryButton)
         Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Guna2Panel1.Location = New System.Drawing.Point(390, 0)
+        Me.Guna2Panel1.Location = New System.Drawing.Point(391, 0)
         Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Size = New System.Drawing.Size(391, 44)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(392, 44)
         Me.Guna2Panel1.TabIndex = 5
         '
         'AddSubCategoryButton
@@ -167,7 +166,7 @@ Partial Class SubCategory
         Me.AddSubCategoryButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.AddSubCategoryButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddSubCategoryButton.ForeColor = System.Drawing.Color.White
-        Me.AddSubCategoryButton.Location = New System.Drawing.Point(238, 4)
+        Me.AddSubCategoryButton.Location = New System.Drawing.Point(239, 4)
         Me.AddSubCategoryButton.Name = "AddSubCategoryButton"
         Me.AddSubCategoryButton.Size = New System.Drawing.Size(150, 35)
         Me.AddSubCategoryButton.TabIndex = 3

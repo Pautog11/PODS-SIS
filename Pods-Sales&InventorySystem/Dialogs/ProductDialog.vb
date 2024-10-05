@@ -75,6 +75,10 @@ Public Class ProductDialog
     End Sub
 
     Private Sub DeleteProductButton_Click(sender As Object, e As EventArgs) Handles DeleteProductButton.Click
-
+        Dim baseCommand As New BaseProduct(_data)
+        Dim invoker As New DeleteCommand(baseCommand)
+        invoker?.Execute()
+        _subject.NotifyObserver()
+        Me.Close()
     End Sub
 End Class

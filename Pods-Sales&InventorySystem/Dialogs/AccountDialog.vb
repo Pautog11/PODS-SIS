@@ -103,10 +103,21 @@ Public Class AccountDialog
     End Sub
 
     Private Sub DeleteAccountButton_Click(sender As Object, e As EventArgs) Handles DeleteAccountButton.Click
-        Dim baseCommand As New BaseAccount(_data)
-        Dim invoker As New DeleteCommand(baseCommand)
-        invoker?.Execute()
-        _subject.NotifyObserver()
-        Me.Close()
+        Const SUPER_ADMIN As Integer = 1
+        Const ADMIN As Integer = 2
+
+        If BaseAccount.ScalarRoleName(_data.Item("role")) = 1 Or BaseAccount.ScalarRoleName(_data.Item("role")) = 2 Then
+            If _data.Item("id") <> My.Settings.roleId Then
+                Dim baseCommand As New BaseAccount(_data)
+                Dim invoker As New DeleteCommand(baseCommand)
+                invoker?.Execute()
+                _subject.NotifyObserver()
+                Me.Close()
+            Else
+                MessageBox.Show("You can't delete your account.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
+        Else
+            MessageBox.Show("Action can't be performed.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
     End Sub
 End Class

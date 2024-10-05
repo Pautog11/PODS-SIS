@@ -23,7 +23,7 @@ Partial Class DeliveryProductDialog
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.AddAccountButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.AddDeliveryButton = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.QuantityTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.CostTextBox = New Guna.UI2.WinForms.Guna2TextBox()
@@ -39,7 +39,7 @@ Partial Class DeliveryProductDialog
         'FlowLayoutPanel2
         '
         Me.FlowLayoutPanel2.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.FlowLayoutPanel2.Controls.Add(Me.AddAccountButton)
+        Me.FlowLayoutPanel2.Controls.Add(Me.AddDeliveryButton)
         Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
         Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 277)
@@ -48,23 +48,23 @@ Partial Class DeliveryProductDialog
         Me.FlowLayoutPanel2.Size = New System.Drawing.Size(456, 55)
         Me.FlowLayoutPanel2.TabIndex = 8
         '
-        'AddAccountButton
+        'AddDeliveryButton
         '
-        Me.AddAccountButton.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.AddAccountButton.BackColor = System.Drawing.Color.Transparent
-        Me.AddAccountButton.BorderRadius = 15
-        Me.AddAccountButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.AddAccountButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.AddAccountButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.AddAccountButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.AddAccountButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.AddAccountButton.ForeColor = System.Drawing.Color.White
-        Me.AddAccountButton.Location = New System.Drawing.Point(325, 8)
-        Me.AddAccountButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
-        Me.AddAccountButton.Name = "AddAccountButton"
-        Me.AddAccountButton.Size = New System.Drawing.Size(128, 37)
-        Me.AddAccountButton.TabIndex = 3
-        Me.AddAccountButton.Text = "Add"
+        Me.AddDeliveryButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.AddDeliveryButton.BackColor = System.Drawing.Color.Transparent
+        Me.AddDeliveryButton.BorderRadius = 15
+        Me.AddDeliveryButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.AddDeliveryButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.AddDeliveryButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.AddDeliveryButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.AddDeliveryButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.AddDeliveryButton.ForeColor = System.Drawing.Color.White
+        Me.AddDeliveryButton.Location = New System.Drawing.Point(325, 8)
+        Me.AddDeliveryButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
+        Me.AddDeliveryButton.Name = "AddDeliveryButton"
+        Me.AddDeliveryButton.Size = New System.Drawing.Size(128, 37)
+        Me.AddDeliveryButton.TabIndex = 3
+        Me.AddDeliveryButton.Text = "Add"
         '
         'Guna2Panel1
         '
@@ -208,7 +208,7 @@ Partial Class DeliveryProductDialog
     End Sub
 
     Friend WithEvents FlowLayoutPanel2 As FlowLayoutPanel
-    Friend WithEvents AddAccountButton As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents AddDeliveryButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents AccountDialogLayoutPanel As TableLayoutPanel
     Friend WithEvents PriceTextBox As Guna.UI2.WinForms.Guna2TextBox

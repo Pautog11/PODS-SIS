@@ -34,8 +34,6 @@ Partial Class Server
         Me.UsernameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2HtmlLabel3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.PasswordTextBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Guna2HtmlLabel5 = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.DatabaseComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Guna2Button2 = New Guna.UI2.WinForms.Guna2Button()
         Me.TestButton = New Guna.UI2.WinForms.Guna2Button()
@@ -61,7 +59,7 @@ Partial Class Server
         Me.ServerLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45.0!))
         Me.ServerLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.ServerLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55.0!))
-        Me.ServerLayoutPanel.Size = New System.Drawing.Size(326, 425)
+        Me.ServerLayoutPanel.Size = New System.Drawing.Size(326, 328)
         Me.ServerLayoutPanel.TabIndex = 0
         '
         'TableLayoutPanel1
@@ -113,7 +111,7 @@ Partial Class Server
         Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Guna2Panel1.Location = New System.Drawing.Point(4, 50)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Size = New System.Drawing.Size(318, 315)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(318, 218)
         Me.Guna2Panel1.TabIndex = 1
         '
         'FlowLayoutPanel1
@@ -125,11 +123,9 @@ Partial Class Server
         Me.FlowLayoutPanel1.Controls.Add(Me.UsernameTextBox)
         Me.FlowLayoutPanel1.Controls.Add(Me.Guna2HtmlLabel3)
         Me.FlowLayoutPanel1.Controls.Add(Me.PasswordTextBox)
-        Me.FlowLayoutPanel1.Controls.Add(Me.Guna2HtmlLabel5)
-        Me.FlowLayoutPanel1.Controls.Add(Me.DatabaseComboBox)
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(51, 23)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(58, 6)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(213, 275)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(213, 205)
         Me.FlowLayoutPanel1.TabIndex = 2
         '
         'Guna2HtmlLabel1
@@ -222,32 +218,6 @@ Partial Class Server
         Me.PasswordTextBox.Size = New System.Drawing.Size(200, 36)
         Me.PasswordTextBox.TabIndex = 1
         '
-        'Guna2HtmlLabel5
-        '
-        Me.Guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2HtmlLabel5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2HtmlLabel5.Location = New System.Drawing.Point(3, 201)
-        Me.Guna2HtmlLabel5.Name = "Guna2HtmlLabel5"
-        Me.Guna2HtmlLabel5.Size = New System.Drawing.Size(63, 18)
-        Me.Guna2HtmlLabel5.TabIndex = 7
-        Me.Guna2HtmlLabel5.Text = "Database"
-        '
-        'DatabaseComboBox
-        '
-        Me.DatabaseComboBox.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.DatabaseComboBox.BackColor = System.Drawing.Color.Transparent
-        Me.DatabaseComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.DatabaseComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.DatabaseComboBox.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DatabaseComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DatabaseComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.DatabaseComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.DatabaseComboBox.ItemHeight = 30
-        Me.DatabaseComboBox.Location = New System.Drawing.Point(3, 225)
-        Me.DatabaseComboBox.Name = "DatabaseComboBox"
-        Me.DatabaseComboBox.Size = New System.Drawing.Size(200, 36)
-        Me.DatabaseComboBox.TabIndex = 2
-        '
         'TableLayoutPanel2
         '
         Me.TableLayoutPanel2.ColumnCount = 2
@@ -256,7 +226,7 @@ Partial Class Server
         Me.TableLayoutPanel2.Controls.Add(Me.Guna2Button2, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.TestButton, 0, 0)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(4, 372)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(4, 275)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -302,7 +272,7 @@ Partial Class Server
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(326, 425)
+        Me.ClientSize = New System.Drawing.Size(326, 328)
         Me.Controls.Add(Me.ServerLayoutPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Server"
@@ -325,7 +295,6 @@ Partial Class Server
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents UsernameTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents PasswordTextBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents DatabaseComboBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents TestButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2Button2 As Guna.UI2.WinForms.Guna2Button
@@ -335,5 +304,4 @@ Partial Class Server
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Guna2HtmlLabel4 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents ServerTextBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Guna2HtmlLabel5 As Guna.UI2.WinForms.Guna2HtmlLabel
 End Class

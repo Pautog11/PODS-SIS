@@ -23,22 +23,22 @@ Partial Class Maintenance
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.MaintenaceTabControl = New Guna.UI2.WinForms.Guna2TabControl()
-        Me.Accounts = New System.Windows.Forms.TabPage()
-        Me.Account1 = New Pods_Sales_InventorySystem.Account()
-        Me.Categories = New System.Windows.Forms.TabPage()
-        Me.Category1 = New Pods_Sales_InventorySystem.Category()
         Me.SubCategory = New System.Windows.Forms.TabPage()
-        Me.SubCategory1 = New Pods_Sales_InventorySystem.SubCategory()
         Me.Suppliers = New System.Windows.Forms.TabPage()
         Me.Supplier1 = New Pods_Sales_InventorySystem.Supplier()
         Me.Deliveries = New System.Windows.Forms.TabPage()
         Me.Delivery1 = New Pods_Sales_InventorySystem.Delivery()
+        Me.SubCategory1 = New Pods_Sales_InventorySystem.SubCategory()
+        Me.Accounts = New System.Windows.Forms.TabPage()
+        Me.Account1 = New Pods_Sales_InventorySystem.Account()
+        Me.Categories = New System.Windows.Forms.TabPage()
+        Me.Category1 = New Pods_Sales_InventorySystem.Category()
         Me.MaintenaceTabControl.SuspendLayout()
-        Me.Accounts.SuspendLayout()
-        Me.Categories.SuspendLayout()
         Me.SubCategory.SuspendLayout()
         Me.Suppliers.SuspendLayout()
         Me.Deliveries.SuspendLayout()
+        Me.Accounts.SuspendLayout()
+        Me.Categories.SuspendLayout()
         Me.SuspendLayout()
         '
         'MaintenaceTabControl
@@ -75,48 +75,6 @@ Partial Class Maintenance
         Me.MaintenaceTabControl.TabMenuBackColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(57, Byte), Integer))
         Me.MaintenaceTabControl.TabMenuOrientation = Guna.UI2.WinForms.TabMenuOrientation.HorizontalTop
         '
-        'Accounts
-        '
-        Me.Accounts.Controls.Add(Me.Account1)
-        Me.Accounts.Location = New System.Drawing.Point(4, 44)
-        Me.Accounts.Name = "Accounts"
-        Me.Accounts.Padding = New System.Windows.Forms.Padding(3)
-        Me.Accounts.Size = New System.Drawing.Size(899, 532)
-        Me.Accounts.TabIndex = 0
-        Me.Accounts.Text = "Accounts"
-        Me.Accounts.UseVisualStyleBackColor = True
-        '
-        'Account1
-        '
-        Me.Account1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Account1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Account1.Location = New System.Drawing.Point(3, 3)
-        Me.Account1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Account1.Name = "Account1"
-        Me.Account1.Size = New System.Drawing.Size(893, 526)
-        Me.Account1.TabIndex = 0
-        '
-        'Categories
-        '
-        Me.Categories.Controls.Add(Me.Category1)
-        Me.Categories.Location = New System.Drawing.Point(4, 44)
-        Me.Categories.Name = "Categories"
-        Me.Categories.Padding = New System.Windows.Forms.Padding(3)
-        Me.Categories.Size = New System.Drawing.Size(899, 532)
-        Me.Categories.TabIndex = 1
-        Me.Categories.Text = "Categories"
-        Me.Categories.UseVisualStyleBackColor = True
-        '
-        'Category1
-        '
-        Me.Category1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Category1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Category1.Location = New System.Drawing.Point(3, 3)
-        Me.Category1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Category1.Name = "Category1"
-        Me.Category1.Size = New System.Drawing.Size(893, 526)
-        Me.Category1.TabIndex = 0
-        '
         'SubCategory
         '
         Me.SubCategory.Controls.Add(Me.SubCategory1)
@@ -126,14 +84,6 @@ Partial Class Maintenance
         Me.SubCategory.TabIndex = 3
         Me.SubCategory.Text = "Sub Categories"
         Me.SubCategory.UseVisualStyleBackColor = True
-        '
-        'SubCategory1
-        '
-        Me.SubCategory1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SubCategory1.Location = New System.Drawing.Point(0, 0)
-        Me.SubCategory1.Name = "SubCategory1"
-        Me.SubCategory1.Size = New System.Drawing.Size(899, 532)
-        Me.SubCategory1.TabIndex = 0
         '
         'Suppliers
         '
@@ -147,8 +97,10 @@ Partial Class Maintenance
         '
         'Supplier1
         '
+        Me.Supplier1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Supplier1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Supplier1.Location = New System.Drawing.Point(0, 0)
+        Me.Supplier1.Margin = New System.Windows.Forms.Padding(0)
         Me.Supplier1.Name = "Supplier1"
         Me.Supplier1.Size = New System.Drawing.Size(899, 532)
         Me.Supplier1.TabIndex = 0
@@ -168,9 +120,58 @@ Partial Class Maintenance
         Me.Delivery1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Delivery1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Delivery1.Location = New System.Drawing.Point(0, 0)
+        Me.Delivery1.Margin = New System.Windows.Forms.Padding(0)
         Me.Delivery1.Name = "Delivery1"
         Me.Delivery1.Size = New System.Drawing.Size(899, 532)
         Me.Delivery1.TabIndex = 0
+        '
+        'SubCategory1
+        '
+        Me.SubCategory1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.SubCategory1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SubCategory1.Location = New System.Drawing.Point(0, 0)
+        Me.SubCategory1.Margin = New System.Windows.Forms.Padding(0)
+        Me.SubCategory1.Name = "SubCategory1"
+        Me.SubCategory1.Size = New System.Drawing.Size(899, 532)
+        Me.SubCategory1.TabIndex = 0
+        '
+        'Accounts
+        '
+        Me.Accounts.Controls.Add(Me.Account1)
+        Me.Accounts.Location = New System.Drawing.Point(4, 44)
+        Me.Accounts.Name = "Accounts"
+        Me.Accounts.Size = New System.Drawing.Size(899, 532)
+        Me.Accounts.TabIndex = 6
+        Me.Accounts.Text = "Accounts"
+        Me.Accounts.UseVisualStyleBackColor = True
+        '
+        'Account1
+        '
+        Me.Account1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Account1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Account1.Location = New System.Drawing.Point(0, 0)
+        Me.Account1.Name = "Account1"
+        Me.Account1.Size = New System.Drawing.Size(899, 532)
+        Me.Account1.TabIndex = 0
+        '
+        'Categories
+        '
+        Me.Categories.Controls.Add(Me.Category1)
+        Me.Categories.Location = New System.Drawing.Point(4, 44)
+        Me.Categories.Name = "Categories"
+        Me.Categories.Size = New System.Drawing.Size(899, 532)
+        Me.Categories.TabIndex = 7
+        Me.Categories.Text = "Categories"
+        Me.Categories.UseVisualStyleBackColor = True
+        '
+        'Category1
+        '
+        Me.Category1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Category1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Category1.Location = New System.Drawing.Point(0, 0)
+        Me.Category1.Name = "Category1"
+        Me.Category1.Size = New System.Drawing.Size(899, 532)
+        Me.Category1.TabIndex = 0
         '
         'Maintenance
         '
@@ -180,24 +181,24 @@ Partial Class Maintenance
         Me.Name = "Maintenance"
         Me.Size = New System.Drawing.Size(907, 580)
         Me.MaintenaceTabControl.ResumeLayout(False)
-        Me.Accounts.ResumeLayout(False)
-        Me.Categories.ResumeLayout(False)
         Me.SubCategory.ResumeLayout(False)
         Me.Suppliers.ResumeLayout(False)
         Me.Deliveries.ResumeLayout(False)
+        Me.Accounts.ResumeLayout(False)
+        Me.Categories.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents MaintenaceTabControl As Guna.UI2.WinForms.Guna2TabControl
-    Friend WithEvents Accounts As TabPage
     Friend WithEvents SubCategory As TabPage
     Friend WithEvents Suppliers As TabPage
     Friend WithEvents Supplier1 As Supplier
-    Friend WithEvents SubCategory1 As SubCategory
-    Friend WithEvents Categories As TabPage
-    Friend WithEvents Category1 As Category
-    Friend WithEvents Account1 As Account
     Friend WithEvents Deliveries As TabPage
     Friend WithEvents Delivery1 As Delivery
+    Friend WithEvents SubCategory1 As SubCategory
+    Friend WithEvents Accounts As TabPage
+    Friend WithEvents Account1 As Account
+    Friend WithEvents Categories As TabPage
+    Friend WithEvents Category1 As Category
 End Class

@@ -16,9 +16,6 @@ Public Class Server
             For i = 0 To controls.Count - 1
                 result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
             Next
-
-            'Dim default_connection As String = "Server=" + ServerTextBox.Text + ";Initial Catalog=podsdb;Persist Security Info=True;User ID=" + UsernameTextBox.Text + ";Password=" + PasswordTextBox.Text + ""
-            'Dim default_connection As String = $"Server={ServerTextBox.Text};Initial Catalog=;Persist Security Info=True;User ID={UsernameTextBox.Text};Password={PasswordTextBox.Text}"
             Dim default_connection As String = $"Server={ServerTextBox.Text};Initial Catalog=;Persist Security Info=True;User ID={UsernameTextBox.Text};Password={PasswordTextBox.Text}"
 
             Dim con As New SqlConnection(default_connection)
@@ -27,13 +24,13 @@ Public Class Server
                 con.Open()
             End If
 
-            cmd = New SqlCommand("SELECT name FROM master.sys.databases", con)
-            Dim c As New SqlDataAdapter(cmd)
-            Dim d As New DataTable
-            c.Fill(d)
-            DatabaseComboBox.DataSource = d.DefaultView
-            DatabaseComboBox.DisplayMember = "name"
-
+            'cmd = New SqlCommand("SELECT name FROM master.sys.databases", con)
+            'Dim c As New SqlDataAdapter(cmd)
+            'Dim d As New DataTable
+            'c.Fill(d)
+            'DatabaseComboBox.DataSource = d.DefaultView
+            'DatabaseComboBox.DisplayMember = "name"
+            MessageBox.Show("Connection success!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error")
         End Try
@@ -41,7 +38,7 @@ Public Class Server
 
     Private Sub Guna2Button2_Click(sender As Object, e As EventArgs) Handles Guna2Button2.Click
         Try
-            Dim podsconnection As String = $"Server={ServerTextBox.Text};Initial Catalog={DatabaseComboBox.Text};Persist Security Info=True;User ID={UsernameTextBox.Text};Password={PasswordTextBox.Text}"
+            Dim podsconnection As String = $"Server={ServerTextBox.Text};Initial Catalog=podsdb;Persist Security Info=True;User ID={UsernameTextBox.Text};Password={PasswordTextBox.Text}"
             My.Settings.con = podsconnection
             'My.Settings.podsdbConnectionString = podsconnection
             My.Settings.Save()
