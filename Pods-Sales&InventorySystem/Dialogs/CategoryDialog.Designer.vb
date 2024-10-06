@@ -51,8 +51,8 @@ Partial Class CategoryDialog
         '
         'FlowLayoutPanel1
         '
-        Me.FlowLayoutPanel1.Controls.Add(Me.AddCategoryButton)
         Me.FlowLayoutPanel1.Controls.Add(Me.DeleteCategoryButton)
+        Me.FlowLayoutPanel1.Controls.Add(Me.AddCategoryButton)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 178)
@@ -70,9 +70,10 @@ Partial Class CategoryDialog
         Me.AddCategoryButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.AddCategoryButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.AddCategoryButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.AddCategoryButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AddCategoryButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddCategoryButton.ForeColor = System.Drawing.Color.White
-        Me.AddCategoryButton.Location = New System.Drawing.Point(307, 8)
+        Me.AddCategoryButton.Location = New System.Drawing.Point(173, 8)
         Me.AddCategoryButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.AddCategoryButton.Name = "AddCategoryButton"
         Me.AddCategoryButton.Size = New System.Drawing.Size(128, 37)
@@ -88,9 +89,10 @@ Partial Class CategoryDialog
         Me.DeleteCategoryButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.DeleteCategoryButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.DeleteCategoryButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.DeleteCategoryButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(18, Byte), Integer), CType(CType(31, Byte), Integer))
         Me.DeleteCategoryButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DeleteCategoryButton.ForeColor = System.Drawing.Color.White
-        Me.DeleteCategoryButton.Location = New System.Drawing.Point(173, 9)
+        Me.DeleteCategoryButton.Location = New System.Drawing.Point(307, 9)
         Me.DeleteCategoryButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.DeleteCategoryButton.Name = "DeleteCategoryButton"
         Me.DeleteCategoryButton.Size = New System.Drawing.Size(128, 35)

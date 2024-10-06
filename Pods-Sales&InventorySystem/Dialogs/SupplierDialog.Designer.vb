@@ -184,8 +184,8 @@ Partial Class SupplierDialog
         '
         'FooterLayoutPanel
         '
-        Me.FooterLayoutPanel.Controls.Add(Me.DeleteSupplierButton)
         Me.FooterLayoutPanel.Controls.Add(Me.AddSupplierButton)
+        Me.FooterLayoutPanel.Controls.Add(Me.DeleteSupplierButton)
         Me.FooterLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FooterLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
         Me.FooterLayoutPanel.Location = New System.Drawing.Point(0, 181)
@@ -203,9 +203,10 @@ Partial Class SupplierDialog
         Me.DeleteSupplierButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.DeleteSupplierButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.DeleteSupplierButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.DeleteSupplierButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(18, Byte), Integer), CType(CType(31, Byte), Integer))
         Me.DeleteSupplierButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DeleteSupplierButton.ForeColor = System.Drawing.Color.White
-        Me.DeleteSupplierButton.Location = New System.Drawing.Point(428, 9)
+        Me.DeleteSupplierButton.Location = New System.Drawing.Point(294, 9)
         Me.DeleteSupplierButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.DeleteSupplierButton.Name = "DeleteSupplierButton"
         Me.DeleteSupplierButton.Size = New System.Drawing.Size(128, 35)
@@ -221,9 +222,10 @@ Partial Class SupplierDialog
         Me.AddSupplierButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.AddSupplierButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.AddSupplierButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.AddSupplierButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AddSupplierButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddSupplierButton.ForeColor = System.Drawing.Color.White
-        Me.AddSupplierButton.Location = New System.Drawing.Point(294, 8)
+        Me.AddSupplierButton.Location = New System.Drawing.Point(428, 8)
         Me.AddSupplierButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.AddSupplierButton.Name = "AddSupplierButton"
         Me.AddSupplierButton.Size = New System.Drawing.Size(128, 37)

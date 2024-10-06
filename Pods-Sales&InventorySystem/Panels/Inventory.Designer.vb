@@ -60,6 +60,7 @@ Partial Class Inventory
         Me.PrintButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.PrintButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.PrintButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.PrintButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.PrintButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.PrintButton.ForeColor = System.Drawing.Color.White
         Me.PrintButton.Location = New System.Drawing.Point(578, 4)
