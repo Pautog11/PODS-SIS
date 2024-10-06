@@ -27,8 +27,6 @@ Partial Class Dashboard
         Me.Guna2ControlBox2 = New Guna.UI2.WinForms.Guna2ControlBox()
         Me.Guna2ControlBox3 = New Guna.UI2.WinForms.Guna2ControlBox()
         Me.Guna2ControlBox1 = New Guna.UI2.WinForms.Guna2ControlBox()
-        Me.SettingButton = New Guna.UI2.WinForms.Guna2ImageButton()
-        Me.Guna2ImageButton1 = New Guna.UI2.WinForms.Guna2ImageButton()
         Me.DashboardPanel = New Guna.UI2.WinForms.Guna2Panel()
         Me.DashboardTabControl = New Guna.UI2.WinForms.Guna2TabControl()
         Me.Home = New System.Windows.Forms.TabPage()
@@ -50,6 +48,10 @@ Partial Class Dashboard
         Me.Guna2ContextMenuStrip1 = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.SettingButton = New Guna.UI2.WinForms.Guna2ImageButton()
+        Me.Guna2ImageButton1 = New Guna.UI2.WinForms.Guna2ImageButton()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.DashboardTableLayoutPanel.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.DashboardPanel.SuspendLayout()
@@ -64,6 +66,8 @@ Partial Class Dashboard
         Me.Inventory.SuspendLayout()
         Me.Activity.SuspendLayout()
         Me.Guna2ContextMenuStrip1.SuspendLayout()
+        Me.Guna2Panel1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DashboardTableLayoutPanel
@@ -135,38 +139,6 @@ Partial Class Dashboard
         Me.Guna2ControlBox1.Name = "Guna2ControlBox1"
         Me.Guna2ControlBox1.Size = New System.Drawing.Size(45, 37)
         Me.Guna2ControlBox1.TabIndex = 3
-        '
-        'SettingButton
-        '
-        Me.SettingButton.CheckedState.ImageSize = New System.Drawing.Size(64, 64)
-        Me.SettingButton.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SettingButton.HoverState.ImageSize = New System.Drawing.Size(13, 13)
-        Me.SettingButton.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.icon_setting
-        Me.SettingButton.ImageOffset = New System.Drawing.Point(0, 0)
-        Me.SettingButton.ImageRotate = 0!
-        Me.SettingButton.ImageSize = New System.Drawing.Size(13, 13)
-        Me.SettingButton.Location = New System.Drawing.Point(853, 0)
-        Me.SettingButton.Margin = New System.Windows.Forms.Padding(0)
-        Me.SettingButton.Name = "SettingButton"
-        Me.SettingButton.PressedState.ImageSize = New System.Drawing.Size(13, 13)
-        Me.SettingButton.Size = New System.Drawing.Size(39, 37)
-        Me.SettingButton.TabIndex = 4
-        '
-        'Guna2ImageButton1
-        '
-        Me.Guna2ImageButton1.CheckedState.ImageSize = New System.Drawing.Size(64, 64)
-        Me.Guna2ImageButton1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Guna2ImageButton1.HoverState.ImageSize = New System.Drawing.Size(180, 40)
-        Me.Guna2ImageButton1.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.icon_pods
-        Me.Guna2ImageButton1.ImageOffset = New System.Drawing.Point(0, 0)
-        Me.Guna2ImageButton1.ImageRotate = 0!
-        Me.Guna2ImageButton1.ImageSize = New System.Drawing.Size(180, 35)
-        Me.Guna2ImageButton1.Location = New System.Drawing.Point(0, 0)
-        Me.Guna2ImageButton1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Guna2ImageButton1.Name = "Guna2ImageButton1"
-        Me.Guna2ImageButton1.PressedState.ImageSize = New System.Drawing.Size(180, 35)
-        Me.Guna2ImageButton1.Size = New System.Drawing.Size(180, 40)
-        Me.Guna2ImageButton1.TabIndex = 2
         '
         'DashboardPanel
         '
@@ -289,7 +261,7 @@ Partial Class Dashboard
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Controls.Add(Me.Guna2Panel1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(0)
@@ -300,7 +272,7 @@ Partial Class Dashboard
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(176, 47)
+        Me.Label1.Location = New System.Drawing.Point(128, 34)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(39, 13)
         Me.Label1.TabIndex = 0
@@ -409,6 +381,58 @@ Partial Class Dashboard
         Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
         Me.LogoutToolStripMenuItem.Text = "Logout"
         '
+        'Guna2Panel1
+        '
+        Me.Guna2Panel1.Controls.Add(Me.PictureBox1)
+        Me.Guna2Panel1.Controls.Add(Me.Label1)
+        Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Guna2Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Guna2Panel1.Name = "Guna2Panel1"
+        Me.Guna2Panel1.Size = New System.Drawing.Size(332, 98)
+        Me.Guna2Panel1.TabIndex = 1
+        '
+        'SettingButton
+        '
+        Me.SettingButton.CheckedState.ImageSize = New System.Drawing.Size(64, 64)
+        Me.SettingButton.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SettingButton.HoverState.ImageSize = New System.Drawing.Size(13, 13)
+        Me.SettingButton.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.icon_setting
+        Me.SettingButton.ImageOffset = New System.Drawing.Point(0, 0)
+        Me.SettingButton.ImageRotate = 0!
+        Me.SettingButton.ImageSize = New System.Drawing.Size(13, 13)
+        Me.SettingButton.Location = New System.Drawing.Point(853, 0)
+        Me.SettingButton.Margin = New System.Windows.Forms.Padding(0)
+        Me.SettingButton.Name = "SettingButton"
+        Me.SettingButton.PressedState.ImageSize = New System.Drawing.Size(13, 13)
+        Me.SettingButton.Size = New System.Drawing.Size(39, 37)
+        Me.SettingButton.TabIndex = 4
+        '
+        'Guna2ImageButton1
+        '
+        Me.Guna2ImageButton1.CheckedState.ImageSize = New System.Drawing.Size(64, 64)
+        Me.Guna2ImageButton1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Guna2ImageButton1.HoverState.ImageSize = New System.Drawing.Size(180, 40)
+        Me.Guna2ImageButton1.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.icon_pods
+        Me.Guna2ImageButton1.ImageOffset = New System.Drawing.Point(0, 0)
+        Me.Guna2ImageButton1.ImageRotate = 0!
+        Me.Guna2ImageButton1.ImageSize = New System.Drawing.Size(180, 35)
+        Me.Guna2ImageButton1.Location = New System.Drawing.Point(0, 0)
+        Me.Guna2ImageButton1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Guna2ImageButton1.Name = "Guna2ImageButton1"
+        Me.Guna2ImageButton1.PressedState.ImageSize = New System.Drawing.Size(180, 35)
+        Me.Guna2ImageButton1.Size = New System.Drawing.Size(180, 40)
+        Me.Guna2ImageButton1.TabIndex = 2
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.user
+        Me.PictureBox1.Location = New System.Drawing.Point(42, 21)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(57, 48)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 1
+        Me.PictureBox1.TabStop = False
+        '
         'Dashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -430,12 +454,14 @@ Partial Class Dashboard
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
         Me.Product.ResumeLayout(False)
         Me.Maintenance.ResumeLayout(False)
         Me.Inventory.ResumeLayout(False)
         Me.Activity.ResumeLayout(False)
         Me.Guna2ContextMenuStrip1.ResumeLayout(False)
+        Me.Guna2Panel1.ResumeLayout(False)
+        Me.Guna2Panel1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -468,4 +494,6 @@ Partial Class Dashboard
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Inventory1 As Inventory
+    Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

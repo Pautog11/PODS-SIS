@@ -32,6 +32,11 @@ Pods-Sales&InventorySystem
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Pods_Sales_InventorySystem.My.Resources.Resources.user">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="T:Pods_Sales_InventorySystem.pods">
 <summary>
 Represents a strongly typed in-memory cache of data.
