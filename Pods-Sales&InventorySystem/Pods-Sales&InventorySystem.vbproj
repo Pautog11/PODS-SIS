@@ -376,5 +376,8 @@
   <ItemGroup>
     <None Include="Resources\icons8-setting-16.png" />
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

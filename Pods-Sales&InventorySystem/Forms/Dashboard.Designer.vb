@@ -40,16 +40,16 @@ Partial Class Dashboard
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Product = New System.Windows.Forms.TabPage()
+        Me.Product1 = New Pods_Sales_InventorySystem.Product()
         Me.Maintenance = New System.Windows.Forms.TabPage()
+        Me.Maintenance1 = New Pods_Sales_InventorySystem.Maintenance()
         Me.Inventory = New System.Windows.Forms.TabPage()
+        Me.Inventory1 = New Pods_Sales_InventorySystem.Inventory()
         Me.Activity = New System.Windows.Forms.TabPage()
+        Me.AuditTrail1 = New Pods_Sales_InventorySystem.Activity()
         Me.Guna2ContextMenuStrip1 = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Product1 = New Pods_Sales_InventorySystem.Product()
-        Me.Maintenance1 = New Pods_Sales_InventorySystem.Maintenance()
-        Me.Inventory1 = New Pods_Sales_InventorySystem.Inventory()
-        Me.AuditTrail1 = New Pods_Sales_InventorySystem.Activity()
         Me.DashboardTableLayoutPanel.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.DashboardPanel.SuspendLayout()
@@ -195,20 +195,20 @@ Partial Class Dashboard
         Me.DashboardTabControl.SelectedIndex = 0
         Me.DashboardTabControl.Size = New System.Drawing.Size(1201, 574)
         Me.DashboardTabControl.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty
-        Me.DashboardTabControl.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(161, Byte), Integer), CType(CType(195, Byte), Integer))
+        Me.DashboardTabControl.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.DashboardTabControl.TabButtonHoverState.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!)
-        Me.DashboardTabControl.TabButtonHoverState.ForeColor = System.Drawing.Color.Black
-        Me.DashboardTabControl.TabButtonHoverState.InnerColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DashboardTabControl.TabButtonHoverState.ForeColor = System.Drawing.Color.White
+        Me.DashboardTabControl.TabButtonHoverState.InnerColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(57, Byte), Integer))
         Me.DashboardTabControl.TabButtonIdleState.BorderColor = System.Drawing.Color.Empty
         Me.DashboardTabControl.TabButtonIdleState.FillColor = System.Drawing.Color.Transparent
         Me.DashboardTabControl.TabButtonIdleState.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!)
         Me.DashboardTabControl.TabButtonIdleState.ForeColor = System.Drawing.Color.Black
         Me.DashboardTabControl.TabButtonIdleState.InnerColor = System.Drawing.Color.Transparent
         Me.DashboardTabControl.TabButtonSelectedState.BorderColor = System.Drawing.Color.Transparent
-        Me.DashboardTabControl.TabButtonSelectedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(127, Byte), Integer), CType(CType(161, Byte), Integer), CType(CType(195, Byte), Integer))
+        Me.DashboardTabControl.TabButtonSelectedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(57, Byte), Integer))
         Me.DashboardTabControl.TabButtonSelectedState.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!)
-        Me.DashboardTabControl.TabButtonSelectedState.ForeColor = System.Drawing.Color.Black
-        Me.DashboardTabControl.TabButtonSelectedState.InnerColor = System.Drawing.Color.Transparent
+        Me.DashboardTabControl.TabButtonSelectedState.ForeColor = System.Drawing.Color.White
+        Me.DashboardTabControl.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(57, Byte), Integer))
         Me.DashboardTabControl.TabButtonSize = New System.Drawing.Size(180, 40)
         Me.DashboardTabControl.TabIndex = 0
         Me.DashboardTabControl.TabMenuBackColor = System.Drawing.Color.White
@@ -316,6 +316,15 @@ Partial Class Dashboard
         Me.Product.Text = "Product"
         Me.Product.UseVisualStyleBackColor = True
         '
+        'Product1
+        '
+        Me.Product1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Product1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Product1.Location = New System.Drawing.Point(0, 0)
+        Me.Product1.Name = "Product1"
+        Me.Product1.Size = New System.Drawing.Size(1013, 566)
+        Me.Product1.TabIndex = 0
+        '
         'Maintenance
         '
         Me.Maintenance.Controls.Add(Me.Maintenance1)
@@ -327,6 +336,14 @@ Partial Class Dashboard
         Me.Maintenance.Text = "Maintenance"
         Me.Maintenance.UseVisualStyleBackColor = True
         '
+        'Maintenance1
+        '
+        Me.Maintenance1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Maintenance1.Location = New System.Drawing.Point(3, 3)
+        Me.Maintenance1.Name = "Maintenance1"
+        Me.Maintenance1.Size = New System.Drawing.Size(1007, 560)
+        Me.Maintenance1.TabIndex = 0
+        '
         'Inventory
         '
         Me.Inventory.Controls.Add(Me.Inventory1)
@@ -336,6 +353,15 @@ Partial Class Dashboard
         Me.Inventory.TabIndex = 4
         Me.Inventory.Text = "Inventory"
         Me.Inventory.UseVisualStyleBackColor = True
+        '
+        'Inventory1
+        '
+        Me.Inventory1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Inventory1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Inventory1.Location = New System.Drawing.Point(0, 0)
+        Me.Inventory1.Name = "Inventory1"
+        Me.Inventory1.Size = New System.Drawing.Size(1013, 566)
+        Me.Inventory1.TabIndex = 0
         '
         'Activity
         '
@@ -347,6 +373,14 @@ Partial Class Dashboard
         Me.Activity.TabIndex = 2
         Me.Activity.Text = "Activity"
         Me.Activity.UseVisualStyleBackColor = True
+        '
+        'AuditTrail1
+        '
+        Me.AuditTrail1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.AuditTrail1.Location = New System.Drawing.Point(3, 3)
+        Me.AuditTrail1.Name = "AuditTrail1"
+        Me.AuditTrail1.Size = New System.Drawing.Size(1007, 560)
+        Me.AuditTrail1.TabIndex = 0
         '
         'Guna2ContextMenuStrip1
         '
@@ -374,40 +408,6 @@ Partial Class Dashboard
         Me.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem"
         Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
         Me.LogoutToolStripMenuItem.Text = "Logout"
-        '
-        'Product1
-        '
-        Me.Product1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Product1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Product1.Location = New System.Drawing.Point(0, 0)
-        Me.Product1.Name = "Product1"
-        Me.Product1.Size = New System.Drawing.Size(1013, 566)
-        Me.Product1.TabIndex = 0
-        '
-        'Maintenance1
-        '
-        Me.Maintenance1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Maintenance1.Location = New System.Drawing.Point(3, 3)
-        Me.Maintenance1.Name = "Maintenance1"
-        Me.Maintenance1.Size = New System.Drawing.Size(1007, 560)
-        Me.Maintenance1.TabIndex = 0
-        '
-        'Inventory1
-        '
-        Me.Inventory1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Inventory1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Inventory1.Location = New System.Drawing.Point(0, 0)
-        Me.Inventory1.Name = "Inventory1"
-        Me.Inventory1.Size = New System.Drawing.Size(1013, 566)
-        Me.Inventory1.TabIndex = 0
-        '
-        'AuditTrail1
-        '
-        Me.AuditTrail1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AuditTrail1.Location = New System.Drawing.Point(3, 3)
-        Me.AuditTrail1.Name = "AuditTrail1"
-        Me.AuditTrail1.Size = New System.Drawing.Size(1007, 560)
-        Me.AuditTrail1.TabIndex = 0
         '
         'Dashboard
         '

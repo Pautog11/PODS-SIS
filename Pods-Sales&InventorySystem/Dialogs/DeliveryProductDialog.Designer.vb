@@ -29,7 +29,6 @@ Partial Class DeliveryProductDialog
         Me.CostTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.BarcodeTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.ProductComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.PriceTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.AccountDialogLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.FlowLayoutPanel2.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
@@ -42,10 +41,10 @@ Partial Class DeliveryProductDialog
         Me.FlowLayoutPanel2.Controls.Add(Me.AddDeliveryButton)
         Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
-        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 277)
+        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 213)
         Me.FlowLayoutPanel2.Margin = New System.Windows.Forms.Padding(0)
         Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(456, 55)
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(414, 55)
         Me.FlowLayoutPanel2.TabIndex = 8
         '
         'AddDeliveryButton
@@ -59,7 +58,7 @@ Partial Class DeliveryProductDialog
         Me.AddDeliveryButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.AddDeliveryButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddDeliveryButton.ForeColor = System.Drawing.Color.White
-        Me.AddDeliveryButton.Location = New System.Drawing.Point(325, 8)
+        Me.AddDeliveryButton.Location = New System.Drawing.Point(283, 8)
         Me.AddDeliveryButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.AddDeliveryButton.Name = "AddDeliveryButton"
         Me.AddDeliveryButton.Size = New System.Drawing.Size(128, 37)
@@ -72,12 +71,11 @@ Partial Class DeliveryProductDialog
         Me.Guna2Panel1.Controls.Add(Me.CostTextBox)
         Me.Guna2Panel1.Controls.Add(Me.BarcodeTextBox)
         Me.Guna2Panel1.Controls.Add(Me.ProductComboBox)
-        Me.Guna2Panel1.Controls.Add(Me.PriceTextBox)
         Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Guna2Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Size = New System.Drawing.Size(456, 277)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(414, 213)
         Me.Guna2Panel1.TabIndex = 9
         '
         'QuantityTextBox
@@ -91,7 +89,7 @@ Partial Class DeliveryProductDialog
         Me.QuantityTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.QuantityTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.QuantityTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.QuantityTextBox.Location = New System.Drawing.Point(186, 194)
+        Me.QuantityTextBox.Location = New System.Drawing.Point(186, 152)
         Me.QuantityTextBox.Name = "QuantityTextBox"
         Me.QuantityTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.QuantityTextBox.PlaceholderText = ""
@@ -110,7 +108,7 @@ Partial Class DeliveryProductDialog
         Me.CostTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CostTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.CostTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CostTextBox.Location = New System.Drawing.Point(186, 152)
+        Me.CostTextBox.Location = New System.Drawing.Point(186, 110)
         Me.CostTextBox.Name = "CostTextBox"
         Me.CostTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CostTextBox.PlaceholderText = ""
@@ -152,25 +150,6 @@ Partial Class DeliveryProductDialog
         Me.ProductComboBox.Size = New System.Drawing.Size(200, 36)
         Me.ProductComboBox.TabIndex = 1
         '
-        'PriceTextBox
-        '
-        Me.PriceTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.PriceTextBox.DefaultText = ""
-        Me.PriceTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.PriceTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.PriceTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.PriceTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.PriceTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.PriceTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.PriceTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.PriceTextBox.Location = New System.Drawing.Point(186, 110)
-        Me.PriceTextBox.Name = "PriceTextBox"
-        Me.PriceTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.PriceTextBox.PlaceholderText = ""
-        Me.PriceTextBox.SelectedText = ""
-        Me.PriceTextBox.Size = New System.Drawing.Size(200, 36)
-        Me.PriceTextBox.TabIndex = 0
-        '
         'AccountDialogLayoutPanel
         '
         Me.AccountDialogLayoutPanel.ColumnCount = 1
@@ -184,14 +163,14 @@ Partial Class DeliveryProductDialog
         Me.AccountDialogLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.AccountDialogLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55.0!))
         Me.AccountDialogLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.AccountDialogLayoutPanel.Size = New System.Drawing.Size(456, 332)
+        Me.AccountDialogLayoutPanel.Size = New System.Drawing.Size(414, 268)
         Me.AccountDialogLayoutPanel.TabIndex = 19
         '
         'DeliveryProductDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(456, 332)
+        Me.ClientSize = New System.Drawing.Size(414, 268)
         Me.Controls.Add(Me.AccountDialogLayoutPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
@@ -199,7 +178,7 @@ Partial Class DeliveryProductDialog
         Me.Name = "DeliveryProductDialog"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "DeliveryProductDialog"
+        Me.Text = "Delivery Product Dialog"
         Me.FlowLayoutPanel2.ResumeLayout(False)
         Me.Guna2Panel1.ResumeLayout(False)
         Me.AccountDialogLayoutPanel.ResumeLayout(False)
@@ -211,7 +190,6 @@ Partial Class DeliveryProductDialog
     Friend WithEvents AddDeliveryButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents AccountDialogLayoutPanel As TableLayoutPanel
-    Friend WithEvents PriceTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents CostTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents BarcodeTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents ProductComboBox As Guna.UI2.WinForms.Guna2ComboBox

@@ -103,10 +103,10 @@ Public Class AccountDialog
     End Sub
 
     Private Sub DeleteAccountButton_Click(sender As Object, e As EventArgs) Handles DeleteAccountButton.Click
-        Const SUPER_ADMIN As Integer = 1
-        Const ADMIN As Integer = 2
+        'Const SUPER_ADMIN As Integer = 1
+        'Const ADMIN As Integer = 2
 
-        If BaseAccount.ScalarRoleName(_data.Item("role")) = 1 Or BaseAccount.ScalarRoleName(_data.Item("role")) = 2 Then
+        If BaseAccount.ScalarRoleName(_data.Item("role")) = 1 Then 'Or BaseAccount.ScalarRoleName(_data.Item("role")) = 2 Then
             If _data.Item("id") <> My.Settings.roleId Then
                 Dim baseCommand As New BaseAccount(_data)
                 Dim invoker As New DeleteCommand(baseCommand)
