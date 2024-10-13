@@ -25,7 +25,7 @@ Public Class Account
         Dialog.ShowDialog()
     End Sub
 
-    Private Sub AccountDataGridView_Click(sender As Object, e As EventArgs) Handles AccountsDataGridView.CellClick
+    Private Sub AccountDataGridView_CellClick(sender As Object, e As EventArgs) Handles AccountsDataGridView.CellClick
         If AccountsDataGridView.SelectedRows.Count > 0 Then
             Dim selectedRows As DataGridViewSelectedRowCollection = AccountsDataGridView.SelectedRows
             Dim row As DataGridViewRow = selectedRows(0)

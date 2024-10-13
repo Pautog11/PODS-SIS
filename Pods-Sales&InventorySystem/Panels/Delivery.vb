@@ -3,6 +3,8 @@
 Public Class Delivery
     Implements IObserverPanel
     Private _subject As IObservablePanel
+    Private _tableAapter As New podsTableAdapters.tbldeliveriesTableAdapter
+    Private _dataTable As New pods.tbldeliveriesDataTable
     Private Sub DeliveryCart_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             _subject = Application.OpenForms.OfType(Of Dashboard).FirstOrDefault
@@ -14,11 +16,16 @@ Public Class Delivery
     End Sub
 
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
-        'Throw New NotImplementedException()
+        _tableAapter.Fill(_dataTable)
+        DeliveryDataGridView.DataSource = _dataTable
     End Sub
 
     Private Sub AddDeliveryButton_Click(sender As Object, e As EventArgs) Handles AddDeliveryButton.Click
-        Dim dialog As New DeliveryCartDialog
+        Dim dialog As New DeliveryCartDialog(subject:=_subject)
         dialog.ShowDialog()
+    End Sub
+
+    Private Sub DeliveryDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DeliveryDataGridView.CellClick
+        MsgBox("to be fixed")
     End Sub
 End Class
