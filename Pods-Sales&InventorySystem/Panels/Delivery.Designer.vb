@@ -60,6 +60,7 @@ Partial Class Delivery
         Me.AddDeliveryButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.AddDeliveryButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.AddDeliveryButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.AddDeliveryButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AddDeliveryButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddDeliveryButton.ForeColor = System.Drawing.Color.White
         Me.AddDeliveryButton.Location = New System.Drawing.Point(657, 4)
@@ -71,6 +72,7 @@ Partial Class Delivery
         'DeliverySearchTextBox
         '
         Me.DeliverySearchTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.DeliverySearchTextBox.BorderColor = System.Drawing.Color.Gray
         Me.DeliverySearchTextBox.BorderRadius = 15
         Me.DeliverySearchTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.DeliverySearchTextBox.DefaultText = ""
@@ -114,11 +116,11 @@ Partial Class Delivery
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
         Me.DeliveryDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DeliveryDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft

@@ -22,12 +22,32 @@ Pods-Sales&InventorySystem
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="P:Pods_Sales_InventorySystem.My.Resources.Resources.cart">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Pods_Sales_InventorySystem.My.Resources.Resources.icon_pods">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:Pods_Sales_InventorySystem.My.Resources.Resources.icon_setting">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Pods_Sales_InventorySystem.My.Resources.Resources.profit">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Pods_Sales_InventorySystem.My.Resources.Resources.stock_exchange_app">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Pods_Sales_InventorySystem.My.Resources.Resources.user">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

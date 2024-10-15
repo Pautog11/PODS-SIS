@@ -46,18 +46,18 @@ Partial Class Activity
         Me.AuditTrailTabControl.TabButtonHoverState.ForeColor = System.Drawing.Color.White
         Me.AuditTrailTabControl.TabButtonHoverState.InnerColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.AuditTrailTabControl.TabButtonIdleState.BorderColor = System.Drawing.Color.Empty
-        Me.AuditTrailTabControl.TabButtonIdleState.FillColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(57, Byte), Integer))
+        Me.AuditTrailTabControl.TabButtonIdleState.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AuditTrailTabControl.TabButtonIdleState.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!)
-        Me.AuditTrailTabControl.TabButtonIdleState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(156, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(167, Byte), Integer))
-        Me.AuditTrailTabControl.TabButtonIdleState.InnerColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(57, Byte), Integer))
+        Me.AuditTrailTabControl.TabButtonIdleState.ForeColor = System.Drawing.Color.White
+        Me.AuditTrailTabControl.TabButtonIdleState.InnerColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AuditTrailTabControl.TabButtonSelectedState.BorderColor = System.Drawing.Color.Empty
-        Me.AuditTrailTabControl.TabButtonSelectedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(37, Byte), Integer), CType(CType(49, Byte), Integer))
+        Me.AuditTrailTabControl.TabButtonSelectedState.FillColor = System.Drawing.Color.White
         Me.AuditTrailTabControl.TabButtonSelectedState.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!)
-        Me.AuditTrailTabControl.TabButtonSelectedState.ForeColor = System.Drawing.Color.White
-        Me.AuditTrailTabControl.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(CType(CType(76, Byte), Integer), CType(CType(132, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.AuditTrailTabControl.TabButtonSelectedState.ForeColor = System.Drawing.Color.Black
+        Me.AuditTrailTabControl.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(CType(CType(181, Byte), Integer), CType(CType(136, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.AuditTrailTabControl.TabButtonSize = New System.Drawing.Size(180, 40)
         Me.AuditTrailTabControl.TabIndex = 0
-        Me.AuditTrailTabControl.TabMenuBackColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(57, Byte), Integer))
+        Me.AuditTrailTabControl.TabMenuBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AuditTrailTabControl.TabMenuOrientation = Guna.UI2.WinForms.TabMenuOrientation.HorizontalTop
         '
         'AccountLogs

@@ -40,6 +40,8 @@ Partial Class SupplierDialog
         '
         'CompanyNameTextBox
         '
+        Me.CompanyNameTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.CompanyNameTextBox.BorderRadius = 10
         Me.CompanyNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.CompanyNameTextBox.DefaultText = ""
         Me.CompanyNameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
@@ -59,6 +61,8 @@ Partial Class SupplierDialog
         '
         'CompanyContactNumberTextBox
         '
+        Me.CompanyContactNumberTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.CompanyContactNumberTextBox.BorderRadius = 10
         Me.CompanyContactNumberTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.CompanyContactNumberTextBox.DefaultText = ""
         Me.CompanyContactNumberTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
@@ -78,6 +82,8 @@ Partial Class SupplierDialog
         '
         'FirstnameTextBox
         '
+        Me.FirstnameTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.FirstnameTextBox.BorderRadius = 10
         Me.FirstnameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.FirstnameTextBox.DefaultText = ""
         Me.FirstnameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
@@ -97,6 +103,8 @@ Partial Class SupplierDialog
         '
         'CompanyAddressTextBox
         '
+        Me.CompanyAddressTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.CompanyAddressTextBox.BorderRadius = 10
         Me.CompanyAddressTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.CompanyAddressTextBox.DefaultText = ""
         Me.CompanyAddressTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
@@ -116,6 +124,8 @@ Partial Class SupplierDialog
         '
         'LastnameTextBox
         '
+        Me.LastnameTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.LastnameTextBox.BorderRadius = 10
         Me.LastnameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.LastnameTextBox.DefaultText = ""
         Me.LastnameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
@@ -135,6 +145,8 @@ Partial Class SupplierDialog
         '
         'PhoneNumberTextBox
         '
+        Me.PhoneNumberTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.PhoneNumberTextBox.BorderRadius = 10
         Me.PhoneNumberTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.PhoneNumberTextBox.DefaultText = ""
         Me.PhoneNumberTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
@@ -203,6 +215,7 @@ Partial Class SupplierDialog
         Me.DeleteSupplierButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.DeleteSupplierButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.DeleteSupplierButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.DeleteSupplierButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(18, Byte), Integer), CType(CType(31, Byte), Integer))
         Me.DeleteSupplierButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DeleteSupplierButton.ForeColor = System.Drawing.Color.White
         Me.DeleteSupplierButton.Location = New System.Drawing.Point(428, 9)
@@ -221,6 +234,7 @@ Partial Class SupplierDialog
         Me.AddSupplierButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.AddSupplierButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.AddSupplierButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.AddSupplierButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AddSupplierButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddSupplierButton.ForeColor = System.Drawing.Color.White
         Me.AddSupplierButton.Location = New System.Drawing.Point(294, 8)

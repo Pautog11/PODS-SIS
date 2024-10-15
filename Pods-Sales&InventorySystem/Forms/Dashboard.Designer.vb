@@ -34,10 +34,13 @@ Partial Class Dashboard
         Me.Home = New System.Windows.Forms.TabPage()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Product = New System.Windows.Forms.TabPage()
         Me.Product1 = New Pods_Sales_InventorySystem.Product()
@@ -57,8 +60,11 @@ Partial Class Dashboard
         Me.Home.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel3.SuspendLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Product.SuspendLayout()
         Me.Maintenance.SuspendLayout()
         Me.Inventory.SuspendLayout()
@@ -195,20 +201,20 @@ Partial Class Dashboard
         Me.DashboardTabControl.SelectedIndex = 0
         Me.DashboardTabControl.Size = New System.Drawing.Size(1201, 574)
         Me.DashboardTabControl.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty
-        Me.DashboardTabControl.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.DashboardTabControl.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.DashboardTabControl.TabButtonHoverState.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!)
         Me.DashboardTabControl.TabButtonHoverState.ForeColor = System.Drawing.Color.White
-        Me.DashboardTabControl.TabButtonHoverState.InnerColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(57, Byte), Integer))
+        Me.DashboardTabControl.TabButtonHoverState.InnerColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.DashboardTabControl.TabButtonIdleState.BorderColor = System.Drawing.Color.Empty
         Me.DashboardTabControl.TabButtonIdleState.FillColor = System.Drawing.Color.Transparent
         Me.DashboardTabControl.TabButtonIdleState.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!)
         Me.DashboardTabControl.TabButtonIdleState.ForeColor = System.Drawing.Color.Black
         Me.DashboardTabControl.TabButtonIdleState.InnerColor = System.Drawing.Color.Transparent
         Me.DashboardTabControl.TabButtonSelectedState.BorderColor = System.Drawing.Color.Transparent
-        Me.DashboardTabControl.TabButtonSelectedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(57, Byte), Integer))
+        Me.DashboardTabControl.TabButtonSelectedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.DashboardTabControl.TabButtonSelectedState.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!)
         Me.DashboardTabControl.TabButtonSelectedState.ForeColor = System.Drawing.Color.White
-        Me.DashboardTabControl.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(57, Byte), Integer))
+        Me.DashboardTabControl.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(CType(CType(181, Byte), Integer), CType(CType(136, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.DashboardTabControl.TabButtonSize = New System.Drawing.Size(180, 40)
         Me.DashboardTabControl.TabIndex = 0
         Me.DashboardTabControl.TabMenuBackColor = System.Drawing.Color.White
@@ -249,6 +255,7 @@ Partial Class Dashboard
         'Panel3
         '
         Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel3.Controls.Add(Me.PictureBox3)
         Me.Panel3.Controls.Add(Me.Label3)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel3.Location = New System.Drawing.Point(669, 0)
@@ -257,18 +264,29 @@ Partial Class Dashboard
         Me.Panel3.Size = New System.Drawing.Size(336, 100)
         Me.Panel3.TabIndex = 5
         '
+        'PictureBox3
+        '
+        Me.PictureBox3.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.profit
+        Me.PictureBox3.Location = New System.Drawing.Point(26, 12)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(93, 72)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox3.TabIndex = 6
+        Me.PictureBox3.TabStop = False
+        '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(25, 47)
+        Me.Label3.Location = New System.Drawing.Point(161, 47)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(39, 13)
+        Me.Label3.Size = New System.Drawing.Size(13, 13)
         Me.Label3.TabIndex = 2
-        Me.Label3.Text = "Label3"
+        Me.Label3.Text = "0"
         '
         'Panel2
         '
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel2.Controls.Add(Me.PictureBox2)
         Me.Panel2.Controls.Add(Me.Label2)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel2.Location = New System.Drawing.Point(337, 0)
@@ -277,18 +295,29 @@ Partial Class Dashboard
         Me.Panel2.Size = New System.Drawing.Size(329, 100)
         Me.Panel2.TabIndex = 4
         '
+        'PictureBox2
+        '
+        Me.PictureBox2.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.cart
+        Me.PictureBox2.Location = New System.Drawing.Point(26, 12)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(93, 72)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 2
+        Me.PictureBox2.TabStop = False
+        '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(58, 47)
+        Me.Label2.Location = New System.Drawing.Point(161, 47)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(39, 13)
+        Me.Label2.Size = New System.Drawing.Size(13, 13)
         Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Label2"
+        Me.Label2.Text = "0"
         '
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
@@ -297,14 +326,24 @@ Partial Class Dashboard
         Me.Panel1.Size = New System.Drawing.Size(334, 100)
         Me.Panel1.TabIndex = 3
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.user
+        Me.PictureBox1.Location = New System.Drawing.Point(26, 12)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(93, 72)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 1
+        Me.PictureBox1.TabStop = False
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(176, 47)
+        Me.Label1.Location = New System.Drawing.Point(161, 47)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(39, 13)
+        Me.Label1.Size = New System.Drawing.Size(13, 13)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Label1"
+        Me.Label1.Text = "0"
         '
         'Product
         '
@@ -427,10 +466,13 @@ Partial Class Dashboard
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Product.ResumeLayout(False)
         Me.Maintenance.ResumeLayout(False)
         Me.Inventory.ResumeLayout(False)
@@ -468,4 +510,7 @@ Partial Class Dashboard
     Friend WithEvents Panel3 As Panel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Inventory1 As Inventory
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents PictureBox3 As PictureBox
 End Class

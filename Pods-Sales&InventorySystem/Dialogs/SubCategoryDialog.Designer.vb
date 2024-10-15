@@ -64,6 +64,8 @@ Partial Class SubCategoryDialog
         '
         'SubCategoryDescriptionTextBox
         '
+        Me.SubCategoryDescriptionTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.SubCategoryDescriptionTextBox.BorderRadius = 10
         Me.SubCategoryDescriptionTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.SubCategoryDescriptionTextBox.DefaultText = ""
         Me.SubCategoryDescriptionTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
@@ -73,10 +75,10 @@ Partial Class SubCategoryDialog
         Me.SubCategoryDescriptionTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.SubCategoryDescriptionTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.SubCategoryDescriptionTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.SubCategoryDescriptionTextBox.Location = New System.Drawing.Point(150, 130)
+        Me.SubCategoryDescriptionTextBox.Location = New System.Drawing.Point(118, 158)
         Me.SubCategoryDescriptionTextBox.Name = "SubCategoryDescriptionTextBox"
         Me.SubCategoryDescriptionTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.SubCategoryDescriptionTextBox.PlaceholderText = ""
+        Me.SubCategoryDescriptionTextBox.PlaceholderText = "Description"
         Me.SubCategoryDescriptionTextBox.SelectedText = ""
         Me.SubCategoryDescriptionTextBox.Size = New System.Drawing.Size(200, 36)
         Me.SubCategoryDescriptionTextBox.TabIndex = 3
@@ -84,6 +86,8 @@ Partial Class SubCategoryDialog
         'CategoryComboBox
         '
         Me.CategoryComboBox.BackColor = System.Drawing.Color.Transparent
+        Me.CategoryComboBox.BorderColor = System.Drawing.Color.Gray
+        Me.CategoryComboBox.BorderRadius = 10
         Me.CategoryComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.CategoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.CategoryComboBox.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -91,13 +95,15 @@ Partial Class SubCategoryDialog
         Me.CategoryComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.CategoryComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.CategoryComboBox.ItemHeight = 30
-        Me.CategoryComboBox.Location = New System.Drawing.Point(150, 46)
+        Me.CategoryComboBox.Location = New System.Drawing.Point(118, 74)
         Me.CategoryComboBox.Name = "CategoryComboBox"
         Me.CategoryComboBox.Size = New System.Drawing.Size(200, 36)
         Me.CategoryComboBox.TabIndex = 2
         '
         'SubCategoryNameTextBox
         '
+        Me.SubCategoryNameTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.SubCategoryNameTextBox.BorderRadius = 10
         Me.SubCategoryNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.SubCategoryNameTextBox.DefaultText = ""
         Me.SubCategoryNameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
@@ -107,10 +113,10 @@ Partial Class SubCategoryDialog
         Me.SubCategoryNameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.SubCategoryNameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.SubCategoryNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.SubCategoryNameTextBox.Location = New System.Drawing.Point(150, 88)
+        Me.SubCategoryNameTextBox.Location = New System.Drawing.Point(118, 116)
         Me.SubCategoryNameTextBox.Name = "SubCategoryNameTextBox"
         Me.SubCategoryNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.SubCategoryNameTextBox.PlaceholderText = ""
+        Me.SubCategoryNameTextBox.PlaceholderText = "Subcategory Name"
         Me.SubCategoryNameTextBox.SelectedText = ""
         Me.SubCategoryNameTextBox.Size = New System.Drawing.Size(200, 36)
         Me.SubCategoryNameTextBox.TabIndex = 1
@@ -136,6 +142,7 @@ Partial Class SubCategoryDialog
         Me.DeleteSubCategoryButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.DeleteSubCategoryButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.DeleteSubCategoryButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.DeleteSubCategoryButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(18, Byte), Integer), CType(CType(31, Byte), Integer))
         Me.DeleteSubCategoryButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DeleteSubCategoryButton.ForeColor = System.Drawing.Color.White
         Me.DeleteSubCategoryButton.Location = New System.Drawing.Point(304, 9)
@@ -154,6 +161,7 @@ Partial Class SubCategoryDialog
         Me.AddSubCategoryButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.AddSubCategoryButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.AddSubCategoryButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.AddSubCategoryButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AddSubCategoryButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddSubCategoryButton.ForeColor = System.Drawing.Color.White
         Me.AddSubCategoryButton.Location = New System.Drawing.Point(170, 8)

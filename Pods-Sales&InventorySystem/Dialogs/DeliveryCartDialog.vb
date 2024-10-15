@@ -9,9 +9,10 @@ Public Class DeliveryCartDialog
     Private ReadOnly _data As Dictionary(Of String, String)
     'Private _data As DataRowView
 
-    Public Sub New(Optional subject As IObservablePanel = Nothing)
+    Public Sub New(Optional subject As IObservablePanel = Nothing,
+                   Optional data As Dictionary(Of String, String) = Nothing)
         InitializeComponent()
-        '_data = Data
+        _data = data
         _subject = subject
 
     End Sub
@@ -30,6 +31,14 @@ Public Class DeliveryCartDialog
         'Dim newRow As DataRow = _itemSource.NewRow()
         'newRow("aa") = "Value for aa"
         'newRow("bb") = "Value for bb"
+
+        If _data IsNot Nothing Then
+            AddProductButton.Visible = False
+            SaveButton.Visible = False
+
+            TotalPrice.Text = _data("total")
+            DateTimePicker1.Value = _data("date")
+        End If
     End Sub
 
     'Private Sub DeliveryDataGridView_SelectionChanged(sender As Object, e As EventArgs) Handles DeliveryDataGridView.SelectionChanged

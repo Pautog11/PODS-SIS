@@ -24,8 +24,8 @@ Partial Class CategoryDialog
     Private Sub InitializeComponent()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.AddCategoryButton = New Guna.UI2.WinForms.Guna2Button()
         Me.DeleteCategoryButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.AddCategoryButton = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.DescriptionTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.CategoryNameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
@@ -51,8 +51,8 @@ Partial Class CategoryDialog
         '
         'FlowLayoutPanel1
         '
-        Me.FlowLayoutPanel1.Controls.Add(Me.AddCategoryButton)
         Me.FlowLayoutPanel1.Controls.Add(Me.DeleteCategoryButton)
+        Me.FlowLayoutPanel1.Controls.Add(Me.AddCategoryButton)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 178)
@@ -60,24 +60,6 @@ Partial Class CategoryDialog
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(438, 55)
         Me.FlowLayoutPanel1.TabIndex = 0
-        '
-        'AddCategoryButton
-        '
-        Me.AddCategoryButton.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.AddCategoryButton.BackColor = System.Drawing.Color.Transparent
-        Me.AddCategoryButton.BorderRadius = 15
-        Me.AddCategoryButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.AddCategoryButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.AddCategoryButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.AddCategoryButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.AddCategoryButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.AddCategoryButton.ForeColor = System.Drawing.Color.White
-        Me.AddCategoryButton.Location = New System.Drawing.Point(307, 8)
-        Me.AddCategoryButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
-        Me.AddCategoryButton.Name = "AddCategoryButton"
-        Me.AddCategoryButton.Size = New System.Drawing.Size(128, 37)
-        Me.AddCategoryButton.TabIndex = 5
-        Me.AddCategoryButton.Text = "Add"
         '
         'DeleteCategoryButton
         '
@@ -88,14 +70,34 @@ Partial Class CategoryDialog
         Me.DeleteCategoryButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.DeleteCategoryButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.DeleteCategoryButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.DeleteCategoryButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(18, Byte), Integer), CType(CType(31, Byte), Integer))
         Me.DeleteCategoryButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DeleteCategoryButton.ForeColor = System.Drawing.Color.White
-        Me.DeleteCategoryButton.Location = New System.Drawing.Point(173, 9)
+        Me.DeleteCategoryButton.Location = New System.Drawing.Point(307, 9)
         Me.DeleteCategoryButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.DeleteCategoryButton.Name = "DeleteCategoryButton"
         Me.DeleteCategoryButton.Size = New System.Drawing.Size(128, 35)
         Me.DeleteCategoryButton.TabIndex = 6
         Me.DeleteCategoryButton.Text = "Delete"
+        '
+        'AddCategoryButton
+        '
+        Me.AddCategoryButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.AddCategoryButton.BackColor = System.Drawing.Color.Transparent
+        Me.AddCategoryButton.BorderRadius = 15
+        Me.AddCategoryButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.AddCategoryButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.AddCategoryButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.AddCategoryButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.AddCategoryButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.AddCategoryButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.AddCategoryButton.ForeColor = System.Drawing.Color.White
+        Me.AddCategoryButton.Location = New System.Drawing.Point(173, 8)
+        Me.AddCategoryButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
+        Me.AddCategoryButton.Name = "AddCategoryButton"
+        Me.AddCategoryButton.Size = New System.Drawing.Size(128, 37)
+        Me.AddCategoryButton.TabIndex = 5
+        Me.AddCategoryButton.Text = "Add"
         '
         'Guna2Panel1
         '
@@ -110,6 +112,8 @@ Partial Class CategoryDialog
         '
         'DescriptionTextBox
         '
+        Me.DescriptionTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.DescriptionTextBox.BorderRadius = 10
         Me.DescriptionTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.DescriptionTextBox.DefaultText = ""
         Me.DescriptionTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
@@ -119,16 +123,18 @@ Partial Class CategoryDialog
         Me.DescriptionTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DescriptionTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DescriptionTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DescriptionTextBox.Location = New System.Drawing.Point(212, 54)
+        Me.DescriptionTextBox.Location = New System.Drawing.Point(118, 91)
         Me.DescriptionTextBox.Name = "DescriptionTextBox"
         Me.DescriptionTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.DescriptionTextBox.PlaceholderText = ""
+        Me.DescriptionTextBox.PlaceholderText = "Description"
         Me.DescriptionTextBox.SelectedText = ""
         Me.DescriptionTextBox.Size = New System.Drawing.Size(200, 36)
         Me.DescriptionTextBox.TabIndex = 1
         '
         'CategoryNameTextBox
         '
+        Me.CategoryNameTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.CategoryNameTextBox.BorderRadius = 10
         Me.CategoryNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.CategoryNameTextBox.DefaultText = ""
         Me.CategoryNameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
@@ -138,10 +144,10 @@ Partial Class CategoryDialog
         Me.CategoryNameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CategoryNameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.CategoryNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CategoryNameTextBox.Location = New System.Drawing.Point(212, 12)
+        Me.CategoryNameTextBox.Location = New System.Drawing.Point(118, 49)
         Me.CategoryNameTextBox.Name = "CategoryNameTextBox"
         Me.CategoryNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.CategoryNameTextBox.PlaceholderText = ""
+        Me.CategoryNameTextBox.PlaceholderText = "Category Name"
         Me.CategoryNameTextBox.SelectedText = ""
         Me.CategoryNameTextBox.Size = New System.Drawing.Size(200, 36)
         Me.CategoryNameTextBox.TabIndex = 0

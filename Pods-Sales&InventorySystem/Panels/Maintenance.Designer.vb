@@ -23,22 +23,22 @@ Partial Class Maintenance
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.MaintenaceTabControl = New Guna.UI2.WinForms.Guna2TabControl()
-        Me.SubCategory = New System.Windows.Forms.TabPage()
-        Me.Suppliers = New System.Windows.Forms.TabPage()
-        Me.Supplier1 = New Pods_Sales_InventorySystem.Supplier()
-        Me.Deliveries = New System.Windows.Forms.TabPage()
-        Me.Delivery1 = New Pods_Sales_InventorySystem.Delivery()
-        Me.SubCategory1 = New Pods_Sales_InventorySystem.SubCategory()
         Me.Accounts = New System.Windows.Forms.TabPage()
         Me.Account1 = New Pods_Sales_InventorySystem.Account()
         Me.Categories = New System.Windows.Forms.TabPage()
         Me.Category1 = New Pods_Sales_InventorySystem.Category()
+        Me.SubCategory = New System.Windows.Forms.TabPage()
+        Me.SubCategory1 = New Pods_Sales_InventorySystem.SubCategory()
+        Me.Suppliers = New System.Windows.Forms.TabPage()
+        Me.Supplier1 = New Pods_Sales_InventorySystem.Supplier()
+        Me.Deliveries = New System.Windows.Forms.TabPage()
+        Me.Delivery1 = New Pods_Sales_InventorySystem.Delivery()
         Me.MaintenaceTabControl.SuspendLayout()
+        Me.Accounts.SuspendLayout()
+        Me.Categories.SuspendLayout()
         Me.SubCategory.SuspendLayout()
         Me.Suppliers.SuspendLayout()
         Me.Deliveries.SuspendLayout()
-        Me.Accounts.SuspendLayout()
-        Me.Categories.SuspendLayout()
         Me.SuspendLayout()
         '
         'MaintenaceTabControl
@@ -61,19 +61,57 @@ Partial Class Maintenance
         Me.MaintenaceTabControl.TabButtonHoverState.ForeColor = System.Drawing.Color.White
         Me.MaintenaceTabControl.TabButtonHoverState.InnerColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.MaintenaceTabControl.TabButtonIdleState.BorderColor = System.Drawing.Color.Empty
-        Me.MaintenaceTabControl.TabButtonIdleState.FillColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(57, Byte), Integer))
+        Me.MaintenaceTabControl.TabButtonIdleState.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.MaintenaceTabControl.TabButtonIdleState.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!)
-        Me.MaintenaceTabControl.TabButtonIdleState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(156, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(167, Byte), Integer))
-        Me.MaintenaceTabControl.TabButtonIdleState.InnerColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(57, Byte), Integer))
+        Me.MaintenaceTabControl.TabButtonIdleState.ForeColor = System.Drawing.Color.White
+        Me.MaintenaceTabControl.TabButtonIdleState.InnerColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.MaintenaceTabControl.TabButtonSelectedState.BorderColor = System.Drawing.Color.Empty
-        Me.MaintenaceTabControl.TabButtonSelectedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(29, Byte), Integer), CType(CType(37, Byte), Integer), CType(CType(49, Byte), Integer))
+        Me.MaintenaceTabControl.TabButtonSelectedState.FillColor = System.Drawing.Color.White
         Me.MaintenaceTabControl.TabButtonSelectedState.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!)
-        Me.MaintenaceTabControl.TabButtonSelectedState.ForeColor = System.Drawing.Color.White
-        Me.MaintenaceTabControl.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(CType(CType(76, Byte), Integer), CType(CType(132, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.MaintenaceTabControl.TabButtonSelectedState.ForeColor = System.Drawing.Color.Black
+        Me.MaintenaceTabControl.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(CType(CType(181, Byte), Integer), CType(CType(136, Byte), Integer), CType(CType(52, Byte), Integer))
         Me.MaintenaceTabControl.TabButtonSize = New System.Drawing.Size(180, 40)
         Me.MaintenaceTabControl.TabIndex = 0
-        Me.MaintenaceTabControl.TabMenuBackColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(42, Byte), Integer), CType(CType(57, Byte), Integer))
+        Me.MaintenaceTabControl.TabMenuBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.MaintenaceTabControl.TabMenuOrientation = Guna.UI2.WinForms.TabMenuOrientation.HorizontalTop
+        '
+        'Accounts
+        '
+        Me.Accounts.Controls.Add(Me.Account1)
+        Me.Accounts.Location = New System.Drawing.Point(4, 44)
+        Me.Accounts.Name = "Accounts"
+        Me.Accounts.Size = New System.Drawing.Size(899, 532)
+        Me.Accounts.TabIndex = 6
+        Me.Accounts.Text = "Accounts"
+        Me.Accounts.UseVisualStyleBackColor = True
+        '
+        'Account1
+        '
+        Me.Account1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Account1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Account1.Location = New System.Drawing.Point(0, 0)
+        Me.Account1.Name = "Account1"
+        Me.Account1.Size = New System.Drawing.Size(899, 532)
+        Me.Account1.TabIndex = 0
+        '
+        'Categories
+        '
+        Me.Categories.Controls.Add(Me.Category1)
+        Me.Categories.Location = New System.Drawing.Point(4, 44)
+        Me.Categories.Name = "Categories"
+        Me.Categories.Size = New System.Drawing.Size(899, 532)
+        Me.Categories.TabIndex = 7
+        Me.Categories.Text = "Categories"
+        Me.Categories.UseVisualStyleBackColor = True
+        '
+        'Category1
+        '
+        Me.Category1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Category1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Category1.Location = New System.Drawing.Point(0, 0)
+        Me.Category1.Name = "Category1"
+        Me.Category1.Size = New System.Drawing.Size(899, 532)
+        Me.Category1.TabIndex = 0
         '
         'SubCategory
         '
@@ -84,6 +122,16 @@ Partial Class Maintenance
         Me.SubCategory.TabIndex = 3
         Me.SubCategory.Text = "Sub Categories"
         Me.SubCategory.UseVisualStyleBackColor = True
+        '
+        'SubCategory1
+        '
+        Me.SubCategory1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.SubCategory1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SubCategory1.Location = New System.Drawing.Point(0, 0)
+        Me.SubCategory1.Margin = New System.Windows.Forms.Padding(0)
+        Me.SubCategory1.Name = "SubCategory1"
+        Me.SubCategory1.Size = New System.Drawing.Size(899, 532)
+        Me.SubCategory1.TabIndex = 0
         '
         'Suppliers
         '
@@ -125,54 +173,6 @@ Partial Class Maintenance
         Me.Delivery1.Size = New System.Drawing.Size(899, 532)
         Me.Delivery1.TabIndex = 0
         '
-        'SubCategory1
-        '
-        Me.SubCategory1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.SubCategory1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SubCategory1.Location = New System.Drawing.Point(0, 0)
-        Me.SubCategory1.Margin = New System.Windows.Forms.Padding(0)
-        Me.SubCategory1.Name = "SubCategory1"
-        Me.SubCategory1.Size = New System.Drawing.Size(899, 532)
-        Me.SubCategory1.TabIndex = 0
-        '
-        'Accounts
-        '
-        Me.Accounts.Controls.Add(Me.Account1)
-        Me.Accounts.Location = New System.Drawing.Point(4, 44)
-        Me.Accounts.Name = "Accounts"
-        Me.Accounts.Size = New System.Drawing.Size(899, 532)
-        Me.Accounts.TabIndex = 6
-        Me.Accounts.Text = "Accounts"
-        Me.Accounts.UseVisualStyleBackColor = True
-        '
-        'Account1
-        '
-        Me.Account1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Account1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Account1.Location = New System.Drawing.Point(0, 0)
-        Me.Account1.Name = "Account1"
-        Me.Account1.Size = New System.Drawing.Size(899, 532)
-        Me.Account1.TabIndex = 0
-        '
-        'Categories
-        '
-        Me.Categories.Controls.Add(Me.Category1)
-        Me.Categories.Location = New System.Drawing.Point(4, 44)
-        Me.Categories.Name = "Categories"
-        Me.Categories.Size = New System.Drawing.Size(899, 532)
-        Me.Categories.TabIndex = 7
-        Me.Categories.Text = "Categories"
-        Me.Categories.UseVisualStyleBackColor = True
-        '
-        'Category1
-        '
-        Me.Category1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Category1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Category1.Location = New System.Drawing.Point(0, 0)
-        Me.Category1.Name = "Category1"
-        Me.Category1.Size = New System.Drawing.Size(899, 532)
-        Me.Category1.TabIndex = 0
-        '
         'Maintenance
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -181,11 +181,11 @@ Partial Class Maintenance
         Me.Name = "Maintenance"
         Me.Size = New System.Drawing.Size(907, 580)
         Me.MaintenaceTabControl.ResumeLayout(False)
+        Me.Accounts.ResumeLayout(False)
+        Me.Categories.ResumeLayout(False)
         Me.SubCategory.ResumeLayout(False)
         Me.Suppliers.ResumeLayout(False)
         Me.Deliveries.ResumeLayout(False)
-        Me.Accounts.ResumeLayout(False)
-        Me.Categories.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub

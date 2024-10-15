@@ -24,8 +24,8 @@ Partial Class ProductDialog
     Private Sub InitializeComponent()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.AddProductButton = New Guna.UI2.WinForms.Guna2Button()
         Me.DeleteProductButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.AddProductButton = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.CostTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.SubCategoryComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
@@ -56,8 +56,8 @@ Partial Class ProductDialog
         '
         'FlowLayoutPanel1
         '
-        Me.FlowLayoutPanel1.Controls.Add(Me.AddProductButton)
         Me.FlowLayoutPanel1.Controls.Add(Me.DeleteProductButton)
+        Me.FlowLayoutPanel1.Controls.Add(Me.AddProductButton)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 248)
@@ -65,24 +65,6 @@ Partial Class ProductDialog
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(662, 55)
         Me.FlowLayoutPanel1.TabIndex = 0
-        '
-        'AddProductButton
-        '
-        Me.AddProductButton.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.AddProductButton.BackColor = System.Drawing.Color.Transparent
-        Me.AddProductButton.BorderRadius = 15
-        Me.AddProductButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.AddProductButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.AddProductButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.AddProductButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.AddProductButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.AddProductButton.ForeColor = System.Drawing.Color.White
-        Me.AddProductButton.Location = New System.Drawing.Point(531, 8)
-        Me.AddProductButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
-        Me.AddProductButton.Name = "AddProductButton"
-        Me.AddProductButton.Size = New System.Drawing.Size(128, 37)
-        Me.AddProductButton.TabIndex = 5
-        Me.AddProductButton.Text = "Add"
         '
         'DeleteProductButton
         '
@@ -93,14 +75,34 @@ Partial Class ProductDialog
         Me.DeleteProductButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.DeleteProductButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.DeleteProductButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.DeleteProductButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(18, Byte), Integer), CType(CType(31, Byte), Integer))
         Me.DeleteProductButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DeleteProductButton.ForeColor = System.Drawing.Color.White
-        Me.DeleteProductButton.Location = New System.Drawing.Point(397, 9)
+        Me.DeleteProductButton.Location = New System.Drawing.Point(531, 9)
         Me.DeleteProductButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.DeleteProductButton.Name = "DeleteProductButton"
         Me.DeleteProductButton.Size = New System.Drawing.Size(128, 35)
         Me.DeleteProductButton.TabIndex = 6
         Me.DeleteProductButton.Text = "Delete"
+        '
+        'AddProductButton
+        '
+        Me.AddProductButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.AddProductButton.BackColor = System.Drawing.Color.Transparent
+        Me.AddProductButton.BorderRadius = 15
+        Me.AddProductButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.AddProductButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.AddProductButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.AddProductButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.AddProductButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.AddProductButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.AddProductButton.ForeColor = System.Drawing.Color.White
+        Me.AddProductButton.Location = New System.Drawing.Point(397, 8)
+        Me.AddProductButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
+        Me.AddProductButton.Name = "AddProductButton"
+        Me.AddProductButton.Size = New System.Drawing.Size(128, 37)
+        Me.AddProductButton.TabIndex = 5
+        Me.AddProductButton.Text = "Add"
         '
         'Guna2Panel1
         '
@@ -120,6 +122,8 @@ Partial Class ProductDialog
         '
         'CostTextBox
         '
+        Me.CostTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.CostTextBox.BorderRadius = 10
         Me.CostTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.CostTextBox.DefaultText = ""
         Me.CostTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
@@ -129,7 +133,7 @@ Partial Class ProductDialog
         Me.CostTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CostTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.CostTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CostTextBox.Location = New System.Drawing.Point(436, 54)
+        Me.CostTextBox.Location = New System.Drawing.Point(412, 76)
         Me.CostTextBox.Name = "CostTextBox"
         Me.CostTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CostTextBox.PlaceholderText = "Cost"
@@ -140,6 +144,8 @@ Partial Class ProductDialog
         'SubCategoryComboBox
         '
         Me.SubCategoryComboBox.BackColor = System.Drawing.Color.Transparent
+        Me.SubCategoryComboBox.BorderColor = System.Drawing.Color.Gray
+        Me.SubCategoryComboBox.BorderRadius = 10
         Me.SubCategoryComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.SubCategoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.SubCategoryComboBox.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -147,13 +153,15 @@ Partial Class ProductDialog
         Me.SubCategoryComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.SubCategoryComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.SubCategoryComboBox.ItemHeight = 30
-        Me.SubCategoryComboBox.Location = New System.Drawing.Point(118, 12)
+        Me.SubCategoryComboBox.Location = New System.Drawing.Point(94, 34)
         Me.SubCategoryComboBox.Name = "SubCategoryComboBox"
         Me.SubCategoryComboBox.Size = New System.Drawing.Size(200, 36)
         Me.SubCategoryComboBox.TabIndex = 9
         '
         'StockLevelTextBox
         '
+        Me.StockLevelTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.StockLevelTextBox.BorderRadius = 10
         Me.StockLevelTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.StockLevelTextBox.DefaultText = ""
         Me.StockLevelTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
@@ -163,7 +171,7 @@ Partial Class ProductDialog
         Me.StockLevelTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.StockLevelTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.StockLevelTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.StockLevelTextBox.Location = New System.Drawing.Point(436, 96)
+        Me.StockLevelTextBox.Location = New System.Drawing.Point(412, 118)
         Me.StockLevelTextBox.Name = "StockLevelTextBox"
         Me.StockLevelTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.StockLevelTextBox.PlaceholderText = "Stock Level"
@@ -173,6 +181,8 @@ Partial Class ProductDialog
         '
         'PriceTextBox
         '
+        Me.PriceTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.PriceTextBox.BorderRadius = 10
         Me.PriceTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.PriceTextBox.DefaultText = ""
         Me.PriceTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
@@ -182,7 +192,7 @@ Partial Class ProductDialog
         Me.PriceTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.PriceTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.PriceTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.PriceTextBox.Location = New System.Drawing.Point(436, 12)
+        Me.PriceTextBox.Location = New System.Drawing.Point(412, 34)
         Me.PriceTextBox.Name = "PriceTextBox"
         Me.PriceTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.PriceTextBox.PlaceholderText = "Price"
@@ -192,6 +202,8 @@ Partial Class ProductDialog
         '
         'DescriptionTextBox
         '
+        Me.DescriptionTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.DescriptionTextBox.BorderRadius = 10
         Me.DescriptionTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.DescriptionTextBox.DefaultText = ""
         Me.DescriptionTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
@@ -201,7 +213,7 @@ Partial Class ProductDialog
         Me.DescriptionTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DescriptionTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DescriptionTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DescriptionTextBox.Location = New System.Drawing.Point(118, 138)
+        Me.DescriptionTextBox.Location = New System.Drawing.Point(94, 160)
         Me.DescriptionTextBox.Name = "DescriptionTextBox"
         Me.DescriptionTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.DescriptionTextBox.PlaceholderText = "Description"
@@ -211,6 +223,8 @@ Partial Class ProductDialog
         '
         'ProductNameTextBox
         '
+        Me.ProductNameTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.ProductNameTextBox.BorderRadius = 10
         Me.ProductNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.ProductNameTextBox.DefaultText = ""
         Me.ProductNameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
@@ -220,7 +234,7 @@ Partial Class ProductDialog
         Me.ProductNameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ProductNameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.ProductNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ProductNameTextBox.Location = New System.Drawing.Point(118, 96)
+        Me.ProductNameTextBox.Location = New System.Drawing.Point(94, 118)
         Me.ProductNameTextBox.Name = "ProductNameTextBox"
         Me.ProductNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ProductNameTextBox.PlaceholderText = "Product Name"
@@ -230,6 +244,8 @@ Partial Class ProductDialog
         '
         'BarcodeTextBox
         '
+        Me.BarcodeTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.BarcodeTextBox.BorderRadius = 10
         Me.BarcodeTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.BarcodeTextBox.DefaultText = ""
         Me.BarcodeTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
@@ -239,7 +255,7 @@ Partial Class ProductDialog
         Me.BarcodeTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.BarcodeTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.BarcodeTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.BarcodeTextBox.Location = New System.Drawing.Point(118, 54)
+        Me.BarcodeTextBox.Location = New System.Drawing.Point(94, 76)
         Me.BarcodeTextBox.Name = "BarcodeTextBox"
         Me.BarcodeTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.BarcodeTextBox.PlaceholderText = "Barcode"

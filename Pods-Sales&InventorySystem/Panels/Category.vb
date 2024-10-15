@@ -17,6 +17,7 @@
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
         _tableAapter.Fill(_dataTable)
         CategoryDataGridView.DataSource = _dataTable
+        CategoryDataGridView.Columns.Item("ID").Visible = False
     End Sub
 
     Private Sub CategorySearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles CategorySearchTextBox.TextChanged

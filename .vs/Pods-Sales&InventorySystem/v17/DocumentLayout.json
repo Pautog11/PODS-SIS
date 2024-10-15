@@ -3,19 +3,26 @@
   "WorkspaceRootPath": "C:\\Users\\Christian\\Desktop\\PODS-SIS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|Pods-Sales\u0026InventorySystem||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+      "AbsoluteMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|c:\\users\\christian\\desktop\\pods-sis\\pods-sales\u0026inventorysystem\\forms\\login.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|solutionrelative:pods-sales\u0026inventorysystem\\forms\\login.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|C:\\Users\\Christian\\Desktop\\PODS-SIS\\pods-sales\u0026inventorysystem\\panels\\product.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|solutionrelative:pods-sales\u0026inventorysystem\\panels\\product.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+      "AbsoluteMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|C:\\Users\\Christian\\Desktop\\PODS-SIS\\pods-sales\u0026inventorysystem\\panels\\maintenance.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|solutionrelative:pods-sales\u0026inventorysystem\\panels\\maintenance.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|Pods-Sales\u0026InventorySystem||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|C:\\Users\\Christian\\Desktop\\PODS-SIS\\pods-sales\u0026inventorysystem\\panels\\account.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
       "RelativeMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|solutionrelative:pods-sales\u0026inventorysystem\\panels\\account.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|C:\\Users\\Christian\\Desktop\\PODS-SIS\\pods-sales\u0026inventorysystem\\panels\\maintenance.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
-      "RelativeMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|solutionrelative:pods-sales\u0026inventorysystem\\panels\\maintenance.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+      "AbsoluteMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|C:\\Users\\Christian\\Desktop\\PODS-SIS\\pods-sales\u0026inventorysystem\\panels\\product.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|solutionrelative:pods-sales\u0026inventorysystem\\panels\\product.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38FAD0A8-B421-4167-BFC1-981D1DE1328A}|Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj|c:\\users\\christian\\desktop\\pods-sis\\pods-sales\u0026inventorysystem\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|8998e48e-b89a-4034-b66e-353d8c1fdc2e"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,6 +37,18 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Login.vb [Design]",
+              "DocumentMoniker": "C:\\Users\\Christian\\Desktop\\PODS-SIS\\Pods-Sales\u0026InventorySystem\\Forms\\Login.vb",
+              "RelativeDocumentMoniker": "Pods-Sales\u0026InventorySystem\\Forms\\Login.vb",
+              "ToolTip": "C:\\Users\\Christian\\Desktop\\PODS-SIS\\Pods-Sales\u0026InventorySystem\\Forms\\Login.vb [Design]",
+              "RelativeToolTip": "Pods-Sales\u0026InventorySystem\\Forms\\Login.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-10-14T12:43:52.877Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Pods-Sales\u0026InventorySystem",
               "DocumentMoniker": "C:\\Users\\Christian\\Desktop\\PODS-SIS\\Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj",
               "RelativeDocumentMoniker": "Pods-Sales\u0026InventorySystem\\Pods-Sales\u0026InventorySystem.vbproj",
@@ -41,36 +60,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Maintenance.vb [Design]",
               "DocumentMoniker": "C:\\Users\\Christian\\Desktop\\PODS-SIS\\Pods-Sales\u0026InventorySystem\\Panels\\Maintenance.vb",
               "RelativeDocumentMoniker": "Pods-Sales\u0026InventorySystem\\Panels\\Maintenance.vb",
               "ToolTip": "C:\\Users\\Christian\\Desktop\\PODS-SIS\\Pods-Sales\u0026InventorySystem\\Panels\\Maintenance.vb [Design]",
               "RelativeToolTip": "Pods-Sales\u0026InventorySystem\\Panels\\Maintenance.vb [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-09-28T12:45:14.512Z"
+              "WhenOpened": "2024-09-28T12:45:14.512Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Account.vb [Design]",
               "DocumentMoniker": "C:\\Users\\Christian\\Desktop\\PODS-SIS\\Pods-Sales\u0026InventorySystem\\Panels\\Account.vb",
               "RelativeDocumentMoniker": "Pods-Sales\u0026InventorySystem\\Panels\\Account.vb",
               "ToolTip": "C:\\Users\\Christian\\Desktop\\PODS-SIS\\Pods-Sales\u0026InventorySystem\\Panels\\Account.vb [Design]",
               "RelativeToolTip": "Pods-Sales\u0026InventorySystem\\Panels\\Account.vb [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-09-28T12:42:48.778Z"
+              "WhenOpened": "2024-09-28T12:42:48.778Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Product.vb [Design]",
               "DocumentMoniker": "C:\\Users\\Christian\\Desktop\\PODS-SIS\\Pods-Sales\u0026InventorySystem\\Panels\\Product.vb",
               "RelativeDocumentMoniker": "Pods-Sales\u0026InventorySystem\\Panels\\Product.vb",
               "ToolTip": "C:\\Users\\Christian\\Desktop\\PODS-SIS\\Pods-Sales\u0026InventorySystem\\Panels\\Product.vb [Design]",
               "RelativeToolTip": "Pods-Sales\u0026InventorySystem\\Panels\\Product.vb [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-09-28T12:42:32.556Z"
+              "WhenOpened": "2024-09-28T12:42:32.556Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

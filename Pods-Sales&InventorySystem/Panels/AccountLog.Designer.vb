@@ -43,11 +43,11 @@ Partial Class AccountLog
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
         Me.AccountLogDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.AccountLogDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -108,6 +108,7 @@ Partial Class AccountLog
         'AccountLogSearchTextBox
         '
         Me.AccountLogSearchTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.AccountLogSearchTextBox.BorderColor = System.Drawing.Color.Gray
         Me.AccountLogSearchTextBox.BorderRadius = 15
         Me.AccountLogSearchTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.AccountLogSearchTextBox.DefaultText = ""

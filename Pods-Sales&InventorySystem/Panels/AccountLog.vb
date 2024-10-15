@@ -16,5 +16,6 @@
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
         _tableAapter.Fill(_dataTable)
         AccountLogDataGridView.DataSource = _dataTable
+        AccountLogDataGridView.Columns.Item("ID").Visible = False
     End Sub
 End Class

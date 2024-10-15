@@ -26,6 +26,19 @@ Public Class Delivery
     End Sub
 
     Private Sub DeliveryDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DeliveryDataGridView.CellClick
-        MsgBox("to be fixed")
+        'MsgBox("to be fixed")
+        'Dim dialog As New DeliveryCartDialog
+        'dialog.ShowDialog()
+        If DeliveryDataGridView.SelectedRows.Count > 0 Then
+            Dim selectedRows As DataGridViewSelectedRowCollection = DeliveryDataGridView.SelectedRows
+            Dim row As DataGridViewRow = selectedRows(0)
+            Dim data As New Dictionary(Of String, String) From {
+                {"supplier_id", row.Cells(2).Value.ToString()},
+                {"total", row.Cells(3).Value.ToString()},
+                {"date", row.Cells(4).Value.ToString()}
+            }
+            Dim Dialog As New DeliveryCartDialog(data:=data)
+            Dialog.ShowDialog()
+        End If
     End Sub
 End Class

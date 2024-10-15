@@ -15,6 +15,7 @@
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
         _tableAapter.Fill(_dataTable)
         ProductsDataGridView.DataSource = _dataTable
+        ProductsDataGridView.Columns.Item("ID").Visible = False
     End Sub
     Private Sub AddProductButton_Click(sender As Object, e As EventArgs) Handles AddProductButton.Click
         Dim Dialog As New ProductDialog(subject:=_subject)

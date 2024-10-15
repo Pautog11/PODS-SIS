@@ -60,6 +60,7 @@ Partial Class Account
         Me.AddAccountButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.AddAccountButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.AddAccountButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.AddAccountButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AddAccountButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddAccountButton.ForeColor = System.Drawing.Color.White
         Me.AddAccountButton.Location = New System.Drawing.Point(736, 4)
@@ -71,6 +72,7 @@ Partial Class Account
         'AccountSearchTextBox
         '
         Me.AccountSearchTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.AccountSearchTextBox.BorderColor = System.Drawing.Color.Gray
         Me.AccountSearchTextBox.BorderRadius = 15
         Me.AccountSearchTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.AccountSearchTextBox.DefaultText = ""
@@ -114,11 +116,11 @@ Partial Class Account
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
         Me.AccountsDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.AccountsDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft

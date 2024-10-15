@@ -24,7 +24,9 @@ Partial Class Login
     Private Sub InitializeComponent()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Guna2ImageButton1 = New Guna.UI2.WinForms.Guna2ImageButton()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Guna2CheckBox1 = New Guna.UI2.WinForms.Guna2CheckBox()
         Me.LoginButton = New Guna.UI2.WinForms.Guna2Button()
         Me.PasswordTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.UsernameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
@@ -36,6 +38,7 @@ Partial Class Login
         '
         'TableLayoutPanel1
         '
+        Me.TableLayoutPanel1.BackColor = System.Drawing.Color.White
         Me.TableLayoutPanel1.ColumnCount = 1
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel2, 0, 1)
@@ -55,6 +58,7 @@ Partial Class Login
         Me.TableLayoutPanel2.ColumnCount = 2
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.46096!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.53904!))
+        Me.TableLayoutPanel2.Controls.Add(Me.Guna2ImageButton1, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Guna2Panel1, 1, 0)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 38)
@@ -64,8 +68,25 @@ Partial Class Login
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(794, 409)
         Me.TableLayoutPanel2.TabIndex = 0
         '
+        'Guna2ImageButton1
+        '
+        Me.Guna2ImageButton1.CheckedState.ImageSize = New System.Drawing.Size(64, 64)
+        Me.Guna2ImageButton1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Guna2ImageButton1.HoverState.ImageSize = New System.Drawing.Size(450, 120)
+        Me.Guna2ImageButton1.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.icon_pods
+        Me.Guna2ImageButton1.ImageOffset = New System.Drawing.Point(0, 0)
+        Me.Guna2ImageButton1.ImageRotate = 0!
+        Me.Guna2ImageButton1.ImageSize = New System.Drawing.Size(450, 120)
+        Me.Guna2ImageButton1.Location = New System.Drawing.Point(0, 0)
+        Me.Guna2ImageButton1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Guna2ImageButton1.Name = "Guna2ImageButton1"
+        Me.Guna2ImageButton1.PressedState.ImageSize = New System.Drawing.Size(450, 120)
+        Me.Guna2ImageButton1.Size = New System.Drawing.Size(488, 409)
+        Me.Guna2ImageButton1.TabIndex = 4
+        '
         'Guna2Panel1
         '
+        Me.Guna2Panel1.Controls.Add(Me.Guna2CheckBox1)
         Me.Guna2Panel1.Controls.Add(Me.LoginButton)
         Me.Guna2Panel1.Controls.Add(Me.PasswordTextBox)
         Me.Guna2Panel1.Controls.Add(Me.UsernameTextBox)
@@ -75,16 +96,35 @@ Partial Class Login
         Me.Guna2Panel1.Size = New System.Drawing.Size(300, 403)
         Me.Guna2Panel1.TabIndex = 0
         '
+        'Guna2CheckBox1
+        '
+        Me.Guna2CheckBox1.AutoSize = True
+        Me.Guna2CheckBox1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.Guna2CheckBox1.CheckedState.BorderRadius = 0
+        Me.Guna2CheckBox1.CheckedState.BorderThickness = 0
+        Me.Guna2CheckBox1.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.Guna2CheckBox1.Location = New System.Drawing.Point(44, 197)
+        Me.Guna2CheckBox1.Name = "Guna2CheckBox1"
+        Me.Guna2CheckBox1.Size = New System.Drawing.Size(101, 17)
+        Me.Guna2CheckBox1.TabIndex = 3
+        Me.Guna2CheckBox1.Text = "Show password"
+        Me.Guna2CheckBox1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        Me.Guna2CheckBox1.UncheckedState.BorderRadius = 0
+        Me.Guna2CheckBox1.UncheckedState.BorderThickness = 0
+        Me.Guna2CheckBox1.UncheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        '
         'LoginButton
         '
         Me.LoginButton.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.LoginButton.BorderRadius = 15
         Me.LoginButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
         Me.LoginButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.LoginButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.LoginButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.LoginButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.LoginButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.LoginButton.ForeColor = System.Drawing.Color.White
-        Me.LoginButton.Location = New System.Drawing.Point(54, 219)
+        Me.LoginButton.Location = New System.Drawing.Point(54, 225)
         Me.LoginButton.Name = "LoginButton"
         Me.LoginButton.Size = New System.Drawing.Size(180, 45)
         Me.LoginButton.TabIndex = 2
@@ -93,16 +133,18 @@ Partial Class Login
         'PasswordTextBox
         '
         Me.PasswordTextBox.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.PasswordTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.PasswordTextBox.BorderRadius = 10
         Me.PasswordTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.PasswordTextBox.DefaultText = ""
         Me.PasswordTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
         Me.PasswordTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
         Me.PasswordTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.PasswordTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.PasswordTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.PasswordTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.PasswordTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.PasswordTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.PasswordTextBox.Location = New System.Drawing.Point(43, 177)
+        Me.PasswordTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.PasswordTextBox.Location = New System.Drawing.Point(44, 155)
         Me.PasswordTextBox.Name = "PasswordTextBox"
         Me.PasswordTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.PasswordTextBox.PlaceholderText = "Password"
@@ -113,16 +155,18 @@ Partial Class Login
         'UsernameTextBox
         '
         Me.UsernameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.UsernameTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.UsernameTextBox.BorderRadius = 10
         Me.UsernameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.UsernameTextBox.DefaultText = ""
         Me.UsernameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
         Me.UsernameTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
         Me.UsernameTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.UsernameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.UsernameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.UsernameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.UsernameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.UsernameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.UsernameTextBox.Location = New System.Drawing.Point(43, 135)
+        Me.UsernameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.UsernameTextBox.Location = New System.Drawing.Point(44, 113)
         Me.UsernameTextBox.Name = "UsernameTextBox"
         Me.UsernameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.UsernameTextBox.PlaceholderText = "Username"
@@ -155,6 +199,7 @@ Partial Class Login
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.Guna2Panel1.ResumeLayout(False)
+        Me.Guna2Panel1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -166,4 +211,6 @@ Partial Class Login
     Friend WithEvents PasswordTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents UsernameTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2ControlBox1 As Guna.UI2.WinForms.Guna2ControlBox
+    Friend WithEvents Guna2ImageButton1 As Guna.UI2.WinForms.Guna2ImageButton
+    Friend WithEvents Guna2CheckBox1 As Guna.UI2.WinForms.Guna2CheckBox
 End Class

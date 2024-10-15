@@ -56,6 +56,7 @@ Partial Class DeliveryProductDialog
         Me.AddDeliveryButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.AddDeliveryButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.AddDeliveryButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.AddDeliveryButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AddDeliveryButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddDeliveryButton.ForeColor = System.Drawing.Color.White
         Me.AddDeliveryButton.Location = New System.Drawing.Point(283, 8)
@@ -80,6 +81,8 @@ Partial Class DeliveryProductDialog
         '
         'QuantityTextBox
         '
+        Me.QuantityTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.QuantityTextBox.BorderRadius = 10
         Me.QuantityTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.QuantityTextBox.DefaultText = ""
         Me.QuantityTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
@@ -89,16 +92,18 @@ Partial Class DeliveryProductDialog
         Me.QuantityTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.QuantityTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.QuantityTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.QuantityTextBox.Location = New System.Drawing.Point(186, 152)
+        Me.QuantityTextBox.Location = New System.Drawing.Point(105, 155)
         Me.QuantityTextBox.Name = "QuantityTextBox"
         Me.QuantityTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.QuantityTextBox.PlaceholderText = ""
+        Me.QuantityTextBox.PlaceholderText = "Quantity"
         Me.QuantityTextBox.SelectedText = ""
         Me.QuantityTextBox.Size = New System.Drawing.Size(200, 36)
         Me.QuantityTextBox.TabIndex = 4
         '
         'CostTextBox
         '
+        Me.CostTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.CostTextBox.BorderRadius = 10
         Me.CostTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.CostTextBox.DefaultText = ""
         Me.CostTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
@@ -108,16 +113,18 @@ Partial Class DeliveryProductDialog
         Me.CostTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CostTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.CostTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CostTextBox.Location = New System.Drawing.Point(186, 110)
+        Me.CostTextBox.Location = New System.Drawing.Point(105, 113)
         Me.CostTextBox.Name = "CostTextBox"
         Me.CostTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.CostTextBox.PlaceholderText = ""
+        Me.CostTextBox.PlaceholderText = "Cost"
         Me.CostTextBox.SelectedText = ""
         Me.CostTextBox.Size = New System.Drawing.Size(200, 36)
         Me.CostTextBox.TabIndex = 3
         '
         'BarcodeTextBox
         '
+        Me.BarcodeTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.BarcodeTextBox.BorderRadius = 10
         Me.BarcodeTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.BarcodeTextBox.DefaultText = ""
         Me.BarcodeTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
@@ -127,10 +134,10 @@ Partial Class DeliveryProductDialog
         Me.BarcodeTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.BarcodeTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.BarcodeTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.BarcodeTextBox.Location = New System.Drawing.Point(186, 26)
+        Me.BarcodeTextBox.Location = New System.Drawing.Point(105, 29)
         Me.BarcodeTextBox.Name = "BarcodeTextBox"
         Me.BarcodeTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.BarcodeTextBox.PlaceholderText = ""
+        Me.BarcodeTextBox.PlaceholderText = "Barcode"
         Me.BarcodeTextBox.SelectedText = ""
         Me.BarcodeTextBox.Size = New System.Drawing.Size(200, 36)
         Me.BarcodeTextBox.TabIndex = 2
@@ -138,6 +145,8 @@ Partial Class DeliveryProductDialog
         'ProductComboBox
         '
         Me.ProductComboBox.BackColor = System.Drawing.Color.Transparent
+        Me.ProductComboBox.BorderColor = System.Drawing.Color.Gray
+        Me.ProductComboBox.BorderRadius = 10
         Me.ProductComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.ProductComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ProductComboBox.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -145,7 +154,7 @@ Partial Class DeliveryProductDialog
         Me.ProductComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.ProductComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.ProductComboBox.ItemHeight = 30
-        Me.ProductComboBox.Location = New System.Drawing.Point(186, 68)
+        Me.ProductComboBox.Location = New System.Drawing.Point(105, 71)
         Me.ProductComboBox.Name = "ProductComboBox"
         Me.ProductComboBox.Size = New System.Drawing.Size(200, 36)
         Me.ProductComboBox.TabIndex = 1

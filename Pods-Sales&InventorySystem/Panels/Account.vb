@@ -18,6 +18,7 @@ Public Class Account
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
         _tableAapter.Fill(_dataTable)
         AccountsDataGridView.DataSource = _dataTable
+        AccountsDataGridView.Columns.Item("ID").Visible = False
     End Sub
 
     Private Sub AddAccountButton_Click(sender As Object, e As EventArgs) Handles AddAccountButton.Click

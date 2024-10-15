@@ -141,6 +141,8 @@ Partial Class Server
         'ServerTextBox
         '
         Me.ServerTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.ServerTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.ServerTextBox.BorderRadius = 10
         Me.ServerTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.ServerTextBox.DefaultText = ""
         Me.ServerTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
@@ -153,7 +155,7 @@ Partial Class Server
         Me.ServerTextBox.Location = New System.Drawing.Point(3, 27)
         Me.ServerTextBox.Name = "ServerTextBox"
         Me.ServerTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.ServerTextBox.PlaceholderText = "Server"
+        Me.ServerTextBox.PlaceholderText = ""
         Me.ServerTextBox.SelectedText = ""
         Me.ServerTextBox.Size = New System.Drawing.Size(200, 36)
         Me.ServerTextBox.TabIndex = 6
@@ -171,6 +173,8 @@ Partial Class Server
         'UsernameTextBox
         '
         Me.UsernameTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.UsernameTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.UsernameTextBox.BorderRadius = 10
         Me.UsernameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.UsernameTextBox.DefaultText = ""
         Me.UsernameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
@@ -183,7 +187,7 @@ Partial Class Server
         Me.UsernameTextBox.Location = New System.Drawing.Point(3, 93)
         Me.UsernameTextBox.Name = "UsernameTextBox"
         Me.UsernameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.UsernameTextBox.PlaceholderText = "Username"
+        Me.UsernameTextBox.PlaceholderText = ""
         Me.UsernameTextBox.SelectedText = ""
         Me.UsernameTextBox.Size = New System.Drawing.Size(200, 36)
         Me.UsernameTextBox.TabIndex = 0
@@ -201,6 +205,8 @@ Partial Class Server
         'PasswordTextBox
         '
         Me.PasswordTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.PasswordTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.PasswordTextBox.BorderRadius = 10
         Me.PasswordTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.PasswordTextBox.DefaultText = ""
         Me.PasswordTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
@@ -213,7 +219,7 @@ Partial Class Server
         Me.PasswordTextBox.Location = New System.Drawing.Point(3, 159)
         Me.PasswordTextBox.Name = "PasswordTextBox"
         Me.PasswordTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.PasswordTextBox.PlaceholderText = "Password"
+        Me.PasswordTextBox.PlaceholderText = ""
         Me.PasswordTextBox.SelectedText = ""
         Me.PasswordTextBox.Size = New System.Drawing.Size(200, 36)
         Me.PasswordTextBox.TabIndex = 1
@@ -243,6 +249,7 @@ Partial Class Server
         Me.Guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.Guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.Guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.Guna2Button2.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.Guna2Button2.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.Guna2Button2.ForeColor = System.Drawing.Color.White
         Me.Guna2Button2.Location = New System.Drawing.Point(183, 7)
@@ -260,6 +267,7 @@ Partial Class Server
         Me.TestButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.TestButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.TestButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.TestButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.TestButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.TestButton.ForeColor = System.Drawing.Color.White
         Me.TestButton.Location = New System.Drawing.Point(24, 7)

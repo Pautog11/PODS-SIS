@@ -44,11 +44,11 @@ Partial Class Product
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
         Me.ProductsDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.ProductsDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -60,7 +60,7 @@ Partial Class Product
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.ProductsDataGridView.DefaultCellStyle = DataGridViewCellStyle3
         Me.ProductsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ProductsDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ProductsDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.ProductsDataGridView.Location = New System.Drawing.Point(3, 53)
         Me.ProductsDataGridView.MultiSelect = False
         Me.ProductsDataGridView.Name = "ProductsDataGridView"
@@ -75,7 +75,7 @@ Partial Class Product
         Me.ProductsDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty
         Me.ProductsDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty
         Me.ProductsDataGridView.ThemeStyle.BackColor = System.Drawing.Color.White
-        Me.ProductsDataGridView.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ProductsDataGridView.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.ProductsDataGridView.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ProductsDataGridView.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.ProductsDataGridView.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -117,6 +117,7 @@ Partial Class Product
         Me.AddProductButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.AddProductButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.AddProductButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.AddProductButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AddProductButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddProductButton.ForeColor = System.Drawing.Color.White
         Me.AddProductButton.Location = New System.Drawing.Point(472, 4)
@@ -128,6 +129,7 @@ Partial Class Product
         'ProductSearchTextBox
         '
         Me.ProductSearchTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.ProductSearchTextBox.BorderColor = System.Drawing.Color.Gray
         Me.ProductSearchTextBox.BorderRadius = 15
         Me.ProductSearchTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.ProductSearchTextBox.DefaultText = ""
