@@ -45,7 +45,7 @@ Public Class CategoryDialog
             If BaseCategory.Exists(result(0)(1)) = 0 AndAlso _data Is Nothing Then
                 baseCommand = New BaseCategory(data)
                 invoker = New AddCommand(baseCommand)
-            ElseIf _data IsNot Nothing Then
+            ElseIf _data IsNot Nothing AndAlso BaseCategory.Exists(result(0)(1)) = 0 Then
                 baseCommand = New BaseCategory(data)
                 invoker = New UpdateCommand(baseCommand)
             Else

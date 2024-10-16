@@ -35,9 +35,27 @@ Public Class DeliveryCartDialog
         If _data IsNot Nothing Then
             AddProductButton.Visible = False
             SaveButton.Visible = False
-
+            SupplierNameComboBox.Enabled = False
+            DateTimePicker1.Enabled = False
             TotalPrice.Text = _data("total")
             DateTimePicker1.Value = _data("date")
+
+            DeliveryDataGridView.Rows.Clear()
+            Dim DeliveryItems As DataTable = BaseDelivery.SelectAllDeliveryItems(_data("id"))
+            For Each row As DataRow In DeliveryItems.Rows
+                ' Create an array or list to hold the row data
+                Dim rowData As New List(Of Object)()
+
+                ' Loop through each column in the row
+                For Each column As DataColumn In DeliveryItems.Columns
+                    rowData.Add(row(column)) ' Add each column value to the rowData list
+                Next
+
+                ' Add the row data to the DataGridView
+                DeliveryDataGridView.Rows.Add(rowData.ToArray())
+            Next
+        Else
+            DateTimePicker1.MaxDate = DateTime.Now
         End If
     End Sub
 

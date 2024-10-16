@@ -16,6 +16,7 @@
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
         _tableAapter.Fill(_dataTable)
         SubCategoryDataGridView.DataSource = _dataTable
+        SubCategoryDataGridView.Columns.Item("ID").Visible = False
     End Sub
 
     Private Sub AddSubCategoryButton_Click(sender As Object, e As EventArgs) Handles AddSubCategoryButton.Click

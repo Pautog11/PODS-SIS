@@ -17,6 +17,7 @@
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
         _tableAapter.Fill(_dataTable)
         SupplierDataGridView.DataSource = _dataTable
+        SupplierDataGridView.Columns.Item("ID").Visible = False
     End Sub
 
     Private Sub AddSupplierButton_Click(sender As Object, e As EventArgs) Handles AddSupplierButton.Click

@@ -88,10 +88,10 @@ Public Class AccountDialog
             Dim invoker As ICommandInvoker = Nothing
             If BaseAccount.Exists(result(4)(1)) = 0 AndAlso _data Is Nothing Then
                 invoker = New AddCommand(baseCommand)
-            ElseIf _data IsNot Nothing Then
+            ElseIf _data IsNot Nothing AndAlso BaseAccount.Exists(result(4)(1)) = 0 Then
                 invoker = New UpdateCommand(baseCommand)
             Else
-                MessageBox.Show("Username exists!")
+                MessageBox.Show("Username exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Return
             End If
             invoker?.Execute()

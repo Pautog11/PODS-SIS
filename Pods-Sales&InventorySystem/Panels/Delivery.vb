@@ -18,6 +18,7 @@ Public Class Delivery
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
         _tableAapter.Fill(_dataTable)
         DeliveryDataGridView.DataSource = _dataTable
+        'DeliveryDataGridView.Columns.Item("id").Visible = False
     End Sub
 
     Private Sub AddDeliveryButton_Click(sender As Object, e As EventArgs) Handles AddDeliveryButton.Click
@@ -33,6 +34,7 @@ Public Class Delivery
             Dim selectedRows As DataGridViewSelectedRowCollection = DeliveryDataGridView.SelectedRows
             Dim row As DataGridViewRow = selectedRows(0)
             Dim data As New Dictionary(Of String, String) From {
+                {"id", row.Cells(0).Value.ToString()},
                 {"supplier_id", row.Cells(2).Value.ToString()},
                 {"total", row.Cells(3).Value.ToString()},
                 {"date", row.Cells(4).Value.ToString()}
