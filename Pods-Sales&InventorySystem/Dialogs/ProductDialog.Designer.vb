@@ -34,6 +34,7 @@ Partial Class ProductDialog
         Me.DescriptionTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.ProductNameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.BarcodeTextBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.SkuTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
@@ -106,6 +107,7 @@ Partial Class ProductDialog
         '
         'Guna2Panel1
         '
+        Me.Guna2Panel1.Controls.Add(Me.SkuTextBox)
         Me.Guna2Panel1.Controls.Add(Me.CostTextBox)
         Me.Guna2Panel1.Controls.Add(Me.SubCategoryComboBox)
         Me.Guna2Panel1.Controls.Add(Me.StockLevelTextBox)
@@ -133,7 +135,7 @@ Partial Class ProductDialog
         Me.CostTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CostTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.CostTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CostTextBox.Location = New System.Drawing.Point(412, 76)
+        Me.CostTextBox.Location = New System.Drawing.Point(409, 118)
         Me.CostTextBox.Name = "CostTextBox"
         Me.CostTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CostTextBox.PlaceholderText = "Cost"
@@ -171,7 +173,7 @@ Partial Class ProductDialog
         Me.StockLevelTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.StockLevelTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.StockLevelTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.StockLevelTextBox.Location = New System.Drawing.Point(412, 118)
+        Me.StockLevelTextBox.Location = New System.Drawing.Point(409, 160)
         Me.StockLevelTextBox.Name = "StockLevelTextBox"
         Me.StockLevelTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.StockLevelTextBox.PlaceholderText = "Stock Level"
@@ -192,7 +194,7 @@ Partial Class ProductDialog
         Me.PriceTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.PriceTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.PriceTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.PriceTextBox.Location = New System.Drawing.Point(412, 34)
+        Me.PriceTextBox.Location = New System.Drawing.Point(409, 76)
         Me.PriceTextBox.Name = "PriceTextBox"
         Me.PriceTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.PriceTextBox.PlaceholderText = "Price"
@@ -213,7 +215,7 @@ Partial Class ProductDialog
         Me.DescriptionTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DescriptionTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DescriptionTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DescriptionTextBox.Location = New System.Drawing.Point(94, 160)
+        Me.DescriptionTextBox.Location = New System.Drawing.Point(409, 34)
         Me.DescriptionTextBox.Name = "DescriptionTextBox"
         Me.DescriptionTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.DescriptionTextBox.PlaceholderText = "Description"
@@ -234,7 +236,7 @@ Partial Class ProductDialog
         Me.ProductNameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ProductNameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.ProductNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ProductNameTextBox.Location = New System.Drawing.Point(94, 118)
+        Me.ProductNameTextBox.Location = New System.Drawing.Point(94, 160)
         Me.ProductNameTextBox.Name = "ProductNameTextBox"
         Me.ProductNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ProductNameTextBox.PlaceholderText = "Product Name"
@@ -262,6 +264,27 @@ Partial Class ProductDialog
         Me.BarcodeTextBox.SelectedText = ""
         Me.BarcodeTextBox.Size = New System.Drawing.Size(200, 36)
         Me.BarcodeTextBox.TabIndex = 3
+        '
+        'SkuTextBox
+        '
+        Me.SkuTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.SkuTextBox.BorderRadius = 10
+        Me.SkuTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.SkuTextBox.DefaultText = ""
+        Me.SkuTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.SkuTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.SkuTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.SkuTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.SkuTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.SkuTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.SkuTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.SkuTextBox.Location = New System.Drawing.Point(94, 118)
+        Me.SkuTextBox.Name = "SkuTextBox"
+        Me.SkuTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.SkuTextBox.PlaceholderText = "Sku"
+        Me.SkuTextBox.SelectedText = ""
+        Me.SkuTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.SkuTextBox.TabIndex = 11
         '
         'ProductDialog
         '
@@ -294,4 +317,5 @@ Partial Class ProductDialog
     Friend WithEvents BarcodeTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents SubCategoryComboBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents CostTextBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents SkuTextBox As Guna.UI2.WinForms.Guna2TextBox
 End Class

@@ -120,3 +120,6 @@ C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sa
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.DeliveryCartDialog.resources
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.DeliveryProductDialog.resources
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods-Sales&InventorySystem.vbproj.CopyComplete
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Vat.resources
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Form1.resources
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Dialog1.resources

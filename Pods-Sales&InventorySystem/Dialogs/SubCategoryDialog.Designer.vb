@@ -26,10 +26,10 @@ Partial Class SubCategoryDialog
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.SubCategoryDescriptionTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.CategoryComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.SubCategoryNameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.DeleteSubCategoryButton = New Guna.UI2.WinForms.Guna2Button()
         Me.AddSubCategoryButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.SubcategoryNameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.SubCategoryLayoutPanel.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
@@ -52,9 +52,9 @@ Partial Class SubCategoryDialog
         '
         'Guna2Panel1
         '
+        Me.Guna2Panel1.Controls.Add(Me.SubcategoryNameTextBox)
         Me.Guna2Panel1.Controls.Add(Me.SubCategoryDescriptionTextBox)
         Me.Guna2Panel1.Controls.Add(Me.CategoryComboBox)
-        Me.Guna2Panel1.Controls.Add(Me.SubCategoryNameTextBox)
         Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Guna2Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
@@ -99,27 +99,6 @@ Partial Class SubCategoryDialog
         Me.CategoryComboBox.Name = "CategoryComboBox"
         Me.CategoryComboBox.Size = New System.Drawing.Size(200, 36)
         Me.CategoryComboBox.TabIndex = 2
-        '
-        'SubCategoryNameTextBox
-        '
-        Me.SubCategoryNameTextBox.BorderColor = System.Drawing.Color.Gray
-        Me.SubCategoryNameTextBox.BorderRadius = 10
-        Me.SubCategoryNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.SubCategoryNameTextBox.DefaultText = ""
-        Me.SubCategoryNameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.SubCategoryNameTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.SubCategoryNameTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.SubCategoryNameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.SubCategoryNameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.SubCategoryNameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.SubCategoryNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.SubCategoryNameTextBox.Location = New System.Drawing.Point(118, 116)
-        Me.SubCategoryNameTextBox.Name = "SubCategoryNameTextBox"
-        Me.SubCategoryNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.SubCategoryNameTextBox.PlaceholderText = "Subcategory Name"
-        Me.SubCategoryNameTextBox.SelectedText = ""
-        Me.SubCategoryNameTextBox.Size = New System.Drawing.Size(200, 36)
-        Me.SubCategoryNameTextBox.TabIndex = 1
         '
         'FlowLayoutPanel1
         '
@@ -171,6 +150,27 @@ Partial Class SubCategoryDialog
         Me.AddSubCategoryButton.TabIndex = 5
         Me.AddSubCategoryButton.Text = "Add"
         '
+        'SubcategoryNameTextBox
+        '
+        Me.SubcategoryNameTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.SubcategoryNameTextBox.BorderRadius = 10
+        Me.SubcategoryNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.SubcategoryNameTextBox.DefaultText = ""
+        Me.SubcategoryNameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.SubcategoryNameTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.SubcategoryNameTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.SubcategoryNameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.SubcategoryNameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.SubcategoryNameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.SubcategoryNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.SubcategoryNameTextBox.Location = New System.Drawing.Point(118, 116)
+        Me.SubcategoryNameTextBox.Name = "SubcategoryNameTextBox"
+        Me.SubcategoryNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.SubcategoryNameTextBox.PlaceholderText = "Subcategory Name"
+        Me.SubcategoryNameTextBox.SelectedText = ""
+        Me.SubcategoryNameTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.SubcategoryNameTextBox.TabIndex = 4
+        '
         'SubCategoryDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -198,5 +198,5 @@ Partial Class SubCategoryDialog
     Friend WithEvents CategoryComboBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents SubCategoryDescriptionTextBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents SubCategoryNameTextBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents SubcategoryNameTextBox As Guna.UI2.WinForms.Guna2TextBox
 End Class

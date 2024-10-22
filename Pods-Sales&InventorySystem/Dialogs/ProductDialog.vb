@@ -18,6 +18,7 @@ Public Class ProductDialog
             AddProductButton.Text = "Update"
 
             SubCategoryComboBox.Text = BaseProduct.SubcategoryName(_data.Item("subcategory_id"))
+            SkuTextBox.Text = _data.Item("sku")
             BarcodeTextBox.Text = _data.Item("barcode")
             ProductNameTextBox.Text = _data.Item("product_name")
             DescriptionTextBox.Text = _data.Item("description")
@@ -32,10 +33,10 @@ Public Class ProductDialog
 
     Private Sub AddProductButton_Click(sender As Object, e As EventArgs) Handles AddProductButton.Click
         Dim controls As Object() = {
-           BarcodeTextBox, ProductNameTextBox, DescriptionTextBox, PriceTextBox, CostTextBox, StockLevelTextBox
+           SkuTextBox, BarcodeTextBox, ProductNameTextBox, DescriptionTextBox, PriceTextBox, CostTextBox, StockLevelTextBox
        }
         Dim types As DataInput() = {
-            DataInput.STRING_STRING, DataInput.STRING_NAME, DataInput.STRING_STRING, DataInput.STRING_PRICE, DataInput.STRING_PRICE, DataInput.STRING_INTEGER
+            DataInput.STRING_STRING, DataInput.STRING_STRING, DataInput.STRING_NAME, DataInput.STRING_STRING, DataInput.STRING_PRICE, DataInput.STRING_PRICE, DataInput.STRING_INTEGER
         }
         Dim result As New List(Of Object())
         For i = 0 To controls.Count - 1
@@ -49,21 +50,25 @@ Public Class ProductDialog
             Dim data As New Dictionary(Of String, String) From {
                 {"id", _data?.Item("id")},
                 {"subcategory_id", SubCategoryComboBox.SelectedItem("id")},
-                {"barcode", result(0)(1)},
-                {"product_name", result(1)(1)},
-                {"description", result(2)(1)},
-                {"product_price", result(3)(1)},
-                {"product_cost", result(4)(1)},
-                {"stock_level", result(5)(1)}
+                {"sku", result(0)(1)},
+                {"barcode", result(1)(1)},
+                {"product_name", result(2)(1)},
+                {"description", result(3)(1)},
+                {"product_price", result(4)(1)},
+                {"product_cost", result(5)(1)},
+                {"stock_level", result(6)(1)}
             }
             Dim baseCommand As New BaseProduct(data)
             Dim invoker As ICommandInvoker = Nothing
-            If BaseProduct.Exists(result(1)(1)) = 0 AndAlso _data Is Nothing Then
+            If BaseProduct.Exists(result(0)(1)) = 0 AndAlso _data Is Nothing Then
                 invoker = New AddCommand(baseCommand)
             ElseIf _data IsNot Nothing Then
                 invoker = New UpdateCommand(baseCommand)
             Else
-                MessageBox.Show("Product exists!")
+                MessageBox.Show("Product exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                For Each ctrl As Guna.UI2.WinForms.Guna2TextBox In controls
+                    ctrl.Text = String.Empty
+                Next
                 Return
             End If
             invoker?.Execute()

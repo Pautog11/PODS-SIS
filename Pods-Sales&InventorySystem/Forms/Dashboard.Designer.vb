@@ -50,9 +50,12 @@ Partial Class Dashboard
         Me.Inventory1 = New Pods_Sales_InventorySystem.Inventory()
         Me.Activity = New System.Windows.Forms.TabPage()
         Me.AuditTrail1 = New Pods_Sales_InventorySystem.Activity()
+        Me.Transaction = New System.Windows.Forms.TabPage()
+        Me.Sales_Report = New System.Windows.Forms.TabPage()
         Me.Guna2ContextMenuStrip1 = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.DashboardTableLayoutPanel.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.DashboardPanel.SuspendLayout()
@@ -87,7 +90,7 @@ Partial Class Dashboard
         Me.DashboardTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
         Me.DashboardTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.DashboardTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.DashboardTableLayoutPanel.Size = New System.Drawing.Size(1207, 620)
+        Me.DashboardTableLayoutPanel.Size = New System.Drawing.Size(1318, 608)
         Me.DashboardTableLayoutPanel.TabIndex = 0
         '
         'FlowLayoutPanel1
@@ -101,7 +104,7 @@ Partial Class Dashboard
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(180, 0)
         Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1027, 40)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1138, 40)
         Me.FlowLayoutPanel1.TabIndex = 1
         '
         'Guna2ControlBox2
@@ -110,7 +113,7 @@ Partial Class Dashboard
         Me.Guna2ControlBox2.FillColor = System.Drawing.Color.Transparent
         Me.Guna2ControlBox2.HoverState.FillColor = System.Drawing.Color.Red
         Me.Guna2ControlBox2.IconColor = System.Drawing.Color.Black
-        Me.Guna2ControlBox2.Location = New System.Drawing.Point(982, 0)
+        Me.Guna2ControlBox2.Location = New System.Drawing.Point(1093, 0)
         Me.Guna2ControlBox2.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2ControlBox2.Name = "Guna2ControlBox2"
         Me.Guna2ControlBox2.Size = New System.Drawing.Size(45, 37)
@@ -123,7 +126,7 @@ Partial Class Dashboard
         Me.Guna2ControlBox3.FillColor = System.Drawing.Color.Transparent
         Me.Guna2ControlBox3.HoverState.FillColor = System.Drawing.Color.Silver
         Me.Guna2ControlBox3.IconColor = System.Drawing.Color.Black
-        Me.Guna2ControlBox3.Location = New System.Drawing.Point(937, 0)
+        Me.Guna2ControlBox3.Location = New System.Drawing.Point(1048, 0)
         Me.Guna2ControlBox3.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2ControlBox3.Name = "Guna2ControlBox3"
         Me.Guna2ControlBox3.Size = New System.Drawing.Size(45, 37)
@@ -136,7 +139,7 @@ Partial Class Dashboard
         Me.Guna2ControlBox1.FillColor = System.Drawing.Color.Transparent
         Me.Guna2ControlBox1.HoverState.FillColor = System.Drawing.Color.Silver
         Me.Guna2ControlBox1.IconColor = System.Drawing.Color.Black
-        Me.Guna2ControlBox1.Location = New System.Drawing.Point(892, 0)
+        Me.Guna2ControlBox1.Location = New System.Drawing.Point(1003, 0)
         Me.Guna2ControlBox1.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2ControlBox1.Name = "Guna2ControlBox1"
         Me.Guna2ControlBox1.Size = New System.Drawing.Size(45, 37)
@@ -151,7 +154,7 @@ Partial Class Dashboard
         Me.SettingButton.ImageOffset = New System.Drawing.Point(0, 0)
         Me.SettingButton.ImageRotate = 0!
         Me.SettingButton.ImageSize = New System.Drawing.Size(13, 13)
-        Me.SettingButton.Location = New System.Drawing.Point(853, 0)
+        Me.SettingButton.Location = New System.Drawing.Point(964, 0)
         Me.SettingButton.Margin = New System.Windows.Forms.Padding(0)
         Me.SettingButton.Name = "SettingButton"
         Me.SettingButton.PressedState.ImageSize = New System.Drawing.Size(13, 13)
@@ -181,7 +184,7 @@ Partial Class Dashboard
         Me.DashboardPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DashboardPanel.Location = New System.Drawing.Point(3, 43)
         Me.DashboardPanel.Name = "DashboardPanel"
-        Me.DashboardPanel.Size = New System.Drawing.Size(1201, 574)
+        Me.DashboardPanel.Size = New System.Drawing.Size(1312, 562)
         Me.DashboardPanel.TabIndex = 0
         '
         'DashboardTabControl
@@ -192,6 +195,9 @@ Partial Class Dashboard
         Me.DashboardTabControl.Controls.Add(Me.Maintenance)
         Me.DashboardTabControl.Controls.Add(Me.Inventory)
         Me.DashboardTabControl.Controls.Add(Me.Activity)
+        Me.DashboardTabControl.Controls.Add(Me.Transaction)
+        Me.DashboardTabControl.Controls.Add(Me.Sales_Report)
+        Me.DashboardTabControl.Controls.Add(Me.TabPage1)
         Me.DashboardTabControl.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DashboardTabControl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DashboardTabControl.ItemSize = New System.Drawing.Size(180, 40)
@@ -199,7 +205,7 @@ Partial Class Dashboard
         Me.DashboardTabControl.Margin = New System.Windows.Forms.Padding(0)
         Me.DashboardTabControl.Name = "DashboardTabControl"
         Me.DashboardTabControl.SelectedIndex = 0
-        Me.DashboardTabControl.Size = New System.Drawing.Size(1201, 574)
+        Me.DashboardTabControl.Size = New System.Drawing.Size(1312, 562)
         Me.DashboardTabControl.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty
         Me.DashboardTabControl.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.DashboardTabControl.TabButtonHoverState.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!)
@@ -227,7 +233,7 @@ Partial Class Dashboard
         Me.Home.Location = New System.Drawing.Point(184, 4)
         Me.Home.Name = "Home"
         Me.Home.Padding = New System.Windows.Forms.Padding(3)
-        Me.Home.Size = New System.Drawing.Size(1013, 566)
+        Me.Home.Size = New System.Drawing.Size(1124, 554)
         Me.Home.TabIndex = 0
         Me.Home.Text = "Home"
         Me.Home.UseVisualStyleBackColor = True
@@ -249,7 +255,7 @@ Partial Class Dashboard
         Me.TableLayoutPanel1.RowCount = 2
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1005, 558)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1116, 546)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'Panel3
@@ -258,10 +264,10 @@ Partial Class Dashboard
         Me.Panel3.Controls.Add(Me.PictureBox3)
         Me.Panel3.Controls.Add(Me.Label3)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel3.Location = New System.Drawing.Point(669, 0)
+        Me.Panel3.Location = New System.Drawing.Point(743, 0)
         Me.Panel3.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(336, 100)
+        Me.Panel3.Size = New System.Drawing.Size(373, 100)
         Me.Panel3.TabIndex = 5
         '
         'PictureBox3
@@ -289,10 +295,10 @@ Partial Class Dashboard
         Me.Panel2.Controls.Add(Me.PictureBox2)
         Me.Panel2.Controls.Add(Me.Label2)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel2.Location = New System.Drawing.Point(337, 0)
+        Me.Panel2.Location = New System.Drawing.Point(374, 0)
         Me.Panel2.Margin = New System.Windows.Forms.Padding(3, 0, 3, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(329, 100)
+        Me.Panel2.Size = New System.Drawing.Size(366, 100)
         Me.Panel2.TabIndex = 4
         '
         'PictureBox2
@@ -323,7 +329,7 @@ Partial Class Dashboard
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(334, 100)
+        Me.Panel1.Size = New System.Drawing.Size(371, 100)
         Me.Panel1.TabIndex = 3
         '
         'PictureBox1
@@ -350,7 +356,7 @@ Partial Class Dashboard
         Me.Product.Controls.Add(Me.Product1)
         Me.Product.Location = New System.Drawing.Point(184, 4)
         Me.Product.Name = "Product"
-        Me.Product.Size = New System.Drawing.Size(1013, 566)
+        Me.Product.Size = New System.Drawing.Size(1124, 554)
         Me.Product.TabIndex = 3
         Me.Product.Text = "Product"
         Me.Product.UseVisualStyleBackColor = True
@@ -361,7 +367,7 @@ Partial Class Dashboard
         Me.Product1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Product1.Location = New System.Drawing.Point(0, 0)
         Me.Product1.Name = "Product1"
-        Me.Product1.Size = New System.Drawing.Size(1013, 566)
+        Me.Product1.Size = New System.Drawing.Size(1124, 554)
         Me.Product1.TabIndex = 0
         '
         'Maintenance
@@ -370,7 +376,7 @@ Partial Class Dashboard
         Me.Maintenance.Location = New System.Drawing.Point(184, 4)
         Me.Maintenance.Name = "Maintenance"
         Me.Maintenance.Padding = New System.Windows.Forms.Padding(3)
-        Me.Maintenance.Size = New System.Drawing.Size(1013, 566)
+        Me.Maintenance.Size = New System.Drawing.Size(1124, 554)
         Me.Maintenance.TabIndex = 1
         Me.Maintenance.Text = "Maintenance"
         Me.Maintenance.UseVisualStyleBackColor = True
@@ -380,7 +386,7 @@ Partial Class Dashboard
         Me.Maintenance1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Maintenance1.Location = New System.Drawing.Point(3, 3)
         Me.Maintenance1.Name = "Maintenance1"
-        Me.Maintenance1.Size = New System.Drawing.Size(1007, 560)
+        Me.Maintenance1.Size = New System.Drawing.Size(1118, 548)
         Me.Maintenance1.TabIndex = 0
         '
         'Inventory
@@ -388,7 +394,7 @@ Partial Class Dashboard
         Me.Inventory.Controls.Add(Me.Inventory1)
         Me.Inventory.Location = New System.Drawing.Point(184, 4)
         Me.Inventory.Name = "Inventory"
-        Me.Inventory.Size = New System.Drawing.Size(1013, 566)
+        Me.Inventory.Size = New System.Drawing.Size(1124, 554)
         Me.Inventory.TabIndex = 4
         Me.Inventory.Text = "Inventory"
         Me.Inventory.UseVisualStyleBackColor = True
@@ -399,7 +405,7 @@ Partial Class Dashboard
         Me.Inventory1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Inventory1.Location = New System.Drawing.Point(0, 0)
         Me.Inventory1.Name = "Inventory1"
-        Me.Inventory1.Size = New System.Drawing.Size(1013, 566)
+        Me.Inventory1.Size = New System.Drawing.Size(1124, 554)
         Me.Inventory1.TabIndex = 0
         '
         'Activity
@@ -408,7 +414,7 @@ Partial Class Dashboard
         Me.Activity.Location = New System.Drawing.Point(184, 4)
         Me.Activity.Name = "Activity"
         Me.Activity.Padding = New System.Windows.Forms.Padding(3)
-        Me.Activity.Size = New System.Drawing.Size(1013, 566)
+        Me.Activity.Size = New System.Drawing.Size(1124, 554)
         Me.Activity.TabIndex = 2
         Me.Activity.Text = "Activity"
         Me.Activity.UseVisualStyleBackColor = True
@@ -418,8 +424,26 @@ Partial Class Dashboard
         Me.AuditTrail1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AuditTrail1.Location = New System.Drawing.Point(3, 3)
         Me.AuditTrail1.Name = "AuditTrail1"
-        Me.AuditTrail1.Size = New System.Drawing.Size(1007, 560)
+        Me.AuditTrail1.Size = New System.Drawing.Size(1118, 548)
         Me.AuditTrail1.TabIndex = 0
+        '
+        'Transaction
+        '
+        Me.Transaction.Location = New System.Drawing.Point(184, 4)
+        Me.Transaction.Name = "Transaction"
+        Me.Transaction.Size = New System.Drawing.Size(1124, 554)
+        Me.Transaction.TabIndex = 5
+        Me.Transaction.Text = "Transaction"
+        Me.Transaction.UseVisualStyleBackColor = True
+        '
+        'Sales_Report
+        '
+        Me.Sales_Report.Location = New System.Drawing.Point(184, 4)
+        Me.Sales_Report.Name = "Sales_Report"
+        Me.Sales_Report.Size = New System.Drawing.Size(1124, 554)
+        Me.Sales_Report.TabIndex = 6
+        Me.Sales_Report.Text = "Sales Report"
+        Me.Sales_Report.UseVisualStyleBackColor = True
         '
         'Guna2ContextMenuStrip1
         '
@@ -448,11 +472,20 @@ Partial Class Dashboard
         Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
         Me.LogoutToolStripMenuItem.Text = "Logout"
         '
+        'TabPage1
+        '
+        Me.TabPage1.Location = New System.Drawing.Point(184, 4)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Size = New System.Drawing.Size(1124, 554)
+        Me.TabPage1.TabIndex = 7
+        Me.TabPage1.Text = "Returns/Pull out"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
         'Dashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1207, 620)
+        Me.ClientSize = New System.Drawing.Size(1318, 608)
         Me.Controls.Add(Me.DashboardTableLayoutPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Dashboard"
@@ -487,7 +520,6 @@ Partial Class Dashboard
     Friend WithEvents DashboardTabControl As Guna.UI2.WinForms.Guna2TabControl
     Friend WithEvents Home As TabPage
     Friend WithEvents Maintenance As TabPage
-    Friend WithEvents Maintenance1 As Maintenance
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Label1 As Label
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
@@ -513,4 +545,8 @@ Partial Class Dashboard
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents PictureBox3 As PictureBox
+    Friend WithEvents Maintenance1 As Maintenance
+    Friend WithEvents Transaction As TabPage
+    Friend WithEvents Sales_Report As TabPage
+    Friend WithEvents TabPage1 As TabPage
 End Class

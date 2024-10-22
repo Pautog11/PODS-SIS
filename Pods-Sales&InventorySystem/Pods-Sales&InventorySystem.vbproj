@@ -14,6 +14,21 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -160,6 +175,12 @@
     <Compile Include="Forms\Dashboard.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Login.Designer.vb">
       <DependentUpon>Login.vb</DependentUpon>
     </Compile>
@@ -170,6 +191,12 @@
       <DependentUpon>Server.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Server.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modal\Dialog1.Designer.vb">
+      <DependentUpon>Dialog1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Modal\Dialog1.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -248,6 +275,12 @@
     <Compile Include="Panels\Supplier.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Panels\Vat.Designer.vb">
+      <DependentUpon>Vat.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Vat.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="pods.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -302,11 +335,17 @@
     <EmbeddedResource Include="Forms\Dashboard.resx">
       <DependentUpon>Dashboard.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Server.resx">
       <DependentUpon>Server.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modal\Dialog1.resx">
+      <DependentUpon>Dialog1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -343,6 +382,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\Supplier.resx">
       <DependentUpon>Supplier.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\Vat.resx">
+      <DependentUpon>Vat.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -389,5 +431,24 @@
   <ItemGroup>
     <None Include="Resources\cart.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-equaliser-32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-menu-50.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

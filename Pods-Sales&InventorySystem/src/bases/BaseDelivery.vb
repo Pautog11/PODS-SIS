@@ -30,7 +30,8 @@ Public Class BaseDelivery
     Public Sub Add() Implements ICommandPanel.Add
         Dim transaction As SqlTransaction = SqlConnectionPods.GetInstance.BeginTransaction()
         Try
-            _sqlCommand = New SqlCommand("INSERT INTO tbldeliveries (account_id, supplier_id, total, date) VALUES (@account_id, @supplier_id, @total, @date); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
+            _sqlCommand = New SqlCommand("INSERT INTO tbldeliveries (delivery_number, account_id, supplier_id, total, date) VALUES (@delivery_number, @account_id, @supplier_id, @total, @date); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
+            _sqlCommand.Parameters.AddWithValue("@delivery_number", _data.Item("delivery_number"))
             _sqlCommand.Parameters.AddWithValue("@account_id", My.Settings.myId)
             _sqlCommand.Parameters.AddWithValue("@supplier_id", _data.Item("supplier_id"))
             _sqlCommand.Parameters.AddWithValue("@total", _data.Item("total"))
@@ -74,7 +75,9 @@ Public Class BaseDelivery
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT * FROM tbldeliveries_items WHERE delivery_id = @delivery_id", conn)
+            'cmd = New SqlCommand("SELECT id, product_id, price, quantity, total FROM tbldeliveries_items WHERE delivery_id = @delivery_id", conn)
+            cmd = New SqlCommand("SELECT tbldeliveries_items.id, product_name, price, tbldeliveries_items.quantity, total 
+                                  FROM tbldeliveries_items join tblproducts on tbldeliveries_items.product_id = tblproducts.id WHERE delivery_id = @delivery_id", conn)
             cmd.Parameters.AddWithValue("@delivery_id", delivery_id)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)

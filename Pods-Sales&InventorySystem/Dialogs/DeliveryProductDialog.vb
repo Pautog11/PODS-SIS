@@ -64,25 +64,33 @@ Public Class DeliveryProductDialog
         'If InputValidation.ValidateInputString(QuantityTextBox, DataInput.STRING_INTEGER)(0) Then
         '    MsgBox("jjlj")
         'End If
-        Dim is_existing As Boolean = False
-        For Each item As DataGridViewRow In _parent.DeliveryDataGridView.Rows
-            If item.Cells("PRODUCT").Value.ToString() = ProductComboBox.Text Then
-                item.Cells("PRICE").Value = Decimal.Parse(CostTextBox.Text)
-                item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)
-                item.Cells("TOTAL").Value = Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text)
-                is_existing = True
-                Exit For
-            End If
-        Next
+        Dim result As New List(Of Object)()
+        result.Add(InputValidation.ValidateInputString(QuantityTextBox, DataInput.STRING_INTEGER))
 
-        If Not is_existing Then
-            _parent.DeliveryDataGridView.Rows.Add({_dataTable.Rows(0).Item("ID").ToString,
-                                                  ProductComboBox.Text, CostTextBox.Text,
-                                                  CInt(QuantityTextBox.Text),
-                                                  CInt(CostTextBox.Text) * QuantityTextBox.Text
-                                                  })
+        Dim is_existing As Boolean = False
+
+        If Not result.Any(Function(item As Object()) Not item(0)) Then
+            For Each item As DataGridViewRow In _parent.DeliveryDataGridView.Rows
+                If item.Cells("PRODUCT").Value.ToString() = ProductComboBox.Text Then
+                    item.Cells("PRICE").Value = Decimal.Parse(CostTextBox.Text)
+                    item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)
+                    item.Cells("TOTAL").Value = Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text)
+                    is_existing = True
+                    Exit For
+                End If
+            Next
+
+            If Not is_existing Then
+                _parent.DeliveryDataGridView.Rows.Add({_dataTable.Rows(0).Item("ID").ToString,
+                                                      ProductComboBox.Text, CostTextBox.Text,
+                                                      CInt(QuantityTextBox.Text),
+                                                      CInt(CostTextBox.Text) * QuantityTextBox.Text
+                                                      })
+            End If
+            _parent.UpdateVisualData()
+            Me.Close()
+        Else
+            MessageBox.Show("Invalid quantity!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
-        _parent.UpdateVisualData()
-        Me.Close()
     End Sub
 End Class

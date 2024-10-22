@@ -3,8 +3,8 @@
 Public Class Delivery
     Implements IObserverPanel
     Private _subject As IObservablePanel
-    Private _tableAapter As New podsTableAdapters.tbldeliveriesTableAdapter
-    Private _dataTable As New pods.tbldeliveriesDataTable
+    Private _tableAapter As New podsTableAdapters.viewtbldeliveriesTableAdapter
+    Private _dataTable As New pods.viewtbldeliveriesDataTable
     Private Sub DeliveryCart_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             _subject = Application.OpenForms.OfType(Of Dashboard).FirstOrDefault
@@ -18,7 +18,7 @@ Public Class Delivery
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
         _tableAapter.Fill(_dataTable)
         DeliveryDataGridView.DataSource = _dataTable
-        'DeliveryDataGridView.Columns.Item("id").Visible = False
+        DeliveryDataGridView.Columns.Item("ID").Visible = False
     End Sub
 
     Private Sub AddDeliveryButton_Click(sender As Object, e As EventArgs) Handles AddDeliveryButton.Click
@@ -35,9 +35,10 @@ Public Class Delivery
             Dim row As DataGridViewRow = selectedRows(0)
             Dim data As New Dictionary(Of String, String) From {
                 {"id", row.Cells(0).Value.ToString()},
-                {"supplier_id", row.Cells(2).Value.ToString()},
-                {"total", row.Cells(3).Value.ToString()},
-                {"date", row.Cells(4).Value.ToString()}
+                {"delivery_number", row.Cells(1).Value.ToString()},
+                {"supplier_id", row.Cells(3).Value.ToString()},
+                {"total", row.Cells(4).Value.ToString()},
+                {"date", row.Cells(5).Value.ToString()}
             }
             Dim Dialog As New DeliveryCartDialog(data:=data)
             Dialog.ShowDialog()

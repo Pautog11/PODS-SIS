@@ -29,12 +29,13 @@
             Dim data As New Dictionary(Of String, String) From {
                 {"id", row.Cells(0).Value.ToString()},
                 {"subcategory_id", BaseProduct.ScalarSubcategoryId(row.Cells(1).Value.ToString())},
-                {"barcode", row.Cells(2).Value.ToString()},
-                {"product_name", row.Cells(3).Value.ToString()},
-                {"description", row.Cells(4).Value.ToString()},
-                {"price", row.Cells(5).Value.ToString()},
-                {"cost", row.Cells(6).Value.ToString()},
-                {"stock_level", row.Cells(7).Value.ToString()}
+                {"sku", row.Cells(2).Value.ToString()},
+                {"barcode", row.Cells(3).Value.ToString()},
+                {"product_name", row.Cells(4).Value.ToString()},
+                {"description", row.Cells(5).Value.ToString()},
+                {"price", row.Cells(6).Value.ToString()},
+                {"cost", row.Cells(7).Value.ToString()},
+                {"stock_level", row.Cells(8).Value.ToString()}
             }
             Dim Dialog As New ProductDialog(data:=data, subject:=_subject)
             Dialog.ShowDialog()
@@ -45,4 +46,28 @@
         _dataTable = BaseProduct.Search(ProductSearchTextBox.Text)
         ProductsDataGridView.DataSource = _dataTable
     End Sub
+
+    Private Sub ModalImageButton_Click(sender As Object, e As EventArgs) Handles ModalImageButton.Click
+        Dim modal As New Dialog1()
+        modal.StartPosition = FormStartPosition.Manual
+        modal.Location = New Point(Dashboard.Location.X + 190, Dashboard.Location.Y + 50) ' Align with the parent form's upper left corner
+        modal.ShowDialog(Dashboard) ' Pass the parent form as argument
+    End Sub
+
+
+    'Private Sub Guna2ToggleSwitch1_CheckedChanged(sender As Object, e As EventArgs)
+    '    If Guna2ToggleSwitch1.Checked Then
+    '        ' Action when the toggle switch is checked
+    '        'MsgBox("The switch is ON")
+    '        ProductSearchTextBox.Enabled = False
+    '        Guna2ComboBox1.Enabled = True
+    '        Guna2ComboBox2.Enabled = True
+    '    Else
+    '        ' Action when the toggle switch is unchecked
+    '        'MsgBox("The switch is Off")
+    '        ProductSearchTextBox.Enabled = True
+    '        Guna2ComboBox1.Enabled = False
+    '        Guna2ComboBox2.Enabled = False
+    '    End If
+    'End Sub
 End Class

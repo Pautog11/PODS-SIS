@@ -25,9 +25,10 @@ Public Class BaseProduct
 
     Public Sub Update() Implements ICommandPanel.Update
         Try
-            _sqlCommand = New SqlCommand("UPDATE tblproducts SET subcategory_id = @subcategory_id, barcode = @barcode, product_name = @product_name, description = @description, product_price = @product_price, product_cost = @product_cost, stock_level = @stock_level WHERE id = @id", _sqlConnection)
+            _sqlCommand = New SqlCommand("UPDATE tblproducts SET subcategory_id = @subcategory_id, sku = @sku, barcode = @barcode, product_name = @product_name, description = @description, product_price = @product_price, product_cost = @product_cost, stock_level = @stock_level WHERE id = @id", _sqlConnection)
             _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
             _sqlCommand.Parameters.AddWithValue("@subcategory_id", _data.Item("subcategory_id"))
+            _sqlCommand.Parameters.AddWithValue("@sku", _data.Item("sku"))
             _sqlCommand.Parameters.AddWithValue("@barcode", _data.Item("barcode"))
             _sqlCommand.Parameters.AddWithValue("@product_name", _data.Item("product_name"))
             _sqlCommand.Parameters.AddWithValue("@description", _data.Item("description"))
@@ -46,8 +47,9 @@ Public Class BaseProduct
 
     Public Sub Add() Implements ICommandPanel.Add
         Try
-            _sqlCommand = New SqlCommand("INSERT INTO tblproducts (subcategory_id, barcode, product_name, description, product_price, product_cost, stock_level) VALUES (@subcategory_id, @barcode, @product_name, @description, @product_price, @product_cost, @stock_level)", _sqlConnection)
+            _sqlCommand = New SqlCommand("INSERT INTO tblproducts (subcategory_id, sku, barcode, product_name, description, product_price, product_cost, stock_level) VALUES (@subcategory_id, @sku, @barcode, @product_name, @description, @product_price, @product_cost, @stock_level)", _sqlConnection)
             _sqlCommand.Parameters.AddWithValue("@subcategory_id", _data.Item("subcategory_id"))
+            _sqlCommand.Parameters.AddWithValue("@sku", _data.Item("sku"))
             _sqlCommand.Parameters.AddWithValue("@barcode", _data.Item("barcode"))
             _sqlCommand.Parameters.AddWithValue("@product_name", _data.Item("product_name"))
             _sqlCommand.Parameters.AddWithValue("@description", _data.Item("description"))
@@ -81,7 +83,7 @@ Public Class BaseProduct
     Public Shared Function Exists(data As String) As Integer
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblproducts WHERE lower(product_name) = @data", conn)
+            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblproducts WHERE lower(sku) = @data", conn)
             cmd.Parameters.AddWithValue("@data", data.Trim.ToLower)
 
             Return cmd.ExecuteScalar()

@@ -7,30 +7,21 @@ Public Class DeliveryCartDialog
     Private _subject As IObservablePanel
     Public _itemSource As DataTable
     Private ReadOnly _data As Dictionary(Of String, String)
-    'Private _data As DataRowView
 
     Public Sub New(Optional subject As IObservablePanel = Nothing,
                    Optional data As Dictionary(Of String, String) = Nothing)
         InitializeComponent()
         _data = data
         _subject = subject
-
     End Sub
+
     Private Sub DeliveryCart_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim supplier_data As viewtblsuppliersDataTable = _tableAdapter.GetData()
         SupplierNameComboBox.DataSource = supplier_data
         SupplierNameComboBox.DisplayMember = "NAME"
         SupplierNameComboBox.ValueMember = "id"
 
-        'If _data Is Nothing Then
-        '    _itemSource = New DataTable()
-        '    ''_itemSource.Rows()
-        '    _itemSource.Columns.Add("aa", GetType(String)) ' Adjust type as needed
-        '    _itemSource.Columns.Add("bb", GetType(String)) ' Adjust type as needed
-        'End If
-        'Dim newRow As DataRow = _itemSource.NewRow()
-        'newRow("aa") = "Value for aa"
-        'newRow("bb") = "Value for bb"
+        DeliveryDataGridView.Columns.Item("ID").Visible = False
 
         If _data IsNot Nothing Then
             AddProductButton.Visible = False
@@ -39,35 +30,27 @@ Public Class DeliveryCartDialog
             DateTimePicker1.Enabled = False
             TotalPrice.Text = _data("total")
             DateTimePicker1.Value = _data("date")
+            TransactionDeliveryTextBox.Enabled = False
+            TransactionDeliveryTextBox.Text = _data("delivery_number")
 
             DeliveryDataGridView.Rows.Clear()
             Dim DeliveryItems As DataTable = BaseDelivery.SelectAllDeliveryItems(_data("id"))
             For Each row As DataRow In DeliveryItems.Rows
-                ' Create an array or list to hold the row data
+
                 Dim rowData As New List(Of Object)()
 
-                ' Loop through each column in the row
                 For Each column As DataColumn In DeliveryItems.Columns
-                    rowData.Add(row(column)) ' Add each column value to the rowData list
+                    rowData.Add(row(column))
                 Next
 
-                ' Add the row data to the DataGridView
                 DeliveryDataGridView.Rows.Add(rowData.ToArray())
             Next
         Else
+            PulloutButton.Visible = False
             DateTimePicker1.MaxDate = DateTime.Now
         End If
     End Sub
 
-    'Private Sub DeliveryDataGridView_SelectionChanged(sender As Object, e As EventArgs) Handles DeliveryDataGridView.SelectionChanged
-    '    If _data Is Nothing AndAlso Not _is_from_notif Then
-    '        If DeliveryDataGridView.SelectedItems.Count > 0 Then
-    '            Dim data As DataRowView = ItemsDataGridView.SelectedItems(0)
-    '            Dialog.Show(New TransactionProductDialog(Me, data))
-    '            ItemsDataGridView.SelectedIndex = -1
-    '        End If
-    '    End If
-    'End Sub
     Public Sub UpdateVisualData()
         DeliveryDataGridView.DataSource = _itemSource?.DefaultView
         Dim total As Integer = 0
@@ -83,47 +66,13 @@ Public Class DeliveryCartDialog
     End Sub
 
     Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click
-        'MsgBox(DateTimePicker1.Value.ToString("dd/MM/yyyy"))
-
-        'Dim con As SqlConnection = SqlConnectionPods.GetInstance
-        'Dim cmd As New SqlCommand
-
-        'Dim transaction As SqlTransaction = con.BeginTransaction()
-
-        'Try
-        '    cmd = New SqlCommand("insert into tbldeliveries (supplier_id, total, date) values (@supplier_id, @total, @date); SELECT SCOPE_IDENTITY()", con, transaction)
-        '    cmd.Parameters.AddWithValue("@supplier_id", SupplierNameComboBox.SelectedItem("id"))
-        '    cmd.Parameters.AddWithValue("@total", TotalPrice.Text)
-        '    cmd.Parameters.AddWithValue("@date", DateTimePicker1.Value.ToString("yyyy/MM/dd"))
-
-        '    Dim lastInsertedId As Object = cmd.ExecuteScalar()
-        '    If lastInsertedId IsNot Nothing Then
-        '        Dim deliveryId As Integer = Convert.ToInt32(lastInsertedId)
-        '        cmd = New SqlCommand("insert into tbldeliveries_items (delivery_id, product_id, price, quantity, total) values (@delivery_id, @product_id, @price, @quantity, @total)", con, transaction)
-        '        For Each row As DataGridViewRow In DeliveryDataGridView.Rows
-        '            If Not row.IsNewRow Then
-        '                cmd.Parameters.Clear()
-        '                cmd.Parameters.AddWithValue("@delivery_id", deliveryId)
-        '                cmd.Parameters.AddWithValue("@product_id", row.Cells(0).Value)
-        '                cmd.Parameters.AddWithValue("@price", row.Cells(2).Value)
-        '                cmd.Parameters.AddWithValue("@quantity", row.Cells(3).Value)
-        '                cmd.Parameters.AddWithValue("@total", row.Cells(4).Value)
-        '                cmd.ExecuteNonQuery()
-        '            End If
-        '        Next
-        '    End If
-        '    transaction.Commit()
-        '    Me.Close()
-        'Catch ex As Exception
-        '    transaction.Rollback()
-        '    MsgBox(ex.Message)
-        'End Try
 
         Dim items As New List(Of Dictionary(Of String, String))()
         Dim baseCommand As ICommandPanel ' = Nothing
         Dim invoker As ICommandInvoker
         Dim data As New Dictionary(Of String, String) From {
             {"id", If(_data?.Item("id"), String.Empty)},
+            {"delivery_number", TransactionDeliveryTextBox.Text},
             {"supplier_id", If(DirectCast(SupplierNameComboBox.SelectedItem, DataRowView)("id"), String.Empty)},
             {"total", TotalPrice.Text},
             {"date", DateTimePicker1.Value.ToString("MMM dd yyyy")} 'DateTimePicker1.Value.ToString("yyyy/MM/dd")}
@@ -150,5 +99,18 @@ Public Class DeliveryCartDialog
         invoker?.Execute()
         _subject.NotifyObserver()
         Me.Close()
+    End Sub
+
+    Private Sub DeliveryDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DeliveryDataGridView.CellClick
+        If _data IsNot Nothing Then
+            MsgBox("clicked!")
+        End If
+    End Sub
+
+    Private Sub PulloutButton_Click(sender As Object, e As EventArgs) Handles PulloutButton.Click
+        Dim a As New DeliveryCartDialog
+        a.SaveButton.Visible = False
+        a.Text = "Delivery Pull out"
+        a.ShowDialog()
     End Sub
 End Class
