@@ -79,13 +79,14 @@ Partial Class Category
         Me.CategoryDataGridView.DefaultCellStyle = DataGridViewCellStyle3
         Me.CategoryDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.CategoryDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CategoryDataGridView.Location = New System.Drawing.Point(3, 53)
+        Me.CategoryDataGridView.Location = New System.Drawing.Point(0, 50)
+        Me.CategoryDataGridView.Margin = New System.Windows.Forms.Padding(0)
         Me.CategoryDataGridView.MultiSelect = False
         Me.CategoryDataGridView.Name = "CategoryDataGridView"
         Me.CategoryDataGridView.ReadOnly = True
         Me.CategoryDataGridView.RowHeadersVisible = False
         Me.CategoryDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.CategoryDataGridView.Size = New System.Drawing.Size(886, 535)
+        Me.CategoryDataGridView.Size = New System.Drawing.Size(892, 541)
         Me.CategoryDataGridView.TabIndex = 2
         Me.CategoryDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.CategoryDataGridView.ThemeStyle.AlternatingRowsStyle.Font = Nothing

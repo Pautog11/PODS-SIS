@@ -56,6 +56,7 @@ Partial Class Vat
         Me.VatDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.VatDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.VatDataGridView.Location = New System.Drawing.Point(0, 0)
+        Me.VatDataGridView.Margin = New System.Windows.Forms.Padding(0)
         Me.VatDataGridView.MultiSelect = False
         Me.VatDataGridView.Name = "VatDataGridView"
         Me.VatDataGridView.ReadOnly = True

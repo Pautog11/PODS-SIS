@@ -157,6 +157,12 @@
     <Compile Include="Dialogs\ProductDialog.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Dialogs\PulloutCartDialog.Designer.vb">
+      <DependentUpon>PulloutCartDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\PulloutCartDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Dialogs\SubCategoryDialog.Designer.vb">
       <DependentUpon>SubCategoryDialog.vb</DependentUpon>
     </Compile>
@@ -325,6 +331,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ProductDialog.resx">
       <DependentUpon>ProductDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\PulloutCartDialog.resx">
+      <DependentUpon>PulloutCartDialog.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\SubCategoryDialog.resx">
       <DependentUpon>SubCategoryDialog.vb</DependentUpon>

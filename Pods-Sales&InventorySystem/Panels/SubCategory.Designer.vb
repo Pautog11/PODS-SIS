@@ -79,13 +79,14 @@ Partial Class SubCategory
         Me.SubCategoryDataGridView.DefaultCellStyle = DataGridViewCellStyle3
         Me.SubCategoryDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SubCategoryDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.SubCategoryDataGridView.Location = New System.Drawing.Point(3, 53)
+        Me.SubCategoryDataGridView.Location = New System.Drawing.Point(0, 50)
+        Me.SubCategoryDataGridView.Margin = New System.Windows.Forms.Padding(0)
         Me.SubCategoryDataGridView.MultiSelect = False
         Me.SubCategoryDataGridView.Name = "SubCategoryDataGridView"
         Me.SubCategoryDataGridView.ReadOnly = True
         Me.SubCategoryDataGridView.RowHeadersVisible = False
         Me.SubCategoryDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.SubCategoryDataGridView.Size = New System.Drawing.Size(783, 546)
+        Me.SubCategoryDataGridView.Size = New System.Drawing.Size(789, 552)
         Me.SubCategoryDataGridView.TabIndex = 4
         Me.SubCategoryDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.SubCategoryDataGridView.ThemeStyle.AlternatingRowsStyle.Font = Nothing

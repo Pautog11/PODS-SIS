@@ -133,13 +133,14 @@ Partial Class Account
         Me.AccountsDataGridView.DefaultCellStyle = DataGridViewCellStyle3
         Me.AccountsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AccountsDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.AccountsDataGridView.Location = New System.Drawing.Point(3, 53)
+        Me.AccountsDataGridView.Location = New System.Drawing.Point(0, 50)
+        Me.AccountsDataGridView.Margin = New System.Windows.Forms.Padding(0)
         Me.AccountsDataGridView.MultiSelect = False
         Me.AccountsDataGridView.Name = "AccountsDataGridView"
         Me.AccountsDataGridView.ReadOnly = True
         Me.AccountsDataGridView.RowHeadersVisible = False
         Me.AccountsDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.AccountsDataGridView.Size = New System.Drawing.Size(889, 520)
+        Me.AccountsDataGridView.Size = New System.Drawing.Size(895, 526)
         Me.AccountsDataGridView.TabIndex = 4
         Me.AccountsDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.AccountsDataGridView.ThemeStyle.AlternatingRowsStyle.Font = Nothing

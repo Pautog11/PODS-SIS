@@ -76,13 +76,14 @@ Partial Class Supplier
         Me.SupplierDataGridView.DefaultCellStyle = DataGridViewCellStyle3
         Me.SupplierDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SupplierDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.SupplierDataGridView.Location = New System.Drawing.Point(3, 53)
+        Me.SupplierDataGridView.Location = New System.Drawing.Point(0, 50)
+        Me.SupplierDataGridView.Margin = New System.Windows.Forms.Padding(0)
         Me.SupplierDataGridView.MultiSelect = False
         Me.SupplierDataGridView.Name = "SupplierDataGridView"
         Me.SupplierDataGridView.ReadOnly = True
         Me.SupplierDataGridView.RowHeadersVisible = False
         Me.SupplierDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.SupplierDataGridView.Size = New System.Drawing.Size(746, 446)
+        Me.SupplierDataGridView.Size = New System.Drawing.Size(752, 452)
         Me.SupplierDataGridView.TabIndex = 3
         Me.SupplierDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.SupplierDataGridView.ThemeStyle.AlternatingRowsStyle.Font = Nothing

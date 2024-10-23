@@ -1,8 +1,12 @@
-﻿Imports System.Windows.Forms
+﻿Imports System.Data.SqlClient
+Imports System.Windows.Forms
 
 Public Class DeliveryProductDialog
-    Private _tableAdapter As New podsTableAdapters.viewtblproductsTableAdapter
-    Private _dataTable As New pods.viewtblproductsDataTable
+    'Private _tableAdapter As New podsTableAdapters.viewtblproductsTableAdapter
+    'Private _dataTable As New pods.viewtblproductsDataTable
+
+    Private _tableAdapter As New podsTableAdapters.viewtblcategoriesTableAdapter
+    Private _dataTable As New pods.viewtblcategoriesDataTable
     Private _parent As DeliveryCartDialog = Nothing
     Public Sub New(Optional parent As DeliveryCartDialog = Nothing)
 
@@ -12,10 +16,10 @@ Public Class DeliveryProductDialog
     End Sub
 
     Private Sub DeliveryProductDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ProductComboBox.DataSource = _tableAdapter.GetData
-        ProductComboBox.DisplayMember = "PRODUCT"
+        CategoryComboBox.DataSource = _tableAdapter.GetData
+        CategoryComboBox.DisplayMember = "CATEGORY"
         'PriceTextBox.ReadOnly = True
-
+        CostTextBox.Enabled = False
 
 
         'Dim data As DataTable = BaseProduct.Product
@@ -41,6 +45,10 @@ Public Class DeliveryProductDialog
         '' Set the selected value to "None"
         'ProductComboBox.SelectedValue = -1
 
+        'Aaa()
+        'CategoryComboBox.DisplayMember = "category"
+        'CategoryComboBox.ValueMember = "id"
+
     End Sub
 
     Private Sub ProductComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles ProductComboBox.SelectionChangeCommitted
@@ -51,14 +59,14 @@ Public Class DeliveryProductDialog
         End If
     End Sub
 
-    Private Sub BarcodeTextBox_TextChanged(sender As Object, e As EventArgs) Handles BarcodeTextBox.TextChanged
-        _dataTable = BaseProduct.Search(BarcodeTextBox.Text)
-        If _dataTable IsNot Nothing AndAlso _dataTable.Rows.Count > 0 Then
-            'CostTextBox.Text = _dataTable.Rows(0).Item("COST").ToString()
-        Else
-            CostTextBox.Text = ""
-        End If
-    End Sub
+    'Private Sub BarcodeTextBox_TextChanged(sender As Object, e As EventArgs) Handles BarcodeTextBox.TextChanged
+    '    _dataTable = BaseProduct.Search(BarcodeTextBox.Text)
+    '    If _dataTable IsNot Nothing AndAlso _dataTable.Rows.Count > 0 Then
+    '        'CostTextBox.Text = _dataTable.Rows(0).Item("COST").ToString()
+    '    Else
+    '        CostTextBox.Text = ""
+    '    End If
+    'End Sub
 
     Private Sub AddDeliveryButton_Click(sender As Object, e As EventArgs) Handles AddDeliveryButton.Click
         'If InputValidation.ValidateInputString(QuantityTextBox, DataInput.STRING_INTEGER)(0) Then
@@ -93,4 +101,42 @@ Public Class DeliveryProductDialog
             MessageBox.Show("Invalid quantity!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
     End Sub
+
+
+    Private Sub CategoryComboBox_SelectedValueChanged(sender As Object, e As EventArgs) Handles CategoryComboBox.SelectedValueChanged
+        'MsgBox(CategoryComboBox.SelectedItem("id"))
+        If CategoryComboBox.SelectedItem("id") IsNot Nothing Then
+            Try
+                Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+                Dim cmd As New SqlCommand("select * from tblsubcategories where category_id = @id", conn)
+                cmd.Parameters.AddWithValue("@id", CategoryComboBox.SelectedItem("id"))
+                Dim dTable As New DataTable
+                Dim adapter As New SqlDataAdapter(cmd)
+                adapter.Fill(dTable)
+                SubcategoryComboBox.DataSource = dTable
+                SubcategoryComboBox.DisplayMember = "subcategory"
+                SubcategoryComboBox.ValueMember = "id"
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End If
+    End Sub
+
+    Private Sub BarcodeTextBox_Click(sender As Object, e As EventArgs) Handles BarcodeTextBox.Click
+        ProductComboBox.Enabled = False
+    End Sub
+
+    'Public Sub Aaa()
+    '    Try
+    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+    '        Dim cmd As New SqlCommand("select * from tblcategories", conn)
+    '        Dim dTable As New DataTable
+    '        Dim adapter As New SqlDataAdapter(cmd)
+    '        adapter.Fill(dTable)
+    '        CategoryComboBox.DataSource = dTable
+    '    Catch ex As Exception
+    '        MsgBox(ex.Message)
+    '    End Try
+    'End Sub
 End Class
+

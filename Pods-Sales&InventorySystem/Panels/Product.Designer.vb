@@ -29,9 +29,9 @@ Partial Class Product
         Me.AddProductButton = New Guna.UI2.WinForms.Guna2Button()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.ProductSearchTextBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.ModalImageButton = New Guna.UI2.WinForms.Guna2ImageButton()
         Me.ProductTableLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.ProductsDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.ModalImageButton = New Guna.UI2.WinForms.Guna2ImageButton()
         Me.ProductHeaderLayoutPanel.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.ProductTableLayoutPanel.SuspendLayout()
@@ -105,6 +105,22 @@ Partial Class Product
         Me.ProductSearchTextBox.Size = New System.Drawing.Size(200, 36)
         Me.ProductSearchTextBox.TabIndex = 3
         '
+        'ModalImageButton
+        '
+        Me.ModalImageButton.CheckedState.ImageSize = New System.Drawing.Size(64, 64)
+        Me.ModalImageButton.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ModalImageButton.HoverState.ImageSize = New System.Drawing.Size(30, 30)
+        Me.ModalImageButton.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.icon_menu
+        Me.ModalImageButton.ImageOffset = New System.Drawing.Point(0, 0)
+        Me.ModalImageButton.ImageRotate = 0!
+        Me.ModalImageButton.ImageSize = New System.Drawing.Size(30, 30)
+        Me.ModalImageButton.Location = New System.Drawing.Point(206, 0)
+        Me.ModalImageButton.Margin = New System.Windows.Forms.Padding(0)
+        Me.ModalImageButton.Name = "ModalImageButton"
+        Me.ModalImageButton.PressedState.ImageSize = New System.Drawing.Size(30, 30)
+        Me.ModalImageButton.Size = New System.Drawing.Size(40, 42)
+        Me.ModalImageButton.TabIndex = 5
+        '
         'ProductTableLayoutPanel
         '
         Me.ProductTableLayoutPanel.ColumnCount = 1
@@ -147,13 +163,14 @@ Partial Class Product
         Me.ProductsDataGridView.DefaultCellStyle = DataGridViewCellStyle3
         Me.ProductsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ProductsDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.ProductsDataGridView.Location = New System.Drawing.Point(3, 53)
+        Me.ProductsDataGridView.Location = New System.Drawing.Point(0, 50)
+        Me.ProductsDataGridView.Margin = New System.Windows.Forms.Padding(0)
         Me.ProductsDataGridView.MultiSelect = False
         Me.ProductsDataGridView.Name = "ProductsDataGridView"
         Me.ProductsDataGridView.ReadOnly = True
         Me.ProductsDataGridView.RowHeadersVisible = False
         Me.ProductsDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.ProductsDataGridView.Size = New System.Drawing.Size(798, 428)
+        Me.ProductsDataGridView.Size = New System.Drawing.Size(804, 434)
         Me.ProductsDataGridView.TabIndex = 6
         Me.ProductsDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.ProductsDataGridView.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -176,22 +193,6 @@ Partial Class Product
         Me.ProductsDataGridView.ThemeStyle.RowsStyle.Height = 22
         Me.ProductsDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ProductsDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        '
-        'ModalImageButton
-        '
-        Me.ModalImageButton.CheckedState.ImageSize = New System.Drawing.Size(64, 64)
-        Me.ModalImageButton.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ModalImageButton.HoverState.ImageSize = New System.Drawing.Size(30, 30)
-        Me.ModalImageButton.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.icon_menu
-        Me.ModalImageButton.ImageOffset = New System.Drawing.Point(0, 0)
-        Me.ModalImageButton.ImageRotate = 0!
-        Me.ModalImageButton.ImageSize = New System.Drawing.Size(30, 30)
-        Me.ModalImageButton.Location = New System.Drawing.Point(206, 0)
-        Me.ModalImageButton.Margin = New System.Windows.Forms.Padding(0)
-        Me.ModalImageButton.Name = "ModalImageButton"
-        Me.ModalImageButton.PressedState.ImageSize = New System.Drawing.Size(30, 30)
-        Me.ModalImageButton.Size = New System.Drawing.Size(40, 42)
-        Me.ModalImageButton.TabIndex = 5
         '
         'Product
         '

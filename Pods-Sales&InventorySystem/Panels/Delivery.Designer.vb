@@ -133,13 +133,14 @@ Partial Class Delivery
         Me.DeliveryDataGridView.DefaultCellStyle = DataGridViewCellStyle3
         Me.DeliveryDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DeliveryDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DeliveryDataGridView.Location = New System.Drawing.Point(3, 53)
+        Me.DeliveryDataGridView.Location = New System.Drawing.Point(0, 50)
+        Me.DeliveryDataGridView.Margin = New System.Windows.Forms.Padding(0)
         Me.DeliveryDataGridView.MultiSelect = False
         Me.DeliveryDataGridView.Name = "DeliveryDataGridView"
         Me.DeliveryDataGridView.ReadOnly = True
         Me.DeliveryDataGridView.RowHeadersVisible = False
         Me.DeliveryDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.DeliveryDataGridView.Size = New System.Drawing.Size(810, 511)
+        Me.DeliveryDataGridView.Size = New System.Drawing.Size(816, 517)
         Me.DeliveryDataGridView.TabIndex = 5
         Me.DeliveryDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.DeliveryDataGridView.ThemeStyle.AlternatingRowsStyle.Font = Nothing

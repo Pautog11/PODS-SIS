@@ -108,9 +108,7 @@ Public Class DeliveryCartDialog
     End Sub
 
     Private Sub PulloutButton_Click(sender As Object, e As EventArgs) Handles PulloutButton.Click
-        Dim a As New DeliveryCartDialog
-        a.SaveButton.Visible = False
-        a.Text = "Delivery Pull out"
-        a.ShowDialog()
+        Dim dialog As New PulloutCartDialog
+        dialog.ShowDialog()
     End Sub
 End Class
