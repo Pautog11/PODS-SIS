@@ -189,6 +189,7 @@ Partial Class Maintenance
         '
         'Vat1
         '
+        Me.Vat1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Vat1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Vat1.Location = New System.Drawing.Point(0, 0)
         Me.Vat1.Name = "Vat1"

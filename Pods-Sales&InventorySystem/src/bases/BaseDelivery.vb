@@ -37,8 +37,6 @@ Public Class BaseDelivery
             _sqlCommand.Parameters.AddWithValue("@total", _data.Item("total"))
             _sqlCommand.Parameters.AddWithValue("@date", _data.Item("date"))
 
-            'Dim lastInsertedId As Object = _sqlCommand.ExecuteScalar()
-            'Dim deliveryId As Integer = Convert.ToInt32(lastInsertedId)
             Dim deliveryId As Integer = Convert.ToInt32(_sqlCommand.ExecuteScalar())
 
             For Each item In _item

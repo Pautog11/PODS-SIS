@@ -10,7 +10,10 @@
     End Sub
 
     Private Sub Dashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        For i As Integer = 1 To 2
+            NotificationDataGridView.Rows.Add("Your product is running out of stock!")
+            NotificationDataGridView.Rows.Add("Your product will expire in 7 days. Please take action.")
+        Next
     End Sub
 
     Public Sub RegisterObserver(o As IObserverPanel) Implements IObservablePanel.RegisterObserver

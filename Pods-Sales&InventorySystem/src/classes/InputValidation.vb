@@ -73,10 +73,6 @@ Public Class InputValidation
                 If Regex.IsMatch(stringInput, "^\d+$") AndAlso Not stringInput = "0" Then
                     Return {True, stringInput}
                 End If
-            Case DataInput.SRING_NONNEGATIVE
-                If Regex.IsMatch(stringInput, "^[1-9]\d*$") AndAlso Not stringInput = "-1" Then
-                    Return {True, stringInput}
-                End If
             Case DataInput.STRING_PRICE
                 If Regex.IsMatch(stringInput, "^(\d+)?\.?(\d+)$") Then
                     Return {True, stringInput}
@@ -95,5 +91,4 @@ Public Enum DataInput
     STRING_PHONE
     STRING_INTEGER
     STRING_PRICE
-    SRING_NONNEGATIVE
 End Enum

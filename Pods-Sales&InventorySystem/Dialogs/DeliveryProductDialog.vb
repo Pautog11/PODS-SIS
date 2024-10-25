@@ -1,13 +1,9 @@
-﻿Imports System.Data.SqlClient
-Imports System.Windows.Forms
+﻿Imports System.Windows.Forms
 
 Public Class DeliveryProductDialog
-    'Private _tableAdapter As New podsTableAdapters.viewtblproductsTableAdapter
-    'Private _dataTable As New pods.viewtblproductsDataTable
-
-    Private _tableAdapter As New podsTableAdapters.viewtblcategoriesTableAdapter
-    Private _dataTable As New pods.viewtblcategoriesDataTable
-    Private _parent As DeliveryCartDialog = Nothing
+    Private ReadOnly _tableAdapter As New podsTableAdapters.viewtblcategoriesTableAdapter
+    Private ReadOnly _dataTable As New pods.viewtblcategoriesDataTable
+    Private ReadOnly _parent As DeliveryCartDialog = Nothing
     Public Sub New(Optional parent As DeliveryCartDialog = Nothing)
 
         ' This call is required by the designer.
@@ -21,33 +17,8 @@ Public Class DeliveryProductDialog
         'PriceTextBox.ReadOnly = True
         CostTextBox.Enabled = False
 
-
-        'Dim data As DataTable = BaseProduct.Product
-        'ProductComboBox.DataSource = data
-        'ProductComboBox.DisplayMember = "PRODUCT"
-        'ProductComboBox.ValueMember = "ID"
-        'data.Rows.Add(-1, "None")
-        'ProductComboBox.SelectedValue = -1
-
-        'Dim data As DataTable = BaseProduct.Product
-
-        '' Add a new row for "None" at the beginning of the DataTable
-        'Dim noneRow As DataRow = data.NewRow()
-        'noneRow("ID") = -1
-        'noneRow("PRODUCT") = "None"
-        'data.Rows.InsertAt(noneRow, 0) ' Insert at the beginning
-
-        '' Set the DataSource for the ComboBox
-        'ProductComboBox.DataSource = data
-        'ProductComboBox.DisplayMember = "PRODUCT"
-        'ProductComboBox.ValueMember = "ID"
-
-        '' Set the selected value to "None"
-        'ProductComboBox.SelectedValue = -1
-
-        'Aaa()
-        'CategoryComboBox.DisplayMember = "category"
-        'CategoryComboBox.ValueMember = "id"
+        'MfgDate.MaxDate = DateTime.Now
+        'ExpiryDate.MinDate = Date.Today
 
     End Sub
 
@@ -59,19 +30,7 @@ Public Class DeliveryProductDialog
         End If
     End Sub
 
-    'Private Sub BarcodeTextBox_TextChanged(sender As Object, e As EventArgs) Handles BarcodeTextBox.TextChanged
-    '    _dataTable = BaseProduct.Search(BarcodeTextBox.Text)
-    '    If _dataTable IsNot Nothing AndAlso _dataTable.Rows.Count > 0 Then
-    '        'CostTextBox.Text = _dataTable.Rows(0).Item("COST").ToString()
-    '    Else
-    '        CostTextBox.Text = ""
-    '    End If
-    'End Sub
-
     Private Sub AddDeliveryButton_Click(sender As Object, e As EventArgs) Handles AddDeliveryButton.Click
-        'If InputValidation.ValidateInputString(QuantityTextBox, DataInput.STRING_INTEGER)(0) Then
-        '    MsgBox("jjlj")
-        'End If
         Dim result As New List(Of Object)()
         result.Add(InputValidation.ValidateInputString(QuantityTextBox, DataInput.STRING_INTEGER))
 
@@ -89,54 +48,50 @@ Public Class DeliveryProductDialog
             Next
 
             If Not is_existing Then
-                _parent.DeliveryDataGridView.Rows.Add({_dataTable.Rows(0).Item("ID").ToString,
-                                                      ProductComboBox.Text, CostTextBox.Text,
-                                                      CInt(QuantityTextBox.Text),
-                                                      CInt(CostTextBox.Text) * QuantityTextBox.Text
+                _parent.DeliveryDataGridView.Rows.Add({ProductComboBox.SelectedItem("ID"),
+                                                      ProductComboBox.Text,
+                                                      CostTextBox.Text,
+                                                      QuantityTextBox.Text,
+                                                      CDec(CostTextBox.Text) * CDec(QuantityTextBox.Text)
                                                       })
+
             End If
             _parent.UpdateVisualData()
             Me.Close()
         Else
             MessageBox.Show("Invalid quantity!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
+        'MsgBox(MfgDate.Value.ToString("dd-MM-yyyy"))
+        '{"date", DateTimePicker1.Value.ToString("MMM dd yyyy")}
     End Sub
 
-
-    Private Sub CategoryComboBox_SelectedValueChanged(sender As Object, e As EventArgs) Handles CategoryComboBox.SelectedValueChanged
-        'MsgBox(CategoryComboBox.SelectedItem("id"))
-        If CategoryComboBox.SelectedItem("id") IsNot Nothing Then
-            Try
-                Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-                Dim cmd As New SqlCommand("select * from tblsubcategories where category_id = @id", conn)
-                cmd.Parameters.AddWithValue("@id", CategoryComboBox.SelectedItem("id"))
-                Dim dTable As New DataTable
-                Dim adapter As New SqlDataAdapter(cmd)
-                adapter.Fill(dTable)
-                SubcategoryComboBox.DataSource = dTable
-                SubcategoryComboBox.DisplayMember = "subcategory"
-                SubcategoryComboBox.ValueMember = "id"
-            Catch ex As Exception
-                MsgBox(ex.Message)
-            End Try
+    Private Sub CategoryComboBox_DropDownClosed(sender As Object, e As EventArgs) Handles CategoryComboBox.DropDownClosed
+        If CategoryComboBox.SelectedIndex >= 0 Then
+            Dim dt As DataTable = BaseSubCategory.FetchSubCategory(CategoryComboBox.SelectedItem("ID"))
+            SubcategoryComboBox.DataSource = dt.DefaultView
+            SubcategoryComboBox.DisplayMember = "subcategory"
         End If
+        Clear()
+    End Sub
+    Private Sub SubcategoryComboBox_DropDownClosed(sender As Object, e As EventArgs) Handles SubcategoryComboBox.DropDownClosed
+        If SubcategoryComboBox.SelectedIndex >= 0 Then
+            Dim dt As DataTable = BaseProduct.FetchProductBySubcategory(SubcategoryComboBox.SelectedItem("ID"))
+            ProductComboBox.DataSource = dt.DefaultView
+            ProductComboBox.DisplayMember = "product_name"
+        End If
+        Clear()
     End Sub
 
-    Private Sub BarcodeTextBox_Click(sender As Object, e As EventArgs) Handles BarcodeTextBox.Click
-        ProductComboBox.Enabled = False
+    Public Sub Clear()
+        ProductComboBox.Text = Nothing
+        BarcodeTextBox.Text = Nothing
+        CostTextBox.Text = Nothing
+        QuantityTextBox.Text = Nothing
     End Sub
 
-    'Public Sub Aaa()
-    '    Try
-    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-    '        Dim cmd As New SqlCommand("select * from tblcategories", conn)
-    '        Dim dTable As New DataTable
-    '        Dim adapter As New SqlDataAdapter(cmd)
-    '        adapter.Fill(dTable)
-    '        CategoryComboBox.DataSource = dTable
-    '    Catch ex As Exception
-    '        MsgBox(ex.Message)
-    '    End Try
-    'End Sub
+    Private Sub MfgDate_ValueChanged(sender As Object, e As EventArgs)
+        'MsgBox(MfgDate.Value)
+        'MsgBox(MfgDate.Value.ToString("dd-MM-yyyy"))
+    End Sub
 End Class
 

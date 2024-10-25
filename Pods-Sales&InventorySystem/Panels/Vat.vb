@@ -1,8 +1,8 @@
 ﻿Public Class Vat
     Implements IObserverPanel
     Private _subject As IObservablePanel
-    Private _tableAapter As New podsTableAdapters.viewtblvatTableAdapter 'podsTableAdapters.tblaccountsTableAdapter
-    Private _dataTable As New pods.viewtblvatDataTable 'pods.tblaccountsDataTable
+    Private ReadOnly _tableAapter As New podsTableAdapters.viewtblvatTableAdapter 'podsTableAdapters.tblaccountsTableAdapter
+    Private ReadOnly _dataTable As New pods.viewtblvatDataTable 'pods.tblaccountsDataTable
 
     Private Sub Vat_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try

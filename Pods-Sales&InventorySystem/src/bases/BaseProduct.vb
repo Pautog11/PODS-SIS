@@ -149,17 +149,18 @@ Public Class BaseProduct
         End Try
     End Function
 
-    'Public Shared Function Product() As DataTable
-    '    Try
-    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-    '        Dim cmd As New SqlCommand("SELECT ID, BARCODE, PRODUCT, PRICE, COST FROM viewtblproducts", conn)
-    '        Dim dTable As New DataTable
-    '        Dim adapter As New SqlDataAdapter(cmd)
-    '        adapter.Fill(dTable)
-    '        Return dTable
-    '    Catch ex As Exception
-    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-    '        Return New DataTable
-    '    End Try
-    'End Function
+    Public Shared Function FetchProductBySubcategory(subcategory_id As String) As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT id, product_name FROM tblproducts WHERE subcategory_id = @subcategory_id", conn)
+            cmd.Parameters.AddWithValue("subcategory_id", subcategory_id)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
+        End Try
+    End Function
 End Class

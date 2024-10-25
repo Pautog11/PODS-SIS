@@ -25,7 +25,7 @@ Partial Class Dialog1
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Guna2ControlBox1 = New Guna.UI2.WinForms.Guna2ControlBox()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.AddProductButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.SearchProductButton = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2ComboBox2 = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.Guna2ComboBox1 = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -59,7 +59,7 @@ Partial Class Dialog1
         '
         'Guna2Panel1
         '
-        Me.Guna2Panel1.Controls.Add(Me.AddProductButton)
+        Me.Guna2Panel1.Controls.Add(Me.SearchProductButton)
         Me.Guna2Panel1.Controls.Add(Me.Guna2ComboBox2)
         Me.Guna2Panel1.Controls.Add(Me.Guna2ComboBox1)
         Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -69,23 +69,23 @@ Partial Class Dialog1
         Me.Guna2Panel1.Size = New System.Drawing.Size(1118, 121)
         Me.Guna2Panel1.TabIndex = 1
         '
-        'AddProductButton
+        'SearchProductButton
         '
-        Me.AddProductButton.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.AddProductButton.BackColor = System.Drawing.Color.Transparent
-        Me.AddProductButton.BorderRadius = 15
-        Me.AddProductButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.AddProductButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.AddProductButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.AddProductButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.AddProductButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.AddProductButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.AddProductButton.ForeColor = System.Drawing.Color.White
-        Me.AddProductButton.Location = New System.Drawing.Point(930, 50)
-        Me.AddProductButton.Name = "AddProductButton"
-        Me.AddProductButton.Size = New System.Drawing.Size(150, 35)
-        Me.AddProductButton.TabIndex = 6
-        Me.AddProductButton.Text = "Add"
+        Me.SearchProductButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.SearchProductButton.BackColor = System.Drawing.Color.Transparent
+        Me.SearchProductButton.BorderRadius = 15
+        Me.SearchProductButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.SearchProductButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.SearchProductButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.SearchProductButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.SearchProductButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.SearchProductButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.SearchProductButton.ForeColor = System.Drawing.Color.White
+        Me.SearchProductButton.Location = New System.Drawing.Point(930, 50)
+        Me.SearchProductButton.Name = "SearchProductButton"
+        Me.SearchProductButton.Size = New System.Drawing.Size(150, 35)
+        Me.SearchProductButton.TabIndex = 6
+        Me.SearchProductButton.Text = "Search"
         '
         'Guna2ComboBox2
         '
@@ -139,7 +139,7 @@ Partial Class Dialog1
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Guna2ControlBox1 As Guna.UI2.WinForms.Guna2ControlBox
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents AddProductButton As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents SearchProductButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2ComboBox2 As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents Guna2ComboBox1 As Guna.UI2.WinForms.Guna2ComboBox
 End Class

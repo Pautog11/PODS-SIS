@@ -1,7 +1,7 @@
 ﻿Public Class Category
     Implements IObserverPanel
     Private _subject As IObservablePanel
-    Private _tableAapter As New podsTableAdapters.viewtblcategoriesTableAdapter
+    Private ReadOnly _tableAapter As New podsTableAdapters.viewtblcategoriesTableAdapter
     Private _dataTable As New pods.viewtblcategoriesDataTable
 
     Private Sub Category_Load(sender As Object, e As EventArgs) Handles MyBase.Load

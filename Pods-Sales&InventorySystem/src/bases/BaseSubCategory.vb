@@ -110,4 +110,18 @@ Public Class BaseSubCategory
         End Try
     End Function
 
+    Public Shared Function FetchSubCategory(category_id As String) As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT id, subcategory FROM tblsubcategories WHERE category_id = @category_id", conn)
+            cmd.Parameters.AddWithValue("@category_id", category_id)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
+        End Try
+    End Function
 End Class

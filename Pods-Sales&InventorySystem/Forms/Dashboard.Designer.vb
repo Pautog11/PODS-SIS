@@ -36,6 +36,8 @@ Partial Class Dashboard
         Me.DashboardTabControl = New Guna.UI2.WinForms.Guna2TabControl()
         Me.Home = New System.Windows.Forms.TabPage()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.NotificationDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -46,27 +48,28 @@ Partial Class Dashboard
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Product = New System.Windows.Forms.TabPage()
+        Me.Product1 = New Pods_Sales_InventorySystem.Product()
         Me.Maintenance = New System.Windows.Forms.TabPage()
+        Me.Maintenance1 = New Pods_Sales_InventorySystem.Maintenance()
         Me.Inventory = New System.Windows.Forms.TabPage()
+        Me.Inventory1 = New Pods_Sales_InventorySystem.Inventory()
         Me.Activity = New System.Windows.Forms.TabPage()
+        Me.AuditTrail1 = New Pods_Sales_InventorySystem.Activity()
         Me.Transaction = New System.Windows.Forms.TabPage()
+        Me.Transaction1 = New Pods_Sales_InventorySystem.Transaction()
         Me.Sales_Report = New System.Windows.Forms.TabPage()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.ReturnAndPullout1 = New Pods_Sales_InventorySystem.ReturnAndPullout()
         Me.Guna2ContextMenuStrip1 = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Product1 = New Pods_Sales_InventorySystem.Product()
-        Me.Maintenance1 = New Pods_Sales_InventorySystem.Maintenance()
-        Me.Inventory1 = New Pods_Sales_InventorySystem.Inventory()
-        Me.AuditTrail1 = New Pods_Sales_InventorySystem.Activity()
-        Me.DeliveryDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DashboardTableLayoutPanel.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.DashboardPanel.SuspendLayout()
         Me.DashboardTabControl.SuspendLayout()
         Me.Home.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
+        CType(Me.NotificationDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel3.SuspendLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel2.SuspendLayout()
@@ -77,8 +80,9 @@ Partial Class Dashboard
         Me.Maintenance.SuspendLayout()
         Me.Inventory.SuspendLayout()
         Me.Activity.SuspendLayout()
+        Me.Transaction.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
         Me.Guna2ContextMenuStrip1.SuspendLayout()
-        CType(Me.DeliveryDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DashboardTableLayoutPanel
@@ -101,6 +105,7 @@ Partial Class Dashboard
         '
         'FlowLayoutPanel1
         '
+        Me.FlowLayoutPanel1.BackColor = System.Drawing.Color.White
         Me.FlowLayoutPanel1.Controls.Add(Me.Guna2ControlBox2)
         Me.FlowLayoutPanel1.Controls.Add(Me.Guna2ControlBox3)
         Me.FlowLayoutPanel1.Controls.Add(Me.Guna2ControlBox1)
@@ -170,12 +175,11 @@ Partial Class Dashboard
         'Guna2ImageButton1
         '
         Me.Guna2ImageButton1.CheckedState.ImageSize = New System.Drawing.Size(64, 64)
-        Me.Guna2ImageButton1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Guna2ImageButton1.HoverState.ImageSize = New System.Drawing.Size(180, 40)
         Me.Guna2ImageButton1.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.icon_pods
         Me.Guna2ImageButton1.ImageOffset = New System.Drawing.Point(0, 0)
         Me.Guna2ImageButton1.ImageRotate = 0!
-        Me.Guna2ImageButton1.ImageSize = New System.Drawing.Size(180, 35)
+        Me.Guna2ImageButton1.ImageSize = New System.Drawing.Size(180, 40)
         Me.Guna2ImageButton1.Location = New System.Drawing.Point(0, 0)
         Me.Guna2ImageButton1.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2ImageButton1.Name = "Guna2ImageButton1"
@@ -250,7 +254,7 @@ Partial Class Dashboard
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334!))
-        Me.TableLayoutPanel1.Controls.Add(Me.DeliveryDataGridView, 2, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.NotificationDataGridView, 2, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.Panel3, 2, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Panel2, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Panel1, 0, 0)
@@ -264,6 +268,71 @@ Partial Class Dashboard
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(1116, 546)
         Me.TableLayoutPanel1.TabIndex = 0
+        '
+        'NotificationDataGridView
+        '
+        Me.NotificationDataGridView.AllowUserToAddRows = False
+        Me.NotificationDataGridView.AllowUserToDeleteRows = False
+        Me.NotificationDataGridView.AllowUserToResizeColumns = False
+        Me.NotificationDataGridView.AllowUserToResizeRows = False
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
+        Me.NotificationDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.NotificationDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.NotificationDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.NotificationDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.total})
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.NotificationDataGridView.DefaultCellStyle = DataGridViewCellStyle3
+        Me.NotificationDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.NotificationDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.NotificationDataGridView.Location = New System.Drawing.Point(743, 103)
+        Me.NotificationDataGridView.Margin = New System.Windows.Forms.Padding(0, 3, 0, 0)
+        Me.NotificationDataGridView.MultiSelect = False
+        Me.NotificationDataGridView.Name = "NotificationDataGridView"
+        Me.NotificationDataGridView.ReadOnly = True
+        Me.NotificationDataGridView.RowHeadersVisible = False
+        Me.NotificationDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        Me.NotificationDataGridView.Size = New System.Drawing.Size(373, 443)
+        Me.NotificationDataGridView.TabIndex = 7
+        Me.NotificationDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
+        Me.NotificationDataGridView.ThemeStyle.AlternatingRowsStyle.Font = Nothing
+        Me.NotificationDataGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty
+        Me.NotificationDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty
+        Me.NotificationDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty
+        Me.NotificationDataGridView.ThemeStyle.BackColor = System.Drawing.Color.White
+        Me.NotificationDataGridView.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.NotificationDataGridView.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.NotificationDataGridView.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.NotificationDataGridView.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NotificationDataGridView.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
+        Me.NotificationDataGridView.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.NotificationDataGridView.ThemeStyle.HeaderStyle.Height = 23
+        Me.NotificationDataGridView.ThemeStyle.ReadOnly = True
+        Me.NotificationDataGridView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White
+        Me.NotificationDataGridView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.NotificationDataGridView.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.NotificationDataGridView.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.NotificationDataGridView.ThemeStyle.RowsStyle.Height = 22
+        Me.NotificationDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.NotificationDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        '
+        'total
+        '
+        Me.total.HeaderText = "Notifications"
+        Me.total.Name = "total"
+        Me.total.ReadOnly = True
         '
         'Panel3
         '
@@ -368,6 +437,15 @@ Partial Class Dashboard
         Me.Product.Text = "Product"
         Me.Product.UseVisualStyleBackColor = True
         '
+        'Product1
+        '
+        Me.Product1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Product1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Product1.Location = New System.Drawing.Point(0, 0)
+        Me.Product1.Name = "Product1"
+        Me.Product1.Size = New System.Drawing.Size(1124, 554)
+        Me.Product1.TabIndex = 0
+        '
         'Maintenance
         '
         Me.Maintenance.Controls.Add(Me.Maintenance1)
@@ -379,6 +457,16 @@ Partial Class Dashboard
         Me.Maintenance.Text = "Maintenance"
         Me.Maintenance.UseVisualStyleBackColor = True
         '
+        'Maintenance1
+        '
+        Me.Maintenance1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Maintenance1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Maintenance1.Location = New System.Drawing.Point(3, 3)
+        Me.Maintenance1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Maintenance1.Name = "Maintenance1"
+        Me.Maintenance1.Size = New System.Drawing.Size(1118, 548)
+        Me.Maintenance1.TabIndex = 0
+        '
         'Inventory
         '
         Me.Inventory.Controls.Add(Me.Inventory1)
@@ -388,6 +476,15 @@ Partial Class Dashboard
         Me.Inventory.TabIndex = 4
         Me.Inventory.Text = "Inventory"
         Me.Inventory.UseVisualStyleBackColor = True
+        '
+        'Inventory1
+        '
+        Me.Inventory1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Inventory1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Inventory1.Location = New System.Drawing.Point(0, 0)
+        Me.Inventory1.Name = "Inventory1"
+        Me.Inventory1.Size = New System.Drawing.Size(1124, 554)
+        Me.Inventory1.TabIndex = 0
         '
         'Activity
         '
@@ -400,14 +497,33 @@ Partial Class Dashboard
         Me.Activity.Text = "Activity"
         Me.Activity.UseVisualStyleBackColor = True
         '
+        'AuditTrail1
+        '
+        Me.AuditTrail1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.AuditTrail1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.AuditTrail1.Location = New System.Drawing.Point(3, 3)
+        Me.AuditTrail1.Name = "AuditTrail1"
+        Me.AuditTrail1.Size = New System.Drawing.Size(1118, 548)
+        Me.AuditTrail1.TabIndex = 0
+        '
         'Transaction
         '
+        Me.Transaction.Controls.Add(Me.Transaction1)
         Me.Transaction.Location = New System.Drawing.Point(184, 4)
         Me.Transaction.Name = "Transaction"
         Me.Transaction.Size = New System.Drawing.Size(1124, 554)
         Me.Transaction.TabIndex = 5
         Me.Transaction.Text = "Transaction"
         Me.Transaction.UseVisualStyleBackColor = True
+        '
+        'Transaction1
+        '
+        Me.Transaction1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Transaction1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Transaction1.Location = New System.Drawing.Point(0, 0)
+        Me.Transaction1.Name = "Transaction1"
+        Me.Transaction1.Size = New System.Drawing.Size(1124, 554)
+        Me.Transaction1.TabIndex = 0
         '
         'Sales_Report
         '
@@ -420,12 +536,22 @@ Partial Class Dashboard
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.ReturnAndPullout1)
         Me.TabPage1.Location = New System.Drawing.Point(184, 4)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Size = New System.Drawing.Size(1124, 554)
         Me.TabPage1.TabIndex = 7
         Me.TabPage1.Text = "Returns/Pull out"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'ReturnAndPullout1
+        '
+        Me.ReturnAndPullout1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ReturnAndPullout1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ReturnAndPullout1.Location = New System.Drawing.Point(0, 0)
+        Me.ReturnAndPullout1.Name = "ReturnAndPullout1"
+        Me.ReturnAndPullout1.Size = New System.Drawing.Size(1124, 554)
+        Me.ReturnAndPullout1.TabIndex = 0
         '
         'Guna2ContextMenuStrip1
         '
@@ -454,105 +580,6 @@ Partial Class Dashboard
         Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
         Me.LogoutToolStripMenuItem.Text = "Logout"
         '
-        'Product1
-        '
-        Me.Product1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Product1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Product1.Location = New System.Drawing.Point(0, 0)
-        Me.Product1.Name = "Product1"
-        Me.Product1.Size = New System.Drawing.Size(1124, 554)
-        Me.Product1.TabIndex = 0
-        '
-        'Maintenance1
-        '
-        Me.Maintenance1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Maintenance1.Location = New System.Drawing.Point(3, 3)
-        Me.Maintenance1.Name = "Maintenance1"
-        Me.Maintenance1.Size = New System.Drawing.Size(1118, 548)
-        Me.Maintenance1.TabIndex = 0
-        '
-        'Inventory1
-        '
-        Me.Inventory1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Inventory1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Inventory1.Location = New System.Drawing.Point(0, 0)
-        Me.Inventory1.Name = "Inventory1"
-        Me.Inventory1.Size = New System.Drawing.Size(1124, 554)
-        Me.Inventory1.TabIndex = 0
-        '
-        'AuditTrail1
-        '
-        Me.AuditTrail1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AuditTrail1.Location = New System.Drawing.Point(3, 3)
-        Me.AuditTrail1.Name = "AuditTrail1"
-        Me.AuditTrail1.Size = New System.Drawing.Size(1118, 548)
-        Me.AuditTrail1.TabIndex = 0
-        '
-        'DeliveryDataGridView
-        '
-        Me.DeliveryDataGridView.AllowUserToAddRows = False
-        Me.DeliveryDataGridView.AllowUserToDeleteRows = False
-        Me.DeliveryDataGridView.AllowUserToResizeColumns = False
-        Me.DeliveryDataGridView.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
-        Me.DeliveryDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.DeliveryDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DeliveryDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.DeliveryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.total})
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DeliveryDataGridView.DefaultCellStyle = DataGridViewCellStyle3
-        Me.DeliveryDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DeliveryDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DeliveryDataGridView.Location = New System.Drawing.Point(743, 103)
-        Me.DeliveryDataGridView.Margin = New System.Windows.Forms.Padding(0, 3, 0, 0)
-        Me.DeliveryDataGridView.MultiSelect = False
-        Me.DeliveryDataGridView.Name = "DeliveryDataGridView"
-        Me.DeliveryDataGridView.ReadOnly = True
-        Me.DeliveryDataGridView.RowHeadersVisible = False
-        Me.DeliveryDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.DeliveryDataGridView.Size = New System.Drawing.Size(373, 443)
-        Me.DeliveryDataGridView.TabIndex = 7
-        Me.DeliveryDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
-        Me.DeliveryDataGridView.ThemeStyle.AlternatingRowsStyle.Font = Nothing
-        Me.DeliveryDataGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty
-        Me.DeliveryDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty
-        Me.DeliveryDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty
-        Me.DeliveryDataGridView.ThemeStyle.BackColor = System.Drawing.Color.White
-        Me.DeliveryDataGridView.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DeliveryDataGridView.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DeliveryDataGridView.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        Me.DeliveryDataGridView.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DeliveryDataGridView.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
-        Me.DeliveryDataGridView.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.DeliveryDataGridView.ThemeStyle.HeaderStyle.Height = 23
-        Me.DeliveryDataGridView.ThemeStyle.ReadOnly = True
-        Me.DeliveryDataGridView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White
-        Me.DeliveryDataGridView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
-        Me.DeliveryDataGridView.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DeliveryDataGridView.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.DeliveryDataGridView.ThemeStyle.RowsStyle.Height = 22
-        Me.DeliveryDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DeliveryDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        '
-        'total
-        '
-        Me.total.HeaderText = "Notifications"
-        Me.total.Name = "total"
-        Me.total.ReadOnly = True
-        '
         'Dashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -569,6 +596,7 @@ Partial Class Dashboard
         Me.DashboardTabControl.ResumeLayout(False)
         Me.Home.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
+        CType(Me.NotificationDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
@@ -582,8 +610,9 @@ Partial Class Dashboard
         Me.Maintenance.ResumeLayout(False)
         Me.Inventory.ResumeLayout(False)
         Me.Activity.ResumeLayout(False)
+        Me.Transaction.ResumeLayout(False)
+        Me.TabPage1.ResumeLayout(False)
         Me.Guna2ContextMenuStrip1.ResumeLayout(False)
-        CType(Me.DeliveryDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -606,7 +635,6 @@ Partial Class Dashboard
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Inventory As TabPage
-    Friend WithEvents Guna2ImageButton1 As Guna.UI2.WinForms.Guna2ImageButton
     Friend WithEvents SettingButton As Guna.UI2.WinForms.Guna2ImageButton
     Friend WithEvents Guna2ContextMenuStrip1 As Guna.UI2.WinForms.Guna2ContextMenuStrip
     Friend WithEvents AboutToolStripMenuItem As ToolStripMenuItem
@@ -622,6 +650,9 @@ Partial Class Dashboard
     Friend WithEvents Transaction As TabPage
     Friend WithEvents Sales_Report As TabPage
     Friend WithEvents TabPage1 As TabPage
-    Friend WithEvents DeliveryDataGridView As Guna.UI2.WinForms.Guna2DataGridView
+    Friend WithEvents NotificationDataGridView As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents total As DataGridViewTextBoxColumn
+    Friend WithEvents Transaction1 As Transaction
+    Friend WithEvents ReturnAndPullout1 As ReturnAndPullout
+    Friend WithEvents Guna2ImageButton1 As Guna.UI2.WinForms.Guna2ImageButton
 End Class

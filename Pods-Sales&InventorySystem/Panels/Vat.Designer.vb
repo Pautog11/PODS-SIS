@@ -26,7 +26,9 @@ Partial Class Vat
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.VatDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         CType(Me.VatDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'VatDataGridView
@@ -55,14 +57,14 @@ Partial Class Vat
         Me.VatDataGridView.DefaultCellStyle = DataGridViewCellStyle3
         Me.VatDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.VatDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.VatDataGridView.Location = New System.Drawing.Point(0, 0)
+        Me.VatDataGridView.Location = New System.Drawing.Point(0, 50)
         Me.VatDataGridView.Margin = New System.Windows.Forms.Padding(0)
         Me.VatDataGridView.MultiSelect = False
         Me.VatDataGridView.Name = "VatDataGridView"
         Me.VatDataGridView.ReadOnly = True
         Me.VatDataGridView.RowHeadersVisible = False
         Me.VatDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.VatDataGridView.Size = New System.Drawing.Size(865, 552)
+        Me.VatDataGridView.Size = New System.Drawing.Size(865, 502)
         Me.VatDataGridView.TabIndex = 5
         Me.VatDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.VatDataGridView.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -86,17 +88,33 @@ Partial Class Vat
         Me.VatDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.VatDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.ColumnCount = 1
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.VatDataGridView, 0, 1)
+        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 2
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(865, 552)
+        Me.TableLayoutPanel1.TabIndex = 6
+        '
         'Vat
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.Controls.Add(Me.VatDataGridView)
+        Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Name = "Vat"
         Me.Size = New System.Drawing.Size(865, 552)
         CType(Me.VatDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TableLayoutPanel1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents VatDataGridView As Guna.UI2.WinForms.Guna2DataGridView
+    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
 End Class

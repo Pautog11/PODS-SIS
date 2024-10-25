@@ -74,7 +74,9 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
@@ -137,6 +139,12 @@
       <DependentUpon>AccountDialog.vb</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\AccountDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\DatePickerDialog.Designer.vb">
+      <DependentUpon>DatePickerDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\DatePickerDialog.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialogs\DeliveryCartDialog.Designer.vb">
@@ -269,6 +277,12 @@
     <Compile Include="Panels\Product.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Panels\ReturnAndPullout.Designer.vb">
+      <DependentUpon>ReturnAndPullout.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\ReturnAndPullout.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Panels\SubCategory.Designer.vb">
       <DependentUpon>SubCategory.vb</DependentUpon>
     </Compile>
@@ -279,6 +293,12 @@
       <DependentUpon>Supplier.vb</DependentUpon>
     </Compile>
     <Compile Include="Panels\Supplier.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panels\Transaction.Designer.vb">
+      <DependentUpon>Transaction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Transaction.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Panels\Vat.Designer.vb">
@@ -322,6 +342,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\AccountDialog.resx">
       <DependentUpon>AccountDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\DatePickerDialog.resx">
+      <DependentUpon>DatePickerDialog.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\DeliveryCartDialog.resx">
       <DependentUpon>DeliveryCartDialog.vb</DependentUpon>
@@ -386,11 +409,17 @@
     <EmbeddedResource Include="Panels\Product.resx">
       <DependentUpon>Product.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Panels\ReturnAndPullout.resx">
+      <DependentUpon>ReturnAndPullout.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Panels\SubCategory.resx">
       <DependentUpon>SubCategory.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\Supplier.resx">
       <DependentUpon>Supplier.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\Transaction.resx">
+      <DependentUpon>Transaction.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\Vat.resx">
       <DependentUpon>Vat.vb</DependentUpon>

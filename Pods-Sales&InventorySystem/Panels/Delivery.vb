@@ -3,8 +3,8 @@
 Public Class Delivery
     Implements IObserverPanel
     Private _subject As IObservablePanel
-    Private _tableAapter As New podsTableAdapters.viewtbldeliveriesTableAdapter
-    Private _dataTable As New pods.viewtbldeliveriesDataTable
+    Private ReadOnly _tableAapter As New podsTableAdapters.viewtbldeliveriesTableAdapter
+    Private ReadOnly _dataTable As New pods.viewtbldeliveriesDataTable
     Private Sub DeliveryCart_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             _subject = Application.OpenForms.OfType(Of Dashboard).FirstOrDefault

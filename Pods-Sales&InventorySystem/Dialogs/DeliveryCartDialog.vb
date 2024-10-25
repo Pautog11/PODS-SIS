@@ -3,8 +3,8 @@ Imports System.Windows.Forms
 Imports Pods_Sales_InventorySystem.pods
 
 Public Class DeliveryCartDialog
-    Private _tableAdapter As New podsTableAdapters.viewtblsuppliersTableAdapter
-    Private _subject As IObservablePanel
+    Private ReadOnly _tableAdapter As New podsTableAdapters.viewtblsuppliersTableAdapter
+    Private ReadOnly _subject As IObservablePanel
     Public _itemSource As DataTable
     Private ReadOnly _data As Dictionary(Of String, String)
 
@@ -46,7 +46,7 @@ Public Class DeliveryCartDialog
                 DeliveryDataGridView.Rows.Add(rowData.ToArray())
             Next
         Else
-            PulloutButton.Visible = False
+            'PulloutButton.Visible = False
             DateTimePicker1.MaxDate = DateTime.Now
         End If
     End Sub
@@ -66,49 +66,51 @@ Public Class DeliveryCartDialog
     End Sub
 
     Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click
+        'Dim result As New Object
+        Dim result As New List(Of Object)()
+        result.add(InputValidation.ValidateInputString(TransactionDeliveryTextBox, DataInput.STRING_STRING))
 
-        Dim items As New List(Of Dictionary(Of String, String))()
-        Dim baseCommand As ICommandPanel ' = Nothing
-        Dim invoker As ICommandInvoker
-        Dim data As New Dictionary(Of String, String) From {
+        If DeliveryDataGridView.Rows.Count > 0 AndAlso Not result.Any(Function(item As Object()) Not item(0)) Then
+            Dim items As New List(Of Dictionary(Of String, String))()
+            Dim baseCommand As ICommandPanel ' = Nothing
+            Dim invoker As ICommandInvoker
+            Dim data As New Dictionary(Of String, String) From {
             {"id", If(_data?.Item("id"), String.Empty)},
             {"delivery_number", TransactionDeliveryTextBox.Text},
             {"supplier_id", If(DirectCast(SupplierNameComboBox.SelectedItem, DataRowView)("id"), String.Empty)},
             {"total", TotalPrice.Text},
             {"date", DateTimePicker1.Value.ToString("MMM dd yyyy")} 'DateTimePicker1.Value.ToString("yyyy/MM/dd")}
-        }
-
-        For Each row As DataGridViewRow In DeliveryDataGridView.Rows
-            ' Check if the row is not the new row added automatically at the end of DataGridView
-            If Not row.IsNewRow Then
-                Dim item As New Dictionary(Of String, String) From {
-                {"product_id", row.Cells(0).Value},
-                {"price", If(row.Cells(2).Value?.ToString(), "0")},
-                {"quantity", If(row.Cells(3).Value?.ToString(), "0")},
-                {"total", If(row.Cells(4).Value?.ToString(), "0")}
             }
-                items.Add(item)
-            End If
-        Next
 
-        baseCommand = New BaseDelivery(data) With {
-            .Items = items
-        }
+            For Each row As DataGridViewRow In DeliveryDataGridView.Rows
+                ' Check if the row is not the new row added automatically at the end of DataGridView
+                If Not row.IsNewRow Then
+                    Dim item As New Dictionary(Of String, String) From {
+                        {"product_id", row.Cells(0).Value},
+                        {"price", If(row.Cells(2).Value?.ToString(), "0")},
+                        {"quantity", If(row.Cells(3).Value?.ToString(), "0")},
+                        {"total", If(row.Cells(4).Value?.ToString(), "0")}
+                    }
+                    items.Add(item)
+                End If
+            Next
 
-        invoker = New AddCommand(baseCommand)
-        invoker?.Execute()
-        _subject.NotifyObserver()
-        Me.Close()
+            baseCommand = New BaseDelivery(data) With {
+                .Items = items
+            }
+
+            invoker = New AddCommand(baseCommand)
+            invoker?.Execute()
+            _subject.NotifyObserver()
+            Me.Close()
+            'Else
+            '    MessageBox.Show("No product selected!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
     End Sub
 
     Private Sub DeliveryDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DeliveryDataGridView.CellClick
         If _data IsNot Nothing Then
             MsgBox("clicked!")
         End If
-    End Sub
-
-    Private Sub PulloutButton_Click(sender As Object, e As EventArgs) Handles PulloutButton.Click
-        Dim dialog As New PulloutCartDialog
-        dialog.ShowDialog()
     End Sub
 End Class
