@@ -51,23 +51,33 @@ Public Class BaseDelivery
 
                     If _sqlCommand.ExecuteNonQuery() <= 0 Then
                         Throw New Exception("Failed to add delivery items!")
-                        'Else
-                        '    _sqlCommand.Parameters.Clear()
-                        '    _sqlCommand = New SqlCommand("UPDATE tblproducts SET quantity = quantity + @quantity WHERE id = @id", _sqlConnection, transaction)
-                        '    _sqlCommand.Parameters.Clear()
-                        '    _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
-                        '    _sqlCommand.Parameters.AddWithValue("@id", item("product_id"))
-                        '    _sqlCommand.ExecuteNonQuery()
+                    Else
+                        'To update the quantity of product
+                        _sqlCommand.Parameters.Clear()
+                        _sqlCommand = New SqlCommand("UPDATE tblproducts SET quantity = quantity + @quantity WHERE id = @id", _sqlConnection, transaction)
+                        _sqlCommand.Parameters.Clear()
+                        _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
+                        _sqlCommand.Parameters.AddWithValue("@id", item("product_id"))
+                        _sqlCommand.ExecuteNonQuery()
                     End If
                 End If
             Next
 
+            For Each item In _item
+                _sqlCommand.Parameters.Clear()
+                _sqlCommand = New SqlCommand("INSERT INTO tblproduct_notif (product_id, delivery_id, quantity, mfd, exd) VALUES (@product_id, @delivery_id, @quantity, @mfd, @exd)", _sqlConnection, transaction)
+                _sqlCommand.Parameters.AddWithValue("@product_id", item("product_id"))
+                _sqlCommand.Parameters.AddWithValue("@delivery_id", deliveryId)
+                _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
+                _sqlCommand.Parameters.AddWithValue("@mfd", item("mfd"))
+                _sqlCommand.Parameters.AddWithValue("@exd", item("exd"))
+                If _sqlCommand.ExecuteNonQuery <= 0 Then
+                    Throw New Exception("Failed to add delivery items in expiry date!")
+                End If
+            Next
 
-            _sqlCommand.Parameters.Clear()
-            _sqlCommand = New SqlCommand("INSERT KIOKKL<LMLLLLKM<<")
 
-
-            MsgBox("base deliver done query")
+            'MsgBox("base deliver done query")
             transaction.Commit()
             MessageBox.Show("Delivery has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Catch ex As Exception

@@ -87,9 +87,11 @@ Public Class DeliveryCartDialog
                 If Not row.IsNewRow Then
                     Dim item As New Dictionary(Of String, String) From {
                         {"product_id", row.Cells(0).Value},
-                        {"price", If(row.Cells(2).Value?.ToString(), "0")},
-                        {"quantity", If(row.Cells(3).Value?.ToString(), "0")},
-                        {"total", If(row.Cells(4).Value?.ToString(), "0")}
+                        {"mfd", If(row.Cells(2).Value?.ToString(), Date.Now)},
+                        {"exd", If(row.Cells(3).Value?.ToString(), Date.Now)},
+                        {"price", If(row.Cells(4).Value?.ToString(), "0")},
+                        {"quantity", If(row.Cells(5).Value?.ToString(), "0")},
+                        {"total", If(row.Cells(6).Value?.ToString(), "0")}
                     }
                     items.Add(item)
                 End If
