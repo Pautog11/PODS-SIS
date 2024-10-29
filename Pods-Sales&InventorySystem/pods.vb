@@ -14,3 +14,8 @@
 
     'End Class
 End Class
+
+Namespace podsTableAdapters
+    Partial Public Class viewtblproductsTableAdapter
+    End Class
+End Namespace

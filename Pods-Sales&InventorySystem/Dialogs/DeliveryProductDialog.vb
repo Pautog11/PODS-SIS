@@ -28,6 +28,10 @@ Public Class DeliveryProductDialog
             BarcodeTextBox.Text = info.Rows(0).Item("BARCODE").ToString()
             CostTextBox.Text = info.Rows(0).Item("COST").ToString()
         End If
+
+        Dim dt As DataTable = BaseDelivery.FillSkuByProduct(ProductComboBox.Text)
+        Guna2ComboBox1.DataSource = dt
+        Guna2ComboBox1.DisplayMember = "sku"
     End Sub
 
     Private Sub AddDeliveryButton_Click(sender As Object, e As EventArgs) Handles AddDeliveryButton.Click
@@ -50,6 +54,8 @@ Public Class DeliveryProductDialog
             If Not is_existing Then
                 _parent.DeliveryDataGridView.Rows.Add({ProductComboBox.SelectedItem("ID"),
                                                       ProductComboBox.Text,
+                                                      MfdTextBox.Text,
+                                                      ExdTextBox.Text,
                                                       CostTextBox.Text,
                                                       QuantityTextBox.Text,
                                                       CDec(CostTextBox.Text) * CDec(QuantityTextBox.Text)

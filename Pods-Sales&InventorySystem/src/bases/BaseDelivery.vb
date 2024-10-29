@@ -51,16 +51,23 @@ Public Class BaseDelivery
 
                     If _sqlCommand.ExecuteNonQuery() <= 0 Then
                         Throw New Exception("Failed to add delivery items!")
-                    Else
-                        _sqlCommand.Parameters.Clear()
-                        _sqlCommand = New SqlCommand("UPDATE tblproducts SET quantity = quantity + @quantity WHERE id = @id", _sqlConnection, transaction)
-                        _sqlCommand.Parameters.Clear()
-                        _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
-                        _sqlCommand.Parameters.AddWithValue("@id", item("product_id"))
-                        _sqlCommand.ExecuteNonQuery()
+                        'Else
+                        '    _sqlCommand.Parameters.Clear()
+                        '    _sqlCommand = New SqlCommand("UPDATE tblproducts SET quantity = quantity + @quantity WHERE id = @id", _sqlConnection, transaction)
+                        '    _sqlCommand.Parameters.Clear()
+                        '    _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
+                        '    _sqlCommand.Parameters.AddWithValue("@id", item("product_id"))
+                        '    _sqlCommand.ExecuteNonQuery()
                     End If
                 End If
             Next
+
+
+            _sqlCommand.Parameters.Clear()
+            _sqlCommand = New SqlCommand("INSERT KIOKKL<LMLLLLKM<<")
+
+
+            MsgBox("base deliver done query")
             transaction.Commit()
             MessageBox.Show("Delivery has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Catch ex As Exception
@@ -77,6 +84,23 @@ Public Class BaseDelivery
             cmd = New SqlCommand("SELECT tbldeliveries_items.id, product_name, price, tbldeliveries_items.quantity, total 
                                   FROM tbldeliveries_items join tblproducts on tbldeliveries_items.product_id = tblproducts.id WHERE delivery_id = @delivery_id", conn)
             cmd.Parameters.AddWithValue("@delivery_id", delivery_id)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
+        End Try
+    End Function
+
+    Public Shared Function FillSkuByProduct(product_name As String) As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("SELECT sku
+                                  FROM tblproducts WHERE product_name = @product_name", conn)
+            cmd.Parameters.AddWithValue("@product_name", product_name)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
             adapter.Fill(dTable)

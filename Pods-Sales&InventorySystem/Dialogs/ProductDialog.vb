@@ -53,12 +53,21 @@ Public Class ProductDialog
                 {"sku", result(0)(1)},
                 {"barcode", result(1)(1)},
                 {"product_name", result(2)(1)},
-                {"description", result(3)(1)},
+                {"description", result(3)(1)},   'If(String.IsNullOrEmpty(ProductDescriptionTextBox.Text), "", ProductDescriptionTextBox.Text)}
                 {"product_price", result(4)(1)},
                 {"product_cost", result(5)(1)},
                 {"stock_level", result(6)(1)}
             }
-            Dim baseCommand As New BaseProduct(data)
+
+            Dim item As New Dictionary(Of String, String) From {
+                {"dosage", If(String.IsNullOrEmpty(DosageTextBox.Text), Nothing, DosageTextBox.Text)},
+                {"strength", If(String.IsNullOrEmpty(StrengthTextBox.Text), Nothing, StrengthTextBox.Text)},
+                {"manufacturer", If(String.IsNullOrEmpty(ManufacturerTextBox.Text), Nothing, ManufacturerTextBox.Text)}
+            }
+
+
+            Dim baseCommand As BaseProduct '(data) 'With {.Items = item}
+            baseCommand = New BaseProduct(data) With {.Items = item}
             Dim invoker As ICommandInvoker = Nothing
             If BaseProduct.Exists(result(0)(1)) = 0 AndAlso _data Is Nothing Then
                 invoker = New AddCommand(baseCommand)

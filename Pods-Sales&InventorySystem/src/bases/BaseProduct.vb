@@ -4,10 +4,20 @@ Public Class BaseProduct
     Implements ICommandPanel
 
     Private ReadOnly _data As Dictionary(Of String, String)
+    Private _item As Dictionary(Of String, String)
 
     Public Sub New(data As Dictionary(Of String, String))
         _data = data
     End Sub
+
+    Public Property Items() As Dictionary(Of String, String)
+        Set(value As Dictionary(Of String, String))
+            _item = value
+        End Set
+        Get
+            Return _item
+        End Get
+    End Property
 
     Public Sub Delete() Implements ICommandPanel.Delete
         Try
@@ -46,8 +56,9 @@ Public Class BaseProduct
     End Sub
 
     Public Sub Add() Implements ICommandPanel.Add
+        Dim transaction As SqlTransaction = SqlConnectionPods.GetInstance.BeginTransaction()
         Try
-            _sqlCommand = New SqlCommand("INSERT INTO tblproducts (subcategory_id, sku, barcode, product_name, description, product_price, product_cost, stock_level) VALUES (@subcategory_id, @sku, @barcode, @product_name, @description, @product_price, @product_cost, @stock_level)", _sqlConnection)
+            _sqlCommand = New SqlCommand("INSERT INTO tblproducts (subcategory_id, sku, barcode, product_name, description, product_price, product_cost, stock_level) VALUES (@subcategory_id, @sku, @barcode, @product_name, @description, @product_price, @product_cost, @stock_level); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
             _sqlCommand.Parameters.AddWithValue("@subcategory_id", _data.Item("subcategory_id"))
             _sqlCommand.Parameters.AddWithValue("@sku", _data.Item("sku"))
             _sqlCommand.Parameters.AddWithValue("@barcode", _data.Item("barcode"))
@@ -56,14 +67,34 @@ Public Class BaseProduct
             _sqlCommand.Parameters.AddWithValue("@product_price", _data.Item("product_price"))
             _sqlCommand.Parameters.AddWithValue("@product_cost", _data.Item("product_cost"))
             _sqlCommand.Parameters.AddWithValue("@stock_level", _data.Item("stock_level"))
-            If _sqlCommand.ExecuteNonQuery() <= 0 Then
-                MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Else
-                MessageBox.Show("Product has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            'Dim productid As Integer = Convert.ToInt32(_sqlCommand.ExecuteScalar())
+
+            'If _item.Item("dosage") = "" And _item.Item("strength") = "" And _item.Item("manufacturer") = "" Then
+            '    _item = Nothing
+            'End If
+
+            If String.IsNullOrEmpty(_item.Item("dosage")) AndAlso String.IsNullOrEmpty(_item.Item("strength")) AndAlso String.IsNullOrEmpty(_item.Item("manufacturer")) Then _item = Nothing
+
+            If _item IsNot Nothing Then
+                Dim productid As Integer = Convert.ToInt32(_sqlCommand.ExecuteScalar())
+                _sqlCommand.Parameters.Clear()
+                _sqlCommand = New SqlCommand("INSERT INTO tblproduct_info (product_id, dosage_form, strength, manufacturer) VALUES (@product_id, @dosage_form, @strength, @manufacturer)", _sqlConnection, transaction)
+                _sqlCommand.Parameters.AddWithValue("@product_id", productid)
+                _sqlCommand.Parameters.AddWithValue("@dosage_form", _item.Item("dosage")) '_item.Item("dosage"))
+                _sqlCommand.Parameters.AddWithValue("@strength", _item.Item("strength"))
+                _sqlCommand.Parameters.AddWithValue("@manufacturer", _item.Item("manufacturer"))
             End If
+
+            If _sqlCommand.ExecuteNonQuery() <= 0 Then
+                Throw New Exception("Failed to add delivery items!")
+            End If
+            MessageBox.Show("Product has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            transaction.Commit()
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            transaction.Rollback()
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End Try
+
     End Sub
     Public Shared Function FillBySubCategory() As DataTable
         Try
@@ -163,4 +194,16 @@ Public Class BaseProduct
             Return New DataTable
         End Try
     End Function
+    'Public Sub Sasa()
+    '    Try
+    '        _sqlCommand = New SqlCommand("INSERT INTO tblproduct_info (product_id, dosage_form, strength, manufacturer) VALUES (@product_id, @dosage_form, @strength, @manufacturer)", _sqlConnection)
+    '        _sqlCommand.Parameters.AddWithValue("@product_id", 2)
+    '        _sqlCommand.Parameters.AddWithValue("@dosage_form", _item.Item("dosage"))
+    '        _sqlCommand.Parameters.AddWithValue("@strength", _item.Item("strength"))
+    '        _sqlCommand.Parameters.AddWithValue("@manufacturer", _item.Item("manufacturer"))
+    '        _sqlCommand.ExecuteNonQuery()
+    '    Catch ex As Exception
+    '        MsgBox(ex.Message)
+    '    End Try
+    'End Sub
 End Class
