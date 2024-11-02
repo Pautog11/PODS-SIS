@@ -191,6 +191,29 @@
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="viewtbltransactionsTableAdapter" GeneratorDataComponentClassName="viewtbltransactionsTableAdapter" Name="viewtbltransactions" UserDataComponentName="viewtbltransactionsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="podsdbConnectionString1 (MySettings)" DbObjectName="podsdb.dbo.viewtbltransactions" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT id, account_id, transaction_number, subtotal, vat, discount, total, date FROM dbo.viewtbltransactions</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="account_id" DataSetColumn="account_id" />
+              <Mapping SourceColumn="transaction_number" DataSetColumn="transaction_number" />
+              <Mapping SourceColumn="subtotal" DataSetColumn="subtotal" />
+              <Mapping SourceColumn="vat" DataSetColumn="vat" />
+              <Mapping SourceColumn="discount" DataSetColumn="discount" />
+              <Mapping SourceColumn="total" DataSetColumn="total" />
+              <Mapping SourceColumn="date" DataSetColumn="date" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -487,6 +510,32 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="viewtbltransactions" msprop:Generator_TableClassName="viewtbltransactionsDataTable" msprop:Generator_TableVarName="tableviewtbltransactions" msprop:Generator_TablePropName="viewtbltransactions" msprop:Generator_RowDeletingName="viewtbltransactionsRowDeleting" msprop:Generator_RowChangingName="viewtbltransactionsRowChanging" msprop:Generator_RowEvHandlerName="viewtbltransactionsRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtbltransactionsRowDeleted" msprop:Generator_UserTableName="viewtbltransactions" msprop:Generator_RowChangedName="viewtbltransactionsRowChanged" msprop:Generator_RowEvArgName="viewtbltransactionsRowChangeEvent" msprop:Generator_RowClassName="viewtbltransactionsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="account_id" msprop:Generator_ColumnVarNameInTable="columnaccount_id" msprop:Generator_ColumnPropNameInRow="account_id" msprop:Generator_ColumnPropNameInTable="account_idColumn" msprop:Generator_UserColumnName="account_id" type="xs:int" />
+              <xs:element name="transaction_number" msprop:Generator_ColumnVarNameInTable="columntransaction_number" msprop:Generator_ColumnPropNameInRow="transaction_number" msprop:Generator_ColumnPropNameInTable="transaction_numberColumn" msprop:Generator_UserColumnName="transaction_number">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="subtotal" msprop:Generator_ColumnVarNameInTable="columnsubtotal" msprop:Generator_ColumnPropNameInRow="subtotal" msprop:Generator_ColumnPropNameInTable="subtotalColumn" msprop:Generator_UserColumnName="subtotal" type="xs:decimal" />
+              <xs:element name="vat" msprop:Generator_ColumnVarNameInTable="columnvat" msprop:Generator_ColumnPropNameInRow="vat" msprop:Generator_ColumnPropNameInTable="vatColumn" msprop:Generator_UserColumnName="vat" type="xs:double" />
+              <xs:element name="discount" msprop:Generator_ColumnVarNameInTable="columndiscount" msprop:Generator_ColumnPropNameInRow="discount" msprop:Generator_ColumnPropNameInTable="discountColumn" msprop:Generator_UserColumnName="discount" type="xs:double" />
+              <xs:element name="total" msprop:Generator_ColumnVarNameInTable="columntotal" msprop:Generator_ColumnPropNameInRow="total" msprop:Generator_ColumnPropNameInTable="totalColumn" msprop:Generator_UserColumnName="total" type="xs:decimal" />
+              <xs:element name="date" msprop:Generator_ColumnVarNameInTable="columndate" msprop:Generator_ColumnPropNameInRow="_date" msprop:Generator_ColumnPropNameInTable="dateColumn" msprop:Generator_UserColumnName="date">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -520,6 +569,10 @@
     <xs:unique name="viewtblproducts_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:viewtblproducts" />
       <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="viewtbltransactions_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:viewtbltransactions" />
+      <xs:field xpath="mstns:id" />
     </xs:unique>
   </xs:element>
 </xs:schema>

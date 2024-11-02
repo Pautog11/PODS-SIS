@@ -40,7 +40,14 @@ Public Class DeliveryCartDialog
                 Dim rowData As New List(Of Object)()
 
                 For Each column As DataColumn In DeliveryItems.Columns
-                    rowData.Add(row(column))
+                    'rowData.Add(row(column))
+                    If column.ColumnName = "mfd" OrElse column.ColumnName = "exd" Then
+                        Dim dateValue As Date = Convert.ToDateTime(row(column))
+                        ' Format the date to 'yyyy-MM-dd' or any other format you need
+                        rowData.Add(dateValue.ToString("yyyy-MM-dd"))
+                    Else
+                        rowData.Add(row(column))
+                    End If
                 Next
 
                 DeliveryDataGridView.Rows.Add(rowData.ToArray())
@@ -87,8 +94,8 @@ Public Class DeliveryCartDialog
                 If Not row.IsNewRow Then
                     Dim item As New Dictionary(Of String, String) From {
                         {"product_id", row.Cells(0).Value},
-                        {"mfd", If(row.Cells(2).Value?.ToString(), Date.Now)},
-                        {"exd", If(row.Cells(3).Value?.ToString(), Date.Now)},
+                        {"mfd", row.Cells(2).Value?.ToString()},
+                        {"exd", row.Cells(3).Value?.ToString()},
                         {"price", If(row.Cells(4).Value?.ToString(), "0")},
                         {"quantity", If(row.Cells(5).Value?.ToString(), "0")},
                         {"total", If(row.Cells(6).Value?.ToString(), "0")}
@@ -105,8 +112,8 @@ Public Class DeliveryCartDialog
             invoker?.Execute()
             _subject.NotifyObserver()
             Me.Close()
-            'Else
-            '    MessageBox.Show("No product selected!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        Else
+            MessageBox.Show("Select product or provide valid inputs!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
     End Sub
 

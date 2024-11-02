@@ -91,8 +91,20 @@ Public Class BaseDelivery
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
             'cmd = New SqlCommand("SELECT id, product_id, price, quantity, total FROM tbldeliveries_items WHERE delivery_id = @delivery_id", conn)
-            cmd = New SqlCommand("SELECT tbldeliveries_items.id, product_name, price, tbldeliveries_items.quantity, total 
-                                  FROM tbldeliveries_items join tblproducts on tbldeliveries_items.product_id = tblproducts.id WHERE delivery_id = @delivery_id", conn)
+            'cmd = New SqlCommand("SELECT tbldeliveries_items.id, product_name, price, tbldeliveries_items.quantity, total 
+            '                      FROM tbldeliveries_items join tblproducts on tbldeliveries_items.product_id = tblproducts.id WHERE delivery_id = @delivery_id", conn)
+
+            cmd = New SqlCommand("SELECT tbldeliveries_items.id, 
+                                         product_name,  
+                                         mfd, 
+                                         exd,
+                                         price, 
+                                         tbldeliveries_items.quantity, 
+                                         total 
+                                  FROM tbldeliveries_items 
+								  join tblproducts on tbldeliveries_items.product_id = tblproducts.id 
+								  join tblproduct_notif on  tbldeliveries_items.delivery_id = tblproduct_notif.delivery_id
+								  WHERE tbldeliveries_items.delivery_id = @delivery_id", conn)
             cmd.Parameters.AddWithValue("@delivery_id", delivery_id)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)

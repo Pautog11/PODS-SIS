@@ -54,17 +54,15 @@ Namespace My
             End Get
         End Property
         
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
          Global.System.Configuration.DefaultSettingValueAttribute("Server=.;Initial Catalog=podsdb;Persist Security Info=True;User ID=admin;Password"& _ 
-            "=password;")>  _
-        Public Property con() As String
+            "=password")>  _
+        Public ReadOnly Property con() As String
             Get
                 Return CType(Me("con"),String)
             End Get
-            Set
-                Me("con") = value
-            End Set
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _

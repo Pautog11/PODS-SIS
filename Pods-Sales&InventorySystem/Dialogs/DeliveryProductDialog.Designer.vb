@@ -35,7 +35,6 @@ Partial Class DeliveryProductDialog
         Me.BarcodeTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.ProductComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.AccountDialogLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.FlowLayoutPanel2.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.AccountDialogLayoutPanel.SuspendLayout()
@@ -74,7 +73,6 @@ Partial Class DeliveryProductDialog
         '
         'Guna2Panel1
         '
-        Me.Guna2Panel1.Controls.Add(Me.DateTimePicker1)
         Me.Guna2Panel1.Controls.Add(Me.ExdTextBox)
         Me.Guna2Panel1.Controls.Add(Me.MfdTextBox)
         Me.Guna2Panel1.Controls.Add(Me.Guna2ComboBox1)
@@ -280,13 +278,6 @@ Partial Class DeliveryProductDialog
         Me.AccountDialogLayoutPanel.Size = New System.Drawing.Size(391, 503)
         Me.AccountDialogLayoutPanel.TabIndex = 19
         '
-        'DateTimePicker1
-        '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(91, 413)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(200, 20)
-        Me.DateTimePicker1.TabIndex = 13
-        '
         'DeliveryProductDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -320,5 +311,4 @@ Partial Class DeliveryProductDialog
     Friend WithEvents BarcodeTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents ExdTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents MfdTextBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents DateTimePicker1 As DateTimePicker
 End Class

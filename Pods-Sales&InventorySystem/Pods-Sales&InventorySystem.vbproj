@@ -183,6 +183,18 @@
     <Compile Include="Dialogs\SupplierDialog.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Dialogs\TransactionCartDailog.Designer.vb">
+      <DependentUpon>TransactionCartDailog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\TransactionCartDailog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\TransactionDialog.Designer.vb">
+      <DependentUpon>TransactionDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\TransactionDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Dashboard.Designer.vb">
       <DependentUpon>Dashboard.vb</DependentUpon>
     </Compile>
@@ -323,6 +335,7 @@
     <Compile Include="src\bases\BaseProduct.vb" />
     <Compile Include="src\bases\BaseSubCategory.vb" />
     <Compile Include="src\bases\BaseSupplier.vb" />
+    <Compile Include="src\bases\BaseTransaction.vb" />
     <Compile Include="src\classes\InputValidation.vb" />
     <Compile Include="src\classes\LoginModule.vb" />
     <Compile Include="src\classes\SqlBaseConnetion.vb" />
@@ -363,6 +376,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\SupplierDialog.resx">
       <DependentUpon>SupplierDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\TransactionCartDailog.resx">
+      <DependentUpon>TransactionCartDailog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\TransactionDialog.resx">
+      <DependentUpon>TransactionDialog.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard.resx">
       <DependentUpon>Dashboard.vb</DependentUpon>

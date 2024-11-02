@@ -1,7 +1,7 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class SqlConnectionPods
-    Private Shared ReadOnly _sqlConnection As New SqlConnection("Server=.;Initial Catalog=podsdb;Persist Security Info=True;User ID=admin;Password=password;")
+    Private Shared ReadOnly _sqlConnection As New SqlConnection(My.Settings.con) '"Server=.;Initial Catalog=podsdb;Persist Security Info=True;User ID=admin;Password=password;")
     ''' <summary>
     ''' Connection string for all operation
     ''' </summary>
