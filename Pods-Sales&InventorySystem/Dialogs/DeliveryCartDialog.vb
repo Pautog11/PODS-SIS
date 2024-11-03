@@ -36,20 +36,15 @@ Public Class DeliveryCartDialog
             DeliveryDataGridView.Rows.Clear()
             Dim DeliveryItems As DataTable = BaseDelivery.SelectAllDeliveryItems(_data("id"))
             For Each row As DataRow In DeliveryItems.Rows
-
                 Dim rowData As New List(Of Object)()
-
                 For Each column As DataColumn In DeliveryItems.Columns
-                    'rowData.Add(row(column))
                     If column.ColumnName = "mfd" OrElse column.ColumnName = "exd" Then
                         Dim dateValue As Date = Convert.ToDateTime(row(column))
-                        ' Format the date to 'yyyy-MM-dd' or any other format you need
                         rowData.Add(dateValue.ToString("yyyy-MM-dd"))
                     Else
                         rowData.Add(row(column))
                     End If
                 Next
-
                 DeliveryDataGridView.Rows.Add(rowData.ToArray())
             Next
         Else

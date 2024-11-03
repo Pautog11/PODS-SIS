@@ -26,6 +26,15 @@ Public Class ProductDialog
             PriceTextBox.Text = _data.Item("price")
             CostTextBox.Text = _data.Item("cost")
             StockLevelTextBox.Text = _data.Item("stock_level")
+
+            Dim productid As DataTable = BaseProduct.Fillproductinfo(_data("id"))
+            'MsgBox(_data.Item("id"))
+            If productid.Rows.Count > 0 Then
+                Dim row As DataRow = productid.Rows(0)
+                DosageTextBox.Text = If(row("dosage_form") Is DBNull.Value, String.Empty, row("dosage_form").ToString())
+                StrengthTextBox.Text = If(row("strength") Is DBNull.Value, String.Empty, row("strength").ToString())
+                ManufacturerTextBox.Text = If(row("manufacturer") Is DBNull.Value, String.Empty, row("manufacturer").ToString())
+            End If
         Else
             DeleteProductButton.Visible = False
         End If
@@ -33,10 +42,10 @@ Public Class ProductDialog
 
     Private Sub AddProductButton_Click(sender As Object, e As EventArgs) Handles AddProductButton.Click
         Dim controls As Object() = {
-           SkuTextBox, BarcodeTextBox, ProductNameTextBox, DescriptionTextBox, PriceTextBox, CostTextBox, StockLevelTextBox
-       }
+            SkuTextBox, BarcodeTextBox, ProductNameTextBox, PriceTextBox, CostTextBox, StockLevelTextBox
+        }
         Dim types As DataInput() = {
-            DataInput.STRING_STRING, DataInput.STRING_STRING, DataInput.STRING_NAME, DataInput.STRING_STRING, DataInput.STRING_PRICE, DataInput.STRING_PRICE, DataInput.STRING_INTEGER
+            DataInput.STRING_STRING, DataInput.STRING_STRING, DataInput.STRING_NAME, DataInput.STRING_PRICE, DataInput.STRING_PRICE, DataInput.STRING_INTEGER
         }
         Dim result As New List(Of Object())
         For i = 0 To controls.Count - 1
@@ -53,17 +62,44 @@ Public Class ProductDialog
                 {"sku", result(0)(1)},
                 {"barcode", result(1)(1)},
                 {"product_name", result(2)(1)},
-                {"description", result(3)(1)},   'If(String.IsNullOrEmpty(ProductDescriptionTextBox.Text), "", ProductDescriptionTextBox.Text)}
-                {"product_price", result(4)(1)},
-                {"product_cost", result(5)(1)},
-                {"stock_level", result(6)(1)}
+                {"description", If(String.IsNullOrEmpty(DescriptionTextBox.Text), "", DescriptionTextBox.Text)},' result(3)(1)},   'If(String.IsNullOrEmpty(ProductDescriptionTextBox.Text), "", ProductDescriptionTextBox.Text)}
+                {"product_price", result(3)(1)},
+                {"product_cost", result(4)(1)},
+                {"stock_level", result(5)(1)}
             }
 
-            Dim item As New Dictionary(Of String, String) From {
-                {"dosage", If(String.IsNullOrEmpty(DosageTextBox.Text), Nothing, DosageTextBox.Text)},
-                {"strength", If(String.IsNullOrEmpty(StrengthTextBox.Text), Nothing, StrengthTextBox.Text)},
-                {"manufacturer", If(String.IsNullOrEmpty(ManufacturerTextBox.Text), Nothing, ManufacturerTextBox.Text)}
-            }
+            'Dim item As New Dictionary(Of String, String) From {
+            '    {"dosage", If(String.IsNullOrEmpty(DosageTextBox.Text), Nothing, DosageTextBox.Text)},
+            '    {"strength", If(String.IsNullOrEmpty(StrengthTextBox.Text), Nothing, StrengthTextBox.Text)},
+            '    {"manufacturer", If(String.IsNullOrEmpty(ManufacturerTextBox.Text), Nothing, ManufacturerTextBox.Text)}
+            '}
+
+            Dim item As New Dictionary(Of String, String)
+
+            ' Check if at least one textbox has data
+            If Not String.IsNullOrEmpty(DosageTextBox.Text) OrElse Not String.IsNullOrEmpty(StrengthTextBox.Text) OrElse Not String.IsNullOrEmpty(ManufacturerTextBox.Text) Then
+                Dim textboxes As Object() = {
+                    DosageTextBox, StrengthTextBox, ManufacturerTextBox
+                }
+                Dim types1 As DataInput() = {
+                    DataInput.STRING_STRING, DataInput.STRING_INTEGER, DataInput.STRING_NAME
+                }
+                Dim res As New List(Of Object())
+                For i = 0 To textboxes.Count - 1
+                    res.Add(InputValidation.ValidateInputString(textboxes(i), types1(i)))
+                Next
+
+                ' If at least one has data, validate and add to the dictionary
+                item("dosage") = res(0)(1) 'If(String.IsNullOrEmpty(DosageTextBox.Text), Nothing, DosageTextBox.Text)
+                item("strength") = res(1)(1) 'If(String.IsNullOrEmpty(StrengthTextBox.Text), Nothing, StrengthTextBox.Text)
+                item("manufacturer") = res(2)(1) 'If(String.IsNullOrEmpty(ManufacturerTextBox.Text), Nothing, ManufacturerTextBox.Text)
+            Else
+                ' If all are empty, set them as null values
+                item("dosage") = Nothing
+                item("strength") = Nothing
+                item("manufacturer") = Nothing
+            End If
+
 
 
             Dim baseCommand As BaseProduct '(data) 'With {.Items = item}
@@ -75,10 +111,10 @@ Public Class ProductDialog
                 invoker = New UpdateCommand(baseCommand)
             Else
                 MessageBox.Show("Product exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                For Each ctrl As Guna.UI2.WinForms.Guna2TextBox In controls
-                    ctrl.Text = String.Empty
-                Next
-                Return
+                'For Each ctrl As Guna.UI2.WinForms.Guna2TextBox In controls
+                '    ctrl.Text = String.Empty
+                'Next
+                'Return
             End If
             invoker?.Execute()
             _subject.NotifyObserver()

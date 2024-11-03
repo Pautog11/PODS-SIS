@@ -40,13 +40,13 @@ Partial Class Dashboard
         Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Sales = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Accounts = New System.Windows.Forms.Label()
         Me.Product = New System.Windows.Forms.TabPage()
         Me.Product1 = New Pods_Sales_InventorySystem.Product()
         Me.Maintenance = New System.Windows.Forms.TabPage()
@@ -339,7 +339,7 @@ Partial Class Dashboard
         '
         Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel3.Controls.Add(Me.PictureBox3)
-        Me.Panel3.Controls.Add(Me.Label3)
+        Me.Panel3.Controls.Add(Me.Sales)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel3.Location = New System.Drawing.Point(743, 0)
         Me.Panel3.Margin = New System.Windows.Forms.Padding(0)
@@ -357,14 +357,14 @@ Partial Class Dashboard
         Me.PictureBox3.TabIndex = 6
         Me.PictureBox3.TabStop = False
         '
-        'Label3
+        'Sales
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(161, 47)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(13, 13)
-        Me.Label3.TabIndex = 2
-        Me.Label3.Text = "0"
+        Me.Sales.AutoSize = True
+        Me.Sales.Location = New System.Drawing.Point(161, 47)
+        Me.Sales.Name = "Sales"
+        Me.Sales.Size = New System.Drawing.Size(13, 13)
+        Me.Sales.TabIndex = 2
+        Me.Sales.Text = "0"
         '
         'Panel2
         '
@@ -401,7 +401,7 @@ Partial Class Dashboard
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel1.Controls.Add(Me.PictureBox1)
-        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Controls.Add(Me.Accounts)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(0)
@@ -419,14 +419,14 @@ Partial Class Dashboard
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
         '
-        'Label1
+        'Accounts
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(161, 47)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(13, 13)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "0"
+        Me.Accounts.AutoSize = True
+        Me.Accounts.Location = New System.Drawing.Point(161, 47)
+        Me.Accounts.Name = "Accounts"
+        Me.Accounts.Size = New System.Drawing.Size(13, 13)
+        Me.Accounts.TabIndex = 0
+        Me.Accounts.Text = "0"
         '
         'Product
         '
@@ -624,7 +624,7 @@ Partial Class Dashboard
     Friend WithEvents Home As TabPage
     Friend WithEvents Maintenance As TabPage
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
-    Friend WithEvents Label1 As Label
+    Friend WithEvents Accounts As Label
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents Guna2ControlBox2 As Guna.UI2.WinForms.Guna2ControlBox
     Friend WithEvents Guna2ControlBox3 As Guna.UI2.WinForms.Guna2ControlBox
@@ -633,7 +633,7 @@ Partial Class Dashboard
     Friend WithEvents AuditTrail1 As Activity
     Friend WithEvents Product As TabPage
     Friend WithEvents Product1 As Product
-    Friend WithEvents Label3 As Label
+    Friend WithEvents Sales As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Inventory As TabPage
     Friend WithEvents SettingButton As Guna.UI2.WinForms.Guna2ImageButton

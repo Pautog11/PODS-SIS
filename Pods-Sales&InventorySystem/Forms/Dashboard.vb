@@ -27,7 +27,8 @@
     End Sub
 
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
-        Label1.Text = BaseAccount.ScalarAccount
+        Accounts.Text = BaseAccount.ScalarAccount
+        Sales.Text = BaseTransaction.ScalarTransaction
     End Sub
 
     'Private Sub Guna2ImageButton1_Click(sender As Object, e As EventArgs) Handles Guna2ImageButton1.Click

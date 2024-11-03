@@ -64,6 +64,13 @@ Public Class BaseTransaction
                 _sqlCommand.ExecuteNonQuery()
             Next
 
+            For Each item In _item
+                _sqlCommand = New SqlCommand("EXEC updatetblproduct_notif @TargetProductID, @TargetQuantity", _sqlConnection, transaction)
+                _sqlCommand.Parameters.Clear()
+                _sqlCommand.Parameters.AddWithValue("@TargetProductID", item("product_id"))
+                _sqlCommand.Parameters.AddWithValue("@TargetQuantity", item("quantity"))
+                _sqlCommand.ExecuteNonQuery()
+            Next
 
             transaction.Commit()
             MessageBox.Show("Transaction has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -72,4 +79,14 @@ Public Class BaseTransaction
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End Try
     End Sub
+    Public Shared Function ScalarTransaction() As Integer
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT SUM(total) FROM tbltransactions;", conn)
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
 End Class

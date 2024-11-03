@@ -41,7 +41,7 @@ Public Class BaseProduct
             _sqlCommand.Parameters.AddWithValue("@sku", _data.Item("sku"))
             _sqlCommand.Parameters.AddWithValue("@barcode", _data.Item("barcode"))
             _sqlCommand.Parameters.AddWithValue("@product_name", _data.Item("product_name"))
-            _sqlCommand.Parameters.AddWithValue("@description", _data.Item("description"))
+            _sqlCommand.Parameters.AddWithValue("@description", If(String.IsNullOrEmpty(_data.Item("description")), DBNull.Value, _data.Item("description"))) '_data.Item("description"))
             _sqlCommand.Parameters.AddWithValue("@product_price", _data.Item("product_price"))
             _sqlCommand.Parameters.AddWithValue("@product_cost", _data.Item("product_cost"))
             _sqlCommand.Parameters.AddWithValue("@stock_level", _data.Item("stock_level"))
@@ -63,7 +63,7 @@ Public Class BaseProduct
             _sqlCommand.Parameters.AddWithValue("@sku", _data.Item("sku"))
             _sqlCommand.Parameters.AddWithValue("@barcode", _data.Item("barcode"))
             _sqlCommand.Parameters.AddWithValue("@product_name", _data.Item("product_name"))
-            _sqlCommand.Parameters.AddWithValue("@description", _data.Item("description"))
+            _sqlCommand.Parameters.AddWithValue("@description", If(String.IsNullOrEmpty(_data.Item("description")), DBNull.Value, _data.Item("description"))) '_data.Item("description"))
             _sqlCommand.Parameters.AddWithValue("@product_price", _data.Item("product_price"))
             _sqlCommand.Parameters.AddWithValue("@product_cost", _data.Item("product_cost"))
             _sqlCommand.Parameters.AddWithValue("@stock_level", _data.Item("stock_level"))
@@ -206,4 +206,18 @@ Public Class BaseProduct
     '        MsgBox(ex.Message)
     '    End Try
     'End Sub
+    Public Shared Function Fillproductinfo(product_id As String) As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT dosage_form, strength, manufacturer FROM tblproduct_info WHERE product_id = @product_id", conn)
+            cmd.Parameters.AddWithValue("product_id", product_id)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
+        End Try
+    End Function
 End Class

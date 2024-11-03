@@ -5,15 +5,21 @@ Public Class TransactionDialog
     Private ReadOnly _subject As IObservablePanel
     Private ReadOnly _data As Dictionary(Of String, String)
 
-    Public Sub New(Optional subject As IObservablePanel = Nothing)
+    Public Sub New(Optional subject As IObservablePanel = Nothing,
+                   Optional data As Dictionary(Of String, String) = Nothing)
         InitializeComponent()
         _subject = subject
+        _data = data
     End Sub
 
     Private Sub TransactionDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Reference_number.Text = Helpers.GenInvoiceNumber(InvoiceType.Transaction)
-        'Label2.Text = DateAndTime.Now
-        DateLabel.Text = DateAndTime.Now.ToString("F")
+        If _data IsNot Nothing Then
+            Reference_number.Text = _data.Item("transaction_number")
+        Else
+            Reference_number.Text = Helpers.GenInvoiceNumber(InvoiceType.Transaction)
+            'Label2.Text = DateAndTime.Now
+            DateLabel.Text = DateAndTime.Now.ToString("F")
+        End If
     End Sub
 
     Public Sub UpdateVisualData()
@@ -74,7 +80,6 @@ Public Class TransactionDialog
             '    MessageBox.Show("No product selected!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
     End Sub
-
     'Private Sub Guna2TextBox1_Click(sender As Object, e As EventArgs) Handles Guna2TextBox1.Click
     '    Dim discountValue As Decimal
     '    Dim dis As Decimal = subtotalValue - (subtotalValue * (discountValue / 100))
