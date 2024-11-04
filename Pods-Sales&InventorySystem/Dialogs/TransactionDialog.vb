@@ -15,21 +15,52 @@ Public Class TransactionDialog
     Private Sub TransactionDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If _data IsNot Nothing Then
             Reference_number.Text = _data.Item("transaction_number")
+            SubtotalTextBox.Text = _data.Item("subtotal")
+            VatTextBox.Text = _data.Item("vat")
+            DiscountTextBox.Text = _data.Item("discount")
+            TotalTextBox.Text = _data.Item("total")
+            DateLabel.Text = _data.Item("date")
+
+            'Populate items 
+            TransactionDataGridView.Rows.Clear()
+            Dim DeliveryItems As DataTable = BaseTransaction.SelectAllTransactedItems(_data("id"))
+            For Each row As DataRow In DeliveryItems.Rows
+                Dim rowData As New List(Of Object)()
+                For Each column As DataColumn In DeliveryItems.Columns
+                    rowData.Add(row(column))
+                Next
+                TransactionDataGridView.Rows.Add(rowData.ToArray())
+            Next
         Else
             Reference_number.Text = Helpers.GenInvoiceNumber(InvoiceType.Transaction)
             'Label2.Text = DateAndTime.Now
             DateLabel.Text = DateAndTime.Now.ToString("F")
         End If
+        TransactionDataGridView.Columns.Item("ID").Visible = False
+        SubtotalTextBox.Enabled = False
+        VatTextBox.Enabled = False
+        TotalTextBox.Enabled = False
     End Sub
 
     Public Sub UpdateVisualData()
         TransactionDataGridView.DataSource = _itemSource?.DefaultView
-        Dim total As Integer = 0
-        For i = 0 To TransactionDataGridView?.Rows.Count - 1
-            total += TransactionDataGridView.Rows(i).Cells("TOTAL").Value
+        Dim total As Decimal = 0D
+        For i As Integer = 0 To TransactionDataGridView?.Rows.Count - 1
+            Dim value As Object = TransactionDataGridView.Rows(i).Cells("TOTAL").Value
+            If value IsNot Nothing AndAlso Decimal.TryParse(value.ToString(), total) Then
+                total += CDec(value)
+            End If
         Next
-        SubtotalLabel.Text = total
-        TotalLabel.Text = total
+        SubtotalTextBox.Text = total.ToString("F2")
+        TotalTextBox.Text = total.ToString("F2")
+
+        'For Vat
+        Dim vat As Decimal = BaseTransaction.ScalarVat / 100
+        Dim subtotal As Decimal
+        If Decimal.TryParse(SubtotalTextBox.Text, subtotal) Then
+            Dim vatAmount As Decimal = subtotal * vat / (1 + vat)
+            VatTextBox.Text = vatAmount.ToString("F2")
+        End If
     End Sub
 
     Private Sub AddItemTransactionButton_Click(sender As Object, e As EventArgs) Handles AddItemTransactionButton.Click
@@ -48,10 +79,10 @@ Public Class TransactionDialog
             Dim data As New Dictionary(Of String, String) From {
             {"id", If(_data?.Item("id"), String.Empty)},
             {"transaction_number", Reference_number.Text},
-            {"subtotal", SubtotalLabel.Text},
-            {"vat", VatLabel.Text},
+            {"subtotal", SubtotalTextBox.Text},
+            {"vat", VatTextBox.Text},
             {"discount", DiscountTextBox.Text},
-            {"total", TotalLabel.Text},
+            {"total", TotalTextBox.Text},
             {"date", "2021-12-31"} 'DateTimePicker1.Value.ToString("yyyy/MM/dd")}
             }
 
@@ -80,11 +111,16 @@ Public Class TransactionDialog
             '    MessageBox.Show("No product selected!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
     End Sub
-    'Private Sub Guna2TextBox1_Click(sender As Object, e As EventArgs) Handles Guna2TextBox1.Click
-    '    Dim discountValue As Decimal
-    '    Dim dis As Decimal = subtotalValue - (subtotalValue * (discountValue / 100))
-    '    Label7.Text = dis.ToString("F2")
 
-    '    Label7.Text = Label11.Text * Guna2TextBox1.Text / 100
-    'End Sub
+    Private Sub DiscountTextBox_Leave(sender As Object, e As EventArgs) Handles DiscountTextBox.Leave
+        Dim total As Decimal = Nothing
+        If Not Decimal.TryParse(DiscountTextBox.Text, total) OrElse DiscountTextBox.Text = 0 Then
+            MessageBox.Show("Invalid discount format. Please enter a valid number.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            DiscountTextBox.Text = 0
+            TotalTextBox.Text = SubtotalTextBox.Text
+        Else
+            total = SubtotalTextBox.Text * (DiscountTextBox.Text / 100)
+            TotalTextBox.Text = total
+        End If
+    End Sub
 End Class

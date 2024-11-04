@@ -1,7 +1,7 @@
 ﻿Public Class Product
     Implements IObserverPanel
     Private _subject As IObservablePanel
-    Private _tableAapter As New podsTableAdapters.viewtblproductsTableAdapter
+    Private ReadOnly _tableAapter As New podsTableAdapters.viewtblproductsTableAdapter
     Private _dataTable As New pods.viewtblproductsDataTable
     Private Sub Product_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
@@ -16,6 +16,7 @@
         _tableAapter.Fill(_dataTable)
         ProductsDataGridView.DataSource = _dataTable
         ProductsDataGridView.Columns.Item("ID").Visible = False
+        ProductsDataGridView.Columns.Item("QUANTITY").Visible = False
     End Sub
     Private Sub AddProductButton_Click(sender As Object, e As EventArgs) Handles AddProductButton.Click
         Dim Dialog As New ProductDialog(subject:=_subject)
@@ -33,9 +34,9 @@
                 {"barcode", row.Cells(3).Value.ToString()},
                 {"product_name", row.Cells(4).Value.ToString()},
                 {"description", row.Cells(5).Value.ToString()},
-                {"price", row.Cells(6).Value.ToString()},
-                {"cost", row.Cells(7).Value.ToString()},
-                {"stock_level", row.Cells(8).Value.ToString()}
+                {"price", row.Cells(7).Value.ToString()},
+                {"cost", row.Cells(8).Value.ToString()},
+                {"stock_level", row.Cells(9).Value.ToString()}
             }
             Dim Dialog As New ProductDialog(data:=data, subject:=_subject)
             Dialog.ShowDialog()

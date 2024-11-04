@@ -33,6 +33,7 @@ Public Class DeliveryCartDialog
             TransactionDeliveryTextBox.Enabled = False
             TransactionDeliveryTextBox.Text = _data("delivery_number")
 
+            'Populate items 
             DeliveryDataGridView.Rows.Clear()
             Dim DeliveryItems As DataTable = BaseDelivery.SelectAllDeliveryItems(_data("id"))
             For Each row As DataRow In DeliveryItems.Rows

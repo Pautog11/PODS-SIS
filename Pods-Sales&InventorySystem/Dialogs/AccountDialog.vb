@@ -42,6 +42,7 @@ Public Class AccountDialog
             'PasswordTextBox.Text = BaseAccount.Fetchroles(_data.Item("role"))
             'UsernameTextBox.ReadOnly = True
             'MsgBox(_data.Item("status"))
+            UsernameTextBox.Enabled = False
 
         Else
             'Auto select "None" for roles
@@ -88,7 +89,8 @@ Public Class AccountDialog
             Dim invoker As ICommandInvoker = Nothing
             If BaseAccount.Exists(result(4)(1)) = 0 AndAlso _data Is Nothing Then
                 invoker = New AddCommand(baseCommand)
-            ElseIf _data IsNot Nothing AndAlso BaseAccount.Exists(result(4)(1)) = 0 Then
+            ElseIf _data IsNot Nothing Then ' AndAlso my.Settings.myId = _data.Item("id") Then 'BaseAccount.Exists(result(4)(1)) = 0 Then
+                'My.Settings.roleId = BaseAccount.Exists(result(4)(1)) = 0
                 invoker = New UpdateCommand(baseCommand)
             Else
                 MessageBox.Show("Username exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -106,18 +108,28 @@ Public Class AccountDialog
         'Const SUPER_ADMIN As Integer = 1
         'Const ADMIN As Integer = 2
 
-        If BaseAccount.ScalarRoleName(_data.Item("role")) = 1 Then 'Or BaseAccount.ScalarRoleName(_data.Item("role")) = 2 Then
-            If _data.Item("id") <> My.Settings.roleId Then
-                Dim baseCommand As New BaseAccount(_data)
-                Dim invoker As New DeleteCommand(baseCommand)
-                invoker?.Execute()
-                _subject.NotifyObserver()
-                Me.Close()
-            Else
-                MessageBox.Show("You can't delete your account.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            End If
+        'If BaseAccount.ScalarRoleName(_data.Item("role")) = 1 Then 'Or BaseAccount.ScalarRoleName(_data.Item("role")) = 2 Then
+        '    If _data.Item("id") <> My.Settings.roleId Then
+        'Dim baseCommand As New BaseAccount(_data)
+        'Dim invoker As New DeleteCommand(baseCommand)
+        'invoker?.Execute()
+        '_subject.NotifyObserver()
+        'Me.Close()
+        '    Else
+        '        MessageBox.Show("You can't delete your account.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        '    End If
+        'Else
+        '    MessageBox.Show("Action can't be performed.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        'End If
+
+        If _data.Item("role") = 1 Then
+            MessageBox.Show("You can't delete your account.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
-            MessageBox.Show("Action can't be performed.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Dim baseCommand As New BaseAccount(_data)
+            Dim invoker As New DeleteCommand(baseCommand)
+            invoker?.Execute()
+            _subject.NotifyObserver()
+            Me.Close()
         End If
     End Sub
 End Class

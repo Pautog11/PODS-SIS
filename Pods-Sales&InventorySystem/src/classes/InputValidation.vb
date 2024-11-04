@@ -47,15 +47,41 @@ Public Class InputValidation
                     End If
                 End If
             Case DataInput.STRING_NAME
+                'If stringInput.Count > 1 Then
+                '    Dim nameString As String() = stringInput.Split(" ")
+                '    For i = 0 To nameString.Count - 1
+                '        Dim charArr As Char() = nameString(i).ToArray()
+                '        charArr(0) = CStr(charArr(0)).ToUpper
+                '        nameString(i) = String.Join("", charArr)
+                '    Next
+                '    Return {True, String.Join(" ", nameString)}
+                'End If
+
                 If stringInput.Count > 1 Then
+                    ' Split the input string by spaces
                     Dim nameString As String() = stringInput.Split(" ")
+
+                    ' Regular expression to check if the first character is a letter
+                    Dim regex As New Regex("^[A-Za-z]")
+
                     For i = 0 To nameString.Count - 1
-                        Dim charArr As Char() = nameString(i).ToArray()
-                        charArr(0) = CStr(charArr(0)).ToUpper
-                        nameString(i) = String.Join("", charArr)
+                        ' Check if the first character is a letter
+                        If regex.IsMatch(nameString(i)) Then
+                            Dim charArr As Char() = nameString(i).ToArray()
+                            ' Capitalize the first character
+                            charArr(0) = Char.ToUpper(charArr(0))
+                            nameString(i) = String.Join("", charArr)
+                            'Else
+                            '    ' If it doesn't start with a letter, return false
+                            '    Return {False, stringInput, "Input must start with a letter."}
+                            Return {True, String.Join(" ", nameString)}
+                        End If
                     Next
-                    Return {True, String.Join(" ", nameString)}
+                    'Return {True, String.Join(" ", nameString)}
                 End If
+
+                ' If the input doesn't have more than one character, return false
+                'Return {False, "Input must contain more than one character."}
             Case DataInput.STRING_PASSWORD
                 'if Regex.IsMatch(stringInput, "^(?=.*[0-9])(?=.*[@#$%^&+=]).{8,}$") Then
                 Return {True, stringInput}

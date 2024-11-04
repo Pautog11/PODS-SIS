@@ -28,6 +28,7 @@ Partial Class TransactionCartDailog
         Me.CostTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.ProductComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.AddTransactionButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.StocksTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.SuspendLayout()
         '
         'SubcategoryComboBox
@@ -77,7 +78,7 @@ Partial Class TransactionCartDailog
         Me.QuantityTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.QuantityTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.QuantityTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.QuantityTextBox.Location = New System.Drawing.Point(61, 215)
+        Me.QuantityTextBox.Location = New System.Drawing.Point(61, 253)
         Me.QuantityTextBox.Name = "QuantityTextBox"
         Me.QuantityTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.QuantityTextBox.PlaceholderText = "Quantity"
@@ -135,17 +136,39 @@ Partial Class TransactionCartDailog
         Me.AddTransactionButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AddTransactionButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddTransactionButton.ForeColor = System.Drawing.Color.White
-        Me.AddTransactionButton.Location = New System.Drawing.Point(169, 302)
+        Me.AddTransactionButton.Location = New System.Drawing.Point(176, 322)
         Me.AddTransactionButton.Name = "AddTransactionButton"
         Me.AddTransactionButton.Size = New System.Drawing.Size(150, 35)
         Me.AddTransactionButton.TabIndex = 16
         Me.AddTransactionButton.Text = "Add"
         '
+        'StocksTextBox
+        '
+        Me.StocksTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.StocksTextBox.BorderRadius = 10
+        Me.StocksTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.StocksTextBox.DefaultText = ""
+        Me.StocksTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.StocksTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.StocksTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.StocksTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.StocksTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.StocksTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.StocksTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.StocksTextBox.Location = New System.Drawing.Point(61, 211)
+        Me.StocksTextBox.Name = "StocksTextBox"
+        Me.StocksTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.StocksTextBox.PlaceholderText = "Quantity"
+        Me.StocksTextBox.SelectedText = ""
+        Me.StocksTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.StocksTextBox.TabIndex = 17
+        '
         'TransactionCartDailog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(331, 349)
+        Me.ClientSize = New System.Drawing.Size(338, 369)
+        Me.Controls.Add(Me.StocksTextBox)
         Me.Controls.Add(Me.AddTransactionButton)
         Me.Controls.Add(Me.SubcategoryComboBox)
         Me.Controls.Add(Me.CategoryComboBox)
@@ -169,4 +192,5 @@ Partial Class TransactionCartDailog
     Friend WithEvents CostTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents ProductComboBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents AddTransactionButton As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents StocksTextBox As Guna.UI2.WinForms.Guna2TextBox
 End Class

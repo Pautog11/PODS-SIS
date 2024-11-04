@@ -141,12 +141,6 @@
     <Compile Include="Dialogs\AccountDialog.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\DatePickerDialog.Designer.vb">
-      <DependentUpon>DatePickerDialog.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\DatePickerDialog.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Dialogs\DeliveryCartDialog.Designer.vb">
       <DependentUpon>DeliveryCartDialog.vb</DependentUpon>
     </Compile>
@@ -355,9 +349,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\AccountDialog.resx">
       <DependentUpon>AccountDialog.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\DatePickerDialog.resx">
-      <DependentUpon>DatePickerDialog.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\DeliveryCartDialog.resx">
       <DependentUpon>DeliveryCartDialog.vb</DependentUpon>

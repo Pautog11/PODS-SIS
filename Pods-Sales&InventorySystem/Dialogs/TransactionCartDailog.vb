@@ -16,6 +16,8 @@ Public Class TransactionCartDailog
     Private Sub TransactionCartDailog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CategoryComboBox.DataSource = _tableAdapter.GetData
         CategoryComboBox.DisplayMember = "CATEGORY"
+        CostTextBox.Enabled = False
+        StocksTextBox.Enabled = False
     End Sub
 
     Private Sub CategoryComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CategoryComboBox.SelectionChangeCommitted
@@ -38,6 +40,7 @@ Public Class TransactionCartDailog
             Dim info As DataTable = BaseProduct.ProductInfo(ProductComboBox.SelectedItem("ID"))
             'BarcodeTextBox.Text = info.Rows(0).Item("BARCODE").ToString()
             CostTextBox.Text = info.Rows(0).Item("PRICE").ToString()
+            StocksTextBox.Text = info.Rows(0).Item("QUANTITY").ToString()
         End If
     End Sub
 
@@ -59,16 +62,23 @@ Public Class TransactionCartDailog
             Next
 
             If Not is_existing Then
-                _parent.TransactionDataGridView.Rows.Add({ProductComboBox.SelectedItem("ID"),
-                                                      ProductComboBox.Text,
-                                                      CostTextBox.Text,
-                                                      QuantityTextBox.Text,
-                                                      CDec(CostTextBox.Text) * CDec(QuantityTextBox.Text)
-                                                      })
+                If CInt(StocksTextBox.Text) >= QuantityTextBox.Text Then
+                    _parent.TransactionDataGridView.Rows.Add({ProductComboBox.SelectedItem("ID"),
+                                                     ProductComboBox.Text,
+                                                     CostTextBox.Text,
+                                                     QuantityTextBox.Text,
+                                                     CDec(CostTextBox.Text) * CDec(QuantityTextBox.Text)
+                                                     })
+                    _parent.UpdateVisualData()
+                    ' MsgBox(CDec(CostTextBox.Text) * CDec(QuantityTextBox.Text))
+                    Me.Close()
+                Else
+                    MessageBox.Show("Insufficient stocks!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                End If
 
             End If
-            _parent.UpdateVisualData()
-            Me.Close()
+            '_parent.UpdateVisualData()
+            'Me.Close()
         Else
             MessageBox.Show("Invalid quantity!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If

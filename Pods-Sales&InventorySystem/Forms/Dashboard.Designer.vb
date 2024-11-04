@@ -25,6 +25,9 @@ Partial Class Dashboard
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim ChartArea1 As System.Windows.Forms.DataVisualization.Charting.ChartArea = New System.Windows.Forms.DataVisualization.Charting.ChartArea()
+        Dim Legend1 As System.Windows.Forms.DataVisualization.Charting.Legend = New System.Windows.Forms.DataVisualization.Charting.Legend()
+        Dim Series1 As System.Windows.Forms.DataVisualization.Charting.Series = New System.Windows.Forms.DataVisualization.Charting.Series()
         Me.DashboardTableLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Guna2ControlBox2 = New Guna.UI2.WinForms.Guna2ControlBox()
@@ -48,21 +51,23 @@ Partial Class Dashboard
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Accounts = New System.Windows.Forms.Label()
         Me.Product = New System.Windows.Forms.TabPage()
-        Me.Product1 = New Pods_Sales_InventorySystem.Product()
         Me.Maintenance = New System.Windows.Forms.TabPage()
-        Me.Maintenance1 = New Pods_Sales_InventorySystem.Maintenance()
         Me.Inventory = New System.Windows.Forms.TabPage()
-        Me.Inventory1 = New Pods_Sales_InventorySystem.Inventory()
         Me.Activity = New System.Windows.Forms.TabPage()
-        Me.AuditTrail1 = New Pods_Sales_InventorySystem.Activity()
         Me.Transaction = New System.Windows.Forms.TabPage()
-        Me.Transaction1 = New Pods_Sales_InventorySystem.Transaction()
         Me.Sales_Report = New System.Windows.Forms.TabPage()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
-        Me.ReturnAndPullout1 = New Pods_Sales_InventorySystem.ReturnAndPullout()
         Me.Guna2ContextMenuStrip1 = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Product1 = New Pods_Sales_InventorySystem.Product()
+        Me.Maintenance1 = New Pods_Sales_InventorySystem.Maintenance()
+        Me.Inventory1 = New Pods_Sales_InventorySystem.Inventory()
+        Me.AuditTrail1 = New Pods_Sales_InventorySystem.Activity()
+        Me.Transaction1 = New Pods_Sales_InventorySystem.Transaction()
+        Me.ReturnAndPullout1 = New Pods_Sales_InventorySystem.ReturnAndPullout()
+        Me.Panel4 = New System.Windows.Forms.Panel()
+        Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.DashboardTableLayoutPanel.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.DashboardPanel.SuspendLayout()
@@ -83,6 +88,8 @@ Partial Class Dashboard
         Me.Transaction.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.Guna2ContextMenuStrip1.SuspendLayout()
+        Me.Panel4.SuspendLayout()
+        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DashboardTableLayoutPanel
@@ -258,6 +265,7 @@ Partial Class Dashboard
         Me.TableLayoutPanel1.Controls.Add(Me.Panel3, 2, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Panel2, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Panel1, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.Panel4, 0, 1)
         Me.TableLayoutPanel1.Cursor = System.Windows.Forms.Cursors.Arrow
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(3, 3)
@@ -381,7 +389,7 @@ Partial Class Dashboard
         'PictureBox2
         '
         Me.PictureBox2.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.cart
-        Me.PictureBox2.Location = New System.Drawing.Point(26, 12)
+        Me.PictureBox2.Location = New System.Drawing.Point(41, 12)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(93, 72)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -438,15 +446,6 @@ Partial Class Dashboard
         Me.Product.Text = "Product"
         Me.Product.UseVisualStyleBackColor = True
         '
-        'Product1
-        '
-        Me.Product1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Product1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Product1.Location = New System.Drawing.Point(0, 0)
-        Me.Product1.Name = "Product1"
-        Me.Product1.Size = New System.Drawing.Size(1124, 554)
-        Me.Product1.TabIndex = 0
-        '
         'Maintenance
         '
         Me.Maintenance.Controls.Add(Me.Maintenance1)
@@ -458,16 +457,6 @@ Partial Class Dashboard
         Me.Maintenance.Text = "Maintenance"
         Me.Maintenance.UseVisualStyleBackColor = True
         '
-        'Maintenance1
-        '
-        Me.Maintenance1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Maintenance1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Maintenance1.Location = New System.Drawing.Point(3, 3)
-        Me.Maintenance1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Maintenance1.Name = "Maintenance1"
-        Me.Maintenance1.Size = New System.Drawing.Size(1118, 548)
-        Me.Maintenance1.TabIndex = 0
-        '
         'Inventory
         '
         Me.Inventory.Controls.Add(Me.Inventory1)
@@ -477,15 +466,6 @@ Partial Class Dashboard
         Me.Inventory.TabIndex = 4
         Me.Inventory.Text = "Inventory"
         Me.Inventory.UseVisualStyleBackColor = True
-        '
-        'Inventory1
-        '
-        Me.Inventory1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Inventory1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Inventory1.Location = New System.Drawing.Point(0, 0)
-        Me.Inventory1.Name = "Inventory1"
-        Me.Inventory1.Size = New System.Drawing.Size(1124, 554)
-        Me.Inventory1.TabIndex = 0
         '
         'Activity
         '
@@ -498,15 +478,6 @@ Partial Class Dashboard
         Me.Activity.Text = "Activity"
         Me.Activity.UseVisualStyleBackColor = True
         '
-        'AuditTrail1
-        '
-        Me.AuditTrail1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.AuditTrail1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AuditTrail1.Location = New System.Drawing.Point(3, 3)
-        Me.AuditTrail1.Name = "AuditTrail1"
-        Me.AuditTrail1.Size = New System.Drawing.Size(1118, 548)
-        Me.AuditTrail1.TabIndex = 0
-        '
         'Transaction
         '
         Me.Transaction.Controls.Add(Me.Transaction1)
@@ -516,15 +487,6 @@ Partial Class Dashboard
         Me.Transaction.TabIndex = 5
         Me.Transaction.Text = "Transaction"
         Me.Transaction.UseVisualStyleBackColor = True
-        '
-        'Transaction1
-        '
-        Me.Transaction1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Transaction1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Transaction1.Location = New System.Drawing.Point(0, 0)
-        Me.Transaction1.Name = "Transaction1"
-        Me.Transaction1.Size = New System.Drawing.Size(1124, 554)
-        Me.Transaction1.TabIndex = 0
         '
         'Sales_Report
         '
@@ -544,15 +506,6 @@ Partial Class Dashboard
         Me.TabPage1.TabIndex = 7
         Me.TabPage1.Text = "Returns/Pull out"
         Me.TabPage1.UseVisualStyleBackColor = True
-        '
-        'ReturnAndPullout1
-        '
-        Me.ReturnAndPullout1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ReturnAndPullout1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ReturnAndPullout1.Location = New System.Drawing.Point(0, 0)
-        Me.ReturnAndPullout1.Name = "ReturnAndPullout1"
-        Me.ReturnAndPullout1.Size = New System.Drawing.Size(1124, 554)
-        Me.ReturnAndPullout1.TabIndex = 0
         '
         'Guna2ContextMenuStrip1
         '
@@ -580,6 +533,88 @@ Partial Class Dashboard
         Me.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem"
         Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
         Me.LogoutToolStripMenuItem.Text = "Logout"
+        '
+        'Product1
+        '
+        Me.Product1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Product1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Product1.Location = New System.Drawing.Point(0, 0)
+        Me.Product1.Name = "Product1"
+        Me.Product1.Size = New System.Drawing.Size(1124, 554)
+        Me.Product1.TabIndex = 0
+        '
+        'Maintenance1
+        '
+        Me.Maintenance1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Maintenance1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Maintenance1.Location = New System.Drawing.Point(3, 3)
+        Me.Maintenance1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Maintenance1.Name = "Maintenance1"
+        Me.Maintenance1.Size = New System.Drawing.Size(1118, 548)
+        Me.Maintenance1.TabIndex = 0
+        '
+        'Inventory1
+        '
+        Me.Inventory1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Inventory1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Inventory1.Location = New System.Drawing.Point(0, 0)
+        Me.Inventory1.Name = "Inventory1"
+        Me.Inventory1.Size = New System.Drawing.Size(1124, 554)
+        Me.Inventory1.TabIndex = 0
+        '
+        'AuditTrail1
+        '
+        Me.AuditTrail1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.AuditTrail1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.AuditTrail1.Location = New System.Drawing.Point(3, 3)
+        Me.AuditTrail1.Name = "AuditTrail1"
+        Me.AuditTrail1.Size = New System.Drawing.Size(1118, 548)
+        Me.AuditTrail1.TabIndex = 0
+        '
+        'Transaction1
+        '
+        Me.Transaction1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Transaction1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Transaction1.Location = New System.Drawing.Point(0, 0)
+        Me.Transaction1.Name = "Transaction1"
+        Me.Transaction1.Size = New System.Drawing.Size(1124, 554)
+        Me.Transaction1.TabIndex = 0
+        '
+        'ReturnAndPullout1
+        '
+        Me.ReturnAndPullout1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ReturnAndPullout1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ReturnAndPullout1.Location = New System.Drawing.Point(0, 0)
+        Me.ReturnAndPullout1.Name = "ReturnAndPullout1"
+        Me.ReturnAndPullout1.Size = New System.Drawing.Size(1124, 554)
+        Me.ReturnAndPullout1.TabIndex = 0
+        '
+        'Panel4
+        '
+        Me.TableLayoutPanel1.SetColumnSpan(Me.Panel4, 2)
+        Me.Panel4.Controls.Add(Me.Chart1)
+        Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel4.Location = New System.Drawing.Point(3, 103)
+        Me.Panel4.Name = "Panel4"
+        Me.Panel4.Size = New System.Drawing.Size(737, 440)
+        Me.Panel4.TabIndex = 8
+        '
+        'Chart1
+        '
+        ChartArea1.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea1)
+        Me.Chart1.Dock = System.Windows.Forms.DockStyle.Fill
+        Legend1.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend1)
+        Me.Chart1.Location = New System.Drawing.Point(0, 0)
+        Me.Chart1.Name = "Chart1"
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.Chart1.Series.Add(Series1)
+        Me.Chart1.Size = New System.Drawing.Size(737, 440)
+        Me.Chart1.TabIndex = 0
+        Me.Chart1.Text = "Chart1"
         '
         'Dashboard
         '
@@ -614,6 +649,8 @@ Partial Class Dashboard
         Me.Transaction.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.Guna2ContextMenuStrip1.ResumeLayout(False)
+        Me.Panel4.ResumeLayout(False)
+        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -656,4 +693,6 @@ Partial Class Dashboard
     Friend WithEvents Transaction1 As Transaction
     Friend WithEvents ReturnAndPullout1 As ReturnAndPullout
     Friend WithEvents Guna2ImageButton1 As Guna.UI2.WinForms.Guna2ImageButton
+    Friend WithEvents Panel4 As Panel
+    Friend WithEvents Chart1 As DataVisualization.Charting.Chart
 End Class

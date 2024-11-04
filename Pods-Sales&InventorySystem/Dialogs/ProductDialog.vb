@@ -52,9 +52,26 @@ Public Class ProductDialog
             result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
         Next
         If Val(PriceTextBox.Text) <= Val(CostTextBox.Text) Then
-            MessageBox.Show("Should not less than from the cost price", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            MessageBox.Show("Price should not be less than or equal to the cost price.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
+        'Dim price As Decimal
+        'Dim cost As Decimal
+        '' Try parsing the text from the textboxes as decimals
+        'If Not Decimal.TryParse(PriceTextBox.Text, price) Then
+        '    MessageBox.Show("Invalid price format.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        '    Return
+        'End If
+        'If Not Decimal.TryParse(CostTextBox.Text, cost) Then
+        '    MessageBox.Show("Invalid cost format.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        '    Return
+        'End If
+
+        '' Compare price and cost
+        'If price <= cost Then
+        '    MessageBox.Show("Price should not be less than or equal to the cost price.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        '    Return
+        'End If
         If Not result.Any(Function(item As Object()) Not item(0)) Then
             Dim data As New Dictionary(Of String, String) From {
                 {"id", _data?.Item("id")},

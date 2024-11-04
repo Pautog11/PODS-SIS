@@ -82,11 +82,38 @@ Public Class BaseTransaction
     Public Shared Function ScalarTransaction() As Integer
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As New SqlCommand("SELECT SUM(total) FROM tbltransactions;", conn)
+            Dim cmd As New SqlCommand("SELECT CASE WHEN SUM(total) IS NULL THEN 0 ELSE SUM(total) END FROM tbltransactions;", conn)
             Return cmd.ExecuteScalar()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return 0
+        End Try
+    End Function
+
+    Public Shared Function ScalarVat() As Integer
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT vat FROM tblvat;", conn)
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
+
+    Public Shared Function SelectAllTransactedItems(transaction_id As Integer) As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("SELECT id, product_id, price, quantity, total FROM tbltransaction_items WHERE transaction_id = transaction_id", conn)
+            cmd.Parameters.AddWithValue("@transaction_id", transaction_id)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
         End Try
     End Function
 End Class

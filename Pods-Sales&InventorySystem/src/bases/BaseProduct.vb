@@ -168,7 +168,7 @@ Public Class BaseProduct
     Public Shared Function ProductInfo(id As String) As DataTable
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As New SqlCommand("SELECT BARCODE, PRICE, COST FROM viewtblproducts WHERE id = @id", conn)
+            Dim cmd As New SqlCommand("SELECT BARCODE, QUANTITY, PRICE, COST FROM viewtblproducts WHERE id = @id", conn)
             cmd.Parameters.AddWithValue("@id", id)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
