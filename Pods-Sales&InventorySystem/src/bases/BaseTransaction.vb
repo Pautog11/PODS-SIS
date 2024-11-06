@@ -116,4 +116,20 @@ Public Class BaseTransaction
             Return New DataTable
         End Try
     End Function
+
+    Public Shared Function SelectProductsByBarcode(barcode As String) As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("SELECT product_name, quantity, product_price FROM tblproducts WHERE barcode = @barcode", conn)
+            cmd.Parameters.AddWithValue("@barcode", barcode)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
+        End Try
+    End Function
 End Class

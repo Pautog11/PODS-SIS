@@ -22,37 +22,34 @@ Public Class AccountDialog
         StatusComboBox.SelectedItem = "id"
 
         If _data IsNot Nothing Then
-            'To update the button from add to update
-            AddAccountButton.Text = "Update"
+            If My.Settings.roleId >= _data.Item("id") Then
+                MessageBox.Show("You cant edit this account.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Me.Close()
+            Else
+                'To update the button from add to update
+                AddAccountButton.Text = "Update"
 
-            'IdTextBox.Visible = False
-            'IdTextBox.Text = _data.Item("id")
+                'For fetching data to combobox
+                RoleComboBox.Text = BaseAccount.Fetchroles(_data.Item("role"))
+                StatusComboBox.Text = BaseAccount.Fetchstatus(_data.Item("status"))
 
-            'For fetching data to combobox
-            RoleComboBox.Text = BaseAccount.Fetchroles(_data.Item("role"))
-            StatusComboBox.Text = BaseAccount.Fetchstatus(_data.Item("status"))
+                'To populate data to texboxes
+                FirstnameTextBox.Text = _data.Item("first_name")
+                LastnameTextBox.Text = _data.Item("last_name")
+                Phone_numberTextBox.Text = _data.Item("phone_number")
+                AddressTextBox.Text = _data.Item("address")
+                UsernameTextBox.Text = _data.Item("username")
 
-            'To populate data to texboxes
-            FirstnameTextBox.Text = _data.Item("first_name")
-            LastnameTextBox.Text = _data.Item("last_name")
-            Phone_numberTextBox.Text = _data.Item("phone_number")
-            AddressTextBox.Text = _data.Item("address")
-            UsernameTextBox.Text = _data.Item("username")
-
-            'PasswordTextBox.Text = BaseAccount.Fetchroles(_data.Item("role"))
-            'UsernameTextBox.ReadOnly = True
-            'MsgBox(_data.Item("status"))
-            UsernameTextBox.Enabled = False
-
+                'For Visibility
+                UsernameTextBox.Enabled = False
+            End If
         Else
             'Auto select "None" for roles
             roles.Rows.Add(-1, "None")
             RoleComboBox.SelectedValue = -1
 
-            'To disable the delete button
+            'For Visibility
             DeleteAccountButton.Visible = False
-
-            'IdTextBox.Visible = False
             StatusComboBox.Visible = False
         End If
     End Sub
@@ -122,14 +119,18 @@ Public Class AccountDialog
         '    MessageBox.Show("Action can't be performed.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
         'End If
 
-        If _data.Item("role") = 1 Then
+        If My.Settings.roleId = _data.Item("role") Then
             MessageBox.Show("You can't delete your account.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
-            Dim baseCommand As New BaseAccount(_data)
-            Dim invoker As New DeleteCommand(baseCommand)
-            invoker?.Execute()
-            _subject.NotifyObserver()
-            Me.Close()
+            If My.Settings.roleId >= _data.Item("role") Then
+                MessageBox.Show("You can't delete super admin account.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Else
+                Dim baseCommand As New BaseAccount(_data)
+                Dim invoker As New DeleteCommand(baseCommand)
+                invoker?.Execute()
+                _subject.NotifyObserver()
+                Me.Close()
+            End If
         End If
     End Sub
 End Class

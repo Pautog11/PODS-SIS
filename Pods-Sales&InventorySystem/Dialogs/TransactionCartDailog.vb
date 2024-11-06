@@ -16,7 +16,7 @@ Public Class TransactionCartDailog
     Private Sub TransactionCartDailog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         CategoryComboBox.DataSource = _tableAdapter.GetData
         CategoryComboBox.DisplayMember = "CATEGORY"
-        CostTextBox.Enabled = False
+        PriceTextBox.Enabled = False
         StocksTextBox.Enabled = False
     End Sub
 
@@ -39,23 +39,20 @@ Public Class TransactionCartDailog
         If ProductComboBox.SelectedIndex <> -1 Then
             Dim info As DataTable = BaseProduct.ProductInfo(ProductComboBox.SelectedItem("ID"))
             'BarcodeTextBox.Text = info.Rows(0).Item("BARCODE").ToString()
-            CostTextBox.Text = info.Rows(0).Item("PRICE").ToString()
+            PriceTextBox.Text = info.Rows(0).Item("PRICE").ToString()
             StocksTextBox.Text = info.Rows(0).Item("QUANTITY").ToString()
         End If
     End Sub
 
     Private Sub AddTransactionButton_Click(sender As Object, e As EventArgs) Handles AddTransactionButton.Click
-        Dim result As New List(Of Object()) '= New List(Of Object())()
-        result.Add(InputValidation.ValidateInputString(QuantityTextBox, DataInput.STRING_INTEGER))
-
+        Dim result As New List(Of Object()) From {InputValidation.ValidateInputString(QuantityTextBox, DataInput.STRING_INTEGER)}
         Dim is_existing As Boolean = False
-
         If Not result.Any(Function(item As Object()) Not item(0)) Then
             For Each item As DataGridViewRow In _parent.TransactionDataGridView.Rows
                 If item.Cells("PRODUCT").Value.ToString() = ProductComboBox.Text Then
-                    item.Cells("PRICE").Value = Decimal.Parse(CostTextBox.Text)
+                    item.Cells("PRICE").Value = Decimal.Parse(PriceTextBox.Text)
                     item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)
-                    item.Cells("TOTAL").Value = Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text)
+                    item.Cells("TOTAL").Value = Decimal.Parse(PriceTextBox.Text) * CInt(QuantityTextBox.Text)
                     is_existing = True
                     Exit For
                 End If
@@ -65,22 +62,43 @@ Public Class TransactionCartDailog
                 If CInt(StocksTextBox.Text) >= QuantityTextBox.Text Then
                     _parent.TransactionDataGridView.Rows.Add({ProductComboBox.SelectedItem("ID"),
                                                      ProductComboBox.Text,
-                                                     CostTextBox.Text,
+                                                     PriceTextBox.Text,
                                                      QuantityTextBox.Text,
-                                                     CDec(CostTextBox.Text) * CDec(QuantityTextBox.Text)
+                                                     CDec(PriceTextBox.Text) * CDec(QuantityTextBox.Text)
                                                      })
                     _parent.UpdateVisualData()
-                    ' MsgBox(CDec(CostTextBox.Text) * CDec(QuantityTextBox.Text))
                     Me.Close()
                 Else
                     MessageBox.Show("Insufficient stocks!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 End If
-
             End If
             '_parent.UpdateVisualData()
             'Me.Close()
         Else
             MessageBox.Show("Invalid quantity!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
+    End Sub
+
+
+    Private Sub BarcodeTextBox_KeyDown(sender As Object, e As KeyEventArgs) Handles BarcodeTextBox.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            Dim res As New List(Of Object()) From {InputValidation.ValidateInputString(BarcodeTextBox, DataInput.STRING_INTEGER)}
+            If Not res.Any(Function(item As Object()) Not item(0)) Then
+                Dim dt As DataTable = BaseTransaction.SelectProductsByBarcode(BarcodeTextBox.Text)
+                If BarcodeTextBox.Text.Length = 13 AndAlso dt.Rows.Count > 0 Then
+                    ' ProductComboBox = dt.Rows(0).Item("product_name").ToString()
+                    StocksTextBox.Text = dt.Rows(0).Item("quantity").ToString()
+                    PriceTextBox.Text = dt.Rows(0).Item("product_price").ToString()
+                    e.Handled = True
+                Else
+                    MessageBox.Show("No, product found!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    BarcodeTextBox.Text = ""
+                End If
+            Else
+                MessageBox.Show("Barcode not valid!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                BarcodeTextBox.Text = ""
+                Return
+            End If
         End If
     End Sub
 End Class

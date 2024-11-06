@@ -11,17 +11,18 @@ Public Class BaseAccount
     End Sub
 
     Public Sub Delete() Implements ICommandPanel.Delete
-        Try
-            _sqlCommand = New SqlCommand("DELETE tblaccounts WHERE id = @id", _sqlConnection)
-            _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
-            If _sqlCommand.ExecuteNonQuery() <= 0 Then
-                MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Else
-                MessageBox.Show("Account has been deleted successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            End If
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-        End Try
+        'Try
+        '    _sqlCommand = New SqlCommand("DELETE tblaccounts WHERE id = @id", _sqlConnection)
+        '    _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
+        '    If _sqlCommand.ExecuteNonQuery() <= 0 Then
+        '        MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        '    Else
+        '        MessageBox.Show("Account has been deleted successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        '    End If
+        'Catch ex As Exception
+        '    MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        'End Try
+        MessageBox.Show("successsss", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
     End Sub
 
     Public Sub Update() Implements ICommandPanel.Update
@@ -108,7 +109,12 @@ Public Class BaseAccount
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT * FROM tblroles", conn)
+            Select Case My.Settings.roleId
+                Case 1
+                    cmd = New SqlCommand("SELECT * FROM tblroles WHERE id != 1", conn)
+                Case 2
+                    cmd = New SqlCommand("SELECT * FROM tblroles WHERE id != 1 AND id != 2", conn)
+            End Select
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
             adapter.Fill(dTable)

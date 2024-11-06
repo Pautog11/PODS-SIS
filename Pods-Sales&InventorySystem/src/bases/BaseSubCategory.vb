@@ -124,4 +124,19 @@ Public Class BaseSubCategory
             Return New DataTable
         End Try
     End Function
+
+    Public Shared Function CategoryAndSubcategoryExists(id As Integer, subcategory As String) As Integer
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            'Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblsubcategories WHERE lower(subcategory) = @subcategory", conn)
+            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblsubcategories WHERE category_id = @category_id AND lower(subcategory) = @subcategory", conn)
+            cmd.Parameters.AddWithValue("@category_id", id)
+            cmd.Parameters.AddWithValue("@subcategory", subcategory.Trim.ToLower)
+
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
 End Class

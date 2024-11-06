@@ -368,6 +368,7 @@ Partial Class ProductDialog
         Me.BarcodeTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.BarcodeTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.BarcodeTextBox.Location = New System.Drawing.Point(64, 76)
+        Me.BarcodeTextBox.MaxLength = 13
         Me.BarcodeTextBox.Name = "BarcodeTextBox"
         Me.BarcodeTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.BarcodeTextBox.PlaceholderText = "Barcode"

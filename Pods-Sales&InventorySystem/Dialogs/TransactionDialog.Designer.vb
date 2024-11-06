@@ -22,17 +22,11 @@ Partial Class TransactionDialog
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Guna2ImageButton2 = New Guna.UI2.WinForms.Guna2ImageButton()
-        Me.TransactionDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.product = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.price = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.quantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.AddItemTransactionButton = New Guna.UI2.WinForms.Guna2Button()
         Me.AddTransactionButton = New Guna.UI2.WinForms.Guna2Button()
@@ -48,11 +42,17 @@ Partial Class TransactionDialog
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Guna2Panel3 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.TransactionDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.product = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.price = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.quantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TableLayoutPanel1.SuspendLayout()
-        CType(Me.TransactionDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2Panel1.SuspendLayout()
         Me.Guna2Panel2.SuspendLayout()
         Me.Guna2Panel3.SuspendLayout()
+        CType(Me.TransactionDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -78,6 +78,7 @@ Partial Class TransactionDialog
         '
         'Guna2ImageButton2
         '
+        Me.Guna2ImageButton2.BackColor = System.Drawing.Color.Transparent
         Me.Guna2ImageButton2.CheckedState.ImageSize = New System.Drawing.Size(64, 64)
         Me.Guna2ImageButton2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Guna2ImageButton2.HoverState.ImageSize = New System.Drawing.Size(345, 55)
@@ -91,94 +92,7 @@ Partial Class TransactionDialog
         Me.Guna2ImageButton2.PressedState.ImageSize = New System.Drawing.Size(345, 55)
         Me.Guna2ImageButton2.Size = New System.Drawing.Size(350, 55)
         Me.Guna2ImageButton2.TabIndex = 19
-        '
-        'TransactionDataGridView
-        '
-        Me.TransactionDataGridView.AllowUserToAddRows = False
-        Me.TransactionDataGridView.AllowUserToDeleteRows = False
-        Me.TransactionDataGridView.AllowUserToResizeColumns = False
-        Me.TransactionDataGridView.AllowUserToResizeRows = False
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
-        Me.TransactionDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.TransactionDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
-        Me.TransactionDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.product, Me.price, Me.quantity, Me.total})
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.TransactionDataGridView.DefaultCellStyle = DataGridViewCellStyle6
-        Me.TransactionDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TransactionDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TransactionDataGridView.Location = New System.Drawing.Point(0, 0)
-        Me.TransactionDataGridView.Margin = New System.Windows.Forms.Padding(0)
-        Me.TransactionDataGridView.MultiSelect = False
-        Me.TransactionDataGridView.Name = "TransactionDataGridView"
-        Me.TransactionDataGridView.ReadOnly = True
-        Me.TransactionDataGridView.RowHeadersVisible = False
-        Me.TransactionDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.TransactionDataGridView.Size = New System.Drawing.Size(778, 545)
-        Me.TransactionDataGridView.TabIndex = 6
-        Me.TransactionDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
-        Me.TransactionDataGridView.ThemeStyle.AlternatingRowsStyle.Font = Nothing
-        Me.TransactionDataGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty
-        Me.TransactionDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty
-        Me.TransactionDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty
-        Me.TransactionDataGridView.ThemeStyle.BackColor = System.Drawing.Color.White
-        Me.TransactionDataGridView.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TransactionDataGridView.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TransactionDataGridView.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        Me.TransactionDataGridView.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TransactionDataGridView.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
-        Me.TransactionDataGridView.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.TransactionDataGridView.ThemeStyle.HeaderStyle.Height = 23
-        Me.TransactionDataGridView.ThemeStyle.ReadOnly = True
-        Me.TransactionDataGridView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White
-        Me.TransactionDataGridView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
-        Me.TransactionDataGridView.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TransactionDataGridView.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.TransactionDataGridView.ThemeStyle.RowsStyle.Height = 22
-        Me.TransactionDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TransactionDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        '
-        'ID
-        '
-        Me.ID.HeaderText = "ID"
-        Me.ID.Name = "ID"
-        Me.ID.ReadOnly = True
-        '
-        'product
-        '
-        Me.product.HeaderText = "PRODUCT"
-        Me.product.Name = "product"
-        Me.product.ReadOnly = True
-        '
-        'price
-        '
-        Me.price.HeaderText = "PRICE"
-        Me.price.Name = "price"
-        Me.price.ReadOnly = True
-        '
-        'quantity
-        '
-        Me.quantity.HeaderText = "QUANTITY"
-        Me.quantity.Name = "quantity"
-        Me.quantity.ReadOnly = True
-        '
-        'total
-        '
-        Me.total.HeaderText = "TOTAL"
-        Me.total.Name = "total"
-        Me.total.ReadOnly = True
+        Me.Guna2ImageButton2.UseTransparentBackground = True
         '
         'Guna2Panel1
         '
@@ -390,6 +304,94 @@ Partial Class TransactionDialog
         Me.Guna2Panel3.Size = New System.Drawing.Size(778, 545)
         Me.Guna2Panel3.TabIndex = 20
         '
+        'TransactionDataGridView
+        '
+        Me.TransactionDataGridView.AllowUserToAddRows = False
+        Me.TransactionDataGridView.AllowUserToDeleteRows = False
+        Me.TransactionDataGridView.AllowUserToResizeColumns = False
+        Me.TransactionDataGridView.AllowUserToResizeRows = False
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
+        Me.TransactionDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.TransactionDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.TransactionDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.product, Me.price, Me.quantity, Me.total})
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.TransactionDataGridView.DefaultCellStyle = DataGridViewCellStyle3
+        Me.TransactionDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TransactionDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.TransactionDataGridView.Location = New System.Drawing.Point(0, 0)
+        Me.TransactionDataGridView.Margin = New System.Windows.Forms.Padding(0)
+        Me.TransactionDataGridView.MultiSelect = False
+        Me.TransactionDataGridView.Name = "TransactionDataGridView"
+        Me.TransactionDataGridView.ReadOnly = True
+        Me.TransactionDataGridView.RowHeadersVisible = False
+        Me.TransactionDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        Me.TransactionDataGridView.Size = New System.Drawing.Size(778, 545)
+        Me.TransactionDataGridView.TabIndex = 6
+        Me.TransactionDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
+        Me.TransactionDataGridView.ThemeStyle.AlternatingRowsStyle.Font = Nothing
+        Me.TransactionDataGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty
+        Me.TransactionDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty
+        Me.TransactionDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty
+        Me.TransactionDataGridView.ThemeStyle.BackColor = System.Drawing.Color.White
+        Me.TransactionDataGridView.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.TransactionDataGridView.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.TransactionDataGridView.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.TransactionDataGridView.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TransactionDataGridView.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
+        Me.TransactionDataGridView.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.TransactionDataGridView.ThemeStyle.HeaderStyle.Height = 23
+        Me.TransactionDataGridView.ThemeStyle.ReadOnly = True
+        Me.TransactionDataGridView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White
+        Me.TransactionDataGridView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.TransactionDataGridView.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TransactionDataGridView.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.TransactionDataGridView.ThemeStyle.RowsStyle.Height = 22
+        Me.TransactionDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.TransactionDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        '
+        'ID
+        '
+        Me.ID.HeaderText = "ID"
+        Me.ID.Name = "ID"
+        Me.ID.ReadOnly = True
+        '
+        'product
+        '
+        Me.product.HeaderText = "PRODUCT"
+        Me.product.Name = "product"
+        Me.product.ReadOnly = True
+        '
+        'price
+        '
+        Me.price.HeaderText = "PRICE"
+        Me.price.Name = "price"
+        Me.price.ReadOnly = True
+        '
+        'quantity
+        '
+        Me.quantity.HeaderText = "QUANTITY"
+        Me.quantity.Name = "quantity"
+        Me.quantity.ReadOnly = True
+        '
+        'total
+        '
+        Me.total.HeaderText = "TOTAL"
+        Me.total.Name = "total"
+        Me.total.ReadOnly = True
+        '
         'TransactionDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -404,11 +406,11 @@ Partial Class TransactionDialog
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "TransactionDialog"
         Me.TableLayoutPanel1.ResumeLayout(False)
-        CType(Me.TransactionDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Guna2Panel1.ResumeLayout(False)
         Me.Guna2Panel2.ResumeLayout(False)
         Me.Guna2Panel2.PerformLayout()
         Me.Guna2Panel3.ResumeLayout(False)
+        CType(Me.TransactionDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

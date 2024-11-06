@@ -13,6 +13,11 @@ Public Class Form1
         Chart1.Series.Add(salesSeries)
     End Sub
 
+    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
+        Guna2ComboBox1.Items.Add("dsdsd")
+        ComboBox1.Text = "dsdsd"
+    End Sub
+
     ' Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
     ' Sample data
     '    Dim salesData As New Dictionary(Of String, Integer) From {

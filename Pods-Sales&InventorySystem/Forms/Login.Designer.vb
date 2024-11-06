@@ -70,6 +70,7 @@ Partial Class Login
         '
         'Guna2ImageButton1
         '
+        Me.Guna2ImageButton1.BackColor = System.Drawing.Color.Transparent
         Me.Guna2ImageButton1.CheckedState.ImageSize = New System.Drawing.Size(64, 64)
         Me.Guna2ImageButton1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Guna2ImageButton1.HoverState.ImageSize = New System.Drawing.Size(450, 120)

@@ -19,7 +19,18 @@ Public Class DeliveryCartDialog
         Dim supplier_data As viewtblsuppliersDataTable = _tableAdapter.GetData()
         SupplierNameComboBox.DataSource = supplier_data
         SupplierNameComboBox.DisplayMember = "NAME"
-        SupplierNameComboBox.ValueMember = "id"
+        SupplierNameComboBox.ValueMember = "ID"
+
+
+
+        'Dim supplier_data As viewtblsuppliersDataTable = _tableAdapter.GetData()
+        'SupplierNameComboBox.Items.Clear()
+        ''For Each row As DataRow In supplier_data.Rows
+        ''    SupplierNameComboBox.Items.Add(row("NAME").ToString())
+        ''Next
+        'SupplierNameComboBox.Items.Add(supplier_data)
+        'SupplierNameComboBox.DisplayMember = viewtblsuppliersDataTable("viewtb
+        'SupplierNameComboBox.ValueMember = "ID"
 
         DeliveryDataGridView.Columns.Item("ID").Visible = False
 
@@ -71,7 +82,8 @@ Public Class DeliveryCartDialog
     Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click
         'Dim result As New Object
         Dim result As New List(Of Object)()
-        result.add(InputValidation.ValidateInputString(TransactionDeliveryTextBox, DataInput.STRING_STRING))
+        result.Add(InputValidation.ValidateInputString(TransactionDeliveryTextBox, DataInput.STRING_STRING))
+        result.Add(InputValidation.ValidateInputString(SupplierNameComboBox, DataInput.STRING_STRING))
 
         If DeliveryDataGridView.Rows.Count > 0 AndAlso Not result.Any(Function(item As Object()) Not item(0)) Then
             Dim items As New List(Of Dictionary(Of String, String))()
@@ -117,5 +129,9 @@ Public Class DeliveryCartDialog
         If _data IsNot Nothing Then
             MsgBox("clicked!")
         End If
+    End Sub
+
+    Private Sub SupplierNameComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles SupplierNameComboBox.SelectionChangeCommitted
+        MsgBox(SupplierNameComboBox.SelectedItem("ID"))
     End Sub
 End Class

@@ -20,17 +20,17 @@ Public Class LoginModule
                     BaseAccountLog.Login(My.Settings.myId, "Login")
                     Return {True}
                 Else
-                    MessageBox.Show("Your account is on hold!", "PODS-SIS")
+                    MessageBox.Show("Your account is on hold!", "PODS-SIS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Return {False}
                 End If
             Else
-                MessageBox.Show("Incorrect  username or password!", "PODS-SIS")
+                MessageBox.Show("Incorrect  username or password!", "PODS-SIS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Return {False}
             End If
         Else
-            MessageBox.Show("Incorrect  username or password!", "PODS-SIS")
+            MessageBox.Show("Incorrect  username or password!", "PODS-SIS", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Return {False}
         End If
-        Return {False, "Unknown error please try again.", "PODS-SIS"}
+        Return {False, "Unknown error please try again.", "PODS-SIS", MessageBoxButtons.OK, MessageBoxIcon.Information}
     End Function
 End Class

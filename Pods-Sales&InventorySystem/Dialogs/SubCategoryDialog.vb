@@ -47,9 +47,10 @@ Public Class SubCategoryDialog
             }
             Dim baseCommand As New BaseSubCategory(data)
             Dim invoker As ICommandInvoker = Nothing
-            If BaseSubCategory.Exists(result(0)(1)) = 0 AndAlso _data Is Nothing Then
+            If BaseSubCategory.CategoryAndSubcategoryExists(CategoryComboBox.SelectedItem("id"), result(0)(1)) = 0 AndAlso _data Is Nothing Then 'BaseSubCategory.Exists(result(0)(1)) = 0 AndAlso
                 invoker = New AddCommand(baseCommand)
-            ElseIf _data IsNot Nothing AndAlso BaseSubCategory.Exists(result(0)(1)) = 0 Then
+            ElseIf _data IsNot Nothing AndAlso BaseSubCategory.CategoryAndSubcategoryExists(CategoryComboBox.SelectedItem("id"), result(0)(1)) = 0 Then
+
                 invoker = New UpdateCommand(baseCommand)
             Else
                 MessageBox.Show("Subcategory exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)

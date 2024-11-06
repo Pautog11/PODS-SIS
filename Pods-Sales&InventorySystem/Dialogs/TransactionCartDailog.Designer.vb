@@ -25,10 +25,13 @@ Partial Class TransactionCartDailog
         Me.SubcategoryComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.CategoryComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.QuantityTextBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.CostTextBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.PriceTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.ProductComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.AddTransactionButton = New Guna.UI2.WinForms.Guna2Button()
         Me.StocksTextBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.BarcodeTextBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
+        Me.Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.SuspendLayout()
         '
         'SubcategoryComboBox
@@ -43,7 +46,7 @@ Partial Class TransactionCartDailog
         Me.SubcategoryComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.SubcategoryComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.SubcategoryComboBox.ItemHeight = 30
-        Me.SubcategoryComboBox.Location = New System.Drawing.Point(61, 85)
+        Me.SubcategoryComboBox.Location = New System.Drawing.Point(53, 118)
         Me.SubcategoryComboBox.Name = "SubcategoryComboBox"
         Me.SubcategoryComboBox.Size = New System.Drawing.Size(200, 36)
         Me.SubcategoryComboBox.TabIndex = 15
@@ -60,7 +63,7 @@ Partial Class TransactionCartDailog
         Me.CategoryComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.CategoryComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.CategoryComboBox.ItemHeight = 30
-        Me.CategoryComboBox.Location = New System.Drawing.Point(61, 43)
+        Me.CategoryComboBox.Location = New System.Drawing.Point(53, 76)
         Me.CategoryComboBox.Name = "CategoryComboBox"
         Me.CategoryComboBox.Size = New System.Drawing.Size(200, 36)
         Me.CategoryComboBox.TabIndex = 14
@@ -78,7 +81,7 @@ Partial Class TransactionCartDailog
         Me.QuantityTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.QuantityTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.QuantityTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.QuantityTextBox.Location = New System.Drawing.Point(61, 253)
+        Me.QuantityTextBox.Location = New System.Drawing.Point(53, 286)
         Me.QuantityTextBox.Name = "QuantityTextBox"
         Me.QuantityTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.QuantityTextBox.PlaceholderText = "Quantity"
@@ -86,26 +89,26 @@ Partial Class TransactionCartDailog
         Me.QuantityTextBox.Size = New System.Drawing.Size(200, 36)
         Me.QuantityTextBox.TabIndex = 13
         '
-        'CostTextBox
+        'PriceTextBox
         '
-        Me.CostTextBox.BorderColor = System.Drawing.Color.Gray
-        Me.CostTextBox.BorderRadius = 10
-        Me.CostTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.CostTextBox.DefaultText = ""
-        Me.CostTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.CostTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.CostTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.CostTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.CostTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CostTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.CostTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CostTextBox.Location = New System.Drawing.Point(61, 169)
-        Me.CostTextBox.Name = "CostTextBox"
-        Me.CostTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.CostTextBox.PlaceholderText = "Cost"
-        Me.CostTextBox.SelectedText = ""
-        Me.CostTextBox.Size = New System.Drawing.Size(200, 36)
-        Me.CostTextBox.TabIndex = 12
+        Me.PriceTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.PriceTextBox.BorderRadius = 10
+        Me.PriceTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.PriceTextBox.DefaultText = ""
+        Me.PriceTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.PriceTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.PriceTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.PriceTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.PriceTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.PriceTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.PriceTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.PriceTextBox.Location = New System.Drawing.Point(53, 202)
+        Me.PriceTextBox.Name = "PriceTextBox"
+        Me.PriceTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.PriceTextBox.PlaceholderText = "Cost"
+        Me.PriceTextBox.SelectedText = ""
+        Me.PriceTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.PriceTextBox.TabIndex = 12
         '
         'ProductComboBox
         '
@@ -119,7 +122,7 @@ Partial Class TransactionCartDailog
         Me.ProductComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.ProductComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.ProductComboBox.ItemHeight = 30
-        Me.ProductComboBox.Location = New System.Drawing.Point(61, 127)
+        Me.ProductComboBox.Location = New System.Drawing.Point(53, 160)
         Me.ProductComboBox.Name = "ProductComboBox"
         Me.ProductComboBox.Size = New System.Drawing.Size(200, 36)
         Me.ProductComboBox.TabIndex = 10
@@ -136,7 +139,7 @@ Partial Class TransactionCartDailog
         Me.AddTransactionButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AddTransactionButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddTransactionButton.ForeColor = System.Drawing.Color.White
-        Me.AddTransactionButton.Location = New System.Drawing.Point(176, 322)
+        Me.AddTransactionButton.Location = New System.Drawing.Point(160, 346)
         Me.AddTransactionButton.Name = "AddTransactionButton"
         Me.AddTransactionButton.Size = New System.Drawing.Size(150, 35)
         Me.AddTransactionButton.TabIndex = 16
@@ -155,7 +158,7 @@ Partial Class TransactionCartDailog
         Me.StocksTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.StocksTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.StocksTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.StocksTextBox.Location = New System.Drawing.Point(61, 211)
+        Me.StocksTextBox.Location = New System.Drawing.Point(53, 244)
         Me.StocksTextBox.Name = "StocksTextBox"
         Me.StocksTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.StocksTextBox.PlaceholderText = "Quantity"
@@ -163,17 +166,61 @@ Partial Class TransactionCartDailog
         Me.StocksTextBox.Size = New System.Drawing.Size(200, 36)
         Me.StocksTextBox.TabIndex = 17
         '
+        'BarcodeTextBox
+        '
+        Me.BarcodeTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.BarcodeTextBox.BorderRadius = 10
+        Me.BarcodeTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.BarcodeTextBox.DefaultText = ""
+        Me.BarcodeTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.BarcodeTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.BarcodeTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.BarcodeTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.BarcodeTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.BarcodeTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.BarcodeTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.BarcodeTextBox.Location = New System.Drawing.Point(53, 12)
+        Me.BarcodeTextBox.MaxLength = 13
+        Me.BarcodeTextBox.Name = "BarcodeTextBox"
+        Me.BarcodeTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.BarcodeTextBox.PlaceholderText = "Barcode"
+        Me.BarcodeTextBox.SelectedText = ""
+        Me.BarcodeTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.BarcodeTextBox.TabIndex = 18
+        '
+        'Guna2Separator1
+        '
+        Me.Guna2Separator1.FillColor = System.Drawing.Color.Gray
+        Me.Guna2Separator1.FillThickness = 2
+        Me.Guna2Separator1.Location = New System.Drawing.Point(26, 60)
+        Me.Guna2Separator1.Name = "Guna2Separator1"
+        Me.Guna2Separator1.Size = New System.Drawing.Size(248, 10)
+        Me.Guna2Separator1.TabIndex = 19
+        '
+        'Guna2HtmlLabel1
+        '
+        Me.Guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2HtmlLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2HtmlLabel1.Location = New System.Drawing.Point(144, 54)
+        Me.Guna2HtmlLabel1.Name = "Guna2HtmlLabel1"
+        Me.Guna2HtmlLabel1.Size = New System.Drawing.Size(15, 18)
+        Me.Guna2HtmlLabel1.TabIndex = 20
+        Me.Guna2HtmlLabel1.Text = "or"
+        '
         'TransactionCartDailog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(338, 369)
+        Me.ClientSize = New System.Drawing.Size(322, 392)
+        Me.Controls.Add(Me.Guna2HtmlLabel1)
+        Me.Controls.Add(Me.Guna2Separator1)
+        Me.Controls.Add(Me.BarcodeTextBox)
         Me.Controls.Add(Me.StocksTextBox)
         Me.Controls.Add(Me.AddTransactionButton)
         Me.Controls.Add(Me.SubcategoryComboBox)
         Me.Controls.Add(Me.CategoryComboBox)
         Me.Controls.Add(Me.QuantityTextBox)
-        Me.Controls.Add(Me.CostTextBox)
+        Me.Controls.Add(Me.PriceTextBox)
         Me.Controls.Add(Me.ProductComboBox)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
@@ -183,14 +230,18 @@ Partial Class TransactionCartDailog
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "TransactionCartDailog"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents SubcategoryComboBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents CategoryComboBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents QuantityTextBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents CostTextBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents PriceTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents ProductComboBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents AddTransactionButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents StocksTextBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents BarcodeTextBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Guna2Separator1 As Guna.UI2.WinForms.Guna2Separator
+    Friend WithEvents Guna2HtmlLabel1 As Guna.UI2.WinForms.Guna2HtmlLabel
 End Class

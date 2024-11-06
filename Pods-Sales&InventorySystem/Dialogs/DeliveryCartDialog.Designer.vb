@@ -27,6 +27,13 @@ Partial Class DeliveryCartDialog
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.DeliveryDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.product = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.MANUFACTURED_DATE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EXPIRY_DATE = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.price = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.quantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.AccountHeaderLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.SupplierNameComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
@@ -41,13 +48,6 @@ Partial Class DeliveryCartDialog
         Me.Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
         Me.SaveButton = New Guna.UI2.WinForms.Guna2Button()
-        Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.product = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.MANUFACTURED_DATE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.EXPIRY_DATE = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.price = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.quantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.DeliveryDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.AccountHeaderLayoutPanel.SuspendLayout()
@@ -133,6 +133,48 @@ Partial Class DeliveryCartDialog
         Me.DeliveryDataGridView.ThemeStyle.RowsStyle.Height = 22
         Me.DeliveryDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DeliveryDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        '
+        'ID
+        '
+        Me.ID.HeaderText = "ID"
+        Me.ID.Name = "ID"
+        Me.ID.ReadOnly = True
+        '
+        'product
+        '
+        Me.product.HeaderText = "PRODUCT"
+        Me.product.Name = "product"
+        Me.product.ReadOnly = True
+        '
+        'MANUFACTURED_DATE
+        '
+        Me.MANUFACTURED_DATE.HeaderText = "MFD"
+        Me.MANUFACTURED_DATE.Name = "MANUFACTURED_DATE"
+        Me.MANUFACTURED_DATE.ReadOnly = True
+        '
+        'EXPIRY_DATE
+        '
+        Me.EXPIRY_DATE.HeaderText = "EXD"
+        Me.EXPIRY_DATE.Name = "EXPIRY_DATE"
+        Me.EXPIRY_DATE.ReadOnly = True
+        '
+        'price
+        '
+        Me.price.HeaderText = "PRICE"
+        Me.price.Name = "price"
+        Me.price.ReadOnly = True
+        '
+        'quantity
+        '
+        Me.quantity.HeaderText = "QUANTITY"
+        Me.quantity.Name = "quantity"
+        Me.quantity.ReadOnly = True
+        '
+        'total
+        '
+        Me.total.HeaderText = "TOTAL"
+        Me.total.Name = "total"
+        Me.total.ReadOnly = True
         '
         'AccountHeaderLayoutPanel
         '
@@ -310,48 +352,6 @@ Partial Class DeliveryCartDialog
         Me.SaveButton.Size = New System.Drawing.Size(150, 35)
         Me.SaveButton.TabIndex = 6
         Me.SaveButton.Text = "Save"
-        '
-        'ID
-        '
-        Me.ID.HeaderText = "ID"
-        Me.ID.Name = "ID"
-        Me.ID.ReadOnly = True
-        '
-        'product
-        '
-        Me.product.HeaderText = "PRODUCT"
-        Me.product.Name = "product"
-        Me.product.ReadOnly = True
-        '
-        'MANUFACTURED_DATE
-        '
-        Me.MANUFACTURED_DATE.HeaderText = "MFD"
-        Me.MANUFACTURED_DATE.Name = "MANUFACTURED_DATE"
-        Me.MANUFACTURED_DATE.ReadOnly = True
-        '
-        'EXPIRY_DATE
-        '
-        Me.EXPIRY_DATE.HeaderText = "EXD"
-        Me.EXPIRY_DATE.Name = "EXPIRY_DATE"
-        Me.EXPIRY_DATE.ReadOnly = True
-        '
-        'price
-        '
-        Me.price.HeaderText = "PRICE"
-        Me.price.Name = "price"
-        Me.price.ReadOnly = True
-        '
-        'quantity
-        '
-        Me.quantity.HeaderText = "QUANTITY"
-        Me.quantity.Name = "quantity"
-        Me.quantity.ReadOnly = True
-        '
-        'total
-        '
-        Me.total.HeaderText = "TOTAL"
-        Me.total.Name = "total"
-        Me.total.ReadOnly = True
         '
         'DeliveryCartDialog
         '

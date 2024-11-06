@@ -58,7 +58,7 @@ Namespace My
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
          Global.System.Configuration.DefaultSettingValueAttribute("Server=.;Initial Catalog=podsdb;Persist Security Info=True;User ID=admin;Password"& _ 
-            "=password")>  _
+            "=password;"&Global.Microsoft.VisualBasic.ChrW(10)&Global.Microsoft.VisualBasic.ChrW(10))>  _
         Public ReadOnly Property con() As String
             Get
                 Return CType(Me("con"),String)
