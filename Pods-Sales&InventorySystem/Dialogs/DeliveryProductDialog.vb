@@ -20,6 +20,7 @@ Public Class DeliveryProductDialog
         'MfgDate.MaxDate = DateTime.Now
         'ExpiryDate.MinDate = Date.Today
 
+        ' DateTimePicker1.Value = DateTime.MinValue
     End Sub
 
     Private Sub ProductComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles ProductComboBox.SelectionChangeCommitted

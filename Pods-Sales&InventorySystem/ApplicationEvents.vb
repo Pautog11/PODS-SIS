@@ -14,6 +14,10 @@
             'If My.Settings.con = "" Then
             '    Me.MainForm = New Server
             'End If
+            'My.Settings.roleId = ""
+            'If My.Settings.roleId IsNot Nothing Then
+            '    Me.MainForm = New Dashboard
+            'End If
         End Sub
     End Class
 End Namespace

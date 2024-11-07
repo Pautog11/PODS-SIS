@@ -41,8 +41,13 @@ Public Class Account
                 {"address", row.Cells(5).Value.ToString()},
                 {"username", row.Cells(6).Value.ToString()}
             }
-            Dim Dialog As New AccountDialog(data:=data, subject:=_subject)
-            Dialog.ShowDialog()
+
+            If My.Settings.roleId >= row.Cells(0).Value.ToString() Then
+                MessageBox.Show("You cant edit this account.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Else
+                Dim Dialog As New AccountDialog(data:=data, subject:=_subject)
+                Dialog.ShowDialog()
+            End If
         End If
     End Sub
     Private Sub AccountSearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles AccountSearchTextBox.TextChanged

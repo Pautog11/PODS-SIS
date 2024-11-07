@@ -22,27 +22,22 @@ Public Class AccountDialog
         StatusComboBox.SelectedItem = "id"
 
         If _data IsNot Nothing Then
-            If My.Settings.roleId >= _data.Item("id") Then
-                MessageBox.Show("You cant edit this account.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                Me.Close()
-            Else
-                'To update the button from add to update
-                AddAccountButton.Text = "Update"
+            AddAccountButton.Text = "Update"
 
-                'For fetching data to combobox
-                RoleComboBox.Text = BaseAccount.Fetchroles(_data.Item("role"))
-                StatusComboBox.Text = BaseAccount.Fetchstatus(_data.Item("status"))
+            'For fetching data to combobox
+            RoleComboBox.Text = BaseAccount.Fetchroles(_data.Item("role"))
+            StatusComboBox.Text = BaseAccount.Fetchstatus(_data.Item("status"))
 
-                'To populate data to texboxes
-                FirstnameTextBox.Text = _data.Item("first_name")
-                LastnameTextBox.Text = _data.Item("last_name")
-                Phone_numberTextBox.Text = _data.Item("phone_number")
-                AddressTextBox.Text = _data.Item("address")
-                UsernameTextBox.Text = _data.Item("username")
+            'To populate data to texboxes
+            FirstnameTextBox.Text = _data.Item("first_name")
+            LastnameTextBox.Text = _data.Item("last_name")
+            Phone_numberTextBox.Text = _data.Item("phone_number")
+            AddressTextBox.Text = _data.Item("address")
+            UsernameTextBox.Text = _data.Item("username")
 
-                'For Visibility
-                UsernameTextBox.Enabled = False
-            End If
+            'For Visibility
+            UsernameTextBox.Enabled = False
+            'End If
         Else
             'Auto select "None" for roles
             roles.Rows.Add(-1, "None")

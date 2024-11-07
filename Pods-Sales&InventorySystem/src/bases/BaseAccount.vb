@@ -11,18 +11,18 @@ Public Class BaseAccount
     End Sub
 
     Public Sub Delete() Implements ICommandPanel.Delete
-        'Try
-        '    _sqlCommand = New SqlCommand("DELETE tblaccounts WHERE id = @id", _sqlConnection)
-        '    _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
-        '    If _sqlCommand.ExecuteNonQuery() <= 0 Then
-        '        MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-        '    Else
-        '        MessageBox.Show("Account has been deleted successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        '    End If
-        'Catch ex As Exception
-        '    MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-        'End Try
-        MessageBox.Show("successsss", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        Try
+            _sqlCommand = New SqlCommand("DELETE tblaccounts WHERE id = @id", _sqlConnection)
+            _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
+            If _sqlCommand.ExecuteNonQuery() <= 0 Then
+                MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Else
+                MessageBox.Show("Account has been deleted successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End Try
+        'MessageBox.Show("successsss", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
     End Sub
 
     Public Sub Update() Implements ICommandPanel.Update

@@ -14,8 +14,25 @@ Public Class Form1
     End Sub
 
     Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
-        Guna2ComboBox1.Items.Add("dsdsd")
-        ComboBox1.Text = "dsdsd"
+        'Guna2ComboBox1.Items.Add("dsdsd")
+        'ComboBox1.Text = "dsdsd"
+
+        Dim enteredDate As String = Guna2TextBox1.Text
+        Dim parsedDate As DateTime
+
+        ' Try to parse the text as a DateTime
+        If DateTime.TryParse(enteredDate, parsedDate) Then
+            ' If successful, the input is a valid date
+            If parsedDate < DateTime.Today Then
+                MessageBox.Show("The date cannot be before today's date.", "Invalid Date", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                ' If the date is valid and not before today, show it
+                MessageBox.Show("Valid Date: " & parsedDate.ToString())
+            End If
+        Else
+            ' If parsing fails, the input is not a valid date
+            MessageBox.Show("Invalid date entered. Please enter a valid date.")
+        End If
     End Sub
 
     ' Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click

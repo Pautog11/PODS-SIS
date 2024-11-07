@@ -46,20 +46,41 @@ Public Class DeliveryCartDialog
 
             'Populate items 
             DeliveryDataGridView.Rows.Clear()
+            'Dim DeliveryItems As DataTable = BaseDelivery.SelectAllDeliveryItems(_data("id"))
+            'For Each row As DataRow In DeliveryItems.Rows
+            '    Dim rowData As New List(Of Object)()
+            '    For Each column As DataColumn In DeliveryItems.Columns
+            '        If column.ColumnName = "mfd" OrElse column.ColumnName = "exd" Then
+            '            If column.ColumnName = "mfd" Is Nothing Then
+            '            Else
+            '                Dim dateValue As Date = Convert.ToDateTime(row(column))
+            '                rowData.Add(dateValue.ToString("yyyy-MM-dd"))
+            '            End If
+            '        Else
+            '            rowData.Add(row(column))
+            '        End If
+            '    Next
+            '    DeliveryDataGridView.Rows.Add(rowData.ToArray())
+            'Next
+
             Dim DeliveryItems As DataTable = BaseDelivery.SelectAllDeliveryItems(_data("id"))
-            For Each row As DataRow In DeliveryItems.Rows
+                For Each row As DataRow In DeliveryItems.Rows
                 Dim rowData As New List(Of Object)()
                 For Each column As DataColumn In DeliveryItems.Columns
                     If column.ColumnName = "mfd" OrElse column.ColumnName = "exd" Then
-                        Dim dateValue As Date = Convert.ToDateTime(row(column))
-                        rowData.Add(dateValue.ToString("yyyy-MM-dd"))
+                        If row(column) IsNot DBNull.Value Then
+                            Dim dateValue As Date = Convert.ToDateTime(row(column))
+                            rowData.Add(dateValue.ToString("yyyy-MM-dd"))
+                        Else
+                            rowData.Add("N/A")
+                        End If
                     Else
                         rowData.Add(row(column))
                     End If
                 Next
                 DeliveryDataGridView.Rows.Add(rowData.ToArray())
-            Next
-        Else
+                Next
+            Else
             'PulloutButton.Visible = False
             DateTimePicker1.MaxDate = DateTime.Now
         End If
@@ -80,46 +101,54 @@ Public Class DeliveryCartDialog
     End Sub
 
     Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click
-        'Dim result As New Object
-        Dim result As New List(Of Object)()
-        result.Add(InputValidation.ValidateInputString(TransactionDeliveryTextBox, DataInput.STRING_STRING))
-        result.Add(InputValidation.ValidateInputString(SupplierNameComboBox, DataInput.STRING_STRING))
+        Dim controls As Object() = {
+            TransactionDeliveryTextBox, SupplierNameComboBox
+        }
+
+        Dim types As DataInput() = {
+            DataInput.STRING_STRING, DataInput.STRING_STRING
+        }
+        Dim result As New List(Of Object())
+        For i = 0 To controls.Count - 1
+            result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
+        Next
+
 
         If DeliveryDataGridView.Rows.Count > 0 AndAlso Not result.Any(Function(item As Object()) Not item(0)) Then
             Dim items As New List(Of Dictionary(Of String, String))()
             Dim baseCommand As ICommandPanel ' = Nothing
             Dim invoker As ICommandInvoker
             Dim data As New Dictionary(Of String, String) From {
-            {"id", If(_data?.Item("id"), String.Empty)},
-            {"delivery_number", TransactionDeliveryTextBox.Text},
-            {"supplier_id", If(DirectCast(SupplierNameComboBox.SelectedItem, DataRowView)("id"), String.Empty)},
-            {"total", TotalPrice.Text},
-            {"date", DateTimePicker1.Value.ToString("MMM dd yyyy")} 'DateTimePicker1.Value.ToString("yyyy/MM/dd")}
+                {"id", If(_data?.Item("id"), String.Empty)},
+                {"delivery_number", result(0)(1)},
+                {"supplier_id", If(DirectCast(SupplierNameComboBox.SelectedItem, DataRowView)("id"), String.Empty)},
+                {"total", TotalPrice.Text},
+                {"date", DateTimePicker1.Value.ToString("MMM dd yyyy")}
             }
 
             For Each row As DataGridViewRow In DeliveryDataGridView.Rows
-                ' Check if the row is not the new row added automatically at the end of DataGridView
-                If Not row.IsNewRow Then
-                    Dim item As New Dictionary(Of String, String) From {
-                        {"product_id", row.Cells(0).Value},
-                        {"mfd", row.Cells(2).Value?.ToString()},
-                        {"exd", row.Cells(3).Value?.ToString()},
-                        {"price", If(row.Cells(4).Value?.ToString(), "0")},
-                        {"quantity", If(row.Cells(5).Value?.ToString(), "0")},
-                        {"total", If(row.Cells(6).Value?.ToString(), "0")}
-                    }
-                    items.Add(item)
-                End If
+                Dim item As New Dictionary(Of String, String) From {
+                    {"product_id", row.Cells(0).Value},
+                    {"mfd", row.Cells(2).Value?.ToString()},
+                    {"exd", row.Cells(3).Value?.ToString()},
+                    {"price", If(row.Cells(4).Value?.ToString(), "0")},
+                    {"quantity", If(row.Cells(5).Value?.ToString(), "0")},
+                    {"total", If(row.Cells(6).Value?.ToString(), "0")}
+                }
+                items.Add(item)
             Next
 
             baseCommand = New BaseDelivery(data) With {
                 .Items = items
             }
-
-            invoker = New AddCommand(baseCommand)
-            invoker?.Execute()
-            _subject.NotifyObserver()
-            Me.Close()
+            If BaseDelivery.Exists(result(0)(1)) = 0 Then
+                invoker = New AddCommand(baseCommand)
+                invoker?.Execute()
+                _subject.NotifyObserver()
+                Me.Close()
+            Else
+                MessageBox.Show("Transaction reference is already exist!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
         Else
             MessageBox.Show("Select product or provide valid inputs!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If

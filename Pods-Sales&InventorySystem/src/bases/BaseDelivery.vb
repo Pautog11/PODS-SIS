@@ -62,22 +62,21 @@ Public Class BaseDelivery
                     End If
                 End If
             Next
-
             For Each item In _item
-                _sqlCommand.Parameters.Clear()
-                _sqlCommand = New SqlCommand("INSERT INTO tblproduct_notif (product_id, delivery_id, quantity, mfd, exd) VALUES (@product_id, @delivery_id, @quantity, @mfd, @exd)", _sqlConnection, transaction)
-                _sqlCommand.Parameters.AddWithValue("@product_id", item("product_id"))
-                _sqlCommand.Parameters.AddWithValue("@delivery_id", deliveryId)
-                _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
-                _sqlCommand.Parameters.AddWithValue("@mfd", item("mfd"))
-                _sqlCommand.Parameters.AddWithValue("@exd", item("exd"))
-                If _sqlCommand.ExecuteNonQuery <= 0 Then
-                    Throw New Exception("Failed to add delivery items in expiry date!")
+                If item("mfd") IsNot Nothing AndAlso Not String.IsNullOrEmpty(item("mfd").ToString()) Then
+                    _sqlCommand.Parameters.Clear()
+                    _sqlCommand = New SqlCommand("INSERT INTO tblproduct_notif (product_id, delivery_id, quantity, mfd, exd) VALUES (@product_id, @delivery_id, @quantity, @mfd, @exd)", _sqlConnection, transaction)
+                    _sqlCommand.Parameters.AddWithValue("@product_id", item("product_id"))
+                    _sqlCommand.Parameters.AddWithValue("@delivery_id", deliveryId)
+                    _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
+                    _sqlCommand.Parameters.AddWithValue("@mfd", item("mfd"))
+                    _sqlCommand.Parameters.AddWithValue("@exd", item("exd"))
+                    If _sqlCommand.ExecuteNonQuery <= 0 Then
+                        Throw New Exception("Failed to add delivery items in expiry date!")
+                    End If
                 End If
             Next
 
-
-            'MsgBox("base deliver done query")
             transaction.Commit()
             MessageBox.Show("Delivery has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Catch ex As Exception
@@ -94,17 +93,21 @@ Public Class BaseDelivery
             'cmd = New SqlCommand("SELECT tbldeliveries_items.id, product_name, price, tbldeliveries_items.quantity, total 
             '                      FROM tbldeliveries_items join tblproducts on tbldeliveries_items.product_id = tblproducts.id WHERE delivery_id = @delivery_id", conn)
 
-            cmd = New SqlCommand("SELECT tbldeliveries_items.id, 
-                                         product_name,  
-                                         mfd, 
-                                         exd,
-                                         price, 
-                                         tbldeliveries_items.quantity, 
-                                         total 
-                                  FROM tbldeliveries_items 
-								  join tblproducts on tbldeliveries_items.product_id = tblproducts.id 
-								  join tblproduct_notif on  tbldeliveries_items.delivery_id = tblproduct_notif.delivery_id
-								  WHERE tbldeliveries_items.delivery_id = @delivery_id", conn)
+            '  cmd = New SqlCommand("SELECT tbldeliveries_items.id, 
+            '                               product_name,  
+            '                               ISNULL(mfd, NULL) AS mfd, 
+            '                               ISNULL(exd, NULL) AS exd, 
+            '                               price, 
+            '                               tbldeliveries_items.quantity, 
+            '                               total 
+            '                        FROM tbldeliveries_items 
+            'JOIN tblproducts on tbldeliveries_items.product_id = tblproducts.id 
+            'LEFT JOIN tblproduct_notif on  tbldeliveries_items.delivery_id = tblproduct_notif.delivery_id
+            'WHERE tbldeliveries_items.delivery_id = @delivery_id;", conn)
+            cmd = New SqlCommand("SELECT tbldeliveries_items.id, product_name, ISNULL(mfd, NULL) AS mfd, ISNULL(exd, NULL) AS exd, price, tbldeliveries_items.quantity, total 
+                                            FROM tbldeliveries_items join tblproducts ON tbldeliveries_items.product_id = tblproducts.id 
+                                            LEFT JOIN tblproduct_notif ON tbldeliveries_items.delivery_id = tblproduct_notif.delivery_id AND tbldeliveries_items.product_id = tblproduct_notif.product_id
+                                            WHERE tbldeliveries_items.delivery_id = @delivery_id;", conn)
             cmd.Parameters.AddWithValue("@delivery_id", delivery_id)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
@@ -120,8 +123,7 @@ Public Class BaseDelivery
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT sku
-                                  FROM tblproducts WHERE product_name = @product_name", conn)
+            cmd = New SqlCommand("SELECT sku FROM tblproducts WHERE product_name = @product_name", conn)
             cmd.Parameters.AddWithValue("@product_name", product_name)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
@@ -130,6 +132,19 @@ Public Class BaseDelivery
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return New DataTable
+        End Try
+    End Function
+
+    Public Shared Function Exists(delivery_number As String) As Integer
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tbldeliveries WHERE lower(delivery_number) = @delivery_number", conn)
+            cmd.Parameters.AddWithValue("@delivery_number", delivery_number.Trim.ToLower)
+
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
         End Try
     End Function
 End Class
