@@ -44,19 +44,34 @@ Public Class TransactionDialog
 
     Public Sub UpdateVisualData()
         TransactionDataGridView.DataSource = _itemSource?.DefaultView
-        Dim total As Decimal = 0D
-        For i As Integer = 0 To TransactionDataGridView?.Rows.Count - 1
-            Dim value As Object = TransactionDataGridView.Rows(i).Cells("TOTAL").Value
-            If value IsNot Nothing AndAlso Decimal.TryParse(value.ToString(), total) Then
-                total += CDec(value)
+        Dim subtotal As Decimal = 0D
+        For i As Integer = 0 To TransactionDataGridView.Rows.Count - 1
+            Dim total As Object = TransactionDataGridView.Rows(i).Cells("TOTAL").Value
+            If total IsNot Nothing Then
+                Dim add As Decimal
+                If Decimal.TryParse(total.ToString(), add) Then
+                    subtotal += add
+                End If
             End If
         Next
-        SubtotalTextBox.Text = total.ToString("F2")
-        TotalTextBox.Text = total.ToString("F2")
+        SubtotalTextBox.Text = subtotal.ToString("F2")
+        TotalTextBox.Text = subtotal.ToString("F2")
+        'TransactionDataGridView.DataSource = _itemSource?.DefaultView
+        'Dim total As Decimal = 0D
+        'For i As Integer = 0 To TransactionDataGridView?.Rows.Count - 1
+        '    Dim value As Object = TransactionDataGridView.Rows(i).Cells("TOTAL").Value
+        '    If value IsNot Nothing AndAlso Decimal.TryParse(value.ToString(), total) Then
+        '        total += CDec(value)
+        '    End If
+        'Next
+        'SubtotalTextBox.Text = total.ToString("F2")
+
+
+        'TotalTextBox.Text = total.ToString("F2")
 
         'For Vat
         Dim vat As Decimal = BaseTransaction.ScalarVat / 100
-        Dim subtotal As Decimal
+        'Dim subtotal As Decimal
         If Decimal.TryParse(SubtotalTextBox.Text, subtotal) Then
             Dim vatAmount As Decimal = subtotal * vat / (1 + vat)
             VatTextBox.Text = vatAmount.ToString("F2")
@@ -112,15 +127,36 @@ Public Class TransactionDialog
         End If
     End Sub
 
-    Private Sub DiscountTextBox_Leave(sender As Object, e As EventArgs) Handles DiscountTextBox.Leave
-        Dim total As Decimal = Nothing
-        If Not Decimal.TryParse(DiscountTextBox.Text, total) OrElse DiscountTextBox.Text = 0 Then
-            MessageBox.Show("Invalid discount format. Please enter a valid number.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            DiscountTextBox.Text = 0
-            TotalTextBox.Text = SubtotalTextBox.Text
-        Else
-            total = SubtotalTextBox.Text * (DiscountTextBox.Text / 100)
-            TotalTextBox.Text = total
+    Private Sub DiscountTextBox_KeyDown(sender As Object, e As KeyEventArgs) Handles DiscountTextBox.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            Dim discount As Decimal
+            If Not Decimal.TryParse(DiscountTextBox.Text, discount) OrElse DiscountTextBox.Text = "" Then
+                MessageBox.Show("Invalid discount format. Please enter a valid number.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                DiscountTextBox.Text = 0
+                TotalTextBox.Text = SubtotalTextBox.Text
+            Else
+                discount = SubtotalTextBox.Text * (DiscountTextBox.Text / 100)
+                TotalTextBox.Text = SubtotalTextBox.Text - discount
+            End If
         End If
     End Sub
+
+    'Private Sub DiscountTextBox_Leave(sender As Object, e As EventArgs) Handles DiscountTextBox.Leave
+    '    Dim discount As Decimal
+    '    If Not Decimal.TryParse(DiscountTextBox.Text, discount) OrElse DiscountTextBox.Text = 0 Then
+    '        MessageBox.Show("Invalid discount format. Please enter a valid number.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+    '        DiscountTextBox.Text = 0
+    '        TotalTextBox.Text = SubtotalTextBox.Text
+    '    Else
+    '        discount = SubtotalTextBox.Text * (DiscountTextBox.Text / 100)
+    '        TotalTextBox.Text = SubtotalTextBox.Text - discount
+    '    End If
+    'End Sub
+
+
+    'Private Sub DiscountTextBox(sender As Object, e As KeyEventArgs) Handles DiscountTextBox
+    '    If e.KeyCode = Keys.Enter Then
+
+    '    End If
+    'End Sub
 End Class

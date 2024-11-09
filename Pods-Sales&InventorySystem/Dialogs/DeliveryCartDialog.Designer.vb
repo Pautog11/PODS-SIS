@@ -48,6 +48,7 @@ Partial Class DeliveryCartDialog
         Me.Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
         Me.SaveButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.PulloutButton = New Guna.UI2.WinForms.Guna2Button()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.DeliveryDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.AccountHeaderLayoutPanel.SuspendLayout()
@@ -327,6 +328,7 @@ Partial Class DeliveryCartDialog
         'FlowLayoutPanel2
         '
         Me.FlowLayoutPanel2.Controls.Add(Me.SaveButton)
+        Me.FlowLayoutPanel2.Controls.Add(Me.PulloutButton)
         Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
         Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 447)
@@ -352,6 +354,24 @@ Partial Class DeliveryCartDialog
         Me.SaveButton.Size = New System.Drawing.Size(150, 35)
         Me.SaveButton.TabIndex = 6
         Me.SaveButton.Text = "Save"
+        '
+        'PulloutButton
+        '
+        Me.PulloutButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.PulloutButton.BackColor = System.Drawing.Color.Transparent
+        Me.PulloutButton.BorderRadius = 15
+        Me.PulloutButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.PulloutButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.PulloutButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.PulloutButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.PulloutButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.PulloutButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.PulloutButton.ForeColor = System.Drawing.Color.White
+        Me.PulloutButton.Location = New System.Drawing.Point(657, 3)
+        Me.PulloutButton.Name = "PulloutButton"
+        Me.PulloutButton.Size = New System.Drawing.Size(150, 35)
+        Me.PulloutButton.TabIndex = 7
+        Me.PulloutButton.Text = "Pull out"
         '
         'DeliveryCartDialog
         '
@@ -403,4 +423,5 @@ Partial Class DeliveryCartDialog
     Friend WithEvents price As DataGridViewTextBoxColumn
     Friend WithEvents quantity As DataGridViewTextBoxColumn
     Friend WithEvents total As DataGridViewTextBoxColumn
+    Friend WithEvents PulloutButton As Guna.UI2.WinForms.Guna2Button
 End Class

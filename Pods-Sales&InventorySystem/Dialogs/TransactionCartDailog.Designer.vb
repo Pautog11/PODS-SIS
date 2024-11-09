@@ -161,7 +161,7 @@ Partial Class TransactionCartDailog
         Me.StocksTextBox.Location = New System.Drawing.Point(53, 244)
         Me.StocksTextBox.Name = "StocksTextBox"
         Me.StocksTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.StocksTextBox.PlaceholderText = "Quantity"
+        Me.StocksTextBox.PlaceholderText = "Stocks"
         Me.StocksTextBox.SelectedText = ""
         Me.StocksTextBox.Size = New System.Drawing.Size(200, 36)
         Me.StocksTextBox.TabIndex = 17

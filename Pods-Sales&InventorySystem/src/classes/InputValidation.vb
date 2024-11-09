@@ -92,6 +92,21 @@ Public Class InputValidation
                 If Regex.IsMatch(stringInput, "^(\d+)?\.?(\d+)$") Then
                     Return {True, stringInput}
                 End If
+            Case DataInput.STRING_DATE
+                Dim dateValue As DateTime
+                If Regex.IsMatch(stringInput, "^\d{4}-(0?[1-9]|1[0-2])-(0?[1-9]|[12][0-9]|3[01])$") Then
+                    If DateTime.TryParseExact(stringInput, "yyyy-M-d", Nothing, Globalization.DateTimeStyles.None, dateValue) Then
+                        Return {True, stringInput}
+                    Else
+                        MsgBox("The date is not valid.")
+                        Return {False, "Invalid date."}
+                    End If
+                Else
+                    MsgBox("Invalid date format.")
+                    Return {False, "Invalid date format."}
+                End If
+
+
         End Select
         control.BorderColor = Color.Red
         Return {False, stringInput}
@@ -106,4 +121,5 @@ Public Enum DataInput
     STRING_PHONE
     STRING_INTEGER
     STRING_PRICE
+    STRING_DATE
 End Enum

@@ -32,7 +32,7 @@ Public Class DeliveryCartDialog
         'SupplierNameComboBox.DisplayMember = viewtblsuppliersDataTable("viewtb
         'SupplierNameComboBox.ValueMember = "ID"
 
-        DeliveryDataGridView.Columns.Item("ID").Visible = False
+        'DeliveryDataGridView.Columns.Item("ID").Visible = False
 
         If _data IsNot Nothing Then
             AddProductButton.Visible = False
@@ -46,25 +46,8 @@ Public Class DeliveryCartDialog
 
             'Populate items 
             DeliveryDataGridView.Rows.Clear()
-            'Dim DeliveryItems As DataTable = BaseDelivery.SelectAllDeliveryItems(_data("id"))
-            'For Each row As DataRow In DeliveryItems.Rows
-            '    Dim rowData As New List(Of Object)()
-            '    For Each column As DataColumn In DeliveryItems.Columns
-            '        If column.ColumnName = "mfd" OrElse column.ColumnName = "exd" Then
-            '            If column.ColumnName = "mfd" Is Nothing Then
-            '            Else
-            '                Dim dateValue As Date = Convert.ToDateTime(row(column))
-            '                rowData.Add(dateValue.ToString("yyyy-MM-dd"))
-            '            End If
-            '        Else
-            '            rowData.Add(row(column))
-            '        End If
-            '    Next
-            '    DeliveryDataGridView.Rows.Add(rowData.ToArray())
-            'Next
-
             Dim DeliveryItems As DataTable = BaseDelivery.SelectAllDeliveryItems(_data("id"))
-                For Each row As DataRow In DeliveryItems.Rows
+            For Each row As DataRow In DeliveryItems.Rows
                 Dim rowData As New List(Of Object)()
                 For Each column As DataColumn In DeliveryItems.Columns
                     If column.ColumnName = "mfd" OrElse column.ColumnName = "exd" Then
@@ -79,9 +62,11 @@ Public Class DeliveryCartDialog
                     End If
                 Next
                 DeliveryDataGridView.Rows.Add(rowData.ToArray())
-                Next
-            Else
-            'PulloutButton.Visible = False
+            Next
+            'Clear any existing rows first to prevent duplication
+            'MsgBox(DeliveryItems.Rows.Count)
+        Else
+            PulloutButton.Visible = False
             DateTimePicker1.MaxDate = DateTime.Now
         End If
     End Sub
@@ -154,13 +139,23 @@ Public Class DeliveryCartDialog
         End If
     End Sub
 
-    Private Sub DeliveryDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DeliveryDataGridView.CellClick
-        If _data IsNot Nothing Then
-            MsgBox("clicked!")
-        End If
-    End Sub
+    'Private Sub DeliveryDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DeliveryDataGridView.CellClick
+    '    If _data IsNot Nothing Then
+    '        MsgBox("clicked!")
+    '    End If
+    ' End Sub
 
     Private Sub SupplierNameComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles SupplierNameComboBox.SelectionChangeCommitted
         MsgBox(SupplierNameComboBox.SelectedItem("ID"))
+    End Sub
+
+    Private Sub PulloutButton_Click(sender As Object, e As EventArgs) Handles PulloutButton.Click
+        Dim dialog As New DeliveryPulloutCart(data:=_data)
+        dialog.ShowDialog()
+        'MsgBox(_data("id"))
+    End Sub
+
+    Private Sub DeliveryDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DeliveryDataGridView.CellContentClick
+        MsgBox("clicked")
     End Sub
 End Class

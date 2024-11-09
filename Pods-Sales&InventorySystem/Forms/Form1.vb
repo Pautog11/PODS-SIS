@@ -14,25 +14,63 @@ Public Class Form1
     End Sub
 
     Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
-        'Guna2ComboBox1.Items.Add("dsdsd")
-        'ComboBox1.Text = "dsdsd"
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT role FROM tblroles WHERE id = @id", conn)
+            cmd = New SqlCommand("UPDATE tblaccounts SET password = @password WHERE id = @id", conn)
+            cmd.Parameters.AddWithValue("@id", "2035")
+            cmd.Parameters.AddWithValue("@password", BCrypt.Net.BCrypt.HashPassword("sa"))
+            cmd.ExecuteNonQuery()
 
-        Dim enteredDate As String = Guna2TextBox1.Text
-        Dim parsedDate As DateTime
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End Try
+        'Dim result As New List(Of Object)() From {InputValidation.ValidateInputString(Guna2TextBox1, DataInput.STRING_DATE)}
 
-        ' Try to parse the text as a DateTime
-        If DateTime.TryParse(enteredDate, parsedDate) Then
-            ' If successful, the input is a valid date
-            If parsedDate < DateTime.Today Then
-                MessageBox.Show("The date cannot be before today's date.", "Invalid Date", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Else
-                ' If the date is valid and not before today, show it
-                MessageBox.Show("Valid Date: " & parsedDate.ToString())
-            End If
-        Else
-            ' If parsing fails, the input is not a valid date
-            MessageBox.Show("Invalid date entered. Please enter a valid date.")
-        End If
+        '    ' Define the text value you want to select
+        '    Dim valueToSelect As String = "dsdsd"
+
+        '    '' Check if the item exists in the ComboBox
+        '    If Not Guna2ComboBox1.Items.Contains(valueToSelect) Then
+        '        ' If the item doesn't exist, add it to the ComboBox
+        '        Guna2ComboBox1.Items.Add(valueToSelect)
+        '    End If
+
+        '    ' Programmatically select the item
+        '    Guna2ComboBox1.SelectedItem = valueToSelect
+
+        '    ' Optionally open the dropdown (if ShowDropDown method is available)
+        '    'Guna2ComboBox1.ShowDropDown() ' This will open the dropdown if applicable
+
+        '    ' Ensure the Text property reflects the selected value
+        '    Guna2ComboBox1.Text = valueToSelect
+
+
+
+
+        '    'Dim valueToSet As String = "dsdsd"
+        '    'Guna2ComboBox1.DataSource = valueToSet
+        '    'Guna2TextBox1.Text = valueToSet
+        '    'ComboBox1.Text = "dsdsd"
+
+
+
+        '    Dim enteredDate As String = Guna2TextBox1.Text
+        '    Dim parsedDate As DateTime
+
+        '    ' Try to parse the text as a DateTime
+        '    If DateTime.TryParse(enteredDate, parsedDate) Then
+        '        ' If successful, the input is a valid date
+        '        If parsedDate < DateTime.Today Then
+        '            MessageBox.Show("The date cannot be before today's date.", "Invalid Date", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        '        Else
+        '            ' If the date is valid and not before today, show it
+        '            MessageBox.Show("Valid Date: " & parsedDate.ToString())
+        '        End If
+        '    Else
+        '        ' If parsing fails, the input is not a valid date
+        '        MessageBox.Show("Invalid date entered. Please enter a valid date.")
+        '    End If
     End Sub
 
     ' Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
