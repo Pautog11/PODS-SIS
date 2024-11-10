@@ -93,6 +93,7 @@ Partial Class Form1
         Me.Guna2ComboBox1.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.Guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.Guna2ComboBox1.ItemHeight = 30
+        Me.Guna2ComboBox1.Items.AddRange(New Object() {"Add"})
         Me.Guna2ComboBox1.Location = New System.Drawing.Point(562, 222)
         Me.Guna2ComboBox1.Name = "Guna2ComboBox1"
         Me.Guna2ComboBox1.Size = New System.Drawing.Size(200, 36)
@@ -100,10 +101,12 @@ Partial Class Form1
         '
         'ComboBox1
         '
+        Me.ComboBox1.Font = New System.Drawing.Font("Segoe UI", 15.0!)
         Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(595, 280)
+        Me.ComboBox1.Items.AddRange(New Object() {"Add"})
+        Me.ComboBox1.Location = New System.Drawing.Point(562, 279)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBox1.Size = New System.Drawing.Size(200, 36)
         Me.ComboBox1.TabIndex = 4
         '
         'Form1

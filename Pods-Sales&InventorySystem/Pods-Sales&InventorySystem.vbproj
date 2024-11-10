@@ -165,6 +165,12 @@
     <Compile Include="Dialogs\ProductDialog.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Dialogs\PullOutProductDialog.Designer.vb">
+      <DependentUpon>PullOutProductDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\PullOutProductDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Dialogs\SubCategoryDialog.Designer.vb">
       <DependentUpon>SubCategoryDialog.vb</DependentUpon>
     </Compile>
@@ -327,6 +333,7 @@
     <Compile Include="src\bases\BaseCategory.vb" />
     <Compile Include="src\bases\BaseDelivery.vb" />
     <Compile Include="src\bases\BaseProduct.vb" />
+    <Compile Include="src\bases\BasePullouts.vb" />
     <Compile Include="src\bases\BaseSubCategory.vb" />
     <Compile Include="src\bases\BaseSupplier.vb" />
     <Compile Include="src\bases\BaseTransaction.vb" />
@@ -361,6 +368,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ProductDialog.resx">
       <DependentUpon>ProductDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\PullOutProductDialog.resx">
+      <DependentUpon>PullOutProductDialog.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\SubCategoryDialog.resx">
       <DependentUpon>SubCategoryDialog.vb</DependentUpon>

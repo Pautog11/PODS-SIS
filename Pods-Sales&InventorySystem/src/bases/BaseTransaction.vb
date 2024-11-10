@@ -121,7 +121,7 @@ Public Class BaseTransaction
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT product_name, quantity, product_price FROM tblproducts WHERE barcode = @barcode", conn)
+            cmd = New SqlCommand("SELECT product_name, quantity, product_price, product_cost FROM tblproducts WHERE barcode = @barcode", conn)
             cmd.Parameters.AddWithValue("@barcode", barcode)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)

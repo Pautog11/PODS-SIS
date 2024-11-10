@@ -52,15 +52,15 @@ Public Class TransactionCartDailog
         Dim result As New List(Of Object()) From {InputValidation.ValidateInputString(QuantityTextBox, DataInput.STRING_INTEGER)}
         Dim is_existing As Boolean = False
         If Not result.Any(Function(item As Object()) Not item(0)) Then
-            'For Each item As DataGridViewRow In _parent.TransactionDataGridView.Rows
-            '    If item.Cells("PRODUCT").Value.ToString() = ProductComboBox.Text Then
-            '        item.Cells("PRICE").Value = Decimal.Parse(PriceTextBox.Text)
-            '        item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)
-            '        item.Cells("TOTAL").Value = Decimal.Parse(PriceTextBox.Text) * CInt(QuantityTextBox.Text)
-            '        is_existing = True
-            '        Exit For
-            '    End If
-            'Next
+            For Each item As DataGridViewRow In _parent.TransactionDataGridView.Rows
+                If item.Cells("PRODUCT").Value.ToString() = ProductComboBox.Text Then
+                    item.Cells("PRICE").Value = Decimal.Parse(PriceTextBox.Text)
+                    item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)
+                    item.Cells("TOTAL").Value = Decimal.Parse(PriceTextBox.Text) * CInt(QuantityTextBox.Text)
+                    is_existing = True
+                    Exit For
+                End If
+            Next
 
             If Not is_existing Then
                 If CInt(StocksTextBox.Text) >= QuantityTextBox.Text Then
@@ -91,7 +91,7 @@ Public Class TransactionCartDailog
                 Dim dt As DataTable = BaseTransaction.SelectProductsByBarcode(BarcodeTextBox.Text)
                 If BarcodeTextBox.Text.Length = 13 AndAlso dt.Rows.Count > 0 Then
                     If Not ProductComboBox.Items.Contains(dt.Rows(0).Item("product_name").ToString()) Then
-                        ProductComboBox.Items.Add(dt.Rows(0).Item("product_name").ToString())
+                        ' ProductComboBox.Items.Add(dt.Rows(0).Item("product_name").ToString())
                     End If
                     ProductComboBox.SelectedItem = dt.Rows(0).Item("product_name").ToString()
                     ProductComboBox.Text = dt.Rows(0).Item("product_name").ToString()

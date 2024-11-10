@@ -126,6 +126,7 @@ Partial Class DeliveryProductDialog
         Me.ExdTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.ExdTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ExdTextBox.Location = New System.Drawing.Point(65, 373)
+        Me.ExdTextBox.MaxLength = 10
         Me.ExdTextBox.Name = "ExdTextBox"
         Me.ExdTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ExdTextBox.PlaceholderText = "Ex: (2021-12-31)"
@@ -147,6 +148,7 @@ Partial Class DeliveryProductDialog
         Me.MfdTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.MfdTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.MfdTextBox.Location = New System.Drawing.Point(65, 331)
+        Me.MfdTextBox.MaxLength = 10
         Me.MfdTextBox.Name = "MfdTextBox"
         Me.MfdTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.MfdTextBox.PlaceholderText = "Ex: (2021-12-31)"
@@ -219,6 +221,7 @@ Partial Class DeliveryProductDialog
         Me.QuantityTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.QuantityTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.QuantityTextBox.Location = New System.Drawing.Point(65, 289)
+        Me.QuantityTextBox.MaxLength = 4
         Me.QuantityTextBox.Name = "QuantityTextBox"
         Me.QuantityTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.QuantityTextBox.PlaceholderText = "Quantity"
@@ -261,6 +264,7 @@ Partial Class DeliveryProductDialog
         Me.BarcodeTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.BarcodeTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.BarcodeTextBox.Location = New System.Drawing.Point(65, 12)
+        Me.BarcodeTextBox.MaxLength = 13
         Me.BarcodeTextBox.Name = "BarcodeTextBox"
         Me.BarcodeTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.BarcodeTextBox.PlaceholderText = "Barcode"

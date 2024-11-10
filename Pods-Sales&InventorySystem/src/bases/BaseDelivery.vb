@@ -227,4 +227,50 @@ Public Class BaseDelivery
             Return 0
         End Try
     End Function
+
+    Public Shared Function FillPulloutProduct(delivery_id As Integer) As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            'cmd = New SqlCommand("SELECT tbldeliveries_items.id, tblproducts.product_name AS name, (tbldeliveries_items.quantity - tblproduct_notif.quantity) as 'quantity'
+            '                                    FROM tbldeliveries_items 
+            'JOIN tblproduct_notif on tbldeliveries_items.id = tblproduct_notif.product_info_id 
+            'JOIN tblproducts on tbldeliveries_items.product_id = tblproducts.id
+            '                                    WHERE tbldeliveries_items.delivery_id = @delivery_id", conn)
+
+
+            ' cmd = New SqlCommand("SELECT tbldeliveries_items.id, tblproducts.product_name AS name,
+            'CASE 
+            '	WHEN tbldeliveries_items.quantity = tblproduct_notif.quantity THEN tbldeliveries_items.quantity
+            '	WHEN tbldeliveries_items.quantity > tblproduct_notif.quantity THEN tbldeliveries_items.quantity - tblproduct_notif.quantity
+            'ELSE 'Unknown Status'
+            'END AS quantity
+            '                                 FROM tbldeliveries_items 
+            'JOIN tblproduct_notif on tbldeliveries_items.id = tblproduct_notif.product_info_id 
+            'JOIN tblproducts on tbldeliveries_items.product_id = tblproducts.id
+            '                                 WHERE tbldeliveries_items.delivery_id = @delivery_id", conn)
+            cmd = New SqlCommand("SELECT tblproducts.id, tblproducts.product_name AS name, mfd, exd, tblproducts.product_cost as cost,
+                                       CASE
+                                           WHEN tbldeliveries_items.quantity = tblproduct_notif.quantity THEN tbldeliveries_items.quantity
+                                           WHEN tbldeliveries_items.quantity > tblproduct_notif.quantity THEN tblproduct_notif.quantity
+                                           ELSE
+				                                CASE
+					                                when tbldeliveries_items.quantity <= tblproducts.quantity then tbldeliveries_items.quantity
+				                                ELSE 0
+				                                END
+                                       END AS quantity
+                                FROM tbldeliveries_items
+                                LEFT JOIN tblproduct_notif ON tbldeliveries_items.id = tblproduct_notif.product_info_id
+                                JOIN tblproducts ON tbldeliveries_items.product_id = tblproducts.id
+                                WHERE tbldeliveries_items.delivery_id =  @delivery_id", conn)
+            cmd.Parameters.AddWithValue("@delivery_id", delivery_id)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
+        End Try
+    End Function
 End Class

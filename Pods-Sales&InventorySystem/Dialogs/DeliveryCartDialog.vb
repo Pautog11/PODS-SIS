@@ -155,7 +155,7 @@ Public Class DeliveryCartDialog
         'MsgBox(_data("id"))
     End Sub
 
-    Private Sub DeliveryDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DeliveryDataGridView.CellContentClick
-        MsgBox("clicked")
-    End Sub
+    'Private Sub DeliveryDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DeliveryDataGridView.CellContentClick
+    '    MsgBox("clicked")
+    'End Sub
 End Class

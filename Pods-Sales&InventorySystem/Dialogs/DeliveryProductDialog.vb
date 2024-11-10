@@ -26,7 +26,7 @@ Public Class DeliveryProductDialog
     Private Sub ProductComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles ProductComboBox.SelectionChangeCommitted
         If ProductComboBox.SelectedIndex <> -1 Then
             Dim info As DataTable = BaseProduct.ProductInfo(ProductComboBox.SelectedItem("ID"))
-            BarcodeTextBox.Text = info.Rows(0).Item("BARCODE").ToString()
+            'BarcodeTextBox.Text = info.Rows(0).Item("BARCODE").ToString()
             CostTextBox.Text = info.Rows(0).Item("COST").ToString()
         End If
 
@@ -141,6 +141,76 @@ Public Class DeliveryProductDialog
         BarcodeTextBox.Text = Nothing
         CostTextBox.Text = Nothing
         QuantityTextBox.Text = Nothing
+    End Sub
+
+    Private Sub BarcodeTextBox_KeyDown(sender As Object, e As KeyEventArgs) Handles BarcodeTextBox.KeyDown
+        'If e.KeyCode = Keys.Enter Then
+        '    Dim res As New List(Of Object()) From {InputValidation.ValidateInputString(BarcodeTextBox, DataInput.STRING_INTEGER)}
+        '    If Not res.Any(Function(item As Object()) Not item(0)) Then
+        '        Dim dt As DataTable = BaseTransaction.SelectProductsByBarcode(BarcodeTextBox.Text)
+        '        If BarcodeTextBox.Text.Length = 13 AndAlso dt.Rows.Count > 0 Then
+        '            If Not ProductComboBox.Items.Contains(dt.Rows(0).Item("product_name").ToString()) Then
+        '                'ProductComboBox.Items.Add(dt.Rows(0).Item("product_name").ToString())
+        '            End If
+        '            ProductComboBox.SelectedItem = dt.Rows(0).Item("product_name").ToString()
+        '            ProductComboBox.Text = dt.Rows(0).Item("product_name").ToString()
+
+        '            'ProductComboBox.Items.Add(dt.Rows(0).Item("product_name").ToString())
+        '            CostTextBox.Text = dt.Rows(0).Item("product_cost").ToString()
+        '            'PriceTextBox.Text = dt.Rows(0).Item("product_price").ToString()
+        '            e.Handled = True
+        '        Else
+        '            MessageBox.Show("No, product found!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        '            BarcodeTextBox.Text = ""
+        '        End If
+        '    Else
+        '        MessageBox.Show("Barcode not valid!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        '        BarcodeTextBox.Text = ""
+        '        Return
+        '    End If
+        'End If
+        If e.KeyCode = Keys.Enter Then
+            ' Validate the input string (barcode)
+            Dim validationResult As New List(Of Object()) From {InputValidation.ValidateInputString(BarcodeTextBox, DataInput.STRING_INTEGER)}
+
+            ' If validation fails, show a warning and exit
+            If validationResult.Any(Function(item As Object()) Not item(0)) Then
+                MessageBox.Show("Barcode not valid!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                BarcodeTextBox.Clear()  ' Clear the barcode input
+                Return
+            End If
+
+            ' Query the product details based on the barcode
+            Dim dt As DataTable = BaseTransaction.SelectProductsByBarcode(BarcodeTextBox.Text)
+
+            ' If barcode is valid and product is found
+            If BarcodeTextBox.Text.Length = 13 AndAlso dt.Rows.Count > 0 Then
+                Dim productName As String = dt.Rows(0).Item("product_name").ToString()
+
+                ' Check if the product name is not already in the combo box and add it if necessary
+                If Not ProductComboBox.Items.Contains(productName) Then
+                    ' ProductComboBox.Items.Add(productName)  ' Uncomment if you need to add the product name to the combo box
+                End If
+
+                ' Set the selected item and text of the combo box
+                ProductComboBox.SelectedItem = productName
+                ProductComboBox.Text = productName
+
+                ' Set the cost text box
+                CostTextBox.Text = dt.Rows(0).Item("product_cost").ToString()
+
+                ' Optionally, set the price text box if required
+                ' PriceTextBox.Text = dt.Rows(0).Item("product_price").ToString()
+
+                ' Mark the event as handled
+                e.Handled = True
+            Else
+                ' If no product found, show an error message
+                MessageBox.Show("No product found!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                BarcodeTextBox.Clear()  ' Clear the barcode input
+            End If
+        End If
+
     End Sub
 
     'Private Sub MfgDate_ValueChanged(sender As Object, e As EventArgs)

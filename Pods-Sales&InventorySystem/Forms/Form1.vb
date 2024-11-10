@@ -14,17 +14,21 @@ Public Class Form1
     End Sub
 
     Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
-        Try
-            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As New SqlCommand("SELECT role FROM tblroles WHERE id = @id", conn)
-            cmd = New SqlCommand("UPDATE tblaccounts SET password = @password WHERE id = @id", conn)
-            cmd.Parameters.AddWithValue("@id", "2035")
-            cmd.Parameters.AddWithValue("@password", BCrypt.Net.BCrypt.HashPassword("sa"))
-            cmd.ExecuteNonQuery()
 
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-        End Try
+        MsgBox(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
+
+        'Dim result As New List(Of Object()) From {InputValidation.ValidateInputString(ComboBox1, DataInput.STRING_INTEGER)}
+        'Try
+        '    Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+        '    Dim cmd As New SqlCommand("SELECT role FROM tblroles WHERE id = @id", conn)
+        '    cmd = New SqlCommand("UPDATE tblaccounts SET password = @password WHERE id = @id", conn)
+        '    cmd.Parameters.AddWithValue("@id", "2035")
+        '    cmd.Parameters.AddWithValue("@password", BCrypt.Net.BCrypt.HashPassword("sa"))
+        '    cmd.ExecuteNonQuery()
+
+        'Catch ex As Exception
+        '    MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        'End Try
         'Dim result As New List(Of Object)() From {InputValidation.ValidateInputString(Guna2TextBox1, DataInput.STRING_DATE)}
 
         '    ' Define the text value you want to select

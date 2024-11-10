@@ -21,6 +21,14 @@ Public Class InputValidation
             '    stringInput = TryCast(control, HandyControl.Controls.PasswordBox).Password
             Case TypeOf control Is ComboBox
                 stringInput = TryCast(control, ComboBox).Text
+                'Case TypeOf control Is Windows.Forms.ComboBox
+                '    stringInput = TryCast(control, Windows.Forms.ComboBox).Text
+                'Case TypeOf control Is Windows.Forms.ComboBox
+                '    Dim comboBox As Windows.Forms.ComboBox = TryCast(control, Windows.Forms.ComboBox)
+                '    If comboBox IsNot Nothing Then
+                '        stringInput = comboBox.Text
+                '    End If
+
         End Select
 
         stringInput = stringInput.Trim()

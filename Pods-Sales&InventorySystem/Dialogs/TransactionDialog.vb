@@ -31,6 +31,7 @@ Public Class TransactionDialog
                 Next
                 TransactionDataGridView.Rows.Add(rowData.ToArray())
             Next
+            AddTransactionButton.Visible = False
         Else
             Reference_number.Text = Helpers.GenInvoiceNumber(InvoiceType.Transaction)
             'Label2.Text = DateAndTime.Now
@@ -98,7 +99,7 @@ Public Class TransactionDialog
             {"vat", VatTextBox.Text},
             {"discount", DiscountTextBox.Text},
             {"total", TotalTextBox.Text},
-            {"date", "2021-12-31"} 'DateTimePicker1.Value.ToString("yyyy/MM/dd")}
+            {"date", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}'DateTimePicker1.Value.ToString("yyyy/MM/dd")}
             }
 
             For Each row As DataGridViewRow In TransactionDataGridView.Rows
