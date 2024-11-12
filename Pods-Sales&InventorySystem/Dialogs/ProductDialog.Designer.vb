@@ -162,6 +162,7 @@ Partial Class ProductDialog
         Me.ManufacturerTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.ManufacturerTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ManufacturerTextBox.Location = New System.Drawing.Point(64, 266)
+        Me.ManufacturerTextBox.MaxLength = 10
         Me.ManufacturerTextBox.Name = "ManufacturerTextBox"
         Me.ManufacturerTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ManufacturerTextBox.PlaceholderText = "Manufacturer"
@@ -183,6 +184,7 @@ Partial Class ProductDialog
         Me.StrengthTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.StrengthTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.StrengthTextBox.Location = New System.Drawing.Point(333, 224)
+        Me.StrengthTextBox.MaxLength = 4
         Me.StrengthTextBox.Name = "StrengthTextBox"
         Me.StrengthTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.StrengthTextBox.PlaceholderText = "Strength"
@@ -204,6 +206,7 @@ Partial Class ProductDialog
         Me.DosageTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DosageTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DosageTextBox.Location = New System.Drawing.Point(64, 224)
+        Me.DosageTextBox.MaxLength = 10
         Me.DosageTextBox.Name = "DosageTextBox"
         Me.DosageTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.DosageTextBox.PlaceholderText = "Dosage Form"
@@ -225,6 +228,7 @@ Partial Class ProductDialog
         Me.SkuTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.SkuTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.SkuTextBox.Location = New System.Drawing.Point(64, 118)
+        Me.SkuTextBox.MaxLength = 13
         Me.SkuTextBox.Name = "SkuTextBox"
         Me.SkuTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.SkuTextBox.PlaceholderText = "Sku"
@@ -246,6 +250,7 @@ Partial Class ProductDialog
         Me.CostTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.CostTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CostTextBox.Location = New System.Drawing.Point(333, 118)
+        Me.CostTextBox.MaxLength = 4
         Me.CostTextBox.Name = "CostTextBox"
         Me.CostTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CostTextBox.PlaceholderText = "Cost"
@@ -284,6 +289,7 @@ Partial Class ProductDialog
         Me.StockLevelTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.StockLevelTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.StockLevelTextBox.Location = New System.Drawing.Point(333, 160)
+        Me.StockLevelTextBox.MaxLength = 3
         Me.StockLevelTextBox.Name = "StockLevelTextBox"
         Me.StockLevelTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.StockLevelTextBox.PlaceholderText = "Stock Level"
@@ -305,6 +311,7 @@ Partial Class ProductDialog
         Me.PriceTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.PriceTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.PriceTextBox.Location = New System.Drawing.Point(333, 76)
+        Me.PriceTextBox.MaxLength = 4
         Me.PriceTextBox.Name = "PriceTextBox"
         Me.PriceTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.PriceTextBox.PlaceholderText = "Price"
@@ -326,6 +333,7 @@ Partial Class ProductDialog
         Me.DescriptionTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DescriptionTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DescriptionTextBox.Location = New System.Drawing.Point(333, 34)
+        Me.DescriptionTextBox.MaxLength = 20
         Me.DescriptionTextBox.Name = "DescriptionTextBox"
         Me.DescriptionTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.DescriptionTextBox.PlaceholderText = "Description"
@@ -347,6 +355,7 @@ Partial Class ProductDialog
         Me.ProductNameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.ProductNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ProductNameTextBox.Location = New System.Drawing.Point(64, 160)
+        Me.ProductNameTextBox.MaxLength = 15
         Me.ProductNameTextBox.Name = "ProductNameTextBox"
         Me.ProductNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ProductNameTextBox.PlaceholderText = "Product Name"

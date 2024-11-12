@@ -289,10 +289,16 @@
     <Compile Include="Panels\Product.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Panels\ReturnAndPullout.Designer.vb">
-      <DependentUpon>ReturnAndPullout.vb</DependentUpon>
+    <Compile Include="Panels\PullOuts.Designer.vb">
+      <DependentUpon>PullOuts.vb</DependentUpon>
     </Compile>
-    <Compile Include="Panels\ReturnAndPullout.vb">
+    <Compile Include="Panels\PullOuts.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panels\Withdrawal.Designer.vb">
+      <DependentUpon>Withdrawal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Withdrawal.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Panels\SubCategory.Designer.vb">
@@ -429,8 +435,11 @@
     <EmbeddedResource Include="Panels\Product.resx">
       <DependentUpon>Product.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Panels\ReturnAndPullout.resx">
-      <DependentUpon>ReturnAndPullout.vb</DependentUpon>
+    <EmbeddedResource Include="Panels\PullOuts.resx">
+      <DependentUpon>PullOuts.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\Withdrawal.resx">
+      <DependentUpon>Withdrawal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\SubCategory.resx">
       <DependentUpon>SubCategory.vb</DependentUpon>

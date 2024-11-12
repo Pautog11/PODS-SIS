@@ -25,6 +25,7 @@ Public Class SubCategoryDialog
             CategoryComboBox.Text = BaseSubCategory.FetchCategory(_data.Item("category_id"))
             SubCategoryNameTextBox.Text = _data.Item("subcategory")
             SubCategoryDescriptionTextBox.Text = _data.Item("description")
+            DeleteSubCategoryButton.Visible = False
         Else
             DeleteSubCategoryButton.Visible = False
         End If

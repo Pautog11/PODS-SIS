@@ -109,7 +109,7 @@ Public Class BaseAccount
     Public Shared Function FillByRoles() As DataTable
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As SqlCommand
+            Dim cmd As SqlCommand = Nothing
             Select Case My.Settings.roleId
                 Case 1
                     cmd = New SqlCommand("SELECT * FROM tblroles WHERE id != 1", conn)

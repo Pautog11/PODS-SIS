@@ -22,12 +22,12 @@ Partial Class DeliveryPulloutCart
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
         Me.SaveButton = New Guna.UI2.WinForms.Guna2Button()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.DateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.TotalPrice = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
@@ -35,7 +35,6 @@ Partial Class DeliveryPulloutCart
         Me.TransactionDeliveryTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2HtmlLabel2 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.SupplierNameComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.SuppliersLabel = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.AccountHeaderLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -48,6 +47,7 @@ Partial Class DeliveryPulloutCart
         Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.DeliveryPulloutDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.SupplierComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.FlowLayoutPanel2.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
@@ -86,12 +86,12 @@ Partial Class DeliveryPulloutCart
         Me.SaveButton.TabIndex = 6
         Me.SaveButton.Text = "Save"
         '
-        'DateTimePicker1
+        'DateTimePicker
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(751, 11)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(200, 20)
-        Me.DateTimePicker1.TabIndex = 3
+        Me.DateTimePicker.Location = New System.Drawing.Point(751, 11)
+        Me.DateTimePicker.Name = "DateTimePicker"
+        Me.DateTimePicker.Size = New System.Drawing.Size(200, 20)
+        Me.DateTimePicker.TabIndex = 3
         '
         'TotalPrice
         '
@@ -113,7 +113,7 @@ Partial Class DeliveryPulloutCart
         '
         'Guna2Panel1
         '
-        Me.Guna2Panel1.Controls.Add(Me.DateTimePicker1)
+        Me.Guna2Panel1.Controls.Add(Me.DateTimePicker)
         Me.Guna2Panel1.Controls.Add(Me.TotalPrice)
         Me.Guna2Panel1.Controls.Add(Me.Guna2HtmlLabel1)
         Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -182,22 +182,6 @@ Partial Class DeliveryPulloutCart
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(610, 44)
         Me.FlowLayoutPanel1.TabIndex = 4
         '
-        'SupplierNameComboBox
-        '
-        Me.SupplierNameComboBox.BackColor = System.Drawing.Color.Transparent
-        Me.SupplierNameComboBox.BorderRadius = 5
-        Me.SupplierNameComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.SupplierNameComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.SupplierNameComboBox.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.SupplierNameComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.SupplierNameComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.SupplierNameComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.SupplierNameComboBox.ItemHeight = 30
-        Me.SupplierNameComboBox.Location = New System.Drawing.Point(92, 5)
-        Me.SupplierNameComboBox.Name = "SupplierNameComboBox"
-        Me.SupplierNameComboBox.Size = New System.Drawing.Size(136, 36)
-        Me.SupplierNameComboBox.TabIndex = 1
-        '
         'SuppliersLabel
         '
         Me.SuppliersLabel.BackColor = System.Drawing.Color.Transparent
@@ -225,7 +209,7 @@ Partial Class DeliveryPulloutCart
         '
         'Panel1
         '
-        Me.Panel1.Controls.Add(Me.SupplierNameComboBox)
+        Me.Panel1.Controls.Add(Me.SupplierComboBox)
         Me.Panel1.Controls.Add(Me.SuppliersLabel)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
@@ -302,25 +286,25 @@ Partial Class DeliveryPulloutCart
         Me.DeliveryPulloutDataGridView.AllowUserToDeleteRows = False
         Me.DeliveryPulloutDataGridView.AllowUserToResizeColumns = False
         Me.DeliveryPulloutDataGridView.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
-        Me.DeliveryPulloutDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DeliveryPulloutDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
+        Me.DeliveryPulloutDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DeliveryPulloutDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.DeliveryPulloutDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.product, Me.MANUFACTURED_DATE, Me.EXPIRY_DATE, Me.price, Me.quantity, Me.total})
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DeliveryPulloutDataGridView.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DeliveryPulloutDataGridView.DefaultCellStyle = DataGridViewCellStyle6
         Me.DeliveryPulloutDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DeliveryPulloutDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DeliveryPulloutDataGridView.Location = New System.Drawing.Point(3, 103)
@@ -353,6 +337,22 @@ Partial Class DeliveryPulloutCart
         Me.DeliveryPulloutDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DeliveryPulloutDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         '
+        'SupplierComboBox
+        '
+        Me.SupplierComboBox.BackColor = System.Drawing.Color.Transparent
+        Me.SupplierComboBox.BorderRadius = 5
+        Me.SupplierComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.SupplierComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.SupplierComboBox.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.SupplierComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.SupplierComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.SupplierComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.SupplierComboBox.ItemHeight = 30
+        Me.SupplierComboBox.Location = New System.Drawing.Point(101, 4)
+        Me.SupplierComboBox.Name = "SupplierComboBox"
+        Me.SupplierComboBox.Size = New System.Drawing.Size(136, 36)
+        Me.SupplierComboBox.TabIndex = 8
+        '
         'DeliveryPulloutCart
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -382,7 +382,7 @@ Partial Class DeliveryPulloutCart
 
     Friend WithEvents FlowLayoutPanel2 As FlowLayoutPanel
     Friend WithEvents SaveButton As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents DateTimePicker1 As DateTimePicker
+    Friend WithEvents DateTimePicker As DateTimePicker
     Friend WithEvents TotalPrice As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Guna2HtmlLabel1 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
@@ -390,7 +390,6 @@ Partial Class DeliveryPulloutCart
     Friend WithEvents TransactionDeliveryTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2HtmlLabel2 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
-    Friend WithEvents SupplierNameComboBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents SuppliersLabel As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents AccountHeaderLayoutPanel As TableLayoutPanel
     Friend WithEvents Panel1 As Panel
@@ -403,4 +402,5 @@ Partial Class DeliveryPulloutCart
     Friend WithEvents ID As DataGridViewTextBoxColumn
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents DeliveryPulloutDataGridView As Guna.UI2.WinForms.Guna2DataGridView
+    Friend WithEvents SupplierComboBox As Guna.UI2.WinForms.Guna2ComboBox
 End Class

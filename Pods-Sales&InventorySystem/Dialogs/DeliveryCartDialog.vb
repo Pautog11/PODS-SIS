@@ -73,7 +73,7 @@ Public Class DeliveryCartDialog
 
     Public Sub UpdateVisualData()
         DeliveryDataGridView.DataSource = _itemSource?.DefaultView
-        Dim total As Integer = 0
+        Dim total As Decimal = 0
         For i = 0 To DeliveryDataGridView?.Rows.Count - 1
             total += DeliveryDataGridView.Rows(i).Cells("TOTAL").Value
         Next
@@ -150,12 +150,7 @@ Public Class DeliveryCartDialog
     End Sub
 
     Private Sub PulloutButton_Click(sender As Object, e As EventArgs) Handles PulloutButton.Click
-        Dim dialog As New DeliveryPulloutCart(data:=_data)
+        Dim dialog As New DeliveryPulloutCart(data:=_data, subject:=_subject, parent:=Me)
         dialog.ShowDialog()
-        'MsgBox(_data("id"))
     End Sub
-
-    'Private Sub DeliveryDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DeliveryDataGridView.CellContentClick
-    '    MsgBox("clicked")
-    'End Sub
 End Class

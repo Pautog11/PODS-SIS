@@ -35,6 +35,7 @@ Public Class ProductDialog
                 StrengthTextBox.Text = If(row("strength") Is DBNull.Value, String.Empty, row("strength").ToString())
                 ManufacturerTextBox.Text = If(row("manufacturer") Is DBNull.Value, String.Empty, row("manufacturer").ToString())
             End If
+            DeleteProductButton.Visible = False
         Else
             DeleteProductButton.Visible = False
         End If
@@ -85,12 +86,6 @@ Public Class ProductDialog
                 {"stock_level", result(5)(1)}
             }
 
-            'Dim item As New Dictionary(Of String, String) From {
-            '    {"dosage", If(String.IsNullOrEmpty(DosageTextBox.Text), Nothing, DosageTextBox.Text)},
-            '    {"strength", If(String.IsNullOrEmpty(StrengthTextBox.Text), Nothing, StrengthTextBox.Text)},
-            '    {"manufacturer", If(String.IsNullOrEmpty(ManufacturerTextBox.Text), Nothing, ManufacturerTextBox.Text)}
-            '}
-
             Dim item As New Dictionary(Of String, String)
 
             ' Check if at least one textbox has data
@@ -106,7 +101,6 @@ Public Class ProductDialog
                     res.Add(InputValidation.ValidateInputString(textboxes(i), types1(i)))
                 Next
 
-                ' If at least one has data, validate and add to the dictionary
                 item("dosage") = res(0)(1) 'If(String.IsNullOrEmpty(DosageTextBox.Text), Nothing, DosageTextBox.Text)
                 item("strength") = res(1)(1) 'If(String.IsNullOrEmpty(StrengthTextBox.Text), Nothing, StrengthTextBox.Text)
                 item("manufacturer") = res(2)(1) 'If(String.IsNullOrEmpty(ManufacturerTextBox.Text), Nothing, ManufacturerTextBox.Text)
@@ -128,10 +122,6 @@ Public Class ProductDialog
                 invoker = New UpdateCommand(baseCommand)
             Else
                 MessageBox.Show("Product exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                'For Each ctrl As Guna.UI2.WinForms.Guna2TextBox In controls
-                '    ctrl.Text = String.Empty
-                'Next
-                'Return
             End If
             invoker?.Execute()
             _subject.NotifyObserver()

@@ -75,7 +75,7 @@ Partial Class DeliveryCartDialog
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(966, 497)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(967, 542)
         Me.TableLayoutPanel1.TabIndex = 2
         '
         'DeliveryDataGridView
@@ -111,7 +111,7 @@ Partial Class DeliveryCartDialog
         Me.DeliveryDataGridView.ReadOnly = True
         Me.DeliveryDataGridView.RowHeadersVisible = False
         Me.DeliveryDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.DeliveryDataGridView.Size = New System.Drawing.Size(960, 341)
+        Me.DeliveryDataGridView.Size = New System.Drawing.Size(961, 386)
         Me.DeliveryDataGridView.TabIndex = 4
         Me.DeliveryDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.DeliveryDataGridView.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -190,7 +190,7 @@ Partial Class DeliveryCartDialog
         Me.AccountHeaderLayoutPanel.RowCount = 1
         Me.AccountHeaderLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.AccountHeaderLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44.0!))
-        Me.AccountHeaderLayoutPanel.Size = New System.Drawing.Size(960, 44)
+        Me.AccountHeaderLayoutPanel.Size = New System.Drawing.Size(961, 44)
         Me.AccountHeaderLayoutPanel.TabIndex = 0
         '
         'Panel1
@@ -239,7 +239,7 @@ Partial Class DeliveryCartDialog
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(351, 0)
         Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(609, 44)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(610, 44)
         Me.FlowLayoutPanel1.TabIndex = 4
         '
         'AddProductButton
@@ -254,7 +254,7 @@ Partial Class DeliveryCartDialog
         Me.AddProductButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AddProductButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddProductButton.ForeColor = System.Drawing.Color.White
-        Me.AddProductButton.Location = New System.Drawing.Point(456, 3)
+        Me.AddProductButton.Location = New System.Drawing.Point(457, 3)
         Me.AddProductButton.Name = "AddProductButton"
         Me.AddProductButton.Size = New System.Drawing.Size(150, 35)
         Me.AddProductButton.TabIndex = 2
@@ -271,7 +271,7 @@ Partial Class DeliveryCartDialog
         Me.TransactionDeliveryTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TransactionDeliveryTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.TransactionDeliveryTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TransactionDeliveryTextBox.Location = New System.Drawing.Point(284, 3)
+        Me.TransactionDeliveryTextBox.Location = New System.Drawing.Point(285, 3)
         Me.TransactionDeliveryTextBox.Name = "TransactionDeliveryTextBox"
         Me.TransactionDeliveryTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.TransactionDeliveryTextBox.PlaceholderText = ""
@@ -283,7 +283,7 @@ Partial Class DeliveryCartDialog
         '
         Me.Guna2HtmlLabel2.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.Guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2HtmlLabel2.Location = New System.Drawing.Point(219, 13)
+        Me.Guna2HtmlLabel2.Location = New System.Drawing.Point(220, 13)
         Me.Guna2HtmlLabel2.Name = "Guna2HtmlLabel2"
         Me.Guna2HtmlLabel2.Size = New System.Drawing.Size(59, 15)
         Me.Guna2HtmlLabel2.TabIndex = 5
@@ -297,7 +297,7 @@ Partial Class DeliveryCartDialog
         Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Guna2Panel1.Location = New System.Drawing.Point(3, 3)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Size = New System.Drawing.Size(960, 44)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(961, 44)
         Me.Guna2Panel1.TabIndex = 6
         '
         'DateTimePicker1
@@ -331,10 +331,10 @@ Partial Class DeliveryCartDialog
         Me.FlowLayoutPanel2.Controls.Add(Me.PulloutButton)
         Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
-        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 447)
+        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 492)
         Me.FlowLayoutPanel2.Margin = New System.Windows.Forms.Padding(0)
         Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(966, 50)
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(967, 50)
         Me.FlowLayoutPanel2.TabIndex = 7
         '
         'SaveButton
@@ -349,7 +349,7 @@ Partial Class DeliveryCartDialog
         Me.SaveButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.SaveButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.SaveButton.ForeColor = System.Drawing.Color.White
-        Me.SaveButton.Location = New System.Drawing.Point(813, 3)
+        Me.SaveButton.Location = New System.Drawing.Point(814, 3)
         Me.SaveButton.Name = "SaveButton"
         Me.SaveButton.Size = New System.Drawing.Size(150, 35)
         Me.SaveButton.TabIndex = 6
@@ -367,7 +367,7 @@ Partial Class DeliveryCartDialog
         Me.PulloutButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.PulloutButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.PulloutButton.ForeColor = System.Drawing.Color.White
-        Me.PulloutButton.Location = New System.Drawing.Point(657, 3)
+        Me.PulloutButton.Location = New System.Drawing.Point(658, 3)
         Me.PulloutButton.Name = "PulloutButton"
         Me.PulloutButton.Size = New System.Drawing.Size(150, 35)
         Me.PulloutButton.TabIndex = 7
@@ -377,7 +377,7 @@ Partial Class DeliveryCartDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(966, 497)
+        Me.ClientSize = New System.Drawing.Size(967, 542)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False

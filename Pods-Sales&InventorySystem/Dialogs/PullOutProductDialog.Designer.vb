@@ -127,7 +127,7 @@ Partial Class PullOutProductDialog
         Me.PullOutProductSaveButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.PullOutProductSaveButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.PullOutProductSaveButton.ForeColor = System.Drawing.Color.White
-        Me.PullOutProductSaveButton.Location = New System.Drawing.Point(136, 339)
+        Me.PullOutProductSaveButton.Location = New System.Drawing.Point(139, 339)
         Me.PullOutProductSaveButton.Name = "PullOutProductSaveButton"
         Me.PullOutProductSaveButton.Size = New System.Drawing.Size(150, 35)
         Me.PullOutProductSaveButton.TabIndex = 16

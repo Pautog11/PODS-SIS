@@ -37,6 +37,7 @@ Public Class AccountDialog
 
             'For Visibility
             UsernameTextBox.Enabled = False
+            DeleteAccountButton.Visible = False
             'End If
         Else
             'Auto select "None" for roles

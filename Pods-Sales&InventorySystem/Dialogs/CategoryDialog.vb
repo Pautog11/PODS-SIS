@@ -19,6 +19,7 @@ Public Class CategoryDialog
             'To populate the data
             CategoryNameTextBox.Text = _data("category")
             DescriptionTextBox.Text = _data("description")
+            DeleteCategoryButton.Visible = False
         Else
             'To disable the delete button
             DeleteCategoryButton.Visible = False

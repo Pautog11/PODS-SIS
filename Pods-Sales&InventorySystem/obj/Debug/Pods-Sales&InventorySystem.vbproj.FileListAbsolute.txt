@@ -129,3 +129,4 @@ C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sa
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.TransactionCartDailog.resources
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.DeliveryPulloutCart.resources
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.PullOutProductDialog.resources
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.PullOuts.resources
