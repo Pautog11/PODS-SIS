@@ -1,11 +1,12 @@
 ﻿Imports System.Windows.Forms
+Imports Pods_Sales_InventorySystem.pods
 
 Public Class DeliveryPulloutCart
     Private ReadOnly _data As Dictionary(Of String, String)
     Public _itemSource As DataTable
     Private ReadOnly _subject As IObservablePanel
     Private ReadOnly _parent As DeliveryCartDialog = Nothing
-
+    Private ReadOnly _tableAdapter As New podsTableAdapters.viewtblsuppliersTableAdapter
 
     Public Sub New(Optional subject As IObservablePanel = Nothing,
                    Optional data As Dictionary(Of String, String) = Nothing,
@@ -23,13 +24,18 @@ Public Class DeliveryPulloutCart
         'SupplierComboBox.DisplayMember = "first_name"
         'SupplierComboBox.ValueMember = "id"
 
+        Dim supplier_data As viewtblsuppliersDataTable = _tableAdapter.GetData()
+        SupplierComboBox.DataSource = supplier_data
+        SupplierComboBox.DisplayMember = "NAME"
+        SupplierComboBox.ValueMember = "ID"
+
         If _data IsNot Nothing Then
             DateTimePicker.MinDate = _data.Item("date")
             DateTimePicker.MaxDate = DateTime.Today
 
             SupplierComboBox.Text = _data.Item("supplier_id")
             TransactionDeliveryTextBox.Text = _data.Item("delivery_number")
-            Guna2HtmlLabel1.Text = _data.Item("id")
+            'Guna2HtmlLabel1.Text = _data.Item("id")
         End If
     End Sub
 
@@ -68,9 +74,10 @@ Public Class DeliveryPulloutCart
         For Each row As DataGridViewRow In DeliveryPulloutDataGridView.Rows
             Dim item As New Dictionary(Of String, String) From {
                 {"product_id", row.Cells(0).Value},
-                {"price", If(row.Cells(4).Value?.ToString(), "0")},
-                {"quantity", If(row.Cells(5).Value?.ToString(), "0")},
-                {"total", If(row.Cells(6).Value?.ToString(), "0")}
+                {"price", If(row.Cells(3).Value?.ToString(), "0")},
+                {"quantity", If(row.Cells(4).Value?.ToString(), "0")},
+                {"total", If(row.Cells(5).Value?.ToString(), "0")},
+                {"delivery_id", data.Item("id")}
             }
             items.Add(item)
         Next

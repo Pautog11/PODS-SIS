@@ -10,10 +10,10 @@
     End Sub
 
     Private Sub Dashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        For i As Integer = 1 To 2
-            NotificationDataGridView.Rows.Add("Your product is running out of stock!")
-            NotificationDataGridView.Rows.Add("Your product will expire in 7 days. Please take action.")
-        Next
+        'For i As Integer = 1 To 2
+        '    NotificationDataGridView.Rows.Add("Your product is running out of stock!")
+        '    NotificationDataGridView.Rows.Add("Your product will expire in 7 days. Please take action.")
+        'Next
     End Sub
 
     Public Sub RegisterObserver(o As IObserverPanel) Implements IObservablePanel.RegisterObserver
@@ -29,6 +29,26 @@
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
         Accounts.Text = BaseAccount.ScalarAccount
         Sales.Text = BaseTransaction.ScalarTransaction
+
+        'Dim critical As DataTable = BaseNotifications.CriticalLevel
+        'For Each row As DataRow In critical.Rows
+        '    Dim rowData As New List(Of Object)()
+        '    For Each column As DataColumn In critical.Columns
+        '        rowData.Add(row(column))
+        '    Next
+        '    NotificationDataGridView.Rows.Add(rowData.ToArray())
+        'Next
+
+        Dim critical As DataTable = BaseNotifications.CriticalLevel
+        NotificationDataGridView.Rows.Clear()
+        For Each row As DataRow In critical.Rows
+            Dim rowData(critical.Columns.Count - 1) As Object
+            For i As Integer = 0 To critical.Columns.Count - 1
+                rowData(i) = row(i)
+            Next
+            NotificationDataGridView.Rows.Add(rowData)
+        Next
+
     End Sub
 
     'Private Sub Guna2ImageButton1_Click(sender As Object, e As EventArgs) Handles Guna2ImageButton1.Click

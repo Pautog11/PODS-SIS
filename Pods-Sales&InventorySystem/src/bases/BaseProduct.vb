@@ -194,18 +194,19 @@ Public Class BaseProduct
             Return New DataTable
         End Try
     End Function
-    'Public Sub Sasa()
-    '    Try
-    '        _sqlCommand = New SqlCommand("INSERT INTO tblproduct_info (product_id, dosage_form, strength, manufacturer) VALUES (@product_id, @dosage_form, @strength, @manufacturer)", _sqlConnection)
-    '        _sqlCommand.Parameters.AddWithValue("@product_id", 2)
-    '        _sqlCommand.Parameters.AddWithValue("@dosage_form", _item.Item("dosage"))
-    '        _sqlCommand.Parameters.AddWithValue("@strength", _item.Item("strength"))
-    '        _sqlCommand.Parameters.AddWithValue("@manufacturer", _item.Item("manufacturer"))
-    '        _sqlCommand.ExecuteNonQuery()
-    '    Catch ex As Exception
-    '        MsgBox(ex.Message)
-    '    End Try
-    'End Sub
+    Public Shared Function ScalarProductId(product_name As String) As Integer
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT id FROM tblproducts WHERE product_name = @product_name", conn)
+            cmd.Parameters.AddWithValue("@product_name", product_name)
+
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
+
     Public Shared Function Fillproductinfo(product_id As String) As DataTable
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance

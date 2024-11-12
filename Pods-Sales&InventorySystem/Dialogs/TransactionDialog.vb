@@ -32,12 +32,13 @@ Public Class TransactionDialog
                 TransactionDataGridView.Rows.Add(rowData.ToArray())
             Next
             AddTransactionButton.Visible = False
+            AddItemTransactionButton.Visible = False
         Else
             Reference_number.Text = Helpers.GenInvoiceNumber(InvoiceType.Transaction)
             'Label2.Text = DateAndTime.Now
             DateLabel.Text = DateAndTime.Now.ToString("F")
         End If
-        TransactionDataGridView.Columns.Item("ID").Visible = False
+        'TransactionDataGridView.Columns.Item("ID").Visible = False
         SubtotalTextBox.Enabled = False
         VatTextBox.Enabled = False
         TotalTextBox.Enabled = False
@@ -77,6 +78,10 @@ Public Class TransactionDialog
             Dim vatAmount As Decimal = subtotal * vat / (1 + vat)
             VatTextBox.Text = vatAmount.ToString("F2")
         End If
+
+        Dim vatable As Decimal
+        vatable = SubtotalTextBox.Text - VatTextBox.Text
+        VatableTextBox.Text = vatable
     End Sub
 
     Private Sub AddItemTransactionButton_Click(sender As Object, e As EventArgs) Handles AddItemTransactionButton.Click
@@ -93,13 +98,13 @@ Public Class TransactionDialog
             Dim baseCommand As ICommandPanel ' = Nothing
             Dim invoker As ICommandInvoker
             Dim data As New Dictionary(Of String, String) From {
-            {"id", If(_data?.Item("id"), String.Empty)},
-            {"transaction_number", Reference_number.Text},
-            {"subtotal", SubtotalTextBox.Text},
-            {"vat", VatTextBox.Text},
-            {"discount", DiscountTextBox.Text},
-            {"total", TotalTextBox.Text},
-            {"date", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}'DateTimePicker1.Value.ToString("yyyy/MM/dd")}
+                {"id", If(_data?.Item("id"), String.Empty)},
+                {"transaction_number", Reference_number.Text},
+                {"subtotal", SubtotalTextBox.Text},
+                {"vat", VatTextBox.Text},
+                {"discount", DiscountTextBox.Text},
+                {"total", TotalTextBox.Text},
+                {"date", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}'DateTimePicker1.Value.ToString("yyyy/MM/dd")}
             }
 
             For Each row As DataGridViewRow In TransactionDataGridView.Rows
@@ -140,6 +145,76 @@ Public Class TransactionDialog
                 TotalTextBox.Text = SubtotalTextBox.Text - discount
             End If
         End If
+    End Sub
+
+    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
+        Using dialog = ReportViewerDialog
+            dialog.ShowDialog()
+        End Using
+    End Sub
+
+    Private Sub TransactionDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles TransactionDataGridView.CellClick
+        MsgBox("How")
+    End Sub
+
+    Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click
+
+    End Sub
+
+    Private Sub BarcodeTextBox_KeyDown(sender As Object, e As KeyEventArgs)
+        'If e.KeyCode = Keys.Enter Then
+        '    'Dim res As New List(Of Object()) From {InputValidation.ValidateInputString(BarcodeTextBox, DataInput.STRING_INTEGER)}
+        '    'If Not res.Any(Function(item As Object()) Not item(0)) Then
+        '    If Guna2ImageButton2.Text IsNot Nothing Then
+        '        Dim dt As DataTable = BaseTransaction.SelectProductsByBarcode(BarcodeTextBox.Text)
+        '        If BarcodeTextBox.Text.Length <= 13 AndAlso dt.Rows.Count > 0 Then
+        '            Dim data As New Dictionary(Of String, String)()
+        '            For Each row As DataRow In dt.Rows
+
+        '                For Each column As DataColumn In dt.Columns
+        '                    ' Access the data in each column for the current row
+        '                    Dim columnName As String = column.ColumnName  ' Get the column name
+        '                    Dim columnValue As String = row(columnName).ToString()  ' Get the value from the current row
+
+        '                    ' Do something with the data (for example, display it)
+        '                    'MessageBox.Show($"Column: {columnName}, Value: {columnValue}")
+        '                    data.Add(columnName, columnValue)
+        '                Next
+        '            Next
+        '            Dim dialog As New TransactionCartDailog(data:=data, )
+        '            dialog.ShowDialog()
+        'Dim productName As String = dt.Rows(0).Item("product_name").ToString()
+        'Dim productSubCategory As String = BaseSubCategory.Fillsubcategorybyid(dt.Rows(0).Item("subcategory_id").ToString())
+
+        '' Check if the product name already exists in the ComboBox
+        'If Not ProductComboBox.Items.Contains(productName) Then
+        '    ' If not, add the product name to the ComboBox
+        '    ProductComboBox.Items.Add(productName)
+        'End If
+        'End If
+
+        'If Not SubcategoryComboBox.Items.Contains(productSubCategory) Then
+        '    ' If not, add the product name to the ComboBox
+        '    SubcategoryComboBox.Items.Add(productSubCategory)
+        'End If
+        'ProductComboBox.SelectedItem = dt.Rows(0).Item("product_name").ToString()
+        'ProductComboBox.Text = dt.Rows(0).Item("product_name").ToString()
+
+        ''ProductComboBox.Items.Add(dt.Rows(0).Item("product_name").ToString())
+        'StocksTextBox.Text = dt.Rows(0).Item("quantity").ToString()
+        'PriceTextBox.Text = dt.Rows(0).Item("product_price").ToString()
+        'e.Handled = True
+        'Else
+        '            MessageBox.Show("No, product found!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        '            BarcodeTextBox.Text = ""
+        '        End If
+        '    Else
+        '        MessageBox.Show("Barcode not valid!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        '        'BarcodeTextBox.Text = ""
+        '        'Return
+        '    End If
+        'End If
+        'BarcodeTextBox.Text = ""
     End Sub
 
     'Private Sub DiscountTextBox_Leave(sender As Object, e As EventArgs) Handles DiscountTextBox.Leave

@@ -111,20 +111,18 @@ Public Class BaseDelivery
                     productid = Convert.ToInt32(_sqlCommand.ExecuteScalar())
                     If productid <= 0 Then
                         Throw New Exception("Failed to add delivery items!")
-                    Else
-                        If item.ContainsKey("mfd") AndAlso Not String.IsNullOrEmpty(item("mfd").ToString()) AndAlso item.ContainsKey("exd") AndAlso Not String.IsNullOrEmpty(item("exd").ToString()) Then
-                            _sqlCommand.Parameters.Clear()
-                            _sqlCommand = New SqlCommand("INSERT INTO tblproduct_notif (product_id, delivery_id, quantity, mfd, exd, product_info_id) VALUES (@product_id, @delivery_id, @quantity, @mfd, @exd, @product_info_id)", _sqlConnection, transaction)
-                            _sqlCommand.Parameters.AddWithValue("@product_id", item("product_id"))
-                            _sqlCommand.Parameters.AddWithValue("@delivery_id", deliveryId)
-                            _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
-                            _sqlCommand.Parameters.AddWithValue("@mfd", item("mfd"))
-                            _sqlCommand.Parameters.AddWithValue("@exd", item("exd"))
-                            _sqlCommand.Parameters.AddWithValue("@product_info_id", productid)
+                    End If
 
-                            If _sqlCommand.ExecuteNonQuery() <= 0 Then
-                                Throw New Exception("Failed to add delivery items with expiry date!")
-                            End If
+                    If item.ContainsKey("exd") AndAlso Not String.IsNullOrEmpty(item("exd").ToString()) Then
+                        _sqlCommand.Parameters.Clear()
+                        _sqlCommand = New SqlCommand("INSERT INTO tblproduct_notif (product_id, delivery_id, quantity, exd, product_info_id) VALUES (@product_id, @delivery_id, @quantity, @exd, @product_info_id)", _sqlConnection, transaction)
+                        _sqlCommand.Parameters.AddWithValue("@product_id", item("product_id"))
+                        _sqlCommand.Parameters.AddWithValue("@delivery_id", deliveryId)
+                        _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
+                        _sqlCommand.Parameters.AddWithValue("@exd", item("exd"))
+                        _sqlCommand.Parameters.AddWithValue("@product_info_id", productid)
+                        If _sqlCommand.ExecuteNonQuery() <= 0 Then
+                            Throw New Exception("Failed to add delivery items with expiry date!")
                         End If
                     End If
 
@@ -171,7 +169,7 @@ Public Class BaseDelivery
             '                                LEFT JOIN tblproduct_notif ON tbldeliveries_items.delivery_id = tblproduct_notif.delivery_id AND tbldeliveries_items.product_id = tblproduct_notif.product_id
             '                                WHERE tbldeliveries_items.delivery_id = @delivery_id;", conn)
 
-            cmd = New SqlCommand("SELECT tbldeliveries_items.id, product_name, ISNULL(mfd, NULL) AS mfd, ISNULL(exd, NULL) AS exd, price, tbldeliveries_items.quantity, total 
+            cmd = New SqlCommand("SELECT tbldeliveries_items.id, product_name, ISNULL(exd, NULL) AS exd, price, tbldeliveries_items.quantity, total 
                                             FROM tbldeliveries_items join tblproducts ON tbldeliveries_items.product_id = tblproducts.id 
                                             LEFT JOIN tblproduct_notif ON tbldeliveries_items.id = tblproduct_notif.product_info_id
                                             WHERE tbldeliveries_items.delivery_id = @delivery_id", conn)
@@ -249,7 +247,7 @@ Public Class BaseDelivery
             'JOIN tblproduct_notif on tbldeliveries_items.id = tblproduct_notif.product_info_id 
             'JOIN tblproducts on tbldeliveries_items.product_id = tblproducts.id
             '                                 WHERE tbldeliveries_items.delivery_id = @delivery_id", conn)
-            cmd = New SqlCommand("SELECT tblproducts.id, tblproducts.product_name AS name, mfd, exd, tblproducts.product_cost as cost,
+            cmd = New SqlCommand("SELECT tblproducts.id, tblproducts.product_name AS name, exd, tblproducts.product_cost as cost,
                                        CASE
                                            WHEN tbldeliveries_items.quantity = tblproduct_notif.quantity THEN tbldeliveries_items.quantity
                                            WHEN tbldeliveries_items.quantity > tblproduct_notif.quantity THEN tblproduct_notif.quantity
@@ -262,7 +260,7 @@ Public Class BaseDelivery
                                 FROM tbldeliveries_items
                                 LEFT JOIN tblproduct_notif ON tbldeliveries_items.id = tblproduct_notif.product_info_id
                                 JOIN tblproducts ON tbldeliveries_items.product_id = tblproducts.id
-                                WHERE tbldeliveries_items.delivery_id =  @delivery_id", conn)
+                                WHERE tbldeliveries_items.delivery_id =  @delivery_id AND tbldeliveries_items.quantity > 0", conn) 'Add and to fetch the product grater than 0
             cmd.Parameters.AddWithValue("@delivery_id", delivery_id)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)

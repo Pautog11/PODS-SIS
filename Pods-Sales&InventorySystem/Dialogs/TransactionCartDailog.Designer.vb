@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class TransactionCartDailog
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class TransactionCartDailog
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.SubcategoryComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.CategoryComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
@@ -29,9 +29,10 @@ Partial Class TransactionCartDailog
         Me.ProductComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.AddTransactionButton = New Guna.UI2.WinForms.Guna2Button()
         Me.StocksTextBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.BarcodeTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
         Me.Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.BarcodeTextBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'SubcategoryComboBox
@@ -166,6 +167,25 @@ Partial Class TransactionCartDailog
         Me.StocksTextBox.Size = New System.Drawing.Size(200, 36)
         Me.StocksTextBox.TabIndex = 17
         '
+        'Guna2Separator1
+        '
+        Me.Guna2Separator1.FillColor = System.Drawing.Color.Gray
+        Me.Guna2Separator1.FillThickness = 2
+        Me.Guna2Separator1.Location = New System.Drawing.Point(26, 60)
+        Me.Guna2Separator1.Name = "Guna2Separator1"
+        Me.Guna2Separator1.Size = New System.Drawing.Size(248, 10)
+        Me.Guna2Separator1.TabIndex = 19
+        '
+        'Guna2HtmlLabel1
+        '
+        Me.Guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2HtmlLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2HtmlLabel1.Location = New System.Drawing.Point(144, 54)
+        Me.Guna2HtmlLabel1.Name = "Guna2HtmlLabel1"
+        Me.Guna2HtmlLabel1.Size = New System.Drawing.Size(15, 18)
+        Me.Guna2HtmlLabel1.TabIndex = 20
+        Me.Guna2HtmlLabel1.Text = "or"
+        '
         'BarcodeTextBox
         '
         Me.BarcodeTextBox.BorderColor = System.Drawing.Color.Gray
@@ -188,30 +208,20 @@ Partial Class TransactionCartDailog
         Me.BarcodeTextBox.Size = New System.Drawing.Size(200, 36)
         Me.BarcodeTextBox.TabIndex = 18
         '
-        'Guna2Separator1
+        'ComboBox1
         '
-        Me.Guna2Separator1.FillColor = System.Drawing.Color.Gray
-        Me.Guna2Separator1.FillThickness = 2
-        Me.Guna2Separator1.Location = New System.Drawing.Point(26, 60)
-        Me.Guna2Separator1.Name = "Guna2Separator1"
-        Me.Guna2Separator1.Size = New System.Drawing.Size(248, 10)
-        Me.Guna2Separator1.TabIndex = 19
-        '
-        'Guna2HtmlLabel1
-        '
-        Me.Guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2HtmlLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2HtmlLabel1.Location = New System.Drawing.Point(144, 54)
-        Me.Guna2HtmlLabel1.Name = "Guna2HtmlLabel1"
-        Me.Guna2HtmlLabel1.Size = New System.Drawing.Size(15, 18)
-        Me.Guna2HtmlLabel1.TabIndex = 20
-        Me.Guna2HtmlLabel1.Text = "or"
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(26, 346)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBox1.TabIndex = 21
         '
         'TransactionCartDailog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(322, 392)
+        Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Guna2HtmlLabel1)
         Me.Controls.Add(Me.Guna2Separator1)
         Me.Controls.Add(Me.BarcodeTextBox)
@@ -241,7 +251,8 @@ Partial Class TransactionCartDailog
     Friend WithEvents ProductComboBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents AddTransactionButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents StocksTextBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents BarcodeTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2Separator1 As Guna.UI2.WinForms.Guna2Separator
     Friend WithEvents Guna2HtmlLabel1 As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents BarcodeTextBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents ComboBox1 As ComboBox
 End Class

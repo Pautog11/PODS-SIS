@@ -139,4 +139,18 @@ Public Class BaseSubCategory
             Return 0
         End Try
     End Function
+
+    Public Shared Function Fillsubcategorybyid(id As Integer) As String
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            'Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblsubcategories WHERE lower(subcategory) = @subcategory", conn)
+            Dim cmd As New SqlCommand("select subcategory from tblsubcategories where id = @id", conn)
+            cmd.Parameters.AddWithValue("@id", id)
+
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
 End Class

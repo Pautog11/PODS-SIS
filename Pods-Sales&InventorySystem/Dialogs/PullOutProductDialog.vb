@@ -33,11 +33,11 @@ Public Class PullOutProductDialog
             CostTextBox.Text = selectedRow("cost").ToString()
 
 
-            If selectedRow("mfd") IsNot DBNull.Value Then
-                MfdTextBox.Text = Convert.ToDateTime(selectedRow("mfd")).ToString("yyyy-MM-dd")
-            Else
-                MfdTextBox.Text = "N/A"
-            End If
+            'If selectedRow("mfd") IsNot DBNull.Value Then
+            '    MfdTextBox.Text = Convert.ToDateTime(selectedRow("mfd")).ToString("yyyy-MM-dd")
+            'Else
+            '    MfdTextBox.Text = "N/A"
+            'End If
 
             If selectedRow("exd") IsNot DBNull.Value Then
                 ExdTextBox.Text = Convert.ToDateTime(selectedRow("exd")).ToString("yyyy-MM-dd")
@@ -64,7 +64,6 @@ Public Class PullOutProductDialog
                 If CInt(StocksTextBox.Text) >= QuantityTextBox.Text Then
                     _parent.DeliveryPulloutDataGridView.Rows.Add({ProductComboBox.SelectedItem("ID"),
                                                  ProductComboBox.Text,
-                                                 MfdTextBox.Text,
                                                  ExdTextBox.Text,
                                                  CostTextBox.Text,
                                                  QuantityTextBox.Text,

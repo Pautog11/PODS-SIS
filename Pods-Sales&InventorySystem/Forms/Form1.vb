@@ -15,7 +15,9 @@ Public Class Form1
 
     Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
 
-        MsgBox(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
+        'ComboBox1.Text = "assas"
+        'Guna2ComboBox1.Items.Add("khkhjkjhkjhkj")
+        'MsgBox(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))
 
         'Dim result As New List(Of Object()) From {InputValidation.ValidateInputString(ComboBox1, DataInput.STRING_INTEGER)}
         'Try

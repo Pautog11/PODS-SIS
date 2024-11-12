@@ -35,10 +35,10 @@ Public Class DeliveryProductDialog
         Guna2ComboBox1.DisplayMember = "sku"
 
         If BaseDelivery.Daterequired(ProductComboBox.SelectedItem("ID")) = 0 Then
-            MfdTextBox.Enabled = False
+            ' MfdTextBox.Enabled = False
             ExdTextBox.Enabled = False
         Else
-            MfdTextBox.Enabled = True
+            'MfdTextBox.Enabled = True
             ExdTextBox.Enabled = True
         End If
     End Sub
@@ -51,7 +51,7 @@ Public Class DeliveryProductDialog
 
         If Not result.Any(Function(item As Object()) Not item(0)) Then
             For Each item As DataGridViewRow In _parent.DeliveryDataGridView.Rows
-                If item.Cells("PRODUCT").Value.ToString() = ProductComboBox.Text AndAlso item.Cells("MANUFACTURED_DATE").Value = MfdTextBox.Text AndAlso item.Cells("EXPIRY_DATE").Value = MfdTextBox.Text Then
+                If item.Cells("PRODUCT").Value.ToString() = ProductComboBox.Text AndAlso item.Cells("EXPIRY_DATE").Value = ExdTextBox.Text Then
                     'item.Cells("MANUFACTURED_DATE").Value = MfdTextBox.Text
                     'item.Cells("EXPIRY_DATE").Value = ExdTextBox.Text
                     'item.Cells("PRICE").Value = Decimal.Parse(CostTextBox.Text)
@@ -67,10 +67,10 @@ Public Class DeliveryProductDialog
             If Not is_existing Then
                 If BaseDelivery.Daterequired(ProductComboBox.SelectedItem("ID")) = 1 Then
                     Dim controls As Object() = {
-                        MfdTextBox, ExdTextBox
+                         ExdTextBox
                     }
                     Dim types As DataInput() = {
-                        DataInput.STRING_DATE, DataInput.STRING_DATE
+                       DataInput.STRING_DATE
                     }
                     Dim dateresult As New List(Of Object())
                     For i = 0 To controls.Count - 1
@@ -78,17 +78,16 @@ Public Class DeliveryProductDialog
                     Next
 
                     If Not dateresult.Any(Function(item As Object()) Not item(0)) Then
-                        If MfdTextBox.Text <= Date.Today AndAlso ExdTextBox.Text >= Date.Today Then
+                        If ExdTextBox.Text >= Date.Today Then
                             _parent.DeliveryDataGridView.Rows.Add({ProductComboBox.SelectedItem("ID"),
                                                     ProductComboBox.Text,
-                                                    MfdTextBox.Text,
                                                     ExdTextBox.Text,
                                                     CostTextBox.Text,
                                                     QuantityTextBox.Text,
                                                     CDec(CostTextBox.Text) * CDec(QuantityTextBox.Text)
                                                     })
                         Else
-                            MessageBox.Show("The Manufactured date must not be after today or the Expiration date must not be before today.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                            MessageBox.Show("The Expiration date must not be before today.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                         End If
                     Else
                         MessageBox.Show("Date is required.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -96,7 +95,6 @@ Public Class DeliveryProductDialog
                 Else
                     _parent.DeliveryDataGridView.Rows.Add({ProductComboBox.SelectedItem("ID"),
                                                     ProductComboBox.Text,
-                                                    MfdTextBox.Text,
                                                     ExdTextBox.Text,
                                                     CostTextBox.Text,
                                                     QuantityTextBox.Text,
