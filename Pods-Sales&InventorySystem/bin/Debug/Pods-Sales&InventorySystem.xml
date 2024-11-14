@@ -42,7 +42,22 @@ Pods-Sales&InventorySystem
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Pods_Sales_InventorySystem.My.Resources.Resources.printer">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Pods_Sales_InventorySystem.My.Resources.Resources.profit">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Pods_Sales_InventorySystem.My.Resources.Resources.sales">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Pods_Sales_InventorySystem.My.Resources.Resources.shopping_cart">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -53,6 +68,11 @@ Pods-Sales&InventorySystem
 </summary>
 </member>
 <member name="P:Pods_Sales_InventorySystem.My.Resources.Resources.user">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Pods_Sales_InventorySystem.My.Resources.Resources.user1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -337,6 +357,11 @@ Represents the strongly named DataTable class.
 Represents the strongly named DataTable class.
 </summary>
 </member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.DT_ProductsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
 <member name="T:Pods_Sales_InventorySystem.DSReport.DT_TransactionRow">
 <summary>
 Represents strongly named DataRow class.
@@ -347,12 +372,22 @@ Represents strongly named DataRow class.
 Represents strongly named DataRow class.
 </summary>
 </member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.DT_ProductsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
 <member name="T:Pods_Sales_InventorySystem.DSReport.DT_TransactionRowChangeEvent">
 <summary>
 Row event argument class
 </summary>
 </member>
 <member name="T:Pods_Sales_InventorySystem.DSReport.DT_TransactionitemsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.DT_ProductsRowChangeEvent">
 <summary>
 Row event argument class
 </summary>

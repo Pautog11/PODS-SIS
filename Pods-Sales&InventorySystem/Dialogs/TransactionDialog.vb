@@ -13,13 +13,18 @@ Public Class TransactionDialog
     End Sub
 
     Private Sub TransactionDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim dt As DataTable = BaseTransaction.FetchDiscounts
+        DiscountComboBox.DataSource = dt.DefaultView
+        DiscountComboBox.DisplayMember = "discount"
+
         If _data IsNot Nothing Then
             Reference_number.Text = _data.Item("transaction_number")
             SubtotalTextBox.Text = _data.Item("subtotal")
             VatTextBox.Text = _data.Item("vat")
-            DiscountTextBox.Text = _data.Item("discount")
+            DiscountComboBox.Text = _data.Item("discount")
             TotalTextBox.Text = _data.Item("total")
             DateLabel.Text = _data.Item("date")
+            CashTextBox.Text = _data.Item("cash")
 
             'Populate items 
             TransactionDataGridView.Rows.Clear()
@@ -42,6 +47,8 @@ Public Class TransactionDialog
         SubtotalTextBox.Enabled = False
         VatTextBox.Enabled = False
         TotalTextBox.Enabled = False
+        VatableTextBox.Enabled = False
+        ChangeTextBox.Enabled = False
     End Sub
 
     Public Sub UpdateVisualData()
@@ -89,76 +96,125 @@ Public Class TransactionDialog
         dialog.ShowDialog()
     End Sub
 
-    Private Sub AddTransactionButton_Click(sender As Object, e As EventArgs) Handles AddTransactionButton.Click
-        'Dim result As New List(Of Object)()
-        'result.Add(InputValidation.ValidateInputString(TransactionDeliveryTextBox, DataInput.STRING_STRING))
+    'Private Sub AddTransactionButton_Click(sender As Object, e As EventArgs) Handles AddTransactionButton.Click
+    '    If TransactionDataGridView.Rows.Count > 0 Then 'AndAlso Not result.Any(Function(item As Object()) Not item(0)) Then
+    '        Dim result As New List(Of Object)() From {InputValidation.ValidateInputString(CashTextBox, DataInput.STRING_INTEGER)}
+    '        If Not result.Any(Function(item As Object()) Not item(0)) Then
+    '            Dim items As New List(Of Dictionary(Of String, String))()
+    '            Dim baseCommand As ICommandPanel ' = Nothing
+    '            Dim invoker As ICommandInvoker
+    '            Dim data As New Dictionary(Of String, String) From {
+    '                {"id", If(_data?.Item("id"), String.Empty)},
+    '                {"transaction_number", Reference_number.Text},
+    '                {"subtotal", SubtotalTextBox.Text},
+    '                {"vat", VatTextBox.Text},
+    '                {"discount", DiscountComboBox.Text},
+    '                {"total", TotalTextBox.Text},
+    '                {"date", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}'DateTimePicker1.Value.ToString("yyyy/MM/dd")}
+    '            }
+    '            For Each row As DataGridViewRow In TransactionDataGridView.Rows
+    '                ' Check if the row is not the new row added automatically at the end of DataGridView
+    '                If Not row.IsNewRow Then
+    '                    Dim item As New Dictionary(Of String, String) From {
+    '                        {"product_id", row.Cells(0).Value},
+    '                        {"price", If(row.Cells(2).Value?.ToString(), "0")},
+    '                        {"quantity", If(row.Cells(3).Value?.ToString(), "0")},
+    '                        {"total", If(row.Cells(4).Value?.ToString(), "0")}
+    '                    }
+    '                    items.Add(item)
+    '                End If
+    '            Next
 
-        If TransactionDataGridView.Rows.Count > 0 Then 'AndAlso Not result.Any(Function(item As Object()) Not item(0)) Then
-            Dim items As New List(Of Dictionary(Of String, String))()
-            Dim baseCommand As ICommandPanel ' = Nothing
-            Dim invoker As ICommandInvoker
-            Dim data As New Dictionary(Of String, String) From {
+    '            baseCommand = New BaseTransaction(data) With {
+    '                .Items = items
+    '            }
+
+    '            invoker = New AddCommand(baseCommand)
+    '            invoker?.Execute()
+    '            Using dialog As New ReportViewerDialog(Reference_number.Text) ' Pass transaction_number to dialog
+    '                dialog.ShowDialog()
+    '            End Using
+    '            Me.Close()
+    '        Else
+    '            MessageBox.Show("Enter a valid amount.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+    '            CashTextBox.Text = ""
+    '        End If
+    '    Else
+    '        MessageBox.Show("No product selected.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+    '    End If
+    '    _subject.NotifyObserver()
+    'End Sub
+    Private Sub AddTransactionButton_Click(sender As Object, e As EventArgs) Handles AddTransactionButton.Click
+        If TransactionDataGridView.Rows.Count > 0 Then
+            Dim result As New List(Of Object)() From {InputValidation.ValidateInputString(CashTextBox, DataInput.STRING_INTEGER)}
+
+            If Not result.Any(Function(item As Object()) Not item(0)) Then
+                Dim items As New List(Of Dictionary(Of String, String))()
+                Dim baseCommand As ICommandPanel
+                Dim invoker As ICommandInvoker
+
+                Dim data As New Dictionary(Of String, String) From {
                 {"id", If(_data?.Item("id"), String.Empty)},
                 {"transaction_number", Reference_number.Text},
                 {"subtotal", SubtotalTextBox.Text},
                 {"vat", VatTextBox.Text},
-                {"discount", DiscountTextBox.Text},
+                {"discount", DiscountComboBox.Text},
                 {"total", TotalTextBox.Text},
-                {"date", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}'DateTimePicker1.Value.ToString("yyyy/MM/dd")}
+                {"date", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")},
+                {"cash", CashTextBox.Text}
             }
 
-            For Each row As DataGridViewRow In TransactionDataGridView.Rows
-                ' Check if the row is not the new row added automatically at the end of DataGridView
-                If Not row.IsNewRow Then
-                    Dim item As New Dictionary(Of String, String) From {
+                For Each row As DataGridViewRow In TransactionDataGridView.Rows
+                    If Not row.IsNewRow Then
+                        Dim item As New Dictionary(Of String, String) From {
                         {"product_id", row.Cells(0).Value},
                         {"price", If(row.Cells(2).Value?.ToString(), "0")},
                         {"quantity", If(row.Cells(3).Value?.ToString(), "0")},
                         {"total", If(row.Cells(4).Value?.ToString(), "0")}
                     }
-                    items.Add(item)
-                End If
-            Next
+                        items.Add(item)
+                    End If
+                Next
 
-            baseCommand = New BaseTransaction(data) With {
+                baseCommand = New BaseTransaction(data) With {
                 .Items = items
             }
 
-            invoker = New AddCommand(baseCommand)
-            invoker?.Execute()
-            _subject.NotifyObserver()
-            Me.Close()
-            'Else
-            '    MessageBox.Show("No product selected!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-        End If
-    End Sub
+                invoker = New AddCommand(baseCommand)
+                invoker?.Execute()
 
-    Private Sub DiscountTextBox_KeyDown(sender As Object, e As KeyEventArgs) Handles DiscountTextBox.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            Dim discount As Decimal
-            If Not Decimal.TryParse(DiscountTextBox.Text, discount) OrElse DiscountTextBox.Text = "" Then
-                MessageBox.Show("Invalid discount format. Please enter a valid number.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                DiscountTextBox.Text = 0
-                TotalTextBox.Text = SubtotalTextBox.Text
+                Using dialog As New ReportViewerDialog(Reference_number.Text) 
+                    dialog.ShowDialog()
+                End Using
+
+                Me.Close()
             Else
-                discount = SubtotalTextBox.Text * (DiscountTextBox.Text / 100)
-                TotalTextBox.Text = SubtotalTextBox.Text - discount
+                MessageBox.Show("Enter a valid amount.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                CashTextBox.Text = ""
             End If
+        Else
+            MessageBox.Show("No product selected.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
+        _subject.NotifyObserver()
     End Sub
 
-    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
-        Using dialog = ReportViewerDialog
-            dialog.ShowDialog()
-        End Using
-    End Sub
+
+    'Private Sub DiscountTextBox_KeyDown(sender As Object, e As KeyEventArgs) Handles DiscountTextBox.KeyDown
+    '    If e.KeyCode = Keys.Enter Then
+    '        Dim discount As Decimal
+    '        If Not Decimal.TryParse(DiscountTextBox.Text, discount) OrElse DiscountTextBox.Text = "" Then
+    '            MessageBox.Show("Invalid discount format. Please enter a valid number.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+    '            DiscountTextBox.Text = 0
+    '            TotalTextBox.Text = SubtotalTextBox.Text
+    '        Else
+    '            discount = SubtotalTextBox.Text * (DiscountTextBox.Text / 100)
+    '            TotalTextBox.Text = SubtotalTextBox.Text - discount
+    '        End If
+    '    End If
+    'End Sub
 
     Private Sub TransactionDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles TransactionDataGridView.CellClick
         MsgBox("How")
-    End Sub
-
-    Private Sub Label5_Click(sender As Object, e As EventArgs) Handles Label5.Click
-
     End Sub
 
     Private Sub BarcodeTextBox_KeyDown(sender As Object, e As KeyEventArgs)
@@ -215,6 +271,39 @@ Public Class TransactionDialog
         '    End If
         'End If
         'BarcodeTextBox.Text = ""
+    End Sub
+
+    Private Sub DiscountComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles DiscountComboBox.SelectionChangeCommitted
+        Dim discount As Decimal
+        'If Not Decimal.TryParse(DiscountComboBox.Text, discount) OrElse DiscountComboBox.Text = "" Then
+        '    '    MessageBox.Show("Invalid discount format. Please enter a valid number.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        '    '    DiscountTextBox.Text = 0
+        '    '    TotalTextBox.Text = SubtotalTextBox.Text
+        '    'Else
+        discount = SubtotalTextBox.Text * (DiscountComboBox.Text / 100)
+            TotalTextBox.Text = SubtotalTextBox.Text - discount
+        'End If
+    End Sub
+
+    Private Sub CashTextBox_TextChanged(sender As Object, e As EventArgs) Handles CashTextBox.TextChanged
+        Dim total As Decimal = 0D
+        Dim cash As Decimal = 0D
+
+        If Not String.IsNullOrWhiteSpace(TotalTextBox.Text) AndAlso Decimal.TryParse(TotalTextBox.Text, total) AndAlso
+           Not String.IsNullOrWhiteSpace(CashTextBox.Text) AndAlso Decimal.TryParse(CashTextBox.Text, cash) Then
+            If cash >= total Then
+                ChangeTextBox.Text = (cash - total).ToString("C2") ' Format as currency
+            Else
+                ChangeTextBox.Text = "Insufficient funds"
+            End If
+        Else
+            ChangeTextBox.Text = ""
+        End If
+    End Sub
+    Private Sub Guna2Button1_Click_1(sender As Object, e As EventArgs) Handles Guna2Button1.Click
+        Using dialog As New ReportViewerDialog(Reference_number.Text)
+            dialog.ShowDialog()
+        End Using
     End Sub
 
     'Private Sub DiscountTextBox_Leave(sender As Object, e As EventArgs) Handles DiscountTextBox.Leave

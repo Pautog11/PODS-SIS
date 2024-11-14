@@ -192,3 +192,4 @@ C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sa
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\RdlCompile.cache
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\RdlCompile.compiled
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Form2.resources
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.ProductVIewer.resources

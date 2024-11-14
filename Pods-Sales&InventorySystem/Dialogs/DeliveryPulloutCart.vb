@@ -36,6 +36,8 @@ Public Class DeliveryPulloutCart
             SupplierComboBox.Text = _data.Item("supplier_id")
             TransactionDeliveryTextBox.Text = _data.Item("delivery_number")
             'Guna2HtmlLabel1.Text = _data.Item("id")
+            TransactionDeliveryTextBox.Enabled = False
+            SupplierComboBox.Enabled = False
         End If
     End Sub
 
@@ -74,6 +76,7 @@ Public Class DeliveryPulloutCart
         For Each row As DataGridViewRow In DeliveryPulloutDataGridView.Rows
             Dim item As New Dictionary(Of String, String) From {
                 {"product_id", row.Cells(0).Value},
+                {"exd", If(row.Cells(2).Value?.ToString(), "0")},
                 {"price", If(row.Cells(3).Value?.ToString(), "0")},
                 {"quantity", If(row.Cells(4).Value?.ToString(), "0")},
                 {"total", If(row.Cells(5).Value?.ToString(), "0")},

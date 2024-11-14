@@ -57,6 +57,12 @@
         modal.ShowDialog(Dashboard) ' Pass the parent form as argument
     End Sub
 
+    Private Sub PrintProductButton_Click(sender As Object, e As EventArgs) Handles PrintProductButton.Click
+        Using dialog = ProductVIewer
+            dialog.ShowDialog()
+        End Using
+    End Sub
+
 
     'Private Sub Guna2ToggleSwitch1_CheckedChanged(sender As Object, e As EventArgs)
     '    If Guna2ToggleSwitch1.Checked Then

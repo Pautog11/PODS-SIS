@@ -16,6 +16,7 @@ Public Class PullOutProductDialog
             ProductComboBox.DataSource = dt.DefaultView
             ProductComboBox.DisplayMember = "name"
         End If
+        'MsgBox(_data.Item("id"))
 
         MfdTextBox.Enabled = False
         ExdTextBox.Enabled = False
@@ -28,16 +29,7 @@ Public Class PullOutProductDialog
         If ProductComboBox.SelectedIndex >= 0 Then
             Dim selectedRow As DataRowView = DirectCast(ProductComboBox.SelectedItem, DataRowView)
             StocksTextBox.Text = selectedRow("quantity").ToString()
-            'MfdTextBox.Text = selectedRow("mfd").ToString("yyyy-MM-dd")
-            'ExdTextBox.Text = selectedRow("exd").ToString("yyyy-MM-dd")
             CostTextBox.Text = selectedRow("cost").ToString()
-
-
-            'If selectedRow("mfd") IsNot DBNull.Value Then
-            '    MfdTextBox.Text = Convert.ToDateTime(selectedRow("mfd")).ToString("yyyy-MM-dd")
-            'Else
-            '    MfdTextBox.Text = "N/A"
-            'End If
 
             If selectedRow("exd") IsNot DBNull.Value Then
                 ExdTextBox.Text = Convert.ToDateTime(selectedRow("exd")).ToString("yyyy-MM-dd")

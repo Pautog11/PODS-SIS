@@ -20,17 +20,16 @@
         'PullOutsGridView.Columns.Item("ID").Visible = False
     End Sub
 
-    Private Sub PullOutsvb_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
     Private Sub PullOutsGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles PullOutsGridView.CellClick
-        Dim dialog As New DeliveryPulloutCart
-        dialog.ShowDialog()
-    End Sub
+        Dim row As DataGridViewRow = PullOutsGridView.Rows(0)
 
-    Private Sub AddPulloutButton_Click(sender As Object, e As EventArgs) Handles AddPulloutButton.Click
-        Dim dialog As New DeliveryPulloutCart
+        Dim data As New Dictionary(Of String, String) From {
+                {"date", row.Cells(4).Value},
+                {"supplier_id", "ljhlsjdhlsk"},
+                {"delivery_number", "ljhlsjdhlsk"}
+        }
+
+        Dim dialog As New DeliveryPulloutCart(data:=data)
         dialog.ShowDialog()
     End Sub
 End Class

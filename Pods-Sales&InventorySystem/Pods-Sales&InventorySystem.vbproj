@@ -357,6 +357,12 @@
     <Compile Include="pods.vb">
       <DependentUpon>pods.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reports\ProductVIewer.Designer.vb">
+      <DependentUpon>ProductVIewer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ProductVIewer.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reports\DSReport.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -449,9 +455,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\Account.resx">
       <DependentUpon>Account.vb</DependentUpon>
@@ -495,6 +501,10 @@
     <EmbeddedResource Include="Panels\Vat.resx">
       <DependentUpon>Vat.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ProductVIewer.resx">
+      <DependentUpon>ProductVIewer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Products.rdlc" />
     <EmbeddedResource Include="Reports\Receipt.rdlc" />
     <EmbeddedResource Include="Reports\ReportViewerDialog.resx">
       <DependentUpon>ReportViewerDialog.vb</DependentUpon>
@@ -575,6 +585,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <None Include="Resources\user1.png" />
+    <None Include="Resources\shopping-cart.png" />
+    <None Include="Resources\sales.png" />
+    <None Include="Resources\printer.png" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

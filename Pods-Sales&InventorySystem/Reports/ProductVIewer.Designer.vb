@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class ReportViewerDialog
+Partial Class ProductVIewer
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -31,22 +31,21 @@ Partial Class ReportViewerDialog
         Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
-        Me.ReportViewer1.Size = New System.Drawing.Size(632, 662)
+        Me.ReportViewer1.Size = New System.Drawing.Size(945, 605)
         Me.ReportViewer1.TabIndex = 0
         '
-        'ReportViewerDialog
+        'ProductVIewer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(632, 662)
+        Me.ClientSize = New System.Drawing.Size(945, 605)
         Me.Controls.Add(Me.ReportViewer1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "ReportViewerDialog"
+        Me.Name = "ProductVIewer"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Receipt View"
         Me.ResumeLayout(False)
 
     End Sub

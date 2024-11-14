@@ -28,7 +28,6 @@ Partial Class PullOuts
         Me.PullOutsGridView = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.AddPulloutButton = New Guna.UI2.WinForms.Guna2Button()
         Me.PulloutSearchTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         CType(Me.PullOutsGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -113,7 +112,6 @@ Partial Class PullOuts
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.PulloutSearchTextBox, 0, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.AddPulloutButton, 1, 0)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 3)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
@@ -121,24 +119,6 @@ Partial Class PullOuts
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(832, 44)
         Me.TableLayoutPanel2.TabIndex = 6
-        '
-        'AddPulloutButton
-        '
-        Me.AddPulloutButton.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.AddPulloutButton.BackColor = System.Drawing.Color.Transparent
-        Me.AddPulloutButton.BorderRadius = 15
-        Me.AddPulloutButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.AddPulloutButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.AddPulloutButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.AddPulloutButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.AddPulloutButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.AddPulloutButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.AddPulloutButton.ForeColor = System.Drawing.Color.White
-        Me.AddPulloutButton.Location = New System.Drawing.Point(679, 4)
-        Me.AddPulloutButton.Name = "AddPulloutButton"
-        Me.AddPulloutButton.Size = New System.Drawing.Size(150, 35)
-        Me.AddPulloutButton.TabIndex = 3
-        Me.AddPulloutButton.Text = "Add"
         '
         'PulloutSearchTextBox
         '
@@ -179,6 +159,5 @@ Partial Class PullOuts
     Friend WithEvents PullOutsGridView As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
-    Friend WithEvents AddPulloutButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents PulloutSearchTextBox As Guna.UI2.WinForms.Guna2TextBox
 End Class

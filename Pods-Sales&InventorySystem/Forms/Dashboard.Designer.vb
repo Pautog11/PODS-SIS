@@ -22,6 +22,7 @@ Partial Class Dashboard
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -62,12 +63,15 @@ Partial Class Dashboard
         Me.Guna2ContextMenuStrip1 = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Product1 = New Pods_Sales_InventorySystem.Product()
         Me.Maintenance1 = New Pods_Sales_InventorySystem.Maintenance()
         Me.Inventory1 = New Pods_Sales_InventorySystem.Inventory()
         Me.AuditTrail1 = New Pods_Sales_InventorySystem.Activity()
         Me.Transaction1 = New Pods_Sales_InventorySystem.Transaction()
         Me.ReturnAndPullout1 = New Pods_Sales_InventorySystem.ReturnAndPullout()
+        Me.DSReport = New Pods_Sales_InventorySystem.DSReport()
+        Me.DTTransactionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DashboardTableLayoutPanel.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.DashboardPanel.SuspendLayout()
@@ -90,6 +94,8 @@ Partial Class Dashboard
         Me.Transaction.SuspendLayout()
         Me.Witdrawal.SuspendLayout()
         Me.Guna2ContextMenuStrip1.SuspendLayout()
+        CType(Me.DSReport, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DTTransactionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DashboardTableLayoutPanel
@@ -315,7 +321,7 @@ Partial Class Dashboard
         Me.NotificationDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
         Me.NotificationDataGridView.Size = New System.Drawing.Size(373, 443)
         Me.NotificationDataGridView.TabIndex = 7
-        Me.NotificationDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
+        Me.NotificationDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.Transparent
         Me.NotificationDataGridView.ThemeStyle.AlternatingRowsStyle.Font = Nothing
         Me.NotificationDataGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty
         Me.NotificationDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty
@@ -357,7 +363,7 @@ Partial Class Dashboard
         '
         'PictureBox3
         '
-        Me.PictureBox3.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.profit
+        Me.PictureBox3.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.sales
         Me.PictureBox3.Location = New System.Drawing.Point(26, 12)
         Me.PictureBox3.Name = "PictureBox3"
         Me.PictureBox3.Size = New System.Drawing.Size(93, 72)
@@ -388,7 +394,7 @@ Partial Class Dashboard
         '
         'PictureBox2
         '
-        Me.PictureBox2.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.cart
+        Me.PictureBox2.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.shopping_cart
         Me.PictureBox2.Location = New System.Drawing.Point(41, 12)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(93, 72)
@@ -419,7 +425,7 @@ Partial Class Dashboard
         '
         'PictureBox1
         '
-        Me.PictureBox1.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.user
+        Me.PictureBox1.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.user1
         Me.PictureBox1.Location = New System.Drawing.Point(26, 12)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(93, 72)
@@ -439,6 +445,7 @@ Partial Class Dashboard
         'Panel4
         '
         Me.TableLayoutPanel1.SetColumnSpan(Me.Panel4, 2)
+        Me.Panel4.Controls.Add(Me.ComboBox1)
         Me.Panel4.Controls.Add(Me.Chart1)
         Me.Panel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel4.Location = New System.Drawing.Point(3, 103)
@@ -448,18 +455,20 @@ Partial Class Dashboard
         '
         'Chart1
         '
+        Me.Chart1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         ChartArea1.Name = "ChartArea1"
         Me.Chart1.ChartAreas.Add(ChartArea1)
-        Me.Chart1.Dock = System.Windows.Forms.DockStyle.Fill
         Legend1.Name = "Legend1"
         Me.Chart1.Legends.Add(Legend1)
-        Me.Chart1.Location = New System.Drawing.Point(0, 0)
+        Me.Chart1.Location = New System.Drawing.Point(0, 33)
         Me.Chart1.Name = "Chart1"
         Series1.ChartArea = "ChartArea1"
         Series1.Legend = "Legend1"
         Series1.Name = "Series1"
         Me.Chart1.Series.Add(Series1)
-        Me.Chart1.Size = New System.Drawing.Size(737, 440)
+        Me.Chart1.Size = New System.Drawing.Size(737, 407)
         Me.Chart1.TabIndex = 0
         Me.Chart1.Text = "Chart1"
         '
@@ -561,6 +570,16 @@ Partial Class Dashboard
         Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
         Me.LogoutToolStripMenuItem.Text = "Logout"
         '
+        'ComboBox1
+        '
+        Me.ComboBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(585, 6)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(149, 21)
+        Me.ComboBox1.TabIndex = 1
+        '
         'Product1
         '
         Me.Product1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -616,6 +635,16 @@ Partial Class Dashboard
         Me.ReturnAndPullout1.Size = New System.Drawing.Size(1124, 554)
         Me.ReturnAndPullout1.TabIndex = 0
         '
+        'DSReport
+        '
+        Me.DSReport.DataSetName = "DSReport"
+        Me.DSReport.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'DTTransactionBindingSource
+        '
+        Me.DTTransactionBindingSource.DataMember = "DT_Transaction"
+        Me.DTTransactionBindingSource.DataSource = Me.DSReport
+        '
         'Dashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -651,6 +680,8 @@ Partial Class Dashboard
         Me.Transaction.ResumeLayout(False)
         Me.Witdrawal.ResumeLayout(False)
         Me.Guna2ContextMenuStrip1.ResumeLayout(False)
+        CType(Me.DSReport, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DTTransactionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -695,4 +726,7 @@ Partial Class Dashboard
     Friend WithEvents Guna2ImageButton1 As Guna.UI2.WinForms.Guna2ImageButton
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Chart1 As DataVisualization.Charting.Chart
+    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents DSReport As DSReport
+    Friend WithEvents DTTransactionBindingSource As BindingSource
 End Class

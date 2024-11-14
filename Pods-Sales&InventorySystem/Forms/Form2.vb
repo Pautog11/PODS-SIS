@@ -4,8 +4,20 @@ Imports System.Data.SqlClient
 Public Class Form2
     ' Declare the AutoCompleteStringCollection
     Private CityList As New AutoCompleteStringCollection()
+    Dim dgv As New DataGridView()
 
     ' Load Event - Set up initial configurations
+
+    'Inherits Form
+
+    'Public Sub New()
+    '    ' Initialize the form and the DataGridView
+    '    Dim dgv As New DataGridView()
+    '    dgv.Dock = DockStyle.Fill
+    '    Me.Controls.Add(dgv)
+    '    Me.Text = "DataGridView Modal"
+    '    Me.Size = New Size(400, 300)
+    'End Sub
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         '' Configure Guna2TextBox for AutoComplete functionality
         'Guna2TextBox1.Text = "Type a product name..."
@@ -15,6 +27,7 @@ Public Class Form2
         'Guna2TextBox1.AutoCompleteMode = AutoCompleteMode.SuggestAppend
         'Guna2TextBox1.AutoCompleteSource = AutoCompleteSource.CustomSource
         'Guna2TextBox1.AutoCompleteCustomSource = CityList
+        'dgv.Show()
     End Sub
 
     ' This method queries the database for matching product names
@@ -57,4 +70,47 @@ Public Class Form2
     Private Sub Form2_Click(sender As Object, e As EventArgs) Handles MyBase.Click
         MsgBox("dsdsdsd")
     End Sub
+
+    Private Sub Guna2TextBox1_Enter(sender As Object, e As EventArgs) Handles Guna2TextBox1.Enter
+        dgv.Show()
+    End Sub
+
+    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
+        ' Create a new instance of the ModalForm
+        'Dim modal As New ModalForm()
+
+        '' Show the form as a modal dialog
+        'modal.ShowDialog()
+    End Sub
+
+
+    Private Sub PopulateDataGridView()
+        ' Create a DataTable with sample data
+        Dim table As New DataTable()
+
+        ' Add columns
+        table.Columns.Add("ID", GetType(Integer))
+        table.Columns.Add("Name", GetType(String))
+        table.Columns.Add("Age", GetType(Integer))
+
+        ' Add rows
+        table.Rows.Add(1, "Alice", 25)
+        table.Rows.Add(2, "Bob", 30)
+        table.Rows.Add(3, "Charlie", 22)
+
+        ' Set the DataGridView's DataSource to the DataTable
+        dgv.DataSource = table
+    End Sub
+
+
+    Public Sub New()
+        ' Initialize the form and the DataGridView
+        dgv.Dock = DockStyle.Fill
+        Me.Controls.Add(dgv)
+        Me.Text = "DataGridView Modal"
+        Me.Size = New Size(400, 300)
+
+        PopulateDataGridView()
+    End Sub
+
 End Class

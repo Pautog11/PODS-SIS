@@ -62,20 +62,37 @@ Public Class BasePullouts
                     _sqlCommand.Parameters.AddWithValue("@product_id", item("product_id"))
                     _sqlCommand.Parameters.AddWithValue("@price", item("price"))
                     _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity") * -1)
-                    _sqlCommand.Parameters.AddWithValue("@total", item("total"))
+                    _sqlCommand.Parameters.AddWithValue("@total", item("total") * -1)
 
                     If _sqlCommand.ExecuteNonQuery() <= 0 Then
                         Throw New Exception("Failed to add delivery items with expiry date!")
                     End If
 
-                    _sqlCommand.Parameters.Clear()
-                    _sqlCommand = New SqlCommand("UPDATE tblproduct_notif SET quantity = quantity - @quantity where delivery_id = @delivery_id", _sqlConnection, transaction)
-                    _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
-                    _sqlCommand.Parameters.AddWithValue("@delivery_id", item("delivery_id"))
 
-                    If _sqlCommand.ExecuteNonQuery() <= 0 Then
-                        Throw New Exception("Failed to add delivery items with expiry date!")
+
+                    'If String.IsNullOrEmpty(item("exd")) AndAlso String.Empty Then
+                    '    '_sqlCommand.Parameters.Clear()
+                    '    '_sqlCommand = New SqlCommand("UPDATE tblproduct_notif SET quantity = quantity - @quantity where delivery_id = @delivery_id", _sqlConnection, transaction)
+                    '    '_sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
+                    '    '_sqlCommand.Parameters.AddWithValue("@delivery_id", item("delivery_id"))
+
+                    '    'If _sqlCommand.ExecuteNonQuery() <= 0 Then
+                    '    '    Throw New Exception("Failed to add delivery items with expiry date!")
+                    '    'End If
+                    '    MsgBox(item("exd"))
+                    'End If
+
+                    If Not item("exd") = "N/A" Then 'String.IsNullOrEmpty(item("exd")) OrElse item("exd").ToString() <> "N/A" Then
+                        _sqlCommand.Parameters.Clear()
+                        _sqlCommand = New SqlCommand("UPDATE tblproduct_notif SET quantity = quantity - @quantity where delivery_id = @delivery_id", _sqlConnection, transaction)
+                        _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
+                        _sqlCommand.Parameters.AddWithValue("@delivery_id", item("delivery_id"))
+
+                        If _sqlCommand.ExecuteNonQuery() <= 0 Then
+                            Throw New Exception("Failed to add delivery items with expiry date!")
+                        End If
                     End If
+                    ' MsgBox(item("exd"))
 
                     _sqlCommand.Parameters.Clear()
                     _sqlCommand = New SqlCommand("UPDATE tblproducts SET quantity = quantity - @quantity where id = @id", _sqlConnection, transaction)

@@ -50,7 +50,7 @@ Public Class DeliveryCartDialog
             For Each row As DataRow In DeliveryItems.Rows
                 Dim rowData As New List(Of Object)()
                 For Each column As DataColumn In DeliveryItems.Columns
-                    If column.ColumnName = "mfd" OrElse column.ColumnName = "exd" Then
+                    If column.ColumnName = "exd" Then
                         If row(column) IsNot DBNull.Value Then
                             Dim dateValue As Date = Convert.ToDateTime(row(column))
                             rowData.Add(dateValue.ToString("yyyy-MM-dd"))

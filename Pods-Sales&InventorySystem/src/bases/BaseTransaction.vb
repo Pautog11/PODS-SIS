@@ -29,7 +29,7 @@ Public Class BaseTransaction
     Public Sub Add() Implements ICommandPanel.Add
         Dim transaction As SqlTransaction = SqlConnectionPods.GetInstance.BeginTransaction()
         Try
-            _sqlCommand = New SqlCommand("INSERT INTO tbltransactions (account_id, transaction_number, subtotal, vat, discount, total, date) VALUES (@account_id, @transaction_number, @subtotal, @vat, @discount, @total, @date); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
+            _sqlCommand = New SqlCommand("INSERT INTO tbltransactions (account_id, transaction_number, subtotal, vat, discount, total, date, cash) VALUES (@account_id, @transaction_number, @subtotal, @vat, @discount, @total, @date, @cash); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
             _sqlCommand.Parameters.AddWithValue("@account_id", My.Settings.myId)
             _sqlCommand.Parameters.AddWithValue("@transaction_number", _data.Item("transaction_number"))
             _sqlCommand.Parameters.AddWithValue("@subtotal", _data.Item("subtotal"))
@@ -37,6 +37,7 @@ Public Class BaseTransaction
             _sqlCommand.Parameters.AddWithValue("@discount", _data.Item("discount"))
             _sqlCommand.Parameters.AddWithValue("@total", _data.Item("total"))
             _sqlCommand.Parameters.AddWithValue("@date", _data.Item("date"))
+            _sqlCommand.Parameters.AddWithValue("@cash", _data.Item("cash"))
 
             Dim TransactionID As Integer = Convert.ToInt32(_sqlCommand.ExecuteScalar())
 
@@ -134,4 +135,82 @@ Public Class BaseTransaction
             Return New DataTable
         End Try
     End Function
+
+    Public Shared Function FetchDiscounts() As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("SELECT * FROM tbldiscounts", conn)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
+        End Try
+    End Function
+
+    Public Shared Function ScalarChartTransaction(timePeriod As String) As DataTable
+        Try
+            ' Get a connection from the connection pool
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance()
+
+            ' Ensure the connection is open
+            If conn.State <> ConnectionState.Open Then
+                conn.Open()
+            End If
+
+            ' SQL query to get the sum of total transactions grouped by time period
+            Dim cmd As New SqlCommand()
+
+            ' Set the connection for the SqlCommand
+            cmd.Connection = conn
+
+            Select Case timePeriod.ToLower()
+                Case "daily"
+                    ' Group by exact date (casting to date without time part)
+                    cmd.CommandText = "SELECT CAST(Date AS DATE) AS TransactionDate, SUM(total) AS Total FROM tbltransactions GROUP BY CAST(Date AS DATE) ORDER BY TransactionDate"
+
+                Case "weekly"
+                    ' Group by week starting from Sunday to Saturday
+                    cmd.CommandText = "SELECT " &
+                                  "DATEADD(WEEK, DATEDIFF(WEEK, 0, Date), 0) AS WeekStart, " &
+                                  "SUM(total) AS Total " &
+                                  "FROM tbltransactions " &
+                                  "WHERE Date >= DATEADD(DAY, -DATEPART(WEEKDAY, GETDATE()) + 1, CAST(GETDATE() AS DATE)) " & _  ' Sunday of current week
+                                  "AND Date < DATEADD(DAY, 7 - DATEPART(WEEKDAY, GETDATE()), CAST(GETDATE() AS DATE)) " & _  ' Saturday of current week
+                                  "GROUP BY DATEADD(WEEK, DATEDIFF(WEEK, 0, Date), 0) " &
+                                  "ORDER BY WeekStart"
+
+                Case "monthly"
+                    ' Group by year and month (YEAR and MONTH)
+                    cmd.CommandText = "SELECT YEAR(Date) AS Year, MONTH(Date) AS Month, SUM(total) AS Total FROM tbltransactions GROUP BY YEAR(Date), MONTH(Date) ORDER BY Year, Month"
+
+                Case "annually"
+                    ' Group by year
+                    cmd.CommandText = "SELECT YEAR(Date) AS Year, SUM(total) AS Total FROM tbltransactions GROUP BY YEAR(Date) ORDER BY Year"
+
+                Case Else
+                    ' Default to daily if invalid selection
+                    cmd.CommandText = "SELECT CAST(Date AS DATE) AS TransactionDate, SUM(total) AS Total FROM tbltransactions GROUP BY CAST(Date AS DATE) ORDER BY TransactionDate"
+            End Select
+
+            ' Create a DataTable to hold the results
+            Dim dt As New DataTable()
+
+            ' Use a data adapter to fill the DataTable with the result set
+            Dim da As New SqlDataAdapter(cmd)
+            da.Fill(dt)
+
+            ' Return the DataTable containing the aggregated data
+            Return dt
+        Catch ex As Exception
+            ' If an error occurs, display a message and return an empty DataTable
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return Nothing
+        End Try
+    End Function
+
+
 End Class
