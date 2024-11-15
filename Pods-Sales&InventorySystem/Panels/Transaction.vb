@@ -17,6 +17,11 @@
         _tableAapter.Fill(_dataTable)
         TransactionDataGridView.DataSource = _dataTable
         TransactionDataGridView.Columns.Item("ID").Visible = False
+        TransactionDataGridView.Columns.Item("VAT").Visible = False
+        TransactionDataGridView.Columns.Item("CASH").Visible = False
+        TransactionDataGridView.Columns.Item("VATABLE").Visible = False
+        TransactionDataGridView.Columns.Item("DISCOUNT").Visible = False
+        TransactionDataGridView.Columns.Item("SUBTOTAL").Visible = False
     End Sub
 
     Private Sub AddDeliveryButton_Click(sender As Object, e As EventArgs) Handles AddTransactionButton.Click
@@ -32,11 +37,12 @@
                 {"id", row.Cells(0).Value.ToString()},
                 {"transaction_number", row.Cells(2).Value.ToString()},
                 {"subtotal", row.Cells(3).Value.ToString()},
-                {"vat", row.Cells(4).Value.ToString()},
-                {"discount", row.Cells(5).Value.ToString()},
-                {"total", row.Cells(6).Value.ToString()},
-                {"date", row.Cells(7).Value.ToString()},
-                {"cash", row.Cells(8).Value.ToString()}
+                {"vatable", row.Cells(4).Value.ToString()},
+                {"vat", row.Cells(5).Value.ToString()},
+                {"discount", row.Cells(6).Value.ToString()},
+                {"total", row.Cells(7).Value.ToString()},
+                {"date", row.Cells(8).Value.ToString()},
+                {"cash", row.Cells(9).Value.ToString()}
             }
             Dim Dialog As New TransactionDialog(data:=data)
             Dialog.ShowDialog()

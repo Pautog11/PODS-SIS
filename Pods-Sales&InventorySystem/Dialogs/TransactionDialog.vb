@@ -25,6 +25,7 @@ Public Class TransactionDialog
             TotalTextBox.Text = _data.Item("total")
             DateLabel.Text = _data.Item("date")
             CashTextBox.Text = _data.Item("cash")
+            VatableTextBox.Text = _data.Item("vatable")
 
             'Populate items 
             TransactionDataGridView.Rows.Clear()
@@ -154,15 +155,16 @@ Public Class TransactionDialog
                 Dim invoker As ICommandInvoker
 
                 Dim data As New Dictionary(Of String, String) From {
-                {"id", If(_data?.Item("id"), String.Empty)},
-                {"transaction_number", Reference_number.Text},
-                {"subtotal", SubtotalTextBox.Text},
-                {"vat", VatTextBox.Text},
-                {"discount", DiscountComboBox.Text},
-                {"total", TotalTextBox.Text},
-                {"date", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")},
-                {"cash", CashTextBox.Text}
-            }
+                     {"id", If(_data?.Item("id"), String.Empty)},
+                    {"transaction_number", Reference_number.Text},
+                    {"subtotal", If(String.IsNullOrEmpty(SubtotalTextBox.Text), 0, SubtotalTextBox.Text)},
+                    {"vatable", If(String.IsNullOrEmpty(VatableTextBox.Text), 0, VatableTextBox.Text)},
+                    {"vat", If(String.IsNullOrEmpty(VatTextBox.Text), 0, VatTextBox.Text)},
+                    {"discount", If(String.IsNullOrEmpty(DiscountComboBox.Text), 0, DiscountComboBox.Text)},
+                    {"total", If(String.IsNullOrEmpty(TotalTextBox.Text), 0, TotalTextBox.Text)},
+                    {"date", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")},
+                    {"cash", If(String.IsNullOrEmpty(CashTextBox.Text), 0, CashTextBox.Text)}
+                }
 
                 For Each row As DataGridViewRow In TransactionDataGridView.Rows
                     If Not row.IsNewRow Then

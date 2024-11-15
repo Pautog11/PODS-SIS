@@ -49,13 +49,13 @@ Partial Class TransactionDialog
         Me.Reference_number = New System.Windows.Forms.Label()
         Me.Guna2Panel3 = New Guna.UI2.WinForms.Guna2Panel()
         Me.TransactionDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.AddTransactionButton = New Guna.UI2.WinForms.Guna2Button()
         Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.product = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.price = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.quantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CASH = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.AddTransactionButton = New Guna.UI2.WinForms.Guna2Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.Guna2Panel2.SuspendLayout()
@@ -76,11 +76,10 @@ Partial Class TransactionDialog
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 4
+        Me.TableLayoutPanel1.RowCount = 3
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(1128, 600)
         Me.TableLayoutPanel1.TabIndex = 0
         '
@@ -153,7 +152,7 @@ Partial Class TransactionDialog
         Me.Guna2Panel2.Location = New System.Drawing.Point(778, 55)
         Me.Guna2Panel2.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel2.Name = "Guna2Panel2"
-        Me.Guna2Panel2.Size = New System.Drawing.Size(350, 470)
+        Me.Guna2Panel2.Size = New System.Drawing.Size(350, 490)
         Me.Guna2Panel2.TabIndex = 13
         '
         'Guna2Button1
@@ -168,7 +167,7 @@ Partial Class TransactionDialog
         Me.Guna2Button1.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.Guna2Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.Guna2Button1.ForeColor = System.Drawing.Color.White
-        Me.Guna2Button1.Location = New System.Drawing.Point(11, 431)
+        Me.Guna2Button1.Location = New System.Drawing.Point(11, 441)
         Me.Guna2Button1.Name = "Guna2Button1"
         Me.Guna2Button1.Size = New System.Drawing.Size(150, 35)
         Me.Guna2Button1.TabIndex = 21
@@ -398,7 +397,7 @@ Partial Class TransactionDialog
         Me.Reference_number.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Reference_number.AutoSize = True
         Me.Reference_number.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Reference_number.Location = New System.Drawing.Point(109, 19)
+        Me.Reference_number.Location = New System.Drawing.Point(109, 29)
         Me.Reference_number.Name = "Reference_number"
         Me.Reference_number.Size = New System.Drawing.Size(51, 15)
         Me.Reference_number.TabIndex = 0
@@ -412,7 +411,7 @@ Partial Class TransactionDialog
         Me.Guna2Panel3.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel3.Name = "Guna2Panel3"
         Me.TableLayoutPanel1.SetRowSpan(Me.Guna2Panel3, 2)
-        Me.Guna2Panel3.Size = New System.Drawing.Size(778, 525)
+        Me.Guna2Panel3.Size = New System.Drawing.Size(778, 545)
         Me.Guna2Panel3.TabIndex = 20
         '
         'TransactionDataGridView
@@ -449,7 +448,7 @@ Partial Class TransactionDialog
         Me.TransactionDataGridView.ReadOnly = True
         Me.TransactionDataGridView.RowHeadersVisible = False
         Me.TransactionDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.TransactionDataGridView.Size = New System.Drawing.Size(778, 525)
+        Me.TransactionDataGridView.Size = New System.Drawing.Size(778, 545)
         Me.TransactionDataGridView.TabIndex = 6
         Me.TransactionDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.TransactionDataGridView.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -472,24 +471,6 @@ Partial Class TransactionDialog
         Me.TransactionDataGridView.ThemeStyle.RowsStyle.Height = 22
         Me.TransactionDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TransactionDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        '
-        'AddTransactionButton
-        '
-        Me.AddTransactionButton.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.AddTransactionButton.BackColor = System.Drawing.Color.Transparent
-        Me.AddTransactionButton.BorderRadius = 15
-        Me.AddTransactionButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.AddTransactionButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.AddTransactionButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.AddTransactionButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.AddTransactionButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.AddTransactionButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.AddTransactionButton.ForeColor = System.Drawing.Color.White
-        Me.AddTransactionButton.Location = New System.Drawing.Point(975, 535)
-        Me.AddTransactionButton.Name = "AddTransactionButton"
-        Me.AddTransactionButton.Size = New System.Drawing.Size(150, 35)
-        Me.AddTransactionButton.TabIndex = 7
-        Me.AddTransactionButton.Text = "Save"
         '
         'ID
         '
@@ -527,6 +508,24 @@ Partial Class TransactionDialog
         Me.CASH.Name = "CASH"
         Me.CASH.ReadOnly = True
         Me.CASH.Visible = False
+        '
+        'AddTransactionButton
+        '
+        Me.AddTransactionButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.AddTransactionButton.BackColor = System.Drawing.Color.Transparent
+        Me.AddTransactionButton.BorderRadius = 15
+        Me.AddTransactionButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.AddTransactionButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.AddTransactionButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.AddTransactionButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.AddTransactionButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.AddTransactionButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.AddTransactionButton.ForeColor = System.Drawing.Color.White
+        Me.AddTransactionButton.Location = New System.Drawing.Point(975, 555)
+        Me.AddTransactionButton.Name = "AddTransactionButton"
+        Me.AddTransactionButton.Size = New System.Drawing.Size(150, 35)
+        Me.AddTransactionButton.TabIndex = 7
+        Me.AddTransactionButton.Text = "Save"
         '
         'TransactionDialog
         '
