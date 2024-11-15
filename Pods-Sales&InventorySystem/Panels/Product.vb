@@ -58,9 +58,9 @@
     End Sub
 
     Private Sub PrintProductButton_Click(sender As Object, e As EventArgs) Handles PrintProductButton.Click
-        Using dialog = ProductVIewer
-            dialog.ShowDialog()
-        End Using
+        'Using dialog = ProductVIewer
+        '    dialog.ShowDialog()
+        'End Using
     End Sub
 
 

@@ -31,16 +31,15 @@ Partial Class ReportViewerDialog
         Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.ReportViewer1.Name = "ReportViewer1"
         Me.ReportViewer1.ServerReport.BearerToken = Nothing
-        Me.ReportViewer1.Size = New System.Drawing.Size(632, 662)
+        Me.ReportViewer1.Size = New System.Drawing.Size(485, 578)
         Me.ReportViewer1.TabIndex = 0
         '
         'ReportViewerDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(632, 662)
+        Me.ClientSize = New System.Drawing.Size(485, 578)
         Me.Controls.Add(Me.ReportViewer1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "ReportViewerDialog"

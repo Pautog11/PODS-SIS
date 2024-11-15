@@ -32,7 +32,6 @@ Partial Class TransactionCartDailog
         Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
         Me.Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.BarcodeTextBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'SubcategoryComboBox
@@ -208,20 +207,11 @@ Partial Class TransactionCartDailog
         Me.BarcodeTextBox.Size = New System.Drawing.Size(200, 36)
         Me.BarcodeTextBox.TabIndex = 18
         '
-        'ComboBox1
-        '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(26, 346)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox1.TabIndex = 21
-        '
         'TransactionCartDailog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(322, 392)
-        Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.Guna2HtmlLabel1)
         Me.Controls.Add(Me.Guna2Separator1)
         Me.Controls.Add(Me.BarcodeTextBox)
@@ -254,5 +244,4 @@ Partial Class TransactionCartDailog
     Friend WithEvents Guna2Separator1 As Guna.UI2.WinForms.Guna2Separator
     Friend WithEvents Guna2HtmlLabel1 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents BarcodeTextBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents ComboBox1 As ComboBox
 End Class

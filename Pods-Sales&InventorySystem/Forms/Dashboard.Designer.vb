@@ -52,26 +52,27 @@ Partial Class Dashboard
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Accounts = New System.Windows.Forms.Label()
         Me.Panel4 = New System.Windows.Forms.Panel()
-        Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Products = New System.Windows.Forms.TabPage()
         Me.Maintenance = New System.Windows.Forms.TabPage()
         Me.Inventory = New System.Windows.Forms.TabPage()
         Me.Activity = New System.Windows.Forms.TabPage()
         Me.Transaction = New System.Windows.Forms.TabPage()
-        Me.Sales_Report = New System.Windows.Forms.TabPage()
+        Me.Reports = New System.Windows.Forms.TabPage()
         Me.Witdrawal = New System.Windows.Forms.TabPage()
         Me.Guna2ContextMenuStrip1 = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.DSReport = New Pods_Sales_InventorySystem.DSReport()
+        Me.DTTransactionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Product1 = New Pods_Sales_InventorySystem.Product()
         Me.Maintenance1 = New Pods_Sales_InventorySystem.Maintenance()
         Me.Inventory1 = New Pods_Sales_InventorySystem.Inventory()
         Me.AuditTrail1 = New Pods_Sales_InventorySystem.Activity()
         Me.Transaction1 = New Pods_Sales_InventorySystem.Transaction()
+        Me.Reports1 = New Pods_Sales_InventorySystem.Reports()
         Me.ReturnAndPullout1 = New Pods_Sales_InventorySystem.ReturnAndPullout()
-        Me.DSReport = New Pods_Sales_InventorySystem.DSReport()
-        Me.DTTransactionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.DashboardTableLayoutPanel.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.DashboardPanel.SuspendLayout()
@@ -86,16 +87,17 @@ Partial Class Dashboard
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel4.SuspendLayout()
-        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Products.SuspendLayout()
         Me.Maintenance.SuspendLayout()
         Me.Inventory.SuspendLayout()
         Me.Activity.SuspendLayout()
         Me.Transaction.SuspendLayout()
+        Me.Reports.SuspendLayout()
         Me.Witdrawal.SuspendLayout()
         Me.Guna2ContextMenuStrip1.SuspendLayout()
         CType(Me.DSReport, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DTTransactionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DashboardTableLayoutPanel
@@ -219,7 +221,7 @@ Partial Class Dashboard
         Me.DashboardTabControl.Controls.Add(Me.Inventory)
         Me.DashboardTabControl.Controls.Add(Me.Activity)
         Me.DashboardTabControl.Controls.Add(Me.Transaction)
-        Me.DashboardTabControl.Controls.Add(Me.Sales_Report)
+        Me.DashboardTabControl.Controls.Add(Me.Reports)
         Me.DashboardTabControl.Controls.Add(Me.Witdrawal)
         Me.DashboardTabControl.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DashboardTabControl.Dock = System.Windows.Forms.DockStyle.Fill
@@ -453,24 +455,15 @@ Partial Class Dashboard
         Me.Panel4.Size = New System.Drawing.Size(737, 440)
         Me.Panel4.TabIndex = 8
         '
-        'Chart1
+        'ComboBox1
         '
-        Me.Chart1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.ComboBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        ChartArea1.Name = "ChartArea1"
-        Me.Chart1.ChartAreas.Add(ChartArea1)
-        Legend1.Name = "Legend1"
-        Me.Chart1.Legends.Add(Legend1)
-        Me.Chart1.Location = New System.Drawing.Point(0, 33)
-        Me.Chart1.Name = "Chart1"
-        Series1.ChartArea = "ChartArea1"
-        Series1.Legend = "Legend1"
-        Series1.Name = "Series1"
-        Me.Chart1.Series.Add(Series1)
-        Me.Chart1.Size = New System.Drawing.Size(737, 407)
-        Me.Chart1.TabIndex = 0
-        Me.Chart1.Text = "Chart1"
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(585, 6)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(149, 21)
+        Me.ComboBox1.TabIndex = 1
         '
         'Products
         '
@@ -524,14 +517,15 @@ Partial Class Dashboard
         Me.Transaction.Text = "Transaction"
         Me.Transaction.UseVisualStyleBackColor = True
         '
-        'Sales_Report
+        'Reports
         '
-        Me.Sales_Report.Location = New System.Drawing.Point(184, 4)
-        Me.Sales_Report.Name = "Sales_Report"
-        Me.Sales_Report.Size = New System.Drawing.Size(1124, 554)
-        Me.Sales_Report.TabIndex = 6
-        Me.Sales_Report.Text = "Sales Report"
-        Me.Sales_Report.UseVisualStyleBackColor = True
+        Me.Reports.Controls.Add(Me.Reports1)
+        Me.Reports.Location = New System.Drawing.Point(184, 4)
+        Me.Reports.Name = "Reports"
+        Me.Reports.Size = New System.Drawing.Size(1124, 554)
+        Me.Reports.TabIndex = 6
+        Me.Reports.Text = "Reports"
+        Me.Reports.UseVisualStyleBackColor = True
         '
         'Witdrawal
         '
@@ -570,15 +564,15 @@ Partial Class Dashboard
         Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
         Me.LogoutToolStripMenuItem.Text = "Logout"
         '
-        'ComboBox1
+        'DSReport
         '
-        Me.ComboBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(585, 6)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(149, 21)
-        Me.ComboBox1.TabIndex = 1
+        Me.DSReport.DataSetName = "DSReport"
+        Me.DSReport.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'DTTransactionBindingSource
+        '
+        Me.DTTransactionBindingSource.DataMember = "DT_Transaction"
+        Me.DTTransactionBindingSource.DataSource = Me.DSReport
         '
         'Product1
         '
@@ -626,6 +620,15 @@ Partial Class Dashboard
         Me.Transaction1.Size = New System.Drawing.Size(1124, 554)
         Me.Transaction1.TabIndex = 0
         '
+        'Reports1
+        '
+        Me.Reports1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Reports1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Reports1.Location = New System.Drawing.Point(0, 0)
+        Me.Reports1.Name = "Reports1"
+        Me.Reports1.Size = New System.Drawing.Size(1124, 554)
+        Me.Reports1.TabIndex = 0
+        '
         'ReturnAndPullout1
         '
         Me.ReturnAndPullout1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -635,15 +638,24 @@ Partial Class Dashboard
         Me.ReturnAndPullout1.Size = New System.Drawing.Size(1124, 554)
         Me.ReturnAndPullout1.TabIndex = 0
         '
-        'DSReport
+        'Chart1
         '
-        Me.DSReport.DataSetName = "DSReport"
-        Me.DSReport.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'DTTransactionBindingSource
-        '
-        Me.DTTransactionBindingSource.DataMember = "DT_Transaction"
-        Me.DTTransactionBindingSource.DataSource = Me.DSReport
+        Me.Chart1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        ChartArea1.Name = "ChartArea1"
+        Me.Chart1.ChartAreas.Add(ChartArea1)
+        Legend1.Name = "Legend1"
+        Me.Chart1.Legends.Add(Legend1)
+        Me.Chart1.Location = New System.Drawing.Point(0, 33)
+        Me.Chart1.Name = "Chart1"
+        Series1.ChartArea = "ChartArea1"
+        Series1.Legend = "Legend1"
+        Series1.Name = "Series1"
+        Me.Chart1.Series.Add(Series1)
+        Me.Chart1.Size = New System.Drawing.Size(737, 407)
+        Me.Chart1.TabIndex = 0
+        Me.Chart1.Text = "Chart1"
         '
         'Dashboard
         '
@@ -672,16 +684,17 @@ Partial Class Dashboard
         Me.Panel1.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel4.ResumeLayout(False)
-        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Products.ResumeLayout(False)
         Me.Maintenance.ResumeLayout(False)
         Me.Inventory.ResumeLayout(False)
         Me.Activity.ResumeLayout(False)
         Me.Transaction.ResumeLayout(False)
+        Me.Reports.ResumeLayout(False)
         Me.Witdrawal.ResumeLayout(False)
         Me.Guna2ContextMenuStrip1.ResumeLayout(False)
         CType(Me.DSReport, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DTTransactionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -717,7 +730,7 @@ Partial Class Dashboard
     Friend WithEvents PictureBox3 As PictureBox
     Friend WithEvents Maintenance1 As Maintenance
     Friend WithEvents Transaction As TabPage
-    Friend WithEvents Sales_Report As TabPage
+    Friend WithEvents Reports As TabPage
     Friend WithEvents Witdrawal As TabPage
     Friend WithEvents NotificationDataGridView As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents total As DataGridViewTextBoxColumn
@@ -725,8 +738,9 @@ Partial Class Dashboard
     Friend WithEvents ReturnAndPullout1 As ReturnAndPullout
     Friend WithEvents Guna2ImageButton1 As Guna.UI2.WinForms.Guna2ImageButton
     Friend WithEvents Panel4 As Panel
-    Friend WithEvents Chart1 As DataVisualization.Charting.Chart
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents DSReport As DSReport
     Friend WithEvents DTTransactionBindingSource As BindingSource
+    Friend WithEvents Reports1 As Reports
+    Friend WithEvents Chart1 As DataVisualization.Charting.Chart
 End Class

@@ -22,17 +22,18 @@ Partial Class Product
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Product))
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.ProductHeaderLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.AddProductButton = New Guna.UI2.WinForms.Guna2Button()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.ProductSearchTextBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.ProductTableLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
-        Me.ProductsDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.ModalImageButton = New Guna.UI2.WinForms.Guna2ImageButton()
         Me.PrintProductButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.ProductTableLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
+        Me.ProductsDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.ProductHeaderLayoutPanel.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.ProductTableLayoutPanel.SuspendLayout()
@@ -108,6 +109,42 @@ Partial Class Product
         Me.ProductSearchTextBox.Size = New System.Drawing.Size(200, 36)
         Me.ProductSearchTextBox.TabIndex = 3
         '
+        'ModalImageButton
+        '
+        Me.ModalImageButton.CheckedState.ImageSize = New System.Drawing.Size(64, 64)
+        Me.ModalImageButton.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ModalImageButton.HoverState.ImageSize = New System.Drawing.Size(30, 30)
+        Me.ModalImageButton.Image = CType(resources.GetObject("ModalImageButton.Image"), System.Drawing.Image)
+        Me.ModalImageButton.ImageOffset = New System.Drawing.Point(0, 0)
+        Me.ModalImageButton.ImageRotate = 0!
+        Me.ModalImageButton.ImageSize = New System.Drawing.Size(30, 30)
+        Me.ModalImageButton.Location = New System.Drawing.Point(206, 0)
+        Me.ModalImageButton.Margin = New System.Windows.Forms.Padding(0)
+        Me.ModalImageButton.Name = "ModalImageButton"
+        Me.ModalImageButton.PressedState.ImageSize = New System.Drawing.Size(30, 30)
+        Me.ModalImageButton.Size = New System.Drawing.Size(40, 42)
+        Me.ModalImageButton.TabIndex = 5
+        '
+        'PrintProductButton
+        '
+        Me.PrintProductButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.PrintProductButton.BackColor = System.Drawing.Color.Transparent
+        Me.PrintProductButton.BorderRadius = 15
+        Me.PrintProductButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.PrintProductButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.PrintProductButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.PrintProductButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.PrintProductButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.PrintProductButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.PrintProductButton.ForeColor = System.Drawing.Color.White
+        Me.PrintProductButton.Location = New System.Drawing.Point(249, 3)
+        Me.PrintProductButton.Name = "PrintProductButton"
+        Me.PrintProductButton.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.PrintProductButton.Size = New System.Drawing.Size(129, 35)
+        Me.PrintProductButton.TabIndex = 6
+        Me.PrintProductButton.Text = "Print"
+        Me.PrintProductButton.Visible = False
+        '
         'ProductTableLayoutPanel
         '
         Me.ProductTableLayoutPanel.ColumnCount = 1
@@ -130,24 +167,24 @@ Partial Class Product
         Me.ProductsDataGridView.AllowUserToDeleteRows = False
         Me.ProductsDataGridView.AllowUserToResizeColumns = False
         Me.ProductsDataGridView.AllowUserToResizeRows = False
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
-        Me.ProductsDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.ProductsDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.ProductsDataGridView.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
+        Me.ProductsDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.ProductsDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.ProductsDataGridView.DefaultCellStyle = DataGridViewCellStyle3
         Me.ProductsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ProductsDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.ProductsDataGridView.Location = New System.Drawing.Point(0, 50)
@@ -180,40 +217,6 @@ Partial Class Product
         Me.ProductsDataGridView.ThemeStyle.RowsStyle.Height = 22
         Me.ProductsDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ProductsDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        '
-        'ModalImageButton
-        '
-        Me.ModalImageButton.CheckedState.ImageSize = New System.Drawing.Size(64, 64)
-        Me.ModalImageButton.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ModalImageButton.HoverState.ImageSize = New System.Drawing.Size(30, 30)
-        Me.ModalImageButton.ImageOffset = New System.Drawing.Point(0, 0)
-        Me.ModalImageButton.ImageRotate = 0!
-        Me.ModalImageButton.ImageSize = New System.Drawing.Size(30, 30)
-        Me.ModalImageButton.Location = New System.Drawing.Point(206, 0)
-        Me.ModalImageButton.Margin = New System.Windows.Forms.Padding(0)
-        Me.ModalImageButton.Name = "ModalImageButton"
-        Me.ModalImageButton.PressedState.ImageSize = New System.Drawing.Size(30, 30)
-        Me.ModalImageButton.Size = New System.Drawing.Size(40, 42)
-        Me.ModalImageButton.TabIndex = 5
-        '
-        'PrintProductButton
-        '
-        Me.PrintProductButton.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.PrintProductButton.BackColor = System.Drawing.Color.Transparent
-        Me.PrintProductButton.BorderRadius = 15
-        Me.PrintProductButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.PrintProductButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.PrintProductButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.PrintProductButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.PrintProductButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.PrintProductButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.PrintProductButton.ForeColor = System.Drawing.Color.White
-        Me.PrintProductButton.Location = New System.Drawing.Point(249, 3)
-        Me.PrintProductButton.Name = "PrintProductButton"
-        Me.PrintProductButton.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.PrintProductButton.Size = New System.Drawing.Size(129, 35)
-        Me.PrintProductButton.TabIndex = 6
-        Me.PrintProductButton.Text = "Print"
         '
         'Product
         '

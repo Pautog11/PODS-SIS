@@ -35,7 +35,8 @@
                 {"vat", row.Cells(4).Value.ToString()},
                 {"discount", row.Cells(5).Value.ToString()},
                 {"total", row.Cells(6).Value.ToString()},
-                {"date", row.Cells(7).Value.ToString()}
+                {"date", row.Cells(7).Value.ToString()},
+                {"cash", row.Cells(8).Value.ToString()}
             }
             Dim Dialog As New TransactionDialog(data:=data)
             Dialog.ShowDialog()

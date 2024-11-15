@@ -31,6 +31,8 @@ Partial Public Class DSReport
     
     Private tableDT_Products As DT_ProductsDataTable
     
+    Private tableDT_Prod As DT_ProdDataTable
+    
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -68,6 +70,9 @@ Partial Public Class DSReport
             End If
             If (Not (ds.Tables("DT_Products")) Is Nothing) Then
                 MyBase.Tables.Add(New DT_ProductsDataTable(ds.Tables("DT_Products")))
+            End If
+            If (Not (ds.Tables("DT_Prod")) Is Nothing) Then
+                MyBase.Tables.Add(New DT_ProdDataTable(ds.Tables("DT_Prod")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -113,6 +118,16 @@ Partial Public Class DSReport
     Public ReadOnly Property DT_Products() As DT_ProductsDataTable
         Get
             Return Me.tableDT_Products
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property DT_Prod() As DT_ProdDataTable
+        Get
+            Return Me.tableDT_Prod
         End Get
     End Property
     
@@ -192,6 +207,9 @@ Partial Public Class DSReport
             If (Not (ds.Tables("DT_Products")) Is Nothing) Then
                 MyBase.Tables.Add(New DT_ProductsDataTable(ds.Tables("DT_Products")))
             End If
+            If (Not (ds.Tables("DT_Prod")) Is Nothing) Then
+                MyBase.Tables.Add(New DT_ProdDataTable(ds.Tables("DT_Prod")))
+            End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
             Me.Namespace = ds.Namespace
@@ -242,6 +260,12 @@ Partial Public Class DSReport
                 Me.tableDT_Products.InitVars
             End If
         End If
+        Me.tableDT_Prod = CType(MyBase.Tables("DT_Prod"),DT_ProdDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableDT_Prod) Is Nothing) Then
+                Me.tableDT_Prod.InitVars
+            End If
+        End If
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -258,6 +282,8 @@ Partial Public Class DSReport
         MyBase.Tables.Add(Me.tableDT_Transactionitems)
         Me.tableDT_Products = New DT_ProductsDataTable()
         MyBase.Tables.Add(Me.tableDT_Products)
+        Me.tableDT_Prod = New DT_ProdDataTable()
+        MyBase.Tables.Add(Me.tableDT_Prod)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -275,6 +301,12 @@ Partial Public Class DSReport
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
     Private Function ShouldSerializeDT_Products() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+    Private Function ShouldSerializeDT_Prod() As Boolean
         Return false
     End Function
     
@@ -345,6 +377,9 @@ Partial Public Class DSReport
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
     Public Delegate Sub DT_ProductsRowChangeEventHandler(ByVal sender As Object, ByVal e As DT_ProductsRowChangeEvent)
     
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+    Public Delegate Sub DT_ProdRowChangeEventHandler(ByVal sender As Object, ByVal e As DT_ProdRowChangeEvent)
+    
     '''<summary>
     '''Represents the strongly named DataTable class.
     '''</summary>
@@ -368,6 +403,8 @@ Partial Public Class DSReport
         Private columnname As Global.System.Data.DataColumn
         
         Private columncash As Global.System.Data.DataColumn
+        
+        Private columnchange As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -469,6 +506,14 @@ Partial Public Class DSReport
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property changeColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnchange
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -505,9 +550,9 @@ Partial Public Class DSReport
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddDT_TransactionRow(ByVal transaction_number As String, ByVal subtotal As String, ByVal vat As String, ByVal discount As String, ByVal total As String, ByVal _date As String, ByVal name As String, ByVal cash As String) As DT_TransactionRow
+        Public Overloads Function AddDT_TransactionRow(ByVal transaction_number As String, ByVal subtotal As String, ByVal vat As String, ByVal discount As String, ByVal total As String, ByVal _date As String, ByVal name As String, ByVal cash As String, ByVal change As String) As DT_TransactionRow
             Dim rowDT_TransactionRow As DT_TransactionRow = CType(Me.NewRow,DT_TransactionRow)
-            Dim columnValuesArray() As Object = New Object() {transaction_number, subtotal, vat, discount, total, _date, name, cash}
+            Dim columnValuesArray() As Object = New Object() {transaction_number, subtotal, vat, discount, total, _date, name, cash, change}
             rowDT_TransactionRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowDT_TransactionRow)
             Return rowDT_TransactionRow
@@ -538,6 +583,7 @@ Partial Public Class DSReport
             Me.columndate = MyBase.Columns("date")
             Me.columnname = MyBase.Columns("name")
             Me.columncash = MyBase.Columns("cash")
+            Me.columnchange = MyBase.Columns("change")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -562,6 +608,8 @@ Partial Public Class DSReport
             MyBase.Columns.Add(Me.columnname)
             Me.columncash = New Global.System.Data.DataColumn("cash", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columncash)
+            Me.columnchange = New Global.System.Data.DataColumn("change", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnchange)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1015,6 +1063,8 @@ Partial Public Class DSReport
         
         Private columnstock_level As Global.System.Data.DataColumn
         
+        Private columnstocks As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -1099,6 +1149,14 @@ Partial Public Class DSReport
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property stocksColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnstocks
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1135,9 +1193,9 @@ Partial Public Class DSReport
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddDT_ProductsRow(ByVal subcategory As String, ByVal sku As String, ByVal barcode As String, ByVal product As String, ByVal price As String, ByVal stock_level As String) As DT_ProductsRow
+        Public Overloads Function AddDT_ProductsRow(ByVal subcategory As String, ByVal sku As String, ByVal barcode As String, ByVal product As String, ByVal price As String, ByVal stock_level As String, ByVal stocks As String) As DT_ProductsRow
             Dim rowDT_ProductsRow As DT_ProductsRow = CType(Me.NewRow,DT_ProductsRow)
-            Dim columnValuesArray() As Object = New Object() {subcategory, sku, barcode, product, price, stock_level}
+            Dim columnValuesArray() As Object = New Object() {subcategory, sku, barcode, product, price, stock_level, stocks}
             rowDT_ProductsRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowDT_ProductsRow)
             Return rowDT_ProductsRow
@@ -1166,6 +1224,7 @@ Partial Public Class DSReport
             Me.columnproduct = MyBase.Columns("product")
             Me.columnprice = MyBase.Columns("price")
             Me.columnstock_level = MyBase.Columns("stock_level")
+            Me.columnstocks = MyBase.Columns("stocks")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1183,6 +1242,8 @@ Partial Public Class DSReport
             MyBase.Columns.Add(Me.columnprice)
             Me.columnstock_level = New Global.System.Data.DataColumn("stock_level", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnstock_level)
+            Me.columnstocks = New Global.System.Data.DataColumn("stocks", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnstocks)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1269,6 +1330,344 @@ Partial Public Class DSReport
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
             attribute2.FixedValue = "DT_ProductsDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class DT_ProdDataTable
+        Inherits Global.System.Data.TypedTableBase(Of DT_ProdRow)
+        
+        Private columnsubcategory As Global.System.Data.DataColumn
+        
+        Private columnsku As Global.System.Data.DataColumn
+        
+        Private columnbarcode As Global.System.Data.DataColumn
+        
+        Private columnproduct_name As Global.System.Data.DataColumn
+        
+        Private columnquantity As Global.System.Data.DataColumn
+        
+        Private columnproduct_price As Global.System.Data.DataColumn
+        
+        Private columnstock_level As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "DT_Prod"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property subcategoryColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnsubcategory
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property skuColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnsku
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property barcodeColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnbarcode
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property product_nameColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnproduct_name
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property quantityColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnquantity
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property product_priceColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnproduct_price
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property stock_levelColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnstock_level
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As DT_ProdRow
+            Get
+                Return CType(Me.Rows(index),DT_ProdRow)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Event DT_ProdRowChanging As DT_ProdRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Event DT_ProdRowChanged As DT_ProdRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Event DT_ProdRowDeleting As DT_ProdRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Event DT_ProdRowDeleted As DT_ProdRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Overloads Sub AddDT_ProdRow(ByVal row As DT_ProdRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Overloads Function AddDT_ProdRow(ByVal subcategory As String, ByVal sku As String, ByVal barcode As String, ByVal product_name As String, ByVal quantity As Integer, ByVal product_price As Decimal, ByVal stock_level As Integer) As DT_ProdRow
+            Dim rowDT_ProdRow As DT_ProdRow = CType(Me.NewRow,DT_ProdRow)
+            Dim columnValuesArray() As Object = New Object() {subcategory, sku, barcode, product_name, quantity, product_price, stock_level}
+            rowDT_ProdRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowDT_ProdRow)
+            Return rowDT_ProdRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As DT_ProdDataTable = CType(MyBase.Clone,DT_ProdDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New DT_ProdDataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columnsubcategory = MyBase.Columns("subcategory")
+            Me.columnsku = MyBase.Columns("sku")
+            Me.columnbarcode = MyBase.Columns("barcode")
+            Me.columnproduct_name = MyBase.Columns("product_name")
+            Me.columnquantity = MyBase.Columns("quantity")
+            Me.columnproduct_price = MyBase.Columns("product_price")
+            Me.columnstock_level = MyBase.Columns("stock_level")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columnsubcategory = New Global.System.Data.DataColumn("subcategory", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnsubcategory)
+            Me.columnsku = New Global.System.Data.DataColumn("sku", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnsku)
+            Me.columnbarcode = New Global.System.Data.DataColumn("barcode", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnbarcode)
+            Me.columnproduct_name = New Global.System.Data.DataColumn("product_name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnproduct_name)
+            Me.columnquantity = New Global.System.Data.DataColumn("quantity", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnquantity)
+            Me.columnproduct_price = New Global.System.Data.DataColumn("product_price", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnproduct_price)
+            Me.columnstock_level = New Global.System.Data.DataColumn("stock_level", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnstock_level)
+            Me.columnsubcategory.AllowDBNull = false
+            Me.columnsubcategory.MaxLength = 50
+            Me.columnsku.MaxLength = 50
+            Me.columnbarcode.MaxLength = 2147483647
+            Me.columnproduct_name.AllowDBNull = false
+            Me.columnproduct_name.MaxLength = 50
+            Me.columnquantity.AllowDBNull = false
+            Me.columnproduct_price.AllowDBNull = false
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function NewDT_ProdRow() As DT_ProdRow
+            Return CType(Me.NewRow,DT_ProdRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New DT_ProdRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(DT_ProdRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.DT_ProdRowChangedEvent) Is Nothing) Then
+                RaiseEvent DT_ProdRowChanged(Me, New DT_ProdRowChangeEvent(CType(e.Row,DT_ProdRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.DT_ProdRowChangingEvent) Is Nothing) Then
+                RaiseEvent DT_ProdRowChanging(Me, New DT_ProdRowChangeEvent(CType(e.Row,DT_ProdRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.DT_ProdRowDeletedEvent) Is Nothing) Then
+                RaiseEvent DT_ProdRowDeleted(Me, New DT_ProdRowChangeEvent(CType(e.Row,DT_ProdRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.DT_ProdRowDeletingEvent) Is Nothing) Then
+                RaiseEvent DT_ProdRowDeleting(Me, New DT_ProdRowChangeEvent(CType(e.Row,DT_ProdRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub RemoveDT_ProdRow(ByVal row As DT_ProdRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As DSReport = New DSReport()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "DT_ProdDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -1449,6 +1848,21 @@ Partial Public Class DSReport
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property change() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDT_Transaction.changeColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'change' in table 'DT_Transaction' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDT_Transaction.changeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function Istransaction_numberNull() As Boolean
             Return Me.IsNull(Me.tableDT_Transaction.transaction_numberColumn)
         End Function
@@ -1541,6 +1955,18 @@ Partial Public Class DSReport
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetcashNull()
             Me(Me.tableDT_Transaction.cashColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IschangeNull() As Boolean
+            Return Me.IsNull(Me.tableDT_Transaction.changeColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetchangeNull()
+            Me(Me.tableDT_Transaction.changeColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -1802,6 +2228,21 @@ Partial Public Class DSReport
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property stocks() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDT_Products.stocksColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'stocks' in table 'DT_Products' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDT_Products.stocksColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IssubcategoryNull() As Boolean
             Return Me.IsNull(Me.tableDT_Products.subcategoryColumn)
         End Function
@@ -1870,6 +2311,159 @@ Partial Public Class DSReport
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub Setstock_levelNull()
             Me(Me.tableDT_Products.stock_levelColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsstocksNull() As Boolean
+            Return Me.IsNull(Me.tableDT_Products.stocksColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetstocksNull()
+            Me(Me.tableDT_Products.stocksColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class DT_ProdRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableDT_Prod As DT_ProdDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableDT_Prod = CType(Me.Table,DT_ProdDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property subcategory() As String
+            Get
+                Return CType(Me(Me.tableDT_Prod.subcategoryColumn),String)
+            End Get
+            Set
+                Me(Me.tableDT_Prod.subcategoryColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property sku() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDT_Prod.skuColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'sku' in table 'DT_Prod' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDT_Prod.skuColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property barcode() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDT_Prod.barcodeColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'barcode' in table 'DT_Prod' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDT_Prod.barcodeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property product_name() As String
+            Get
+                Return CType(Me(Me.tableDT_Prod.product_nameColumn),String)
+            End Get
+            Set
+                Me(Me.tableDT_Prod.product_nameColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property quantity() As Integer
+            Get
+                Return CType(Me(Me.tableDT_Prod.quantityColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableDT_Prod.quantityColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property product_price() As Decimal
+            Get
+                Return CType(Me(Me.tableDT_Prod.product_priceColumn),Decimal)
+            End Get
+            Set
+                Me(Me.tableDT_Prod.product_priceColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property stock_level() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableDT_Prod.stock_levelColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'stock_level' in table 'DT_Prod' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDT_Prod.stock_levelColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsskuNull() As Boolean
+            Return Me.IsNull(Me.tableDT_Prod.skuColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetskuNull()
+            Me(Me.tableDT_Prod.skuColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsbarcodeNull() As Boolean
+            Return Me.IsNull(Me.tableDT_Prod.barcodeColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetbarcodeNull()
+            Me(Me.tableDT_Prod.barcodeColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function Isstock_levelNull() As Boolean
+            Return Me.IsNull(Me.tableDT_Prod.stock_levelColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub Setstock_levelNull()
+            Me(Me.tableDT_Prod.stock_levelColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -1967,6 +2561,42 @@ Partial Public Class DSReport
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public ReadOnly Property Row() As DT_ProductsRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+    Public Class DT_ProdRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As DT_ProdRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub New(ByVal row As DT_ProdRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property Row() As DT_ProdRow
             Get
                 Return Me.eventRow
             End Get

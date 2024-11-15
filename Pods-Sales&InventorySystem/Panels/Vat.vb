@@ -18,4 +18,18 @@
         VatDataGridView.DataSource = _dataTable
         VatDataGridView.Columns.Item("ID").Visible = False
     End Sub
+
+    Private Sub VatDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles VatDataGridView.CellClick
+        'Using dialog As New VatDialog()
+        If VatDataGridView.SelectedRows.Count > 0 Then
+            Dim row As DataGridViewRow = VatDataGridView.SelectedRows(0)
+            Dim data As New Dictionary(Of String, String) From {
+                {"id", If(row.Cells(0).Value?.ToString(), String.Empty)},
+                {"vat", If(row.Cells(1).Value?.ToString(), String.Empty)}
+            }
+            Dim dialog As New VatDialog(data:=data)
+            dialog.ShowDialog()
+            'MsgBox(row.Cells(1).Value?.ToString())
+        End If
+    End Sub
 End Class

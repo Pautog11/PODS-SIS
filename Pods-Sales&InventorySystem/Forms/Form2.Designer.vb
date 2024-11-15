@@ -24,6 +24,9 @@ Partial Class Form2
     Private Sub InitializeComponent()
         Me.Guna2TextBox1 = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
+        Me.ElementHost1 = New System.Windows.Forms.Integration.ElementHost()
+        Me.CartesianChart1 = New LiveCharts.Wpf.CartesianChart()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'Guna2TextBox1
@@ -59,11 +62,30 @@ Partial Class Form2
         Me.Guna2Button1.TabIndex = 1
         Me.Guna2Button1.Text = "Guna2Button1"
         '
+        'ElementHost1
+        '
+        Me.ElementHost1.Location = New System.Drawing.Point(82, 142)
+        Me.ElementHost1.Name = "ElementHost1"
+        Me.ElementHost1.Size = New System.Drawing.Size(579, 236)
+        Me.ElementHost1.TabIndex = 2
+        Me.ElementHost1.Text = "ElementHost1"
+        Me.ElementHost1.Child = Me.CartesianChart1
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(329, 88)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBox1.TabIndex = 3
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.ElementHost1)
         Me.Controls.Add(Me.Guna2Button1)
         Me.Controls.Add(Me.Guna2TextBox1)
         Me.Name = "Form2"
@@ -74,4 +96,7 @@ Partial Class Form2
 
     Friend WithEvents Guna2TextBox1 As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents ElementHost1 As Integration.ElementHost
+    Friend CartesianChart1 As LiveCharts.Wpf.CartesianChart
+    Friend WithEvents ComboBox1 As ComboBox
 End Class

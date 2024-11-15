@@ -22,14 +22,13 @@
 
     Private Sub PullOutsGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles PullOutsGridView.CellClick
         Dim row As DataGridViewRow = PullOutsGridView.Rows(0)
-
         Dim data As New Dictionary(Of String, String) From {
-                {"date", row.Cells(4).Value},
-                {"supplier_id", "ljhlsjdhlsk"},
-                {"delivery_number", "ljhlsjdhlsk"}
+                {"id", row.Cells(0).Value},
+                {"delivery_number", row.Cells(2).Value},
+                {"total", row.Cells(3).Value},
+                {"date", row.Cells(4).Value}
         }
-
-        Dim dialog As New DeliveryPulloutCart(data:=data)
+        Dim dialog As New DeliveryPullOutCartView(data:=data)
         dialog.ShowDialog()
     End Sub
 End Class

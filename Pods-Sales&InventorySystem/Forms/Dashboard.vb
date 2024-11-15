@@ -49,8 +49,24 @@ Public Class Dashboard
         '    NotificationDataGridView.Rows.Add(rowData.ToArray())
         'Next
 
+        'Dim expiry As DataTable = BaseNotifications.Expiry
+        'Dim critical As DataTable = BaseNotifications.CriticalLevel
+        'NotificationDataGridView.Rows.Clear()
+        'For Each row As DataRow In critical.Rows
+        '    Dim rowData(critical.Columns.Count - 1) As Object
+        '    For i As Integer = 0 To critical.Columns.Count - 1
+        '        rowData(i) = row(i)
+        '    Next
+        '    NotificationDataGridView.Rows.Add(rowData)
+        'Next
+
+        Dim expiry As DataTable = BaseNotifications.Expiry
         Dim critical As DataTable = BaseNotifications.CriticalLevel
+
+        ' Clear the existing rows in the DataGridView
         NotificationDataGridView.Rows.Clear()
+
+        ' Add rows from the "critical" DataTable
         For Each row As DataRow In critical.Rows
             Dim rowData(critical.Columns.Count - 1) As Object
             For i As Integer = 0 To critical.Columns.Count - 1
@@ -58,6 +74,16 @@ Public Class Dashboard
             Next
             NotificationDataGridView.Rows.Add(rowData)
         Next
+
+        ' Add rows from the "expiry" DataTable
+        For Each row As DataRow In expiry.Rows
+            Dim rowData(expiry.Columns.Count - 1) As Object
+            For i As Integer = 0 To expiry.Columns.Count - 1
+                rowData(i) = row(i)
+            Next
+            NotificationDataGridView.Rows.Add(rowData)
+        Next
+
 
     End Sub
 

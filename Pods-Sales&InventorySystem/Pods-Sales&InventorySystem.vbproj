@@ -72,6 +72,15 @@
     <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
     </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.WinForms, Version=0.9.7.1, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.WinForms.0.9.7.1\lib\net45\LiveCharts.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
@@ -177,6 +186,12 @@
     <Compile Include="Dialogs\DeliveryPulloutCart.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Dialogs\DeliveryPullOutCartView.Designer.vb">
+      <DependentUpon>DeliveryPullOutCartView.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\DeliveryPullOutCartView.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Dialogs\ProductDialog.Designer.vb">
       <DependentUpon>ProductDialog.vb</DependentUpon>
     </Compile>
@@ -211,6 +226,12 @@
       <DependentUpon>TransactionDialog.vb</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\TransactionDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\VatDialog.Designer.vb">
+      <DependentUpon>VatDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\VatDialog.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Dashboard.Designer.vb">
@@ -295,6 +316,12 @@
     <Compile Include="Panels\Delivery.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Panels\Discount.Designer.vb">
+      <DependentUpon>Discount.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Discount.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Panels\Inventory.Designer.vb">
       <DependentUpon>Inventory.vb</DependentUpon>
     </Compile>
@@ -317,6 +344,18 @@
       <DependentUpon>PullOuts.vb</DependentUpon>
     </Compile>
     <Compile Include="Panels\PullOuts.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panels\Reports.Designer.vb">
+      <DependentUpon>Reports.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Reports.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panels\SalesReport.Designer.vb">
+      <DependentUpon>SalesReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\SalesReport.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Panels\Withdrawal.Designer.vb">
@@ -417,6 +456,9 @@
     <EmbeddedResource Include="Dialogs\DeliveryPulloutCart.resx">
       <DependentUpon>DeliveryPulloutCart.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\DeliveryPullOutCartView.resx">
+      <DependentUpon>DeliveryPullOutCartView.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ProductDialog.resx">
       <DependentUpon>ProductDialog.vb</DependentUpon>
     </EmbeddedResource>
@@ -434,6 +476,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\TransactionDialog.resx">
       <DependentUpon>TransactionDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\VatDialog.resx">
+      <DependentUpon>VatDialog.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Dashboard.resx">
       <DependentUpon>Dashboard.vb</DependentUpon>
@@ -474,6 +519,9 @@
     <EmbeddedResource Include="Panels\Delivery.resx">
       <DependentUpon>Delivery.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Panels\Discount.resx">
+      <DependentUpon>Discount.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Panels\Inventory.resx">
       <DependentUpon>Inventory.vb</DependentUpon>
     </EmbeddedResource>
@@ -485,6 +533,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\PullOuts.resx">
       <DependentUpon>PullOuts.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\Reports.resx">
+      <DependentUpon>Reports.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\SalesReport.resx">
+      <DependentUpon>SalesReport.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\Withdrawal.resx">
       <DependentUpon>Withdrawal.vb</DependentUpon>
@@ -583,7 +637,6 @@
   <ItemGroup>
     <None Include="Resources\icons8-menu-50.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\user1.png" />
     <None Include="Resources\shopping-cart.png" />

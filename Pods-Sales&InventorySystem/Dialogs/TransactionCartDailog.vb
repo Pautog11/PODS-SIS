@@ -103,7 +103,6 @@ Public Class TransactionCartDailog
                         ' If not, add the product name to the ComboBox
                         ProductComboBox.DataSource = Nothing
                         ProductComboBox.Items.Add(productName)
-                        ComboBox1.Text = productName
                     End If
 
                     If Not SubcategoryComboBox.Items.Contains(productSubCategory) Then
@@ -131,5 +130,4 @@ Public Class TransactionCartDailog
         SubcategoryComboBox.Enabled = False
         ProductComboBox.Enabled = False
     End Sub
-
 End Class

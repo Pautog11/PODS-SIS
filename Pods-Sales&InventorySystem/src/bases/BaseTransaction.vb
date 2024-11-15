@@ -124,7 +124,7 @@ Public Class BaseTransaction
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT subcategory_id, product_name, quantity, product_price, product_cost FROM tblproducts WHERE barcode = @barcode", conn)
+            cmd = New SqlCommand("SELECT subcategory_id, sku, product_name, quantity, product_price, product_cost FROM tblproducts WHERE barcode = @barcode", conn)
             cmd.Parameters.AddWithValue("@barcode", barcode)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
@@ -212,5 +212,16 @@ Public Class BaseTransaction
         End Try
     End Function
 
+    Public Shared Function NamebyID(product_name As String) As Integer
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("select id from tblproducts where product_name = @product_name;", conn)
+            cmd.Parameters.AddWithValue("@product_name", product_name)
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
 
 End Class

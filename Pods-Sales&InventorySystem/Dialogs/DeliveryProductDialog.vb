@@ -31,8 +31,8 @@ Public Class DeliveryProductDialog
         End If
 
         Dim dt As DataTable = BaseDelivery.FillSkuByProduct(ProductComboBox.Text)
-        Guna2ComboBox1.DataSource = dt
-        Guna2ComboBox1.DisplayMember = "sku"
+        SkuComboBox1.DataSource = dt
+        SkuComboBox1.DisplayMember = "sku"
 
         If BaseDelivery.Daterequired(ProductComboBox.SelectedItem("ID")) = 0 Then
             ' MfdTextBox.Enabled = False
@@ -53,19 +53,24 @@ Public Class DeliveryProductDialog
             For Each item As DataGridViewRow In _parent.DeliveryDataGridView.Rows
                 If item.Cells("PRODUCT").Value.ToString() = ProductComboBox.Text AndAlso item.Cells("EXPIRY_DATE").Value = ExdTextBox.Text Then
                     'item.Cells("MANUFACTURED_DATE").Value = MfdTextBox.Text
-                    'item.Cells("EXPIRY_DATE").Value = ExdTextBox.Text
-                    'item.Cells("PRICE").Value = Decimal.Parse(CostTextBox.Text)
-                    'item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)
-                    'item.Cells("TOTAL").Value = Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text)
+                    item.Cells("EXPIRY_DATE").Value = ExdTextBox.Text
+                    item.Cells("PRICE").Value = Decimal.Parse(CostTextBox.Text)
+                    item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)
+                    item.Cells("TOTAL").Value = Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text)
                     is_existing = True
-                    MessageBox.Show("Product exists.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    ' MessageBox.Show("Product exists.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                     'Me.Close()
                     Exit For
                 End If
             Next
 
             If Not is_existing Then
-                If BaseDelivery.Daterequired(ProductComboBox.SelectedItem("ID")) = 1 Then
+                'If ProductComboBox.SelectedItem = "" Then
+                '    ProductComboBox.SelectedItem("ID") = BaseTransaction.NamebyID(ProductComboBox.Text)
+                'End If
+                'MsgBox(BaseTransaction.NamebyID(ProductComboBox.Text))
+                'MsgBox(ProductComboBox.SelectedItem)
+                If BaseDelivery.Daterequired(ProductComboBox.SelectedValue) = 1 Then
                     Dim controls As Object() = {
                          ExdTextBox
                     }
@@ -79,7 +84,7 @@ Public Class DeliveryProductDialog
 
                     If Not dateresult.Any(Function(item As Object()) Not item(0)) Then
                         If ExdTextBox.Text >= Date.Today Then
-                            _parent.DeliveryDataGridView.Rows.Add({ProductComboBox.SelectedItem("ID"),
+                            _parent.DeliveryDataGridView.Rows.Add({ProductComboBox.SelectedValue,
                                                     ProductComboBox.Text,
                                                     ExdTextBox.Text,
                                                     CostTextBox.Text,
@@ -93,12 +98,12 @@ Public Class DeliveryProductDialog
                         MessageBox.Show("Date is required.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                     End If
                 Else
-                    _parent.DeliveryDataGridView.Rows.Add({ProductComboBox.SelectedItem("ID"),
+                    _parent.DeliveryDataGridView.Rows.Add({BaseTransaction.NamebyID(ProductComboBox.Text),
                                                     ProductComboBox.Text,
                                                     ExdTextBox.Text,
-                                                    CostTextBox.Text,
+                                                    If(String.IsNullOrEmpty(CostTextBox.Text) OrElse CostTextBox.Text = "", 0, CostTextBox.Text),
                                                     QuantityTextBox.Text,
-                                                    CDec(CostTextBox.Text) * CDec(QuantityTextBox.Text)
+                                                    CDec(If(String.IsNullOrEmpty(CostTextBox.Text) OrElse CostTextBox.Text = "", 0, CostTextBox.Text)) * CDec(QuantityTextBox.Text)
                                                     })
                 End If
             End If
@@ -122,7 +127,9 @@ Public Class DeliveryProductDialog
             Dim dt As DataTable = BaseSubCategory.FetchSubCategory(CategoryComboBox.SelectedItem("ID"))
             SubcategoryComboBox.DataSource = dt.DefaultView
             SubcategoryComboBox.DisplayMember = "subcategory"
+            SubcategoryComboBox.ValueMember = "id"
         End If
+        SubcategoryComboBox.Enabled = True
         Clear()
     End Sub
     Private Sub SubcategoryComboBox_DropDownClosed(sender As Object, e As EventArgs) Handles SubcategoryComboBox.DropDownClosed
@@ -130,8 +137,10 @@ Public Class DeliveryProductDialog
             Dim dt As DataTable = BaseProduct.FetchProductBySubcategory(SubcategoryComboBox.SelectedItem("ID"))
             ProductComboBox.DataSource = dt.DefaultView
             ProductComboBox.DisplayMember = "product_name"
+            ProductComboBox.ValueMember = "id"
         End If
         Clear()
+        ProductComboBox.Enabled = True
     End Sub
 
     Public Sub Clear()
@@ -142,73 +151,54 @@ Public Class DeliveryProductDialog
     End Sub
 
     Private Sub BarcodeTextBox_KeyDown(sender As Object, e As KeyEventArgs) Handles BarcodeTextBox.KeyDown
-        'If e.KeyCode = Keys.Enter Then
-        '    Dim res As New List(Of Object()) From {InputValidation.ValidateInputString(BarcodeTextBox, DataInput.STRING_INTEGER)}
-        '    If Not res.Any(Function(item As Object()) Not item(0)) Then
-        '        Dim dt As DataTable = BaseTransaction.SelectProductsByBarcode(BarcodeTextBox.Text)
-        '        If BarcodeTextBox.Text.Length = 13 AndAlso dt.Rows.Count > 0 Then
-        '            If Not ProductComboBox.Items.Contains(dt.Rows(0).Item("product_name").ToString()) Then
-        '                'ProductComboBox.Items.Add(dt.Rows(0).Item("product_name").ToString())
-        '            End If
-        '            ProductComboBox.SelectedItem = dt.Rows(0).Item("product_name").ToString()
-        '            ProductComboBox.Text = dt.Rows(0).Item("product_name").ToString()
 
-        '            'ProductComboBox.Items.Add(dt.Rows(0).Item("product_name").ToString())
-        '            CostTextBox.Text = dt.Rows(0).Item("product_cost").ToString()
-        '            'PriceTextBox.Text = dt.Rows(0).Item("product_price").ToString()
-        '            e.Handled = True
-        '        Else
-        '            MessageBox.Show("No, product found!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        '            BarcodeTextBox.Text = ""
-        '        End If
-        '    Else
-        '        MessageBox.Show("Barcode not valid!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-        '        BarcodeTextBox.Text = ""
-        '        Return
-        '    End If
-        'End If
+
         If e.KeyCode = Keys.Enter Then
-            ' Validate the input string (barcode)
-            Dim validationResult As New List(Of Object()) From {InputValidation.ValidateInputString(BarcodeTextBox, DataInput.STRING_INTEGER)}
+            Dim res As New List(Of Object()) From {InputValidation.ValidateInputString(BarcodeTextBox, DataInput.STRING_INTEGER)}
+            If Not res.Any(Function(item As Object()) Not item(0)) Then
+                Dim dt As DataTable = BaseTransaction.SelectProductsByBarcode(BarcodeTextBox.Text)
+                If BarcodeTextBox.Text.Length <= 13 AndAlso dt.Rows.Count > 0 Then
+                    Dim productName As String = dt.Rows(0).Item("product_name").ToString()
+                    Dim sku As String = dt.Rows(0).Item("sku").ToString()
+                    Dim productSubCategory As String = BaseSubCategory.Fillsubcategorybyid(dt.Rows(0).Item("subcategory_id").ToString())
 
-            ' If validation fails, show a warning and exit
-            If validationResult.Any(Function(item As Object()) Not item(0)) Then
-                MessageBox.Show("Barcode not valid!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                BarcodeTextBox.Clear()  ' Clear the barcode input
-                Return
-            End If
+                    If Not ProductComboBox.Items.Contains(productName) Then
+                        ProductComboBox.DataSource = Nothing
+                        ProductComboBox.Items.Add(productName)
+                    End If
 
-            ' Query the product details based on the barcode
-            Dim dt As DataTable = BaseTransaction.SelectProductsByBarcode(BarcodeTextBox.Text)
+                    If Not SkuComboBox1.Items.Contains(sku) Then
+                        SkuComboBox1.DataSource = Nothing
+                        SkuComboBox1.Items.Add(sku)
+                    End If
 
-            ' If barcode is valid and product is found
-            If BarcodeTextBox.Text.Length = 13 AndAlso dt.Rows.Count > 0 Then
-                Dim productName As String = dt.Rows(0).Item("product_name").ToString()
+                    If Not SubcategoryComboBox.Items.Contains(productSubCategory) Then
+                        SubcategoryComboBox.DataSource = Nothing
+                        SubcategoryComboBox.Items.Clear()
+                        SubcategoryComboBox.Items.Add(productSubCategory)
+                    End If
 
-                ' Check if the product name is not already in the combo box and add it if necessary
-                If Not ProductComboBox.Items.Contains(productName) Then
-                    ' ProductComboBox.Items.Add(productName)  ' Uncomment if you need to add the product name to the combo box
+                    ProductComboBox.Text = BaseTransaction.NamebyID(dt.Rows(0).Item("product_name").ToString())
+                    'MsgBox(dt.Rows(0).Item("product_name").ToString())
+                    SkuComboBox1.SelectedItem = dt.Rows(0).Item("sku").ToString()
+                    ProductComboBox.Text = dt.Rows(0).Item("product_name").ToString()
+
+                    'ProductComboBox.Items.Add(dt.Rows(0).Item("product_name").ToString())
+                    ' StocksTextBox.Text = dt.Rows(0).Item("quantity").ToString()
+                    CostTextBox.Text = dt.Rows(0).Item("product_cost").ToString()
+                    e.Handled = True
+                Else
+                    MessageBox.Show("No, product found!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
-
-                ' Set the selected item and text of the combo box
-                ProductComboBox.SelectedItem = productName
-                ProductComboBox.Text = productName
-
-                ' Set the cost text box
-                CostTextBox.Text = dt.Rows(0).Item("product_cost").ToString()
-
-                ' Optionally, set the price text box if required
-                ' PriceTextBox.Text = dt.Rows(0).Item("product_price").ToString()
-
-                ' Mark the event as handled
-                e.Handled = True
             Else
-                ' If no product found, show an error message
-                MessageBox.Show("No product found!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                BarcodeTextBox.Clear()  ' Clear the barcode input
+                MessageBox.Show("Barcode not valid!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                'BarcodeTextBox.Text = ""
+                'Return
             End If
         End If
-
+        SkuComboBox1.Enabled = False
+        SubcategoryComboBox.Enabled = False
+        ProductComboBox.Enabled = False
     End Sub
 
     'Private Sub MfgDate_ValueChanged(sender As Object, e As EventArgs)

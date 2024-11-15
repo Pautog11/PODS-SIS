@@ -17,6 +17,8 @@ Public Class ReportViewerDialog
         ReportViewer1.LocalReport.DataSources.Clear()
         ReportViewer1.LocalReport.DataSources.Add(src)
         ReportViewer1.LocalReport.DataSources.Add(src1)
+        ReportViewer1.Margin = New Padding(0)
+
 
         Me.ReportViewer1.RefreshReport()
     End Sub
@@ -34,7 +36,7 @@ Public Class ReportViewerDialog
                                             t.total,
                                             t.date,
                                             CONCAT(u.first_name, ' ', u.last_name) AS name,
-                                            t.cash
+                                            t.cash, (t.cash - t.total) change
                                           FROM tbltransactions t
                                           JOIN tblaccounts u ON t.account_id = u.id
                                           WHERE t.transaction_number = @transaction_number", con)

@@ -3,8 +3,8 @@
 Public Class Inventory
     Implements IObserverPanel
     Private _subject As IObservablePanel
-    Private _tableAapter As New podsTableAdapters.viewtblinventoriesTableAdapter
-    Private _dataTable As New pods.viewtblinventoriesDataTable
+    Private ReadOnly _tableAapter As New podsTableAdapters.viewtblinventoriesTableAdapter
+    Private ReadOnly _dataTable As New pods.viewtblinventoriesDataTable
     Private Sub Inventory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             _subject = Application.OpenForms.OfType(Of Dashboard).FirstOrDefault
@@ -19,5 +19,11 @@ Public Class Inventory
         _tableAapter.Fill(_dataTable)
         ProductDataGridView.DataSource = _dataTable
         ProductDataGridView.Columns.Item("ID").Visible = False
+    End Sub
+
+    Private Sub PrintButton_Click(sender As Object, e As EventArgs) Handles PrintButton.Click
+        Using dialog = ProductVIewer
+            dialog.ShowDialog()
+        End Using
     End Sub
 End Class

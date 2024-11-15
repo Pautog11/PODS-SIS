@@ -133,13 +133,14 @@ Partial Class Inventory
         Me.ProductDataGridView.DefaultCellStyle = DataGridViewCellStyle3
         Me.ProductDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ProductDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ProductDataGridView.Location = New System.Drawing.Point(3, 53)
+        Me.ProductDataGridView.Location = New System.Drawing.Point(0, 50)
+        Me.ProductDataGridView.Margin = New System.Windows.Forms.Padding(0)
         Me.ProductDataGridView.MultiSelect = False
         Me.ProductDataGridView.Name = "ProductDataGridView"
         Me.ProductDataGridView.ReadOnly = True
         Me.ProductDataGridView.RowHeadersVisible = False
         Me.ProductDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.ProductDataGridView.Size = New System.Drawing.Size(731, 475)
+        Me.ProductDataGridView.Size = New System.Drawing.Size(737, 481)
         Me.ProductDataGridView.TabIndex = 4
         Me.ProductDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.ProductDataGridView.ThemeStyle.AlternatingRowsStyle.Font = Nothing

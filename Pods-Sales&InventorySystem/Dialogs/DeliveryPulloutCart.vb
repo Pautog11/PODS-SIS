@@ -38,16 +38,14 @@ Public Class DeliveryPulloutCart
             'Guna2HtmlLabel1.Text = _data.Item("id")
             TransactionDeliveryTextBox.Enabled = False
             SupplierComboBox.Enabled = False
+
+            'AddPulloutProductButton.Enabled = False
         End If
     End Sub
 
     Private Sub AddPulloutProductButton_Click(sender As Object, e As EventArgs) Handles AddPulloutProductButton.Click
         Dim dialog As New PullOutProductDialog(data:=_data, parent:=Me)
         dialog.ShowDialog()
-
-        'If SupplierComboBox.Text = "" Then
-        '    MsgBox("wala")
-        'End If
     End Sub
     Public Sub UpdateVisualData()
         DeliveryPulloutDataGridView.DataSource = _itemSource?.DefaultView
@@ -59,10 +57,6 @@ Public Class DeliveryPulloutCart
     End Sub
 
     Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click
-        'If SupplierComboBox.Text = "" Then
-        '    MsgBox("wala")
-        'End If
-        'If DeliveryPulloutDataGridView.Rows.Count > 0 Then
         Dim items As New List(Of Dictionary(Of String, String))()
         Dim data As New Dictionary(Of String, String) From {
             {"id", _data?.Item("id")},
@@ -96,8 +90,5 @@ Public Class DeliveryPulloutCart
         _subject.NotifyObserver()
         Me.Close()
         _parent.Close()
-        'Else
-        '    MessageBox.Show("No product selected!.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-        'End If
     End Sub
 End Class
