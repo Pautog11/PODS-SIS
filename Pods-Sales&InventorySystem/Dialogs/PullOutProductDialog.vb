@@ -4,6 +4,7 @@ Public Class PullOutProductDialog
     Private ReadOnly _data As Dictionary(Of String, String)
     Private dt As DataTable
     Private ReadOnly _parent As DeliveryPulloutCart = Nothing
+    Dim pid As String = Nothing
     Public Sub New(Optional data As Dictionary(Of String, String) = Nothing,
                    Optional parent As DeliveryPulloutCart = Nothing)
         InitializeComponent()
@@ -30,12 +31,14 @@ Public Class PullOutProductDialog
             Dim selectedRow As DataRowView = DirectCast(ProductComboBox.SelectedItem, DataRowView)
             StocksTextBox.Text = selectedRow("quantity").ToString()
             CostTextBox.Text = selectedRow("cost").ToString()
-
+            pid = selectedRow("pid").ToString()
+            'MsgBox(pid)
             If selectedRow("exd") IsNot DBNull.Value Then
                 ExdTextBox.Text = Convert.ToDateTime(selectedRow("exd")).ToString("yyyy-MM-dd")
             Else
                 ExdTextBox.Text = "N/A"
             End If
+            'MsgBox(selectedRow("id"))
         End If
     End Sub
 
@@ -45,6 +48,7 @@ Public Class PullOutProductDialog
         If Not result.Any(Function(item As Object()) Not item(0)) Then
             For Each item As DataGridViewRow In _parent.DeliveryPulloutDataGridView.Rows
                 If item.Cells("PRODUCT").Value.ToString() = ProductComboBox.Text Then
+                    item.Cells("PID").Value = pid
                     item.Cells("PRICE").Value = Decimal.Parse(CostTextBox.Text)
                     item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)
                     item.Cells("TOTAL").Value = Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text)
@@ -55,6 +59,7 @@ Public Class PullOutProductDialog
             If Not is_existing Then
                 If CInt(StocksTextBox.Text) >= QuantityTextBox.Text Then
                     _parent.DeliveryPulloutDataGridView.Rows.Add({ProductComboBox.SelectedItem("ID"),
+                                                 pid,
                                                  ProductComboBox.Text,
                                                  ExdTextBox.Text,
                                                  CostTextBox.Text,

@@ -42,6 +42,7 @@ Partial Class DeliveryPulloutCart
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.DeliveryPulloutDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.product = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EXPIRY_DATE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.price = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -269,7 +270,7 @@ Partial Class DeliveryPulloutCart
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DeliveryPulloutDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.DeliveryPulloutDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.product, Me.EXPIRY_DATE, Me.price, Me.quantity, Me.total})
+        Me.DeliveryPulloutDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.PID, Me.product, Me.EXPIRY_DATE, Me.price, Me.quantity, Me.total})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -315,6 +316,12 @@ Partial Class DeliveryPulloutCart
         Me.ID.HeaderText = "ID"
         Me.ID.Name = "ID"
         Me.ID.ReadOnly = True
+        '
+        'PID
+        '
+        Me.PID.HeaderText = "PID"
+        Me.PID.Name = "PID"
+        Me.PID.ReadOnly = True
         '
         'product
         '
@@ -390,6 +397,7 @@ Partial Class DeliveryPulloutCart
     Friend WithEvents DeliveryPulloutDataGridView As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents SupplierComboBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents ID As DataGridViewTextBoxColumn
+    Friend WithEvents PID As DataGridViewTextBoxColumn
     Friend WithEvents product As DataGridViewTextBoxColumn
     Friend WithEvents EXPIRY_DATE As DataGridViewTextBoxColumn
     Friend WithEvents price As DataGridViewTextBoxColumn

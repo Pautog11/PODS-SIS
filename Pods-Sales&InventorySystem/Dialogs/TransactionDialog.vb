@@ -41,8 +41,8 @@ Public Class TransactionDialog
             AddItemTransactionButton.Visible = False
         Else
             Reference_number.Text = Helpers.GenInvoiceNumber(InvoiceType.Transaction)
-            'Label2.Text = DateAndTime.Now
             DateLabel.Text = DateAndTime.Now.ToString("F")
+            ReturnButton.Visible = False
         End If
         'TransactionDataGridView.Columns.Item("ID").Visible = False
         SubtotalTextBox.Enabled = False
@@ -283,7 +283,7 @@ Public Class TransactionDialog
         '    '    TotalTextBox.Text = SubtotalTextBox.Text
         '    'Else
         discount = SubtotalTextBox.Text * (DiscountComboBox.Text / 100)
-            TotalTextBox.Text = SubtotalTextBox.Text - discount
+        TotalTextBox.Text = SubtotalTextBox.Text - discount
         'End If
     End Sub
 
@@ -307,23 +307,4 @@ Public Class TransactionDialog
             dialog.ShowDialog()
         End Using
     End Sub
-
-    'Private Sub DiscountTextBox_Leave(sender As Object, e As EventArgs) Handles DiscountTextBox.Leave
-    '    Dim discount As Decimal
-    '    If Not Decimal.TryParse(DiscountTextBox.Text, discount) OrElse DiscountTextBox.Text = 0 Then
-    '        MessageBox.Show("Invalid discount format. Please enter a valid number.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-    '        DiscountTextBox.Text = 0
-    '        TotalTextBox.Text = SubtotalTextBox.Text
-    '    Else
-    '        discount = SubtotalTextBox.Text * (DiscountTextBox.Text / 100)
-    '        TotalTextBox.Text = SubtotalTextBox.Text - discount
-    '    End If
-    'End Sub
-
-
-    'Private Sub DiscountTextBox(sender As Object, e As KeyEventArgs) Handles DiscountTextBox
-    '    If e.KeyCode = Keys.Enter Then
-
-    '    End If
-    'End Sub
 End Class

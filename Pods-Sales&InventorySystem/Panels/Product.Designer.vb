@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Product
     Inherits System.Windows.Forms.UserControl
 
     'UserControl overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Product
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Product))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -31,7 +31,6 @@ Partial Class Product
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.ProductSearchTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.ModalImageButton = New Guna.UI2.WinForms.Guna2ImageButton()
-        Me.PrintProductButton = New Guna.UI2.WinForms.Guna2Button()
         Me.ProductTableLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.ProductsDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.ProductHeaderLayoutPanel.SuspendLayout()
@@ -79,7 +78,6 @@ Partial Class Product
         '
         Me.FlowLayoutPanel1.Controls.Add(Me.ProductSearchTextBox)
         Me.FlowLayoutPanel1.Controls.Add(Me.ModalImageButton)
-        Me.FlowLayoutPanel1.Controls.Add(Me.PrintProductButton)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
@@ -124,26 +122,6 @@ Partial Class Product
         Me.ModalImageButton.PressedState.ImageSize = New System.Drawing.Size(30, 30)
         Me.ModalImageButton.Size = New System.Drawing.Size(40, 42)
         Me.ModalImageButton.TabIndex = 5
-        '
-        'PrintProductButton
-        '
-        Me.PrintProductButton.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.PrintProductButton.BackColor = System.Drawing.Color.Transparent
-        Me.PrintProductButton.BorderRadius = 15
-        Me.PrintProductButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.PrintProductButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.PrintProductButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.PrintProductButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.PrintProductButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.PrintProductButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.PrintProductButton.ForeColor = System.Drawing.Color.White
-        Me.PrintProductButton.Location = New System.Drawing.Point(249, 3)
-        Me.PrintProductButton.Name = "PrintProductButton"
-        Me.PrintProductButton.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.PrintProductButton.Size = New System.Drawing.Size(129, 35)
-        Me.PrintProductButton.TabIndex = 6
-        Me.PrintProductButton.Text = "Print"
-        Me.PrintProductButton.Visible = False
         '
         'ProductTableLayoutPanel
         '
@@ -239,5 +217,4 @@ Partial Class Product
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents ProductsDataGridView As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents ModalImageButton As Guna.UI2.WinForms.Guna2ImageButton
-    Friend WithEvents PrintProductButton As Guna.UI2.WinForms.Guna2Button
 End Class

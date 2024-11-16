@@ -169,7 +169,7 @@ Public Class Dashboard
                     .Series("Series1").IsVisibleInLegend = True
                 End With
             Else
-                MessageBox.Show("No data available for the selected time period.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                'MessageBox.Show("No data available for the selected time period.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
         Catch ex As Exception
             MessageBox.Show("An error occurred: " & ex.Message)

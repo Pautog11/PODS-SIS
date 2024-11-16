@@ -70,13 +70,15 @@ Public Class DeliveryPulloutCart
         For Each row As DataGridViewRow In DeliveryPulloutDataGridView.Rows
             Dim item As New Dictionary(Of String, String) From {
                 {"product_id", row.Cells(0).Value},
-                {"exd", If(row.Cells(2).Value?.ToString(), "0")},
-                {"price", If(row.Cells(3).Value?.ToString(), "0")},
-                {"quantity", If(row.Cells(4).Value?.ToString(), "0")},
-                {"total", If(row.Cells(5).Value?.ToString(), "0")},
+                {"pid", row.Cells(1).Value},
+                {"exd", If(row.Cells(3).Value?.ToString(), "0")},
+                {"price", If(row.Cells(4).Value?.ToString(), "0")},
+                {"quantity", If(row.Cells(5).Value?.ToString(), "0")},
+                {"total", If(row.Cells(6).Value?.ToString(), "0")},
                 {"delivery_id", data.Item("id")}
             }
             items.Add(item)
+            'MsgBox(row.Cells(1).Value)
         Next
 
         Dim baseCommand As New BasePullouts(data) With {
