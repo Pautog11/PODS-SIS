@@ -46,7 +46,7 @@ Public Class ProductDialog
             SkuTextBox, BarcodeTextBox, ProductNameTextBox, PriceTextBox, CostTextBox, StockLevelTextBox
         }
         Dim types As DataInput() = {
-            DataInput.STRING_STRING, DataInput.STRING_STRING, DataInput.STRING_NAME, DataInput.STRING_PRICE, DataInput.STRING_PRICE, DataInput.STRING_INTEGER
+            DataInput.STRING_STRING, DataInput.STRING_INTEGER, DataInput.STRING_NAME, DataInput.STRING_PRICE, DataInput.STRING_PRICE, DataInput.STRING_INTEGER
         }
         Dim result As New List(Of Object())
         For i = 0 To controls.Count - 1
@@ -56,24 +56,6 @@ Public Class ProductDialog
             MessageBox.Show("Price should not be less than or equal to the cost price.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
-        'Dim price As Decimal
-        'Dim cost As Decimal
-        '' Try parsing the text from the textboxes as decimals
-        'If Not Decimal.TryParse(PriceTextBox.Text, price) Then
-        '    MessageBox.Show("Invalid price format.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-        '    Return
-        'End If
-        'If Not Decimal.TryParse(CostTextBox.Text, cost) Then
-        '    MessageBox.Show("Invalid cost format.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-        '    Return
-        'End If
-
-        '' Compare price and cost
-        'If price <= cost Then
-        '    MessageBox.Show("Price should not be less than or equal to the cost price.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-        '    Return
-        'End If
-
 
 
         If Not result.Any(Function(item As Object()) Not item(0)) Then
@@ -89,10 +71,10 @@ Public Class ProductDialog
                 {"stock_level", result(5)(1)}
             }
 
+            Dim putangina As Boolean = False
             Dim item As New Dictionary(Of String, String)
-
             ' Check if at least one textbox has data
-            If Not String.IsNullOrEmpty(DosageTextBox.Text) OrElse Not String.IsNullOrEmpty(StrengthTextBox.Text) OrElse Not String.IsNullOrEmpty(ManufacturerTextBox.Text) Then
+            If Not String.IsNullOrEmpty(DosageTextBox.Text) AndAlso Not String.IsNullOrEmpty(StrengthTextBox.Text) AndAlso Not String.IsNullOrEmpty(ManufacturerTextBox.Text) Then
                 Dim textboxes As Object() = {
                     DosageTextBox, StrengthTextBox, ManufacturerTextBox
                 }
@@ -112,6 +94,9 @@ Public Class ProductDialog
                 '    item("dosage") = Nothing
                 '    item("strength") = Nothing
                 '    item("manufacturer") = Nothing
+                '    MsgBox("meron")
+                'Else
+                '    MsgBox("wala")
             End If
 
 
@@ -119,16 +104,16 @@ Public Class ProductDialog
             Dim baseCommand As BaseProduct '(data) 'With {.Items = item}
             baseCommand = New BaseProduct(data) With {.Items = item}
             Dim invoker As ICommandInvoker = Nothing
-            If BaseProduct.Exists(result(0)(1)) = 0 AndAlso _data Is Nothing Then
+            If BaseProduct.Exists(result(2)(1)) = 0 AndAlso BaseProduct.BarcodeExists(result(1)(1)) = 0 AndAlso _data Is Nothing Then
                 invoker = New AddCommand(baseCommand)
-            ElseIf _data IsNot Nothing Then
+            ElseIf _data IsNot Nothing Then 'AndAlso BaseProduct.BarcodeExists(result(1)(1)) = 0 Then
                 invoker = New UpdateCommand(baseCommand)
             Else
                 MessageBox.Show("Product exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
-            'invoker?.Execute()
-            '_subject.NotifyObserver()
-            'Me.Close()
+            invoker?.Execute()
+            _subject.NotifyObserver()
+            Me.Close()
         Else
             MessageBox.Show("Please fill out all textboxes or provide all valid inputs.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If

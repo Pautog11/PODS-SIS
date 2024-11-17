@@ -151,8 +151,6 @@ Public Class DeliveryProductDialog
     End Sub
 
     Private Sub BarcodeTextBox_KeyDown(sender As Object, e As KeyEventArgs) Handles BarcodeTextBox.KeyDown
-
-
         If e.KeyCode = Keys.Enter Then
             Dim res As New List(Of Object()) From {InputValidation.ValidateInputString(BarcodeTextBox, DataInput.STRING_INTEGER)}
             If Not res.Any(Function(item As Object()) Not item(0)) Then
@@ -178,15 +176,19 @@ Public Class DeliveryProductDialog
                         SubcategoryComboBox.Items.Add(productSubCategory)
                     End If
 
-                    ProductComboBox.Text = BaseTransaction.NamebyID(dt.Rows(0).Item("product_name").ToString())
+                    'ProductComboBox.Text = BaseTransaction.NamebyID(dt.Rows(0).Item("product_name").ToString())
                     'MsgBox(dt.Rows(0).Item("product_name").ToString())
                     SkuComboBox1.SelectedItem = dt.Rows(0).Item("sku").ToString()
                     ProductComboBox.Text = dt.Rows(0).Item("product_name").ToString()
-
-                    'ProductComboBox.Items.Add(dt.Rows(0).Item("product_name").ToString())
-                    ' StocksTextBox.Text = dt.Rows(0).Item("quantity").ToString()
                     CostTextBox.Text = dt.Rows(0).Item("product_cost").ToString()
                     e.Handled = True
+
+                    If BaseProduct.Disableexd(dt.Rows(0).Item("id").ToString()) = 1 Then
+                        ExdTextBox.Enabled = True
+                    Else
+                        ExdTextBox.Enabled = False
+                    End If
+
                 Else
                     MessageBox.Show("No, product found!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If

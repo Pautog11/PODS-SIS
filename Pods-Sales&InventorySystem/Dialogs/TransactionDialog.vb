@@ -39,6 +39,12 @@ Public Class TransactionDialog
             Next
             AddTransactionButton.Visible = False
             AddItemTransactionButton.Visible = False
+
+            'MsgBox(_data.Item("id"))
+
+            If BaseTransaction.Returnbutton(_data.Item("id")) = 1 Then
+                ReturnButton.Enabled = False
+            End If
         Else
             Reference_number.Text = Helpers.GenInvoiceNumber(InvoiceType.Transaction)
             DateLabel.Text = DateAndTime.Now.ToString("F")

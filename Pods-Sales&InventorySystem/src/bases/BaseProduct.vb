@@ -46,10 +46,33 @@ Public Class BaseProduct
             _sqlCommand.Parameters.AddWithValue("@product_cost", _data.Item("product_cost"))
             _sqlCommand.Parameters.AddWithValue("@stock_level", _data.Item("stock_level"))
             If _sqlCommand.ExecuteNonQuery() <= 0 Then
-                MessageBox.Show("An error occured!")
-            Else
-                MessageBox.Show("Account has been updated successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Throw New Exception("An error occured!")
             End If
+
+            If Disableexd(_data.Item("id")) = 0 Then
+                _sqlCommand.Parameters.Clear()
+                _sqlCommand = New SqlCommand("INSERT INTO tblproduct_info (product_id, dosage_form, strength, manufacturer) VALUES (@product_id, @dosage_form, @strength, @manufacturer)", _sqlConnection)
+                _sqlCommand.Parameters.AddWithValue("@product_id", _data.Item("id"))
+                _sqlCommand.Parameters.AddWithValue("@dosage_form", _item.Item("dosage")) '_item.Item("dosage"))
+                _sqlCommand.Parameters.AddWithValue("@strength", _item.Item("strength"))
+                _sqlCommand.Parameters.AddWithValue("@manufacturer", _item.Item("manufacturer"))
+            ElseIf _item.Item("dosage") IsNot DBNull.Value AndAlso String.IsNullOrEmpty(CStr(_item.Item("dosage"))) AndAlso _item.Item("strength") IsNot DBNull.Value AndAlso String.IsNullOrEmpty(CStr(_item.Item("strength"))) AndAlso _item.Item("manufacturer") IsNot DBNull.Value AndAlso String.IsNullOrEmpty(CStr(_item.Item("manufacturer"))) Then '_item.Item("dosage_form") = "" Then 'AndAlso String.IsNullOrEmpty(_item.Item("strength") OrElse _item.Item("strength") Is DBNull.Value) AndAlso String.IsNullOrEmpty(_item.Item("manufacturer") OrElse _item.Item("manufacturer") Is DBNull.Value) Then
+                _sqlCommand.Parameters.Clear()
+                _sqlCommand = New SqlCommand("DELETE tblproduct_info WHERE product_id = @product_id", _sqlConnection)
+                _sqlCommand.Parameters.AddWithValue("@product_id", _data.Item("id"))
+            Else
+                _sqlCommand.Parameters.Clear()
+                _sqlCommand = New SqlCommand("UPDATE tblproduct_info SET dosage_form = @dosage_form, strength = @strength, manufacturer = @manufacturer WHERE product_id = @product_id", _sqlConnection)
+                _sqlCommand.Parameters.AddWithValue("@product_id", _data.Item("id"))
+                _sqlCommand.Parameters.AddWithValue("@dosage_form", _item.Item("dosage")) '_item.Item("dosage"))
+                _sqlCommand.Parameters.AddWithValue("@strength", _item.Item("strength"))
+                _sqlCommand.Parameters.AddWithValue("@manufacturer", _item.Item("manufacturer"))
+            End If
+
+            If _sqlCommand.ExecuteNonQuery() <= 0 Then
+                Throw New Exception("An error occured!")
+            End If
+            MessageBox.Show("Account has been updated successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End Try
@@ -73,7 +96,7 @@ Public Class BaseProduct
             '    _item = Nothing
             'End If
 
-            If String.IsNullOrEmpty(_item.Item("dosage")) AndAlso String.IsNullOrEmpty(_item.Item("strength")) AndAlso String.IsNullOrEmpty(_item.Item("manufacturer")) Then _item = Nothing
+            If String.IsNullOrEmpty(_item.Item("dosage_form")) AndAlso String.IsNullOrEmpty(_item.Item("strength")) AndAlso String.IsNullOrEmpty(_item.Item("manufacturer")) Then _item = Nothing
 
             If _item IsNot Nothing Then
                 Dim productid As Integer = Convert.ToInt32(_sqlCommand.ExecuteScalar())
@@ -219,6 +242,32 @@ Public Class BaseProduct
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return New DataTable
+        End Try
+    End Function
+
+    Public Shared Function Disableexd(id As Integer) As Integer
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("select count(*) from tblproducts a join tblproduct_info b on a.id = b.product_id where a.id = @id", conn)
+            cmd.Parameters.AddWithValue("@id", id)
+
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
+
+    Public Shared Function BarcodeExists(barcode As String) As Integer
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("select count(*) from tblproducts where barcode = @barcode", conn)
+            cmd.Parameters.AddWithValue("@barcode", barcode)
+
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
         End Try
     End Function
 End Class
