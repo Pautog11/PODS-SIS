@@ -31,7 +31,7 @@ Public Class BaseReturn
         Try
             ' Prepare and execute the main delivery insertion
             _sqlCommand = New SqlCommand("INSERT INTO tblreturns (account_id, transaction_id, reason, total) VALUES (@account_id, @transaction_id, @reason, @total); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
-            _sqlCommand.Parameters.AddWithValue("@account_id", My.Settings.myId)
+            _sqlCommand.Parameters.AddWithValue("@account_id", _data.Item("account_id"))
             _sqlCommand.Parameters.AddWithValue("@transaction_id", _data.Item("transaction_id"))
             _sqlCommand.Parameters.AddWithValue("@reason", _data.Item("reason"))
             _sqlCommand.Parameters.AddWithValue("@total", _data.Item("total"))
@@ -43,7 +43,7 @@ Public Class BaseReturn
                     ' Insert into tbldeliveries_items
                     _sqlCommand = New SqlCommand("INSERT INTO tblreturn_items (tblreturn_id, product_id, price, quantity, total) VALUES (@tblreturn_id, @product_id, @price, @quantity, @total); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
                     _sqlCommand.Parameters.AddWithValue("@tblreturn_id", deliveryId)
-                    _sqlCommand.Parameters.AddWithValue("@product_id", item("product_id"))
+                    _sqlCommand.Parameters.AddWithValue("@product_id", item("pid"))
                     _sqlCommand.Parameters.AddWithValue("@price", item("price"))
                     _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
                     _sqlCommand.Parameters.AddWithValue("@total", item("total"))
@@ -66,7 +66,7 @@ Public Class BaseReturn
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("select a.id, transaction_id, b.product_name as name, price, a.quantity, total from tbltransaction_items a
+            cmd = New SqlCommand("select a.id, transaction_id, b.id as pid, b.product_name as name, price, a.quantity, total from tbltransaction_items a
                                     join tblproducts b on b.id = a.product_id
                                     where transaction_id = @transaction_id", conn)
             cmd.Parameters.AddWithValue("@transaction_id", transaction_id)

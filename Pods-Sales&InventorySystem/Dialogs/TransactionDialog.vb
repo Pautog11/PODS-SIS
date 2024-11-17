@@ -66,18 +66,6 @@ Public Class TransactionDialog
         Next
         SubtotalTextBox.Text = subtotal.ToString("F2")
         TotalTextBox.Text = subtotal.ToString("F2")
-        'TransactionDataGridView.DataSource = _itemSource?.DefaultView
-        'Dim total As Decimal = 0D
-        'For i As Integer = 0 To TransactionDataGridView?.Rows.Count - 1
-        '    Dim value As Object = TransactionDataGridView.Rows(i).Cells("TOTAL").Value
-        '    If value IsNot Nothing AndAlso Decimal.TryParse(value.ToString(), total) Then
-        '        total += CDec(value)
-        '    End If
-        'Next
-        'SubtotalTextBox.Text = total.ToString("F2")
-
-
-        'TotalTextBox.Text = total.ToString("F2")
 
         'For Vat
         Dim vat As Decimal = BaseTransaction.ScalarVat / 100
@@ -215,9 +203,9 @@ Public Class TransactionDialog
     '    End If
     'End Sub
 
-    Private Sub TransactionDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles TransactionDataGridView.CellClick
-        MsgBox("How")
-    End Sub
+    'Private Sub TransactionDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles TransactionDataGridView.CellClick
+    '    MsgBox("How")
+    'End Sub
 
     Private Sub BarcodeTextBox_KeyDown(sender As Object, e As KeyEventArgs)
         'If e.KeyCode = Keys.Enter Then
@@ -303,10 +291,10 @@ Public Class TransactionDialog
         End If
     End Sub
     Private Sub Guna2Button1_Click_1(sender As Object, e As EventArgs) Handles Guna2Button1.Click
-        'Using dialog As New ReportViewerDialog(Reference_number.Text)
-        '    dialog.ShowDialog()
-        'End Using
-        MsgBox(_data.Item("id"))
+        Using dialog As New ReportViewerDialog(Reference_number.Text)
+            dialog.ShowDialog()
+        End Using
+        'MsgBox(_data.Item("id"))
     End Sub
 
     Private Sub ReturnButton_Click(sender As Object, e As EventArgs) Handles ReturnButton.Click
@@ -323,7 +311,7 @@ Public Class TransactionDialog
                 {"date", DateLabel.Text},
                 {"delivery_id", _data.Item("id")}
             }
-            Dim dialog As New ReturnCartDialog(data:=data)
+            Dim dialog As New ReturnCartDialog(subject:=_subject, data:=data)
             dialog.ShowDialog()
         Else
             MsgBox("Sorry!, the period of time has expired!")

@@ -44,7 +44,7 @@
                 {"date", row.Cells(8).Value.ToString()},
                 {"cash", row.Cells(9).Value.ToString()}
             }
-            Dim Dialog As New TransactionDialog(data:=data)
+            Dim Dialog As New TransactionDialog(data:=data, subject:=_subject)
             Dialog.ShowDialog()
         End If
     End Sub

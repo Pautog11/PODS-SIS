@@ -3,6 +3,7 @@
 Public Class ReturnDialog
     Private ReadOnly _data As Dictionary(Of String, String)
     Dim dt As DataTable = Nothing
+    Dim pid As Decimal = Nothing
     Private ReadOnly _parent As ReturnCartDialog = Nothing
     Public Sub New(Optional data As Dictionary(Of String, String) = Nothing,
                    Optional parent As ReturnCartDialog = Nothing)
@@ -24,6 +25,7 @@ Public Class ReturnDialog
             Dim selectedRow As DataRowView = DirectCast(ProductComboBox.SelectedItem, DataRowView)
             CostTextBox.Text = selectedRow("price").ToString()
             StocksTextBox.Text = selectedRow("quantity").ToString()
+            pid = selectedRow("pid").ToString()
         End If
 
     End Sub
@@ -44,6 +46,7 @@ Public Class ReturnDialog
             If Not is_existing Then
                 If CInt(StocksTextBox.Text) >= QuantityTextBox.Text Then
                     _parent.ReturnDataGridView.Rows.Add({ProductComboBox.SelectedItem("ID"),
+                                                 If(IsDBNull(pid), 0, pid),
                                                  If(IsDBNull(ProductComboBox.Text), 0, ProductComboBox.Text),
                                                  If(IsDBNull(CostTextBox.Text), 0, CostTextBox.Text),
                                                  If(IsDBNull(QuantityTextBox.Text), 0, QuantityTextBox.Text),
