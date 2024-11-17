@@ -1,54 +1,39 @@
 ﻿Imports System.Windows.Forms
 
-Public Class PullOutProductDialog
+Public Class ReturnDialog
     Private ReadOnly _data As Dictionary(Of String, String)
-    Private dt As DataTable
-    Private ReadOnly _parent As DeliveryPulloutCart = Nothing
-    Dim pid As String = Nothing
+    Dim dt As DataTable = Nothing
+    Private ReadOnly _parent As ReturnCartDialog = Nothing
     Public Sub New(Optional data As Dictionary(Of String, String) = Nothing,
-                   Optional parent As DeliveryPulloutCart = Nothing)
+                   Optional parent As ReturnCartDialog = Nothing)
         InitializeComponent()
         _data = data
         _parent = parent
     End Sub
-    Private Sub PullOutProductDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    Private Sub ReturnDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If _data IsNot Nothing Then
-            dt = BaseDelivery.FillPulloutProduct(_data.Item("id"))
+            dt = BaseReturn.SelectTransactionbyTransaction_id(_data.Item("delivery_id"))
             ProductComboBox.DataSource = dt.DefaultView
             ProductComboBox.DisplayMember = "name"
         End If
-        'MsgBox(_data.Item("id"))
-
-        'MfdTextBox.Enabled = False
-        ExdTextBox.Enabled = False
-        StocksTextBox.Enabled = False
-        CostTextBox.Enabled = False
     End Sub
 
     Private Sub ProductComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles ProductComboBox.SelectionChangeCommitted
-        'StocksTextBox.Text = DataTable.Rows(0).Item("quantity").ToString()
         If ProductComboBox.SelectedIndex >= 0 Then
             Dim selectedRow As DataRowView = DirectCast(ProductComboBox.SelectedItem, DataRowView)
+            CostTextBox.Text = selectedRow("price").ToString()
             StocksTextBox.Text = selectedRow("quantity").ToString()
-            CostTextBox.Text = selectedRow("cost").ToString()
-            pid = selectedRow("pid").ToString()
-            'MsgBox(pid)
-            If selectedRow("exd") IsNot DBNull.Value Then
-                ExdTextBox.Text = Convert.ToDateTime(selectedRow("exd")).ToString("yyyy-MM-dd")
-            Else
-                ExdTextBox.Text = "N/A"
-            End If
-            'MsgBox(selectedRow("id"))
         End If
+
     End Sub
 
-    Private Sub PullOutProductSaveButton_Click(sender As Object, e As EventArgs) Handles PullOutProductSaveButton.Click
+    Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click
         Dim result As New List(Of Object()) From {InputValidation.ValidateInputString(QuantityTextBox, DataInput.STRING_INTEGER)}
         Dim is_existing As Boolean = False
         If Not result.Any(Function(item As Object()) Not item(0)) Then
-            For Each item As DataGridViewRow In _parent.DeliveryPulloutDataGridView.Rows
+            For Each item As DataGridViewRow In _parent.ReturnDataGridView.Rows
                 If item.Cells("PRODUCT").Value.ToString() = ProductComboBox.Text Then
-                    item.Cells("PID").Value = pid
                     item.Cells("PRICE").Value = Decimal.Parse(CostTextBox.Text)
                     item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)
                     item.Cells("TOTAL").Value = Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text)
@@ -58,12 +43,10 @@ Public Class PullOutProductDialog
             Next
             If Not is_existing Then
                 If CInt(StocksTextBox.Text) >= QuantityTextBox.Text Then
-                    _parent.DeliveryPulloutDataGridView.Rows.Add({ProductComboBox.SelectedItem("ID"),
-                                                 pid,
-                                                 ProductComboBox.Text,
-                                                 ExdTextBox.Text,
-                                                 CostTextBox.Text,
-                                                 QuantityTextBox.Text,
+                    _parent.ReturnDataGridView.Rows.Add({ProductComboBox.SelectedItem("ID"),
+                                                 If(IsDBNull(ProductComboBox.Text), 0, ProductComboBox.Text),
+                                                 If(IsDBNull(CostTextBox.Text), 0, CostTextBox.Text),
+                                                 If(IsDBNull(QuantityTextBox.Text), 0, QuantityTextBox.Text),
                                                  CDec(CostTextBox.Text) * CDec(QuantityTextBox.Text)
                                                  })
                 Else

@@ -26,7 +26,6 @@ Partial Class PullOutProductDialog
         Me.StocksTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.QuantityTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.PullOutProductSaveButton = New Guna.UI2.WinForms.Guna2Button()
-        Me.MfdTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.ExdTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.CostTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.SuspendLayout()
@@ -61,7 +60,7 @@ Partial Class PullOutProductDialog
         Me.StocksTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.StocksTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.StocksTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.StocksTextBox.Location = New System.Drawing.Point(41, 182)
+        Me.StocksTextBox.Location = New System.Drawing.Point(41, 142)
         Me.StocksTextBox.MaxLength = 4
         Me.StocksTextBox.Name = "StocksTextBox"
         Me.StocksTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -83,7 +82,7 @@ Partial Class PullOutProductDialog
         Me.QuantityTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.QuantityTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.QuantityTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.QuantityTextBox.Location = New System.Drawing.Point(41, 224)
+        Me.QuantityTextBox.Location = New System.Drawing.Point(41, 184)
         Me.QuantityTextBox.MaxLength = 4
         Me.QuantityTextBox.Name = "QuantityTextBox"
         Me.QuantityTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -110,28 +109,6 @@ Partial Class PullOutProductDialog
         Me.PullOutProductSaveButton.TabIndex = 16
         Me.PullOutProductSaveButton.Text = "Save"
         '
-        'MfdTextBox
-        '
-        Me.MfdTextBox.BorderColor = System.Drawing.Color.Gray
-        Me.MfdTextBox.BorderRadius = 10
-        Me.MfdTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.MfdTextBox.DefaultText = ""
-        Me.MfdTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.MfdTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.MfdTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.MfdTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.MfdTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.MfdTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.MfdTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.MfdTextBox.Location = New System.Drawing.Point(41, 54)
-        Me.MfdTextBox.MaxLength = 4
-        Me.MfdTextBox.Name = "MfdTextBox"
-        Me.MfdTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.MfdTextBox.PlaceholderText = "Manufactured date"
-        Me.MfdTextBox.SelectedText = ""
-        Me.MfdTextBox.Size = New System.Drawing.Size(200, 36)
-        Me.MfdTextBox.TabIndex = 17
-        '
         'ExdTextBox
         '
         Me.ExdTextBox.BorderColor = System.Drawing.Color.Gray
@@ -145,7 +122,7 @@ Partial Class PullOutProductDialog
         Me.ExdTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ExdTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.ExdTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ExdTextBox.Location = New System.Drawing.Point(41, 96)
+        Me.ExdTextBox.Location = New System.Drawing.Point(41, 56)
         Me.ExdTextBox.MaxLength = 4
         Me.ExdTextBox.Name = "ExdTextBox"
         Me.ExdTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -167,7 +144,7 @@ Partial Class PullOutProductDialog
         Me.CostTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CostTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.CostTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CostTextBox.Location = New System.Drawing.Point(41, 138)
+        Me.CostTextBox.Location = New System.Drawing.Point(41, 98)
         Me.CostTextBox.MaxLength = 4
         Me.CostTextBox.Name = "CostTextBox"
         Me.CostTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -183,7 +160,6 @@ Partial Class PullOutProductDialog
         Me.ClientSize = New System.Drawing.Size(289, 344)
         Me.Controls.Add(Me.CostTextBox)
         Me.Controls.Add(Me.ExdTextBox)
-        Me.Controls.Add(Me.MfdTextBox)
         Me.Controls.Add(Me.PullOutProductSaveButton)
         Me.Controls.Add(Me.QuantityTextBox)
         Me.Controls.Add(Me.StocksTextBox)
@@ -203,7 +179,6 @@ Partial Class PullOutProductDialog
     Friend WithEvents StocksTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents QuantityTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents PullOutProductSaveButton As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents MfdTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents ExdTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents CostTextBox As Guna.UI2.WinForms.Guna2TextBox
 End Class

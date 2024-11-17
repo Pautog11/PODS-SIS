@@ -27,6 +27,7 @@ Partial Class Form2
         Me.ElementHost1 = New System.Windows.Forms.Integration.ElementHost()
         Me.CartesianChart1 = New LiveCharts.Wpf.CartesianChart()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.SuspendLayout()
         '
         'Guna2TextBox1
@@ -56,7 +57,7 @@ Partial Class Form2
         Me.Guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.Guna2Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.Guna2Button1.ForeColor = System.Drawing.Color.White
-        Me.Guna2Button1.Location = New System.Drawing.Point(510, 36)
+        Me.Guna2Button1.Location = New System.Drawing.Point(520, 64)
         Me.Guna2Button1.Name = "Guna2Button1"
         Me.Guna2Button1.Size = New System.Drawing.Size(180, 45)
         Me.Guna2Button1.TabIndex = 1
@@ -79,11 +80,19 @@ Partial Class Form2
         Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
         Me.ComboBox1.TabIndex = 3
         '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Location = New System.Drawing.Point(520, 23)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(200, 20)
+        Me.DateTimePicker1.TabIndex = 4
+        '
         'Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.ElementHost1)
         Me.Controls.Add(Me.Guna2Button1)
@@ -99,4 +108,5 @@ Partial Class Form2
     Friend WithEvents ElementHost1 As Integration.ElementHost
     Friend CartesianChart1 As LiveCharts.Wpf.CartesianChart
     Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents DateTimePicker1 As DateTimePicker
 End Class

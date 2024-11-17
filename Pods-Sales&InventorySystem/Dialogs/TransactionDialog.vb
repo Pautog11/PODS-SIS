@@ -303,8 +303,30 @@ Public Class TransactionDialog
         End If
     End Sub
     Private Sub Guna2Button1_Click_1(sender As Object, e As EventArgs) Handles Guna2Button1.Click
-        Using dialog As New ReportViewerDialog(Reference_number.Text)
+        'Using dialog As New ReportViewerDialog(Reference_number.Text)
+        '    dialog.ShowDialog()
+        'End Using
+        MsgBox(_data.Item("id"))
+    End Sub
+
+    Private Sub ReturnButton_Click(sender As Object, e As EventArgs) Handles ReturnButton.Click
+        Dim currentDate As DateTime = DateTime.Now
+        Dim selectedDate As DateTime = DateLabel.Text
+
+        Dim sevenDaysAgo As DateTime = currentDate.AddDays(-7) ' 7 days ago
+        Dim sevenDaysFromNow As DateTime = currentDate.AddDays(7) ' 7 days from today
+
+        If selectedDate.Date >= sevenDaysAgo.Date AndAlso selectedDate.Date <= sevenDaysFromNow.Date Then
+            'MsgBox("Pwedi pang i balik")
+            Dim data As New Dictionary(Of String, String) From {
+                {"ref", Reference_number.Text},
+                {"date", DateLabel.Text},
+                {"delivery_id", _data.Item("id")}
+            }
+            Dim dialog As New ReturnCartDialog(data:=data)
             dialog.ShowDialog()
-        End Using
+        Else
+            MsgBox("Sorry!, the period of time has expired!")
+        End If
     End Sub
 End Class

@@ -14,6 +14,7 @@ Public Class Form2
         ComboBox1.Items.Add("Annually")
 
         UpdateChart("daily")
+        DateTimePicker1.MinDate = DateTime.Now
     End Sub
     Private Sub UpdateChart(timePeriod As String)
         'CartesianChart1.Series = New SeriesCollection From {
@@ -123,6 +124,24 @@ Public Class Form2
             Dim timePeriod As String = ComboBox1.SelectedItem.ToString().ToLower()
 
             UpdateChart(timePeriod)
+        End If
+    End Sub
+
+    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
+        Dim currentDate As DateTime = DateTime.Now
+
+        ' Get the selected date from the DateTimePicker (make sure this is the correct name)
+        Dim selectedDate As DateTime = DateTimePicker1.Value
+
+        ' Calculate the target dates (7 days before and 7 days after today)
+        Dim sevenDaysAgo As DateTime = currentDate.AddDays(-7) ' 7 days ago
+        Dim sevenDaysFromNow As DateTime = currentDate.AddDays(7) ' 7 days from today
+
+        ' Check if the selected date is within the 7-day window from today
+        If selectedDate.Date >= sevenDaysAgo.Date AndAlso selectedDate.Date <= sevenDaysFromNow.Date Then
+            MsgBox("The selected date is within 7 days from today!")
+        Else
+            MsgBox("The selected date is NOT within 7 days from today.")
         End If
     End Sub
 End Class

@@ -204,6 +204,18 @@
     <Compile Include="Dialogs\PullOutProductDialog.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Dialogs\ReturnCartDialog.Designer.vb">
+      <DependentUpon>ReturnCartDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ReturnCartDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\ReturnDialog.Designer.vb">
+      <DependentUpon>ReturnDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ReturnDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Dialogs\SubCategoryDialog.Designer.vb">
       <DependentUpon>SubCategoryDialog.vb</DependentUpon>
     </Compile>
@@ -352,6 +364,12 @@
     <Compile Include="Panels\Reports.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Panels\Returns.Designer.vb">
+      <DependentUpon>Returns.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Returns.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Panels\SalesReport.Designer.vb">
       <DependentUpon>SalesReport.vb</DependentUpon>
     </Compile>
@@ -424,9 +442,11 @@
     <Compile Include="src\bases\BaseNotifications.vb" />
     <Compile Include="src\bases\BaseProduct.vb" />
     <Compile Include="src\bases\BasePullouts.vb" />
+    <Compile Include="src\bases\BaseReturn.vb" />
     <Compile Include="src\bases\BaseSubCategory.vb" />
     <Compile Include="src\bases\BaseSupplier.vb" />
     <Compile Include="src\bases\BaseTransaction.vb" />
+    <Compile Include="src\bases\BaseVat.vb" />
     <Compile Include="src\classes\InputValidation.vb" />
     <Compile Include="src\classes\LoginModule.vb" />
     <Compile Include="src\classes\SqlBaseConnetion.vb" />
@@ -464,6 +484,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\PullOutProductDialog.resx">
       <DependentUpon>PullOutProductDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\ReturnCartDialog.resx">
+      <DependentUpon>ReturnCartDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\ReturnDialog.resx">
+      <DependentUpon>ReturnDialog.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\SubCategoryDialog.resx">
       <DependentUpon>SubCategoryDialog.vb</DependentUpon>
@@ -536,6 +562,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\Reports.resx">
       <DependentUpon>Reports.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\Returns.resx">
+      <DependentUpon>Returns.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\SalesReport.resx">
       <DependentUpon>SalesReport.vb</DependentUpon>

@@ -16,12 +16,12 @@
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
         _tableAapter.Fill(_dataTable)
         TransactionDataGridView.DataSource = _dataTable
-        TransactionDataGridView.Columns.Item("ID").Visible = False
-        TransactionDataGridView.Columns.Item("VAT").Visible = False
-        TransactionDataGridView.Columns.Item("CASH").Visible = False
-        TransactionDataGridView.Columns.Item("VATABLE").Visible = False
-        TransactionDataGridView.Columns.Item("DISCOUNT").Visible = False
-        TransactionDataGridView.Columns.Item("SUBTOTAL").Visible = False
+        'TransactionDataGridView.Columns.Item("ID").Visible = False
+        'TransactionDataGridView.Columns.Item("VAT").Visible = False
+        'TransactionDataGridView.Columns.Item("CASH").Visible = False
+        'TransactionDataGridView.Columns.Item("VATABLE").Visible = False
+        'TransactionDataGridView.Columns.Item("DISCOUNT").Visible = False
+        'TransactionDataGridView.Columns.Item("SUBTOTAL").Visible = False
     End Sub
 
     Private Sub AddDeliveryButton_Click(sender As Object, e As EventArgs) Handles AddTransactionButton.Click

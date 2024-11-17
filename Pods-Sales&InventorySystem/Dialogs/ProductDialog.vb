@@ -73,6 +73,9 @@ Public Class ProductDialog
         '    MessageBox.Show("Price should not be less than or equal to the cost price.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         '    Return
         'End If
+
+
+
         If Not result.Any(Function(item As Object()) Not item(0)) Then
             Dim data As New Dictionary(Of String, String) From {
                 {"id", _data?.Item("id")},
@@ -104,11 +107,11 @@ Public Class ProductDialog
                 item("dosage") = res(0)(1) 'If(String.IsNullOrEmpty(DosageTextBox.Text), Nothing, DosageTextBox.Text)
                 item("strength") = res(1)(1) 'If(String.IsNullOrEmpty(StrengthTextBox.Text), Nothing, StrengthTextBox.Text)
                 item("manufacturer") = res(2)(1) 'If(String.IsNullOrEmpty(ManufacturerTextBox.Text), Nothing, ManufacturerTextBox.Text)
-            Else
-                ' If all are empty, set them as null values
-                item("dosage") = Nothing
-                item("strength") = Nothing
-                item("manufacturer") = Nothing
+                'Else
+                '    ' If all are empty, set them as null values
+                '    item("dosage") = Nothing
+                '    item("strength") = Nothing
+                '    item("manufacturer") = Nothing
             End If
 
 
@@ -123,12 +126,13 @@ Public Class ProductDialog
             Else
                 MessageBox.Show("Product exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
-            invoker?.Execute()
-            _subject.NotifyObserver()
-            Me.Close()
+            'invoker?.Execute()
+            '_subject.NotifyObserver()
+            'Me.Close()
         Else
             MessageBox.Show("Please fill out all textboxes or provide all valid inputs.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
+
     End Sub
 
     Private Sub DeleteProductButton_Click(sender As Object, e As EventArgs) Handles DeleteProductButton.Click

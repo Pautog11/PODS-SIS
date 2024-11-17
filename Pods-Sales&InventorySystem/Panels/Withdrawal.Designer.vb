@@ -26,7 +26,9 @@ Partial Class ReturnAndPullout
         Me.Returns = New System.Windows.Forms.TabPage()
         Me.PullOuts = New System.Windows.Forms.TabPage()
         Me.PullOuts1 = New Pods_Sales_InventorySystem.PullOuts()
+        Me.Returns1 = New Pods_Sales_InventorySystem.Returns()
         Me.ReturnandPulloutTabControl.SuspendLayout()
+        Me.Returns.SuspendLayout()
         Me.PullOuts.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -63,6 +65,7 @@ Partial Class ReturnAndPullout
         '
         'Returns
         '
+        Me.Returns.Controls.Add(Me.Returns1)
         Me.Returns.Location = New System.Drawing.Point(4, 44)
         Me.Returns.Name = "Returns"
         Me.Returns.Size = New System.Drawing.Size(1014, 532)
@@ -89,6 +92,15 @@ Partial Class ReturnAndPullout
         Me.PullOuts1.Size = New System.Drawing.Size(1014, 532)
         Me.PullOuts1.TabIndex = 0
         '
+        'Returns1
+        '
+        Me.Returns1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Returns1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Returns1.Location = New System.Drawing.Point(0, 0)
+        Me.Returns1.Name = "Returns1"
+        Me.Returns1.Size = New System.Drawing.Size(1014, 532)
+        Me.Returns1.TabIndex = 0
+        '
         'ReturnAndPullout
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -97,6 +109,7 @@ Partial Class ReturnAndPullout
         Me.Name = "ReturnAndPullout"
         Me.Size = New System.Drawing.Size(1022, 580)
         Me.ReturnandPulloutTabControl.ResumeLayout(False)
+        Me.Returns.ResumeLayout(False)
         Me.PullOuts.ResumeLayout(False)
         Me.ResumeLayout(False)
 
@@ -106,4 +119,5 @@ Partial Class ReturnAndPullout
     Friend WithEvents Returns As TabPage
     Friend WithEvents PullOuts As TabPage
     Friend WithEvents PullOuts1 As PullOuts
+    Friend WithEvents Returns1 As Returns
 End Class

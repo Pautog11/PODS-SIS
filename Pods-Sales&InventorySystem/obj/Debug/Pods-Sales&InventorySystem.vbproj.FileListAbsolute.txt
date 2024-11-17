@@ -306,3 +306,6 @@ C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\ob
 C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.ReportViewerDialog.resources
 C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\RdlCompile.cache
 C:\Users\Christian\Desktop\New folder (2)\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\RdlCompile.compiled
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Returns.resources
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.ReturnCartDialog.resources
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.ReturnDialog.resources

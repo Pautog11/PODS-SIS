@@ -27,9 +27,8 @@
                 {"id", If(row.Cells(0).Value?.ToString(), String.Empty)},
                 {"vat", If(row.Cells(1).Value?.ToString(), String.Empty)}
             }
-            Dim dialog As New VatDialog(data:=data)
+            Dim dialog As New VatDialog(data:=data, subject:=_subject)
             dialog.ShowDialog()
-            'MsgBox(row.Cells(1).Value?.ToString())
         End If
     End Sub
 End Class
