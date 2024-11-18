@@ -36,7 +36,7 @@ Public Class ReportViewerDialog
                                             t.total,
                                             t.date,
                                             CONCAT(u.first_name, ' ', u.last_name) AS name,
-                                            t.cash, (t.cash - t.total) change
+                                            t.cash, (t.cash - t.total) change, t.vatable
                                           FROM tbltransactions t
                                           JOIN tblaccounts u ON t.account_id = u.id
                                           WHERE t.transaction_number = @transaction_number", con)
@@ -56,7 +56,7 @@ Public Class ReportViewerDialog
         Try
             Using con As New SqlConnection(My.Settings.podsdbConnectionString1)
                 con.Open()
-                Dim cmd As New SqlCommand("SELECT t.transaction_number, p.product_name AS product, ti.quantity, ti.price 
+                Dim cmd As New SqlCommand("SELECT t.transaction_number, p.product_name AS product, ti.quantity, ti.price, ti.total 
                                           FROM tbltransaction_items ti 
                                           JOIN tblproducts p ON ti.product_id = p.id
 										  JOIN tbltransactions t ON ti.transaction_id = t.id

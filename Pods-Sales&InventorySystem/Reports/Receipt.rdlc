@@ -20,7 +20,7 @@
         </Paragraphs>
         <rd:DefaultName>discount</rd:DefaultName>
         <Top>2.52125cm</Top>
-        <Left>3.5748cm</Left>
+        <Left>3.67677cm</Left>
         <Height>0.6cm</Height>
         <Width>1.1166cm</Width>
         <Style>
@@ -51,7 +51,7 @@
         </Paragraphs>
         <rd:DefaultName>vat</rd:DefaultName>
         <Top>6.66722cm</Top>
-        <Left>3.5748cm</Left>
+        <Left>3.67677cm</Left>
         <Height>0.6cm</Height>
         <Width>1.1166cm</Width>
         <ZIndex>1</ZIndex>
@@ -83,7 +83,7 @@
         </Paragraphs>
         <rd:DefaultName>total</rd:DefaultName>
         <Top>3.29764cm</Top>
-        <Left>3.5748cm</Left>
+        <Left>3.67677cm</Left>
         <Height>0.6cm</Height>
         <Width>1.1166cm</Width>
         <ZIndex>2</ZIndex>
@@ -447,7 +447,7 @@
         </Paragraphs>
         <rd:DefaultName>cash</rd:DefaultName>
         <Top>4.07403cm</Top>
-        <Left>3.5748cm</Left>
+        <Left>3.67677cm</Left>
         <Height>0.49417cm</Height>
         <Width>1.1166cm</Width>
         <ZIndex>14</ZIndex>
@@ -543,7 +543,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>11.17424cm</Top>
-        <Left>1.4192cm</Left>
+        <Left>0.64948cm</Left>
         <Height>0.6cm</Height>
         <Width>3.2722cm</Width>
         <ZIndex>17</ZIndex>
@@ -577,7 +577,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>9.40069cm</Top>
-        <Left>1.07281cm</Left>
+        <Left>0.64948cm</Left>
         <Height>0.70583cm</Height>
         <Width>3.72056cm</Width>
         <ZIndex>18</ZIndex>
@@ -757,18 +757,21 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.11984cm</Width>
+              <Width>1.57158cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.14063cm</Width>
+              <Width>0.72414cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.74942cm</Width>
+              <Width>1.03479cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.24548cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.50684cm</Height>
+              <Height>0.52447cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -869,10 +872,43 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox28">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Total</Value>
+                              <Style>
+                                <FontSize>7pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox28</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.87726cm</Height>
+              <Height>0.89489cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -969,12 +1005,44 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="total1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!total.Value</Value>
+                              <Style>
+                                <FontSize>7pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>total1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
               </TablixCells>
             </TablixRow>
           </TablixRows>
         </TablixBody>
         <TablixColumnHierarchy>
           <TablixMembers>
+            <TablixMember />
             <TablixMember />
             <TablixMember />
             <TablixMember />
@@ -993,8 +1061,8 @@
         <DataSetName>DS_TransactionsItem</DataSetName>
         <Top>0.36724cm</Top>
         <Left>0.31433cm</Left>
-        <Height>1.3841cm</Height>
-        <Width>5.00989cm</Width>
+        <Height>1.41937cm</Height>
+        <Width>4.57599cm</Width>
         <ZIndex>24</ZIndex>
         <Style>
           <Border>
@@ -1085,7 +1153,7 @@
         </Paragraphs>
         <rd:DefaultName>subtotal</rd:DefaultName>
         <Top>1.92772cm</Top>
-        <Left>3.5748cm</Left>
+        <Left>3.67677cm</Left>
         <Height>0.41713cm</Height>
         <Width>1.1166cm</Width>
         <ZIndex>27</ZIndex>
@@ -1117,7 +1185,7 @@
         </Paragraphs>
         <rd:DefaultName>change</rd:DefaultName>
         <Top>4.74458cm</Top>
-        <Left>3.5748cm</Left>
+        <Left>3.67677cm</Left>
         <Height>0.45889cm</Height>
         <Width>1.1166cm</Width>
         <ZIndex>28</ZIndex>
@@ -1131,14 +1199,14 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="vat2">
+      <Textbox Name="vatable">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!vat.Value, "DSReport")</Value>
+                <Value>=First(Fields!vatable.Value, "DSReport")</Value>
                 <Style>
                   <FontSize>7pt</FontSize>
                 </Style>
@@ -1147,9 +1215,9 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>vat</rd:DefaultName>
-        <Top>5.83439cm</Top>
-        <Left>3.60655cm</Left>
+        <rd:DefaultName>vatable</rd:DefaultName>
+        <Top>5.89083cm</Top>
+        <Left>3.67677cm</Left>
         <Height>0.6cm</Height>
         <Width>1.1166cm</Width>
         <ZIndex>29</ZIndex>
@@ -1171,7 +1239,7 @@
       </Border>
     </Style>
   </Body>
-  <Width>2.97259in</Width>
+  <Width>2.24491in</Width>
   <Page>
     <PageHeader>
       <Height>3.99521cm</Height>
@@ -1421,6 +1489,10 @@
         </Field>
         <Field Name="change">
           <DataField>change</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="vatable">
+          <DataField>vatable</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>

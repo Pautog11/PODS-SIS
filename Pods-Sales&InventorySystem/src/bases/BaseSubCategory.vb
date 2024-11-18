@@ -153,4 +153,20 @@ Public Class BaseSubCategory
             Return 0
         End Try
     End Function
+
+    Public Shared Function Search(query As String) As pods.viewtblsubcategoriesDataTable
+        Try
+            Dim conn As New SqlConnection(My.Settings.podsdbConnectionString)
+            Dim cmd As New SqlCommand("SELECT * FROM viewtblsubcategories WHERE id <> 1 AND CATEGORY LIKE CONCAT('%', @query, '%')", conn)
+            cmd.Parameters.AddWithValue("@query", query)
+            Dim dTable As New pods.viewtblsubcategoriesDataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New pods.viewtblsubcategoriesDataTable
+        End Try
+
+    End Function
 End Class

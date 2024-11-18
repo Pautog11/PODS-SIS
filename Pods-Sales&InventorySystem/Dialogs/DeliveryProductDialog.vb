@@ -176,8 +176,6 @@ Public Class DeliveryProductDialog
                         SubcategoryComboBox.Items.Add(productSubCategory)
                     End If
 
-                    'ProductComboBox.Text = BaseTransaction.NamebyID(dt.Rows(0).Item("product_name").ToString())
-                    'MsgBox(dt.Rows(0).Item("product_name").ToString())
                     SkuComboBox1.SelectedItem = dt.Rows(0).Item("sku").ToString()
                     ProductComboBox.Text = dt.Rows(0).Item("product_name").ToString()
                     CostTextBox.Text = dt.Rows(0).Item("product_cost").ToString()
@@ -188,14 +186,11 @@ Public Class DeliveryProductDialog
                     Else
                         ExdTextBox.Enabled = False
                     End If
-
                 Else
                     MessageBox.Show("No, product found!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
             Else
                 MessageBox.Show("Barcode not valid!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                'BarcodeTextBox.Text = ""
-                'Return
             End If
         End If
         SkuComboBox1.Enabled = False
@@ -203,9 +198,12 @@ Public Class DeliveryProductDialog
         ProductComboBox.Enabled = False
     End Sub
 
-    'Private Sub MfgDate_ValueChanged(sender As Object, e As EventArgs)
-    '    'MsgBox(MfgDate.Value)
-    '    'MsgBox(MfgDate.Value.ToString("dd-MM-yyyy"))
-    'End Sub
+    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
+        '    Dim data As New Dictionary(Of String, String) From {
+        '        {"id", SubcategoryComboBox.ValueMember("id")}
+        '    }
+        '    Dim dialog As New SearchDialog(data:=data)
+        '    dialog.ShowDialog()
+        'MsgBox(SubcategoryComboBox.ValueMember("id"))
+    End Sub
 End Class
-

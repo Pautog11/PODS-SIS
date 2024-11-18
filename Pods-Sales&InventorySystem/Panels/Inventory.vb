@@ -22,8 +22,26 @@ Public Class Inventory
     End Sub
 
     Private Sub PrintButton_Click(sender As Object, e As EventArgs) Handles PrintButton.Click
-        Using dialog = ProductVIewer
-            dialog.ShowDialog()
-        End Using
+        'Dim strsql As String = ""
+        'Try
+        '    If ProductDataGridView.SelectedRows.Count <> 0 Then
+        '        For Each row As DataGridViewRow In ProductDataGridView.SelectedRows
+        '            Dim prodID As String = row.Cells("").Value.ToString()
+        '        Next
+        '        strsql = "SELECT * FROM tblProducts"
+
+        '        adp = New SqlClient.SqlDataAdapter(strsql, con)
+        '        Dim a As New DSReport
+
+        '        a.EnforceConstraints = True
+
+        '        ProductDataGridView.DataSource =
+        '        ProductDataGridView.AutoResizeColumns()
+        '    Else
+        '        MsgBox("Error!!")
+        '    End If
+        'Catch ex As Exception
+
+        'End Try
     End Sub
 End Class

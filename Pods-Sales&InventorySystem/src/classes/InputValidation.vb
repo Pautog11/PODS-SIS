@@ -65,18 +65,44 @@ Public Class InputValidation
                 '    Return {True, String.Join(" ", nameString)}
                 'End If
 
+                'If stringInput.Count > 1 Then
+                '    Dim nameString As String() = stringInput.Split(" ")
+                '    Dim regex As New Regex("^[A-Za-z]")
+
+                '    For i = 0 To nameString.Count - 1
+                '        If regex.IsMatch(nameString(i)) Then
+                '            Dim charArr As Char() = nameString(i).ToArray()
+                '            charArr(0) = Char.ToUpper(charArr(0))
+                '            nameString(i) = String.Join("", charArr)
+                '            Return {True, String.Join(" ", nameString)}
+                '        End If
+                '    Next
+                'End If
+
+                stringInput = System.Text.RegularExpressions.Regex.Replace(stringInput.Trim(), "\s+", " ")
+
+                ' Check if there's more than one word
                 If stringInput.Count > 1 Then
-                    Dim nameString As String() = stringInput.Split(" ")
+                    ' Split the string into words
+                    Dim nameString As String() = stringInput.Split(" "c)
                     Dim regex As New Regex("^[A-Za-z]")
 
+                    ' Iterate through each word
                     For i = 0 To nameString.Count - 1
+                        ' Capitalize the first letter if the word contains alphabetic characters
                         If regex.IsMatch(nameString(i)) Then
+                            ' Capitalize the first character and join the rest of the word
                             Dim charArr As Char() = nameString(i).ToArray()
                             charArr(0) = Char.ToUpper(charArr(0))
                             nameString(i) = String.Join("", charArr)
-                            Return {True, String.Join(" ", nameString)}
                         End If
                     Next
+
+                    ' Return the processed result
+                    Return {True, String.Join(" ", nameString)}
+                    'Else
+                    '    ' Return False if there is no valid input or only one word
+                    '    Return {False, stringInput}
                 End If
 
             Case DataInput.STRING_PASSWORD
@@ -85,9 +111,30 @@ Public Class InputValidation
                 'End If
 
             Case DataInput.STRING_PHONE
+                'If Regex.IsMatch(start_trim_o, "^(\+639|09)\d{2}[-\s]?\d{3}[-\s]?\d{4}$") Then
+                '    Return {True, start_trim_o}
+                'End If
+
+                ' Trim any leading/trailing spaces
+                start_trim_o = start_trim_o.Trim()
+
+                ' Check if the phone number matches the pattern for mobile numbers
                 If Regex.IsMatch(start_trim_o, "^(\+639|09)\d{2}[-\s]?\d{3}[-\s]?\d{4}$") Then
+                    ' Remove spaces and dashes from the phone number
+                    If start_trim_o.StartsWith("+63") Then
+                        start_trim_o = "0" & start_trim_o.Substring(3)
+                    End If
+
+                    start_trim_o = Regex.Replace(start_trim_o, "[-\s]", "")
+
+                    ' Return the cleaned phone number
                     Return {True, start_trim_o}
+                    'Else
+                    '    ' If the phone number does not match the expected pattern
+                    '    Return {False, "Invalid phone number"}
                 End If
+
+
             Case DataInput.STRING_USERNAME
                 If Not Regex.IsMatch(stringInput, "[^\w]+") Then
                     Return {True, stringInput}

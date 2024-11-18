@@ -110,12 +110,13 @@ Public Class BaseAccount
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand = Nothing
-            Select Case My.Settings.roleId
-                Case 1
-                    cmd = New SqlCommand("SELECT * FROM tblroles WHERE id != 1", conn)
-                Case 2
-                    cmd = New SqlCommand("SELECT * FROM tblroles WHERE id != 1 AND id != 2", conn)
-            End Select
+            'Select Case My.Settings.roleId
+            '    Case 1
+            '        cmd = New SqlCommand("SELECT * FROM tblroles WHERE id != 1", conn)
+            '    Case 2
+            '        cmd = New SqlCommand("SELECT * FROM tblroles WHERE id != 1 AND id != 2", conn)
+            'End Select
+            cmd = New SqlCommand("SELECT * FROM tblroles", conn)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
             adapter.Fill(dTable)

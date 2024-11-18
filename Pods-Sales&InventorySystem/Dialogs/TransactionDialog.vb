@@ -50,7 +50,7 @@ Public Class TransactionDialog
             DateLabel.Text = DateAndTime.Now.ToString("F")
             ReturnButton.Visible = False
         End If
-        'TransactionDataGridView.Columns.Item("ID").Visible = False
+        TransactionDataGridView.Columns.Item("ID").Visible = False
         SubtotalTextBox.Enabled = False
         VatTextBox.Enabled = False
         TotalTextBox.Enabled = False
@@ -173,13 +173,13 @@ Public Class TransactionDialog
                 Next
 
                 baseCommand = New BaseTransaction(data) With {
-                .Items = items
-            }
+                    .Items = items
+                }
 
                 invoker = New AddCommand(baseCommand)
                 invoker?.Execute()
 
-                Using dialog As New ReportViewerDialog(Reference_number.Text) 
+                Using dialog As New ReceiptViewer(Reference_number.Text)
                     dialog.ShowDialog()
                 End Using
 

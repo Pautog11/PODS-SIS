@@ -96,21 +96,43 @@ Public Class BaseProduct
             '    _item = Nothing
             'End If
 
-            If String.IsNullOrEmpty(_item.Item("dosage_form")) AndAlso String.IsNullOrEmpty(_item.Item("strength")) AndAlso String.IsNullOrEmpty(_item.Item("manufacturer")) Then _item = Nothing
+            'If String.IsNullOrEmpty(_item.Item("dosage_form")) AndAlso String.IsNullOrEmpty(_item.Item("strength")) AndAlso String.IsNullOrEmpty(_item.Item("manufacturer")) Then _item = Nothing
+
+            'If _item IsNot Nothing Then
+            '    Dim productid As Integer = Convert.ToInt32(_sqlCommand.ExecuteScalar())
+            '    _sqlCommand.Parameters.Clear()
+            '    _sqlCommand = New SqlCommand("INSERT INTO tblproduct_info (product_id, dosage_form, strength, manufacturer) VALUES (@product_id, @dosage_form, @strength, @manufacturer)", _sqlConnection, transaction)
+            '    _sqlCommand.Parameters.AddWithValue("@product_id", productid)
+            '    _sqlCommand.Parameters.AddWithValue("@dosage_form", _item.Item("dosage")) '_item.Item("dosage"))
+            '    _sqlCommand.Parameters.AddWithValue("@strength", _item.Item("strength"))
+            '    _sqlCommand.Parameters.AddWithValue("@manufacturer", _item.Item("manufacturer"))
+            'End If
 
             If _item IsNot Nothing Then
-                Dim productid As Integer = Convert.ToInt32(_sqlCommand.ExecuteScalar())
-                _sqlCommand.Parameters.Clear()
-                _sqlCommand = New SqlCommand("INSERT INTO tblproduct_info (product_id, dosage_form, strength, manufacturer) VALUES (@product_id, @dosage_form, @strength, @manufacturer)", _sqlConnection, transaction)
-                _sqlCommand.Parameters.AddWithValue("@product_id", productid)
-                _sqlCommand.Parameters.AddWithValue("@dosage_form", _item.Item("dosage")) '_item.Item("dosage"))
-                _sqlCommand.Parameters.AddWithValue("@strength", _item.Item("strength"))
-                _sqlCommand.Parameters.AddWithValue("@manufacturer", _item.Item("manufacturer"))
+                ' Ensure the dictionary contains the necessary keys before accessing them
+                If _item.ContainsKey("dosage") AndAlso _item.ContainsKey("strength") AndAlso _item.ContainsKey("manufacturer") Then
+                    ' Execute the SQL query and get the product ID
+                    Dim productid As Integer = Convert.ToInt32(_sqlCommand.ExecuteScalar())
+                    _sqlCommand.Parameters.Clear()
+
+                    ' Prepare the SQL command for insertion
+                    _sqlCommand = New SqlCommand("INSERT INTO tblproduct_info (product_id, dosage_form, strength, manufacturer) VALUES (@product_id, @dosage_form, @strength, @manufacturer)", _sqlConnection, transaction)
+
+                    ' Add the parameters with appropriate values from the dictionary
+                    _sqlCommand.Parameters.AddWithValue("@product_id", productid)
+                    _sqlCommand.Parameters.AddWithValue("@dosage_form", _item("dosage")) ' Using the dictionary's Item method
+                    _sqlCommand.Parameters.AddWithValue("@strength", _item("strength"))
+                    _sqlCommand.Parameters.AddWithValue("@manufacturer", _item("manufacturer"))
+                    If _sqlCommand.ExecuteNonQuery() <= 0 Then
+                        Throw New Exception("Failed to add delivery items!")
+                    End If
+                    'Else
+                    '    ' Handle the case where some expected keys are missing in the dictionary
+                    '    Throw New Exception("The dictionary is missing required keys: dosage, strength, or manufacturer.")
+                End If
+
             End If
 
-            If _sqlCommand.ExecuteNonQuery() <= 0 Then
-                Throw New Exception("Failed to add delivery items!")
-            End If
             MessageBox.Show("Product has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
             transaction.Commit()
         Catch ex As Exception

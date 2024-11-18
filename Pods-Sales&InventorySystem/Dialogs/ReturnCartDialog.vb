@@ -16,7 +16,7 @@ Public Class ReturnCartDialog
         If _data IsNot Nothing Then
             TransactionTextBox.Text = _data.Item("ref")
             RetuenDatePicker.Value = _data.Item("date")
-            Guna2HtmlLabel2.Text = _data.Item("delivery_id")
+            ' Guna2HtmlLabel2.Text = _data.Item("delivery_id")
         End If
         TransactionTextBox.Enabled = False
         RetuenDatePicker.Enabled = False

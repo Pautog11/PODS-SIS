@@ -17,7 +17,7 @@
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
         _tableAapter.Fill(_dataTable)
         PullOutsGridView.DataSource = _dataTable
-        'PullOutsGridView.Columns.Item("ID").Visible = False
+        PullOutsGridView.Columns.Item("ID").Visible = False
     End Sub
 
     Private Sub PullOutsGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles PullOutsGridView.CellClick

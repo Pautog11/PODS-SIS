@@ -69,6 +69,10 @@
     <Reference Include="BCrypt.Net-Next, Version=4.0.3.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
       <HintPath>..\packages\BCrypt.Net-Next.4.0.3\lib\net472\BCrypt.Net-Next.dll</HintPath>
     </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
     </Reference>
@@ -216,6 +220,12 @@
     <Compile Include="Dialogs\ReturnDialog.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Dialogs\SearchDialog.Designer.vb">
+      <DependentUpon>SearchDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\SearchDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Dialogs\SubCategoryDialog.Designer.vb">
       <DependentUpon>SubCategoryDialog.vb</DependentUpon>
     </Compile>
@@ -334,6 +344,12 @@
     <Compile Include="Panels\Discount.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Panels\FinancialReport.Designer.vb">
+      <DependentUpon>FinancialReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\FinancialReport.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Panels\Inventory.Designer.vb">
       <DependentUpon>Inventory.vb</DependentUpon>
     </Compile>
@@ -414,6 +430,18 @@
     <Compile Include="pods.vb">
       <DependentUpon>pods.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reports\Inventory\InventoryReports.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InventoryReports.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Inventory\InventoryReportsViewer.Designer.vb">
+      <DependentUpon>InventoryReportsViewer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Inventory\InventoryReportsViewer.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Reports\ProductVIewer.Designer.vb">
       <DependentUpon>ProductVIewer.vb</DependentUpon>
     </Compile>
@@ -427,6 +455,18 @@
     </Compile>
     <Compile Include="Reports\DSReport.vb">
       <DependentUpon>DSReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Receipt\Receipt.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Receipt.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Receipt\ReceiptViewer.Designer.vb">
+      <DependentUpon>ReceiptViewer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Receipt\ReceiptViewer.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reports\ReportViewerDialog.Designer.vb">
       <DependentUpon>ReportViewerDialog.vb</DependentUpon>
@@ -491,6 +531,9 @@
     <EmbeddedResource Include="Dialogs\ReturnDialog.resx">
       <DependentUpon>ReturnDialog.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\SearchDialog.resx">
+      <DependentUpon>SearchDialog.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\SubCategoryDialog.resx">
       <DependentUpon>SubCategoryDialog.vb</DependentUpon>
     </EmbeddedResource>
@@ -548,6 +591,9 @@
     <EmbeddedResource Include="Panels\Discount.resx">
       <DependentUpon>Discount.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Panels\FinancialReport.resx">
+      <DependentUpon>FinancialReport.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Panels\Inventory.resx">
       <DependentUpon>Inventory.vb</DependentUpon>
     </EmbeddedResource>
@@ -584,11 +630,25 @@
     <EmbeddedResource Include="Panels\Vat.resx">
       <DependentUpon>Vat.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Inventory\InventoryReports.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InventoryReports.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Inventory\InventoryReportsViewer.resx">
+      <DependentUpon>InventoryReportsViewer.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\ProductVIewer.resx">
       <DependentUpon>ProductVIewer.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\Products.rdlc" />
     <EmbeddedResource Include="Reports\Receipt.rdlc" />
+    <EmbeddedResource Include="Reports\Receipt\Receipt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Receipt.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Receipt\ReceiptViewer.resx">
+      <DependentUpon>ReceiptViewer.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\ReportViewerDialog.resx">
       <DependentUpon>ReportViewerDialog.vb</DependentUpon>
     </EmbeddedResource>
@@ -671,6 +731,7 @@
     <None Include="Resources\shopping-cart.png" />
     <None Include="Resources\sales.png" />
     <None Include="Resources\printer.png" />
+    <None Include="Resources\icons8-search-50.png" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
@@ -685,6 +746,12 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reports\Sales Report\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

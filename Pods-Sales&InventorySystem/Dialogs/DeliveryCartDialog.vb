@@ -32,7 +32,7 @@ Public Class DeliveryCartDialog
         'SupplierNameComboBox.DisplayMember = viewtblsuppliersDataTable("viewtb
         'SupplierNameComboBox.ValueMember = "ID"
 
-        'DeliveryDataGridView.Columns.Item("ID").Visible = False
+        DeliveryDataGridView.Columns.Item("ID").Visible = False
 
         If _data IsNot Nothing Then
             AddProductButton.Visible = False

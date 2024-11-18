@@ -24,25 +24,22 @@ Partial Class Maintenance
     Private Sub InitializeComponent()
         Me.MaintenaceTabControl = New Guna.UI2.WinForms.Guna2TabControl()
         Me.Accounts = New System.Windows.Forms.TabPage()
-        Me.Categories = New System.Windows.Forms.TabPage()
-        Me.SubCategory = New System.Windows.Forms.TabPage()
-        Me.Suppliers = New System.Windows.Forms.TabPage()
-        Me.Deliveries = New System.Windows.Forms.TabPage()
-        Me.Vat = New System.Windows.Forms.TabPage()
-        Me.Discounts = New System.Windows.Forms.TabPage()
         Me.Account1 = New Pods_Sales_InventorySystem.Account()
+        Me.Categories = New System.Windows.Forms.TabPage()
         Me.Category1 = New Pods_Sales_InventorySystem.Category()
+        Me.SubCategory = New System.Windows.Forms.TabPage()
         Me.SubCategory1 = New Pods_Sales_InventorySystem.SubCategory()
+        Me.Suppliers = New System.Windows.Forms.TabPage()
         Me.Supplier1 = New Pods_Sales_InventorySystem.Supplier()
-        Me.Delivery1 = New Pods_Sales_InventorySystem.Delivery()
+        Me.Vat = New System.Windows.Forms.TabPage()
         Me.Vat1 = New Pods_Sales_InventorySystem.Vat()
+        Me.Discounts = New System.Windows.Forms.TabPage()
         Me.Discount1 = New Pods_Sales_InventorySystem.Discount()
         Me.MaintenaceTabControl.SuspendLayout()
         Me.Accounts.SuspendLayout()
         Me.Categories.SuspendLayout()
         Me.SubCategory.SuspendLayout()
         Me.Suppliers.SuspendLayout()
-        Me.Deliveries.SuspendLayout()
         Me.Vat.SuspendLayout()
         Me.Discounts.SuspendLayout()
         Me.SuspendLayout()
@@ -53,7 +50,6 @@ Partial Class Maintenance
         Me.MaintenaceTabControl.Controls.Add(Me.Categories)
         Me.MaintenaceTabControl.Controls.Add(Me.SubCategory)
         Me.MaintenaceTabControl.Controls.Add(Me.Suppliers)
-        Me.MaintenaceTabControl.Controls.Add(Me.Deliveries)
         Me.MaintenaceTabControl.Controls.Add(Me.Vat)
         Me.MaintenaceTabControl.Controls.Add(Me.Discounts)
         Me.MaintenaceTabControl.Dock = System.Windows.Forms.DockStyle.Fill
@@ -93,6 +89,15 @@ Partial Class Maintenance
         Me.Accounts.Text = "Accounts"
         Me.Accounts.UseVisualStyleBackColor = True
         '
+        'Account1
+        '
+        Me.Account1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Account1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Account1.Location = New System.Drawing.Point(0, 0)
+        Me.Account1.Name = "Account1"
+        Me.Account1.Size = New System.Drawing.Size(1279, 492)
+        Me.Account1.TabIndex = 0
+        '
         'Categories
         '
         Me.Categories.Controls.Add(Me.Category1)
@@ -102,6 +107,15 @@ Partial Class Maintenance
         Me.Categories.TabIndex = 7
         Me.Categories.Text = "Categories"
         Me.Categories.UseVisualStyleBackColor = True
+        '
+        'Category1
+        '
+        Me.Category1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Category1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Category1.Location = New System.Drawing.Point(0, 0)
+        Me.Category1.Name = "Category1"
+        Me.Category1.Size = New System.Drawing.Size(1279, 492)
+        Me.Category1.TabIndex = 0
         '
         'SubCategory
         '
@@ -113,64 +127,6 @@ Partial Class Maintenance
         Me.SubCategory.Text = "Sub Categories"
         Me.SubCategory.UseVisualStyleBackColor = True
         '
-        'Suppliers
-        '
-        Me.Suppliers.Controls.Add(Me.Supplier1)
-        Me.Suppliers.Location = New System.Drawing.Point(4, 44)
-        Me.Suppliers.Name = "Suppliers"
-        Me.Suppliers.Size = New System.Drawing.Size(1279, 492)
-        Me.Suppliers.TabIndex = 4
-        Me.Suppliers.Text = "Suppliers"
-        Me.Suppliers.UseVisualStyleBackColor = True
-        '
-        'Deliveries
-        '
-        Me.Deliveries.Controls.Add(Me.Delivery1)
-        Me.Deliveries.Location = New System.Drawing.Point(4, 44)
-        Me.Deliveries.Name = "Deliveries"
-        Me.Deliveries.Size = New System.Drawing.Size(1279, 492)
-        Me.Deliveries.TabIndex = 5
-        Me.Deliveries.Text = "Deliveries"
-        Me.Deliveries.UseVisualStyleBackColor = True
-        '
-        'Vat
-        '
-        Me.Vat.Controls.Add(Me.Vat1)
-        Me.Vat.Location = New System.Drawing.Point(4, 44)
-        Me.Vat.Name = "Vat"
-        Me.Vat.Size = New System.Drawing.Size(1279, 492)
-        Me.Vat.TabIndex = 8
-        Me.Vat.Text = "Vat"
-        Me.Vat.UseVisualStyleBackColor = True
-        '
-        'Discounts
-        '
-        Me.Discounts.Controls.Add(Me.Discount1)
-        Me.Discounts.Location = New System.Drawing.Point(4, 44)
-        Me.Discounts.Name = "Discounts"
-        Me.Discounts.Size = New System.Drawing.Size(1279, 492)
-        Me.Discounts.TabIndex = 9
-        Me.Discounts.Text = "Discounts"
-        Me.Discounts.UseVisualStyleBackColor = True
-        '
-        'Account1
-        '
-        Me.Account1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Account1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Account1.Location = New System.Drawing.Point(0, 0)
-        Me.Account1.Name = "Account1"
-        Me.Account1.Size = New System.Drawing.Size(1279, 492)
-        Me.Account1.TabIndex = 0
-        '
-        'Category1
-        '
-        Me.Category1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Category1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Category1.Location = New System.Drawing.Point(0, 0)
-        Me.Category1.Name = "Category1"
-        Me.Category1.Size = New System.Drawing.Size(1279, 492)
-        Me.Category1.TabIndex = 0
-        '
         'SubCategory1
         '
         Me.SubCategory1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -180,6 +136,16 @@ Partial Class Maintenance
         Me.SubCategory1.Name = "SubCategory1"
         Me.SubCategory1.Size = New System.Drawing.Size(1279, 492)
         Me.SubCategory1.TabIndex = 0
+        '
+        'Suppliers
+        '
+        Me.Suppliers.Controls.Add(Me.Supplier1)
+        Me.Suppliers.Location = New System.Drawing.Point(4, 44)
+        Me.Suppliers.Name = "Suppliers"
+        Me.Suppliers.Size = New System.Drawing.Size(1279, 492)
+        Me.Suppliers.TabIndex = 4
+        Me.Suppliers.Text = "Suppliers"
+        Me.Suppliers.UseVisualStyleBackColor = True
         '
         'Supplier1
         '
@@ -191,15 +157,15 @@ Partial Class Maintenance
         Me.Supplier1.Size = New System.Drawing.Size(1279, 492)
         Me.Supplier1.TabIndex = 0
         '
-        'Delivery1
+        'Vat
         '
-        Me.Delivery1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Delivery1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Delivery1.Location = New System.Drawing.Point(0, 0)
-        Me.Delivery1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Delivery1.Name = "Delivery1"
-        Me.Delivery1.Size = New System.Drawing.Size(1279, 492)
-        Me.Delivery1.TabIndex = 0
+        Me.Vat.Controls.Add(Me.Vat1)
+        Me.Vat.Location = New System.Drawing.Point(4, 44)
+        Me.Vat.Name = "Vat"
+        Me.Vat.Size = New System.Drawing.Size(1279, 492)
+        Me.Vat.TabIndex = 8
+        Me.Vat.Text = "Vat"
+        Me.Vat.UseVisualStyleBackColor = True
         '
         'Vat1
         '
@@ -209,6 +175,16 @@ Partial Class Maintenance
         Me.Vat1.Name = "Vat1"
         Me.Vat1.Size = New System.Drawing.Size(1279, 492)
         Me.Vat1.TabIndex = 0
+        '
+        'Discounts
+        '
+        Me.Discounts.Controls.Add(Me.Discount1)
+        Me.Discounts.Location = New System.Drawing.Point(4, 44)
+        Me.Discounts.Name = "Discounts"
+        Me.Discounts.Size = New System.Drawing.Size(1279, 492)
+        Me.Discounts.TabIndex = 9
+        Me.Discounts.Text = "Discounts"
+        Me.Discounts.UseVisualStyleBackColor = True
         '
         'Discount1
         '
@@ -230,7 +206,6 @@ Partial Class Maintenance
         Me.Categories.ResumeLayout(False)
         Me.SubCategory.ResumeLayout(False)
         Me.Suppliers.ResumeLayout(False)
-        Me.Deliveries.ResumeLayout(False)
         Me.Vat.ResumeLayout(False)
         Me.Discounts.ResumeLayout(False)
         Me.ResumeLayout(False)
@@ -241,8 +216,6 @@ Partial Class Maintenance
     Friend WithEvents SubCategory As TabPage
     Friend WithEvents Suppliers As TabPage
     Friend WithEvents Supplier1 As Supplier
-    Friend WithEvents Deliveries As TabPage
-    Friend WithEvents Delivery1 As Delivery
     Friend WithEvents SubCategory1 As SubCategory
     Friend WithEvents Accounts As TabPage
     Friend WithEvents Account1 As Account

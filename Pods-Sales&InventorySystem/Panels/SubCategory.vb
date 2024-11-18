@@ -38,4 +38,9 @@
             Dialog.ShowDialog()
         End If
     End Sub
+
+    Private Sub SubCategorySearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles SubCategorySearchTextBox.TextChanged
+        _dataTable = BaseSubCategory.Search(SubCategorySearchTextBox.Text)
+        SubCategoryDataGridView.DataSource = _dataTable
+    End Sub
 End Class
