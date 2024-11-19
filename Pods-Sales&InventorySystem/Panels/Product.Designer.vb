@@ -122,6 +122,7 @@ Partial Class Product
         Me.ModalImageButton.PressedState.ImageSize = New System.Drawing.Size(30, 30)
         Me.ModalImageButton.Size = New System.Drawing.Size(40, 42)
         Me.ModalImageButton.TabIndex = 5
+        Me.ModalImageButton.Visible = False
         '
         'ProductTableLayoutPanel
         '

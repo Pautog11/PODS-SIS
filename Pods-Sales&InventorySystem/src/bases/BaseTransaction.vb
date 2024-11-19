@@ -236,4 +236,16 @@ Public Class BaseTransaction
             Return 0
         End Try
     End Function
+
+    Public Shared Function ScalarStocks(id As Integer) As Integer
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("select quantity from tblproducts where id = @id;", conn)
+            cmd.Parameters.AddWithValue("@id", id)
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
 End Class

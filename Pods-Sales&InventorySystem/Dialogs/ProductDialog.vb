@@ -43,10 +43,10 @@ Public Class ProductDialog
 
     Private Sub AddProductButton_Click(sender As Object, e As EventArgs) Handles AddProductButton.Click
         Dim controls As Object() = {
-            SkuTextBox, BarcodeTextBox, ProductNameTextBox, PriceTextBox, CostTextBox, StockLevelTextBox
+            BarcodeTextBox, ProductNameTextBox, PriceTextBox, CostTextBox, StockLevelTextBox
         }
         Dim types As DataInput() = {
-            DataInput.STRING_STRING, DataInput.STRING_INTEGER, DataInput.STRING_NAME, DataInput.STRING_PRICE, DataInput.STRING_PRICE, DataInput.STRING_INTEGER
+            DataInput.STRING_INTEGER, DataInput.STRING_NAME, DataInput.STRING_PRICE, DataInput.STRING_PRICE, DataInput.STRING_INTEGER
         }
         Dim result As New List(Of Object())
         For i = 0 To controls.Count - 1
@@ -62,18 +62,18 @@ Public Class ProductDialog
             Dim data As New Dictionary(Of String, String) From {
                 {"id", _data?.Item("id")},
                 {"subcategory_id", SubCategoryComboBox.SelectedItem("id")},
-                {"sku", result(0)(1)},
-                {"barcode", result(1)(1)},
-                {"product_name", result(2)(1)},
+                {"sku", If(String.IsNullOrEmpty(SkuTextBox.Text), "", SkuTextBox.Text)},
+                {"barcode", result(0)(1)},
+                {"product_name", result(1)(1)},
                 {"description", If(String.IsNullOrEmpty(DescriptionTextBox.Text), "", DescriptionTextBox.Text)},' result(3)(1)},   'If(String.IsNullOrEmpty(ProductDescriptionTextBox.Text), "", ProductDescriptionTextBox.Text)}
-                {"product_price", result(3)(1)},
-                {"product_cost", result(4)(1)},
-                {"stock_level", result(5)(1)}
+                {"product_price", result(2)(1)},
+                {"product_cost", result(3)(1)},
+                {"stock_level", result(4)(1)}
             }
 
             Dim putangina As Boolean = False
             Dim item As New Dictionary(Of String, String)
-            ' Check if at least one textbox has data
+
             If Not String.IsNullOrEmpty(DosageTextBox.Text) AndAlso Not String.IsNullOrEmpty(StrengthTextBox.Text) AndAlso Not String.IsNullOrEmpty(ManufacturerTextBox.Text) Then
                 Dim textboxes As Object() = {
                     DosageTextBox, StrengthTextBox, ManufacturerTextBox
@@ -89,14 +89,6 @@ Public Class ProductDialog
                 item("dosage") = res(0)(1) 'If(String.IsNullOrEmpty(DosageTextBox.Text), Nothing, DosageTextBox.Text)
                 item("strength") = res(1)(1) 'If(String.IsNullOrEmpty(StrengthTextBox.Text), Nothing, StrengthTextBox.Text)
                 item("manufacturer") = res(2)(1) 'If(String.IsNullOrEmpty(ManufacturerTextBox.Text), Nothing, ManufacturerTextBox.Text)
-                'Else
-                '    ' If all are empty, set them as null values
-                '    item("dosage") = Nothing
-                '    item("strength") = Nothing
-                '    item("manufacturer") = Nothing
-                '    MsgBox("meron")
-                'Else
-                '    MsgBox("wala")
             End If
 
 
@@ -104,13 +96,14 @@ Public Class ProductDialog
             Dim baseCommand As BaseProduct '(data) 'With {.Items = item}
             baseCommand = New BaseProduct(data) With {.Items = item}
             Dim invoker As ICommandInvoker = Nothing
-            If BaseProduct.Exists(result(2)(1)) = 0 AndAlso BaseProduct.BarcodeExists(result(1)(1)) = 0 AndAlso _data Is Nothing Then
+            If BaseProduct.Exists(result(1)(1)) = 0 AndAlso BaseProduct.BarcodeExists(result(0)(1)) = 0 AndAlso _data Is Nothing Then
                 invoker = New AddCommand(baseCommand)
-            ElseIf _data IsNot Nothing Then 'AndAlso BaseProduct.BarcodeExists(result(1)(1)) = 0 Then
+            ElseIf _data IsNot Nothing Then
                 invoker = New UpdateCommand(baseCommand)
             Else
                 MessageBox.Show("Product exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
+
             invoker?.Execute()
             _subject.NotifyObserver()
             Me.Close()

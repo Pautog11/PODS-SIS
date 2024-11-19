@@ -196,6 +196,12 @@
     <Compile Include="Dialogs\DeliveryPullOutCartView.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Dialogs\DiscountDialog.Designer.vb">
+      <DependentUpon>DiscountDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\DiscountDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Dialogs\ProductDialog.Designer.vb">
       <DependentUpon>ProductDialog.vb</DependentUpon>
     </Compile>
@@ -362,6 +368,12 @@
     <Compile Include="Panels\Maintenance.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Panels\Measurements.Designer.vb">
+      <DependentUpon>Measurements.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Measurements.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Panels\Product.Designer.vb">
       <DependentUpon>Product.vb</DependentUpon>
     </Compile>
@@ -479,6 +491,7 @@
     <Compile Include="src\bases\BaseAuditTrail.vb" />
     <Compile Include="src\bases\BaseCategory.vb" />
     <Compile Include="src\bases\BaseDelivery.vb" />
+    <Compile Include="src\bases\BaseDiscount.vb" />
     <Compile Include="src\bases\BaseNotifications.vb" />
     <Compile Include="src\bases\BaseProduct.vb" />
     <Compile Include="src\bases\BasePullouts.vb" />
@@ -518,6 +531,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\DeliveryPullOutCartView.resx">
       <DependentUpon>DeliveryPullOutCartView.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\DiscountDialog.resx">
+      <DependentUpon>DiscountDialog.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ProductDialog.resx">
       <DependentUpon>ProductDialog.vb</DependentUpon>
@@ -599,6 +615,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\Maintenance.resx">
       <DependentUpon>Maintenance.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\Measurements.resx">
+      <DependentUpon>Measurements.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\Product.resx">
       <DependentUpon>Product.vb</DependentUpon>

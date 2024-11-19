@@ -130,4 +130,10 @@ Public Class AccountDialog
         End If
     End Sub
 
+    Private Sub AccountDialog_MouseDown(sender As Object, e As MouseEventArgs) Handles MyBase.MouseDown
+        If e.Button = MouseButtons.Right Then
+            '
+            Return
+        End If
+    End Sub
 End Class

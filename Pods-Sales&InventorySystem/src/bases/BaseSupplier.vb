@@ -76,4 +76,17 @@ Public Class BaseSupplier
             Return New DataTable
         End Try
     End Function
+    Public Shared Function Exists(data As String) As Integer
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblsuppliers WHERE lower(company_name) = @data", conn)
+            cmd.Parameters.AddWithValue("@data", data.Trim.ToLower)
+
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
+
 End Class

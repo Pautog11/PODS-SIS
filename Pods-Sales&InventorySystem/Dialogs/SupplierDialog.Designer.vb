@@ -52,6 +52,7 @@ Partial Class SupplierDialog
         Me.CompanyNameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.CompanyNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CompanyNameTextBox.Location = New System.Drawing.Point(45, 21)
+        Me.CompanyNameTextBox.MaxLength = 50
         Me.CompanyNameTextBox.Name = "CompanyNameTextBox"
         Me.CompanyNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CompanyNameTextBox.PlaceholderText = "Comapny Name"
@@ -73,6 +74,7 @@ Partial Class SupplierDialog
         Me.CompanyContactNumberTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.CompanyContactNumberTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CompanyContactNumberTextBox.Location = New System.Drawing.Point(45, 63)
+        Me.CompanyContactNumberTextBox.MaxLength = 13
         Me.CompanyContactNumberTextBox.Name = "CompanyContactNumberTextBox"
         Me.CompanyContactNumberTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CompanyContactNumberTextBox.PlaceholderText = "Company Contact Number"
@@ -94,6 +96,7 @@ Partial Class SupplierDialog
         Me.FirstnameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.FirstnameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.FirstnameTextBox.Location = New System.Drawing.Point(322, 21)
+        Me.FirstnameTextBox.MaxLength = 20
         Me.FirstnameTextBox.Name = "FirstnameTextBox"
         Me.FirstnameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.FirstnameTextBox.PlaceholderText = "Firstname"
@@ -115,6 +118,7 @@ Partial Class SupplierDialog
         Me.CompanyAddressTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.CompanyAddressTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CompanyAddressTextBox.Location = New System.Drawing.Point(45, 105)
+        Me.CompanyAddressTextBox.MaxLength = 100
         Me.CompanyAddressTextBox.Name = "CompanyAddressTextBox"
         Me.CompanyAddressTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CompanyAddressTextBox.PlaceholderText = "Company Address"
@@ -136,6 +140,7 @@ Partial Class SupplierDialog
         Me.LastnameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.LastnameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.LastnameTextBox.Location = New System.Drawing.Point(322, 63)
+        Me.LastnameTextBox.MaxLength = 20
         Me.LastnameTextBox.Name = "LastnameTextBox"
         Me.LastnameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.LastnameTextBox.PlaceholderText = "Lastname"
@@ -157,6 +162,7 @@ Partial Class SupplierDialog
         Me.PhoneNumberTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.PhoneNumberTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.PhoneNumberTextBox.Location = New System.Drawing.Point(322, 105)
+        Me.PhoneNumberTextBox.MaxLength = 13
         Me.PhoneNumberTextBox.Name = "PhoneNumberTextBox"
         Me.PhoneNumberTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.PhoneNumberTextBox.PlaceholderText = "Phone Number "

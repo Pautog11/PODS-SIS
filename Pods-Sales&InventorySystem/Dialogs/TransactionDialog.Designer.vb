@@ -58,6 +58,7 @@ Partial Class TransactionDialog
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.ReturnButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.SearchItemButton = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel3.SuspendLayout()
         CType(Me.TransactionDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2Panel2.SuspendLayout()
@@ -466,6 +467,7 @@ Partial Class TransactionDialog
         '
         'Guna2Panel1
         '
+        Me.Guna2Panel1.Controls.Add(Me.SearchItemButton)
         Me.Guna2Panel1.Controls.Add(Me.AddItemTransactionButton)
         Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Guna2Panel1.Location = New System.Drawing.Point(0, 0)
@@ -561,6 +563,22 @@ Partial Class TransactionDialog
         Me.ReturnButton.TabIndex = 8
         Me.ReturnButton.Text = "Return"
         '
+        'SearchItemButton
+        '
+        Me.SearchItemButton.BorderRadius = 15
+        Me.SearchItemButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.SearchItemButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.SearchItemButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.SearchItemButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.SearchItemButton.FillColor = System.Drawing.Color.White
+        Me.SearchItemButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.SearchItemButton.ForeColor = System.Drawing.Color.White
+        Me.SearchItemButton.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.search
+        Me.SearchItemButton.Location = New System.Drawing.Point(12, 9)
+        Me.SearchItemButton.Name = "SearchItemButton"
+        Me.SearchItemButton.Size = New System.Drawing.Size(52, 36)
+        Me.SearchItemButton.TabIndex = 24
+        '
         'TransactionDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -618,4 +636,5 @@ Partial Class TransactionDialog
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents AddTransactionButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents ReturnButton As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents SearchItemButton As Guna.UI2.WinForms.Guna2Button
 End Class

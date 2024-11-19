@@ -78,19 +78,48 @@ Public Class InputValidation
                 '        End If
                 '    Next
                 'End If
+                '---------------------------------------------------------------------------------------
+                'stringInput = System.Text.RegularExpressions.Regex.Replace(stringInput.Trim(), "\s+", " ")
 
-                stringInput = System.Text.RegularExpressions.Regex.Replace(stringInput.Trim(), "\s+", " ")
+                '' Check if there's more than one word
+                'If stringInput.Count > 1 Then
+                '    ' Split the string into words
+                '    Dim nameString As String() = stringInput.Split(" "c)
+                '    Dim regex As New Regex("^[A-Za-z]")
 
-                ' Check if there's more than one word
+                '    ' Iterate through each word
+                '    For i = 0 To nameString.Count - 1
+                '        ' Capitalize the first letter if the word contains alphabetic characters
+                '        If regex.IsMatch(nameString(i)) Then
+                '            ' Capitalize the first character and join the rest of the word
+                '            Dim charArr As Char() = nameString(i).ToArray()
+                '            charArr(0) = Char.ToUpper(charArr(0))
+                '            nameString(i) = String.Join("", charArr)
+                '        End If
+                '    Next
+
+                '    ' Return the processed result
+                '    Return {True, String.Join(" ", nameString)}
+                'End If
+
+
                 If stringInput.Count > 1 Then
                     ' Split the string into words
                     Dim nameString As String() = stringInput.Split(" "c)
-                    Dim regex As New Regex("^[A-Za-z]")
+
+                    ' Regex to match words with only alphabetic characters or specific special symbols (",", "&", ".", "'")
+                    Dim allowedCharsRegex As New Regex("^[A-Za-z,.'&]+$")
 
                     ' Iterate through each word
                     For i = 0 To nameString.Count - 1
+                        ' Check if the word only contains allowed characters (alphabetic or specific symbols)
+                        If Not allowedCharsRegex.IsMatch(nameString(i)) Then
+                            MessageBox.Show("Invalid characters detected.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                            Return {False}
+                        End If
+
                         ' Capitalize the first letter if the word contains alphabetic characters
-                        If regex.IsMatch(nameString(i)) Then
+                        If nameString(i).Any(Function(c) Char.IsLetter(c)) Then
                             ' Capitalize the first character and join the rest of the word
                             Dim charArr As Char() = nameString(i).ToArray()
                             charArr(0) = Char.ToUpper(charArr(0))
@@ -100,13 +129,11 @@ Public Class InputValidation
 
                     ' Return the processed result
                     Return {True, String.Join(" ", nameString)}
-                    'Else
-                    '    ' Return False if there is no valid input or only one word
-                    '    Return {False, stringInput}
                 End If
 
+
             Case DataInput.STRING_PASSWORD
-                'if Regex.IsMatch(stringInput, "^(?=.*[0-9])(?=.*[@#$%^&+=]).{8,}$") Then
+                'if Regex.IsMatch(stringInput, "^(?=.*[0-9])(?= .*[@#$%^&+=]).{8,}$") Then
                 Return {True, stringInput}
                 'End If
 

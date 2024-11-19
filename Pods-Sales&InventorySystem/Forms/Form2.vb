@@ -6,6 +6,7 @@ Imports LiveCharts.Wpf
 
 
 Public Class Form2
+    Dim emptyMenu As New ContextMenuStrip()
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ComboBox1.Items.Clear() ' Clear any existing items (if any)
         ComboBox1.Items.Add("Daily")
@@ -15,6 +16,8 @@ Public Class Form2
 
         UpdateChart("daily")
         DateTimePicker1.MinDate = DateTime.Now
+
+        Guna2TextBox1.ContextMenuStrip = emptyMenu
     End Sub
     Private Sub UpdateChart(timePeriod As String)
         'CartesianChart1.Series = New SeriesCollection From {

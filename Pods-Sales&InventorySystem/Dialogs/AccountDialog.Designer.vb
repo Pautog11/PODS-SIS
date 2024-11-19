@@ -225,6 +225,7 @@ Partial Class AccountDialog
         Me.Phone_numberTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.Phone_numberTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Phone_numberTextBox.Location = New System.Drawing.Point(3, 171)
+        Me.Phone_numberTextBox.MaxLength = 13
         Me.Phone_numberTextBox.Name = "Phone_numberTextBox"
         Me.Phone_numberTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.Phone_numberTextBox.PlaceholderText = "Phone Number"
