@@ -33,6 +33,12 @@ Partial Class SupplierDialog
         Me.FooterLayoutPanel = New System.Windows.Forms.FlowLayoutPanel()
         Me.DeleteSupplierButton = New Guna.UI2.WinForms.Guna2Button()
         Me.AddSupplierButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.Guna2Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.FooterLayoutPanel.SuspendLayout()
@@ -51,7 +57,7 @@ Partial Class SupplierDialog
         Me.CompanyNameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CompanyNameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.CompanyNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CompanyNameTextBox.Location = New System.Drawing.Point(45, 21)
+        Me.CompanyNameTextBox.Location = New System.Drawing.Point(45, 37)
         Me.CompanyNameTextBox.MaxLength = 50
         Me.CompanyNameTextBox.Name = "CompanyNameTextBox"
         Me.CompanyNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -73,7 +79,7 @@ Partial Class SupplierDialog
         Me.CompanyContactNumberTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CompanyContactNumberTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.CompanyContactNumberTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CompanyContactNumberTextBox.Location = New System.Drawing.Point(45, 63)
+        Me.CompanyContactNumberTextBox.Location = New System.Drawing.Point(45, 92)
         Me.CompanyContactNumberTextBox.MaxLength = 13
         Me.CompanyContactNumberTextBox.Name = "CompanyContactNumberTextBox"
         Me.CompanyContactNumberTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -95,7 +101,7 @@ Partial Class SupplierDialog
         Me.FirstnameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.FirstnameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.FirstnameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.FirstnameTextBox.Location = New System.Drawing.Point(322, 21)
+        Me.FirstnameTextBox.Location = New System.Drawing.Point(294, 37)
         Me.FirstnameTextBox.MaxLength = 20
         Me.FirstnameTextBox.Name = "FirstnameTextBox"
         Me.FirstnameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -117,7 +123,7 @@ Partial Class SupplierDialog
         Me.CompanyAddressTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CompanyAddressTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.CompanyAddressTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CompanyAddressTextBox.Location = New System.Drawing.Point(45, 105)
+        Me.CompanyAddressTextBox.Location = New System.Drawing.Point(45, 147)
         Me.CompanyAddressTextBox.MaxLength = 100
         Me.CompanyAddressTextBox.Name = "CompanyAddressTextBox"
         Me.CompanyAddressTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -139,7 +145,7 @@ Partial Class SupplierDialog
         Me.LastnameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.LastnameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.LastnameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.LastnameTextBox.Location = New System.Drawing.Point(322, 63)
+        Me.LastnameTextBox.Location = New System.Drawing.Point(294, 92)
         Me.LastnameTextBox.MaxLength = 20
         Me.LastnameTextBox.Name = "LastnameTextBox"
         Me.LastnameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -161,7 +167,7 @@ Partial Class SupplierDialog
         Me.PhoneNumberTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.PhoneNumberTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.PhoneNumberTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.PhoneNumberTextBox.Location = New System.Drawing.Point(322, 105)
+        Me.PhoneNumberTextBox.Location = New System.Drawing.Point(294, 147)
         Me.PhoneNumberTextBox.MaxLength = 13
         Me.PhoneNumberTextBox.Name = "PhoneNumberTextBox"
         Me.PhoneNumberTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -172,6 +178,12 @@ Partial Class SupplierDialog
         '
         'Guna2Panel1
         '
+        Me.Guna2Panel1.Controls.Add(Me.Label6)
+        Me.Guna2Panel1.Controls.Add(Me.Label5)
+        Me.Guna2Panel1.Controls.Add(Me.Label4)
+        Me.Guna2Panel1.Controls.Add(Me.Label3)
+        Me.Guna2Panel1.Controls.Add(Me.Label1)
+        Me.Guna2Panel1.Controls.Add(Me.Label2)
         Me.Guna2Panel1.Controls.Add(Me.CompanyNameTextBox)
         Me.Guna2Panel1.Controls.Add(Me.PhoneNumberTextBox)
         Me.Guna2Panel1.Controls.Add(Me.CompanyContactNumberTextBox)
@@ -182,7 +194,7 @@ Partial Class SupplierDialog
         Me.Guna2Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Size = New System.Drawing.Size(559, 181)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(539, 211)
         Me.Guna2Panel1.TabIndex = 7
         '
         'TableLayoutPanel1
@@ -197,7 +209,7 @@ Partial Class SupplierDialog
         Me.TableLayoutPanel1.RowCount = 2
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(559, 236)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(539, 266)
         Me.TableLayoutPanel1.TabIndex = 8
         '
         'FooterLayoutPanel
@@ -206,10 +218,10 @@ Partial Class SupplierDialog
         Me.FooterLayoutPanel.Controls.Add(Me.AddSupplierButton)
         Me.FooterLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FooterLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
-        Me.FooterLayoutPanel.Location = New System.Drawing.Point(0, 181)
+        Me.FooterLayoutPanel.Location = New System.Drawing.Point(0, 211)
         Me.FooterLayoutPanel.Margin = New System.Windows.Forms.Padding(0)
         Me.FooterLayoutPanel.Name = "FooterLayoutPanel"
-        Me.FooterLayoutPanel.Size = New System.Drawing.Size(559, 55)
+        Me.FooterLayoutPanel.Size = New System.Drawing.Size(539, 55)
         Me.FooterLayoutPanel.TabIndex = 8
         '
         'DeleteSupplierButton
@@ -224,7 +236,7 @@ Partial Class SupplierDialog
         Me.DeleteSupplierButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(18, Byte), Integer), CType(CType(31, Byte), Integer))
         Me.DeleteSupplierButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DeleteSupplierButton.ForeColor = System.Drawing.Color.White
-        Me.DeleteSupplierButton.Location = New System.Drawing.Point(428, 9)
+        Me.DeleteSupplierButton.Location = New System.Drawing.Point(408, 9)
         Me.DeleteSupplierButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.DeleteSupplierButton.Name = "DeleteSupplierButton"
         Me.DeleteSupplierButton.Size = New System.Drawing.Size(128, 35)
@@ -243,18 +255,72 @@ Partial Class SupplierDialog
         Me.AddSupplierButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AddSupplierButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddSupplierButton.ForeColor = System.Drawing.Color.White
-        Me.AddSupplierButton.Location = New System.Drawing.Point(294, 8)
+        Me.AddSupplierButton.Location = New System.Drawing.Point(274, 8)
         Me.AddSupplierButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.AddSupplierButton.Name = "AddSupplierButton"
         Me.AddSupplierButton.Size = New System.Drawing.Size(128, 37)
         Me.AddSupplierButton.TabIndex = 5
         Me.AddSupplierButton.Text = "Add"
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(21, 21)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(82, 13)
+        Me.Label2.TabIndex = 18
+        Me.Label2.Text = "Company Name"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(21, 76)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(91, 13)
+        Me.Label1.TabIndex = 19
+        Me.Label1.Text = "Company Number"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(21, 131)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(92, 13)
+        Me.Label3.TabIndex = 20
+        Me.Label3.Text = "Company Address"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(275, 21)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(57, 13)
+        Me.Label4.TabIndex = 21
+        Me.Label4.Text = "First Name"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(275, 76)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(58, 13)
+        Me.Label5.TabIndex = 22
+        Me.Label5.Text = "Last Name"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(275, 131)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(78, 13)
+        Me.Label6.TabIndex = 23
+        Me.Label6.Text = "Phone Number"
+        '
         'SupplierDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(559, 236)
+        Me.ClientSize = New System.Drawing.Size(539, 266)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
@@ -264,6 +330,7 @@ Partial Class SupplierDialog
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "SupplierDialog"
         Me.Guna2Panel1.ResumeLayout(False)
+        Me.Guna2Panel1.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.FooterLayoutPanel.ResumeLayout(False)
         Me.ResumeLayout(False)
@@ -281,4 +348,10 @@ Partial Class SupplierDialog
     Friend WithEvents FooterLayoutPanel As FlowLayoutPanel
     Friend WithEvents DeleteSupplierButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents AddSupplierButton As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
 End Class

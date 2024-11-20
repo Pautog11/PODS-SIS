@@ -50,7 +50,7 @@ Public Class SearchDialog
                 {"price", row.Cells(7).Value.ToString()},
                 {"quantity", row.Cells(6).Value.ToString()}
             }
-            Dim dialog As New TransactionCartDailog(data:=data, parent:=_parent)
+            Dim dialog As New TransactionCartDailog(dat2:=data, parent:=_parent)
             dialog.ShowDialog()
             Me.Close()
         End If

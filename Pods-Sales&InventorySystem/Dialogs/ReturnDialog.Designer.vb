@@ -27,6 +27,10 @@ Partial Class ReturnDialog
         Me.CostTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.QuantityTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.StocksTextBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'ProductComboBox
@@ -40,7 +44,7 @@ Partial Class ReturnDialog
         Me.ProductComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.ProductComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.ProductComboBox.ItemHeight = 30
-        Me.ProductComboBox.Location = New System.Drawing.Point(34, 25)
+        Me.ProductComboBox.Location = New System.Drawing.Point(34, 41)
         Me.ProductComboBox.Name = "ProductComboBox"
         Me.ProductComboBox.Size = New System.Drawing.Size(200, 36)
         Me.ProductComboBox.TabIndex = 1
@@ -57,7 +61,7 @@ Partial Class ReturnDialog
         Me.SaveButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.SaveButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.SaveButton.ForeColor = System.Drawing.Color.White
-        Me.SaveButton.Location = New System.Drawing.Point(113, 231)
+        Me.SaveButton.Location = New System.Drawing.Point(113, 264)
         Me.SaveButton.Margin = New System.Windows.Forms.Padding(3, 7, 3, 3)
         Me.SaveButton.Name = "SaveButton"
         Me.SaveButton.Size = New System.Drawing.Size(150, 35)
@@ -77,7 +81,7 @@ Partial Class ReturnDialog
         Me.CostTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CostTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.CostTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CostTextBox.Location = New System.Drawing.Point(34, 67)
+        Me.CostTextBox.Location = New System.Drawing.Point(34, 96)
         Me.CostTextBox.MaxLength = 4
         Me.CostTextBox.Name = "CostTextBox"
         Me.CostTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -99,7 +103,7 @@ Partial Class ReturnDialog
         Me.QuantityTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.QuantityTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.QuantityTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.QuantityTextBox.Location = New System.Drawing.Point(34, 151)
+        Me.QuantityTextBox.Location = New System.Drawing.Point(34, 206)
         Me.QuantityTextBox.MaxLength = 4
         Me.QuantityTextBox.Name = "QuantityTextBox"
         Me.QuantityTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -121,7 +125,7 @@ Partial Class ReturnDialog
         Me.StocksTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.StocksTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.StocksTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.StocksTextBox.Location = New System.Drawing.Point(34, 109)
+        Me.StocksTextBox.Location = New System.Drawing.Point(34, 151)
         Me.StocksTextBox.MaxLength = 4
         Me.StocksTextBox.Name = "StocksTextBox"
         Me.StocksTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -130,11 +134,51 @@ Partial Class ReturnDialog
         Me.StocksTextBox.Size = New System.Drawing.Size(200, 36)
         Me.StocksTextBox.TabIndex = 20
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(21, 25)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(44, 13)
+        Me.Label2.TabIndex = 23
+        Me.Label2.Text = "Product"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(21, 80)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(28, 13)
+        Me.Label1.TabIndex = 24
+        Me.Label1.Text = "Cost"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(21, 135)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(40, 13)
+        Me.Label3.TabIndex = 25
+        Me.Label3.Text = "Stocks"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(21, 190)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(46, 13)
+        Me.Label4.TabIndex = 26
+        Me.Label4.Text = "Quantity"
+        '
         'ReturnDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(275, 276)
+        Me.ClientSize = New System.Drawing.Size(275, 304)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.CostTextBox)
         Me.Controls.Add(Me.QuantityTextBox)
         Me.Controls.Add(Me.StocksTextBox)
@@ -148,6 +192,7 @@ Partial Class ReturnDialog
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "ReturnDialog"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -156,4 +201,8 @@ Partial Class ReturnDialog
     Friend WithEvents CostTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents QuantityTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents StocksTextBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label4 As Label
 End Class

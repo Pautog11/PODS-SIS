@@ -24,6 +24,7 @@ Partial Class VatDialog
     Private Sub InitializeComponent()
         Me.VatTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.UpdateButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'VatTextBox
@@ -59,18 +60,28 @@ Partial Class VatDialog
         Me.UpdateButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.UpdateButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.UpdateButton.ForeColor = System.Drawing.Color.White
-        Me.UpdateButton.Location = New System.Drawing.Point(159, 179)
+        Me.UpdateButton.Location = New System.Drawing.Point(159, 148)
         Me.UpdateButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.UpdateButton.Name = "UpdateButton"
         Me.UpdateButton.Size = New System.Drawing.Size(128, 37)
         Me.UpdateButton.TabIndex = 24
         Me.UpdateButton.Text = "Update"
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(45, 43)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(28, 13)
+        Me.Label2.TabIndex = 25
+        Me.Label2.Text = "VAT"
+        '
         'VatDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(299, 228)
+        Me.ClientSize = New System.Drawing.Size(299, 197)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.UpdateButton)
         Me.Controls.Add(Me.VatTextBox)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -81,9 +92,11 @@ Partial Class VatDialog
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "VatDialog"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents VatTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents UpdateButton As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents Label2 As Label
 End Class

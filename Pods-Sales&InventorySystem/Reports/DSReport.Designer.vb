@@ -1793,6 +1793,8 @@ Partial Public Class DSReport
         
         Private columnvatable As Global.System.Data.DataColumn
         
+        Private columnproduct_total As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -1933,6 +1935,14 @@ Partial Public Class DSReport
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property product_totalColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnproduct_total
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -1969,9 +1979,9 @@ Partial Public Class DSReport
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddDT_TransacRow(ByVal transaction_number As String, ByVal subtotal As String, ByVal vat As String, ByVal discount As String, ByVal total As String, ByVal _date As String, ByVal name As String, ByVal cash As String, ByVal change As String, ByVal product As String, ByVal price As String, ByVal quantity As String, ByVal vatable As String) As DT_TransacRow
+        Public Overloads Function AddDT_TransacRow(ByVal transaction_number As String, ByVal subtotal As String, ByVal vat As String, ByVal discount As String, ByVal total As String, ByVal _date As String, ByVal name As String, ByVal cash As String, ByVal change As String, ByVal product As String, ByVal price As String, ByVal quantity As String, ByVal vatable As String, ByVal product_total As String) As DT_TransacRow
             Dim rowDT_TransacRow As DT_TransacRow = CType(Me.NewRow,DT_TransacRow)
-            Dim columnValuesArray() As Object = New Object() {transaction_number, subtotal, vat, discount, total, _date, name, cash, change, product, price, quantity, vatable}
+            Dim columnValuesArray() As Object = New Object() {transaction_number, subtotal, vat, discount, total, _date, name, cash, change, product, price, quantity, vatable, product_total}
             rowDT_TransacRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowDT_TransacRow)
             Return rowDT_TransacRow
@@ -2007,6 +2017,7 @@ Partial Public Class DSReport
             Me.columnprice = MyBase.Columns("price")
             Me.columnquantity = MyBase.Columns("quantity")
             Me.columnvatable = MyBase.Columns("vatable")
+            Me.columnproduct_total = MyBase.Columns("product_total")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2041,6 +2052,8 @@ Partial Public Class DSReport
             MyBase.Columns.Add(Me.columnquantity)
             Me.columnvatable = New Global.System.Data.DataColumn("vatable", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnvatable)
+            Me.columnproduct_total = New Global.System.Data.DataColumn("product_total", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnproduct_total)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3165,6 +3178,21 @@ Partial Public Class DSReport
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property product_total() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDT_Transac.product_totalColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'product_total' in table 'DT_Transac' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDT_Transac.product_totalColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function Istransaction_numberNull() As Boolean
             Return Me.IsNull(Me.tableDT_Transac.transaction_numberColumn)
         End Function
@@ -3317,6 +3345,18 @@ Partial Public Class DSReport
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetvatableNull()
             Me(Me.tableDT_Transac.vatableColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function Isproduct_totalNull() As Boolean
+            Return Me.IsNull(Me.tableDT_Transac.product_totalColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub Setproduct_totalNull()
+            Me(Me.tableDT_Transac.product_totalColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     

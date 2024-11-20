@@ -24,6 +24,7 @@ Partial Class DiscountDialog
     Private Sub InitializeComponent()
         Me.AddDiscountButton = New Guna.UI2.WinForms.Guna2Button()
         Me.DiscountTextBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'AddDiscountButton
@@ -38,7 +39,7 @@ Partial Class DiscountDialog
         Me.AddDiscountButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AddDiscountButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddDiscountButton.ForeColor = System.Drawing.Color.White
-        Me.AddDiscountButton.Location = New System.Drawing.Point(163, 160)
+        Me.AddDiscountButton.Location = New System.Drawing.Point(163, 125)
         Me.AddDiscountButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.AddDiscountButton.Name = "AddDiscountButton"
         Me.AddDiscountButton.Size = New System.Drawing.Size(128, 37)
@@ -58,7 +59,7 @@ Partial Class DiscountDialog
         Me.DiscountTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DiscountTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DiscountTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DiscountTextBox.Location = New System.Drawing.Point(45, 60)
+        Me.DiscountTextBox.Location = New System.Drawing.Point(54, 60)
         Me.DiscountTextBox.Name = "DiscountTextBox"
         Me.DiscountTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.DiscountTextBox.PlaceholderText = "0"
@@ -66,11 +67,21 @@ Partial Class DiscountDialog
         Me.DiscountTextBox.Size = New System.Drawing.Size(200, 36)
         Me.DiscountTextBox.TabIndex = 7
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(33, 44)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(60, 13)
+        Me.Label1.TabIndex = 8
+        Me.Label1.Text = "Discount %"
+        '
         'DiscountDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(303, 209)
+        Me.ClientSize = New System.Drawing.Size(303, 176)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.DiscountTextBox)
         Me.Controls.Add(Me.AddDiscountButton)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -81,8 +92,10 @@ Partial Class DiscountDialog
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "DiscountDialog"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents AddDiscountButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents DiscountTextBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Label1 As Label
 End Class

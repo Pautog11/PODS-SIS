@@ -2,6 +2,7 @@
 
 Public Class TransactionCartDailog
     Private ReadOnly _data As Dictionary(Of String, String)
+    Private ReadOnly _dat2 As Dictionary(Of String, String)
     Private ReadOnly _tableAdapter As New podsTableAdapters.viewtblcategoriesTableAdapter
     Private ReadOnly _dataTable As New pods.viewtblcategoriesDataTable
     Private ReadOnly _subject As IObservablePanel
@@ -9,13 +10,13 @@ Public Class TransactionCartDailog
     Dim id As Integer = Nothing
     Public Sub New(Optional subject As IObservablePanel = Nothing,
                    Optional parent As TransactionDialog = Nothing,
-                   Optional data As Dictionary(Of String, String) = Nothing)
-
-        ' This call is required by the designer.
+                   Optional data As Dictionary(Of String, String) = Nothing,
+                   Optional dat2 As Dictionary(Of String, String) = Nothing)
         InitializeComponent()
         _parent = parent
         _subject = subject
         _data = data
+        _dat2 = dat2
     End Sub
     Private Sub TransactionCartDailog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -28,12 +29,25 @@ Public Class TransactionCartDailog
             StocksTextBox.Text = dipota
             AddTransactionButton.Text = "Update"
 
-            If _data.Item("id") IsNot Nothing Then
-                id = _data.Item("id")
+            'If _data.Item("id") IsNot Nothing Then
+            '    id = _data.Item("id")
+            '    AddTransactionButton.Text = "Add"
+            '    'VoidButton.Visible = False
+            '    BarcodeTextBox.Enabled = False
+            'End If
+            VoidButton.Visible = False
+        ElseIf _dat2 IsNot Nothing Then
+            If _dat2.Item("id") IsNot Nothing Then
+                id = _dat2.Item("id")
+
+                ProductNameTextBox.Text = _dat2.Item("productname")
+                PriceTextBox.Text = _dat2.Item("price")
+                StocksTextBox.Text = _dat2.Item("quantity")
                 AddTransactionButton.Text = "Add"
                 'VoidButton.Visible = False
                 BarcodeTextBox.Enabled = False
             End If
+            VoidButton.Visible = False
         Else
             VoidButton.Visible = False
         End If
@@ -52,34 +66,34 @@ Public Class TransactionCartDailog
         'End If
     End Sub
 
-    Private Sub CategoryComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs)
-        'If CategoryComboBox.SelectedIndex >= 0 Then
-        '    Dim dt As DataTable = BaseSubCategory.FetchSubCategory(CategoryComboBox.SelectedItem("ID"))
-        '    SubcategoryComboBox.DataSource = dt.DefaultView
-        '    SubcategoryComboBox.DisplayMember = "subcategory"
-        'End If
-        'SubcategoryComboBox.Enabled = True
-        'ProductComboBox.Text = ""
-        ''ProductComboBox.Items.Clear()
-        ''SubcategoryComboBox.Items.Clear()
+    'Private Sub CategoryComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs)
+    '    'If CategoryComboBox.SelectedIndex >= 0 Then
+    '    '    Dim dt As DataTable = BaseSubCategory.FetchSubCategory(CategoryComboBox.SelectedItem("ID"))
+    '    '    SubcategoryComboBox.DataSource = dt.DefaultView
+    '    '    SubcategoryComboBox.DisplayMember = "subcategory"
+    '    'End If
+    '    'SubcategoryComboBox.Enabled = True
+    '    'ProductComboBox.Text = ""
+    '    ''ProductComboBox.Items.Clear()
+    '    ''SubcategoryComboBox.Items.Clear()
 
-    End Sub
-    Private Sub SubcategoryComboBox_DropDownClosed(sender As Object, e As EventArgs)
-        'If SubcategoryComboBox.SelectedIndex >= 0 Then
-        '    Dim dt As DataTable = BaseProduct.FetchProductBySubcategory(SubcategoryComboBox.SelectedItem("ID"))
-        '    ProductComboBox.DataSource = dt.DefaultView
-        '    ProductComboBox.DisplayMember = "product_name"
-        'End If
-        'ProductComboBox.Enabled = True
-    End Sub
-    Private Sub ProductComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs)
-        'If ProductComboBox.SelectedIndex <> -1 Then
-        '    Dim info As DataTable = BaseProduct.ProductInfo(ProductComboBox.SelectedItem("ID"))
-        '    'BarcodeTextBox.Text = info.Rows(0).Item("BARCODE").ToString()
-        '    PriceTextBox.Text = info.Rows(0).Item("PRICE").ToString()
-        '    StocksTextBox.Text = info.Rows(0).Item("QUANTITY").ToString()
-        'End If
-    End Sub
+    'End Sub
+    'Private Sub SubcategoryComboBox_DropDownClosed(sender As Object, e As EventArgs)
+    '    'If SubcategoryComboBox.SelectedIndex >= 0 Then
+    '    '    Dim dt As DataTable = BaseProduct.FetchProductBySubcategory(SubcategoryComboBox.SelectedItem("ID"))
+    '    '    ProductComboBox.DataSource = dt.DefaultView
+    '    '    ProductComboBox.DisplayMember = "product_name"
+    '    'End If
+    '    'ProductComboBox.Enabled = True
+    'End Sub
+    'Private Sub ProductComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs)
+    '    'If ProductComboBox.SelectedIndex <> -1 Then
+    '    '    Dim info As DataTable = BaseProduct.ProductInfo(ProductComboBox.SelectedItem("ID"))
+    '    '    'BarcodeTextBox.Text = info.Rows(0).Item("BARCODE").ToString()
+    '    '    PriceTextBox.Text = info.Rows(0).Item("PRICE").ToString()
+    '    '    StocksTextBox.Text = info.Rows(0).Item("QUANTITY").ToString()
+    '    'End If
+    'End Sub
 
     Private Sub AddTransactionButton_Click(sender As Object, e As EventArgs) Handles AddTransactionButton.Click
         Dim result As New List(Of Object()) From {InputValidation.ValidateInputString(QuantityTextBox, DataInput.STRING_INTEGER)}
@@ -87,12 +101,22 @@ Public Class TransactionCartDailog
         If Not result.Any(Function(item As Object()) Not item(0)) Then
             For Each item As DataGridViewRow In _parent.TransactionDataGridView.Rows
                 If CInt(StocksTextBox.Text) >= QuantityTextBox.Text Then
-                    If item.Cells("PRODUCT").Value.ToString() = ProductNameTextBox.Text Then
-                        item.Cells("PRICE").Value = Decimal.Parse(PriceTextBox.Text)
-                        item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)
-                        item.Cells("TOTAL").Value = Decimal.Parse(PriceTextBox.Text) * CInt(QuantityTextBox.Text)
-                        is_existing = True
-                        Exit For
+                    If _data IsNot Nothing Then
+                        If item.Cells("ID").Value.ToString() = _data.Item("ID") Then
+                            item.Cells("PRODUCT").Value = ProductNameTextBox.Text
+                            item.Cells("PRICE").Value = Decimal.Parse(PriceTextBox.Text)
+                            item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)
+                            item.Cells("TOTAL").Value = Decimal.Parse(PriceTextBox.Text) * CInt(QuantityTextBox.Text)
+                            is_existing = True
+                            Exit For
+                        Else
+                            item.Cells("PRODUCT").Value = ProductNameTextBox.Text
+                            item.Cells("PRICE").Value = Decimal.Parse(PriceTextBox.Text)
+                            item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)
+                            item.Cells("TOTAL").Value = Decimal.Parse(PriceTextBox.Text) * CInt(QuantityTextBox.Text)
+                            is_existing = True
+                            Exit For
+                        End If
                     End If
                 End If
             Next

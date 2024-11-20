@@ -18,7 +18,7 @@ Public Class ReceiptViewer
     '    If transactionData Is Nothing OrElse productData Is Nothing Then
     '        MessageBox.Show("Unable to retrieve data.")
     '        Return
-    '    End If
+    '    End If-
 
     '    ' Set the report document
     '    Dim reportDocument As New CrystalDecisions.CrystalReports.Engine.ReportDocument()
@@ -94,35 +94,12 @@ Public Class ReceiptViewer
     End Sub
 
     Private Sub ReceiptViewer_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Try
-            Dim transactionData As DataSet = Transactions(_transactionNumber)
 
-            If transactionData Is Nothing OrElse transactionData.Tables("DT_Transac").Rows.Count = 0 Then
-                MessageBox.Show("No data found for the transaction.")
-                Me.Close()
-                Return
-            End If
-
-            Dim reportDocument As New Receipt()
-            reportDocument.SetDataSource(transactionData.Tables("DT_Transac"))
-
-            CrystalReportViewer1.ReportSource = reportDocument
-            CrystalReportViewer1.RefreshReport()
-
-            If _autoPrint Then
-                reportDocument.PrintToPrinter(1, False, 0, 0)
-                MessageBox.Show("Receipt auto-printed successfully.")
-                Me.Close() ' Close after printing if required
-            End If
-        Catch ex As Exception
-            MessageBox.Show($"Error loading receipt: {ex.Message}")
-            Me.Close()
-        End Try
     End Sub
     Private Function Transactions(transactionNumber As String) As DataSet
         Dim dset As New DataSet
         Try
-            Using con As New SqlConnection(My.Settings.podsdbConnectionString1)
+            Using con As New SqlConnection(My.Settings.podsdbConnectionString)
                 con.Open()
                 Dim cmd As New SqlCommand("SELECT 
                                             t.transaction_number,
@@ -153,7 +130,7 @@ Public Class ReceiptViewer
     Private Function Products(transactionNumber As String) As DataSet
         Dim dset As New DataSet
         Try
-            Using con As New SqlConnection(My.Settings.podsdbConnectionString1)
+            Using con As New SqlConnection(My.Settings.podsdbConnectionString)
                 con.Open()
                 Dim cmd As New SqlCommand("SELECT t.transaction_number, p.product_name AS product, ti.quantity, ti.price, ti.total 
                                           FROM tbltransaction_items ti 
@@ -170,4 +147,31 @@ Public Class ReceiptViewer
             Return Nothing
         End Try
     End Function
+
+    Private Sub CrystalReportViewer1_Load(sender As Object, e As EventArgs) Handles CrystalReportViewer1.Load
+        Try
+            Dim transactionData As DataSet = Transactions(_transactionNumber)
+
+            If transactionData Is Nothing OrElse transactionData.Tables("DT_Transac").Rows.Count = 0 Then
+                MessageBox.Show("No data found for the transaction.")
+                Me.Close()
+                Return
+            End If
+
+            Dim reportDocument As New Receipt()
+            reportDocument.SetDataSource(transactionData.Tables("DT_Transac"))
+
+            CrystalReportViewer1.ReportSource = reportDocument
+            CrystalReportViewer1.RefreshReport()
+
+            If _autoPrint Then
+                reportDocument.PrintToPrinter(1, False, 0, 0)
+                MessageBox.Show("Receipt auto-printed successfully.")
+                Me.Close() ' Close after printing if required
+            End If
+        Catch ex As Exception
+            MessageBox.Show($"Error loading receipt: {ex.Message}")
+            Me.Close()
+        End Try
+    End Sub
 End Class

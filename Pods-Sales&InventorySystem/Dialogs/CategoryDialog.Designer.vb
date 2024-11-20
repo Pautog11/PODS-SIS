@@ -29,6 +29,8 @@ Partial Class CategoryDialog
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.DescriptionTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.CategoryNameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
@@ -101,6 +103,8 @@ Partial Class CategoryDialog
         '
         'Guna2Panel1
         '
+        Me.Guna2Panel1.Controls.Add(Me.Label2)
+        Me.Guna2Panel1.Controls.Add(Me.Label1)
         Me.Guna2Panel1.Controls.Add(Me.DescriptionTextBox)
         Me.Guna2Panel1.Controls.Add(Me.CategoryNameTextBox)
         Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -123,7 +127,7 @@ Partial Class CategoryDialog
         Me.DescriptionTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DescriptionTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DescriptionTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DescriptionTextBox.Location = New System.Drawing.Point(118, 91)
+        Me.DescriptionTextBox.Location = New System.Drawing.Point(118, 113)
         Me.DescriptionTextBox.Name = "DescriptionTextBox"
         Me.DescriptionTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.DescriptionTextBox.PlaceholderText = "Description"
@@ -152,6 +156,24 @@ Partial Class CategoryDialog
         Me.CategoryNameTextBox.Size = New System.Drawing.Size(200, 36)
         Me.CategoryNameTextBox.TabIndex = 0
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(62, 33)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(80, 13)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "Category Name"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(82, 97)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(60, 13)
+        Me.Label2.TabIndex = 3
+        Me.Label2.Text = "Description"
+        '
         'CategoryDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -168,6 +190,7 @@ Partial Class CategoryDialog
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.Guna2Panel1.ResumeLayout(False)
+        Me.Guna2Panel1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -179,4 +202,6 @@ Partial Class CategoryDialog
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents CategoryNameTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents DescriptionTextBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label1 As Label
 End Class

@@ -50,7 +50,7 @@ Public Class TransactionDialog
             DateLabel.Text = DateAndTime.Now.ToString("F")
             ReturnButton.Visible = False
         End If
-        TransactionDataGridView.Columns.Item("ID").Visible = False
+        'TransactionDataGridView.Columns.Item("ID").Visible = False
         SubtotalTextBox.Enabled = False
         VatTextBox.Enabled = False
         TotalTextBox.Enabled = False
@@ -179,7 +179,7 @@ Public Class TransactionDialog
                 invoker = New AddCommand(baseCommand)
                 invoker?.Execute()
 
-                Using dialog As New ReceiptViewer(Reference_number.Text)
+                Using dialog As New ReportViewerDialog(Reference_number.Text)
                     dialog.ShowDialog()
                 End Using
 
@@ -297,7 +297,10 @@ Public Class TransactionDialog
         End If
     End Sub
     Private Sub Guna2Button1_Click_1(sender As Object, e As EventArgs) Handles Guna2Button1.Click
-        Using dialog As New ReportViewerDialog(Reference_number.Text)
+        Dim result As DialogResult = MsgBox("Do you want to print a receipt?", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        Dim autoPrint As Boolean = (result = DialogResult.Yes)
+
+        Using dialog As New ReceiptViewer(Reference_number.Text, autoPrint)
             dialog.ShowDialog()
         End Using
         'MsgBox(_data.Item("id"))

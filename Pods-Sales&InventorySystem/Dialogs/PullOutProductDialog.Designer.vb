@@ -28,6 +28,11 @@ Partial Class PullOutProductDialog
         Me.PullOutProductSaveButton = New Guna.UI2.WinForms.Guna2Button()
         Me.ExdTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.CostTextBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'ProductComboBox
@@ -42,7 +47,7 @@ Partial Class PullOutProductDialog
         Me.ProductComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.ProductComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.ProductComboBox.ItemHeight = 30
-        Me.ProductComboBox.Location = New System.Drawing.Point(41, 12)
+        Me.ProductComboBox.Location = New System.Drawing.Point(41, 35)
         Me.ProductComboBox.Name = "ProductComboBox"
         Me.ProductComboBox.Size = New System.Drawing.Size(200, 36)
         Me.ProductComboBox.TabIndex = 6
@@ -60,7 +65,7 @@ Partial Class PullOutProductDialog
         Me.StocksTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.StocksTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.StocksTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.StocksTextBox.Location = New System.Drawing.Point(41, 142)
+        Me.StocksTextBox.Location = New System.Drawing.Point(41, 202)
         Me.StocksTextBox.MaxLength = 4
         Me.StocksTextBox.Name = "StocksTextBox"
         Me.StocksTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -82,7 +87,7 @@ Partial Class PullOutProductDialog
         Me.QuantityTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.QuantityTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.QuantityTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.QuantityTextBox.Location = New System.Drawing.Point(41, 184)
+        Me.QuantityTextBox.Location = New System.Drawing.Point(41, 257)
         Me.QuantityTextBox.MaxLength = 4
         Me.QuantityTextBox.Name = "QuantityTextBox"
         Me.QuantityTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -103,7 +108,7 @@ Partial Class PullOutProductDialog
         Me.PullOutProductSaveButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.PullOutProductSaveButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.PullOutProductSaveButton.ForeColor = System.Drawing.Color.White
-        Me.PullOutProductSaveButton.Location = New System.Drawing.Point(127, 297)
+        Me.PullOutProductSaveButton.Location = New System.Drawing.Point(127, 313)
         Me.PullOutProductSaveButton.Name = "PullOutProductSaveButton"
         Me.PullOutProductSaveButton.Size = New System.Drawing.Size(150, 35)
         Me.PullOutProductSaveButton.TabIndex = 16
@@ -122,7 +127,7 @@ Partial Class PullOutProductDialog
         Me.ExdTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ExdTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.ExdTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ExdTextBox.Location = New System.Drawing.Point(41, 56)
+        Me.ExdTextBox.Location = New System.Drawing.Point(41, 90)
         Me.ExdTextBox.MaxLength = 4
         Me.ExdTextBox.Name = "ExdTextBox"
         Me.ExdTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -144,7 +149,7 @@ Partial Class PullOutProductDialog
         Me.CostTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CostTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.CostTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CostTextBox.Location = New System.Drawing.Point(41, 98)
+        Me.CostTextBox.Location = New System.Drawing.Point(41, 145)
         Me.CostTextBox.MaxLength = 4
         Me.CostTextBox.Name = "CostTextBox"
         Me.CostTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -153,11 +158,61 @@ Partial Class PullOutProductDialog
         Me.CostTextBox.Size = New System.Drawing.Size(200, 36)
         Me.CostTextBox.TabIndex = 19
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(24, 19)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(44, 13)
+        Me.Label2.TabIndex = 20
+        Me.Label2.Text = "Product"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(24, 74)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(79, 13)
+        Me.Label1.TabIndex = 21
+        Me.Label1.Text = "Expiration Date"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(24, 129)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(28, 13)
+        Me.Label3.TabIndex = 22
+        Me.Label3.Text = "Cost"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(24, 184)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(40, 13)
+        Me.Label4.TabIndex = 23
+        Me.Label4.Text = "Stocks"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(24, 241)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(46, 13)
+        Me.Label5.TabIndex = 24
+        Me.Label5.Text = "Quantity"
+        '
         'PullOutProductDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(289, 344)
+        Me.ClientSize = New System.Drawing.Size(289, 354)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.CostTextBox)
         Me.Controls.Add(Me.ExdTextBox)
         Me.Controls.Add(Me.PullOutProductSaveButton)
@@ -172,6 +227,7 @@ Partial Class PullOutProductDialog
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "PullOutProductDialog"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -181,4 +237,9 @@ Partial Class PullOutProductDialog
     Friend WithEvents PullOutProductSaveButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents ExdTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents CostTextBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
 End Class
