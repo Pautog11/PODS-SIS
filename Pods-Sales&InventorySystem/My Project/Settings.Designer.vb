@@ -54,17 +54,6 @@ Namespace My
             End Get
         End Property
         
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Server=.;Initial Catalog=podsdb;Persist Security Info=True;User ID=admin;Password"& _ 
-            "=password;"&Global.Microsoft.VisualBasic.ChrW(10)&Global.Microsoft.VisualBasic.ChrW(10))>  _
-        Public ReadOnly Property con() As String
-            Get
-                Return CType(Me("con"),String)
-            End Get
-        End Property
-        
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("")>  _
@@ -92,8 +81,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Server=.;Initial Catalog=podsdb;Persist Security Info=True;User ID=admin;Password"& _ 
-            "=password;")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Server=.;Initial Catalog=podsdb;Persist Security Info=True;User ID=clancy;Passwor"& _ 
+            "d=123;")>  _
         Public ReadOnly Property podsdbConnectionString() As String
             Get
                 Return CType(Me("podsdbConnectionString"),String)
@@ -103,10 +92,21 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=podsdb;User ID=admin;Password=password;")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=podsdb;User ID=clancy;Password=123;")>  _
         Public ReadOnly Property podsdbConnectionString1() As String
             Get
                 Return CType(Me("podsdbConnectionString1"),String)
+            End Get
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=podsdb;Persist Security Info=True;User ID=clancy;Pa"& _ 
+            "ssword=123")>  _
+        Public ReadOnly Property con() As String
+            Get
+                Return CType(Me("con"),String)
             End Get
         End Property
     End Class

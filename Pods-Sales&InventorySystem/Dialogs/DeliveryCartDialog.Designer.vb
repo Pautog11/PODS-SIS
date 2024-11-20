@@ -46,6 +46,7 @@ Partial Class DeliveryCartDialog
         Me.product = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EXPIRY_DATE = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.price = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.quantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -93,7 +94,7 @@ Partial Class DeliveryCartDialog
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DeliveryDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.DeliveryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.product, Me.EXPIRY_DATE, Me.price, Me.quantity, Me.total})
+        Me.DeliveryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.product, Me.EXPIRY_DATE, Me.price, Me.Column1, Me.quantity, Me.total})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -354,6 +355,12 @@ Partial Class DeliveryCartDialog
         Me.price.Name = "price"
         Me.price.ReadOnly = True
         '
+        'Column1
+        '
+        Me.Column1.HeaderText = "COST PRICE"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        '
         'quantity
         '
         Me.quantity.HeaderText = "QUANTITY"
@@ -414,6 +421,7 @@ Partial Class DeliveryCartDialog
     Friend WithEvents product As DataGridViewTextBoxColumn
     Friend WithEvents EXPIRY_DATE As DataGridViewTextBoxColumn
     Friend WithEvents price As DataGridViewTextBoxColumn
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents quantity As DataGridViewTextBoxColumn
     Friend WithEvents total As DataGridViewTextBoxColumn
 End Class

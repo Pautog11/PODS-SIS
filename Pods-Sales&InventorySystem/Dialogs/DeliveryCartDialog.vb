@@ -116,8 +116,9 @@ Public Class DeliveryCartDialog
                     {"product_id", row.Cells(0).Value},
                     {"exd", row.Cells(2).Value?.ToString()},
                     {"price", If(row.Cells(3).Value?.ToString(), "0")},
-                    {"quantity", If(row.Cells(4).Value?.ToString(), "0")},
-                    {"total", If(row.Cells(5).Value?.ToString(), "0")}
+                    {"quantity", If(row.Cells(5).Value?.ToString(), "0")},
+                    {"total", If(row.Cells(6).Value?.ToString(), "0")},
+                    {"cost_price", If(row.Cells(4).Value?.ToString(), "0")}
                 }
                 items.Add(item)
             Next

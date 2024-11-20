@@ -25,6 +25,10 @@ Partial Class DeliveryProductDialog
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
         Me.AddDeliveryButton = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -41,10 +45,7 @@ Partial Class DeliveryProductDialog
         Me.BarcodeTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.ProductComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.AccountDialogLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
+        Me.txtPrays = New Guna.UI2.WinForms.Guna2TextBox()
         Me.FlowLayoutPanel2.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.AccountDialogLayoutPanel.SuspendLayout()
@@ -83,6 +84,7 @@ Partial Class DeliveryProductDialog
         '
         'Guna2Panel1
         '
+        Me.Guna2Panel1.Controls.Add(Me.txtPrays)
         Me.Guna2Panel1.Controls.Add(Me.Label8)
         Me.Guna2Panel1.Controls.Add(Me.Label7)
         Me.Guna2Panel1.Controls.Add(Me.Label6)
@@ -108,6 +110,42 @@ Partial Class DeliveryProductDialog
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.Size = New System.Drawing.Size(328, 504)
         Me.Guna2Panel1.TabIndex = 9
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(42, 438)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(79, 13)
+        Me.Label8.TabIndex = 31
+        Me.Label8.Text = "Expiration Date"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(42, 380)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(46, 13)
+        Me.Label7.TabIndex = 30
+        Me.Label7.Text = "Quantity"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(42, 322)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(28, 13)
+        Me.Label6.TabIndex = 29
+        Me.Label6.Text = "Cost"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(42, 264)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(29, 13)
+        Me.Label5.TabIndex = 28
+        Me.Label5.Text = "SKU"
         '
         'Label4
         '
@@ -351,41 +389,27 @@ Partial Class DeliveryProductDialog
         Me.AccountDialogLayoutPanel.Size = New System.Drawing.Size(328, 559)
         Me.AccountDialogLayoutPanel.TabIndex = 19
         '
-        'Label5
+        'txtPrays
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(42, 264)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(29, 13)
-        Me.Label5.TabIndex = 28
-        Me.Label5.Text = "SKU"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(42, 322)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(28, 13)
-        Me.Label6.TabIndex = 29
-        Me.Label6.Text = "Cost"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(42, 380)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(46, 13)
-        Me.Label7.TabIndex = 30
-        Me.Label7.Text = "Quantity"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(42, 438)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(79, 13)
-        Me.Label8.TabIndex = 31
-        Me.Label8.Text = "Expiration Date"
+        Me.txtPrays.BorderColor = System.Drawing.Color.Gray
+        Me.txtPrays.BorderRadius = 10
+        Me.txtPrays.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtPrays.DefaultText = ""
+        Me.txtPrays.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.txtPrays.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.txtPrays.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtPrays.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtPrays.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtPrays.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtPrays.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtPrays.Location = New System.Drawing.Point(267, 267)
+        Me.txtPrays.MaxLength = 13
+        Me.txtPrays.Name = "txtPrays"
+        Me.txtPrays.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtPrays.PlaceholderText = "Price"
+        Me.txtPrays.SelectedText = ""
+        Me.txtPrays.Size = New System.Drawing.Size(58, 36)
+        Me.txtPrays.TabIndex = 32
         '
         'DeliveryProductDialog
         '
@@ -431,4 +455,5 @@ Partial Class DeliveryProductDialog
     Friend WithEvents Label7 As Label
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
+    Friend WithEvents txtPrays As Guna.UI2.WinForms.Guna2TextBox
 End Class

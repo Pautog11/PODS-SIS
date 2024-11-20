@@ -101,12 +101,14 @@ Public Class BaseDelivery
             For Each item In _item
                 If item IsNot Nothing AndAlso item.Count > 0 Then
                     ' Insert into tbldeliveries_items
-                    _sqlCommand = New SqlCommand("INSERT INTO tbldeliveries_items (delivery_id, product_id, price, quantity, total) VALUES (@delivery_id, @product_id, @price, @quantity, @total); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
+                    _sqlCommand = New SqlCommand("INSERT INTO tbldeliveries_items (delivery_id, product_id, price, quantity, total, quantity_trans, cost_price) VALUES (@delivery_id, @product_id, @price, @quantity, @total, @quantity, @cost_price); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
                     _sqlCommand.Parameters.AddWithValue("@delivery_id", deliveryId)
                     _sqlCommand.Parameters.AddWithValue("@product_id", item("product_id"))
                     _sqlCommand.Parameters.AddWithValue("@price", item("price"))
                     _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
                     _sqlCommand.Parameters.AddWithValue("@total", item("total"))
+                    _sqlCommand.Parameters.AddWithValue("@cost_price", item("cost_price"))
+
 
                     productid = Convert.ToInt32(_sqlCommand.ExecuteScalar())
                     If productid <= 0 Then

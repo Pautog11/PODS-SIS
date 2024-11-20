@@ -15,7 +15,6 @@ Public Class DeliveryProductDialog
         CategoryComboBox.DataSource = _tableAdapter.GetData
         CategoryComboBox.DisplayMember = "CATEGORY"
         'PriceTextBox.ReadOnly = True
-        CostTextBox.Enabled = False
 
         'MfgDate.MaxDate = DateTime.Now
         'ExpiryDate.MinDate = Date.Today
@@ -54,9 +53,10 @@ Public Class DeliveryProductDialog
                 If item.Cells("PRODUCT").Value.ToString() = ProductComboBox.Text AndAlso item.Cells("EXPIRY_DATE").Value = ExdTextBox.Text Then
                     'item.Cells("MANUFACTURED_DATE").Value = MfdTextBox.Text
                     item.Cells("EXPIRY_DATE").Value = ExdTextBox.Text
-                    item.Cells("PRICE").Value = Decimal.Parse(CostTextBox.Text)
+                    item.Cells("PRICE").Value = Decimal.Parse(txtPrays.Text)
                     item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)
                     item.Cells("TOTAL").Value = Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text)
+                    item.Cells("COST PRICE").Value = Decimal.Parse(CostTextBox.Text)
                     is_existing = True
                     ' MessageBox.Show("Product exists.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                     'Me.Close()
@@ -87,6 +87,7 @@ Public Class DeliveryProductDialog
                             _parent.DeliveryDataGridView.Rows.Add({ProductComboBox.SelectedValue,
                                                     ProductComboBox.Text,
                                                     ExdTextBox.Text,
+                                                    txtPrays.Text,
                                                     CostTextBox.Text,
                                                     QuantityTextBox.Text,
                                                     CDec(CostTextBox.Text) * CDec(QuantityTextBox.Text)
@@ -101,12 +102,13 @@ Public Class DeliveryProductDialog
                     _parent.DeliveryDataGridView.Rows.Add({BaseTransaction.NamebyID(ProductComboBox.Text),
                                                     ProductComboBox.Text,
                                                     ExdTextBox.Text,
+                                                    txtPrays.Text,
                                                     If(String.IsNullOrEmpty(CostTextBox.Text) OrElse CostTextBox.Text = "", 0, CostTextBox.Text),
                                                     QuantityTextBox.Text,
                                                     CDec(If(String.IsNullOrEmpty(CostTextBox.Text) OrElse CostTextBox.Text = "", 0, CostTextBox.Text)) * CDec(QuantityTextBox.Text)
                                                     })
                 End If
-            End If
+                End If
             _parent.UpdateVisualData()
             Me.Close()
         Else
