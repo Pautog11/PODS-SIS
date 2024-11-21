@@ -42,7 +42,7 @@ Public Class Account
                 {"username", row.Cells(6).Value.ToString()}
             }
 
-            If My.Settings.roleId >= row.Cells(0).Value.ToString() Then
+            If My.Settings.roleId > BaseAccount.ScalarRoleName(row.Cells(1).Value.ToString()) Then
                 MessageBox.Show("You cant edit this account.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
                 Dim Dialog As New AccountDialog(data:=data, subject:=_subject)

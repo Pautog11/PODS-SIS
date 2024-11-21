@@ -99,15 +99,17 @@ Namespace My
             End Get
         End Property
         
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
          Global.System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=titeko;Persist Security Info=True;User ID=admin;Pas"& _ 
             "sword=password;")>  _
-        Public ReadOnly Property con() As String
+        Public Property con() As String
             Get
                 Return CType(Me("con"),String)
             End Get
+            Set
+                Me("con") = value
+            End Set
         End Property
     End Class
 End Namespace

@@ -175,4 +175,8 @@ Public Class Dashboard
             MessageBox.Show("An error occurred: " & ex.Message)
         End Try
     End Sub
+
+    Private Sub Guna2Button1_Click_1(sender As Object, e As EventArgs) Handles Guna2Button1.Click
+        MsgBox(My.Settings.roleId)
+    End Sub
 End Class

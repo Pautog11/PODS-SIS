@@ -294,8 +294,8 @@ Public Class TransactionDialog
             Else
                 MessageBox.Show("Please select a valid discount percentage.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
-        Else
-            MessageBox.Show("Please enter a valid subtotal.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            'Else
+            '    MessageBox.Show("Please enter a valid subtotal.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
 
     End Sub

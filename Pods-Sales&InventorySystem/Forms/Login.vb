@@ -23,6 +23,8 @@
                         'main.MaintenaceTabControl.TabPages.Remove(main.Accounts)
                         ''Dim tabss As TabControl = dash.Maintenance.TabIndex. .TabControlContainer.Items()
                         ''Dim tabs As TabControl = dash.Maintenance.TabPageControlCollection 'MaintainanceContainer.TabControlContainer.Items(
+                    Case 3
+                        dash.DashboardTabControl.TabPages.Remove(dash.Maintenance)
                 End Select
                 Me.Hide()
                 dash.Show()

@@ -26,14 +26,14 @@ Public Class SearchDialog
 
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
         _tableAapter.Fill(_dataTable)
+        ' ProductDataGridView.DataSource = _dataTable
         ProductDataGridView.DataSource = _dataTable
-        ProductDataGridView.DataSource = _dataTable
-        ProductDataGridView.Columns.Item("STOCK_LEVEL").Visible = False
-        ProductDataGridView.Columns.Item("SUBCATEGORY").Visible = False
-        ProductDataGridView.Columns.Item("BARCODE").Visible = False
-        ProductDataGridView.Columns.Item("SKU").Visible = False
-        ProductDataGridView.Columns.Item("DESCRIPTION").Visible = False
-        ProductDataGridView.Columns.Item("COST").Visible = False
+        'ProductDataGridView.Columns.Item("STOCK_LEVEL").Visible = False
+        'ProductDataGridView.Columns.Item("SUBCATEGORY").Visible = False
+        'ProductDataGridView.Columns.Item("BARCODE").Visible = False
+        'ProductDataGridView.Columns.Item("SKU").Visible = False
+        'ProductDataGridView.Columns.Item("DESCRIPTION").Visible = False
+        'ProductDataGridView.Columns.Item("COST").Visible = False
     End Sub
     Private Sub ProductSearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles ProductSearchTextBox.TextChanged
         _dataTable = BaseProduct.Search(ProductSearchTextBox.Text)

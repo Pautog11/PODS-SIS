@@ -56,6 +56,8 @@ Partial Class Dashboard
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Products = New System.Windows.Forms.TabPage()
         Me.Product1 = New Pods_Sales_InventorySystem.Product()
+        Me.Deliveries = New System.Windows.Forms.TabPage()
+        Me.Delivery1 = New Pods_Sales_InventorySystem.Delivery()
         Me.Maintenance = New System.Windows.Forms.TabPage()
         Me.Maintenance1 = New Pods_Sales_InventorySystem.Maintenance()
         Me.Inventory = New System.Windows.Forms.TabPage()
@@ -68,13 +70,12 @@ Partial Class Dashboard
         Me.Reports1 = New Pods_Sales_InventorySystem.Reports()
         Me.Witdrawal = New System.Windows.Forms.TabPage()
         Me.ReturnAndPullout1 = New Pods_Sales_InventorySystem.ReturnAndPullout()
-        Me.Deliveries = New System.Windows.Forms.TabPage()
-        Me.Delivery1 = New Pods_Sales_InventorySystem.Delivery()
         Me.Guna2ContextMenuStrip1 = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DSReport = New Pods_Sales_InventorySystem.DSReport()
         Me.DTTransactionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
         Me.DashboardTableLayoutPanel.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.DashboardPanel.SuspendLayout()
@@ -91,13 +92,13 @@ Partial Class Dashboard
         Me.Panel4.SuspendLayout()
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Products.SuspendLayout()
+        Me.Deliveries.SuspendLayout()
         Me.Maintenance.SuspendLayout()
         Me.Inventory.SuspendLayout()
         Me.Activity.SuspendLayout()
         Me.Transaction.SuspendLayout()
         Me.Reports.SuspendLayout()
         Me.Witdrawal.SuspendLayout()
-        Me.Deliveries.SuspendLayout()
         Me.Guna2ContextMenuStrip1.SuspendLayout()
         CType(Me.DSReport, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DTTransactionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -420,6 +421,7 @@ Partial Class Dashboard
         'Panel1
         '
         Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.Controls.Add(Me.Guna2Button1)
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Controls.Add(Me.Accounts)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -506,6 +508,27 @@ Partial Class Dashboard
         Me.Product1.Name = "Product1"
         Me.Product1.Size = New System.Drawing.Size(1373, 700)
         Me.Product1.TabIndex = 0
+        '
+        'Deliveries
+        '
+        Me.Deliveries.Controls.Add(Me.Delivery1)
+        Me.Deliveries.Location = New System.Drawing.Point(184, 4)
+        Me.Deliveries.Name = "Deliveries"
+        Me.Deliveries.Padding = New System.Windows.Forms.Padding(3)
+        Me.Deliveries.Size = New System.Drawing.Size(1373, 700)
+        Me.Deliveries.TabIndex = 8
+        Me.Deliveries.Text = "Deliveries"
+        Me.Deliveries.UseVisualStyleBackColor = True
+        '
+        'Delivery1
+        '
+        Me.Delivery1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Delivery1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Delivery1.Location = New System.Drawing.Point(3, 3)
+        Me.Delivery1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Delivery1.Name = "Delivery1"
+        Me.Delivery1.Size = New System.Drawing.Size(1367, 694)
+        Me.Delivery1.TabIndex = 0
         '
         'Maintenance
         '
@@ -624,27 +647,6 @@ Partial Class Dashboard
         Me.ReturnAndPullout1.Size = New System.Drawing.Size(1373, 700)
         Me.ReturnAndPullout1.TabIndex = 0
         '
-        'Deliveries
-        '
-        Me.Deliveries.Controls.Add(Me.Delivery1)
-        Me.Deliveries.Location = New System.Drawing.Point(184, 4)
-        Me.Deliveries.Name = "Deliveries"
-        Me.Deliveries.Padding = New System.Windows.Forms.Padding(3)
-        Me.Deliveries.Size = New System.Drawing.Size(1373, 700)
-        Me.Deliveries.TabIndex = 8
-        Me.Deliveries.Text = "Deliveries"
-        Me.Deliveries.UseVisualStyleBackColor = True
-        '
-        'Delivery1
-        '
-        Me.Delivery1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Delivery1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Delivery1.Location = New System.Drawing.Point(3, 3)
-        Me.Delivery1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Delivery1.Name = "Delivery1"
-        Me.Delivery1.Size = New System.Drawing.Size(1367, 694)
-        Me.Delivery1.TabIndex = 0
-        '
         'Guna2ContextMenuStrip1
         '
         Me.Guna2ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem, Me.LogoutToolStripMenuItem})
@@ -682,6 +684,20 @@ Partial Class Dashboard
         Me.DTTransactionBindingSource.DataMember = "DT_Transaction"
         Me.DTTransactionBindingSource.DataSource = Me.DSReport
         '
+        'Guna2Button1
+        '
+        Me.Guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.Guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.Guna2Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.Guna2Button1.ForeColor = System.Drawing.Color.White
+        Me.Guna2Button1.Location = New System.Drawing.Point(265, 26)
+        Me.Guna2Button1.Name = "Guna2Button1"
+        Me.Guna2Button1.Size = New System.Drawing.Size(65, 34)
+        Me.Guna2Button1.TabIndex = 2
+        Me.Guna2Button1.Text = "Guna2Button1"
+        '
         'Dashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -712,13 +728,13 @@ Partial Class Dashboard
         Me.Panel4.ResumeLayout(False)
         CType(Me.Chart1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Products.ResumeLayout(False)
+        Me.Deliveries.ResumeLayout(False)
         Me.Maintenance.ResumeLayout(False)
         Me.Inventory.ResumeLayout(False)
         Me.Activity.ResumeLayout(False)
         Me.Transaction.ResumeLayout(False)
         Me.Reports.ResumeLayout(False)
         Me.Witdrawal.ResumeLayout(False)
-        Me.Deliveries.ResumeLayout(False)
         Me.Guna2ContextMenuStrip1.ResumeLayout(False)
         CType(Me.DSReport, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DTTransactionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -772,4 +788,5 @@ Partial Class Dashboard
     Friend WithEvents Chart1 As DataVisualization.Charting.Chart
     Friend WithEvents Deliveries As TabPage
     Friend WithEvents Delivery1 As Delivery
+    Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
 End Class

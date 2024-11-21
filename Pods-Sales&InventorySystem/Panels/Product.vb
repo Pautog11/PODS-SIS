@@ -61,6 +61,10 @@
         'End Using
     End Sub
 
+    'Private Sub ProductsDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles MyBasesDataGridView.CellContentClick
+
+    'End Sub
+
 
     'Private Sub Guna2ToggleSwitch1_CheckedChanged(sender As Object, e As EventArgs)
     '    If Guna2ToggleSwitch1.Checked Then

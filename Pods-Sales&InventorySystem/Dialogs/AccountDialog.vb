@@ -39,11 +39,61 @@ Public Class AccountDialog
             UsernameTextBox.Enabled = False
             DeleteAccountButton.Visible = False
             PasswordTextBox.Visible = False
+            'RoleComboBox.Enabled = False
             'End If
+
+            If RoleComboBox.Text = "Super Admin" Then
+                RoleComboBox.Enabled = False
+                StatusComboBox.Enabled = False
+            Else
+                Dim rowsToRemove As New List(Of DataRow)()
+                For Each row As DataRow In roles.Rows
+                    If My.Settings.roleId = 1 Then
+                        If row("id") = 1 Then
+                            rowsToRemove.Add(row) ' Add the row to be removed later
+                            Exit For ' Exit the loop once the row is removed
+                        End If
+                    Else
+                        If RoleComboBox.Text = "Admin" Then
+                            RoleComboBox.Enabled = False
+                            StatusComboBox.Enabled = False
+                        Else
+                            If row("id") = 1 Or row("id") = 2 Then
+                                rowsToRemove.Add(row)
+                            End If
+                        End If
+                    End If
+                Next
+                For Each row As DataRow In rowsToRemove
+                    roles.Rows.Remove(row)
+                Next
+            End If
+
+
         Else
+            Dim rowsToRemove As New List(Of DataRow)()
+            For Each row As DataRow In roles.Rows
+                If My.Settings.roleId = 1 Then
+                    If row("id") = 1 Then
+                        rowsToRemove.Add(row) ' Add the row to be removed later
+                        Exit For ' Exit the loop once the row is removed
+                    End If
+                Else
+                    ' Add rows where the id is 1 or 2 to the removal list
+                    If row("id") = 1 Or row("id") = 2 Then
+                        rowsToRemove.Add(row)
+                    End If
+                End If
+            Next
+            For Each row As DataRow In rowsToRemove
+                roles.Rows.Remove(row)
+            Next
+
+
+
             'Auto select "None" for roles
             'roles.Rows.Add(-1, "None")
-            RoleComboBox.SelectedValue = -1
+            'RoleComboBox.SelectedValue = -1
 
             'For Visibility
             DeleteAccountButton.Visible = False
