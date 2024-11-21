@@ -27,7 +27,7 @@ Public Class BaseAccount
 
     Public Sub Update() Implements ICommandPanel.Update
         Try
-            _sqlCommand = New SqlCommand("UPDATE tblaccounts SET role_id = @role_id, status_id = @status_id, first_name = @first_name, last_name = @last_name, phone_number = @phone_number, address = @address, username = @username, password = @password, date_updated = @date_updated WHERE id = @id", _sqlConnection)
+            _sqlCommand = New SqlCommand("UPDATE tblaccounts SET role_id = @role_id, status_id = @status_id, first_name = @first_name, last_name = @last_name, phone_number = @phone_number, address = @address, username = @username, date_updated = @date_updated WHERE id = @id", _sqlConnection)
             _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
             _sqlCommand.Parameters.AddWithValue("@role_id", _data.Item("role_id"))
             _sqlCommand.Parameters.AddWithValue("@status_id", _data.Item("status_id"))
@@ -36,7 +36,6 @@ Public Class BaseAccount
             _sqlCommand.Parameters.AddWithValue("@phone_number", _data.Item("phone_number"))
             _sqlCommand.Parameters.AddWithValue("@address", _data.Item("address"))
             _sqlCommand.Parameters.AddWithValue("@username", _data.Item("username"))
-            _sqlCommand.Parameters.AddWithValue("@password", BCrypt.Net.BCrypt.HashPassword(_data.Item("password")))
             _sqlCommand.Parameters.AddWithValue("@date_updated", DateTime.Now)
             If _sqlCommand.ExecuteNonQuery() <= 0 Then
                 MessageBox.Show("An error occured!")
@@ -204,6 +203,25 @@ Public Class BaseAccount
             cmd.Parameters.AddWithValue("@data", data.Trim.ToLower)
 
             Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
+    '_sqlCommand.Parameters.AddWithValue("@password", BCrypt.Net.BCrypt.HashPassword(_data.Item("password")))
+
+    Public Shared Function ChangePass(pass As String, id As Integer)
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("UPDATE tblaccounts SET password = @password WHERE id = @id", conn)
+            cmd.Parameters.AddWithValue("@password", BCrypt.Net.BCrypt.HashPassword(pass))
+            cmd.Parameters.AddWithValue("@id", id)
+            If cmd.ExecuteNonQuery() <= 0 Then
+                MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Else
+                MessageBox.Show("Password has been updated successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
+            Return 0
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return 0

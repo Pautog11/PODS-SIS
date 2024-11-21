@@ -25,6 +25,7 @@ Partial Class AccountDialog
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
         Me.DeleteAccountButton = New Guna.UI2.WinForms.Guna2Button()
         Me.AddAccountButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.ChangePassButton = New Guna.UI2.WinForms.Guna2Button()
         Me.AccountDialogLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
@@ -49,6 +50,7 @@ Partial Class AccountDialog
         Me.FlowLayoutPanel2.BackColor = System.Drawing.SystemColors.ControlLight
         Me.FlowLayoutPanel2.Controls.Add(Me.DeleteAccountButton)
         Me.FlowLayoutPanel2.Controls.Add(Me.AddAccountButton)
+        Me.FlowLayoutPanel2.Controls.Add(Me.ChangePassButton)
         Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
         Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 266)
@@ -94,6 +96,25 @@ Partial Class AccountDialog
         Me.AddAccountButton.Size = New System.Drawing.Size(128, 37)
         Me.AddAccountButton.TabIndex = 3
         Me.AddAccountButton.Text = "Add"
+        '
+        'ChangePassButton
+        '
+        Me.ChangePassButton.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.ChangePassButton.BackColor = System.Drawing.Color.Transparent
+        Me.ChangePassButton.BorderRadius = 15
+        Me.ChangePassButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.ChangePassButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.ChangePassButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.ChangePassButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.ChangePassButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.ChangePassButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.ChangePassButton.ForeColor = System.Drawing.Color.White
+        Me.ChangePassButton.Location = New System.Drawing.Point(187, 8)
+        Me.ChangePassButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
+        Me.ChangePassButton.Name = "ChangePassButton"
+        Me.ChangePassButton.Size = New System.Drawing.Size(128, 37)
+        Me.ChangePassButton.TabIndex = 5
+        Me.ChangePassButton.Text = "Change Password"
         '
         'AccountDialogLayoutPanel
         '
@@ -341,4 +362,5 @@ Partial Class AccountDialog
     Friend WithEvents Phone_numberTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents AddressTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
+    Friend WithEvents ChangePassButton As Guna.UI2.WinForms.Guna2Button
 End Class

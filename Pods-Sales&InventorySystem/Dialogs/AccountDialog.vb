@@ -38,15 +38,17 @@ Public Class AccountDialog
             'For Visibility
             UsernameTextBox.Enabled = False
             DeleteAccountButton.Visible = False
+            PasswordTextBox.Visible = False
             'End If
         Else
             'Auto select "None" for roles
-            roles.Rows.Add(-1, "None")
+            'roles.Rows.Add(-1, "None")
             RoleComboBox.SelectedValue = -1
 
             'For Visibility
             DeleteAccountButton.Visible = False
             StatusComboBox.Visible = False
+            ChangePassButton.Visible = False
         End If
     End Sub
 
@@ -59,7 +61,18 @@ Public Class AccountDialog
         }
         Dim result As New List(Of Object())
         For i = 0 To controls.Count - 1
-            result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
+            'result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
+
+            If _data IsNot Nothing Then
+                If controls(i) IsNot PasswordTextBox Then
+                    result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
+                Else
+                    ' Skip password validation and add it directly
+                    result.Add(New Object() {True, PasswordTextBox.Text}) ' Assuming password is valid for now
+                End If
+            Else
+                result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
+            End If
         Next
         If RoleComboBox.SelectedValue = -1 OrElse RoleComboBox.SelectedIndex = -1 Then
             'MessageBox.Show("Please select a role", "POS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -130,10 +143,12 @@ Public Class AccountDialog
         End If
     End Sub
 
-    Private Sub AccountDialog_MouseDown(sender As Object, e As MouseEventArgs) Handles MyBase.MouseDown
-        If e.Button = MouseButtons.Right Then
-            '
-            Return
-        End If
+    Private Sub ChangePassButton_Click(sender As Object, e As EventArgs) Handles ChangePassButton.Click
+        'MsgBox(_data.Item("id"))
+        'Using PasswordDialog()
+        '    PasswordDialog.ShowDialog()
+        'End Using
+        Dim dialog As New PasswordDialog(parent:=Me, id:=_data.Item("id"))
+        dialog.ShowDialog()
     End Sub
 End Class

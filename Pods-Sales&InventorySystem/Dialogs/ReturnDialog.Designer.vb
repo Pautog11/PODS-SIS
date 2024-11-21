@@ -85,7 +85,7 @@ Partial Class ReturnDialog
         Me.CostTextBox.MaxLength = 4
         Me.CostTextBox.Name = "CostTextBox"
         Me.CostTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.CostTextBox.PlaceholderText = "Cost"
+        Me.CostTextBox.PlaceholderText = "0.00"
         Me.CostTextBox.SelectedText = ""
         Me.CostTextBox.Size = New System.Drawing.Size(200, 36)
         Me.CostTextBox.TabIndex = 22
@@ -107,7 +107,7 @@ Partial Class ReturnDialog
         Me.QuantityTextBox.MaxLength = 4
         Me.QuantityTextBox.Name = "QuantityTextBox"
         Me.QuantityTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.QuantityTextBox.PlaceholderText = "Quantity"
+        Me.QuantityTextBox.PlaceholderText = "0"
         Me.QuantityTextBox.SelectedText = ""
         Me.QuantityTextBox.Size = New System.Drawing.Size(200, 36)
         Me.QuantityTextBox.TabIndex = 21
@@ -129,7 +129,7 @@ Partial Class ReturnDialog
         Me.StocksTextBox.MaxLength = 4
         Me.StocksTextBox.Name = "StocksTextBox"
         Me.StocksTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.StocksTextBox.PlaceholderText = "Stocks"
+        Me.StocksTextBox.PlaceholderText = "0"
         Me.StocksTextBox.SelectedText = ""
         Me.StocksTextBox.Size = New System.Drawing.Size(200, 36)
         Me.StocksTextBox.TabIndex = 20

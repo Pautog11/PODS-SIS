@@ -35,15 +35,13 @@ Public Class BaseProduct
 
     Public Sub Update() Implements ICommandPanel.Update
         Try
-            _sqlCommand = New SqlCommand("UPDATE tblproducts SET subcategory_id = @subcategory_id, sku = @sku, barcode = @barcode, product_name = @product_name, description = @description, product_price = @product_price, product_cost = @product_cost, stock_level = @stock_level WHERE id = @id", _sqlConnection)
+            _sqlCommand = New SqlCommand("UPDATE tblproducts SET subcategory_id = @subcategory_id, sku = @sku, barcode = @barcode, product_name = @product_name, description = @description, stock_level = @stock_level WHERE id = @id", _sqlConnection)
             _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
             _sqlCommand.Parameters.AddWithValue("@subcategory_id", _data.Item("subcategory_id"))
             _sqlCommand.Parameters.AddWithValue("@sku", _data.Item("sku"))
             _sqlCommand.Parameters.AddWithValue("@barcode", _data.Item("barcode"))
             _sqlCommand.Parameters.AddWithValue("@product_name", _data.Item("product_name"))
             _sqlCommand.Parameters.AddWithValue("@description", If(String.IsNullOrEmpty(_data.Item("description")), DBNull.Value, _data.Item("description"))) '_data.Item("description"))
-            _sqlCommand.Parameters.AddWithValue("@product_price", _data.Item("product_price"))
-            _sqlCommand.Parameters.AddWithValue("@product_cost", _data.Item("product_cost"))
             _sqlCommand.Parameters.AddWithValue("@stock_level", _data.Item("stock_level"))
             If _sqlCommand.ExecuteNonQuery() <= 0 Then
                 Throw New Exception("An error occured!")
@@ -81,14 +79,12 @@ Public Class BaseProduct
     Public Sub Add() Implements ICommandPanel.Add
         Dim transaction As SqlTransaction = SqlConnectionPods.GetInstance.BeginTransaction()
         Try
-            _sqlCommand = New SqlCommand("INSERT INTO tblproducts (subcategory_id, sku, barcode, product_name, description, product_price, product_cost, stock_level) VALUES (@subcategory_id, @sku, @barcode, @product_name, @description, @product_price, @product_cost, @stock_level); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
+            _sqlCommand = New SqlCommand("INSERT INTO tblproducts (subcategory_id, sku, barcode, product_name, description, stock_level) VALUES (@subcategory_id, @sku, @barcode, @product_name, @description, @stock_level); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
             _sqlCommand.Parameters.AddWithValue("@subcategory_id", _data.Item("subcategory_id"))
             _sqlCommand.Parameters.AddWithValue("@sku", _data.Item("sku"))
             _sqlCommand.Parameters.AddWithValue("@barcode", _data.Item("barcode"))
             _sqlCommand.Parameters.AddWithValue("@product_name", _data.Item("product_name"))
             _sqlCommand.Parameters.AddWithValue("@description", If(String.IsNullOrEmpty(_data.Item("description")), DBNull.Value, _data.Item("description"))) '_data.Item("description"))
-            _sqlCommand.Parameters.AddWithValue("@product_price", _data.Item("product_price"))
-            _sqlCommand.Parameters.AddWithValue("@product_cost", _data.Item("product_cost"))
             _sqlCommand.Parameters.AddWithValue("@stock_level", _data.Item("stock_level"))
             'Dim productid As Integer = Convert.ToInt32(_sqlCommand.ExecuteScalar())
 

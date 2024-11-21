@@ -81,8 +81,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Server=.;Initial Catalog=podsdb;Persist Security Info=True;User ID=clancy;Passwor"& _ 
-            "d=123;")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Server=.;Initial Catalog=titeko;Persist Security Info=True;User ID=admin;Password"& _ 
+            "=password;")>  _
         Public ReadOnly Property podsdbConnectionString() As String
             Get
                 Return CType(Me("podsdbConnectionString"),String)
@@ -92,7 +92,7 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=podsdb;User ID=clancy;Password=123;")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=titeko;User ID=admin;Password=password;")>  _
         Public ReadOnly Property podsdbConnectionString1() As String
             Get
                 Return CType(Me("podsdbConnectionString1"),String)
@@ -102,8 +102,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=podsdb;Persist Security Info=True;User ID=clancy;Pa"& _ 
-            "ssword=123")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=titeko;Persist Security Info=True;User ID=admin;Pas"& _ 
+            "sword=password;")>  _
         Public ReadOnly Property con() As String
             Get
                 Return CType(Me("con"),String)

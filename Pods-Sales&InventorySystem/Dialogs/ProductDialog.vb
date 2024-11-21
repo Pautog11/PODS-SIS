@@ -23,8 +23,8 @@ Public Class ProductDialog
             ProductNameTextBox.Text = _data.Item("product_name")
             DescriptionTextBox.Text = _data.Item("description")
             'QuantityTextBox.Text = _data.Item("quantity")
-            PriceTextBox.Text = _data.Item("price")
-            CostTextBox.Text = _data.Item("cost")
+            'PriceTextBox.Text = _data.Item("price")
+            'CostTextBox.Text = _data.Item("cost")
             StockLevelTextBox.Text = _data.Item("stock_level")
 
             Dim productid As DataTable = BaseProduct.Fillproductinfo(_data("id"))
@@ -43,19 +43,20 @@ Public Class ProductDialog
 
     Private Sub AddProductButton_Click(sender As Object, e As EventArgs) Handles AddProductButton.Click
         Dim controls As Object() = {
-            BarcodeTextBox, ProductNameTextBox, PriceTextBox, CostTextBox, StockLevelTextBox
+            BarcodeTextBox, ProductNameTextBox, StockLevelTextBox
         }
         Dim types As DataInput() = {
-            DataInput.STRING_INTEGER, DataInput.STRING_NAME, DataInput.STRING_PRICE, DataInput.STRING_PRICE, DataInput.STRING_INTEGER
+            DataInput.STRING_INTEGER, DataInput.STRING_NAME, DataInput.STRING_INTEGER
         }
         Dim result As New List(Of Object())
         For i = 0 To controls.Count - 1
             result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
         Next
-        If Val(PriceTextBox.Text) <= Val(CostTextBox.Text) Then
-            MessageBox.Show("Price should not be less than or equal to the cost price.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return
-        End If
+
+        'If Val(PriceTextBox.Text) <= Val(CostTextBox.Text) Then
+        '    MessageBox.Show("Price should not be less than or equal to the cost price.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        '    Return
+        'End If
 
 
         If Not result.Any(Function(item As Object()) Not item(0)) Then
@@ -66,9 +67,9 @@ Public Class ProductDialog
                 {"barcode", result(0)(1)},
                 {"product_name", result(1)(1)},
                 {"description", If(String.IsNullOrEmpty(DescriptionTextBox.Text), "", DescriptionTextBox.Text)},' result(3)(1)},   'If(String.IsNullOrEmpty(ProductDescriptionTextBox.Text), "", ProductDescriptionTextBox.Text)}
-                {"product_price", result(2)(1)},
-                {"product_cost", result(3)(1)},
-                {"stock_level", result(4)(1)}
+                {"product_price", 0},'If(String.IsNullOrEmpty(PriceTextBox.Text), "", PriceTextBox.Text)},
+                {"product_cost", 0},'If(String.IsNullOrEmpty(CostTextBox.Text), "", CostTextBox.Text)},
+                {"stock_level", result(2)(1)}
             }
 
             Dim putangina As Boolean = False

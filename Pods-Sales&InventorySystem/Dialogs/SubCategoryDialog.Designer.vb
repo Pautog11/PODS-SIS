@@ -24,15 +24,15 @@ Partial Class SubCategoryDialog
     Private Sub InitializeComponent()
         Me.SubCategoryLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.SubcategoryNameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.SubCategoryDescriptionTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.CategoryComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.DeleteSubCategoryButton = New Guna.UI2.WinForms.Guna2Button()
         Me.AddSubCategoryButton = New Guna.UI2.WinForms.Guna2Button()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.SubCategoryLayoutPanel.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
@@ -68,6 +68,33 @@ Partial Class SubCategoryDialog
         Me.Guna2Panel1.Size = New System.Drawing.Size(435, 233)
         Me.Guna2Panel1.TabIndex = 0
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(102, 143)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(60, 13)
+        Me.Label3.TabIndex = 20
+        Me.Label3.Text = "Description"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(102, 83)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(102, 13)
+        Me.Label1.TabIndex = 19
+        Me.Label1.Text = "Sub Category Name"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(102, 28)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(49, 13)
+        Me.Label2.TabIndex = 18
+        Me.Label2.Text = "Category"
+        '
         'SubcategoryNameTextBox
         '
         Me.SubcategoryNameTextBox.BorderColor = System.Drawing.Color.Gray
@@ -84,7 +111,7 @@ Partial Class SubCategoryDialog
         Me.SubcategoryNameTextBox.Location = New System.Drawing.Point(119, 100)
         Me.SubcategoryNameTextBox.Name = "SubcategoryNameTextBox"
         Me.SubcategoryNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.SubcategoryNameTextBox.PlaceholderText = "Subcategory Name"
+        Me.SubcategoryNameTextBox.PlaceholderText = "Ex. (Cough and Cold etc.,)"
         Me.SubcategoryNameTextBox.SelectedText = ""
         Me.SubcategoryNameTextBox.Size = New System.Drawing.Size(200, 36)
         Me.SubcategoryNameTextBox.TabIndex = 4
@@ -105,7 +132,7 @@ Partial Class SubCategoryDialog
         Me.SubCategoryDescriptionTextBox.Location = New System.Drawing.Point(119, 159)
         Me.SubCategoryDescriptionTextBox.Name = "SubCategoryDescriptionTextBox"
         Me.SubCategoryDescriptionTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.SubCategoryDescriptionTextBox.PlaceholderText = "Description"
+        Me.SubCategoryDescriptionTextBox.PlaceholderText = ""
         Me.SubCategoryDescriptionTextBox.SelectedText = ""
         Me.SubCategoryDescriptionTextBox.Size = New System.Drawing.Size(200, 60)
         Me.SubCategoryDescriptionTextBox.TabIndex = 3
@@ -176,33 +203,6 @@ Partial Class SubCategoryDialog
         Me.AddSubCategoryButton.Size = New System.Drawing.Size(128, 37)
         Me.AddSubCategoryButton.TabIndex = 5
         Me.AddSubCategoryButton.Text = "Add"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(102, 28)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(49, 13)
-        Me.Label2.TabIndex = 18
-        Me.Label2.Text = "Category"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(102, 83)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(102, 13)
-        Me.Label1.TabIndex = 19
-        Me.Label1.Text = "Sub Category Name"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(102, 143)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(60, 13)
-        Me.Label3.TabIndex = 20
-        Me.Label3.Text = "Description"
         '
         'SubCategoryDialog
         '

@@ -29,16 +29,16 @@ Partial Class SupplierDialog
         Me.LastnameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.PhoneNumberTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.FooterLayoutPanel = New System.Windows.Forms.FlowLayoutPanel()
         Me.DeleteSupplierButton = New Guna.UI2.WinForms.Guna2Button()
         Me.AddSupplierButton = New Guna.UI2.WinForms.Guna2Button()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.Guna2Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.FooterLayoutPanel.SuspendLayout()
@@ -61,7 +61,7 @@ Partial Class SupplierDialog
         Me.CompanyNameTextBox.MaxLength = 50
         Me.CompanyNameTextBox.Name = "CompanyNameTextBox"
         Me.CompanyNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.CompanyNameTextBox.PlaceholderText = "Comapny Name"
+        Me.CompanyNameTextBox.PlaceholderText = "Enter Company Name"
         Me.CompanyNameTextBox.SelectedText = ""
         Me.CompanyNameTextBox.Size = New System.Drawing.Size(200, 36)
         Me.CompanyNameTextBox.TabIndex = 0
@@ -83,7 +83,7 @@ Partial Class SupplierDialog
         Me.CompanyContactNumberTextBox.MaxLength = 13
         Me.CompanyContactNumberTextBox.Name = "CompanyContactNumberTextBox"
         Me.CompanyContactNumberTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.CompanyContactNumberTextBox.PlaceholderText = "Company Contact Number"
+        Me.CompanyContactNumberTextBox.PlaceholderText = "Ex. (09123456789)"
         Me.CompanyContactNumberTextBox.SelectedText = ""
         Me.CompanyContactNumberTextBox.Size = New System.Drawing.Size(200, 36)
         Me.CompanyContactNumberTextBox.TabIndex = 1
@@ -105,7 +105,7 @@ Partial Class SupplierDialog
         Me.FirstnameTextBox.MaxLength = 20
         Me.FirstnameTextBox.Name = "FirstnameTextBox"
         Me.FirstnameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.FirstnameTextBox.PlaceholderText = "Firstname"
+        Me.FirstnameTextBox.PlaceholderText = "Ex. (Juan)"
         Me.FirstnameTextBox.SelectedText = ""
         Me.FirstnameTextBox.Size = New System.Drawing.Size(200, 36)
         Me.FirstnameTextBox.TabIndex = 3
@@ -127,7 +127,7 @@ Partial Class SupplierDialog
         Me.CompanyAddressTextBox.MaxLength = 100
         Me.CompanyAddressTextBox.Name = "CompanyAddressTextBox"
         Me.CompanyAddressTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.CompanyAddressTextBox.PlaceholderText = "Company Address"
+        Me.CompanyAddressTextBox.PlaceholderText = "Enter Complete Address"
         Me.CompanyAddressTextBox.SelectedText = ""
         Me.CompanyAddressTextBox.Size = New System.Drawing.Size(200, 36)
         Me.CompanyAddressTextBox.TabIndex = 2
@@ -149,7 +149,7 @@ Partial Class SupplierDialog
         Me.LastnameTextBox.MaxLength = 20
         Me.LastnameTextBox.Name = "LastnameTextBox"
         Me.LastnameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.LastnameTextBox.PlaceholderText = "Lastname"
+        Me.LastnameTextBox.PlaceholderText = "Ex. (Dela Cruz)"
         Me.LastnameTextBox.SelectedText = ""
         Me.LastnameTextBox.Size = New System.Drawing.Size(200, 36)
         Me.LastnameTextBox.TabIndex = 4
@@ -171,7 +171,7 @@ Partial Class SupplierDialog
         Me.PhoneNumberTextBox.MaxLength = 13
         Me.PhoneNumberTextBox.Name = "PhoneNumberTextBox"
         Me.PhoneNumberTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.PhoneNumberTextBox.PlaceholderText = "Phone Number "
+        Me.PhoneNumberTextBox.PlaceholderText = "Ex. (09123456789)"
         Me.PhoneNumberTextBox.SelectedText = ""
         Me.PhoneNumberTextBox.Size = New System.Drawing.Size(200, 36)
         Me.PhoneNumberTextBox.TabIndex = 5
@@ -196,6 +196,60 @@ Partial Class SupplierDialog
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.Size = New System.Drawing.Size(539, 211)
         Me.Guna2Panel1.TabIndex = 7
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(275, 131)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(78, 13)
+        Me.Label6.TabIndex = 23
+        Me.Label6.Text = "Phone Number"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(275, 76)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(58, 13)
+        Me.Label5.TabIndex = 22
+        Me.Label5.Text = "Last Name"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(275, 21)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(57, 13)
+        Me.Label4.TabIndex = 21
+        Me.Label4.Text = "First Name"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(21, 131)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(92, 13)
+        Me.Label3.TabIndex = 20
+        Me.Label3.Text = "Company Address"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(21, 76)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(91, 13)
+        Me.Label1.TabIndex = 19
+        Me.Label1.Text = "Company Number"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(21, 21)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(82, 13)
+        Me.Label2.TabIndex = 18
+        Me.Label2.Text = "Company Name"
         '
         'TableLayoutPanel1
         '
@@ -261,60 +315,6 @@ Partial Class SupplierDialog
         Me.AddSupplierButton.Size = New System.Drawing.Size(128, 37)
         Me.AddSupplierButton.TabIndex = 5
         Me.AddSupplierButton.Text = "Add"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(21, 21)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(82, 13)
-        Me.Label2.TabIndex = 18
-        Me.Label2.Text = "Company Name"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(21, 76)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(91, 13)
-        Me.Label1.TabIndex = 19
-        Me.Label1.Text = "Company Number"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(21, 131)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(92, 13)
-        Me.Label3.TabIndex = 20
-        Me.Label3.Text = "Company Address"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(275, 21)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(57, 13)
-        Me.Label4.TabIndex = 21
-        Me.Label4.Text = "First Name"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(275, 76)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(58, 13)
-        Me.Label5.TabIndex = 22
-        Me.Label5.Text = "Last Name"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(275, 131)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(78, 13)
-        Me.Label6.TabIndex = 23
-        Me.Label6.Text = "Phone Number"
         '
         'SupplierDialog
         '

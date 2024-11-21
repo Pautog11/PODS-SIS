@@ -27,10 +27,10 @@ Partial Class CategoryDialog
         Me.DeleteCategoryButton = New Guna.UI2.WinForms.Guna2Button()
         Me.AddCategoryButton = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.DescriptionTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.CategoryNameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
@@ -114,6 +114,24 @@ Partial Class CategoryDialog
         Me.Guna2Panel1.Size = New System.Drawing.Size(438, 178)
         Me.Guna2Panel1.TabIndex = 1
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(62, 97)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(108, 13)
+        Me.Label2.TabIndex = 3
+        Me.Label2.Text = "Description (Optional)"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(62, 33)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(80, 13)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "Category Name"
+        '
         'DescriptionTextBox
         '
         Me.DescriptionTextBox.BorderColor = System.Drawing.Color.Gray
@@ -130,7 +148,7 @@ Partial Class CategoryDialog
         Me.DescriptionTextBox.Location = New System.Drawing.Point(118, 113)
         Me.DescriptionTextBox.Name = "DescriptionTextBox"
         Me.DescriptionTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.DescriptionTextBox.PlaceholderText = "Description"
+        Me.DescriptionTextBox.PlaceholderText = ""
         Me.DescriptionTextBox.SelectedText = ""
         Me.DescriptionTextBox.Size = New System.Drawing.Size(200, 36)
         Me.DescriptionTextBox.TabIndex = 1
@@ -155,24 +173,6 @@ Partial Class CategoryDialog
         Me.CategoryNameTextBox.SelectedText = ""
         Me.CategoryNameTextBox.Size = New System.Drawing.Size(200, 36)
         Me.CategoryNameTextBox.TabIndex = 0
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(62, 33)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(80, 13)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Text = "Category Name"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(82, 97)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(60, 13)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "Description"
         '
         'CategoryDialog
         '

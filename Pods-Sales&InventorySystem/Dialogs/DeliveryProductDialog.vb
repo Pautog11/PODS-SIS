@@ -108,7 +108,7 @@ Public Class DeliveryProductDialog
                                                     CDec(If(String.IsNullOrEmpty(CostTextBox.Text) OrElse CostTextBox.Text = "", 0, CostTextBox.Text)) * CDec(QuantityTextBox.Text)
                                                     })
                 End If
-                End If
+            End If
             _parent.UpdateVisualData()
             Me.Close()
         Else
@@ -180,7 +180,7 @@ Public Class DeliveryProductDialog
 
                     SkuComboBox1.SelectedItem = dt.Rows(0).Item("sku").ToString()
                     ProductComboBox.Text = dt.Rows(0).Item("product_name").ToString()
-                    CostTextBox.Text = dt.Rows(0).Item("product_cost").ToString()
+                    'CostTextBox.Text = dt.Rows(0).Item("product_cost").ToString()
                     e.Handled = True
 
                     If BaseProduct.Disableexd(dt.Rows(0).Item("id").ToString()) = 1 Then
@@ -198,14 +198,5 @@ Public Class DeliveryProductDialog
         SkuComboBox1.Enabled = False
         SubcategoryComboBox.Enabled = False
         ProductComboBox.Enabled = False
-    End Sub
-
-    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
-        '    Dim data As New Dictionary(Of String, String) From {
-        '        {"id", SubcategoryComboBox.ValueMember("id")}
-        '    }
-        '    Dim dialog As New SearchDialog(data:=data)
-        '    dialog.ShowDialog()
-        'MsgBox(SubcategoryComboBox.ValueMember("id"))
     End Sub
 End Class

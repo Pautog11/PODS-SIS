@@ -27,6 +27,18 @@ Partial Class ProductDialog
         Me.DeleteProductButton = New Guna.UI2.WinForms.Guna2Button()
         Me.AddProductButton = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Guna2ComboBox1 = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.ManufacturerTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.StrengthTextBox = New Guna.UI2.WinForms.Guna2TextBox()
@@ -39,18 +51,6 @@ Partial Class ProductDialog
         Me.DescriptionTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.ProductNameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.BarcodeTextBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label12 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
@@ -154,6 +154,114 @@ Partial Class ProductDialog
         Me.Guna2Panel1.Size = New System.Drawing.Size(571, 411)
         Me.Guna2Panel1.TabIndex = 1
         '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Location = New System.Drawing.Point(389, 246)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(71, 13)
+        Me.Label12.TabIndex = 27
+        Me.Label12.Text = "Mass/Weight"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(303, 247)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(47, 13)
+        Me.Label11.TabIndex = 26
+        Me.Label11.Text = "Strength"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(303, 191)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(64, 13)
+        Me.Label10.TabIndex = 25
+        Me.Label10.Text = "Stock Level"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(303, 136)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(28, 13)
+        Me.Label9.TabIndex = 24
+        Me.Label9.Text = "Cost"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(303, 76)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(31, 13)
+        Me.Label8.TabIndex = 23
+        Me.Label8.Text = "Price"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(303, 18)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(70, 13)
+        Me.Label7.TabIndex = 22
+        Me.Label7.Text = "Manufacturer"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(36, 330)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(70, 13)
+        Me.Label6.TabIndex = 21
+        Me.Label6.Text = "Dosage Form"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(36, 247)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(60, 13)
+        Me.Label5.TabIndex = 20
+        Me.Label5.Text = "Description"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(36, 191)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(75, 13)
+        Me.Label4.TabIndex = 19
+        Me.Label4.Text = "Product Name"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(36, 136)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(130, 13)
+        Me.Label3.TabIndex = 18
+        Me.Label3.Text = "SKU (Stock Keeping Unit)"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(36, 76)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(47, 13)
+        Me.Label2.TabIndex = 17
+        Me.Label2.Text = "Barcode"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(36, 18)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(71, 13)
+        Me.Label1.TabIndex = 16
+        Me.Label1.Text = "Sub Category"
+        '
         'Guna2ComboBox1
         '
         Me.Guna2ComboBox1.BackColor = System.Drawing.Color.Transparent
@@ -189,7 +297,7 @@ Partial Class ProductDialog
         Me.ManufacturerTextBox.MaxLength = 10
         Me.ManufacturerTextBox.Name = "ManufacturerTextBox"
         Me.ManufacturerTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.ManufacturerTextBox.PlaceholderText = "Manufacturer"
+        Me.ManufacturerTextBox.PlaceholderText = "Ex. (Unilab or Ritemed etc.,)"
         Me.ManufacturerTextBox.SelectedText = ""
         Me.ManufacturerTextBox.Size = New System.Drawing.Size(200, 36)
         Me.ManufacturerTextBox.TabIndex = 14
@@ -211,7 +319,7 @@ Partial Class ProductDialog
         Me.StrengthTextBox.MaxLength = 4
         Me.StrengthTextBox.Name = "StrengthTextBox"
         Me.StrengthTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.StrengthTextBox.PlaceholderText = "Strength"
+        Me.StrengthTextBox.PlaceholderText = "0"
         Me.StrengthTextBox.SelectedText = ""
         Me.StrengthTextBox.Size = New System.Drawing.Size(79, 36)
         Me.StrengthTextBox.TabIndex = 13
@@ -233,7 +341,7 @@ Partial Class ProductDialog
         Me.DosageTextBox.MaxLength = 10
         Me.DosageTextBox.Name = "DosageTextBox"
         Me.DosageTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.DosageTextBox.PlaceholderText = "Dosage Form"
+        Me.DosageTextBox.PlaceholderText = "Ex. (Capsule or Tablet etc.,)"
         Me.DosageTextBox.SelectedText = ""
         Me.DosageTextBox.Size = New System.Drawing.Size(200, 36)
         Me.DosageTextBox.TabIndex = 12
@@ -255,7 +363,7 @@ Partial Class ProductDialog
         Me.SkuTextBox.MaxLength = 13
         Me.SkuTextBox.Name = "SkuTextBox"
         Me.SkuTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.SkuTextBox.PlaceholderText = "Sku"
+        Me.SkuTextBox.PlaceholderText = ""
         Me.SkuTextBox.SelectedText = ""
         Me.SkuTextBox.Size = New System.Drawing.Size(200, 36)
         Me.SkuTextBox.TabIndex = 11
@@ -277,7 +385,7 @@ Partial Class ProductDialog
         Me.CostTextBox.MaxLength = 4
         Me.CostTextBox.Name = "CostTextBox"
         Me.CostTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.CostTextBox.PlaceholderText = "Cost"
+        Me.CostTextBox.PlaceholderText = "0.00"
         Me.CostTextBox.SelectedText = ""
         Me.CostTextBox.Size = New System.Drawing.Size(200, 36)
         Me.CostTextBox.TabIndex = 10
@@ -316,7 +424,7 @@ Partial Class ProductDialog
         Me.StockLevelTextBox.MaxLength = 3
         Me.StockLevelTextBox.Name = "StockLevelTextBox"
         Me.StockLevelTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.StockLevelTextBox.PlaceholderText = "Stock Level"
+        Me.StockLevelTextBox.PlaceholderText = "0"
         Me.StockLevelTextBox.SelectedText = ""
         Me.StockLevelTextBox.Size = New System.Drawing.Size(200, 36)
         Me.StockLevelTextBox.TabIndex = 8
@@ -338,7 +446,7 @@ Partial Class ProductDialog
         Me.PriceTextBox.MaxLength = 4
         Me.PriceTextBox.Name = "PriceTextBox"
         Me.PriceTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.PriceTextBox.PlaceholderText = "Price"
+        Me.PriceTextBox.PlaceholderText = "0.00"
         Me.PriceTextBox.SelectedText = ""
         Me.PriceTextBox.Size = New System.Drawing.Size(200, 36)
         Me.PriceTextBox.TabIndex = 7
@@ -360,7 +468,7 @@ Partial Class ProductDialog
         Me.DescriptionTextBox.MaxLength = 20
         Me.DescriptionTextBox.Name = "DescriptionTextBox"
         Me.DescriptionTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.DescriptionTextBox.PlaceholderText = "Description"
+        Me.DescriptionTextBox.PlaceholderText = ""
         Me.DescriptionTextBox.SelectedText = ""
         Me.DescriptionTextBox.Size = New System.Drawing.Size(200, 64)
         Me.DescriptionTextBox.TabIndex = 5
@@ -382,7 +490,7 @@ Partial Class ProductDialog
         Me.ProductNameTextBox.MaxLength = 15
         Me.ProductNameTextBox.Name = "ProductNameTextBox"
         Me.ProductNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.ProductNameTextBox.PlaceholderText = "Product Name"
+        Me.ProductNameTextBox.PlaceholderText = "Ex. (Biogesic)"
         Me.ProductNameTextBox.SelectedText = ""
         Me.ProductNameTextBox.Size = New System.Drawing.Size(200, 36)
         Me.ProductNameTextBox.TabIndex = 4
@@ -404,118 +512,10 @@ Partial Class ProductDialog
         Me.BarcodeTextBox.MaxLength = 13
         Me.BarcodeTextBox.Name = "BarcodeTextBox"
         Me.BarcodeTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.BarcodeTextBox.PlaceholderText = "Barcode"
+        Me.BarcodeTextBox.PlaceholderText = "Scan Here"
         Me.BarcodeTextBox.SelectedText = ""
         Me.BarcodeTextBox.Size = New System.Drawing.Size(200, 36)
         Me.BarcodeTextBox.TabIndex = 3
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(36, 18)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(71, 13)
-        Me.Label1.TabIndex = 16
-        Me.Label1.Text = "Sub Category"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(36, 76)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(47, 13)
-        Me.Label2.TabIndex = 17
-        Me.Label2.Text = "Barcode"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(36, 136)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(29, 13)
-        Me.Label3.TabIndex = 18
-        Me.Label3.Text = "SKU"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(36, 191)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(75, 13)
-        Me.Label4.TabIndex = 19
-        Me.Label4.Text = "Product Name"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(36, 247)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(60, 13)
-        Me.Label5.TabIndex = 20
-        Me.Label5.Text = "Description"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(36, 330)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(70, 13)
-        Me.Label6.TabIndex = 21
-        Me.Label6.Text = "Dosage Form"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(303, 18)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(70, 13)
-        Me.Label7.TabIndex = 22
-        Me.Label7.Text = "Manufacturer"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(303, 76)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(31, 13)
-        Me.Label8.TabIndex = 23
-        Me.Label8.Text = "Price"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(303, 136)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(28, 13)
-        Me.Label9.TabIndex = 24
-        Me.Label9.Text = "Cost"
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(303, 191)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(64, 13)
-        Me.Label10.TabIndex = 25
-        Me.Label10.Text = "Stock Level"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(303, 247)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(47, 13)
-        Me.Label11.TabIndex = 26
-        Me.Label11.Text = "Strength"
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(389, 246)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(71, 13)
-        Me.Label12.TabIndex = 27
-        Me.Label12.Text = "Mass/Weight"
         '
         'ProductDialog
         '

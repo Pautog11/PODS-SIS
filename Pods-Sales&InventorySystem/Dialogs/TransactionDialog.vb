@@ -179,7 +179,10 @@ Public Class TransactionDialog
                 invoker = New AddCommand(baseCommand)
                 invoker?.Execute()
 
-                Using dialog As New ReportViewerDialog(Reference_number.Text)
+                Dim reslt As DialogResult = MsgBox("Do you want to print a receipt?", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                Dim autoPrint As Boolean = (reslt = DialogResult.Yes)
+
+                Using dialog As New ReceiptViewer(Reference_number.Text, autoPrint)
                     dialog.ShowDialog()
                 End Using
 
@@ -270,15 +273,31 @@ Public Class TransactionDialog
     End Sub
 
     Private Sub DiscountComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles DiscountComboBox.SelectionChangeCommitted
-        Dim discount As Decimal
-        'If Not Decimal.TryParse(DiscountComboBox.Text, discount) OrElse DiscountComboBox.Text = "" Then
-        '    '    MessageBox.Show("Invalid discount format. Please enter a valid number.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-        '    '    DiscountTextBox.Text = 0
-        '    '    TotalTextBox.Text = SubtotalTextBox.Text
-        '    'Else
-        discount = SubtotalTextBox.Text * (DiscountComboBox.Text / 100)
-        TotalTextBox.Text = SubtotalTextBox.Text - discount
+        'If SubtotalTextBox.Text = "" Then
+        '    Dim discount As Decimal
+        '    discount = SubtotalTextBox.Text * (DiscountComboBox.Text / 100)
+        '    TotalTextBox.Text = SubtotalTextBox.Text - discount
+        'Else
+        '    MessageBox.Show("Please select a product first.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
         'End If
+
+
+        Dim Subtotal As Decimal ' Declare Subtotal as a Decimal variable
+
+        If Not String.IsNullOrEmpty(SubtotalTextBox.Text) AndAlso Decimal.TryParse(SubtotalTextBox.Text, Subtotal) Then
+            ' Ensure the discount combo box has a valid value
+            Dim discountPercentage As Decimal
+            If Decimal.TryParse(DiscountComboBox.Text, discountPercentage) Then
+                ' Calculate the discount and the total
+                Dim discount As Decimal = Subtotal * (discountPercentage / 100)
+                TotalTextBox.Text = (Subtotal - discount).ToString("F2") ' Format the total to 2 decimal places
+            Else
+                MessageBox.Show("Please select a valid discount percentage.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+        Else
+            MessageBox.Show("Please enter a valid subtotal.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End If
+
     End Sub
 
     Private Sub CashTextBox_TextChanged(sender As Object, e As EventArgs) Handles CashTextBox.TextChanged
@@ -296,16 +315,6 @@ Public Class TransactionDialog
             ChangeTextBox.Text = ""
         End If
     End Sub
-    Private Sub Guna2Button1_Click_1(sender As Object, e As EventArgs) Handles Guna2Button1.Click
-        Dim result As DialogResult = MsgBox("Do you want to print a receipt?", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-        Dim autoPrint As Boolean = (result = DialogResult.Yes)
-
-        Using dialog As New ReceiptViewer(Reference_number.Text, autoPrint)
-            dialog.ShowDialog()
-        End Using
-        'MsgBox(_data.Item("id"))
-    End Sub
-
     Private Sub ReturnButton_Click(sender As Object, e As EventArgs) Handles ReturnButton.Click
         Dim currentDate As DateTime = DateTime.Now
         Dim selectedDate As DateTime = DateLabel.Text

@@ -25,6 +25,8 @@ Partial Class DeliveryProductDialog
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
         Me.AddDeliveryButton = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.txtPrays = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -45,7 +47,6 @@ Partial Class DeliveryProductDialog
         Me.BarcodeTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.ProductComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.AccountDialogLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
-        Me.txtPrays = New Guna.UI2.WinForms.Guna2TextBox()
         Me.FlowLayoutPanel2.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.AccountDialogLayoutPanel.SuspendLayout()
@@ -57,7 +58,7 @@ Partial Class DeliveryProductDialog
         Me.FlowLayoutPanel2.Controls.Add(Me.AddDeliveryButton)
         Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
-        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 504)
+        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 567)
         Me.FlowLayoutPanel2.Margin = New System.Windows.Forms.Padding(0)
         Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
         Me.FlowLayoutPanel2.Size = New System.Drawing.Size(328, 55)
@@ -84,6 +85,7 @@ Partial Class DeliveryProductDialog
         '
         'Guna2Panel1
         '
+        Me.Guna2Panel1.Controls.Add(Me.Label9)
         Me.Guna2Panel1.Controls.Add(Me.txtPrays)
         Me.Guna2Panel1.Controls.Add(Me.Label8)
         Me.Guna2Panel1.Controls.Add(Me.Label7)
@@ -108,13 +110,44 @@ Partial Class DeliveryProductDialog
         Me.Guna2Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Size = New System.Drawing.Size(328, 504)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(328, 567)
         Me.Guna2Panel1.TabIndex = 9
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(42, 322)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(31, 13)
+        Me.Label9.TabIndex = 33
+        Me.Label9.Text = "Price"
+        '
+        'txtPrays
+        '
+        Me.txtPrays.BorderColor = System.Drawing.Color.Gray
+        Me.txtPrays.BorderRadius = 10
+        Me.txtPrays.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.txtPrays.DefaultText = ""
+        Me.txtPrays.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.txtPrays.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.txtPrays.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtPrays.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.txtPrays.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtPrays.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtPrays.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.txtPrays.Location = New System.Drawing.Point(66, 338)
+        Me.txtPrays.MaxLength = 13
+        Me.txtPrays.Name = "txtPrays"
+        Me.txtPrays.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.txtPrays.PlaceholderText = "0.00"
+        Me.txtPrays.SelectedText = ""
+        Me.txtPrays.Size = New System.Drawing.Size(200, 36)
+        Me.txtPrays.TabIndex = 32
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(42, 438)
+        Me.Label8.Location = New System.Drawing.Point(42, 493)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(79, 13)
         Me.Label8.TabIndex = 31
@@ -123,7 +156,7 @@ Partial Class DeliveryProductDialog
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(42, 380)
+        Me.Label7.Location = New System.Drawing.Point(42, 435)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(46, 13)
         Me.Label7.TabIndex = 30
@@ -132,7 +165,7 @@ Partial Class DeliveryProductDialog
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(42, 322)
+        Me.Label6.Location = New System.Drawing.Point(42, 377)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(28, 13)
         Me.Label6.TabIndex = 29
@@ -179,9 +212,9 @@ Partial Class DeliveryProductDialog
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(42, 17)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(58, 13)
+        Me.Label1.Size = New System.Drawing.Size(47, 13)
         Me.Label1.TabIndex = 24
-        Me.Label1.Text = "Scan Here"
+        Me.Label1.Text = "Barcode"
         '
         'Guna2Button1
         '
@@ -231,7 +264,7 @@ Partial Class DeliveryProductDialog
         Me.ExdTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ExdTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.ExdTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ExdTextBox.Location = New System.Drawing.Point(66, 457)
+        Me.ExdTextBox.Location = New System.Drawing.Point(66, 512)
         Me.ExdTextBox.MaxLength = 10
         Me.ExdTextBox.Name = "ExdTextBox"
         Me.ExdTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -304,11 +337,11 @@ Partial Class DeliveryProductDialog
         Me.QuantityTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.QuantityTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.QuantityTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.QuantityTextBox.Location = New System.Drawing.Point(66, 399)
+        Me.QuantityTextBox.Location = New System.Drawing.Point(66, 454)
         Me.QuantityTextBox.MaxLength = 4
         Me.QuantityTextBox.Name = "QuantityTextBox"
         Me.QuantityTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.QuantityTextBox.PlaceholderText = "Quantity"
+        Me.QuantityTextBox.PlaceholderText = "0"
         Me.QuantityTextBox.SelectedText = ""
         Me.QuantityTextBox.Size = New System.Drawing.Size(200, 36)
         Me.QuantityTextBox.TabIndex = 4
@@ -326,10 +359,10 @@ Partial Class DeliveryProductDialog
         Me.CostTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CostTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.CostTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CostTextBox.Location = New System.Drawing.Point(66, 341)
+        Me.CostTextBox.Location = New System.Drawing.Point(66, 396)
         Me.CostTextBox.Name = "CostTextBox"
         Me.CostTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.CostTextBox.PlaceholderText = "Cost"
+        Me.CostTextBox.PlaceholderText = "0.00"
         Me.CostTextBox.SelectedText = ""
         Me.CostTextBox.Size = New System.Drawing.Size(200, 36)
         Me.CostTextBox.TabIndex = 3
@@ -351,7 +384,7 @@ Partial Class DeliveryProductDialog
         Me.BarcodeTextBox.MaxLength = 13
         Me.BarcodeTextBox.Name = "BarcodeTextBox"
         Me.BarcodeTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.BarcodeTextBox.PlaceholderText = "Barcode"
+        Me.BarcodeTextBox.PlaceholderText = "Scan Here"
         Me.BarcodeTextBox.SelectedText = ""
         Me.BarcodeTextBox.Size = New System.Drawing.Size(200, 36)
         Me.BarcodeTextBox.TabIndex = 2
@@ -386,36 +419,14 @@ Partial Class DeliveryProductDialog
         Me.AccountDialogLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.AccountDialogLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55.0!))
         Me.AccountDialogLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.AccountDialogLayoutPanel.Size = New System.Drawing.Size(328, 559)
+        Me.AccountDialogLayoutPanel.Size = New System.Drawing.Size(328, 622)
         Me.AccountDialogLayoutPanel.TabIndex = 19
-        '
-        'txtPrays
-        '
-        Me.txtPrays.BorderColor = System.Drawing.Color.Gray
-        Me.txtPrays.BorderRadius = 10
-        Me.txtPrays.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtPrays.DefaultText = ""
-        Me.txtPrays.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtPrays.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtPrays.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtPrays.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtPrays.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtPrays.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.txtPrays.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtPrays.Location = New System.Drawing.Point(267, 267)
-        Me.txtPrays.MaxLength = 13
-        Me.txtPrays.Name = "txtPrays"
-        Me.txtPrays.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txtPrays.PlaceholderText = "Price"
-        Me.txtPrays.SelectedText = ""
-        Me.txtPrays.Size = New System.Drawing.Size(58, 36)
-        Me.txtPrays.TabIndex = 32
         '
         'DeliveryProductDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(328, 559)
+        Me.ClientSize = New System.Drawing.Size(328, 622)
         Me.Controls.Add(Me.AccountDialogLayoutPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
@@ -456,4 +467,5 @@ Partial Class DeliveryProductDialog
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents txtPrays As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Label9 As Label
 End Class

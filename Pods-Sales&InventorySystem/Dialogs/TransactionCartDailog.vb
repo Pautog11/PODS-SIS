@@ -66,35 +66,6 @@ Public Class TransactionCartDailog
         'End If
     End Sub
 
-    'Private Sub CategoryComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs)
-    '    'If CategoryComboBox.SelectedIndex >= 0 Then
-    '    '    Dim dt As DataTable = BaseSubCategory.FetchSubCategory(CategoryComboBox.SelectedItem("ID"))
-    '    '    SubcategoryComboBox.DataSource = dt.DefaultView
-    '    '    SubcategoryComboBox.DisplayMember = "subcategory"
-    '    'End If
-    '    'SubcategoryComboBox.Enabled = True
-    '    'ProductComboBox.Text = ""
-    '    ''ProductComboBox.Items.Clear()
-    '    ''SubcategoryComboBox.Items.Clear()
-
-    'End Sub
-    'Private Sub SubcategoryComboBox_DropDownClosed(sender As Object, e As EventArgs)
-    '    'If SubcategoryComboBox.SelectedIndex >= 0 Then
-    '    '    Dim dt As DataTable = BaseProduct.FetchProductBySubcategory(SubcategoryComboBox.SelectedItem("ID"))
-    '    '    ProductComboBox.DataSource = dt.DefaultView
-    '    '    ProductComboBox.DisplayMember = "product_name"
-    '    'End If
-    '    'ProductComboBox.Enabled = True
-    'End Sub
-    'Private Sub ProductComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs)
-    '    'If ProductComboBox.SelectedIndex <> -1 Then
-    '    '    Dim info As DataTable = BaseProduct.ProductInfo(ProductComboBox.SelectedItem("ID"))
-    '    '    'BarcodeTextBox.Text = info.Rows(0).Item("BARCODE").ToString()
-    '    '    PriceTextBox.Text = info.Rows(0).Item("PRICE").ToString()
-    '    '    StocksTextBox.Text = info.Rows(0).Item("QUANTITY").ToString()
-    '    'End If
-    'End Sub
-
     Private Sub AddTransactionButton_Click(sender As Object, e As EventArgs) Handles AddTransactionButton.Click
         Dim result As New List(Of Object()) From {InputValidation.ValidateInputString(QuantityTextBox, DataInput.STRING_INTEGER)}
         Dim is_existing As Boolean = False
@@ -122,13 +93,13 @@ Public Class TransactionCartDailog
             Next
 
             If Not is_existing Then
-                If CInt(StocksTextBox.Text) >= QuantityTextBox.Text Then
+                If CInt(If(String.IsNullOrEmpty(StocksTextBox.Text), 0, StocksTextBox.Text)) >= QuantityTextBox.Text Then
                     _parent.TransactionDataGridView.Rows.Add({If(IsDBNull(id), 0, id),
-                                                    If(IsDBNull(ProductNameTextBox.Text), 0, ProductNameTextBox.Text),
-                                                    If(IsDBNull(PriceTextBox.Text), 0, PriceTextBox.Text),
-                                                    If(IsDBNull(QuantityTextBox.Text), 0, QuantityTextBox.Text),
-                                                     CDec(PriceTextBox.Text) * CDec(QuantityTextBox.Text)
-                                                     })
+                                                    If(String.IsNullOrEmpty(ProductNameTextBox.Text), 0, ProductNameTextBox.Text),
+                                                    If(String.IsNullOrEmpty(PriceTextBox.Text), 0, PriceTextBox.Text),
+                                                    If(String.IsNullOrEmpty(QuantityTextBox.Text), 0, QuantityTextBox.Text),
+                                                    CDec(PriceTextBox.Text) * CDec(QuantityTextBox.Text)
+                                                    })
                 Else
                     MessageBox.Show("Insufficient stocks!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 End If
@@ -146,52 +117,27 @@ Public Class TransactionCartDailog
             If Not res.Any(Function(item As Object()) Not item(0)) Then
                 Dim dt As DataTable = BaseTransaction.SelectProductsByBarcode(BarcodeTextBox.Text)
                 If BarcodeTextBox.Text.Length <= 13 AndAlso dt.Rows.Count > 0 Then
-                    'Dim productName As String = dt.Rows(0).Item("product_name").ToString()
-                    'Dim productSubCategory As String = BaseSubCategory.Fillsubcategorybyid(dt.Rows(0).Item("subcategory_id").ToString())
 
-                    '' Check if the product name already exists in the ComboBox
-                    'If Not ProductComboBox.Items.Contains(productName) Then
-                    '    ' If not, add the product name to the ComboBox
-                    '    ProductComboBox.DataSource = Nothing
-                    '    ProductComboBox.Items.Add(productName)
-                    'End If
-
-                    'If Not SubcategoryComboBox.Items.Contains(productSubCategory) Then
-                    '    ' If not, add the product name to the ComboBox
-                    '    SubcategoryComboBox.DataSource = Nothing
-                    '    SubcategoryComboBox.Items.Clear()
-                    '    SubcategoryComboBox.Items.Add(productSubCategory)
-                    'End If
                     id = dt.Rows(0).Item("id").ToString()
                     ProductNameTextBox.Text = dt.Rows(0).Item("product_name").ToString()
-                    'ProductComboBox.Text = dt.Rows(0).Item("product_name").ToString()
 
-                    'ProductComboBox.Items.Add(dt.Rows(0).Item("product_name").ToString())
                     StocksTextBox.Text = dt.Rows(0).Item("quantity").ToString()
-                    PriceTextBox.Text = dt.Rows(0).Item("product_price").ToString()
+                    PriceTextBox.Text = dt.Rows(0).Item("price").ToString()
                     e.Handled = True
                 Else
                     MessageBox.Show("No, product found!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
             Else
                 MessageBox.Show("Barcode not valid!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                'BarcodeTextBox.Text = ""
-                'Return
             End If
         End If
-        'SubcategoryComboBox.Enabled = False
-        'ProductComboBox.Enabled = False
     End Sub
 
     Private Sub VoidButton_Click(sender As Object, e As EventArgs) Handles VoidButton.Click
-        '_parent.TransactionDataGridView.Rows.Remove(TransactionDataGridView.Cells("PRODUCT").Value.ToString() = _data.Item("id"))
-        '_parent.TransactionDataGridView.Rows.Removse(Cells("PRODUCT").Value.ToString() = _data.Item("id"))
         For Each row As DataGridViewRow In _parent.TransactionDataGridView.Rows
-            ' Check if the value in the "PRODUCT" column matches _data.Item("id")
             If row.Cells("ID").Value.ToString() = _data.Item("id").ToString() Then
-                ' Remove the row if the condition is met
                 _parent.TransactionDataGridView.Rows.Remove(row)
-                Exit For ' Exit the loop once the matching row is found and removed
+                Exit For
             End If
         Next
         _parent.UpdateVisualData()

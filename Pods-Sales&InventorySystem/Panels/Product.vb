@@ -35,10 +35,8 @@
                 {"sku", row.Cells(2).Value.ToString()},
                 {"barcode", row.Cells(3).Value.ToString()},
                 {"product_name", row.Cells(4).Value.ToString()},
-                {"description", row.Cells(5).Value.ToString()},
-                {"price", row.Cells(7).Value.ToString()},
-                {"cost", row.Cells(8).Value.ToString()},
-                {"stock_level", row.Cells(9).Value.ToString()}
+                {"description", row.Cells(5).Value.ToString()},'               {"price", row.Cells(7).Value.ToString()},               {"cost", row.Cells(8).Value.ToString()},
+                {"stock_level", row.Cells(7).Value.ToString()}
             }
             Dim Dialog As New ProductDialog(data:=data, subject:=_subject)
             Dialog.ShowDialog()
