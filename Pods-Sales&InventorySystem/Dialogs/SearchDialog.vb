@@ -1,4 +1,5 @@
-﻿Imports System.Windows.Forms
+﻿Imports System.Data.SqlClient
+Imports System.Windows.Forms
 
 Public Class SearchDialog
     Implements IObserverPanel
@@ -25,15 +26,37 @@ Public Class SearchDialog
     End Sub
 
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
-        _tableAapter.Fill(_dataTable)
-        ' ProductDataGridView.DataSource = _dataTable
-        ProductDataGridView.DataSource = _dataTable
-        'ProductDataGridView.Columns.Item("STOCK_LEVEL").Visible = False
-        'ProductDataGridView.Columns.Item("SUBCATEGORY").Visible = False
-        'ProductDataGridView.Columns.Item("BARCODE").Visible = False
-        'ProductDataGridView.Columns.Item("SKU").Visible = False
-        'ProductDataGridView.Columns.Item("DESCRIPTION").Visible = False
-        'ProductDataGridView.Columns.Item("COST").Visible = False
+        '_tableAapter.Fill(_dataTable)
+        '' ProductDataGridView.DataSource = _dataTable
+        'ProductDataGridView.DataSource = _dataTable
+        ''ProductDataGridView.Columns.Item("STOCK_LEVEL").Visible = False
+        ''ProductDataGridView.Columns.Item("SUBCATEGORY").Visible = False
+        ''ProductDataGridView.Columns.Item("BARCODE").Visible = False
+        ''ProductDataGridView.Columns.Item("SKU").Visible = False
+        ''ProductDataGridView.Columns.Item("DESCRIPTION").Visible = False
+        ''ProductDataGridView.Columns.Item("COST").Visible = False
+
+
+
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("SELECT 
+                                    product_id,
+                                    SUM(quantity) AS total_quantity,
+                                    (SELECT TOP 1 price 
+                                     FROM tbldeliveries_items t2 
+                                     WHERE t1.product_id = t2.product_id 
+                                     ORDER BY id DESC) AS latest_cost_price
+                                FROM tbldeliveries_items t1
+                                GROUP BY product_id", conn)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            ProductDataGridView.DataSource = dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End Try
     End Sub
     Private Sub ProductSearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles ProductSearchTextBox.TextChanged
         _dataTable = BaseProduct.Search(ProductSearchTextBox.Text)
@@ -45,10 +68,10 @@ Public Class SearchDialog
             Dim selectedRows As DataGridViewSelectedRowCollection = ProductDataGridView.SelectedRows
             Dim row As DataGridViewRow = selectedRows(0)
             Dim data As New Dictionary(Of String, String) From {
-                {"id", row.Cells(0).Value.ToString()},
-                {"productname", row.Cells(4).Value.ToString()},
-                {"price", row.Cells(7).Value.ToString()},
-                {"quantity", row.Cells(6).Value.ToString()}
+                {"id", If(String.IsNullOrEmpty(row.Cells(0).Value.ToString()), 0, row.Cells(0).Value.ToString())},
+                {"productname", If(String.IsNullOrEmpty(row.Cells(0).Value.ToString()), 0, row.Cells(0).Value.ToString())},
+                {"price", If(String.IsNullOrEmpty(row.Cells(2).Value.ToString()), 0, row.Cells(2).Value.ToString())},
+                {"quantity", If(String.IsNullOrEmpty(row.Cells(1).Value.ToString()), 0, row.Cells(1).Value.ToString())}
             }
             Dim dialog As New TransactionCartDailog(dat2:=data, parent:=_parent)
             dialog.ShowDialog()

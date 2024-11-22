@@ -58,21 +58,21 @@ Public Class BaseTransaction
                 End If
             Next
 
-            For Each item In _item
-                _sqlCommand = New SqlCommand("UPDATE tbldeliveries_items SET quantity_trans = quantity_trans - @quantity WHERE product_id = @id AND LOWER(status_name) = LOWER('Active')", _sqlConnection, transaction)
-                _sqlCommand.Parameters.Clear()
-                _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
-                _sqlCommand.Parameters.AddWithValue("@id", item("product_id"))
-                _sqlCommand.ExecuteNonQuery()
-            Next
-
             'For Each item In _item
-            '    _sqlCommand = New SqlCommand("UPDATE tblproducts SET quantity = quantity - @quantity where id = @id", _sqlConnection, transaction)
+            '    _sqlCommand = New SqlCommand("UPDATE tbldeliveries_items SET quantity_trans = quantity_trans - @quantity WHERE product_id = @id AND LOWER(status_name) = LOWER('Active')", _sqlConnection, transaction)
             '    _sqlCommand.Parameters.Clear()
             '    _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
             '    _sqlCommand.Parameters.AddWithValue("@id", item("product_id"))
             '    _sqlCommand.ExecuteNonQuery()
             'Next
+
+            For Each item In _item
+                _sqlCommand = New SqlCommand("UPDATE tblproducts SET quantity = quantity - @quantity where id = @id", _sqlConnection, transaction)
+                _sqlCommand.Parameters.Clear()
+                _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
+                _sqlCommand.Parameters.AddWithValue("@id", item("product_id"))
+                _sqlCommand.ExecuteNonQuery()
+            Next
 
             For Each item In _item
                 _sqlCommand = New SqlCommand("EXEC updatetblproduct_notif @TargetProductID, @TargetQuantity", _sqlConnection, transaction)
@@ -133,7 +133,7 @@ Public Class BaseTransaction
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT p.id, subcategory_id, sku, p.id, product_name, quantity_trans as quantity, di.price as price FROM tblproducts p 
+            cmd = New SqlCommand("SELECT p.id as id, subcategory_id, sku, product_name, p.price as price, p.cost as cost FROM tblproducts p 
                                   LEFT JOIN tbldeliveries_items di ON p.id = di.product_id WHERE barcode = @barcode", conn)
             cmd.Parameters.AddWithValue("@barcode", barcode)
             Dim dTable As New DataTable

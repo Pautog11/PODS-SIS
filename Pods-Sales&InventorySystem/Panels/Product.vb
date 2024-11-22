@@ -23,6 +23,17 @@
     Private Sub AddProductButton_Click(sender As Object, e As EventArgs) Handles AddProductButton.Click
         Dim Dialog As New ProductDialog(subject:=_subject)
         Dialog.ShowDialog()
+
+        'Dim result As DialogResult
+        'result = MessageBox.Show("Is this product a medicine?", "Product Type Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+        'If result = DialogResult.Yes Then
+        '    ' Product is a medicine
+        '    MessageBox.Show("You selected Medicine.", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        'Else
+        '    ' Product is not a medicine
+        '    MessageBox.Show("You selected Non-Medicine.", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        'End If
     End Sub
 
     Private Sub ProductsDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles ProductsDataGridView.CellClick

@@ -35,7 +35,7 @@ Public Class TransactionCartDailog
             '    'VoidButton.Visible = False
             '    BarcodeTextBox.Enabled = False
             'End If
-            VoidButton.Visible = False
+            'VoidButton.Visible = False
         ElseIf _dat2 IsNot Nothing Then
             If _dat2.Item("id") IsNot Nothing Then
                 id = _dat2.Item("id")
@@ -46,8 +46,9 @@ Public Class TransactionCartDailog
                 AddTransactionButton.Text = "Add"
                 'VoidButton.Visible = False
                 BarcodeTextBox.Enabled = False
+                VoidButton.Visible = False
             End If
-            VoidButton.Visible = False
+            'VoidButton.Visible = False
         Else
             VoidButton.Visible = False
         End If
@@ -73,7 +74,7 @@ Public Class TransactionCartDailog
             For Each item As DataGridViewRow In _parent.TransactionDataGridView.Rows
                 If CInt(StocksTextBox.Text) >= QuantityTextBox.Text Then
                     If _data IsNot Nothing Then
-                        If item.Cells("ID").Value.ToString() = _data.Item("ID") Then
+                        If item.Cells("ID").Value.ToString() = _data.Item("id") Then
                             item.Cells("PRODUCT").Value = ProductNameTextBox.Text
                             item.Cells("PRICE").Value = Decimal.Parse(PriceTextBox.Text)
                             item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)

@@ -25,6 +25,9 @@ Partial Class DeliveryProductDialog
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
         Me.AddDeliveryButton = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.ProductTextBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.ChangeButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.DateTimePicker = New Guna.UI2.WinForms.Guna2DateTimePicker()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.txtPrays = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -32,21 +35,15 @@ Partial Class DeliveryProductDialog
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
-        Me.ExdTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.SkuComboBox1 = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.SubcategoryComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.CategoryComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.QuantityTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.CostTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.BarcodeTextBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.ProductComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.AccountDialogLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
+        Me.SearchButton = New Guna.UI2.WinForms.Guna2Button()
         Me.FlowLayoutPanel2.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.AccountDialogLayoutPanel.SuspendLayout()
@@ -58,10 +55,10 @@ Partial Class DeliveryProductDialog
         Me.FlowLayoutPanel2.Controls.Add(Me.AddDeliveryButton)
         Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
-        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 567)
+        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 462)
         Me.FlowLayoutPanel2.Margin = New System.Windows.Forms.Padding(0)
         Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(328, 55)
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(326, 55)
         Me.FlowLayoutPanel2.TabIndex = 8
         '
         'AddDeliveryButton
@@ -76,7 +73,7 @@ Partial Class DeliveryProductDialog
         Me.AddDeliveryButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AddDeliveryButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddDeliveryButton.ForeColor = System.Drawing.Color.White
-        Me.AddDeliveryButton.Location = New System.Drawing.Point(197, 8)
+        Me.AddDeliveryButton.Location = New System.Drawing.Point(195, 8)
         Me.AddDeliveryButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.AddDeliveryButton.Name = "AddDeliveryButton"
         Me.AddDeliveryButton.Size = New System.Drawing.Size(128, 37)
@@ -85,6 +82,9 @@ Partial Class DeliveryProductDialog
         '
         'Guna2Panel1
         '
+        Me.Guna2Panel1.Controls.Add(Me.ProductTextBox)
+        Me.Guna2Panel1.Controls.Add(Me.ChangeButton)
+        Me.Guna2Panel1.Controls.Add(Me.DateTimePicker)
         Me.Guna2Panel1.Controls.Add(Me.Label9)
         Me.Guna2Panel1.Controls.Add(Me.txtPrays)
         Me.Guna2Panel1.Controls.Add(Me.Label8)
@@ -92,35 +92,84 @@ Partial Class DeliveryProductDialog
         Me.Guna2Panel1.Controls.Add(Me.Label6)
         Me.Guna2Panel1.Controls.Add(Me.Label5)
         Me.Guna2Panel1.Controls.Add(Me.Label4)
-        Me.Guna2Panel1.Controls.Add(Me.Label3)
-        Me.Guna2Panel1.Controls.Add(Me.Label2)
         Me.Guna2Panel1.Controls.Add(Me.Label1)
-        Me.Guna2Panel1.Controls.Add(Me.Guna2Button1)
+        Me.Guna2Panel1.Controls.Add(Me.SearchButton)
         Me.Guna2Panel1.Controls.Add(Me.Guna2HtmlLabel1)
         Me.Guna2Panel1.Controls.Add(Me.Guna2Separator1)
-        Me.Guna2Panel1.Controls.Add(Me.ExdTextBox)
         Me.Guna2Panel1.Controls.Add(Me.SkuComboBox1)
-        Me.Guna2Panel1.Controls.Add(Me.SubcategoryComboBox)
-        Me.Guna2Panel1.Controls.Add(Me.CategoryComboBox)
         Me.Guna2Panel1.Controls.Add(Me.QuantityTextBox)
         Me.Guna2Panel1.Controls.Add(Me.CostTextBox)
         Me.Guna2Panel1.Controls.Add(Me.BarcodeTextBox)
-        Me.Guna2Panel1.Controls.Add(Me.ProductComboBox)
         Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Guna2Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Size = New System.Drawing.Size(328, 567)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(326, 462)
         Me.Guna2Panel1.TabIndex = 9
+        '
+        'ProductTextBox
+        '
+        Me.ProductTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.ProductTextBox.BorderRadius = 10
+        Me.ProductTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.ProductTextBox.DefaultText = ""
+        Me.ProductTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.ProductTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.ProductTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.ProductTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.ProductTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ProductTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.ProductTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ProductTextBox.Location = New System.Drawing.Point(66, 114)
+        Me.ProductTextBox.MaxLength = 13
+        Me.ProductTextBox.Name = "ProductTextBox"
+        Me.ProductTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.ProductTextBox.PlaceholderText = "Ex. Biogesic"
+        Me.ProductTextBox.SelectedText = ""
+        Me.ProductTextBox.Size = New System.Drawing.Size(142, 36)
+        Me.ProductTextBox.TabIndex = 36
+        '
+        'ChangeButton
+        '
+        Me.ChangeButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.ChangeButton.BackColor = System.Drawing.Color.Transparent
+        Me.ChangeButton.BorderRadius = 15
+        Me.ChangeButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.ChangeButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.ChangeButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.ChangeButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.ChangeButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.ChangeButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.ChangeButton.ForeColor = System.Drawing.Color.White
+        Me.ChangeButton.Location = New System.Drawing.Point(66, 282)
+        Me.ChangeButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
+        Me.ChangeButton.Name = "ChangeButton"
+        Me.ChangeButton.Size = New System.Drawing.Size(200, 37)
+        Me.ChangeButton.TabIndex = 4
+        Me.ChangeButton.Text = "Change"
+        '
+        'DateTimePicker
+        '
+        Me.DateTimePicker.Checked = True
+        Me.DateTimePicker.FillColor = System.Drawing.Color.White
+        Me.DateTimePicker.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.DateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
+        Me.DateTimePicker.Location = New System.Drawing.Point(66, 405)
+        Me.DateTimePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.DateTimePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.DateTimePicker.Name = "DateTimePicker"
+        Me.DateTimePicker.Size = New System.Drawing.Size(200, 36)
+        Me.DateTimePicker.TabIndex = 35
+        Me.DateTimePicker.Value = New Date(2024, 11, 22, 23, 47, 10, 904)
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(42, 322)
+        Me.Label9.Location = New System.Drawing.Point(42, 214)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(31, 13)
+        Me.Label9.Size = New System.Drawing.Size(65, 13)
         Me.Label9.TabIndex = 33
-        Me.Label9.Text = "Price"
+        Me.Label9.Text = "Selling Price"
         '
         'txtPrays
         '
@@ -135,19 +184,19 @@ Partial Class DeliveryProductDialog
         Me.txtPrays.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtPrays.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.txtPrays.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtPrays.Location = New System.Drawing.Point(66, 338)
+        Me.txtPrays.Location = New System.Drawing.Point(66, 230)
         Me.txtPrays.MaxLength = 13
         Me.txtPrays.Name = "txtPrays"
         Me.txtPrays.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txtPrays.PlaceholderText = "0.00"
         Me.txtPrays.SelectedText = ""
-        Me.txtPrays.Size = New System.Drawing.Size(200, 36)
+        Me.txtPrays.Size = New System.Drawing.Size(79, 36)
         Me.txtPrays.TabIndex = 32
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(42, 493)
+        Me.Label8.Location = New System.Drawing.Point(42, 380)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(79, 13)
         Me.Label8.TabIndex = 31
@@ -156,7 +205,7 @@ Partial Class DeliveryProductDialog
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(42, 435)
+        Me.Label7.Location = New System.Drawing.Point(42, 322)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(46, 13)
         Me.Label7.TabIndex = 30
@@ -165,16 +214,16 @@ Partial Class DeliveryProductDialog
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(42, 377)
+        Me.Label6.Location = New System.Drawing.Point(165, 214)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(28, 13)
+        Me.Label6.Size = New System.Drawing.Size(55, 13)
         Me.Label6.TabIndex = 29
-        Me.Label6.Text = "Cost"
+        Me.Label6.Text = "Cost Price"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(42, 264)
+        Me.Label5.Location = New System.Drawing.Point(42, 154)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(29, 13)
         Me.Label5.TabIndex = 28
@@ -183,29 +232,11 @@ Partial Class DeliveryProductDialog
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(42, 206)
+        Me.Label4.Location = New System.Drawing.Point(42, 98)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(44, 13)
         Me.Label4.TabIndex = 27
         Me.Label4.Text = "Product"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(42, 148)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(71, 13)
-        Me.Label3.TabIndex = 26
-        Me.Label3.Text = "Sub Category"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(42, 90)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(49, 13)
-        Me.Label2.TabIndex = 25
-        Me.Label2.Text = "Category"
         '
         'Label1
         '
@@ -215,22 +246,6 @@ Partial Class DeliveryProductDialog
         Me.Label1.Size = New System.Drawing.Size(47, 13)
         Me.Label1.TabIndex = 24
         Me.Label1.Text = "Barcode"
-        '
-        'Guna2Button1
-        '
-        Me.Guna2Button1.BorderRadius = 15
-        Me.Guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.Guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.Guna2Button1.FillColor = System.Drawing.Color.White
-        Me.Guna2Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Guna2Button1.ForeColor = System.Drawing.Color.White
-        Me.Guna2Button1.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.search
-        Me.Guna2Button1.Location = New System.Drawing.Point(214, 225)
-        Me.Guna2Button1.Name = "Guna2Button1"
-        Me.Guna2Button1.Size = New System.Drawing.Size(52, 36)
-        Me.Guna2Button1.TabIndex = 23
         '
         'Guna2HtmlLabel1
         '
@@ -251,28 +266,6 @@ Partial Class DeliveryProductDialog
         Me.Guna2Separator1.Size = New System.Drawing.Size(305, 10)
         Me.Guna2Separator1.TabIndex = 21
         '
-        'ExdTextBox
-        '
-        Me.ExdTextBox.BorderColor = System.Drawing.Color.Gray
-        Me.ExdTextBox.BorderRadius = 10
-        Me.ExdTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.ExdTextBox.DefaultText = ""
-        Me.ExdTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.ExdTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.ExdTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.ExdTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.ExdTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ExdTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.ExdTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ExdTextBox.Location = New System.Drawing.Point(66, 512)
-        Me.ExdTextBox.MaxLength = 10
-        Me.ExdTextBox.Name = "ExdTextBox"
-        Me.ExdTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.ExdTextBox.PlaceholderText = "Ex: (2021-12-31)"
-        Me.ExdTextBox.SelectedText = ""
-        Me.ExdTextBox.Size = New System.Drawing.Size(200, 36)
-        Me.ExdTextBox.TabIndex = 12
-        '
         'SkuComboBox1
         '
         Me.SkuComboBox1.BackColor = System.Drawing.Color.Transparent
@@ -285,44 +278,10 @@ Partial Class DeliveryProductDialog
         Me.SkuComboBox1.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.SkuComboBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.SkuComboBox1.ItemHeight = 30
-        Me.SkuComboBox1.Location = New System.Drawing.Point(66, 283)
+        Me.SkuComboBox1.Location = New System.Drawing.Point(66, 173)
         Me.SkuComboBox1.Name = "SkuComboBox1"
         Me.SkuComboBox1.Size = New System.Drawing.Size(200, 36)
         Me.SkuComboBox1.TabIndex = 9
-        '
-        'SubcategoryComboBox
-        '
-        Me.SubcategoryComboBox.BackColor = System.Drawing.Color.Transparent
-        Me.SubcategoryComboBox.BorderColor = System.Drawing.Color.Gray
-        Me.SubcategoryComboBox.BorderRadius = 10
-        Me.SubcategoryComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.SubcategoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.SubcategoryComboBox.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.SubcategoryComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.SubcategoryComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.SubcategoryComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.SubcategoryComboBox.ItemHeight = 30
-        Me.SubcategoryComboBox.Location = New System.Drawing.Point(66, 167)
-        Me.SubcategoryComboBox.Name = "SubcategoryComboBox"
-        Me.SubcategoryComboBox.Size = New System.Drawing.Size(200, 36)
-        Me.SubcategoryComboBox.TabIndex = 6
-        '
-        'CategoryComboBox
-        '
-        Me.CategoryComboBox.BackColor = System.Drawing.Color.Transparent
-        Me.CategoryComboBox.BorderColor = System.Drawing.Color.Gray
-        Me.CategoryComboBox.BorderRadius = 10
-        Me.CategoryComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.CategoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.CategoryComboBox.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CategoryComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CategoryComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.CategoryComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.CategoryComboBox.ItemHeight = 30
-        Me.CategoryComboBox.Location = New System.Drawing.Point(66, 109)
-        Me.CategoryComboBox.Name = "CategoryComboBox"
-        Me.CategoryComboBox.Size = New System.Drawing.Size(200, 36)
-        Me.CategoryComboBox.TabIndex = 5
         '
         'QuantityTextBox
         '
@@ -337,7 +296,7 @@ Partial Class DeliveryProductDialog
         Me.QuantityTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.QuantityTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.QuantityTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.QuantityTextBox.Location = New System.Drawing.Point(66, 454)
+        Me.QuantityTextBox.Location = New System.Drawing.Point(66, 341)
         Me.QuantityTextBox.MaxLength = 4
         Me.QuantityTextBox.Name = "QuantityTextBox"
         Me.QuantityTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -359,12 +318,12 @@ Partial Class DeliveryProductDialog
         Me.CostTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CostTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.CostTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CostTextBox.Location = New System.Drawing.Point(66, 396)
+        Me.CostTextBox.Location = New System.Drawing.Point(181, 230)
         Me.CostTextBox.Name = "CostTextBox"
         Me.CostTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CostTextBox.PlaceholderText = "0.00"
         Me.CostTextBox.SelectedText = ""
-        Me.CostTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.CostTextBox.Size = New System.Drawing.Size(85, 36)
         Me.CostTextBox.TabIndex = 3
         '
         'BarcodeTextBox
@@ -389,23 +348,6 @@ Partial Class DeliveryProductDialog
         Me.BarcodeTextBox.Size = New System.Drawing.Size(200, 36)
         Me.BarcodeTextBox.TabIndex = 2
         '
-        'ProductComboBox
-        '
-        Me.ProductComboBox.BackColor = System.Drawing.Color.Transparent
-        Me.ProductComboBox.BorderColor = System.Drawing.Color.Gray
-        Me.ProductComboBox.BorderRadius = 10
-        Me.ProductComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.ProductComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ProductComboBox.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ProductComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ProductComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.ProductComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.ProductComboBox.ItemHeight = 30
-        Me.ProductComboBox.Location = New System.Drawing.Point(66, 225)
-        Me.ProductComboBox.Name = "ProductComboBox"
-        Me.ProductComboBox.Size = New System.Drawing.Size(142, 36)
-        Me.ProductComboBox.TabIndex = 1
-        '
         'AccountDialogLayoutPanel
         '
         Me.AccountDialogLayoutPanel.ColumnCount = 1
@@ -419,14 +361,30 @@ Partial Class DeliveryProductDialog
         Me.AccountDialogLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.AccountDialogLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55.0!))
         Me.AccountDialogLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.AccountDialogLayoutPanel.Size = New System.Drawing.Size(328, 622)
+        Me.AccountDialogLayoutPanel.Size = New System.Drawing.Size(326, 517)
         Me.AccountDialogLayoutPanel.TabIndex = 19
+        '
+        'SearchButton
+        '
+        Me.SearchButton.BorderRadius = 15
+        Me.SearchButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.SearchButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.SearchButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.SearchButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.SearchButton.FillColor = System.Drawing.Color.White
+        Me.SearchButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.SearchButton.ForeColor = System.Drawing.Color.White
+        Me.SearchButton.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.search
+        Me.SearchButton.Location = New System.Drawing.Point(214, 117)
+        Me.SearchButton.Name = "SearchButton"
+        Me.SearchButton.Size = New System.Drawing.Size(52, 36)
+        Me.SearchButton.TabIndex = 23
         '
         'DeliveryProductDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(328, 622)
+        Me.ClientSize = New System.Drawing.Size(326, 517)
         Me.Controls.Add(Me.AccountDialogLayoutPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
@@ -448,19 +406,13 @@ Partial Class DeliveryProductDialog
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents AccountDialogLayoutPanel As TableLayoutPanel
     Friend WithEvents CostTextBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents ProductComboBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents QuantityTextBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents SubcategoryComboBox As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents CategoryComboBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents SkuComboBox1 As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents BarcodeTextBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents ExdTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2HtmlLabel1 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Guna2Separator1 As Guna.UI2.WinForms.Guna2Separator
-    Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents SearchButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Label4 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Label7 As Label
@@ -468,4 +420,7 @@ Partial Class DeliveryProductDialog
     Friend WithEvents Label5 As Label
     Friend WithEvents txtPrays As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label9 As Label
+    Friend WithEvents DateTimePicker As Guna.UI2.WinForms.Guna2DateTimePicker
+    Friend WithEvents ProductTextBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents ChangeButton As Guna.UI2.WinForms.Guna2Button
 End Class

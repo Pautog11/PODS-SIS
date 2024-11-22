@@ -101,7 +101,7 @@ Public Class BaseDelivery
             For Each item In _item
                 If item IsNot Nothing AndAlso item.Count > 0 Then
                     ' Insert into tbldeliveries_items
-                    _sqlCommand = New SqlCommand("INSERT INTO tbldeliveries_items (delivery_id, product_id, price, quantity, total, quantity_trans, cost_price) VALUES (@delivery_id, @product_id, @price, @quantity, @total, @quantity, @cost_price); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
+                    _sqlCommand = New SqlCommand("INSERT INTO tbldeliveries_items (delivery_id, product_id, price, quantity, total, cost_price) VALUES (@delivery_id, @product_id, @price, @quantity, @total, @cost_price); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
                     _sqlCommand.Parameters.AddWithValue("@delivery_id", deliveryId)
                     _sqlCommand.Parameters.AddWithValue("@product_id", item("product_id"))
                     _sqlCommand.Parameters.AddWithValue("@price", item("price"))
@@ -132,6 +132,14 @@ Public Class BaseDelivery
                     _sqlCommand.Parameters.Clear()
                     _sqlCommand = New SqlCommand("UPDATE tblproducts SET quantity = quantity + @quantity WHERE id = @id", _sqlConnection, transaction)
                     _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
+                    _sqlCommand.Parameters.AddWithValue("@id", item("product_id"))
+                    _sqlCommand.ExecuteNonQuery()
+
+
+                    ' Update price in tblproducts
+                    _sqlCommand.Parameters.Clear()
+                    _sqlCommand = New SqlCommand("UPDATE tblproducts SET price = price + @price WHERE id = @id", _sqlConnection, transaction)
+                    _sqlCommand.Parameters.AddWithValue("@price", item("price"))
                     _sqlCommand.Parameters.AddWithValue("@id", item("product_id"))
                     _sqlCommand.ExecuteNonQuery()
                 End If
