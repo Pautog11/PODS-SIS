@@ -31,6 +31,8 @@ Partial Class Login
         Me.PasswordTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.UsernameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2ControlBox1 = New Guna.UI2.WinForms.Guna2ControlBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
@@ -87,6 +89,8 @@ Partial Class Login
         '
         'Guna2Panel1
         '
+        Me.Guna2Panel1.Controls.Add(Me.Label2)
+        Me.Guna2Panel1.Controls.Add(Me.Label1)
         Me.Guna2Panel1.Controls.Add(Me.Guna2CheckBox1)
         Me.Guna2Panel1.Controls.Add(Me.LoginButton)
         Me.Guna2Panel1.Controls.Add(Me.PasswordTextBox)
@@ -145,7 +149,7 @@ Partial Class Login
         Me.PasswordTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.PasswordTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.PasswordTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.PasswordTextBox.Location = New System.Drawing.Point(44, 155)
+        Me.PasswordTextBox.Location = New System.Drawing.Point(44, 151)
         Me.PasswordTextBox.Name = "PasswordTextBox"
         Me.PasswordTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.PasswordTextBox.PlaceholderText = "Password"
@@ -167,7 +171,7 @@ Partial Class Login
         Me.UsernameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.UsernameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.UsernameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.UsernameTextBox.Location = New System.Drawing.Point(44, 113)
+        Me.UsernameTextBox.Location = New System.Drawing.Point(44, 96)
         Me.UsernameTextBox.Name = "UsernameTextBox"
         Me.UsernameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.UsernameTextBox.PlaceholderText = "Username"
@@ -186,6 +190,24 @@ Partial Class Login
         Me.Guna2ControlBox1.Name = "Guna2ControlBox1"
         Me.Guna2ControlBox1.Size = New System.Drawing.Size(45, 29)
         Me.Guna2ControlBox1.TabIndex = 1
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(18, 80)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(55, 13)
+        Me.Label1.TabIndex = 4
+        Me.Label1.Text = "Username"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(18, 135)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(53, 13)
+        Me.Label2.TabIndex = 29
+        Me.Label2.Text = "Password"
         '
         'Login
         '
@@ -214,4 +236,6 @@ Partial Class Login
     Friend WithEvents Guna2ControlBox1 As Guna.UI2.WinForms.Guna2ControlBox
     Friend WithEvents Guna2ImageButton1 As Guna.UI2.WinForms.Guna2ImageButton
     Friend WithEvents Guna2CheckBox1 As Guna.UI2.WinForms.Guna2CheckBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label1 As Label
 End Class

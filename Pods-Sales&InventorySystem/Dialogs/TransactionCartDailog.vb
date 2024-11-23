@@ -118,12 +118,10 @@ Public Class TransactionCartDailog
             If Not res.Any(Function(item As Object()) Not item(0)) Then
                 Dim dt As DataTable = BaseTransaction.SelectProductsByBarcode(BarcodeTextBox.Text)
                 If BarcodeTextBox.Text.Length <= 13 AndAlso dt.Rows.Count > 0 Then
-
-                    id = dt.Rows(0).Item("id").ToString()
-                    ProductNameTextBox.Text = dt.Rows(0).Item("product_name").ToString()
-
-                    StocksTextBox.Text = dt.Rows(0).Item("quantity").ToString()
-                    PriceTextBox.Text = dt.Rows(0).Item("price").ToString()
+                    id = If(String.IsNullOrEmpty(dt.Rows(0).Item("id").ToString()), "", dt.Rows(0).Item("id").ToString())
+                    ProductNameTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("product_name").ToString()), "", dt.Rows(0).Item("product_name").ToString())
+                    StocksTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("quantity").ToString()), "", dt.Rows(0).Item("quantity").ToString())
+                    PriceTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("price").ToString()), "", dt.Rows(0).Item("price").ToString())
                     e.Handled = True
                 Else
                     MessageBox.Show("No, product found!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)

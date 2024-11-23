@@ -86,7 +86,7 @@ Public Class BaseProduct
             _sqlCommand.Parameters.AddWithValue("@product_name", _data.Item("product_name"))
             _sqlCommand.Parameters.AddWithValue("@description", If(String.IsNullOrEmpty(_data.Item("description")), DBNull.Value, _data.Item("description"))) '_data.Item("description"))
             _sqlCommand.Parameters.AddWithValue("@stock_level", _data.Item("stock_level"))
-            'Dim productid As Integer = Convert.ToInt32(_sqlCommand.ExecuteScalar())
+            Dim productid As Integer = Convert.ToInt32(_sqlCommand.ExecuteScalar())
 
             'If _item.Item("dosage") = "" And _item.Item("strength") = "" And _item.Item("manufacturer") = "" Then
             '    _item = Nothing
@@ -108,7 +108,7 @@ Public Class BaseProduct
                 ' Ensure the dictionary contains the necessary keys before accessing them
                 If _item.ContainsKey("dosage") AndAlso _item.ContainsKey("strength") AndAlso _item.ContainsKey("manufacturer") Then
                     ' Execute the SQL query and get the product ID
-                    Dim productid As Integer = Convert.ToInt32(_sqlCommand.ExecuteScalar())
+                    'Dim productid As Integer = Convert.ToInt32(_sqlCommand.ExecuteScalar())
                     _sqlCommand.Parameters.Clear()
 
                     ' Prepare the SQL command for insertion
@@ -286,6 +286,21 @@ Public Class BaseProduct
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return 0
+        End Try
+    End Function
+
+    Public Shared Function SearchDilog(query As String) As pods.viewtblproductsearchDataTable 'pods.tblaccountsDataTable
+        Try
+            Dim conn As New SqlConnection(My.Settings.podsdbConnectionString)
+            Dim cmd As New SqlCommand("SELECT * FROM viewtblproductsearch WHERE id <> 1 AND NAME LIKE CONCAT('%', @query, '%')", conn)
+            cmd.Parameters.AddWithValue("@query", query)
+            Dim dTable As New pods.viewtblproductsearchDataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New pods.viewtblproductsearchDataTable
         End Try
     End Function
 End Class

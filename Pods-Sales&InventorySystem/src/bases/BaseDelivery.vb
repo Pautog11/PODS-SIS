@@ -115,7 +115,8 @@ Public Class BaseDelivery
                         Throw New Exception("Failed to add delivery items!")
                     End If
 
-                    If item.ContainsKey("exd") AndAlso Not String.IsNullOrEmpty(item("exd").ToString()) Then
+                    'If item.ContainsKey("exd") AndAlso Not String.IsNullOrEmpty(item("exd").ToString()) Then
+                    If item.ContainsKey("exd") AndAlso Not String.IsNullOrEmpty(item("exd")?.ToString()) Then
                         _sqlCommand.Parameters.Clear()
                         _sqlCommand = New SqlCommand("INSERT INTO tblproduct_notif (product_id, delivery_id, quantity, exd, product_info_id) VALUES (@product_id, @delivery_id, @quantity, @exd, @product_info_id)", _sqlConnection, transaction)
                         _sqlCommand.Parameters.AddWithValue("@product_id", item("product_id"))
@@ -136,12 +137,12 @@ Public Class BaseDelivery
                     _sqlCommand.ExecuteNonQuery()
 
 
-                    ' Update price in tblproducts
-                    _sqlCommand.Parameters.Clear()
-                    _sqlCommand = New SqlCommand("UPDATE tblproducts SET price = price + @price WHERE id = @id", _sqlConnection, transaction)
-                    _sqlCommand.Parameters.AddWithValue("@price", item("price"))
-                    _sqlCommand.Parameters.AddWithValue("@id", item("product_id"))
-                    _sqlCommand.ExecuteNonQuery()
+                    '' Update price in tblproducts
+                    '_sqlCommand.Parameters.Clear()
+                    '_sqlCommand = New SqlCommand("UPDATE tblproducts SET price = price + @price WHERE id = @id", _sqlConnection, transaction)
+                    '_sqlCommand.Parameters.AddWithValue("@price", item("price"))
+                    '_sqlCommand.Parameters.AddWithValue("@id", item("product_id"))
+                    '_sqlCommand.ExecuteNonQuery()
                 End If
             Next
 
@@ -184,11 +185,11 @@ Public Class BaseDelivery
             '                                LEFT JOIN tblproduct_notif ON tbldeliveries_items.id = tblproduct_notif.product_info_id
             '                                WHERE tbldeliveries_items.delivery_id = @delivery_id", conn)
 
-            cmd = New SqlCommand("SELECT tbldeliveries_items.id, product_name, ISNULL(exd, NULL) AS exd, price, tbldeliveries_items.quantity, total 
-                                            FROM tbldeliveries_items 
-											JOIN tblproducts ON tbldeliveries_items.product_id = tblproducts.id 
-                                            LEFT JOIN tblproduct_notif ON tbldeliveries_items.id = tblproduct_notif.product_info_id
-                                            WHERE tbldeliveries_items.delivery_id =  @delivery_id", conn)
+            cmd = New SqlCommand("SELECT tbldeliveries_items.id, product_name, ISNULL(exd, NULL) AS exd, tbldeliveries_items.price, tbldeliveries_items.cost_price, tbldeliveries_items.quantity, total 
+												FROM tbldeliveries_items 
+												JOIN tblproducts ON tbldeliveries_items.product_id = tblproducts.id 
+												LEFT JOIN tblproduct_notif ON tbldeliveries_items.id = tblproduct_notif.product_info_id
+												WHERE tbldeliveries_items.delivery_id =  @delivery_id", conn)
             cmd.Parameters.AddWithValue("@delivery_id", delivery_id)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
@@ -246,30 +247,13 @@ Public Class BaseDelivery
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            'cmd = New SqlCommand("SELECT tbldeliveries_items.id, tblproducts.product_name AS name, (tbldeliveries_items.quantity - tblproduct_notif.quantity) as 'quantity'
-            '                                    FROM tbldeliveries_items 
-            'JOIN tblproduct_notif on tbldeliveries_items.id = tblproduct_notif.product_info_id 
-            'JOIN tblproducts on tbldeliveries_items.product_id = tblproducts.id
-            '                                    WHERE tbldeliveries_items.delivery_id = @delivery_id", conn)
-
-
-            ' cmd = New SqlCommand("SELECT tbldeliveries_items.id, tblproducts.product_name AS name,
-            'CASE 
-            '	WHEN tbldeliveries_items.quantity = tblproduct_notif.quantity THEN tbldeliveries_items.quantity
-            '	WHEN tbldeliveries_items.quantity > tblproduct_notif.quantity THEN tbldeliveries_items.quantity - tblproduct_notif.quantity
-            'ELSE 'Unknown Status'
-            'END AS quantity
-            '                                 FROM tbldeliveries_items 
-            'JOIN tblproduct_notif on tbldeliveries_items.id = tblproduct_notif.product_info_id 
-            'JOIN tblproducts on tbldeliveries_items.product_id = tblproducts.id
-            '                                 WHERE tbldeliveries_items.delivery_id = @delivery_id", conn)
-            cmd = New SqlCommand("SELECT tbldeliveries_items.id, tbldeliveries_items.delivery_id, tblproducts.id AS pid, tblproducts.product_name AS name, tblproduct_notif.exd, tblproducts.product_cost AS cost,
+            cmd = New SqlCommand("SELECT tbldeliveries_items.id, tbldeliveries_items.delivery_id, tblproducts.id AS pid, tblproducts.product_name AS name, tblproduct_notif.exd, tblproducts.cost AS cost,
 			                            SUM(
 				                            CASE
 					                            WHEN tbldeliveries_items.quantity = tblproduct_notif.quantity THEN tbldeliveries_items.quantity
-					                            WHEN tbldeliveries_items.quantity > tblproduct_notif.quantity THEN tblproduct_notif.quantity
-					                            ELSE 
-						                            tbldeliveries_items.quantity 
+					                            WHEN tbldeliveries_items.quantity > tblproduct_notif.quantity THEN tblproduct_notif.quantity 
+												WHEN tbldeliveries_items.quantity > tblproducts.quantity THEN tbldeliveries_items.quantity
+												else 0
 				                            END
 			                            ) AS quantity
 		                            FROM 
@@ -279,8 +263,8 @@ Public Class BaseDelivery
 		                            JOIN 
 			                            tblproducts ON tbldeliveries_items.product_id = tblproducts.id
 		                            WHERE 
-			                            tbldeliveries_items.delivery_id = @delivery_id 
-		                            GROUP BY tbldeliveries_items.id, tbldeliveries_items.delivery_id, tblproducts.id, tblproducts.product_name, tblproduct_notif.exd, tblproducts.product_cost", conn) 'Add and to fetch the product grater than 0
+			                            tbldeliveries_items.delivery_id = @delivery_id
+										GROUP BY tbldeliveries_items.id, tbldeliveries_items.delivery_id, tblproducts.id, tblproducts.product_name, tblproduct_notif.exd, tblproducts.cost", conn) 'Add and to fetch the product grater than 0
             cmd.Parameters.AddWithValue("@delivery_id", delivery_id)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)

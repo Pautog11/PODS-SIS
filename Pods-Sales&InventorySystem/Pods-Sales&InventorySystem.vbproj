@@ -362,6 +362,12 @@
     <Compile Include="Panels\Discount.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Panels\Dosage.Designer.vb">
+      <DependentUpon>Dosage.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Dosage.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Panels\FinancialReport.Designer.vb">
       <DependentUpon>FinancialReport.vb</DependentUpon>
     </Compile>
@@ -624,6 +630,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\Discount.resx">
       <DependentUpon>Discount.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\Dosage.resx">
+      <DependentUpon>Dosage.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\FinancialReport.resx">
       <DependentUpon>FinancialReport.vb</DependentUpon>

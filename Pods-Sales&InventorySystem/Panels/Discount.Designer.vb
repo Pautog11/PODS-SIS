@@ -91,7 +91,6 @@ Partial Class Discount
         Me.DiscountDataGridView.AllowUserToResizeRows = False
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
         Me.DiscountDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.DiscountDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))

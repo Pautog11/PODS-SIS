@@ -24,6 +24,7 @@ Partial Class PasswordDialog
     Private Sub InitializeComponent()
         Me.UpdateButton = New Guna.UI2.WinForms.Guna2Button()
         Me.PasswordTextBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'UpdateButton
@@ -58,19 +59,29 @@ Partial Class PasswordDialog
         Me.PasswordTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.PasswordTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.PasswordTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.PasswordTextBox.Location = New System.Drawing.Point(76, 47)
+        Me.PasswordTextBox.Location = New System.Drawing.Point(77, 56)
         Me.PasswordTextBox.Name = "PasswordTextBox"
         Me.PasswordTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.PasswordTextBox.PlaceholderText = "Password"
+        Me.PasswordTextBox.PlaceholderText = "Must have atleast 6 letters"
         Me.PasswordTextBox.SelectedText = ""
         Me.PasswordTextBox.Size = New System.Drawing.Size(173, 36)
         Me.PasswordTextBox.TabIndex = 24
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(50, 40)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(53, 13)
+        Me.Label1.TabIndex = 25
+        Me.Label1.Text = "Password"
         '
         'PasswordDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(334, 171)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PasswordTextBox)
         Me.Controls.Add(Me.UpdateButton)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -81,9 +92,11 @@ Partial Class PasswordDialog
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "PasswordDialog"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents UpdateButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents PasswordTextBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Label1 As Label
 End Class

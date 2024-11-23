@@ -35,6 +35,8 @@ Partial Class Maintenance
         Me.Vat1 = New Pods_Sales_InventorySystem.Vat()
         Me.Discounts = New System.Windows.Forms.TabPage()
         Me.Discount1 = New Pods_Sales_InventorySystem.Discount()
+        Me.Dosage = New System.Windows.Forms.TabPage()
+        Me.Dosage1 = New Pods_Sales_InventorySystem.Dosage()
         Me.MaintenaceTabControl.SuspendLayout()
         Me.Accounts.SuspendLayout()
         Me.Categories.SuspendLayout()
@@ -42,6 +44,7 @@ Partial Class Maintenance
         Me.Suppliers.SuspendLayout()
         Me.Vat.SuspendLayout()
         Me.Discounts.SuspendLayout()
+        Me.Dosage.SuspendLayout()
         Me.SuspendLayout()
         '
         'MaintenaceTabControl
@@ -52,6 +55,7 @@ Partial Class Maintenance
         Me.MaintenaceTabControl.Controls.Add(Me.Suppliers)
         Me.MaintenaceTabControl.Controls.Add(Me.Vat)
         Me.MaintenaceTabControl.Controls.Add(Me.Discounts)
+        Me.MaintenaceTabControl.Controls.Add(Me.Dosage)
         Me.MaintenaceTabControl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.MaintenaceTabControl.ItemSize = New System.Drawing.Size(180, 40)
         Me.MaintenaceTabControl.Location = New System.Drawing.Point(0, 0)
@@ -188,11 +192,31 @@ Partial Class Maintenance
         '
         'Discount1
         '
+        Me.Discount1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Discount1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Discount1.Location = New System.Drawing.Point(0, 0)
         Me.Discount1.Name = "Discount1"
         Me.Discount1.Size = New System.Drawing.Size(1279, 492)
         Me.Discount1.TabIndex = 0
+        '
+        'Dosage
+        '
+        Me.Dosage.Controls.Add(Me.Dosage1)
+        Me.Dosage.Location = New System.Drawing.Point(4, 44)
+        Me.Dosage.Name = "Dosage"
+        Me.Dosage.Padding = New System.Windows.Forms.Padding(3)
+        Me.Dosage.Size = New System.Drawing.Size(1279, 492)
+        Me.Dosage.TabIndex = 10
+        Me.Dosage.Text = "Dosage"
+        Me.Dosage.UseVisualStyleBackColor = True
+        '
+        'Dosage1
+        '
+        Me.Dosage1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Dosage1.Location = New System.Drawing.Point(3, 3)
+        Me.Dosage1.Name = "Dosage1"
+        Me.Dosage1.Size = New System.Drawing.Size(1273, 486)
+        Me.Dosage1.TabIndex = 0
         '
         'Maintenance
         '
@@ -208,6 +232,7 @@ Partial Class Maintenance
         Me.Suppliers.ResumeLayout(False)
         Me.Vat.ResumeLayout(False)
         Me.Discounts.ResumeLayout(False)
+        Me.Dosage.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -225,4 +250,6 @@ Partial Class Maintenance
     Friend WithEvents Discounts As TabPage
     Private WithEvents Vat1 As Vat
     Friend WithEvents Discount1 As Discount
+    Friend WithEvents Dosage As TabPage
+    Friend WithEvents Dosage1 As Dosage
 End Class

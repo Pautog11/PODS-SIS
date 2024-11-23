@@ -32,48 +32,53 @@ Public Class PullOutProductDialog
             StocksTextBox.Text = selectedRow("quantity").ToString()
             CostTextBox.Text = selectedRow("cost").ToString()
             pid = selectedRow("pid").ToString()
-            'MsgBox(pid)
             If selectedRow("exd") IsNot DBNull.Value Then
                 ExdTextBox.Text = Convert.ToDateTime(selectedRow("exd")).ToString("yyyy-MM-dd")
+                PullOutProductSaveButton.Enabled = True
             Else
                 ExdTextBox.Text = "N/A"
+                PullOutProductSaveButton.Enabled = False
             End If
             'MsgBox(selectedRow("id"))
         End If
     End Sub
 
     Private Sub PullOutProductSaveButton_Click(sender As Object, e As EventArgs) Handles PullOutProductSaveButton.Click
-        Dim result As New List(Of Object()) From {InputValidation.ValidateInputString(QuantityTextBox, DataInput.STRING_INTEGER)}
-        Dim is_existing As Boolean = False
-        If Not result.Any(Function(item As Object()) Not item(0)) Then
-            For Each item As DataGridViewRow In _parent.DeliveryPulloutDataGridView.Rows
-                If item.Cells("PRODUCT").Value.ToString() = ProductComboBox.Text Then
-                    item.Cells("PID").Value = pid
-                    item.Cells("PRICE").Value = Decimal.Parse(CostTextBox.Text)
-                    item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)
-                    item.Cells("TOTAL").Value = Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text)
-                    is_existing = True
-                    Exit For
-                End If
-            Next
-            If Not is_existing Then
-                If CInt(StocksTextBox.Text) >= QuantityTextBox.Text Then
-                    _parent.DeliveryPulloutDataGridView.Rows.Add({ProductComboBox.SelectedItem("ID"),
-                                                 pid,
-                                                 ProductComboBox.Text,
-                                                 ExdTextBox.Text,
-                                                 CostTextBox.Text,
-                                                 QuantityTextBox.Text,
-                                                 CDec(CostTextBox.Text) * CDec(QuantityTextBox.Text)
-                                                 })
-                Else
-                    MessageBox.Show("Insufficient stocks!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                End If
-            End If
-            _parent.UpdateVisualData()
-            Me.Close()
+        If ExdTextBox.Text = "" AndAlso CostTextBox.Text = "" Then
+            MessageBox.Show("No product selected!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
-            MessageBox.Show("Invalid quantity!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Dim result As New List(Of Object()) From {InputValidation.ValidateInputString(QuantityTextBox, DataInput.STRING_INTEGER)}
+            Dim is_existing As Boolean = False
+            If Not result.Any(Function(item As Object()) Not item(0)) Then
+                For Each item As DataGridViewRow In _parent.DeliveryPulloutDataGridView.Rows
+                    If item.Cells("PRODUCT").Value.ToString() = ProductComboBox.Text Then
+                        item.Cells("PID").Value = pid
+                        item.Cells("PRICE").Value = Decimal.Parse(CostTextBox.Text)
+                        item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)
+                        item.Cells("TOTAL").Value = Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text)
+                        is_existing = True
+                        Exit For
+                    End If
+                Next
+                If Not is_existing Then
+                    If CInt(StocksTextBox.Text) >= QuantityTextBox.Text Then
+                        _parent.DeliveryPulloutDataGridView.Rows.Add({ProductComboBox.SelectedItem("ID"),
+                                                     pid,
+                                                     ProductComboBox.Text,
+                                                     ExdTextBox.Text,
+                                                     CostTextBox.Text,
+                                                     QuantityTextBox.Text,
+                                                     CDec(CostTextBox.Text) * CDec(QuantityTextBox.Text)
+                                                     })
+                    Else
+                        MessageBox.Show("Insufficient stocks!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    End If
+                End If
+                _parent.UpdateVisualData()
+                Me.Close()
+            Else
+                MessageBox.Show("Invalid quantity!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
         End If
     End Sub
 End Class

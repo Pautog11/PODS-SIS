@@ -111,25 +111,6 @@
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="viewtblinventoriesTableAdapter" GeneratorDataComponentClassName="viewtblinventoriesTableAdapter" Name="viewtblinventories" UserDataComponentName="viewtblinventoriesTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="podsdbConnectionString1 (MySettings)" DbObjectName="podsdb.dbo.viewtblinventories" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT ID, BARCODE, PRODUCT_NAME, QUANTITY FROM dbo.viewtblinventories</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="ID" DataSetColumn="ID" />
-              <Mapping SourceColumn="BARCODE" DataSetColumn="BARCODE" />
-              <Mapping SourceColumn="PRODUCT_NAME" DataSetColumn="PRODUCT_NAME" />
-              <Mapping SourceColumn="QUANTITY" DataSetColumn="QUANTITY" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="viewtbldeliveriesTableAdapter" GeneratorDataComponentClassName="viewtbldeliveriesTableAdapter" Name="viewtbldeliveries" UserDataComponentName="viewtbldeliveriesTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="podsdbConnectionString1 (MySettings)" DbObjectName="podsdb.dbo.viewtbldeliveries" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
@@ -271,6 +252,63 @@
               <Mapping SourceColumn="description" DataSetColumn="description" />
               <Mapping SourceColumn="quantity" DataSetColumn="quantity" />
               <Mapping SourceColumn="stock_level" DataSetColumn="stock_level" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="viewtblinventoriesTableAdapter" GeneratorDataComponentClassName="viewtblinventoriesTableAdapter" Name="viewtblinventories" UserDataComponentName="viewtblinventoriesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="podsdbConnectionString1 (MySettings)" DbObjectName="titeko.dbo.viewtblinventories" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ID, BARCODE, NAME, QUANTITY, [SELLING PRICE], [COST PRICE] FROM dbo.viewtblinventories</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="BARCODE" DataSetColumn="BARCODE" />
+              <Mapping SourceColumn="NAME" DataSetColumn="NAME" />
+              <Mapping SourceColumn="QUANTITY" DataSetColumn="QUANTITY" />
+              <Mapping SourceColumn="SELLING PRICE" DataSetColumn="SELLING PRICE" />
+              <Mapping SourceColumn="COST PRICE" DataSetColumn="COST PRICE" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="viewtblproductsearchTableAdapter" GeneratorDataComponentClassName="viewtblproductsearchTableAdapter" Name="viewtblproductsearch" UserDataComponentName="viewtblproductsearchTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="podsdbConnectionString1 (MySettings)" DbObjectName="titeko.dbo.viewtblproductsearch" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ID, NAME, PRICE, QUANTITY FROM dbo.viewtblproductsearch</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="NAME" DataSetColumn="NAME" />
+              <Mapping SourceColumn="PRICE" DataSetColumn="PRICE" />
+              <Mapping SourceColumn="QUANTITY" DataSetColumn="QUANTITY" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="viewtbldosageTableAdapter" GeneratorDataComponentClassName="viewtbldosageTableAdapter" Name="viewtbldosage" UserDataComponentName="viewtbldosageTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="podsdbConnectionString1 (MySettings)" DbObjectName="titeko.dbo.viewtbldosage" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ID, DOSAGE FROM dbo.viewtbldosage</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="DOSAGE" DataSetColumn="DOSAGE" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -459,28 +497,6 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="viewtblinventories" msprop:Generator_TableClassName="viewtblinventoriesDataTable" msprop:Generator_TableVarName="tableviewtblinventories" msprop:Generator_TablePropName="viewtblinventories" msprop:Generator_RowDeletingName="viewtblinventoriesRowDeleting" msprop:Generator_RowChangingName="viewtblinventoriesRowChanging" msprop:Generator_RowEvHandlerName="viewtblinventoriesRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtblinventoriesRowDeleted" msprop:Generator_UserTableName="viewtblinventories" msprop:Generator_RowChangedName="viewtblinventoriesRowChanged" msprop:Generator_RowEvArgName="viewtblinventoriesRowChangeEvent" msprop:Generator_RowClassName="viewtblinventoriesRow">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
-              <xs:element name="BARCODE" msprop:Generator_ColumnVarNameInTable="columnBARCODE" msprop:Generator_ColumnPropNameInRow="BARCODE" msprop:Generator_ColumnPropNameInTable="BARCODEColumn" msprop:Generator_UserColumnName="BARCODE" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="PRODUCT_NAME" msprop:Generator_ColumnVarNameInTable="columnPRODUCT_NAME" msprop:Generator_ColumnPropNameInRow="PRODUCT_NAME" msprop:Generator_ColumnPropNameInTable="PRODUCT_NAMEColumn" msprop:Generator_UserColumnName="PRODUCT_NAME">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="QUANTITY" msprop:Generator_ColumnVarNameInTable="columnQUANTITY" msprop:Generator_ColumnPropNameInRow="QUANTITY" msprop:Generator_ColumnPropNameInTable="QUANTITYColumn" msprop:Generator_UserColumnName="QUANTITY" type="xs:int" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
         <xs:element name="viewtbldeliveries" msprop:Generator_TableClassName="viewtbldeliveriesDataTable" msprop:Generator_TableVarName="tableviewtbldeliveries" msprop:Generator_RowChangedName="viewtbldeliveriesRowChanged" msprop:Generator_TablePropName="viewtbldeliveries" msprop:Generator_RowDeletingName="viewtbldeliveriesRowDeleting" msprop:Generator_RowChangingName="viewtbldeliveriesRowChanging" msprop:Generator_RowEvHandlerName="viewtbldeliveriesRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtbldeliveriesRowDeleted" msprop:Generator_RowClassName="viewtbldeliveriesRow" msprop:Generator_UserTableName="viewtbldeliveries" msprop:Generator_RowEvArgName="viewtbldeliveriesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
@@ -658,6 +674,60 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="viewtblinventories" msprop:Generator_TableClassName="viewtblinventoriesDataTable" msprop:Generator_TableVarName="tableviewtblinventories" msprop:Generator_RowChangedName="viewtblinventoriesRowChanged" msprop:Generator_TablePropName="viewtblinventories" msprop:Generator_RowDeletingName="viewtblinventoriesRowDeleting" msprop:Generator_RowChangingName="viewtblinventoriesRowChanging" msprop:Generator_RowEvHandlerName="viewtblinventoriesRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtblinventoriesRowDeleted" msprop:Generator_RowClassName="viewtblinventoriesRow" msprop:Generator_UserTableName="viewtblinventories" msprop:Generator_RowEvArgName="viewtblinventoriesRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="BARCODE" msprop:Generator_ColumnVarNameInTable="columnBARCODE" msprop:Generator_ColumnPropNameInRow="BARCODE" msprop:Generator_ColumnPropNameInTable="BARCODEColumn" msprop:Generator_UserColumnName="BARCODE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NAME" msprop:Generator_ColumnVarNameInTable="columnNAME" msprop:Generator_ColumnPropNameInRow="NAME" msprop:Generator_ColumnPropNameInTable="NAMEColumn" msprop:Generator_UserColumnName="NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="QUANTITY" msprop:Generator_ColumnVarNameInTable="columnQUANTITY" msprop:Generator_ColumnPropNameInRow="QUANTITY" msprop:Generator_ColumnPropNameInTable="QUANTITYColumn" msprop:Generator_UserColumnName="QUANTITY" type="xs:int" />
+              <xs:element name="SELLING_x0020_PRICE" msprop:Generator_ColumnVarNameInTable="columnSELLING_PRICE" msprop:Generator_ColumnPropNameInRow="SELLING_PRICE" msprop:Generator_ColumnPropNameInTable="SELLING_PRICEColumn" msprop:Generator_UserColumnName="SELLING PRICE" type="xs:decimal" minOccurs="0" />
+              <xs:element name="COST_x0020_PRICE" msprop:Generator_ColumnVarNameInTable="columnCOST_PRICE" msprop:Generator_ColumnPropNameInRow="COST_PRICE" msprop:Generator_ColumnPropNameInTable="COST_PRICEColumn" msprop:Generator_UserColumnName="COST PRICE" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="viewtblproductsearch" msprop:Generator_TableClassName="viewtblproductsearchDataTable" msprop:Generator_TableVarName="tableviewtblproductsearch" msprop:Generator_RowChangedName="viewtblproductsearchRowChanged" msprop:Generator_TablePropName="viewtblproductsearch" msprop:Generator_RowDeletingName="viewtblproductsearchRowDeleting" msprop:Generator_RowChangingName="viewtblproductsearchRowChanging" msprop:Generator_RowEvHandlerName="viewtblproductsearchRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtblproductsearchRowDeleted" msprop:Generator_RowClassName="viewtblproductsearchRow" msprop:Generator_UserTableName="viewtblproductsearch" msprop:Generator_RowEvArgName="viewtblproductsearchRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="NAME" msprop:Generator_ColumnVarNameInTable="columnNAME" msprop:Generator_ColumnPropNameInRow="NAME" msprop:Generator_ColumnPropNameInTable="NAMEColumn" msprop:Generator_UserColumnName="NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PRICE" msprop:Generator_ColumnVarNameInTable="columnPRICE" msprop:Generator_ColumnPropNameInRow="PRICE" msprop:Generator_ColumnPropNameInTable="PRICEColumn" msprop:Generator_UserColumnName="PRICE" type="xs:decimal" minOccurs="0" />
+              <xs:element name="QUANTITY" msprop:Generator_ColumnVarNameInTable="columnQUANTITY" msprop:Generator_ColumnPropNameInRow="QUANTITY" msprop:Generator_ColumnPropNameInTable="QUANTITYColumn" msprop:Generator_UserColumnName="QUANTITY" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="viewtbldosage" msprop:Generator_TableClassName="viewtbldosageDataTable" msprop:Generator_TableVarName="tableviewtbldosage" msprop:Generator_TablePropName="viewtbldosage" msprop:Generator_RowDeletingName="viewtbldosageRowDeleting" msprop:Generator_RowChangingName="viewtbldosageRowChanging" msprop:Generator_RowEvHandlerName="viewtbldosageRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtbldosageRowDeleted" msprop:Generator_UserTableName="viewtbldosage" msprop:Generator_RowChangedName="viewtbldosageRowChanged" msprop:Generator_RowEvArgName="viewtbldosageRowChangeEvent" msprop:Generator_RowClassName="viewtbldosageRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="DOSAGE" msprop:Generator_ColumnVarNameInTable="columnDOSAGE" msprop:Generator_ColumnPropNameInRow="DOSAGE" msprop:Generator_ColumnPropNameInTable="DOSAGEColumn" msprop:Generator_UserColumnName="DOSAGE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -674,10 +744,6 @@
     </xs:unique>
     <xs:unique name="viewtblsuppliers_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:viewtblsuppliers" />
-      <xs:field xpath="mstns:ID" />
-    </xs:unique>
-    <xs:unique name="viewtblinventories_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:viewtblinventories" />
       <xs:field xpath="mstns:ID" />
     </xs:unique>
     <xs:unique name="viewtbldeliveries_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
@@ -707,6 +773,18 @@
     <xs:unique name="viewtblproducts_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:viewtblproducts" />
       <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="viewtblinventories_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:viewtblinventories" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="viewtblproductsearch_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:viewtblproductsearch" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="viewtbldosage_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:viewtbldosage" />
+      <xs:field xpath="mstns:ID" />
     </xs:unique>
   </xs:element>
 </xs:schema>

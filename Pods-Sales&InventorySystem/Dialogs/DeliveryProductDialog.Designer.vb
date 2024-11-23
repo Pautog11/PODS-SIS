@@ -36,6 +36,7 @@ Partial Class DeliveryProductDialog
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.SearchButton = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
         Me.SkuComboBox1 = New Guna.UI2.WinForms.Guna2ComboBox()
@@ -43,7 +44,7 @@ Partial Class DeliveryProductDialog
         Me.CostTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.BarcodeTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.AccountDialogLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
-        Me.SearchButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.VoidButton = New Guna.UI2.WinForms.Guna2Button()
         Me.FlowLayoutPanel2.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.AccountDialogLayoutPanel.SuspendLayout()
@@ -53,6 +54,7 @@ Partial Class DeliveryProductDialog
         '
         Me.FlowLayoutPanel2.BackColor = System.Drawing.SystemColors.ControlLight
         Me.FlowLayoutPanel2.Controls.Add(Me.AddDeliveryButton)
+        Me.FlowLayoutPanel2.Controls.Add(Me.VoidButton)
         Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
         Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 462)
@@ -184,7 +186,7 @@ Partial Class DeliveryProductDialog
         Me.txtPrays.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtPrays.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.txtPrays.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtPrays.Location = New System.Drawing.Point(66, 230)
+        Me.txtPrays.Location = New System.Drawing.Point(66, 234)
         Me.txtPrays.MaxLength = 13
         Me.txtPrays.Name = "txtPrays"
         Me.txtPrays.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -246,6 +248,22 @@ Partial Class DeliveryProductDialog
         Me.Label1.Size = New System.Drawing.Size(47, 13)
         Me.Label1.TabIndex = 24
         Me.Label1.Text = "Barcode"
+        '
+        'SearchButton
+        '
+        Me.SearchButton.BorderRadius = 15
+        Me.SearchButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.SearchButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.SearchButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.SearchButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.SearchButton.FillColor = System.Drawing.Color.White
+        Me.SearchButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.SearchButton.ForeColor = System.Drawing.Color.White
+        Me.SearchButton.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.search
+        Me.SearchButton.Location = New System.Drawing.Point(214, 117)
+        Me.SearchButton.Name = "SearchButton"
+        Me.SearchButton.Size = New System.Drawing.Size(52, 36)
+        Me.SearchButton.TabIndex = 23
         '
         'Guna2HtmlLabel1
         '
@@ -318,7 +336,7 @@ Partial Class DeliveryProductDialog
         Me.CostTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CostTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.CostTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CostTextBox.Location = New System.Drawing.Point(181, 230)
+        Me.CostTextBox.Location = New System.Drawing.Point(181, 235)
         Me.CostTextBox.Name = "CostTextBox"
         Me.CostTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CostTextBox.PlaceholderText = "0.00"
@@ -364,21 +382,24 @@ Partial Class DeliveryProductDialog
         Me.AccountDialogLayoutPanel.Size = New System.Drawing.Size(326, 517)
         Me.AccountDialogLayoutPanel.TabIndex = 19
         '
-        'SearchButton
+        'VoidButton
         '
-        Me.SearchButton.BorderRadius = 15
-        Me.SearchButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.SearchButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.SearchButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.SearchButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.SearchButton.FillColor = System.Drawing.Color.White
-        Me.SearchButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.SearchButton.ForeColor = System.Drawing.Color.White
-        Me.SearchButton.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.search
-        Me.SearchButton.Location = New System.Drawing.Point(214, 117)
-        Me.SearchButton.Name = "SearchButton"
-        Me.SearchButton.Size = New System.Drawing.Size(52, 36)
-        Me.SearchButton.TabIndex = 23
+        Me.VoidButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.VoidButton.BackColor = System.Drawing.Color.Transparent
+        Me.VoidButton.BorderRadius = 15
+        Me.VoidButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.VoidButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.VoidButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.VoidButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.VoidButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.VoidButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.VoidButton.ForeColor = System.Drawing.Color.White
+        Me.VoidButton.Location = New System.Drawing.Point(61, 8)
+        Me.VoidButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
+        Me.VoidButton.Name = "VoidButton"
+        Me.VoidButton.Size = New System.Drawing.Size(128, 37)
+        Me.VoidButton.TabIndex = 4
+        Me.VoidButton.Text = "Void"
         '
         'DeliveryProductDialog
         '
@@ -423,4 +444,5 @@ Partial Class DeliveryProductDialog
     Friend WithEvents DateTimePicker As Guna.UI2.WinForms.Guna2DateTimePicker
     Friend WithEvents ProductTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents ChangeButton As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents VoidButton As Guna.UI2.WinForms.Guna2Button
 End Class

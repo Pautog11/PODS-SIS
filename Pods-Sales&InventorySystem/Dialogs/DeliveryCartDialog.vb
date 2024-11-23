@@ -91,7 +91,7 @@ Public Class DeliveryCartDialog
         }
 
         Dim types As DataInput() = {
-            DataInput.STRING_STRING, DataInput.STRING_STRING
+            DataInput.STRING_STRING, DataInput.STRING_NAME
         }
         Dim result As New List(Of Object())
         For i = 0 To controls.Count - 1
@@ -112,9 +112,14 @@ Public Class DeliveryCartDialog
             }
 
             For Each row As DataGridViewRow In DeliveryDataGridView.Rows
+                Dim exdValue As String = row.Cells(2).Value?.ToString()
+                If exdValue = "N/A" Then
+                    exdValue = Nothing
+                End If
+
                 Dim item As New Dictionary(Of String, String) From {
                     {"product_id", row.Cells(0).Value},
-                    {"exd", row.Cells(2).Value?.ToString()},
+                    {"exd", exdValue},
                     {"price", If(row.Cells(3).Value?.ToString(), "0")},
                     {"quantity", If(row.Cells(5).Value?.ToString(), "0")},
                     {"total", If(row.Cells(6).Value?.ToString(), "0")},
@@ -152,5 +157,23 @@ Public Class DeliveryCartDialog
     Private Sub PulloutButton_Click(sender As Object, e As EventArgs) Handles PulloutButton.Click
         Dim dialog As New DeliveryPulloutCart(data:=_data, subject:=_subject, parent:=Me)
         dialog.ShowDialog()
+    End Sub
+
+    Private Sub DeliveryDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DeliveryDataGridView.CellClick
+        If DeliveryDataGridView.Rows.Count > 0 Then
+            If _data Is Nothing Then
+                Dim selectedRows As DataGridViewSelectedRowCollection = DeliveryDataGridView.SelectedRows
+                Dim row As DataGridViewRow = selectedRows(0)
+                Dim data As New Dictionary(Of String, String) From {
+                    {"id", row.Cells(0).Value.ToString()},
+                    {"name", row.Cells(1).Value.ToString()},
+                    {"date", row.Cells(2).Value.ToString()},
+                    {"sellingprice", row.Cells(3).Value.ToString()},
+                    {"costprice", row.Cells(4).Value.ToString()}
+                }
+                Dim dialog As New DeliveryProductDialog(data:=data, parent:=Me)
+                dialog.ShowDialog()
+            End If
+        End If
     End Sub
 End Class
