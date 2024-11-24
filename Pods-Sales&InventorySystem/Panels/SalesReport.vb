@@ -76,7 +76,12 @@ Public Class SalesReport
     End Sub
 
     Private Sub PrintButton_Click(sender As Object, e As EventArgs) Handles PrintButton.Click
-        MsgBox(DateTimePicker1.Value.ToString("yyyy-MM-dd"))
+        'MsgBox(DateTimePicker1.Value.ToString("yyyy-MM-dd"))
+        'Dim startDate As DateTime = Format(DateTimePicker1.Value, "yyyy/MM/dd").ToString
+        'Dim endDate As DateTime = Format(DateTimePicker2.Value, "yyyy/MM/dd").ToString
 
+        Using dialog As New SalesReportViewer()
+            dialog.ShowDialog()
+        End Using
     End Sub
 End Class
