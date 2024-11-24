@@ -510,6 +510,18 @@
     <Compile Include="Reports\ReportViewerDialog.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reports\SalesReport\SalesReportViewer.Designer.vb">
+      <DependentUpon>SalesReportViewer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\SalesReport\SalesReportViewer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\SalesReport\SalesRpt.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SalesRpt.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="src\bases\BaseAccount.vb" />
     <Compile Include="src\bases\BaseAccountLog.vb" />
     <Compile Include="src\bases\BaseAuditTrail.vb" />
@@ -707,6 +719,13 @@
     <EmbeddedResource Include="Reports\ReportViewerDialog.resx">
       <DependentUpon>ReportViewerDialog.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SalesReport\SalesReportViewer.resx">
+      <DependentUpon>SalesReportViewer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\SalesReport\SalesRpt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SalesRpt.vb</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="My Project\app.manifest" />
@@ -805,8 +824,6 @@
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Reports\Sales Report\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
