@@ -94,7 +94,30 @@ Public Class ReceiptViewer
     End Sub
 
     Private Sub ReceiptViewer_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Try
+            Dim transactionData As DataSet = Transactions(_transactionNumber)
 
+            If transactionData Is Nothing OrElse transactionData.Tables("DT_Transac").Rows.Count = 0 Then
+                MessageBox.Show("No data found for the transaction.")
+                Me.Close()
+                Return
+            End If
+
+            Dim reportDocument As New Receipt()
+            reportDocument.SetDataSource(transactionData.Tables("DT_Transac"))
+
+            CrystalReportViewer1.ReportSource = reportDocument
+            CrystalReportViewer1.RefreshReport()
+
+            If _autoPrint Then
+                reportDocument.PrintToPrinter(1, False, 0, 0)
+                MessageBox.Show("Receipt auto-printed successfully.")
+                Me.Close() ' Close after printing if required
+            End If
+        Catch ex As Exception
+            MessageBox.Show($"Error loading receipt: {ex.Message}")
+            Me.Close()
+        End Try
     End Sub
     Private Function Transactions(transactionNumber As String) As DataSet
         Dim dset As New DataSet
@@ -147,31 +170,4 @@ Public Class ReceiptViewer
             Return Nothing
         End Try
     End Function
-
-    Private Sub CrystalReportViewer1_Load(sender As Object, e As EventArgs) Handles CrystalReportViewer1.Load
-        Try
-            Dim transactionData As DataSet = Transactions(_transactionNumber)
-
-            If transactionData Is Nothing OrElse transactionData.Tables("DT_Transac").Rows.Count = 0 Then
-                MessageBox.Show("No data found for the transaction.")
-                Me.Close()
-                Return
-            End If
-
-            Dim reportDocument As New Receipt()
-            reportDocument.SetDataSource(transactionData.Tables("DT_Transac"))
-
-            CrystalReportViewer1.ReportSource = reportDocument
-            CrystalReportViewer1.RefreshReport()
-
-            If _autoPrint Then
-                reportDocument.PrintToPrinter(1, False, 0, 0)
-                MessageBox.Show("Receipt auto-printed successfully.")
-                Me.Close() ' Close after printing if required
-            End If
-        Catch ex As Exception
-            MessageBox.Show($"Error loading receipt: {ex.Message}")
-            Me.Close()
-        End Try
-    End Sub
 End Class

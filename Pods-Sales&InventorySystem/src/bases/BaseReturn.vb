@@ -94,7 +94,7 @@ Public Class BaseReturn
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("select a.id, transaction_id, b.id as pid, b.product_name as name, price, a.quantity, total from tbltransaction_items a
+            cmd = New SqlCommand("select a.id, transaction_id, b.id as pid, b.product_name as name, a.price, a.quantity, total from tbltransaction_items a
                                     join tblproducts b on b.id = a.product_id
                                     where transaction_id = @transaction_id", conn)
             cmd.Parameters.AddWithValue("@transaction_id", transaction_id)

@@ -259,8 +259,8 @@ Public Class InputValidation
                     End If
 
                     ' Remove all spaces and dashes from the phone number
+                    'start_trim_o = String.Join(" ", start_trim_o.Split(New Char() {" "c}, StringSplitOptions.RemoveEmptyEntries))
                     start_trim_o = Regex.Replace(start_trim_o, "[-\s]", "")
-
                     ' Return the cleaned phone number
                     Return {True, start_trim_o}
                 Else

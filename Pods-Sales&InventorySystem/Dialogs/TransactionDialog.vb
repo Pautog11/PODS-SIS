@@ -39,7 +39,9 @@ Public Class TransactionDialog
             Next
             AddTransactionButton.Visible = False
             AddItemTransactionButton.Visible = False
-
+            SearchItemButton.Visible = False
+            CashTextBox.Enabled = False
+            DiscountComboBox.Enabled = False
             'MsgBox(_data.Item("id"))
 
             If BaseTransaction.Returnbutton(_data.Item("id")) = 1 Then
@@ -182,7 +184,7 @@ Public Class TransactionDialog
                 Dim reslt As DialogResult = MsgBox("Do you want to print a receipt?", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                 Dim autoPrint As Boolean = (reslt = DialogResult.Yes)
 
-                Using dialog As New ReceiptViewer(Reference_number.Text, autoPrint)
+                Using dialog As New ReceiptViewer(Reference_number.Text)
                     dialog.ShowDialog()
                 End Using
 
