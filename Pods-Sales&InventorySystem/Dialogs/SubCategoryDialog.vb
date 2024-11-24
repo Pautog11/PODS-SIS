@@ -38,6 +38,9 @@ Public Class SubCategoryDialog
         Dim result As New List(Of Object())
         For i = 0 To controls.Count - 1
             result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
+            If Not CType(result(i), Object())(0) AndAlso Not String.IsNullOrEmpty(controls(i).Text) Then
+                Exit Sub
+            End If
         Next
         If Not result.Any(Function(item As Object()) Not item(0)) Then
             Dim data As New Dictionary(Of String, String) From {

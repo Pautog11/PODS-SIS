@@ -12,25 +12,35 @@
         Next
 
         If Not vres.Any(Function(item As Object()) Not item(0)) Then
+            If BaseAccount.ScalarAccount() = 0 Then
+                Dim fuck As New SignUp
+                Dim res1 = MessageBox.Show("You will be directed to signup Panel", "PODS", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
+                If res1 = DialogResult.Yes Then
+                    fuck.ShowDialog()
+                End If
+                UsernameTextBox.Text = ""
+                PasswordTextBox.Text = ""
+                Exit Sub
+            End If
             res = _loginModule.LoginAccount(UsernameTextBox.Text, PasswordTextBox.Text)
-            If res?(0) Then
-                Dim dash As New Dashboard
-                Dim main As New Maintenance
-                Select Case My.Settings.roleId
-                    Case 1
+                If res?(0) Then
+                    Dim dash As New Dashboard
+                    Dim main As New Maintenance
+                    Select Case My.Settings.roleId
+                        Case 1
                         'dash.DashboardTabControl.TabPages.Remove(dash.AuditTrail)
-                    Case 2
+                        Case 2
                         'main.MaintenaceTabControl.TabPages.Remove(main.Accounts)
                         ''Dim tabss As TabControl = dash.Maintenance.TabIndex. .TabControlContainer.Items()
                         ''Dim tabs As TabControl = dash.Maintenance.TabPageControlCollection 'MaintainanceContainer.TabControlContainer.Items(
-                    Case 3
-                        dash.DashboardTabControl.TabPages.Remove(dash.Maintenance)
-                End Select
-                Me.Hide()
-                dash.Show()
-            End If
-        Else
-            MessageBox.Show("Login Failed!", "PODS-SIS")
+                        Case 3
+                            dash.DashboardTabControl.TabPages.Remove(dash.Maintenance)
+                    End Select
+                    Me.Hide()
+                    dash.Show()
+                End If
+            Else
+                MessageBox.Show("Login Failed!", "PODS-SIS")
         End If
         UsernameTextBox.Text = ""
         PasswordTextBox.Text = ""

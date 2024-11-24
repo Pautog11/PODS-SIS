@@ -203,6 +203,7 @@ Partial Class Maintenance
         '
         Me.Dosage.Controls.Add(Me.Dosage1)
         Me.Dosage.Location = New System.Drawing.Point(4, 44)
+        Me.Dosage.Margin = New System.Windows.Forms.Padding(0)
         Me.Dosage.Name = "Dosage"
         Me.Dosage.Padding = New System.Windows.Forms.Padding(3)
         Me.Dosage.Size = New System.Drawing.Size(1279, 492)
@@ -212,8 +213,10 @@ Partial Class Maintenance
         '
         'Dosage1
         '
+        Me.Dosage1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Dosage1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Dosage1.Location = New System.Drawing.Point(3, 3)
+        Me.Dosage1.Margin = New System.Windows.Forms.Padding(0)
         Me.Dosage1.Name = "Dosage1"
         Me.Dosage1.Size = New System.Drawing.Size(1273, 486)
         Me.Dosage1.TabIndex = 0

@@ -23,7 +23,6 @@ Partial Class SupplierDialog
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.CompanyNameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.CompanyContactNumberTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.FirstnameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.CompanyAddressTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.LastnameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
@@ -39,6 +38,7 @@ Partial Class SupplierDialog
         Me.FooterLayoutPanel = New System.Windows.Forms.FlowLayoutPanel()
         Me.DeleteSupplierButton = New Guna.UI2.WinForms.Guna2Button()
         Me.AddSupplierButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.CPTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.FooterLayoutPanel.SuspendLayout()
@@ -65,28 +65,6 @@ Partial Class SupplierDialog
         Me.CompanyNameTextBox.SelectedText = ""
         Me.CompanyNameTextBox.Size = New System.Drawing.Size(200, 36)
         Me.CompanyNameTextBox.TabIndex = 0
-        '
-        'CompanyContactNumberTextBox
-        '
-        Me.CompanyContactNumberTextBox.BorderColor = System.Drawing.Color.Gray
-        Me.CompanyContactNumberTextBox.BorderRadius = 10
-        Me.CompanyContactNumberTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.CompanyContactNumberTextBox.DefaultText = ""
-        Me.CompanyContactNumberTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.CompanyContactNumberTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.CompanyContactNumberTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.CompanyContactNumberTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.CompanyContactNumberTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CompanyContactNumberTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.CompanyContactNumberTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CompanyContactNumberTextBox.Location = New System.Drawing.Point(45, 92)
-        Me.CompanyContactNumberTextBox.MaxLength = 13
-        Me.CompanyContactNumberTextBox.Name = "CompanyContactNumberTextBox"
-        Me.CompanyContactNumberTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.CompanyContactNumberTextBox.PlaceholderText = "Ex. (09123456789)"
-        Me.CompanyContactNumberTextBox.SelectedText = ""
-        Me.CompanyContactNumberTextBox.Size = New System.Drawing.Size(200, 36)
-        Me.CompanyContactNumberTextBox.TabIndex = 1
         '
         'FirstnameTextBox
         '
@@ -178,6 +156,7 @@ Partial Class SupplierDialog
         '
         'Guna2Panel1
         '
+        Me.Guna2Panel1.Controls.Add(Me.CPTextBox)
         Me.Guna2Panel1.Controls.Add(Me.Label6)
         Me.Guna2Panel1.Controls.Add(Me.Label5)
         Me.Guna2Panel1.Controls.Add(Me.Label4)
@@ -186,7 +165,6 @@ Partial Class SupplierDialog
         Me.Guna2Panel1.Controls.Add(Me.Label2)
         Me.Guna2Panel1.Controls.Add(Me.CompanyNameTextBox)
         Me.Guna2Panel1.Controls.Add(Me.PhoneNumberTextBox)
-        Me.Guna2Panel1.Controls.Add(Me.CompanyContactNumberTextBox)
         Me.Guna2Panel1.Controls.Add(Me.LastnameTextBox)
         Me.Guna2Panel1.Controls.Add(Me.CompanyAddressTextBox)
         Me.Guna2Panel1.Controls.Add(Me.FirstnameTextBox)
@@ -316,6 +294,28 @@ Partial Class SupplierDialog
         Me.AddSupplierButton.TabIndex = 5
         Me.AddSupplierButton.Text = "Add"
         '
+        'CPTextBox
+        '
+        Me.CPTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.CPTextBox.BorderRadius = 10
+        Me.CPTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.CPTextBox.DefaultText = ""
+        Me.CPTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.CPTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.CPTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.CPTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.CPTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CPTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.CPTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CPTextBox.Location = New System.Drawing.Point(45, 92)
+        Me.CPTextBox.MaxLength = 50
+        Me.CPTextBox.Name = "CPTextBox"
+        Me.CPTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.CPTextBox.PlaceholderText = "Enter Company Name"
+        Me.CPTextBox.SelectedText = ""
+        Me.CPTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.CPTextBox.TabIndex = 24
+        '
         'SupplierDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -338,7 +338,6 @@ Partial Class SupplierDialog
     End Sub
 
     Friend WithEvents CompanyNameTextBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents CompanyContactNumberTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents FirstnameTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents CompanyAddressTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents LastnameTextBox As Guna.UI2.WinForms.Guna2TextBox
@@ -354,4 +353,5 @@ Partial Class SupplierDialog
     Friend WithEvents Label3 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
+    Friend WithEvents CPTextBox As Guna.UI2.WinForms.Guna2TextBox
 End Class

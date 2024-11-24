@@ -26,13 +26,13 @@ Partial Class Login
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Guna2ImageButton1 = New Guna.UI2.WinForms.Guna2ImageButton()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Guna2CheckBox1 = New Guna.UI2.WinForms.Guna2CheckBox()
         Me.LoginButton = New Guna.UI2.WinForms.Guna2Button()
         Me.PasswordTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.UsernameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2ControlBox1 = New Guna.UI2.WinForms.Guna2ControlBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
@@ -101,6 +101,24 @@ Partial Class Login
         Me.Guna2Panel1.Size = New System.Drawing.Size(300, 403)
         Me.Guna2Panel1.TabIndex = 0
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(18, 135)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(53, 13)
+        Me.Label2.TabIndex = 29
+        Me.Label2.Text = "Password"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(18, 80)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(55, 13)
+        Me.Label1.TabIndex = 4
+        Me.Label1.Text = "Username"
+        '
         'Guna2CheckBox1
         '
         Me.Guna2CheckBox1.AutoSize = True
@@ -152,7 +170,7 @@ Partial Class Login
         Me.PasswordTextBox.Location = New System.Drawing.Point(44, 151)
         Me.PasswordTextBox.Name = "PasswordTextBox"
         Me.PasswordTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.PasswordTextBox.PlaceholderText = "Password"
+        Me.PasswordTextBox.PlaceholderText = ""
         Me.PasswordTextBox.SelectedText = ""
         Me.PasswordTextBox.Size = New System.Drawing.Size(200, 36)
         Me.PasswordTextBox.TabIndex = 1
@@ -174,7 +192,7 @@ Partial Class Login
         Me.UsernameTextBox.Location = New System.Drawing.Point(44, 96)
         Me.UsernameTextBox.Name = "UsernameTextBox"
         Me.UsernameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.UsernameTextBox.PlaceholderText = "Username"
+        Me.UsernameTextBox.PlaceholderText = "Ex. Juan"
         Me.UsernameTextBox.SelectedText = ""
         Me.UsernameTextBox.Size = New System.Drawing.Size(200, 36)
         Me.UsernameTextBox.TabIndex = 0
@@ -190,24 +208,6 @@ Partial Class Login
         Me.Guna2ControlBox1.Name = "Guna2ControlBox1"
         Me.Guna2ControlBox1.Size = New System.Drawing.Size(45, 29)
         Me.Guna2ControlBox1.TabIndex = 1
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(18, 80)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(55, 13)
-        Me.Label1.TabIndex = 4
-        Me.Label1.Text = "Username"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(18, 135)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(53, 13)
-        Me.Label2.TabIndex = 29
-        Me.Label2.Text = "Password"
         '
         'Login
         '

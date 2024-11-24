@@ -644,3 +644,4 @@ C:\Users\Christian\Desktop\tite branch\PODS-SIS\Pods-Sales&InventorySystem\obj\D
 C:\Users\Christian\Desktop\tite branch\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.PasswordDialog.resources
 C:\Users\Christian\Desktop\tite branch\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.PricingDialog.resources
 C:\Users\Christian\Desktop\tite branch\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Dosage.resources
+C:\Users\Christian\Desktop\tite branch\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.SignUp.resources

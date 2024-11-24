@@ -76,11 +76,12 @@ Public Class BaseSupplier
             Return New DataTable
         End Try
     End Function
-    Public Shared Function Exists(data As String) As Integer
+    Public Shared Function Exists(fn As String, ln As String) As Integer
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblsuppliers WHERE lower(company_name) = @data", conn)
-            cmd.Parameters.AddWithValue("@data", data.Trim.ToLower)
+            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblsuppliers WHERE lower(first_name) = @first_name AND lower(last_name) = @last_name", conn)
+            cmd.Parameters.AddWithValue("@first_name", fn.Trim.ToLower)
+            cmd.Parameters.AddWithValue("@last_name", ln.Trim.ToLower)
 
             Return cmd.ExecuteScalar()
         Catch ex As Exception

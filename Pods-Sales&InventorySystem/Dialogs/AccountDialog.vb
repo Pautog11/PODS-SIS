@@ -123,6 +123,10 @@ Public Class AccountDialog
             Else
                 result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
             End If
+
+            If Not CType(result(i), Object())(0) AndAlso Not String.IsNullOrEmpty(controls(i).Text) Then
+                Exit Sub
+            End If
         Next
         If RoleComboBox.SelectedValue = -1 OrElse RoleComboBox.SelectedIndex = -1 Then
             'MessageBox.Show("Please select a role", "POS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
