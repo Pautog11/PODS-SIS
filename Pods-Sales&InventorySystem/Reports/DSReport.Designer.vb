@@ -2306,12 +2306,6 @@ Partial Public Class DSReport
         
         Private columntotal_revenue As Global.System.Data.DataColumn
         
-        Private columntotal_returns As Global.System.Data.DataColumn
-        
-        Private columnstart_date As Global.System.Data.DataColumn
-        
-        Private columnend_date As Global.System.Data.DataColumn
-        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -2388,30 +2382,6 @@ Partial Public Class DSReport
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property total_returnsColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columntotal_returns
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property start_dateColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnstart_date
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property end_dateColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnend_date
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -2448,9 +2418,9 @@ Partial Public Class DSReport
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddDT_SalesReportRow(ByVal transaction_number As String, ByVal total As String, ByVal _date As String, ByVal cashier As String, ByVal total_revenue As String, ByVal total_returns As String, ByVal start_date As String, ByVal end_date As String) As DT_SalesReportRow
+        Public Overloads Function AddDT_SalesReportRow(ByVal transaction_number As String, ByVal total As String, ByVal _date As String, ByVal cashier As String, ByVal total_revenue As String) As DT_SalesReportRow
             Dim rowDT_SalesReportRow As DT_SalesReportRow = CType(Me.NewRow,DT_SalesReportRow)
-            Dim columnValuesArray() As Object = New Object() {transaction_number, total, _date, cashier, total_revenue, total_returns, start_date, end_date}
+            Dim columnValuesArray() As Object = New Object() {transaction_number, total, _date, cashier, total_revenue}
             rowDT_SalesReportRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowDT_SalesReportRow)
             Return rowDT_SalesReportRow
@@ -2478,9 +2448,6 @@ Partial Public Class DSReport
             Me.columndate = MyBase.Columns("date")
             Me.columncashier = MyBase.Columns("cashier")
             Me.columntotal_revenue = MyBase.Columns("total_revenue")
-            Me.columntotal_returns = MyBase.Columns("total_returns")
-            Me.columnstart_date = MyBase.Columns("start_date")
-            Me.columnend_date = MyBase.Columns("end_date")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2499,12 +2466,6 @@ Partial Public Class DSReport
             MyBase.Columns.Add(Me.columncashier)
             Me.columntotal_revenue = New Global.System.Data.DataColumn("total_revenue", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columntotal_revenue)
-            Me.columntotal_returns = New Global.System.Data.DataColumn("total_returns", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columntotal_returns)
-            Me.columnstart_date = New Global.System.Data.DataColumn("start_date", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnstart_date)
-            Me.columnend_date = New Global.System.Data.DataColumn("end_date", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnend_date)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3061,7 +3022,7 @@ Partial Public Class DSReport
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddDT_SalesViewRow(ByVal start_date As String, ByVal end_date As String, ByVal total_sales As String, ByVal total_returns As String) As DT_SalesViewRow
+        Public Overloads Function AddDT_SalesViewRow(ByVal start_date As Date, ByVal end_date As Date, ByVal total_sales As String, ByVal total_returns As String) As DT_SalesViewRow
             Dim rowDT_SalesViewRow As DT_SalesViewRow = CType(Me.NewRow,DT_SalesViewRow)
             Dim columnValuesArray() As Object = New Object() {start_date, end_date, total_sales, total_returns}
             rowDT_SalesViewRow.ItemArray = columnValuesArray
@@ -3095,9 +3056,9 @@ Partial Public Class DSReport
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnstart_date = New Global.System.Data.DataColumn("start_date", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnstart_date = New Global.System.Data.DataColumn("start_date", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnstart_date)
-            Me.columnend_date = New Global.System.Data.DataColumn("end_date", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnend_date = New Global.System.Data.DataColumn("end_date", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnend_date)
             Me.columntotal_sales = New Global.System.Data.DataColumn("total_sales", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columntotal_sales)
@@ -4501,51 +4462,6 @@ Partial Public Class DSReport
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property total_returns() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDT_SalesReport.total_returnsColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'total_returns' in table 'DT_SalesReport' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDT_SalesReport.total_returnsColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property start_date() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDT_SalesReport.start_dateColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'start_date' in table 'DT_SalesReport' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDT_SalesReport.start_dateColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property end_date() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDT_SalesReport.end_dateColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'end_date' in table 'DT_SalesReport' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDT_SalesReport.end_dateColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function Istransaction_numberNull() As Boolean
             Return Me.IsNull(Me.tableDT_SalesReport.transaction_numberColumn)
         End Function
@@ -4602,42 +4518,6 @@ Partial Public Class DSReport
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub Settotal_revenueNull()
             Me(Me.tableDT_SalesReport.total_revenueColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Istotal_returnsNull() As Boolean
-            Return Me.IsNull(Me.tableDT_SalesReport.total_returnsColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Settotal_returnsNull()
-            Me(Me.tableDT_SalesReport.total_returnsColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Isstart_dateNull() As Boolean
-            Return Me.IsNull(Me.tableDT_SalesReport.start_dateColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Setstart_dateNull()
-            Me(Me.tableDT_SalesReport.start_dateColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Isend_dateNull() As Boolean
-            Return Me.IsNull(Me.tableDT_SalesReport.end_dateColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Setend_dateNull()
-            Me(Me.tableDT_SalesReport.end_dateColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -4809,10 +4689,10 @@ Partial Public Class DSReport
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property start_date() As String
+        Public Property start_date() As Date
             Get
                 Try 
-                    Return CType(Me(Me.tableDT_SalesView.start_dateColumn),String)
+                    Return CType(Me(Me.tableDT_SalesView.start_dateColumn),Date)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'start_date' in table 'DT_SalesView' is DBNull.", e)
                 End Try
@@ -4824,10 +4704,10 @@ Partial Public Class DSReport
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property end_date() As String
+        Public Property end_date() As Date
             Get
                 Try 
-                    Return CType(Me(Me.tableDT_SalesView.end_dateColumn),String)
+                    Return CType(Me(Me.tableDT_SalesView.end_dateColumn),Date)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("The value for column 'end_date' in table 'DT_SalesView' is DBNull.", e)
                 End Try
