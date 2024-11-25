@@ -61,7 +61,7 @@ Partial Class ReturnDialog
         Me.SaveButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.SaveButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.SaveButton.ForeColor = System.Drawing.Color.White
-        Me.SaveButton.Location = New System.Drawing.Point(113, 264)
+        Me.SaveButton.Location = New System.Drawing.Point(113, 257)
         Me.SaveButton.Margin = New System.Windows.Forms.Padding(3, 7, 3, 3)
         Me.SaveButton.Name = "SaveButton"
         Me.SaveButton.Size = New System.Drawing.Size(150, 35)
@@ -87,6 +87,7 @@ Partial Class ReturnDialog
         Me.CostTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CostTextBox.PlaceholderText = "0.00"
         Me.CostTextBox.SelectedText = ""
+        Me.CostTextBox.ShortcutsEnabled = False
         Me.CostTextBox.Size = New System.Drawing.Size(200, 36)
         Me.CostTextBox.TabIndex = 22
         '
@@ -109,6 +110,7 @@ Partial Class ReturnDialog
         Me.QuantityTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.QuantityTextBox.PlaceholderText = "0"
         Me.QuantityTextBox.SelectedText = ""
+        Me.QuantityTextBox.ShortcutsEnabled = False
         Me.QuantityTextBox.Size = New System.Drawing.Size(200, 36)
         Me.QuantityTextBox.TabIndex = 21
         '
@@ -131,6 +133,7 @@ Partial Class ReturnDialog
         Me.StocksTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.StocksTextBox.PlaceholderText = "0"
         Me.StocksTextBox.SelectedText = ""
+        Me.StocksTextBox.ShortcutsEnabled = False
         Me.StocksTextBox.Size = New System.Drawing.Size(200, 36)
         Me.StocksTextBox.TabIndex = 20
         '
@@ -148,18 +151,18 @@ Partial Class ReturnDialog
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(21, 80)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(28, 13)
+        Me.Label1.Size = New System.Drawing.Size(31, 13)
         Me.Label1.TabIndex = 24
-        Me.Label1.Text = "Cost"
+        Me.Label1.Text = "Price"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(21, 135)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(40, 13)
+        Me.Label3.Size = New System.Drawing.Size(70, 13)
         Me.Label3.TabIndex = 25
-        Me.Label3.Text = "Stocks"
+        Me.Label3.Text = "Sold Quantity"
         '
         'Label4
         '
@@ -190,7 +193,7 @@ Partial Class ReturnDialog
         Me.Name = "ReturnDialog"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "ReturnDialog"
+        Me.Text = "Return Dialog"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

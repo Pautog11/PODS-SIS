@@ -145,6 +145,7 @@ Partial Class Dosage
         Me.AccountSearchTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.AccountSearchTextBox.PlaceholderText = "Search"
         Me.AccountSearchTextBox.SelectedText = ""
+        Me.AccountSearchTextBox.ShortcutsEnabled = False
         Me.AccountSearchTextBox.Size = New System.Drawing.Size(200, 36)
         Me.AccountSearchTextBox.TabIndex = 3
         '

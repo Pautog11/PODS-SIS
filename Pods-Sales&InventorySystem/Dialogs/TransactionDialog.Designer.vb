@@ -290,6 +290,7 @@ Partial Class TransactionDialog
         Me.VatableTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.VatableTextBox.PlaceholderText = ""
         Me.VatableTextBox.SelectedText = ""
+        Me.VatableTextBox.ShortcutsEnabled = False
         Me.VatableTextBox.Size = New System.Drawing.Size(125, 36)
         Me.VatableTextBox.TabIndex = 32
         '
@@ -320,6 +321,7 @@ Partial Class TransactionDialog
         Me.ChangeTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ChangeTextBox.PlaceholderText = ""
         Me.ChangeTextBox.SelectedText = ""
+        Me.ChangeTextBox.ShortcutsEnabled = False
         Me.ChangeTextBox.Size = New System.Drawing.Size(125, 36)
         Me.ChangeTextBox.TabIndex = 28
         '
@@ -340,6 +342,7 @@ Partial Class TransactionDialog
         Me.CashTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CashTextBox.PlaceholderText = ""
         Me.CashTextBox.SelectedText = ""
+        Me.CashTextBox.ShortcutsEnabled = False
         Me.CashTextBox.Size = New System.Drawing.Size(125, 36)
         Me.CashTextBox.TabIndex = 27
         '
@@ -360,6 +363,7 @@ Partial Class TransactionDialog
         Me.TotalTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.TotalTextBox.PlaceholderText = ""
         Me.TotalTextBox.SelectedText = ""
+        Me.TotalTextBox.ShortcutsEnabled = False
         Me.TotalTextBox.Size = New System.Drawing.Size(125, 36)
         Me.TotalTextBox.TabIndex = 21
         '
@@ -380,6 +384,7 @@ Partial Class TransactionDialog
         Me.VatTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.VatTextBox.PlaceholderText = ""
         Me.VatTextBox.SelectedText = ""
+        Me.VatTextBox.ShortcutsEnabled = False
         Me.VatTextBox.Size = New System.Drawing.Size(125, 36)
         Me.VatTextBox.TabIndex = 20
         '
@@ -400,6 +405,7 @@ Partial Class TransactionDialog
         Me.SubtotalTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.SubtotalTextBox.PlaceholderText = ""
         Me.SubtotalTextBox.SelectedText = ""
+        Me.SubtotalTextBox.ShortcutsEnabled = False
         Me.SubtotalTextBox.Size = New System.Drawing.Size(125, 36)
         Me.SubtotalTextBox.TabIndex = 19
         '

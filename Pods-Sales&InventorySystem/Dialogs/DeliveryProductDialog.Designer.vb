@@ -24,6 +24,7 @@ Partial Class DeliveryProductDialog
     Private Sub InitializeComponent()
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
         Me.AddDeliveryButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.VoidButton = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.ProductTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.ChangeButton = New Guna.UI2.WinForms.Guna2Button()
@@ -44,7 +45,6 @@ Partial Class DeliveryProductDialog
         Me.CostTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.BarcodeTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.AccountDialogLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
-        Me.VoidButton = New Guna.UI2.WinForms.Guna2Button()
         Me.FlowLayoutPanel2.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.AccountDialogLayoutPanel.SuspendLayout()
@@ -81,6 +81,25 @@ Partial Class DeliveryProductDialog
         Me.AddDeliveryButton.Size = New System.Drawing.Size(128, 37)
         Me.AddDeliveryButton.TabIndex = 3
         Me.AddDeliveryButton.Text = "Add"
+        '
+        'VoidButton
+        '
+        Me.VoidButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.VoidButton.BackColor = System.Drawing.Color.Transparent
+        Me.VoidButton.BorderRadius = 15
+        Me.VoidButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.VoidButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.VoidButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.VoidButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.VoidButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.VoidButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.VoidButton.ForeColor = System.Drawing.Color.White
+        Me.VoidButton.Location = New System.Drawing.Point(61, 8)
+        Me.VoidButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
+        Me.VoidButton.Name = "VoidButton"
+        Me.VoidButton.Size = New System.Drawing.Size(128, 37)
+        Me.VoidButton.TabIndex = 4
+        Me.VoidButton.Text = "Void"
         '
         'Guna2Panel1
         '
@@ -128,6 +147,7 @@ Partial Class DeliveryProductDialog
         Me.ProductTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ProductTextBox.PlaceholderText = "Ex. Biogesic"
         Me.ProductTextBox.SelectedText = ""
+        Me.ProductTextBox.ShortcutsEnabled = False
         Me.ProductTextBox.Size = New System.Drawing.Size(142, 36)
         Me.ProductTextBox.TabIndex = 36
         '
@@ -192,6 +212,7 @@ Partial Class DeliveryProductDialog
         Me.txtPrays.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txtPrays.PlaceholderText = "0.00"
         Me.txtPrays.SelectedText = ""
+        Me.txtPrays.ShortcutsEnabled = False
         Me.txtPrays.Size = New System.Drawing.Size(79, 36)
         Me.txtPrays.TabIndex = 32
         '
@@ -315,11 +336,12 @@ Partial Class DeliveryProductDialog
         Me.QuantityTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.QuantityTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.QuantityTextBox.Location = New System.Drawing.Point(66, 341)
-        Me.QuantityTextBox.MaxLength = 4
+        Me.QuantityTextBox.MaxLength = 5
         Me.QuantityTextBox.Name = "QuantityTextBox"
         Me.QuantityTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.QuantityTextBox.PlaceholderText = "0"
         Me.QuantityTextBox.SelectedText = ""
+        Me.QuantityTextBox.ShortcutsEnabled = False
         Me.QuantityTextBox.Size = New System.Drawing.Size(200, 36)
         Me.QuantityTextBox.TabIndex = 4
         '
@@ -341,6 +363,7 @@ Partial Class DeliveryProductDialog
         Me.CostTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CostTextBox.PlaceholderText = "0.00"
         Me.CostTextBox.SelectedText = ""
+        Me.CostTextBox.ShortcutsEnabled = False
         Me.CostTextBox.Size = New System.Drawing.Size(85, 36)
         Me.CostTextBox.TabIndex = 3
         '
@@ -363,6 +386,7 @@ Partial Class DeliveryProductDialog
         Me.BarcodeTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.BarcodeTextBox.PlaceholderText = "Scan Here"
         Me.BarcodeTextBox.SelectedText = ""
+        Me.BarcodeTextBox.ShortcutsEnabled = False
         Me.BarcodeTextBox.Size = New System.Drawing.Size(200, 36)
         Me.BarcodeTextBox.TabIndex = 2
         '
@@ -381,25 +405,6 @@ Partial Class DeliveryProductDialog
         Me.AccountDialogLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.AccountDialogLayoutPanel.Size = New System.Drawing.Size(326, 517)
         Me.AccountDialogLayoutPanel.TabIndex = 19
-        '
-        'VoidButton
-        '
-        Me.VoidButton.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.VoidButton.BackColor = System.Drawing.Color.Transparent
-        Me.VoidButton.BorderRadius = 15
-        Me.VoidButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.VoidButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.VoidButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.VoidButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.VoidButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.VoidButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.VoidButton.ForeColor = System.Drawing.Color.White
-        Me.VoidButton.Location = New System.Drawing.Point(61, 8)
-        Me.VoidButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
-        Me.VoidButton.Name = "VoidButton"
-        Me.VoidButton.Size = New System.Drawing.Size(128, 37)
-        Me.VoidButton.TabIndex = 4
-        Me.VoidButton.Text = "Void"
         '
         'DeliveryProductDialog
         '

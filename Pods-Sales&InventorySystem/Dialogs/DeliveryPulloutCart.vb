@@ -93,4 +93,21 @@ Public Class DeliveryPulloutCart
         Me.Close()
         _parent.Close()
     End Sub
+
+    Private Sub DeliveryPulloutDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DeliveryPulloutDataGridView.CellClick
+        If DeliveryPulloutDataGridView.Rows.Count > 0 Then
+            Dim selectedRows As DataGridViewSelectedRowCollection = DeliveryPulloutDataGridView.SelectedRows
+            Dim row As DataGridViewRow = selectedRows(0)
+            Dim data As New Dictionary(Of String, String) From {
+                {"did", If(String.IsNullOrEmpty(_data.Item("id")), 0, _data.Item("id"))},
+                {"id", If(String.IsNullOrEmpty(row.Cells(0).Value.ToString()), 0, row.Cells(0).Value.ToString())},
+                {"pid", If(String.IsNullOrEmpty(row.Cells(1).Value.ToString()), 0, row.Cells(1).Value.ToString())},
+                {"name", If(String.IsNullOrEmpty(row.Cells(2).Value.ToString()), 0, row.Cells(2).Value.ToString())},
+                {"exd", If(String.IsNullOrEmpty(row.Cells(3).Value.ToString()), 0, row.Cells(3).Value.ToString())},
+                {"cost", If(String.IsNullOrEmpty(row.Cells(4).Value.ToString()), 0, row.Cells(4).Value.ToString())}
+            }
+            Dim dialog As New PullOutProductDialog(data2:=data, parent:=Me)
+            dialog.ShowDialog()
+        End If
+    End Sub
 End Class

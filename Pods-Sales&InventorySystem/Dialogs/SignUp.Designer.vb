@@ -55,6 +55,7 @@ Partial Class SignUp
         Me.FirstnameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.FirstnameTextBox.PlaceholderText = "Firstname"
         Me.FirstnameTextBox.SelectedText = ""
+        Me.FirstnameTextBox.ShortcutsEnabled = False
         Me.FirstnameTextBox.Size = New System.Drawing.Size(173, 36)
         Me.FirstnameTextBox.TabIndex = 23
         '
@@ -76,6 +77,7 @@ Partial Class SignUp
         Me.LastnameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.LastnameTextBox.PlaceholderText = "Lastname"
         Me.LastnameTextBox.SelectedText = ""
+        Me.LastnameTextBox.ShortcutsEnabled = False
         Me.LastnameTextBox.Size = New System.Drawing.Size(173, 36)
         Me.LastnameTextBox.TabIndex = 24
         '
@@ -98,6 +100,7 @@ Partial Class SignUp
         Me.Phone_numberTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.Phone_numberTextBox.PlaceholderText = "Phone Number"
         Me.Phone_numberTextBox.SelectedText = ""
+        Me.Phone_numberTextBox.ShortcutsEnabled = False
         Me.Phone_numberTextBox.Size = New System.Drawing.Size(173, 36)
         Me.Phone_numberTextBox.TabIndex = 25
         '
@@ -119,6 +122,7 @@ Partial Class SignUp
         Me.AddressTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.AddressTextBox.PlaceholderText = "Address"
         Me.AddressTextBox.SelectedText = ""
+        Me.AddressTextBox.ShortcutsEnabled = False
         Me.AddressTextBox.Size = New System.Drawing.Size(173, 36)
         Me.AddressTextBox.TabIndex = 26
         '
@@ -140,6 +144,7 @@ Partial Class SignUp
         Me.UsernameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.UsernameTextBox.PlaceholderText = "Username"
         Me.UsernameTextBox.SelectedText = ""
+        Me.UsernameTextBox.ShortcutsEnabled = False
         Me.UsernameTextBox.Size = New System.Drawing.Size(173, 36)
         Me.UsernameTextBox.TabIndex = 22
         '
@@ -161,6 +166,7 @@ Partial Class SignUp
         Me.PasswordTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.PasswordTextBox.PlaceholderText = "Password"
         Me.PasswordTextBox.SelectedText = ""
+        Me.PasswordTextBox.ShortcutsEnabled = False
         Me.PasswordTextBox.Size = New System.Drawing.Size(173, 36)
         Me.PasswordTextBox.TabIndex = 23
         '

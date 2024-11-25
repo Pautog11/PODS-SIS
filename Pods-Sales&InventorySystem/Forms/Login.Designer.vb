@@ -169,9 +169,10 @@ Partial Class Login
         Me.PasswordTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.PasswordTextBox.Location = New System.Drawing.Point(44, 151)
         Me.PasswordTextBox.Name = "PasswordTextBox"
-        Me.PasswordTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.PasswordTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.PasswordTextBox.PlaceholderText = ""
         Me.PasswordTextBox.SelectedText = ""
+        Me.PasswordTextBox.ShortcutsEnabled = False
         Me.PasswordTextBox.Size = New System.Drawing.Size(200, 36)
         Me.PasswordTextBox.TabIndex = 1
         '
@@ -192,8 +193,9 @@ Partial Class Login
         Me.UsernameTextBox.Location = New System.Drawing.Point(44, 96)
         Me.UsernameTextBox.Name = "UsernameTextBox"
         Me.UsernameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.UsernameTextBox.PlaceholderText = "Ex. Juan"
+        Me.UsernameTextBox.PlaceholderText = ""
         Me.UsernameTextBox.SelectedText = ""
+        Me.UsernameTextBox.ShortcutsEnabled = False
         Me.UsernameTextBox.Size = New System.Drawing.Size(200, 36)
         Me.UsernameTextBox.TabIndex = 0
         '

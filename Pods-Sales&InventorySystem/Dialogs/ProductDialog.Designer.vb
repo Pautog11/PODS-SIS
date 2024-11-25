@@ -22,6 +22,7 @@ Partial Class ProductDialog
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.DeleteProductButton = New Guna.UI2.WinForms.Guna2Button()
@@ -51,6 +52,7 @@ Partial Class ProductDialog
         Me.DescriptionTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.ProductNameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.BarcodeTextBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Guna2AnimateWindow1 = New Guna.UI2.WinForms.Guna2AnimateWindow(Me.components)
         Me.TableLayoutPanel1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
@@ -294,11 +296,12 @@ Partial Class ProductDialog
         Me.ManufacturerTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.ManufacturerTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ManufacturerTextBox.Location = New System.Drawing.Point(323, 34)
-        Me.ManufacturerTextBox.MaxLength = 10
+        Me.ManufacturerTextBox.MaxLength = 15
         Me.ManufacturerTextBox.Name = "ManufacturerTextBox"
         Me.ManufacturerTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ManufacturerTextBox.PlaceholderText = "Ex. (Unilab or Ritemed etc.,)"
         Me.ManufacturerTextBox.SelectedText = ""
+        Me.ManufacturerTextBox.ShortcutsEnabled = False
         Me.ManufacturerTextBox.Size = New System.Drawing.Size(200, 36)
         Me.ManufacturerTextBox.TabIndex = 14
         '
@@ -321,6 +324,7 @@ Partial Class ProductDialog
         Me.StrengthTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.StrengthTextBox.PlaceholderText = "0"
         Me.StrengthTextBox.SelectedText = ""
+        Me.StrengthTextBox.ShortcutsEnabled = False
         Me.StrengthTextBox.Size = New System.Drawing.Size(79, 36)
         Me.StrengthTextBox.TabIndex = 13
         '
@@ -343,6 +347,7 @@ Partial Class ProductDialog
         Me.DosageTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.DosageTextBox.PlaceholderText = "Ex. (Capsule or Tablet etc.,)"
         Me.DosageTextBox.SelectedText = ""
+        Me.DosageTextBox.ShortcutsEnabled = False
         Me.DosageTextBox.Size = New System.Drawing.Size(200, 36)
         Me.DosageTextBox.TabIndex = 12
         '
@@ -365,6 +370,7 @@ Partial Class ProductDialog
         Me.SkuTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.SkuTextBox.PlaceholderText = ""
         Me.SkuTextBox.SelectedText = ""
+        Me.SkuTextBox.ShortcutsEnabled = False
         Me.SkuTextBox.Size = New System.Drawing.Size(200, 36)
         Me.SkuTextBox.TabIndex = 11
         '
@@ -387,6 +393,7 @@ Partial Class ProductDialog
         Me.CostTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CostTextBox.PlaceholderText = "0.00"
         Me.CostTextBox.SelectedText = ""
+        Me.CostTextBox.ShortcutsEnabled = False
         Me.CostTextBox.Size = New System.Drawing.Size(200, 36)
         Me.CostTextBox.TabIndex = 10
         '
@@ -426,6 +433,7 @@ Partial Class ProductDialog
         Me.StockLevelTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.StockLevelTextBox.PlaceholderText = "0"
         Me.StockLevelTextBox.SelectedText = ""
+        Me.StockLevelTextBox.ShortcutsEnabled = False
         Me.StockLevelTextBox.Size = New System.Drawing.Size(200, 36)
         Me.StockLevelTextBox.TabIndex = 8
         '
@@ -448,6 +456,7 @@ Partial Class ProductDialog
         Me.PriceTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.PriceTextBox.PlaceholderText = "0.00"
         Me.PriceTextBox.SelectedText = ""
+        Me.PriceTextBox.ShortcutsEnabled = False
         Me.PriceTextBox.Size = New System.Drawing.Size(200, 36)
         Me.PriceTextBox.TabIndex = 7
         '
@@ -465,11 +474,13 @@ Partial Class ProductDialog
         Me.DescriptionTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DescriptionTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DescriptionTextBox.Location = New System.Drawing.Point(64, 263)
-        Me.DescriptionTextBox.MaxLength = 20
+        Me.DescriptionTextBox.MaxLength = 50
+        Me.DescriptionTextBox.Multiline = True
         Me.DescriptionTextBox.Name = "DescriptionTextBox"
         Me.DescriptionTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.DescriptionTextBox.PlaceholderText = ""
         Me.DescriptionTextBox.SelectedText = ""
+        Me.DescriptionTextBox.ShortcutsEnabled = False
         Me.DescriptionTextBox.Size = New System.Drawing.Size(200, 64)
         Me.DescriptionTextBox.TabIndex = 5
         '
@@ -487,11 +498,12 @@ Partial Class ProductDialog
         Me.ProductNameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.ProductNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ProductNameTextBox.Location = New System.Drawing.Point(64, 207)
-        Me.ProductNameTextBox.MaxLength = 15
+        Me.ProductNameTextBox.MaxLength = 30
         Me.ProductNameTextBox.Name = "ProductNameTextBox"
         Me.ProductNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ProductNameTextBox.PlaceholderText = "Ex. (Biogesic)"
         Me.ProductNameTextBox.SelectedText = ""
+        Me.ProductNameTextBox.ShortcutsEnabled = False
         Me.ProductNameTextBox.Size = New System.Drawing.Size(200, 36)
         Me.ProductNameTextBox.TabIndex = 4
         '
@@ -514,6 +526,7 @@ Partial Class ProductDialog
         Me.BarcodeTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.BarcodeTextBox.PlaceholderText = "Scan Here"
         Me.BarcodeTextBox.SelectedText = ""
+        Me.BarcodeTextBox.ShortcutsEnabled = False
         Me.BarcodeTextBox.Size = New System.Drawing.Size(200, 36)
         Me.BarcodeTextBox.TabIndex = 3
         '
@@ -566,4 +579,5 @@ Partial Class ProductDialog
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label12 As Label
+    Friend WithEvents Guna2AnimateWindow1 As Guna.UI2.WinForms.Guna2AnimateWindow
 End Class

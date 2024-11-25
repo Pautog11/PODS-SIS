@@ -277,6 +277,7 @@ Partial Class DeliveryCartDialog
         Me.TransactionDeliveryTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.TransactionDeliveryTextBox.PlaceholderText = ""
         Me.TransactionDeliveryTextBox.SelectedText = ""
+        Me.TransactionDeliveryTextBox.ShortcutsEnabled = False
         Me.TransactionDeliveryTextBox.Size = New System.Drawing.Size(166, 36)
         Me.TransactionDeliveryTextBox.TabIndex = 4
         '

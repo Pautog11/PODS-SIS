@@ -150,6 +150,7 @@ Partial Class CategoryDialog
         Me.DescriptionTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.DescriptionTextBox.PlaceholderText = ""
         Me.DescriptionTextBox.SelectedText = ""
+        Me.DescriptionTextBox.ShortcutsEnabled = False
         Me.DescriptionTextBox.Size = New System.Drawing.Size(200, 36)
         Me.DescriptionTextBox.TabIndex = 1
         '
@@ -171,6 +172,7 @@ Partial Class CategoryDialog
         Me.CategoryNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CategoryNameTextBox.PlaceholderText = "Category Name"
         Me.CategoryNameTextBox.SelectedText = ""
+        Me.CategoryNameTextBox.ShortcutsEnabled = False
         Me.CategoryNameTextBox.Size = New System.Drawing.Size(200, 36)
         Me.CategoryNameTextBox.TabIndex = 0
         '

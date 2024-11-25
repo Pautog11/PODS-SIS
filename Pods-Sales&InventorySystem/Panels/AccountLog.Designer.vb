@@ -60,13 +60,14 @@ Partial Class AccountLog
         Me.AccountLogDataGridView.DefaultCellStyle = DataGridViewCellStyle3
         Me.AccountLogDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AccountLogDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.AccountLogDataGridView.Location = New System.Drawing.Point(5, 57)
+        Me.AccountLogDataGridView.Location = New System.Drawing.Point(2, 54)
+        Me.AccountLogDataGridView.Margin = New System.Windows.Forms.Padding(0)
         Me.AccountLogDataGridView.MultiSelect = False
         Me.AccountLogDataGridView.Name = "AccountLogDataGridView"
         Me.AccountLogDataGridView.ReadOnly = True
         Me.AccountLogDataGridView.RowHeadersVisible = False
         Me.AccountLogDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.AccountLogDataGridView.Size = New System.Drawing.Size(888, 487)
+        Me.AccountLogDataGridView.Size = New System.Drawing.Size(894, 490)
         Me.AccountLogDataGridView.TabIndex = 4
         Me.AccountLogDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.AccountLogDataGridView.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -124,6 +125,7 @@ Partial Class AccountLog
         Me.AccountLogSearchTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.AccountLogSearchTextBox.PlaceholderText = "Search"
         Me.AccountLogSearchTextBox.SelectedText = ""
+        Me.AccountLogSearchTextBox.ShortcutsEnabled = False
         Me.AccountLogSearchTextBox.Size = New System.Drawing.Size(200, 36)
         Me.AccountLogSearchTextBox.TabIndex = 3
         '

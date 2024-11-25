@@ -146,6 +146,7 @@ Partial Class Transaction
         Me.DeliverySearchTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.DeliverySearchTextBox.PlaceholderText = "Search"
         Me.DeliverySearchTextBox.SelectedText = ""
+        Me.DeliverySearchTextBox.ShortcutsEnabled = False
         Me.DeliverySearchTextBox.Size = New System.Drawing.Size(200, 36)
         Me.DeliverySearchTextBox.TabIndex = 3
         '

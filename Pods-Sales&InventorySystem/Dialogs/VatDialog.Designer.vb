@@ -45,6 +45,7 @@ Partial Class VatDialog
         Me.VatTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.VatTextBox.PlaceholderText = "0"
         Me.VatTextBox.SelectedText = ""
+        Me.VatTextBox.ShortcutsEnabled = False
         Me.VatTextBox.Size = New System.Drawing.Size(173, 36)
         Me.VatTextBox.TabIndex = 23
         '

@@ -136,6 +136,7 @@ Partial Class SearchDialog
         Me.ProductSearchTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ProductSearchTextBox.PlaceholderText = "Search"
         Me.ProductSearchTextBox.SelectedText = ""
+        Me.ProductSearchTextBox.ShortcutsEnabled = False
         Me.ProductSearchTextBox.Size = New System.Drawing.Size(200, 36)
         Me.ProductSearchTextBox.TabIndex = 4
         '

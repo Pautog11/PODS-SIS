@@ -124,6 +124,7 @@ Partial Class Returns
         Me.ReturnsSearchTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ReturnsSearchTextBox.PlaceholderText = "Search"
         Me.ReturnsSearchTextBox.SelectedText = ""
+        Me.ReturnsSearchTextBox.ShortcutsEnabled = False
         Me.ReturnsSearchTextBox.Size = New System.Drawing.Size(200, 36)
         Me.ReturnsSearchTextBox.TabIndex = 4
         '

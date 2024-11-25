@@ -139,6 +139,7 @@ Partial Class PullOuts
         Me.PulloutSearchTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.PulloutSearchTextBox.PlaceholderText = "Search"
         Me.PulloutSearchTextBox.SelectedText = ""
+        Me.PulloutSearchTextBox.ShortcutsEnabled = False
         Me.PulloutSearchTextBox.Size = New System.Drawing.Size(200, 36)
         Me.PulloutSearchTextBox.TabIndex = 4
         '

@@ -26,6 +26,7 @@
             Dim row As DataGridViewRow = selectedRows(0)
             Dim data As New Dictionary(Of String, String) From {
               {"ref", row.Cells(2).Value.ToString},
+              {"total", row.Cells(4).Value.ToString},
               {"date", row.Cells(5).Value.ToString}
             }
             Dim dialog As New ReturnCartDialog(data:=data)

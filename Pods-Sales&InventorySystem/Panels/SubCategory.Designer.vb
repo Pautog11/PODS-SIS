@@ -144,6 +144,7 @@ Partial Class SubCategory
         Me.SubCategorySearchTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.SubCategorySearchTextBox.PlaceholderText = "Search"
         Me.SubCategorySearchTextBox.SelectedText = ""
+        Me.SubCategorySearchTextBox.ShortcutsEnabled = False
         Me.SubCategorySearchTextBox.Size = New System.Drawing.Size(200, 36)
         Me.SubCategorySearchTextBox.TabIndex = 4
         '

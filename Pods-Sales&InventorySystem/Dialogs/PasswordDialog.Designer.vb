@@ -64,6 +64,7 @@ Partial Class PasswordDialog
         Me.PasswordTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.PasswordTextBox.PlaceholderText = "Must have atleast 6 letters"
         Me.PasswordTextBox.SelectedText = ""
+        Me.PasswordTextBox.ShortcutsEnabled = False
         Me.PasswordTextBox.Size = New System.Drawing.Size(173, 36)
         Me.PasswordTextBox.TabIndex = 24
         '

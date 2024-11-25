@@ -28,6 +28,7 @@ Partial Class SupplierDialog
         Me.LastnameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.PhoneNumberTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.CPTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -38,7 +39,6 @@ Partial Class SupplierDialog
         Me.FooterLayoutPanel = New System.Windows.Forms.FlowLayoutPanel()
         Me.DeleteSupplierButton = New Guna.UI2.WinForms.Guna2Button()
         Me.AddSupplierButton = New Guna.UI2.WinForms.Guna2Button()
-        Me.CPTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.FooterLayoutPanel.SuspendLayout()
@@ -63,6 +63,7 @@ Partial Class SupplierDialog
         Me.CompanyNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CompanyNameTextBox.PlaceholderText = "Enter Company Name"
         Me.CompanyNameTextBox.SelectedText = ""
+        Me.CompanyNameTextBox.ShortcutsEnabled = False
         Me.CompanyNameTextBox.Size = New System.Drawing.Size(200, 36)
         Me.CompanyNameTextBox.TabIndex = 0
         '
@@ -85,6 +86,7 @@ Partial Class SupplierDialog
         Me.FirstnameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.FirstnameTextBox.PlaceholderText = "Ex. (Juan)"
         Me.FirstnameTextBox.SelectedText = ""
+        Me.FirstnameTextBox.ShortcutsEnabled = False
         Me.FirstnameTextBox.Size = New System.Drawing.Size(200, 36)
         Me.FirstnameTextBox.TabIndex = 3
         '
@@ -107,6 +109,7 @@ Partial Class SupplierDialog
         Me.CompanyAddressTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CompanyAddressTextBox.PlaceholderText = "Enter Complete Address"
         Me.CompanyAddressTextBox.SelectedText = ""
+        Me.CompanyAddressTextBox.ShortcutsEnabled = False
         Me.CompanyAddressTextBox.Size = New System.Drawing.Size(200, 36)
         Me.CompanyAddressTextBox.TabIndex = 2
         '
@@ -129,6 +132,7 @@ Partial Class SupplierDialog
         Me.LastnameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.LastnameTextBox.PlaceholderText = "Ex. (Dela Cruz)"
         Me.LastnameTextBox.SelectedText = ""
+        Me.LastnameTextBox.ShortcutsEnabled = False
         Me.LastnameTextBox.Size = New System.Drawing.Size(200, 36)
         Me.LastnameTextBox.TabIndex = 4
         '
@@ -151,6 +155,7 @@ Partial Class SupplierDialog
         Me.PhoneNumberTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.PhoneNumberTextBox.PlaceholderText = "Ex. (09123456789)"
         Me.PhoneNumberTextBox.SelectedText = ""
+        Me.PhoneNumberTextBox.ShortcutsEnabled = False
         Me.PhoneNumberTextBox.Size = New System.Drawing.Size(200, 36)
         Me.PhoneNumberTextBox.TabIndex = 5
         '
@@ -174,6 +179,29 @@ Partial Class SupplierDialog
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.Size = New System.Drawing.Size(539, 211)
         Me.Guna2Panel1.TabIndex = 7
+        '
+        'CPTextBox
+        '
+        Me.CPTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.CPTextBox.BorderRadius = 10
+        Me.CPTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.CPTextBox.DefaultText = ""
+        Me.CPTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.CPTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.CPTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.CPTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.CPTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CPTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.CPTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CPTextBox.Location = New System.Drawing.Point(45, 92)
+        Me.CPTextBox.MaxLength = 13
+        Me.CPTextBox.Name = "CPTextBox"
+        Me.CPTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.CPTextBox.PlaceholderText = "Enter Company Phone Number"
+        Me.CPTextBox.SelectedText = ""
+        Me.CPTextBox.ShortcutsEnabled = False
+        Me.CPTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.CPTextBox.TabIndex = 24
         '
         'Label6
         '
@@ -293,28 +321,6 @@ Partial Class SupplierDialog
         Me.AddSupplierButton.Size = New System.Drawing.Size(128, 37)
         Me.AddSupplierButton.TabIndex = 5
         Me.AddSupplierButton.Text = "Add"
-        '
-        'CPTextBox
-        '
-        Me.CPTextBox.BorderColor = System.Drawing.Color.Gray
-        Me.CPTextBox.BorderRadius = 10
-        Me.CPTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.CPTextBox.DefaultText = ""
-        Me.CPTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.CPTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.CPTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.CPTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.CPTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CPTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.CPTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CPTextBox.Location = New System.Drawing.Point(45, 92)
-        Me.CPTextBox.MaxLength = 50
-        Me.CPTextBox.Name = "CPTextBox"
-        Me.CPTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.CPTextBox.PlaceholderText = "Enter Company Name"
-        Me.CPTextBox.SelectedText = ""
-        Me.CPTextBox.Size = New System.Drawing.Size(200, 36)
-        Me.CPTextBox.TabIndex = 24
         '
         'SupplierDialog
         '

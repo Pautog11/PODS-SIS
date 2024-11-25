@@ -57,6 +57,7 @@ Partial Class TransactionCartDailog
         Me.QuantityTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.QuantityTextBox.PlaceholderText = "0"
         Me.QuantityTextBox.SelectedText = ""
+        Me.QuantityTextBox.ShortcutsEnabled = False
         Me.QuantityTextBox.Size = New System.Drawing.Size(200, 36)
         Me.QuantityTextBox.TabIndex = 13
         '
@@ -78,6 +79,7 @@ Partial Class TransactionCartDailog
         Me.PriceTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.PriceTextBox.PlaceholderText = "0.00"
         Me.PriceTextBox.SelectedText = ""
+        Me.PriceTextBox.ShortcutsEnabled = False
         Me.PriceTextBox.Size = New System.Drawing.Size(200, 36)
         Me.PriceTextBox.TabIndex = 12
         '
@@ -118,6 +120,7 @@ Partial Class TransactionCartDailog
         Me.StocksTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.StocksTextBox.PlaceholderText = "0"
         Me.StocksTextBox.SelectedText = ""
+        Me.StocksTextBox.ShortcutsEnabled = False
         Me.StocksTextBox.Size = New System.Drawing.Size(200, 36)
         Me.StocksTextBox.TabIndex = 17
         '
@@ -149,6 +152,7 @@ Partial Class TransactionCartDailog
         Me.BarcodeTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.BarcodeTextBox.PlaceholderText = "Scan Here"
         Me.BarcodeTextBox.SelectedText = ""
+        Me.BarcodeTextBox.ShortcutsEnabled = False
         Me.BarcodeTextBox.Size = New System.Drawing.Size(200, 36)
         Me.BarcodeTextBox.TabIndex = 18
         '
@@ -170,6 +174,7 @@ Partial Class TransactionCartDailog
         Me.ProductNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ProductNameTextBox.PlaceholderText = "Ex. (Biogesic)"
         Me.ProductNameTextBox.SelectedText = ""
+        Me.ProductNameTextBox.ShortcutsEnabled = False
         Me.ProductNameTextBox.Size = New System.Drawing.Size(200, 36)
         Me.ProductNameTextBox.TabIndex = 21
         '

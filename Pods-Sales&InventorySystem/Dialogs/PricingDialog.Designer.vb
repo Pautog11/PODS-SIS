@@ -57,6 +57,7 @@ Partial Class PricingDialog
         Me.txtPrays.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txtPrays.PlaceholderText = "0.00"
         Me.txtPrays.SelectedText = ""
+        Me.txtPrays.ShortcutsEnabled = False
         Me.txtPrays.Size = New System.Drawing.Size(135, 36)
         Me.txtPrays.TabIndex = 36
         '
@@ -87,6 +88,7 @@ Partial Class PricingDialog
         Me.CostTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CostTextBox.PlaceholderText = "0.00"
         Me.CostTextBox.SelectedText = ""
+        Me.CostTextBox.ShortcutsEnabled = False
         Me.CostTextBox.Size = New System.Drawing.Size(135, 36)
         Me.CostTextBox.TabIndex = 34
         '

@@ -64,6 +64,7 @@ Partial Class DiscountDialog
         Me.DiscountTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.DiscountTextBox.PlaceholderText = "0"
         Me.DiscountTextBox.SelectedText = ""
+        Me.DiscountTextBox.ShortcutsEnabled = False
         Me.DiscountTextBox.Size = New System.Drawing.Size(200, 36)
         Me.DiscountTextBox.TabIndex = 7
         '

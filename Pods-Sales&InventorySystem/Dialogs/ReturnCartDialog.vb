@@ -4,19 +4,23 @@ Public Class ReturnCartDialog
     Private ReadOnly _subject As IObservablePanel
     Private ReadOnly _data As Dictionary(Of String, String) 'Private ReadOnly _parent As ReturnCartDialog = Nothing
     Public _itemSource As DataTable
+    Private _parent As TransactionDialog = Nothing
     Public Sub New(Optional data As Dictionary(Of String, String) = Nothing,
-                   Optional subject As IObservablePanel = Nothing)
+                   Optional subject As IObservablePanel = Nothing,
+                   Optional parent As TransactionDialog = Nothing)
         InitializeComponent()
         _subject = subject
         _data = data
-        '_parent = Parent
+        _parent = parent
     End Sub
 
     Private Sub ReturnCartDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If _data IsNot Nothing Then
             TransactionTextBox.Text = _data.Item("ref")
             RetuenDatePicker.Value = _data.Item("date")
+            TotalPrice.Text = _data.Item("total")
             ' Guna2HtmlLabel2.Text = _data.Item("delivery_id")
+            SaveButton.Visible = False
         End If
         TransactionTextBox.Enabled = False
         RetuenDatePicker.Enabled = False
@@ -47,9 +51,9 @@ Public Class ReturnCartDialog
             For Each row As DataGridViewRow In ReturnDataGridView.Rows
                 Dim item As New Dictionary(Of String, String) From {
                     {"pid", row.Cells(1).Value},
-                    {"price", If(row.Cells(3).Value?.ToString(), "0")},
-                    {"quantity", If(row.Cells(4).Value?.ToString(), "0")},
-                    {"total", If(row.Cells(5).Value?.ToString(), "0")}
+                    {"price", If(String.IsNullOrEmpty(row.Cells(3).Value?.ToString()), 0, row.Cells(3).Value?.ToString())},
+                    {"quantity", If(String.IsNullOrEmpty(row.Cells(4).Value?.ToString()), 0, row.Cells(4).Value?.ToString())},
+                    {"total", If(String.IsNullOrEmpty(row.Cells(5).Value?.ToString()), 0, row.Cells(5).Value?.ToString())}
                 }
                 items.Add(item)
             Next
@@ -64,7 +68,7 @@ Public Class ReturnCartDialog
             invoker?.Execute()
             _subject.NotifyObserver()
             Me.Close()
-            '_parent.Close()
+            _parent.Close()
         Else
             MessageBox.Show("No product selected.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If

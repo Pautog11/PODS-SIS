@@ -331,7 +331,7 @@ Public Class TransactionDialog
                 {"date", DateLabel.Text},
                 {"delivery_id", _data.Item("id")}
             }
-            Dim dialog As New ReturnCartDialog(subject:=_subject, data:=data)
+            Dim dialog As New ReturnCartDialog(subject:=_subject, data:=data, parent:=Me)
             dialog.ShowDialog()
         Else
             MsgBox("Sorry!, the period of time has expired!")
@@ -339,17 +339,22 @@ Public Class TransactionDialog
     End Sub
 
     Private Sub TransactionDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles TransactionDataGridView.CellClick
-        If TransactionDataGridView.Rows.Count > 0 Then
-            Dim selectedRows As DataGridViewSelectedRowCollection = TransactionDataGridView.SelectedRows
-            Dim row As DataGridViewRow = selectedRows(0)
-            Dim data As New Dictionary(Of String, String) From {
-                {"id", row.Cells(0).Value.ToString()},
-                {"productname", row.Cells(1).Value.ToString()},
-                {"price", row.Cells(2).Value.ToString()},
-                {"quantity", row.Cells(3).Value.ToString()}
-            }
-            Dim dialog As New TransactionCartDailog(data:=data, parent:=Me)
-            dialog.ShowDialog()
+        If _data Is Nothing Then
+            '    MsgBox("meron")
+            'Else
+            '    MsgBox("wala")
+            If TransactionDataGridView.Rows.Count > 0 Then
+                Dim selectedRows As DataGridViewSelectedRowCollection = TransactionDataGridView.SelectedRows
+                Dim row As DataGridViewRow = selectedRows(0)
+                Dim data As New Dictionary(Of String, String) From {
+                    {"id", row.Cells(0).Value.ToString()},
+                    {"productname", row.Cells(1).Value.ToString()},
+                    {"price", row.Cells(2).Value.ToString()},
+                    {"quantity", row.Cells(3).Value.ToString()}
+                }
+                Dim dialog As New TransactionCartDailog(data:=data, parent:=Me)
+                dialog.ShowDialog()
+            End If
         End If
     End Sub
 

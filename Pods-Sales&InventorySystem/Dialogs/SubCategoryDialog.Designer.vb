@@ -113,6 +113,7 @@ Partial Class SubCategoryDialog
         Me.SubcategoryNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.SubcategoryNameTextBox.PlaceholderText = "Ex. (Cough and Cold etc.,)"
         Me.SubcategoryNameTextBox.SelectedText = ""
+        Me.SubcategoryNameTextBox.ShortcutsEnabled = False
         Me.SubcategoryNameTextBox.Size = New System.Drawing.Size(200, 36)
         Me.SubcategoryNameTextBox.TabIndex = 4
         '
@@ -134,6 +135,7 @@ Partial Class SubCategoryDialog
         Me.SubCategoryDescriptionTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.SubCategoryDescriptionTextBox.PlaceholderText = ""
         Me.SubCategoryDescriptionTextBox.SelectedText = ""
+        Me.SubCategoryDescriptionTextBox.ShortcutsEnabled = False
         Me.SubCategoryDescriptionTextBox.Size = New System.Drawing.Size(200, 60)
         Me.SubCategoryDescriptionTextBox.TabIndex = 3
         '
