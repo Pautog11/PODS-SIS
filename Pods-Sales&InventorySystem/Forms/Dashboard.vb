@@ -3,7 +3,7 @@
 Public Class Dashboard
     Implements IObservablePanel, IObserverPanel
     Private ReadOnly _observables As New List(Of IObserverPanel)
-    'Private toggleState As Boolean = False
+    Private WithEvents UpdateTimer As New Timer()
     Public Sub New()
         ' This call is required by the designer.
         InitializeComponent()
@@ -24,6 +24,9 @@ Public Class Dashboard
         ComboBox1.Items.Add("Annually")
 
         UpdateChart("daily")
+
+        updateTimer.Interval = 1000
+        updateTimer.Start()
     End Sub
 
     Public Sub RegisterObserver(o As IObserverPanel) Implements IObservablePanel.RegisterObserver
@@ -87,13 +90,9 @@ Public Class Dashboard
 
     End Sub
 
-    'Private Sub Guna2ImageButton1_Click(sender As Object, e As EventArgs) Handles Guna2ImageButton1.Click
-    '    ' Toggle the boolean value
-    '    toggleState = Not toggleState
-
-    '    ' Update the label to show the current state
-    '    DashboardTabControl.TabMenuVisible = toggleState
-    'End Sub
+    Private Sub UpdateTimer_Tick(sender As Object, e As EventArgs) Handles updateTimer.Tick
+        NotifyObserver()
+    End Sub
 
     Private Sub Guna2Button1_Click(sender As Object, e As EventArgs)
         BaseAccountLog.Logout(My.Settings.myId, "Logout")

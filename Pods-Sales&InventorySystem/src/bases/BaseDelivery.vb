@@ -252,7 +252,7 @@ Public Class BaseDelivery
 				                            CASE
 					                            WHEN tbldeliveries_items.quantity = tblproduct_notif.quantity THEN tbldeliveries_items.quantity
 					                            WHEN tbldeliveries_items.quantity > tblproduct_notif.quantity THEN tblproduct_notif.quantity 
-												WHEN tbldeliveries_items.quantity > tblproducts.quantity THEN tbldeliveries_items.quantity
+												WHEN tbldeliveries_items.quantity <= tblproducts.quantity THEN tbldeliveries_items.quantity
 												else 0
 				                            END
 			                            ) AS quantity
