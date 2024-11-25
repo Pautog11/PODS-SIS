@@ -30,11 +30,11 @@ Partial Class SalesReport
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.PrintButton = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.SalesReportComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.FilteredData = New Guna.UI2.WinForms.Guna2Button()
         CType(Me.SalesReportsDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
@@ -120,7 +120,6 @@ Partial Class SalesReport
         Me.TableLayoutPanel2.ColumnCount = 2
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.PrintButton, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Guna2Panel1, 0, 0)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 3)
@@ -142,7 +141,7 @@ Partial Class SalesReport
         Me.PrintButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.PrintButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.PrintButton.ForeColor = System.Drawing.Color.White
-        Me.PrintButton.Location = New System.Drawing.Point(1000, 4)
+        Me.PrintButton.Location = New System.Drawing.Point(536, 3)
         Me.PrintButton.Name = "PrintButton"
         Me.PrintButton.Size = New System.Drawing.Size(144, 35)
         Me.PrintButton.TabIndex = 3
@@ -150,7 +149,8 @@ Partial Class SalesReport
         '
         'Guna2Panel1
         '
-        Me.Guna2Panel1.Controls.Add(Me.SalesReportComboBox)
+        Me.Guna2Panel1.Controls.Add(Me.FilteredData)
+        Me.Guna2Panel1.Controls.Add(Me.PrintButton)
         Me.Guna2Panel1.Controls.Add(Me.Label2)
         Me.Guna2Panel1.Controls.Add(Me.Label1)
         Me.Guna2Panel1.Controls.Add(Me.DateTimePicker2)
@@ -161,23 +161,6 @@ Partial Class SalesReport
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.Size = New System.Drawing.Size(997, 44)
         Me.Guna2Panel1.TabIndex = 4
-        '
-        'SalesReportComboBox
-        '
-        Me.SalesReportComboBox.BackColor = System.Drawing.Color.Transparent
-        Me.SalesReportComboBox.BorderRadius = 15
-        Me.SalesReportComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.SalesReportComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.SalesReportComboBox.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.SalesReportComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.SalesReportComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.SalesReportComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.SalesReportComboBox.ItemHeight = 30
-        Me.SalesReportComboBox.Items.AddRange(New Object() {"Day", "Month", "Year"})
-        Me.SalesReportComboBox.Location = New System.Drawing.Point(577, 5)
-        Me.SalesReportComboBox.Name = "SalesReportComboBox"
-        Me.SalesReportComboBox.Size = New System.Drawing.Size(140, 36)
-        Me.SalesReportComboBox.TabIndex = 4
         '
         'Label2
         '
@@ -215,6 +198,24 @@ Partial Class SalesReport
         Me.DateTimePicker1.Size = New System.Drawing.Size(178, 20)
         Me.DateTimePicker1.TabIndex = 0
         '
+        'FilteredData
+        '
+        Me.FilteredData.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.FilteredData.BackColor = System.Drawing.Color.Transparent
+        Me.FilteredData.BorderRadius = 15
+        Me.FilteredData.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.FilteredData.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.FilteredData.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.FilteredData.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.FilteredData.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.FilteredData.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.FilteredData.ForeColor = System.Drawing.Color.White
+        Me.FilteredData.Location = New System.Drawing.Point(686, 3)
+        Me.FilteredData.Name = "FilteredData"
+        Me.FilteredData.Size = New System.Drawing.Size(144, 35)
+        Me.FilteredData.TabIndex = 4
+        Me.FilteredData.Text = "Show"
+        '
         'SalesReport
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -240,5 +241,5 @@ Partial Class SalesReport
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents SalesReportComboBox As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents FilteredData As Guna.UI2.WinForms.Guna2Button
 End Class

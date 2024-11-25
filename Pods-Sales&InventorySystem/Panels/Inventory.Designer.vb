@@ -40,8 +40,8 @@ Partial Class Inventory
         Me.ProductHeaderLayoutPanel.ColumnCount = 2
         Me.ProductHeaderLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.ProductHeaderLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.ProductHeaderLayoutPanel.Controls.Add(Me.PrintButton, 1, 0)
-        Me.ProductHeaderLayoutPanel.Controls.Add(Me.ProductSearchTextBox, 0, 0)
+        Me.ProductHeaderLayoutPanel.Controls.Add(Me.ProductSearchTextBox, 1, 0)
+        Me.ProductHeaderLayoutPanel.Controls.Add(Me.PrintButton, 0, 0)
         Me.ProductHeaderLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ProductHeaderLayoutPanel.Location = New System.Drawing.Point(3, 3)
         Me.ProductHeaderLayoutPanel.Name = "ProductHeaderLayoutPanel"
@@ -63,7 +63,7 @@ Partial Class Inventory
         Me.PrintButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.PrintButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.PrintButton.ForeColor = System.Drawing.Color.White
-        Me.PrintButton.Location = New System.Drawing.Point(578, 4)
+        Me.PrintButton.Location = New System.Drawing.Point(212, 4)
         Me.PrintButton.Name = "PrintButton"
         Me.PrintButton.Size = New System.Drawing.Size(150, 35)
         Me.PrintButton.TabIndex = 2
@@ -83,7 +83,7 @@ Partial Class Inventory
         Me.ProductSearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ProductSearchTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.ProductSearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ProductSearchTextBox.Location = New System.Drawing.Point(3, 4)
+        Me.ProductSearchTextBox.Location = New System.Drawing.Point(368, 4)
         Me.ProductSearchTextBox.Name = "ProductSearchTextBox"
         Me.ProductSearchTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ProductSearchTextBox.PlaceholderText = "Search"

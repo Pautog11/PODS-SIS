@@ -27,6 +27,7 @@ Partial Class Reports
         Me.SalesReport1 = New Pods_Sales_InventorySystem.SalesReport()
         Me.Financial_Reports = New System.Windows.Forms.TabPage()
         Me.FinancialReport1 = New Pods_Sales_InventorySystem.FinancialReport()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.AuditTrailTabControl.SuspendLayout()
         Me.Sales_Reports.SuspendLayout()
         Me.Financial_Reports.SuspendLayout()
@@ -36,6 +37,7 @@ Partial Class Reports
         '
         Me.AuditTrailTabControl.Controls.Add(Me.Sales_Reports)
         Me.AuditTrailTabControl.Controls.Add(Me.Financial_Reports)
+        Me.AuditTrailTabControl.Controls.Add(Me.TabPage1)
         Me.AuditTrailTabControl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AuditTrailTabControl.ItemSize = New System.Drawing.Size(180, 40)
         Me.AuditTrailTabControl.Location = New System.Drawing.Point(0, 0)
@@ -99,6 +101,15 @@ Partial Class Reports
         Me.FinancialReport1.Size = New System.Drawing.Size(882, 518)
         Me.FinancialReport1.TabIndex = 0
         '
+        'TabPage1
+        '
+        Me.TabPage1.Location = New System.Drawing.Point(4, 44)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Size = New System.Drawing.Size(882, 518)
+        Me.TabPage1.TabIndex = 2
+        Me.TabPage1.Text = "Cashier Reports"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
         'Reports
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -118,4 +129,5 @@ Partial Class Reports
     Friend WithEvents Financial_Reports As TabPage
     Friend WithEvents SalesReport1 As SalesReport
     Friend WithEvents FinancialReport1 As FinancialReport
+    Friend WithEvents TabPage1 As TabPage
 End Class
