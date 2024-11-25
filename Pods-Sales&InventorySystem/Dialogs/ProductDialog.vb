@@ -43,10 +43,10 @@ Public Class ProductDialog
 
     Private Sub AddProductButton_Click(sender As Object, e As EventArgs) Handles AddProductButton.Click
         Dim controls As Object() = {
-            BarcodeTextBox, ProductNameTextBox, StockLevelTextBox
+            SubCategoryComboBox, BarcodeTextBox, ProductNameTextBox, StockLevelTextBox
         }
         Dim types As DataInput() = {
-            DataInput.STRING_INTEGER, DataInput.STRING_NAME, DataInput.STRING_INTEGER
+           DataInput.STRING_STRING, DataInput.STRING_INTEGER, DataInput.STRING_NAME, DataInput.STRING_INTEGER
         }
         Dim result As New List(Of Object())
         For i = 0 To controls.Count - 1
@@ -67,12 +67,12 @@ Public Class ProductDialog
                 {"id", _data?.Item("id")},
                 {"subcategory_id", SubCategoryComboBox.SelectedItem("id")},
                 {"sku", If(String.IsNullOrEmpty(SkuTextBox.Text), "", SkuTextBox.Text)},
-                {"barcode", result(0)(1)},
-                {"product_name", result(1)(1)},
+                {"barcode", result(1)(1)},
+                {"product_name", result(2)(1)},
                 {"description", If(String.IsNullOrEmpty(DescriptionTextBox.Text), "", DescriptionTextBox.Text)},' result(3)(1)},   'If(String.IsNullOrEmpty(ProductDescriptionTextBox.Text), "", ProductDescriptionTextBox.Text)}
                 {"product_price", 0},'If(String.IsNullOrEmpty(PriceTextBox.Text), "", PriceTextBox.Text)},
                 {"product_cost", 0},'If(String.IsNullOrEmpty(CostTextBox.Text), "", CostTextBox.Text)},
-                {"stock_level", result(2)(1)}
+                {"stock_level", result(3)(1)}
             }
 
             Dim putangina As Boolean = False
@@ -114,7 +114,6 @@ Public Class ProductDialog
         Else
             MessageBox.Show("Please fill out all textboxes or provide all valid inputs.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
-
     End Sub
 
     Private Sub DeleteProductButton_Click(sender As Object, e As EventArgs) Handles DeleteProductButton.Click

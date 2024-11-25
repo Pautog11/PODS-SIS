@@ -266,6 +266,14 @@ Public Class InputValidation
                 Else
                     MessageBox.Show("Invalid phone number.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
+
+            Case DataInput.STRING_DECIMAL
+                If Regex.IsMatch(stringInput, "^\d+$") Then
+                    Return {True, stringInput}
+                Else
+                    MessageBox.Show("Invalid number.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
+
         End Select
         control.BorderColor = Color.Red
         Return {False, stringInput}
@@ -283,4 +291,5 @@ Public Enum DataInput
     STRING_DATE
     STRING_PNAME
     STRING_TEL
+    STRING_DECIMAL
 End Enum
