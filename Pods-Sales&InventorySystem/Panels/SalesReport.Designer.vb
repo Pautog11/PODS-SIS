@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class SalesReport
     Inherits System.Windows.Forms.UserControl
 
     'UserControl overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,17 +20,17 @@ Partial Class SalesReport
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.SalesReportsDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.PrintButton = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.SalesReportComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.FilteredData = New Guna.UI2.WinForms.Guna2Button()
+        Me.PrintButton = New Guna.UI2.WinForms.Guna2Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
@@ -47,25 +47,25 @@ Partial Class SalesReport
         Me.SalesReportsDataGridView.AllowUserToDeleteRows = False
         Me.SalesReportsDataGridView.AllowUserToResizeColumns = False
         Me.SalesReportsDataGridView.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
-        Me.SalesReportsDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle19.BackColor = System.Drawing.Color.White
+        Me.SalesReportsDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle19
         Me.SalesReportsDataGridView.BackgroundColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.SalesReportsDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.SalesReportsDataGridView.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle20.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle20.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.SalesReportsDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle20
+        DataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle21.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle21.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle21.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.SalesReportsDataGridView.DefaultCellStyle = DataGridViewCellStyle21
         Me.SalesReportsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SalesReportsDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.SalesReportsDataGridView.Location = New System.Drawing.Point(0, 50)
@@ -120,7 +120,6 @@ Partial Class SalesReport
         Me.TableLayoutPanel2.ColumnCount = 2
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.PrintButton, 1, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.Guna2Panel1, 0, 0)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 3)
@@ -129,6 +128,39 @@ Partial Class SalesReport
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(1147, 44)
         Me.TableLayoutPanel2.TabIndex = 6
+        '
+        'Guna2Panel1
+        '
+        Me.Guna2Panel1.Controls.Add(Me.FilteredData)
+        Me.Guna2Panel1.Controls.Add(Me.PrintButton)
+        Me.Guna2Panel1.Controls.Add(Me.Label2)
+        Me.Guna2Panel1.Controls.Add(Me.Label1)
+        Me.Guna2Panel1.Controls.Add(Me.DateTimePicker2)
+        Me.Guna2Panel1.Controls.Add(Me.DateTimePicker1)
+        Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Guna2Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Guna2Panel1.Name = "Guna2Panel1"
+        Me.Guna2Panel1.Size = New System.Drawing.Size(997, 44)
+        Me.Guna2Panel1.TabIndex = 4
+        '
+        'FilteredData
+        '
+        Me.FilteredData.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.FilteredData.BackColor = System.Drawing.Color.Transparent
+        Me.FilteredData.BorderRadius = 15
+        Me.FilteredData.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.FilteredData.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.FilteredData.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.FilteredData.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.FilteredData.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.FilteredData.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.FilteredData.ForeColor = System.Drawing.Color.White
+        Me.FilteredData.Location = New System.Drawing.Point(700, 3)
+        Me.FilteredData.Name = "FilteredData"
+        Me.FilteredData.Size = New System.Drawing.Size(144, 35)
+        Me.FilteredData.TabIndex = 5
+        Me.FilteredData.Text = "Show"
         '
         'PrintButton
         '
@@ -142,42 +174,11 @@ Partial Class SalesReport
         Me.PrintButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.PrintButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.PrintButton.ForeColor = System.Drawing.Color.White
-        Me.PrintButton.Location = New System.Drawing.Point(1000, 4)
+        Me.PrintButton.Location = New System.Drawing.Point(550, 3)
         Me.PrintButton.Name = "PrintButton"
         Me.PrintButton.Size = New System.Drawing.Size(144, 35)
         Me.PrintButton.TabIndex = 3
         Me.PrintButton.Text = "Print"
-        '
-        'Guna2Panel1
-        '
-        Me.Guna2Panel1.Controls.Add(Me.SalesReportComboBox)
-        Me.Guna2Panel1.Controls.Add(Me.Label2)
-        Me.Guna2Panel1.Controls.Add(Me.Label1)
-        Me.Guna2Panel1.Controls.Add(Me.DateTimePicker2)
-        Me.Guna2Panel1.Controls.Add(Me.DateTimePicker1)
-        Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Guna2Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Size = New System.Drawing.Size(997, 44)
-        Me.Guna2Panel1.TabIndex = 4
-        '
-        'SalesReportComboBox
-        '
-        Me.SalesReportComboBox.BackColor = System.Drawing.Color.Transparent
-        Me.SalesReportComboBox.BorderRadius = 15
-        Me.SalesReportComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.SalesReportComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.SalesReportComboBox.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.SalesReportComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.SalesReportComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.SalesReportComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.SalesReportComboBox.ItemHeight = 30
-        Me.SalesReportComboBox.Items.AddRange(New Object() {"Day", "Month", "Year"})
-        Me.SalesReportComboBox.Location = New System.Drawing.Point(577, 5)
-        Me.SalesReportComboBox.Name = "SalesReportComboBox"
-        Me.SalesReportComboBox.Size = New System.Drawing.Size(140, 36)
-        Me.SalesReportComboBox.TabIndex = 4
         '
         'Label2
         '
@@ -238,5 +239,5 @@ Partial Class SalesReport
     Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents SalesReportComboBox As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents FilteredData As Guna.UI2.WinForms.Guna2Button
 End Class
