@@ -20,7 +20,7 @@
     End Sub
 
     Private Sub AddDosageButton_Click(sender As Object, e As EventArgs) Handles AddDosageButton.Click
-        Dim dialog As New DosageDialog
+        Dim dialog As New DosageDialog(subject:=_subject)
         dialog.ShowDialog()
     End Sub
 End Class

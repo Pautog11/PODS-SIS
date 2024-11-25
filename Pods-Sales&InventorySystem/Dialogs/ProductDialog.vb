@@ -14,6 +14,11 @@ Public Class ProductDialog
         SubCategoryComboBox.DisplayMember = "subcategory"
         SubCategoryComboBox.SelectedItem = "id"
 
+        Dim dt As DataTable = BaseDosage.FetchDosage
+        DoseComboBox.DataSource = dt.DefaultView
+        DoseComboBox.DisplayMember = "dasage"
+        DoseComboBox.SelectedItem = "id"
+
         If _data IsNot Nothing Then
             AddProductButton.Text = "Update"
 

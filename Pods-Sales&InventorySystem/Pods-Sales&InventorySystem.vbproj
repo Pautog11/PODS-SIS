@@ -534,6 +534,7 @@
     <Compile Include="src\bases\BaseCategory.vb" />
     <Compile Include="src\bases\BaseDelivery.vb" />
     <Compile Include="src\bases\BaseDiscount.vb" />
+    <Compile Include="src\bases\BaseDosage.vb" />
     <Compile Include="src\bases\BaseNotifications.vb" />
     <Compile Include="src\bases\BaseProduct.vb" />
     <Compile Include="src\bases\BasePullouts.vb" />

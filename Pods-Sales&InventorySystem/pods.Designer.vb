@@ -5492,7 +5492,6 @@ Partial Public Class pods
             Me.columnID.AllowDBNull = false
             Me.columnID.ReadOnly = true
             Me.columnID.Unique = true
-            Me.columnID.Caption = "id"
             Me.columnDOSAGE.AllowDBNull = false
             Me.columnDOSAGE.MaxLength = 50
             Me.columnDESCRIPTION.MaxLength = 50
@@ -10472,7 +10471,7 @@ Namespace podsTableAdapters
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "viewtbldosage"
-            tableMapping.ColumnMappings.Add("id", "ID")
+            tableMapping.ColumnMappings.Add("ID", "ID")
             tableMapping.ColumnMappings.Add("DOSAGE", "DOSAGE")
             tableMapping.ColumnMappings.Add("DESCRIPTION", "DESCRIPTION")
             Me._adapter.TableMappings.Add(tableMapping)
@@ -10491,7 +10490,7 @@ Namespace podsTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT id, DOSAGE, DESCRIPTION FROM dbo.viewtbldosage"
+            Me._commandCollection(0).CommandText = "SELECT ID, DOSAGE, DESCRIPTION FROM dbo.viewtbldosage"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         

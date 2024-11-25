@@ -28,12 +28,12 @@ Public Class DosageDialog
         If Not result.Any(Function(item As Object()) Not item(0)) Then
             Dim data As New Dictionary(Of String, String) From {
                 {"id", _data?.Item("id")},
-                {"dose", result(0)(1)},
+                {"dosage", result(0)(1)},
                 {"description", If(String.IsNullOrEmpty(DescriptionTextBox.Text), "", DescriptionTextBox.Text)}
             }
-            Dim baseCommand As New BaseAccount(data)
+            Dim baseCommand As New BaseDosage(data)
             Dim invoker As ICommandInvoker = Nothing
-            If BaseAccount.Exists(result(4)(1)) = 0 AndAlso _data Is Nothing Then
+            If _data Is Nothing Then
                 invoker = New AddCommand(baseCommand)
             ElseIf _data IsNot Nothing Then
                 invoker = New UpdateCommand(baseCommand)
