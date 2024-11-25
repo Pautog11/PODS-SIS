@@ -40,7 +40,7 @@ Partial Class ProductDialog
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Guna2ComboBox1 = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.DoseComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.ManufacturerTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.StrengthTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.DosageTextBox = New Guna.UI2.WinForms.Guna2TextBox()
@@ -137,7 +137,7 @@ Partial Class ProductDialog
         Me.Guna2Panel1.Controls.Add(Me.Label3)
         Me.Guna2Panel1.Controls.Add(Me.Label2)
         Me.Guna2Panel1.Controls.Add(Me.Label1)
-        Me.Guna2Panel1.Controls.Add(Me.Guna2ComboBox1)
+        Me.Guna2Panel1.Controls.Add(Me.DoseComboBox)
         Me.Guna2Panel1.Controls.Add(Me.ManufacturerTextBox)
         Me.Guna2Panel1.Controls.Add(Me.StrengthTextBox)
         Me.Guna2Panel1.Controls.Add(Me.DosageTextBox)
@@ -264,23 +264,22 @@ Partial Class ProductDialog
         Me.Label1.TabIndex = 16
         Me.Label1.Text = "Sub Category"
         '
-        'Guna2ComboBox1
+        'DoseComboBox
         '
-        Me.Guna2ComboBox1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2ComboBox1.BorderColor = System.Drawing.Color.Gray
-        Me.Guna2ComboBox1.BorderRadius = 10
-        Me.Guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.Guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.Guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2ComboBox1.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.Guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.Guna2ComboBox1.ItemHeight = 30
-        Me.Guna2ComboBox1.Items.AddRange(New Object() {"Milligrams", "Grams", "Micrograms", "Milliliters", "Liters", "Milligrams", "Percentage"})
-        Me.Guna2ComboBox1.Location = New System.Drawing.Point(408, 263)
-        Me.Guna2ComboBox1.Name = "Guna2ComboBox1"
-        Me.Guna2ComboBox1.Size = New System.Drawing.Size(115, 36)
-        Me.Guna2ComboBox1.TabIndex = 15
+        Me.DoseComboBox.BackColor = System.Drawing.Color.Transparent
+        Me.DoseComboBox.BorderColor = System.Drawing.Color.Gray
+        Me.DoseComboBox.BorderRadius = 10
+        Me.DoseComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.DoseComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.DoseComboBox.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DoseComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DoseComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.DoseComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.DoseComboBox.ItemHeight = 30
+        Me.DoseComboBox.Location = New System.Drawing.Point(408, 263)
+        Me.DoseComboBox.Name = "DoseComboBox"
+        Me.DoseComboBox.Size = New System.Drawing.Size(115, 36)
+        Me.DoseComboBox.TabIndex = 15
         '
         'ManufacturerTextBox
         '
@@ -563,7 +562,7 @@ Partial Class ProductDialog
     Friend WithEvents SubCategoryComboBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents CostTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents SkuTextBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents Guna2ComboBox1 As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents DoseComboBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents ManufacturerTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents StrengthTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents DosageTextBox As Guna.UI2.WinForms.Guna2TextBox

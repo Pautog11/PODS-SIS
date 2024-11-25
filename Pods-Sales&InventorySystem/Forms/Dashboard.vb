@@ -25,8 +25,8 @@ Public Class Dashboard
 
         UpdateChart("daily")
 
-        updateTimer.Interval = 1000
-        updateTimer.Start()
+        'updateTimer.Interval = 1000
+        'updateTimer.Start()
     End Sub
 
     Public Sub RegisterObserver(o As IObserverPanel) Implements IObservablePanel.RegisterObserver
@@ -90,9 +90,9 @@ Public Class Dashboard
 
     End Sub
 
-    Private Sub UpdateTimer_Tick(sender As Object, e As EventArgs) Handles updateTimer.Tick
-        NotifyObserver()
-    End Sub
+    'Private Sub UpdateTimer_Tick(sender As Object, e As EventArgs) Handles updateTimer.Tick
+    '    NotifyObserver()
+    'End Sub
 
     Private Sub Guna2Button1_Click(sender As Object, e As EventArgs)
         BaseAccountLog.Logout(My.Settings.myId, "Logout")

@@ -42,11 +42,25 @@ Public Class BaseDiscount
         End Try
     End Sub
 
-    Public Shared Function Exists(data As Integer) As Integer
+    Public Shared Function Exists(discount As Integer) As Integer
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tbldiscounts WHERE discount = @discount", conn)
-            cmd.Parameters.AddWithValue("@discount", data)
+            Dim cmd As New SqlCommand("SELECT count(*) FROM tbldiscounts WHERE discount = @discount", conn)
+            cmd.Parameters.AddWithValue("@discount", discount)
+
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
+
+    Public Shared Function IdExists(id As Integer, discount As Integer) As Integer
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT count(*) FROM tbldiscounts WHERE id = @id and discount = @discount", conn)
+            cmd.Parameters.AddWithValue("@id", id)
+            cmd.Parameters.AddWithValue("@discount", discount)
 
             Return cmd.ExecuteScalar()
         Catch ex As Exception
