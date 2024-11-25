@@ -78,7 +78,11 @@ Public Class SalesRpt
     
     <Browsable(false),  _
      DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)>  _
+<<<<<<< Updated upstream
     Public ReadOnly Property DetailSection2() As CrystalDecisions.CrystalReports.Engine.Section
+=======
+    Public ReadOnly Property DetailSection1() As CrystalDecisions.CrystalReports.Engine.Section
+>>>>>>> Stashed changes
         Get
             Return Me.ReportDefinition.Sections(3)
         End Get
