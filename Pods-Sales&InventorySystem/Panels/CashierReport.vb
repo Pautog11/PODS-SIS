@@ -25,19 +25,16 @@ Public Class CashierReport
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
 
-            'If SalesReportComboBox.Text = "All" Then
-            '    cmd = New SqlCommand("SELECT * FROM tbltransactions", conn)
-            'Else
             cmd = New SqlCommand("SELECT CONCAT(a.first_name, ' ', a.last_name) AS CASHIER,
                                    t.transaction_number AS TRANSACTION#,
                                    t.total AS TOTAL,
                                    t.date AS DATE
                                    FROM tbltransactions t
                                    JOIN tblaccounts a ON t.account_id = a.id
-                                   WHERE t.date = @startDate AND t.account_id = @cashierNameCmb", conn)
+                                   WHERE CONVERT(DATE, t.date) = @startDate AND t.account_id = @cashierNameCmb", conn)
             cmd.Parameters.AddWithValue("@startDate", DateTimePicker1.Value.ToString("yyyy-MM-dd"))
-            cmd.Parameters.AddWithValue("@cashierNameCmb", CashierNameComboBox.SelectedIndex)
-            'End If
+            cmd.Parameters.AddWithValue("@cashierNameCmb", CashierNameComboBox.SelectedValue)
+
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
             adapter.Fill(dTable)
@@ -61,7 +58,7 @@ Public Class CashierReport
                                    WHERE CONVERT(DATE, t.date) = @startDate AND t.account_id = @cashierNameCmb", conn)
             cmd.Parameters.AddWithValue("@startDate", DateTimePicker1.Value.ToString("yyyy-MM-dd"))
             cmd.Parameters.AddWithValue("@cashierNameCmb", CashierNameComboBox.SelectedValue)
-            'End If
+
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
             adapter.Fill(dTable)
@@ -79,11 +76,12 @@ Public Class CashierReport
         Try
             PrintButton.Enabled = False
 
-            Dim startDate As DateTime = DateTimePicker1.Value.ToString("yyyy-MM-dd")
+            Dim selectedDate As DateTime = DateTimePicker1.Value.ToString("yyyy-MM-dd")
+            Dim cashierName As String = CashierNameComboBox.SelectedValue
 
-            'Using dialog As New CashierViewer(startDate)
-            '    dialog.ShowDialog()
-            'End Using
+            Using dialog As New CashierViewer(selectedDate, cashierName)
+                dialog.ShowDialog()
+            End Using
         Catch ex As Exception
             MessageBox.Show($"Error Print report: {ex.Message}", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
