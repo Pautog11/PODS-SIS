@@ -15,7 +15,7 @@ Public Class BaseSubCategory
             If _sqlCommand.ExecuteNonQuery() <= 0 Then
                 MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
-                MessageBox.Show("Account has been deleted successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Subcategory has been deleted successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -32,7 +32,7 @@ Public Class BaseSubCategory
             If _sqlCommand.ExecuteNonQuery() <= 0 Then
                 MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
-                MessageBox.Show("Account has been updated successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Subcategory has been updated successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -48,7 +48,7 @@ Public Class BaseSubCategory
             If _sqlCommand.ExecuteNonQuery() <= 0 Then
                 MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
-                MessageBox.Show("Account has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Subcategory has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)

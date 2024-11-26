@@ -12,17 +12,19 @@ Public Class DiscountDialog
     Private Sub DiscountDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If _data IsNot Nothing Then
             DiscountTextBox.Text = _data.Item("discount")
+            DescriptionTextBox.Text = _data.Item("description")
             AddDiscountButton.Text = "Update"
         End If
     End Sub
 
     Private Sub AddDiscountButton_Click(sender As Object, e As EventArgs) Handles AddDiscountButton.Click
-        Dim result As New List(Of Object()) From {InputValidation.ValidateInputString(DiscountTextBox, DataInput.STRING_DECIMAL)}
+        Dim result As New List(Of Object()) From {InputValidation.ValidateInputString(DiscountTextBox, DataInput.STRING_INTEGER)}
 
         If Not result.Any(Function(item As Object()) Not item(0)) Then
             Dim data As New Dictionary(Of String, String) From {
                 {"id", _data?.Item("id")},
-                {"discount", result(0)(1)}
+                {"discount", result(0)(1)},
+                {"description", DescriptionTextBox.Text}
             }
 
             Dim baseCommand As New BaseDiscount(data)
@@ -37,8 +39,6 @@ Public Class DiscountDialog
             invoker?.Execute()
             _subject.NotifyObserver()
             Me.Close()
-
-            'MsgBox(_data?.Item("id"))
         Else
             MessageBox.Show("Please provide valid discount.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If

@@ -22,6 +22,8 @@ Public Class PricingDialog
         Try
             If Val(txtPrays.Text) < Val(CostTextBox.Text) Then
                 MessageBox.Show("It should not lesthan form the cost price.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            ElseIf Val(txtPrays.Text) = Val(CostTextBox.Text) Then
+                MessageBox.Show("It should not equal form the cost price.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
                 Dim controls As Object() = {
                     CostTextBox, txtPrays

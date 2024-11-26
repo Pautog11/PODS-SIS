@@ -52,7 +52,7 @@ Partial Class PricingDialog
         Me.txtPrays.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.txtPrays.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.txtPrays.Location = New System.Drawing.Point(40, 49)
-        Me.txtPrays.MaxLength = 13
+        Me.txtPrays.MaxLength = 7
         Me.txtPrays.Name = "txtPrays"
         Me.txtPrays.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.txtPrays.PlaceholderText = "0.00"
@@ -84,6 +84,7 @@ Partial Class PricingDialog
         Me.CostTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.CostTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CostTextBox.Location = New System.Drawing.Point(193, 49)
+        Me.CostTextBox.MaxLength = 7
         Me.CostTextBox.Name = "CostTextBox"
         Me.CostTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CostTextBox.PlaceholderText = "0.00"

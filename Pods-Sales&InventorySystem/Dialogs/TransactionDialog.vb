@@ -146,49 +146,52 @@ Public Class TransactionDialog
             Dim result As New List(Of Object)() From {InputValidation.ValidateInputString(CashTextBox, DataInput.STRING_INTEGER)}
 
             If Not result.Any(Function(item As Object()) Not item(0)) Then
-                Dim items As New List(Of Dictionary(Of String, String))()
-                Dim baseCommand As ICommandPanel
-                Dim invoker As ICommandInvoker
+                If Val(CashTextBox.Text) < Val(TotalTextBox.Text) Then
+                    MessageBox.Show("Insuffient funds", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Else
+                    Dim items As New List(Of Dictionary(Of String, String))()
+                    Dim baseCommand As ICommandPanel
+                    Dim invoker As ICommandInvoker
 
-                Dim data As New Dictionary(Of String, String) From {
-                     {"id", If(_data?.Item("id"), String.Empty)},
-                    {"transaction_number", Reference_number.Text},
-                    {"subtotal", If(String.IsNullOrEmpty(SubtotalTextBox.Text), 0, SubtotalTextBox.Text)},
-                    {"vatable", If(String.IsNullOrEmpty(VatableTextBox.Text), 0, VatableTextBox.Text)},
-                    {"vat", If(String.IsNullOrEmpty(VatTextBox.Text), 0, VatTextBox.Text)},
-                    {"discount", If(String.IsNullOrEmpty(DiscountComboBox.Text), 0, DiscountComboBox.Text)},
-                    {"total", If(String.IsNullOrEmpty(TotalTextBox.Text), 0, TotalTextBox.Text)},
-                    {"date", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")},
-                    {"cash", If(String.IsNullOrEmpty(CashTextBox.Text), 0, CashTextBox.Text)}
-                }
-
-                For Each row As DataGridViewRow In TransactionDataGridView.Rows
-                    If Not row.IsNewRow Then
-                        Dim item As New Dictionary(Of String, String) From {
-                        {"product_id", row.Cells(0).Value},
-                        {"price", If(row.Cells(2).Value?.ToString(), "0")},
-                        {"quantity", If(row.Cells(3).Value?.ToString(), "0")},
-                        {"total", If(row.Cells(4).Value?.ToString(), "0")}
+                    Dim data As New Dictionary(Of String, String) From {
+                        {"id", If(_data?.Item("id"), String.Empty)},
+                        {"transaction_number", Reference_number.Text},
+                        {"subtotal", If(String.IsNullOrEmpty(SubtotalTextBox.Text), 0, SubtotalTextBox.Text)},
+                        {"vatable", If(String.IsNullOrEmpty(VatableTextBox.Text), 0, VatableTextBox.Text)},
+                        {"vat", If(String.IsNullOrEmpty(VatTextBox.Text), 0, VatTextBox.Text)},
+                        {"discount", If(String.IsNullOrEmpty(DiscountComboBox.Text), 0, DiscountComboBox.Text)},
+                        {"total", If(String.IsNullOrEmpty(TotalTextBox.Text), 0, TotalTextBox.Text)},
+                        {"date", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")},
+                        {"cash", If(String.IsNullOrEmpty(CashTextBox.Text), 0, CashTextBox.Text)}
                     }
-                        items.Add(item)
-                    End If
-                Next
 
-                baseCommand = New BaseTransaction(data) With {
-                    .Items = items
-                }
+                    For Each row As DataGridViewRow In TransactionDataGridView.Rows
+                        If Not row.IsNewRow Then
+                            Dim item As New Dictionary(Of String, String) From {
+                            {"product_id", row.Cells(0).Value},
+                            {"price", If(row.Cells(2).Value?.ToString(), "0")},
+                            {"quantity", If(row.Cells(3).Value?.ToString(), "0")},
+                            {"total", If(row.Cells(4).Value?.ToString(), "0")}
+                        }
+                            items.Add(item)
+                        End If
+                    Next
 
-                invoker = New AddCommand(baseCommand)
-                invoker?.Execute()
+                    baseCommand = New BaseTransaction(data) With {
+                        .Items = items
+                    }
 
-                Dim reslt As DialogResult = MsgBox("Do you want to print a receipt?", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-                Dim autoPrint As Boolean = (reslt = DialogResult.Yes)
+                    invoker = New AddCommand(baseCommand)
+                    invoker?.Execute()
 
-                Using dialog As New ReceiptViewer(Reference_number.Text)
-                    dialog.ShowDialog()
-                End Using
+                    Dim reslt As DialogResult = MsgBox("Do you want to print a receipt?", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                    Dim autoPrint As Boolean = (reslt = DialogResult.Yes)
 
-                Me.Close()
+                    Using dialog As New ReceiptViewer(Reference_number.Text)
+                        dialog.ShowDialog()
+                    End Using
+                    Me.Close()
+                End If
             Else
                 MessageBox.Show("Enter a valid amount.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 CashTextBox.Text = ""

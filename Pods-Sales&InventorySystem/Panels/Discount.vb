@@ -31,7 +31,8 @@
             Dim row As DataGridViewRow = selectedRows(0)
             Dim data As New Dictionary(Of String, String) From {
                 {"id", row.Cells(0).Value.ToString()},
-                {"discount", row.Cells(1).Value.ToString()}
+                {"discount", row.Cells(1).Value.ToString()},
+                {"description", row.Cells(2).Value.ToString()}
             }
             Dim dialog As New DiscountDialog(data:=data, subject:=_subject)
             dialog.ShowDialog()

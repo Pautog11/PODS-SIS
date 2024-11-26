@@ -338,6 +338,7 @@ Partial Class TransactionDialog
         Me.CashTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.CashTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CashTextBox.Location = New System.Drawing.Point(167, 288)
+        Me.CashTextBox.MaxLength = 6
         Me.CashTextBox.Name = "CashTextBox"
         Me.CashTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CashTextBox.PlaceholderText = ""

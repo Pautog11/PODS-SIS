@@ -14,10 +14,17 @@ Public Class ProductDialog
         SubCategoryComboBox.DisplayMember = "subcategory"
         SubCategoryComboBox.SelectedItem = "id"
 
+        DoseComboBox.DataSource = BaseProduct.FetchDosage.DefaultView
+        DoseComboBox.DisplayMember = "dosage"
+        DoseComboBox.SelectedItem = "id"
+
         Dim dt As DataTable = BaseDosage.FetchDosage
         DoseComboBox.DataSource = dt.DefaultView
         DoseComboBox.DisplayMember = "dasage"
         DoseComboBox.SelectedItem = "id"
+        If dt.Rows.Count > 0 Then
+            DoseComboBox.SelectedIndex = -1
+        End If
 
         If _data IsNot Nothing Then
             AddProductButton.Text = "Update"
@@ -27,9 +34,6 @@ Public Class ProductDialog
             BarcodeTextBox.Text = _data.Item("barcode")
             ProductNameTextBox.Text = _data.Item("product_name")
             DescriptionTextBox.Text = _data.Item("description")
-            'QuantityTextBox.Text = _data.Item("quantity")
-            'PriceTextBox.Text = _data.Item("price")
-            'CostTextBox.Text = _data.Item("cost")
             StockLevelTextBox.Text = _data.Item("stock_level")
 
             Dim productid As DataTable = BaseProduct.Fillproductinfo(_data("id"))
@@ -39,6 +43,7 @@ Public Class ProductDialog
                 DosageTextBox.Text = If(row("dosage_form") Is DBNull.Value, String.Empty, row("dosage_form").ToString())
                 StrengthTextBox.Text = If(row("strength") Is DBNull.Value, String.Empty, row("strength").ToString())
                 ManufacturerTextBox.Text = If(row("manufacturer") Is DBNull.Value, String.Empty, row("manufacturer").ToString())
+                DoseComboBox.Text = BaseProduct.DoseName(If(row("dose") Is DBNull.Value, String.Empty, row("dose").ToString()))
             End If
             DeleteProductButton.Visible = False
         Else
@@ -48,10 +53,10 @@ Public Class ProductDialog
 
     Private Sub AddProductButton_Click(sender As Object, e As EventArgs) Handles AddProductButton.Click
         Dim controls As Object() = {
-            SubCategoryComboBox, BarcodeTextBox, ProductNameTextBox, StockLevelTextBox, DosageTextBox, StrengthTextBox, ManufacturerTextBox
+            SubCategoryComboBox, BarcodeTextBox, ProductNameTextBox, StockLevelTextBox, DosageTextBox, StrengthTextBox, DoseComboBox, ManufacturerTextBox
         }
         Dim types As DataInput() = {
-           DataInput.STRING_STRING, DataInput.STRING_INTEGER, DataInput.STRING_NAME, DataInput.STRING_INTEGER, DataInput.STRING_STRING, DataInput.STRING_INTEGER, DataInput.STRING_NAME
+           DataInput.STRING_STRING, DataInput.STRING_INTEGER, DataInput.STRING_NAME, DataInput.STRING_INTEGER, DataInput.STRING_STRING, DataInput.STRING_INTEGER, DataInput.STRING_STRING, DataInput.STRING_NAME
         }
         Dim result As New List(Of Object())
         For i = 0 To controls.Count - 1
@@ -61,11 +66,14 @@ Public Class ProductDialog
             End If
         Next
 
-        'If Val(PriceTextBox.Text) <= Val(CostTextBox.Text) Then
-        '    MessageBox.Show("Price should not be less than or equal to the cost price.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-        '    Return
-        'End If
-
+        Dim inputValue As Integer
+        ' Check if the input is a valid integer and if it exceeds 500
+        If Integer.TryParse(StockLevelTextBox.Text, inputValue) Then
+            If inputValue > 500 Then
+                MessageBox.Show("Should not greater than 500!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Exit Sub
+            End If
+        End If
 
         If Not result.Any(Function(item As Object()) Not item(0)) Then
             Dim data As New Dictionary(Of String, String) From {
@@ -84,20 +92,10 @@ Public Class ProductDialog
             Dim item As New Dictionary(Of String, String)
 
             If Not String.IsNullOrEmpty(DosageTextBox.Text) AndAlso Not String.IsNullOrEmpty(StrengthTextBox.Text) AndAlso Not String.IsNullOrEmpty(ManufacturerTextBox.Text) Then
-                'Dim textboxes As Object() = {
-                '    DosageTextBox, StrengthTextBox, ManufacturerTextBox
-                '}
-                'Dim types1 As DataInput() = {
-                '    DataInput.STRING_STRING, DataInput.STRING_INTEGER, DataInput.STRING_NAME
-                '}
-                'Dim res As New List(Of Object())
-                'For i = 0 To textboxes.Count - 1
-                '    res.Add(InputValidation.ValidateInputString(textboxes(i), types1(i)))
-                'Next
-
                 item("dosage") = result(4)(1) 'If(String.IsNullOrEmpty(DosageTextBox.Text), Nothing, DosageTextBox.Text)
                 item("strength") = result(5)(1)
-                item("manufacturer") = result(6)(1) 'If(String.IsNullOrEmpty(ManufacturerTextBox.Text), Nothing, ManufacturerTextBox.Text)
+                item("dose") = DoseComboBox.SelectedItem("id")
+                item("manufacturer") = result(7)(1) 'If(String.IsNullOrEmpty(ManufacturerTextBox.Text), Nothing, ManufacturerTextBox.Text)
             End If
 
 

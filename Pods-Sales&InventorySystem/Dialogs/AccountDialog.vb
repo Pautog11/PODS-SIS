@@ -79,7 +79,6 @@ Public Class AccountDialog
                         Exit For ' Exit the loop once the row is removed
                     End If
                 Else
-                    ' Add rows where the id is 1 or 2 to the removal list
                     If row("id") = 1 Or row("id") = 2 Then
                         rowsToRemove.Add(row)
                     End If
@@ -88,12 +87,6 @@ Public Class AccountDialog
             For Each row As DataRow In rowsToRemove
                 roles.Rows.Remove(row)
             Next
-
-
-
-            'Auto select "None" for roles
-            'roles.Rows.Add(-1, "None")
-            'RoleComboBox.SelectedValue = -1
 
             'For Visibility
             DeleteAccountButton.Visible = False

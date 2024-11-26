@@ -20,6 +20,9 @@ Public Class DeliveryCartDialog
         SupplierNameComboBox.DataSource = supplier_data
         SupplierNameComboBox.DisplayMember = "NAME"
         SupplierNameComboBox.ValueMember = "ID"
+        If supplier_data.Rows.Count > 0 Then
+            SupplierNameComboBox.SelectedIndex = -1
+        End If
 
 
 

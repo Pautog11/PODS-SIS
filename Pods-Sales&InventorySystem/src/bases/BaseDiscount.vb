@@ -15,8 +15,9 @@ Public Class BaseDiscount
 
     Public Sub Update() Implements ICommandPanel.Update
         Try
-            _sqlCommand = New SqlCommand("UPDATE tbldiscounts SET discount = @discount WHERE id = @id", _sqlConnection)
+            _sqlCommand = New SqlCommand("UPDATE tbldiscounts SET discount = @discount, description = @description WHERE id = @id", _sqlConnection)
             _sqlCommand.Parameters.AddWithValue("@discount", _data.Item("discount"))
+            _sqlCommand.Parameters.AddWithValue("@description", _data.Item("description"))
             _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
             If _sqlCommand.ExecuteNonQuery() <= 0 Then
                 MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -30,8 +31,9 @@ Public Class BaseDiscount
 
     Public Sub Add() Implements ICommandPanel.Add
         Try
-            _sqlCommand = New SqlCommand("INSERT INTO tbldiscounts (discount) VALUES (@discount)", _sqlConnection)
+            _sqlCommand = New SqlCommand("INSERT INTO tbldiscounts (discount, description) VALUES (@discount, @description)", _sqlConnection)
             _sqlCommand.Parameters.AddWithValue("@discount", _data.Item("discount"))
+            _sqlCommand.Parameters.AddWithValue("@description", _data.Item("description"))
             If _sqlCommand.ExecuteNonQuery() <= 0 Then
                 MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else

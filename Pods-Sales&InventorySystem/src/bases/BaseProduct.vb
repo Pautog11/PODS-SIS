@@ -60,10 +60,11 @@ Public Class BaseProduct
                 '    _sqlCommand.Parameters.AddWithValue("@product_id", _data.Item("id"))
                 'Else
                 _sqlCommand.Parameters.Clear()
-                _sqlCommand = New SqlCommand("UPDATE tblproduct_info SET dosage_form = @dosage_form, strength = @strength, manufacturer = @manufacturer WHERE product_id = @product_id", _sqlConnection)
+                _sqlCommand = New SqlCommand("UPDATE tblproduct_info SET dosage_form = @dosage_form, strength = @strength, dose = @dose, manufacturer = @manufacturer WHERE product_id = @product_id", _sqlConnection)
                 _sqlCommand.Parameters.AddWithValue("@product_id", _data.Item("id"))
                 _sqlCommand.Parameters.AddWithValue("@dosage_form", _item.Item("dosage")) '_item.Item("dosage"))
                 _sqlCommand.Parameters.AddWithValue("@strength", _item.Item("strength"))
+                _sqlCommand.Parameters.AddWithValue("@dose", _item.Item("dose"))
                 _sqlCommand.Parameters.AddWithValue("@manufacturer", _item.Item("manufacturer"))
             End If
 
@@ -112,12 +113,13 @@ Public Class BaseProduct
                     _sqlCommand.Parameters.Clear()
 
                     ' Prepare the SQL command for insertion
-                    _sqlCommand = New SqlCommand("INSERT INTO tblproduct_info (product_id, dosage_form, strength, manufacturer) VALUES (@product_id, @dosage_form, @strength, @manufacturer)", _sqlConnection, transaction)
+                    _sqlCommand = New SqlCommand("INSERT INTO tblproduct_info (product_id, dosage_form, strength, dose, manufacturer) VALUES (@product_id, @dosage_form, @strength, @dose, @manufacturer)", _sqlConnection, transaction)
 
                     ' Add the parameters with appropriate values from the dictionary
                     _sqlCommand.Parameters.AddWithValue("@product_id", productid)
                     _sqlCommand.Parameters.AddWithValue("@dosage_form", _item("dosage")) ' Using the dictionary's Item method
                     _sqlCommand.Parameters.AddWithValue("@strength", _item("strength"))
+                    _sqlCommand.Parameters.AddWithValue("@dose", _item("dose"))
                     _sqlCommand.Parameters.AddWithValue("@manufacturer", _item("manufacturer"))
                     If _sqlCommand.ExecuteNonQuery() <= 0 Then
                         Throw New Exception("Failed to add delivery items!")
@@ -251,7 +253,7 @@ Public Class BaseProduct
     Public Shared Function Fillproductinfo(product_id As String) As DataTable
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As New SqlCommand("SELECT dosage_form, strength, manufacturer FROM tblproduct_info WHERE product_id = @product_id", conn)
+            Dim cmd As New SqlCommand("SELECT dosage_form, strength, dose, manufacturer FROM tblproduct_info WHERE product_id = @product_id", conn)
             cmd.Parameters.AddWithValue("product_id", product_id)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
@@ -303,6 +305,7 @@ Public Class BaseProduct
             Return New pods.viewtblproductsearchDataTable
         End Try
     End Function
+
     Public Shared Function ChangeDialog(id As Integer) As Integer
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
@@ -317,6 +320,33 @@ Public Class BaseProduct
                                         END AS id_exists
                                     FROM tblproducts t1 where t1.id = @id", conn)
             cmd.Parameters.AddWithValue("@id", id)
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
+
+    Public Shared Function FetchDosage() As DataTable
+        Try
+            Dim conn As New SqlConnection(My.Settings.podsdbConnectionString)
+            Dim cmd As New SqlCommand("SELECT * FROM tbldosage", conn)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
+        End Try
+    End Function
+
+    Public Shared Function DoseName(id As String) As String
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT dasage FROM tbldosage WHERE id = @id", conn)
+            cmd.Parameters.AddWithValue("@id", id)
+
             Return cmd.ExecuteScalar()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
