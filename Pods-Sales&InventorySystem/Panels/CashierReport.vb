@@ -35,7 +35,7 @@ Public Class CashierReport
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
             adapter.Fill(dTable)
-            SalesReportsDataGridView.DataSource = dTable
+            CashierReportsDataGridView.DataSource = dTable
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End Try
