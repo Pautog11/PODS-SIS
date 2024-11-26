@@ -33,7 +33,7 @@ Public Class SalesReport
             '    cmd = New SqlCommand("SELECT * FROM tbltransactions", conn)
             'Else
             cmd = New SqlCommand("SELECT CONCAT(a.first_name, ' ', a.last_name) AS CASHIER,
-                                   t.transaction_number AS TRANSACTION #,
+                                   t.transaction_number AS TRANSACTION#,
                                    t.total AS TOTAL,
                                    t.date AS DATE
                                    FROM tbltransactions t
@@ -49,7 +49,6 @@ Public Class SalesReport
             SalesReportsDataGridView.DataSource = dTable
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            SalesReportsDataGridView.DataSource = _dataTable
         End Try
     End Sub
     Private Sub PrintButton_Click(sender As Object, e As EventArgs) Handles PrintButton.Click
@@ -76,7 +75,7 @@ Public Class SalesReport
             '    cmd = New SqlCommand("SELECT * FROM tbltransactions", conn)
             'Else
             cmd = New SqlCommand("SELECT CONCAT(a.first_name, ' ', a.last_name) AS CASHIER,
-                                   t.transaction_number AS TRANSACTION #,
+                                   t.transaction_number AS TRANSACTION#,
                                    t.total AS TOTAL,
                                    t.date AS DATE
                                    FROM tbltransactions t
