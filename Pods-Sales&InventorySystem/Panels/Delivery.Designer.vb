@@ -40,8 +40,8 @@ Partial Class Delivery
         Me.AccountHeaderLayoutPanel.ColumnCount = 2
         Me.AccountHeaderLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.AccountHeaderLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.AccountHeaderLayoutPanel.Controls.Add(Me.AddDeliveryButton, 1, 0)
-        Me.AccountHeaderLayoutPanel.Controls.Add(Me.DeliverySearchTextBox, 0, 0)
+        Me.AccountHeaderLayoutPanel.Controls.Add(Me.DeliverySearchTextBox, 1, 0)
+        Me.AccountHeaderLayoutPanel.Controls.Add(Me.AddDeliveryButton, 0, 0)
         Me.AccountHeaderLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AccountHeaderLayoutPanel.Location = New System.Drawing.Point(3, 3)
         Me.AccountHeaderLayoutPanel.Name = "AccountHeaderLayoutPanel"
@@ -63,7 +63,7 @@ Partial Class Delivery
         Me.AddDeliveryButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AddDeliveryButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddDeliveryButton.ForeColor = System.Drawing.Color.White
-        Me.AddDeliveryButton.Location = New System.Drawing.Point(657, 4)
+        Me.AddDeliveryButton.Location = New System.Drawing.Point(252, 4)
         Me.AddDeliveryButton.Name = "AddDeliveryButton"
         Me.AddDeliveryButton.Size = New System.Drawing.Size(150, 35)
         Me.AddDeliveryButton.TabIndex = 2
@@ -83,7 +83,7 @@ Partial Class Delivery
         Me.DeliverySearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DeliverySearchTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DeliverySearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DeliverySearchTextBox.Location = New System.Drawing.Point(3, 4)
+        Me.DeliverySearchTextBox.Location = New System.Drawing.Point(408, 4)
         Me.DeliverySearchTextBox.Name = "DeliverySearchTextBox"
         Me.DeliverySearchTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.DeliverySearchTextBox.PlaceholderText = "Search"
