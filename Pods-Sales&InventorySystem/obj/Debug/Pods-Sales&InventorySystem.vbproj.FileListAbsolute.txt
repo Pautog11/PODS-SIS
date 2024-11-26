@@ -809,3 +809,4 @@ C:\Users\Madz\Documents\GitHub\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pod
 C:\Users\Madz\Documents\GitHub\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.DosageDialog.resources
 C:\Users\Madz\Documents\GitHub\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.CashierViewer.resources
 C:\Users\Madz\Documents\GitHub\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.NonMedicalDialog.resources
+C:\Users\Madz\Documents\GitHub\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.CashierReport.resources
