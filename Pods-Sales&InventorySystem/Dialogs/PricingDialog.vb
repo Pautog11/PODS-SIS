@@ -27,7 +27,7 @@ Public Class PricingDialog
                     CostTextBox, txtPrays
                 }
                 Dim types As DataInput() = {
-                    DataInput.STRING_INTEGER, DataInput.STRING_INTEGER
+                    DataInput.STRING_PRICE, DataInput.STRING_PRICE
                 }
                 Dim result As New List(Of Object())
                 For i = 0 To controls.Count - 1

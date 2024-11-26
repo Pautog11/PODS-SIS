@@ -48,23 +48,23 @@ Public Class BaseProduct
             End If
 
             If ChangeDialog(_data.Item("id")) = 1 Then
-                _sqlCommand.Parameters.Clear()
-                _sqlCommand = New SqlCommand("INSERT INTO tblproduct_info (product_id, dosage_form, strength, manufacturer) VALUES (@product_id, @dosage_form, @strength, @manufacturer)", _sqlConnection)
-                _sqlCommand.Parameters.AddWithValue("@product_id", _data.Item("id"))
-                _sqlCommand.Parameters.AddWithValue("@dosage_form", _item.Item("dosage")) '_item.Item("dosage"))
-                _sqlCommand.Parameters.AddWithValue("@strength", _item.Item("strength"))
-                _sqlCommand.Parameters.AddWithValue("@manufacturer", _item.Item("manufacturer"))
+                '_sqlCommand.Parameters.Clear()
+                '_sqlCommand = New SqlCommand("INSERT INTO tblproduct_info (product_id, dosage_form, strength, manufacturer) VALUES (@product_id, @dosage_form, @strength, @manufacturer)", _sqlConnection)
+                '_sqlCommand.Parameters.AddWithValue("@product_id", _data.Item("id"))
+                '_sqlCommand.Parameters.AddWithValue("@dosage_form", _item.Item("dosage")) '_item.Item("dosage"))
+                '_sqlCommand.Parameters.AddWithValue("@strength", _item.Item("strength"))
+                '_sqlCommand.Parameters.AddWithValue("@manufacturer", _item.Item("manufacturer"))
                 'ElseIf _item.Item("dosage") IsNot DBNull.Value AndAlso String.IsNullOrEmpty(CStr(_item.Item("dosage"))) AndAlso _item.Item("strength") IsNot DBNull.Value AndAlso String.IsNullOrEmpty(CStr(_item.Item("strength"))) AndAlso _item.Item("manufacturer") IsNot DBNull.Value AndAlso String.IsNullOrEmpty(CStr(_item.Item("manufacturer"))) Then '_item.Item("dosage_form") = "" Then 'AndAlso String.IsNullOrEmpty(_item.Item("strength") OrElse _item.Item("strength") Is DBNull.Value) AndAlso String.IsNullOrEmpty(_item.Item("manufacturer") OrElse _item.Item("manufacturer") Is DBNull.Value) Then
                 '    _sqlCommand.Parameters.Clear()
                 '    _sqlCommand = New SqlCommand("DELETE tblproduct_info WHERE product_id = @product_id", _sqlConnection)
                 '    _sqlCommand.Parameters.AddWithValue("@product_id", _data.Item("id"))
                 'Else
-                '    _sqlCommand.Parameters.Clear()
-                '    _sqlCommand = New SqlCommand("UPDATE tblproduct_info SET dosage_form = @dosage_form, strength = @strength, manufacturer = @manufacturer WHERE product_id = @product_id", _sqlConnection)
-                '    _sqlCommand.Parameters.AddWithValue("@product_id", _data.Item("id"))
-                '    _sqlCommand.Parameters.AddWithValue("@dosage_form", _item.Item("dosage")) '_item.Item("dosage"))
-                '    _sqlCommand.Parameters.AddWithValue("@strength", _item.Item("strength"))
-                '    _sqlCommand.Parameters.AddWithValue("@manufacturer", _item.Item("manufacturer"))
+                _sqlCommand.Parameters.Clear()
+                _sqlCommand = New SqlCommand("UPDATE tblproduct_info SET dosage_form = @dosage_form, strength = @strength, manufacturer = @manufacturer WHERE product_id = @product_id", _sqlConnection)
+                _sqlCommand.Parameters.AddWithValue("@product_id", _data.Item("id"))
+                _sqlCommand.Parameters.AddWithValue("@dosage_form", _item.Item("dosage")) '_item.Item("dosage"))
+                _sqlCommand.Parameters.AddWithValue("@strength", _item.Item("strength"))
+                _sqlCommand.Parameters.AddWithValue("@manufacturer", _item.Item("manufacturer"))
             End If
 
             If _sqlCommand.ExecuteNonQuery() <= 0 Then

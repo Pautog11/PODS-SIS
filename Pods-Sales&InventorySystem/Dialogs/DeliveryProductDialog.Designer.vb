@@ -281,7 +281,7 @@ Partial Class DeliveryProductDialog
         Me.SearchButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.SearchButton.ForeColor = System.Drawing.Color.White
         Me.SearchButton.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.search
-        Me.SearchButton.Location = New System.Drawing.Point(214, 117)
+        Me.SearchButton.Location = New System.Drawing.Point(214, 115)
         Me.SearchButton.Name = "SearchButton"
         Me.SearchButton.Size = New System.Drawing.Size(52, 36)
         Me.SearchButton.TabIndex = 23
@@ -290,7 +290,7 @@ Partial Class DeliveryProductDialog
         '
         Me.Guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent
         Me.Guna2HtmlLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2HtmlLabel1.Location = New System.Drawing.Point(151, 69)
+        Me.Guna2HtmlLabel1.Location = New System.Drawing.Point(151, 71)
         Me.Guna2HtmlLabel1.Name = "Guna2HtmlLabel1"
         Me.Guna2HtmlLabel1.Size = New System.Drawing.Size(15, 18)
         Me.Guna2HtmlLabel1.TabIndex = 22
