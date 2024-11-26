@@ -40,6 +40,7 @@ Public Class CashierViewer
                                    t.transaction_number,
                                    t.total,
                                    t.date,
+                                   CONVERT(TIME, t.date) AS time,
 								   SUM(t.total) OVER () AS total_sales
                                    FROM tbltransactions t
                                    JOIN tblaccounts a ON t.account_id = a.id

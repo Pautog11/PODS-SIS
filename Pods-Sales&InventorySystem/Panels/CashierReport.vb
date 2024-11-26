@@ -30,10 +30,7 @@ Public Class CashierReport
                                    t.total AS TOTAL,
                                    t.date AS DATE
                                    FROM tbltransactions t
-                                   JOIN tblaccounts a ON t.account_id = a.id
-                                   WHERE CONVERT(DATE, t.date) = @startDate AND t.account_id = @cashierNameCmb", conn)
-            cmd.Parameters.AddWithValue("@startDate", DateTimePicker1.Value.ToString("yyyy-MM-dd"))
-            cmd.Parameters.AddWithValue("@cashierNameCmb", CashierNameComboBox.SelectedValue)
+                                   JOIN tblaccounts a ON t.account_id = a.id", conn)
 
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
