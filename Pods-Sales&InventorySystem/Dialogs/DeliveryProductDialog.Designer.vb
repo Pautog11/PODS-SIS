@@ -336,14 +336,14 @@ Partial Class DeliveryProductDialog
         Me.QuantityTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.QuantityTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.QuantityTextBox.Location = New System.Drawing.Point(66, 341)
-        Me.QuantityTextBox.MaxLength = 5
+        Me.QuantityTextBox.MaxLength = 3
         Me.QuantityTextBox.Name = "QuantityTextBox"
         Me.QuantityTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.QuantityTextBox.PlaceholderText = "0"
         Me.QuantityTextBox.SelectedText = ""
         Me.QuantityTextBox.ShortcutsEnabled = False
         Me.QuantityTextBox.Size = New System.Drawing.Size(200, 36)
-        Me.QuantityTextBox.TabIndex = 4
+        Me.QuantityTextBox.TabIndex = 3
         '
         'CostTextBox
         '

@@ -10,6 +10,14 @@ Public Class DosageDialog
         _data = data
     End Sub
     Private Sub DosageDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Try
+            If _data IsNot Nothing Then
+                DoseTextBox.Text = _data.Item("dosage")
+                DescriptionTextBox.Text = _data.Item("description")
+            End If
+        Catch ex As Exception
+
+        End Try
 
     End Sub
 

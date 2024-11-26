@@ -61,7 +61,7 @@ Public Class DeliveryProductDialog
                     QuantityTextBox
                 }
                 Dim types As DataInput() = {
-                    DataInput.STRING_PRICE
+                    DataInput.STRING_INTEGER
                 }
                 Dim result As New List(Of Object())
                 For i = 0 To controls.Count - 1

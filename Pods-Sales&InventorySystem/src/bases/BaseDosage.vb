@@ -14,7 +14,19 @@ Public Class BaseDosage
     End Sub
 
     Public Sub Update() Implements ICommandPanel.Update
-        Throw New NotImplementedException()
+        Try
+            _sqlCommand = New SqlCommand("UPDATE tbldosage SET dasage = @dasage, description = @description WHERE id = @id", _sqlConnection)
+            _sqlCommand.Parameters.AddWithValue("@dasage", _data.Item("dosage"))
+            _sqlCommand.Parameters.AddWithValue("@description", _data.Item("description"))
+            _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
+            If _sqlCommand.ExecuteNonQuery() <= 0 Then
+                MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Else
+                MessageBox.Show("Dosage has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End Try
     End Sub
 
     Public Sub Add() Implements ICommandPanel.Add
@@ -25,7 +37,7 @@ Public Class BaseDosage
             If _sqlCommand.ExecuteNonQuery() <= 0 Then
                 MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
-                MessageBox.Show("Dose has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Dosage has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)

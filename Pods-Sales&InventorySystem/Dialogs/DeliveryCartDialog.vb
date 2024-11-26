@@ -152,9 +152,9 @@ Public Class DeliveryCartDialog
     '    End If
     ' End Sub
 
-    Private Sub SupplierNameComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles SupplierNameComboBox.SelectionChangeCommitted
-        MsgBox(SupplierNameComboBox.SelectedItem("ID"))
-    End Sub
+    'Private Sub SupplierNameComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles SupplierNameComboBox.SelectionChangeCommitted
+    '    MsgBox(SupplierNameComboBox.SelectedItem("ID"))
+    'End Sub
 
     Private Sub PulloutButton_Click(sender As Object, e As EventArgs) Handles PulloutButton.Click
         Dim dialog As New DeliveryPulloutCart(data:=_data, subject:=_subject, parent:=Me)
