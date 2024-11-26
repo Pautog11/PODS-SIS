@@ -150,7 +150,7 @@ Public Class BaseTransaction
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT * FROM tbldiscounts", conn)
+            cmd = New SqlCommand("SELECT discount, concat(discount, ' ',description) as des FROM tbldiscounts", conn)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
             adapter.Fill(dTable)
