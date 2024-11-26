@@ -11,20 +11,20 @@
     <Setting Name="podsdbConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Server=.;Initial Catalog=podsdb;Persist Security Info=True;User ID=admin;Password=password;&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Server=.;Initial Catalog=titeko;Persist Security Info=True;User ID=admin;Password=password;&lt;/ConnectionString&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Server=.;Initial Catalog=podsdb;Persist Security Info=True;User ID=admin;Password=password;</Value>
+      <Value Profile="(Default)">Server=.;Initial Catalog=titeko;Persist Security Info=True;User ID=admin;Password=password;</Value>
     </Setting>
     <Setting Name="podsdbConnectionString1" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=.;Initial Catalog=podsdb;User ID=admin;Password=password;&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=.;Initial Catalog=titeko;User ID=admin;Password=password;&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=.;Initial Catalog=podsdb;User ID=admin;Password=password;</Value>
+      <Value Profile="(Default)">Data Source=.;Initial Catalog=titeko;User ID=admin;Password=password;</Value>
     </Setting>
     <Setting Name="con" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Data Source=.;Initial Catalog=podsdb;Persist Security Info=True;User ID=admin;Password=password;</Value>
+      <Value Profile="(Default)">Data Source=.;Initial Catalog=titeko;Persist Security Info=True;User ID=admin;Password=password;</Value>
     </Setting>
   </Settings>
 </SettingsFile>

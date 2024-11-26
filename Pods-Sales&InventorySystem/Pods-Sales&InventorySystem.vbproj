@@ -208,6 +208,12 @@
     <Compile Include="Dialogs\DosageDialog.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Dialogs\NonMedicalDialog.Designer.vb">
+      <DependentUpon>NonMedicalDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\NonMedicalDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Dialogs\PasswordDialog.Designer.vb">
       <DependentUpon>PasswordDialog.vb</DependentUpon>
     </Compile>
@@ -580,6 +586,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\DosageDialog.resx">
       <DependentUpon>DosageDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\NonMedicalDialog.resx">
+      <DependentUpon>NonMedicalDialog.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\PasswordDialog.resx">
       <DependentUpon>PasswordDialog.vb</DependentUpon>
