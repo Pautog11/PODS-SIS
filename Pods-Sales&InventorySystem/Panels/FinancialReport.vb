@@ -118,9 +118,9 @@ Public Class FinancialReport
             Dim startDate As DateTime = DateTimePicker1.Value.ToString("yyyy-MM-dd")
             Dim endDate As DateTime = DateTimePicker2.Value.ToString("yyyy-MM-dd")
 
-            'Using dialog As New FinancialReportViewer(startDate, endDate)
-            '    dialog.ShowDialog()
-            'End Using
+            Using dialog As New FinancialReportViewer(startDate, endDate)
+                dialog.ShowDialog()
+            End Using
         Catch ex As Exception
             MessageBox.Show($"Error Print report: {ex.Message}", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
