@@ -28,9 +28,12 @@ Partial Class Reports
         Me.Financial_Reports = New System.Windows.Forms.TabPage()
         Me.FinancialReport1 = New Pods_Sales_InventorySystem.FinancialReport()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.CashierReport1 = New Pods_Sales_InventorySystem.CashierReport()
+        Me.CachedCashierRpt1 = New Pods_Sales_InventorySystem.CachedCashierRpt()
         Me.AuditTrailTabControl.SuspendLayout()
         Me.Sales_Reports.SuspendLayout()
         Me.Financial_Reports.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
         Me.SuspendLayout()
         '
         'AuditTrailTabControl
@@ -103,12 +106,21 @@ Partial Class Reports
         '
         'TabPage1
         '
+        Me.TabPage1.Controls.Add(Me.CashierReport1)
         Me.TabPage1.Location = New System.Drawing.Point(4, 44)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Size = New System.Drawing.Size(882, 518)
         Me.TabPage1.TabIndex = 2
         Me.TabPage1.Text = "Cashier Reports"
         Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'CashierReport1
+        '
+        Me.CashierReport1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CashierReport1.Location = New System.Drawing.Point(0, 0)
+        Me.CashierReport1.Name = "CashierReport1"
+        Me.CashierReport1.Size = New System.Drawing.Size(882, 518)
+        Me.CashierReport1.TabIndex = 0
         '
         'Reports
         '
@@ -120,6 +132,7 @@ Partial Class Reports
         Me.AuditTrailTabControl.ResumeLayout(False)
         Me.Sales_Reports.ResumeLayout(False)
         Me.Financial_Reports.ResumeLayout(False)
+        Me.TabPage1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -130,4 +143,6 @@ Partial Class Reports
     Friend WithEvents SalesReport1 As SalesReport
     Friend WithEvents FinancialReport1 As FinancialReport
     Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents CashierReport1 As CashierReport
+    Friend WithEvents CachedCashierRpt1 As CachedCashierRpt
 End Class

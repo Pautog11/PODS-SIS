@@ -41,7 +41,6 @@ Public Class SalesReport
                                    WHERE t.date BETWEEN @start_date AND @end_date", conn)
             cmd.Parameters.AddWithValue("@start_date", DateTimePicker1.Value.ToString("yyyy-MM-dd"))
             cmd.Parameters.AddWithValue("@end_date", DateTimePicker2.Value.ToString("yyyy-MM-dd"))
-            cmd.Parameters.AddWithValue("@group_by", "Year")
             'End If
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
