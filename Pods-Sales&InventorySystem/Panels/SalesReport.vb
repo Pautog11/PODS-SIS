@@ -46,29 +46,6 @@ Public Class SalesReport
             SalesReportsDataGridView.DataSource = _dataTable
         End Try
     End Sub
-    'Private Sub SalesReportComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles SalesReportComboBox.SelectionChangeCommitted
-    '    'MsgBox(SalesReportComboBox.Text)
-    '    Try
-    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-    '        Dim cmd As SqlCommand
-
-    '        'If SalesReportComboBox.Text = "All" Then
-    '        '    cmd = New SqlCommand("SELECT * FROM tbltransactions", conn)
-    '        'Else
-    '        cmd = New SqlCommand("EXEC SalesReportProcedure @start_date = @start_date, @end_date = @end_date, @group_by = @group_by", conn)
-    '        cmd.Parameters.AddWithValue("@start_date", DateTimePicker1.Value.ToString("yyyy-MM-dd"))
-    '        cmd.Parameters.AddWithValue("@end_date", DateTimePicker2.Value.ToString("yyyy-MM-dd"))
-    '        cmd.Parameters.AddWithValue("@group_by", SalesReportComboBox.Text)
-    '        'End If
-    '        Dim dTable As New DataTable
-    '        Dim adapter As New SqlDataAdapter(cmd)
-    '        adapter.Fill(dTable)
-    '        SalesReportsDataGridView.DataSource = dTable
-    '    Catch ex As Exception
-    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-    '        SalesReportsDataGridView.DataSource = _dataTable
-    '    End Try
-    'End Sub
     Private Sub PrintButton_Click(sender As Object, e As EventArgs) Handles PrintButton.Click
         Try
             PrintButton.Enabled = False
@@ -92,7 +69,7 @@ Public Class SalesReport
             'If SalesReportComboBox.Text = "All" Then
             '    cmd = New SqlCommand("SELECT * FROM tbltransactions", conn)
             'Else
-            cmd = New SqlCommand("Select * From tbltransactions WHERE date Between @start_date AND @end_date", conn)
+            cmd = New SqlCommand("SELECT * FROM tbltransactions WHERE date Between @start_date AND @end_date", conn)
             cmd.Parameters.AddWithValue("@start_date", DateTimePicker1.Value.ToString("yyyy-MM-dd"))
             cmd.Parameters.AddWithValue("@end_date", DateTimePicker2.Value.ToString("yyyy-MM-dd"))
             'End If

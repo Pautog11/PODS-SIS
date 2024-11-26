@@ -16,36 +16,36 @@ Public Class SalesReportViewer
         'Try
         ' Load datasets with date filters
         Dim salesViewData As DataSet = SalesView(_startDate, _endDate)
-            Dim transactionData As DataSet = SalesReport(_startDate, _endDate)
-            Dim returnData As DataSet = SalesReturn(_startDate, _endDate)
-            'Dim salesViewData As DataSet = SalesView()
-            'Dim transactionData As DataSet = SalesReport()
-            'Dim returnData As DataSet = SalesReturn()
+        Dim transactionData As DataSet = SalesReport(_startDate, _endDate)
+        Dim returnData As DataSet = SalesReturn(_startDate, _endDate)
+        'Dim salesViewData As DataSet = SalesView()
+        'Dim transactionData As DataSet = SalesReport()
+        'Dim returnData As DataSet = SalesReturn()
 
-            If salesViewData Is Nothing OrElse transactionData Is Nothing OrElse returnData Is Nothing Then
-                MessageBox.Show("Failed to load one or more datasets.")
-                Exit Sub
-            End If
+        If salesViewData Is Nothing OrElse transactionData Is Nothing OrElse returnData Is Nothing Then
+            MessageBox.Show("Failed to load one or more datasets.")
+            Exit Sub
+        End If
 
-            ' Check if datasets have the expected tables
-            If salesViewData.Tables.Contains("DT_SalesView") AndAlso
+        ' Check if datasets have the expected tables
+        If salesViewData.Tables.Contains("DT_SalesView") AndAlso
                 transactionData.Tables.Contains("DT_SalesReport") AndAlso
                 returnData.Tables.Contains("DT_ReturnsReport") Then
 
-                Dim reportDocument As New SalesRpt()
-                reportDocument.SetDataSource(salesViewData.Tables("DT_SalesView"))
+            Dim reportDocument As New SalesRpt()
+            reportDocument.SetDataSource(salesViewData.Tables("DT_SalesView"))
 
-                Dim subreportSales = reportDocument.Subreports("Sales")
-                subreportSales.SetDataSource(transactionData.Tables("DT_SalesReport"))
+            Dim subreportSales = reportDocument.Subreports("Sales")
+            subreportSales.SetDataSource(transactionData.Tables("DT_SalesReport"))
 
-                Dim subreportReturn = reportDocument.Subreports("Returns")
-                subreportReturn.SetDataSource(returnData.Tables("DT_ReturnsReport"))
+            Dim subreportReturn = reportDocument.Subreports("Returns")
+            subreportReturn.SetDataSource(returnData.Tables("DT_ReturnsReport"))
 
             CrystalReportViewer1.ReportSource = reportDocument
             CrystalReportViewer1.RefreshReport()
-            Else
-                MessageBox.Show("One or more required tables are missing from the datasets.")
-            End If
+        Else
+            MessageBox.Show("One or more required tables are missing from the datasets.")
+        End If
         'Catch ex As Exception
         'MessageBox.Show($"Error loading report: {ex.Message}")
         'End Try
@@ -88,11 +88,9 @@ Public Class SalesReportViewer
                                             t.transaction_number,
                                             t.total,
                                             t.date,
-                                            SUM(t.total) OVER () AS total_revenue,
-                                            SUM(r.total) OVER () AS total_returns
+                                            SUM(t.total) OVER () AS total_revenue
                                         FROM tbltransactions t
                                         JOIN tblaccounts a ON t.account_id = a.id
-                                        FULL JOIN tblreturns r ON t.id = r.transaction_id
                                         WHERE t.date BETWEEN @startDate AND @endDate", con)
                 '                        WHERE t.date BETWEEN @startDate AND @endDate", con)
                 cmd.Parameters.AddWithValue("@startDate", startDate)
