@@ -146,6 +146,18 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="DT_CashiersReport" msprop:Generator_TableClassName="DT_CashiersReportDataTable" msprop:Generator_TableVarName="tableDT_CashiersReport" msprop:Generator_RowChangedName="DT_CashiersReportRowChanged" msprop:Generator_TablePropName="DT_CashiersReport" msprop:Generator_RowDeletingName="DT_CashiersReportRowDeleting" msprop:Generator_RowChangingName="DT_CashiersReportRowChanging" msprop:Generator_RowEvHandlerName="DT_CashiersReportRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_CashiersReportRowDeleted" msprop:Generator_RowClassName="DT_CashiersReportRow" msprop:Generator_UserTableName="DT_CashiersReport" msprop:Generator_RowEvArgName="DT_CashiersReportRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="transaction_number" msprop:Generator_ColumnVarNameInTable="columntransaction_number" msprop:Generator_ColumnPropNameInRow="transaction_number" msprop:Generator_ColumnPropNameInTable="transaction_numberColumn" msprop:Generator_UserColumnName="transaction_number" type="xs:string" minOccurs="0" />
+              <xs:element name="total" msprop:Generator_ColumnVarNameInTable="columntotal" msprop:Generator_ColumnPropNameInRow="total" msprop:Generator_ColumnPropNameInTable="totalColumn" msprop:Generator_UserColumnName="total" type="xs:string" minOccurs="0" />
+              <xs:element name="date" msprop:Generator_ColumnVarNameInTable="columndate" msprop:Generator_ColumnPropNameInRow="_date" msprop:Generator_ColumnPropNameInTable="dateColumn" msprop:Generator_UserColumnName="date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="cashier" msprop:Generator_ColumnVarNameInTable="columncashier" msprop:Generator_ColumnPropNameInRow="cashier" msprop:Generator_ColumnPropNameInTable="cashierColumn" msprop:Generator_UserColumnName="cashier" type="xs:string" minOccurs="0" />
+              <xs:element name="total_sales" msprop:Generator_ColumnVarNameInTable="columntotal_sales" msprop:Generator_ColumnPropNameInRow="total_sales" msprop:Generator_ColumnPropNameInTable="total_salesColumn" msprop:Generator_UserColumnName="total_sales" type="xs:string" minOccurs="0" />
+              <xs:element name="time" msprop:Generator_ColumnVarNameInTable="columntime" msprop:Generator_ColumnPropNameInRow="time" msprop:Generator_ColumnPropNameInTable="timeColumn" msprop:Generator_UserColumnName="time" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

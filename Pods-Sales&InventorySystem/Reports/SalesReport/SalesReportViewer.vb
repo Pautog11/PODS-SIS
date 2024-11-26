@@ -13,42 +13,42 @@ Public Class SalesReportViewer
     End Sub
 
     Private Sub SalesReportViewer_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'Try
-        ' Load datasets with date filters
-        Dim salesViewData As DataSet = SalesView(_startDate, _endDate)
-        Dim transactionData As DataSet = SalesReport(_startDate, _endDate)
-        Dim returnData As DataSet = SalesReturn(_startDate, _endDate)
-        'Dim salesViewData As DataSet = SalesView()
-        'Dim transactionData As DataSet = SalesReport()
-        'Dim returnData As DataSet = SalesReturn()
+        Try
+            ' Load datasets with date filters
+            Dim salesViewData As DataSet = SalesView(_startDate, _endDate)
+            Dim transactionData As DataSet = SalesReport(_startDate, _endDate)
+            Dim returnData As DataSet = SalesReturn(_startDate, _endDate)
+            'Dim salesViewData As DataSet = SalesView()
+            'Dim transactionData As DataSet = SalesReport()
+            'Dim returnData As DataSet = SalesReturn()
 
-        If salesViewData Is Nothing OrElse transactionData Is Nothing OrElse returnData Is Nothing Then
-            MessageBox.Show("Failed to load one or more datasets.")
-            Exit Sub
-        End If
+            If salesViewData Is Nothing OrElse transactionData Is Nothing OrElse returnData Is Nothing Then
+                MessageBox.Show("Failed to load one or more datasets.")
+                Exit Sub
+            End If
 
-        ' Check if datasets have the expected tables
-        If salesViewData.Tables.Contains("DT_SalesView") AndAlso
+            ' Check if datasets have the expected tables
+            If salesViewData.Tables.Contains("DT_SalesView") AndAlso
                 transactionData.Tables.Contains("DT_SalesReport") AndAlso
                 returnData.Tables.Contains("DT_ReturnsReport") Then
 
-            Dim reportDocument As New SalesRpt()
-            reportDocument.SetDataSource(salesViewData.Tables("DT_SalesView"))
+                Dim reportDocument As New SalesRpt()
+                reportDocument.SetDataSource(salesViewData.Tables("DT_SalesView"))
 
-            Dim subreportSales = reportDocument.Subreports("Sales")
-            subreportSales.SetDataSource(transactionData.Tables("DT_SalesReport"))
+                Dim subreportSales = reportDocument.Subreports("Sales")
+                subreportSales.SetDataSource(transactionData.Tables("DT_SalesReport"))
 
-            Dim subreportReturn = reportDocument.Subreports("Returns")
-            subreportReturn.SetDataSource(returnData.Tables("DT_ReturnsReport"))
+                Dim subreportReturn = reportDocument.Subreports("Returns")
+                subreportReturn.SetDataSource(returnData.Tables("DT_ReturnsReport"))
 
-            CrystalReportViewer1.ReportSource = reportDocument
-            CrystalReportViewer1.RefreshReport()
-        Else
-            MessageBox.Show("One or more required tables are missing from the datasets.")
-        End If
-        'Catch ex As Exception
-        'MessageBox.Show($"Error loading report: {ex.Message}")
-        'End Try
+                CrystalReportViewer1.ReportSource = reportDocument
+                CrystalReportViewer1.RefreshReport()
+            Else
+                MessageBox.Show("One or more required tables are missing from the datasets.")
+            End If
+        Catch ex As Exception
+        MessageBox.Show($"Error loading report: {ex.Message}")
+        End Try
     End Sub
 
     ' Fetch sales view data based on date range

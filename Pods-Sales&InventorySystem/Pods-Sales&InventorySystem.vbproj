@@ -562,6 +562,7 @@
     <Compile Include="src\bases\BaseNotifications.vb" />
     <Compile Include="src\bases\BaseProduct.vb" />
     <Compile Include="src\bases\BasePullouts.vb" />
+    <Compile Include="src\bases\BaseReports.vb" />
     <Compile Include="src\bases\BaseReturn.vb" />
     <Compile Include="src\bases\BaseSubCategory.vb" />
     <Compile Include="src\bases\BaseSupplier.vb" />
