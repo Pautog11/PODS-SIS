@@ -69,7 +69,7 @@ Public Class SalesReport
             'If SalesReportComboBox.Text = "All" Then
             '    cmd = New SqlCommand("SELECT * FROM tbltransactions", conn)
             'Else
-            cmd = New SqlCommand("Select * From tbltransactions WHERE date Between @start_date AND @end_date", conn)
+            cmd = New SqlCommand("SELECT * FROM tbltransactions WHERE date Between @start_date AND @end_date", conn)
             cmd.Parameters.AddWithValue("@start_date", DateTimePicker1.Value.ToString("yyyy-MM-dd"))
             cmd.Parameters.AddWithValue("@end_date", DateTimePicker2.Value.ToString("yyyy-MM-dd"))
             'End If
