@@ -88,11 +88,9 @@ Public Class SalesReportViewer
                                             t.transaction_number,
                                             t.total,
                                             t.date,
-                                            SUM(t.total) OVER () AS total_revenue,
-                                            SUM(r.total) OVER () AS total_returns
+                                            SUM(t.total) OVER () AS total_revenue
                                         FROM tbltransactions t
                                         JOIN tblaccounts a ON t.account_id = a.id
-                                        FULL JOIN tblreturns r ON t.id = r.transaction_id
                                         WHERE t.date BETWEEN @startDate AND @endDate", con)
                 '                        WHERE t.date BETWEEN @startDate AND @endDate", con)
                 cmd.Parameters.AddWithValue("@startDate", startDate)

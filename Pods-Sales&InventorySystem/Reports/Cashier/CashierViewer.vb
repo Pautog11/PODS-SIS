@@ -16,9 +16,16 @@ Public Class CashierViewer
         Try
             Using con As New SqlConnection(My.Settings.podsdbConnectionString)
                 con.Open()
-                Dim cmd As New SqlCommand("SELECT sc.subcategory, p.product_name product, p.barcode, p.product_price price, p.stock_level, p.quantity stocks 
-                                            FROM tblProducts p
-                                            JOIN tblsubcategories sc ON sc.id = p.subcategory_id", con)
+                Dim cmd As New SqlCommand("SELECT
+                                                CONCAT(a.first_name, ' ', a.last_name) AS cashier,
+                                                t.transaction_number,
+                                                t.total,
+                                                t.date
+                                                FROM tbltransactions t
+                                                JOIN tblaccounts a ON t.account_id = a.id
+                                                FULL JOIN tblreturns r ON t.id = r.transaction_id
+                                                WHERE a.ID = '1'
+                                                ORDER BY t.date ASC", con)
 
                 Dim adapter As New SqlDataAdapter(cmd)
                 adapter.Fill(dset, "DT_Products")
