@@ -496,6 +496,18 @@
     <Compile Include="Reports\Cashier\CashierViewer.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reports\Financial\FinancialReportViewer.Designer.vb">
+      <DependentUpon>FinancialReportViewer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Financial\FinancialReportViewer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\Financial\FinancialRpt.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FinancialRpt.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\Inventory\InventoryReports.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -744,6 +756,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\Cashier\CashierViewer.resx">
       <DependentUpon>CashierViewer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Financial\FinancialReportViewer.resx">
+      <DependentUpon>FinancialReportViewer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Financial\FinancialRpt.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>FinancialRpt.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\Inventory\InventoryReports.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
