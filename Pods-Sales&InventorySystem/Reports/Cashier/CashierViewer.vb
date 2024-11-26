@@ -2,33 +2,53 @@
 Imports System.Windows.Forms
 
 Public Class CashierViewer
-    Private Sub CashierViewer_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim CashierData As DataSet = Cashier()
-        Dim reportDocument As New SalesRpt()
-        reportDocument.SetDataSource(CashierData.Tables("DT_Products"))
+    Private _date As DateTime
+    Private _name As String
 
-        CrystalReportViewer1.ReportSource = reportDocument
-        CrystalReportViewer1.RefreshReport()
+    '' Constructor to accept the date range for filtering
+    Public Sub New(selectedDate As DateTime, cashierName As String)
+        InitializeComponent()
+        _date = selectedDate
+        _name = cashierName
     End Sub
-    Private Function Cashier()
+    Private Sub CashierViewer_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim CashierData As DataSet = Cashier(_date, _name)
+
+        If CashierData Is Nothing Then
+            MessageBox.Show("Failed to load one or more datasets.")
+            Exit Sub
+        End If
+
+        ' Check if datasets have the expected tables
+        If CashierData.Tables.Contains("DT_CashiersReport") Then
+            Dim reportDocument As New CashierRpt()
+            reportDocument.SetDataSource(CashierData.Tables("DT_CashiersReport"))
+
+            CrystalReportViewer1.ReportSource = reportDocument
+            CrystalReportViewer1.RefreshReport()
+        Else
+            MessageBox.Show("One or more required tables are missing from the datasets.")
+        End If
+    End Sub
+    Private Function Cashier(selectedDate As DateTime, cashierName As String) As DataSet
         Dim dset As New DataSet
 
         Try
             Using con As New SqlConnection(My.Settings.podsdbConnectionString)
                 con.Open()
-                Dim cmd As New SqlCommand("SELECT
-                                                CONCAT(a.first_name, ' ', a.last_name) AS cashier,
-                                                t.transaction_number,
-                                                t.total,
-                                                t.date
-                                                FROM tbltransactions t
-                                                JOIN tblaccounts a ON t.account_id = a.id
-                                                FULL JOIN tblreturns r ON t.id = r.transaction_id
-                                                WHERE a.ID = '1'
-                                                ORDER BY t.date ASC", con)
-
+                Dim cmd As New SqlCommand("SELECT CONCAT(a.first_name, ' ', a.last_name) AS cashier,
+                                   t.transaction_number,
+                                   t.total,
+                                   t.date,
+                                   CONVERT(TIME, t.date) AS time,
+								   SUM(t.total) OVER () AS total_sales
+                                   FROM tbltransactions t
+                                   JOIN tblaccounts a ON t.account_id = a.id
+                                   WHERE CONVERT(DATE, t.date) = @startDate AND t.account_id = @cashierNameCmb", con)
+                cmd.Parameters.AddWithValue("@startDate", selectedDate)
+                cmd.Parameters.AddWithValue("@cashierNameCmb", cashierName)
                 Dim adapter As New SqlDataAdapter(cmd)
-                adapter.Fill(dset, "DT_Products")
+                adapter.Fill(dset, "DT_CashiersReport")
             End Using
         Catch ex As Exception
             MessageBox.Show($"Error loading inventory data: {ex.Message}")
