@@ -32,7 +32,13 @@ Public Class SalesReport
             'If SalesReportComboBox.Text = "All" Then
             '    cmd = New SqlCommand("SELECT * FROM tbltransactions", conn)
             'Else
-            cmd = New SqlCommand("EXEC SalesReportProcedure @start_date = @start_date, @end_date = @end_date, @group_by = @group_by", conn)
+            cmd = New SqlCommand("SELECT CONCAT(a.first_name, ' ', a.last_name) AS CASHIER,
+                                   t.transaction_number AS TRANSACTION #,
+                                   t.total AS TOTAL,
+                                   t.date AS DATE
+                                   FROM tbltransactions t
+                                   JOIN tblaccounts a ON t.account_id = a.id
+                                   WHERE t.date BETWEEN @start_date AND @end_date", conn)
             cmd.Parameters.AddWithValue("@start_date", DateTimePicker1.Value.ToString("yyyy-MM-dd"))
             cmd.Parameters.AddWithValue("@end_date", DateTimePicker2.Value.ToString("yyyy-MM-dd"))
             cmd.Parameters.AddWithValue("@group_by", "Year")
@@ -69,7 +75,13 @@ Public Class SalesReport
             'If SalesReportComboBox.Text = "All" Then
             '    cmd = New SqlCommand("SELECT * FROM tbltransactions", conn)
             'Else
-            cmd = New SqlCommand("SELECT * FROM tbltransactions WHERE date Between @start_date AND @end_date", conn)
+            cmd = New SqlCommand("SELECT CONCAT(a.first_name, ' ', a.last_name) AS CASHIER,
+                                   t.transaction_number AS TRANSACTION #,
+                                   t.total AS TOTAL,
+                                   t.date AS DATE
+                                   FROM tbltransactions t
+                                   JOIN tblaccounts a ON t.account_id = a.id
+                                   WHERE t.date BETWEEN @start_date AND @end_date", conn)
             cmd.Parameters.AddWithValue("@start_date", DateTimePicker1.Value.ToString("yyyy-MM-dd"))
             cmd.Parameters.AddWithValue("@end_date", DateTimePicker2.Value.ToString("yyyy-MM-dd"))
             'End If
