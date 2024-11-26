@@ -10,41 +10,67 @@ Public Class AccountDialog
         _data = data
     End Sub
     Private Sub Account_Dialog(sender As Object, e As EventArgs) Handles MyBase.Load
-        'For Roles
-        Dim roles As DataTable = BaseAccount.FillByRoles()
-        RoleComboBox.DataSource = roles
-        RoleComboBox.DisplayMember = "role"
-        RoleComboBox.ValueMember = "id"
+        Try
+            'For Roles
+            Dim roles As DataTable = BaseAccount.FillByRoles()
+            RoleComboBox.DataSource = roles
+            RoleComboBox.DisplayMember = "role"
+            RoleComboBox.ValueMember = "id"
 
-        'For Status
-        StatusComboBox.DataSource = BaseAccount.FillByStatus()
-        StatusComboBox.DisplayMember = "status"
-        StatusComboBox.SelectedItem = "id"
+            'For Status
+            StatusComboBox.DataSource = BaseAccount.FillByStatus()
+            StatusComboBox.DisplayMember = "status"
+            StatusComboBox.SelectedItem = "id"
 
-        If _data IsNot Nothing Then
-            AddAccountButton.Text = "Update"
+            If _data IsNot Nothing Then
+                AddAccountButton.Text = "Update"
 
-            'For fetching data to combobox
-            RoleComboBox.Text = BaseAccount.Fetchroles(_data.Item("role"))
-            StatusComboBox.Text = BaseAccount.Fetchstatus(_data.Item("status"))
+                'For fetching data to combobox
+                RoleComboBox.Text = BaseAccount.Fetchroles(_data.Item("role"))
+                StatusComboBox.Text = BaseAccount.Fetchstatus(_data.Item("status"))
 
-            'To populate data to texboxes
-            FirstnameTextBox.Text = _data.Item("first_name")
-            LastnameTextBox.Text = _data.Item("last_name")
-            Phone_numberTextBox.Text = _data.Item("phone_number")
-            AddressTextBox.Text = _data.Item("address")
-            UsernameTextBox.Text = _data.Item("username")
+                'To populate data to texboxes
+                FirstnameTextBox.Text = _data.Item("first_name")
+                LastnameTextBox.Text = _data.Item("last_name")
+                Phone_numberTextBox.Text = _data.Item("phone_number")
+                AddressTextBox.Text = _data.Item("address")
+                UsernameTextBox.Text = _data.Item("username")
 
-            'For Visibility
-            UsernameTextBox.Enabled = False
-            DeleteAccountButton.Visible = False
-            PasswordTextBox.Visible = False
-            'RoleComboBox.Enabled = False
-            'End If
+                'For Visibility
+                UsernameTextBox.Enabled = False
+                DeleteAccountButton.Visible = False
+                PasswordTextBox.Visible = False
+                'RoleComboBox.Enabled = False
+                'End If
 
-            If RoleComboBox.Text = "Super Admin" Then
-                RoleComboBox.Enabled = False
-                StatusComboBox.Enabled = False
+                If RoleComboBox.Text = "Super Admin" Then
+                    RoleComboBox.Enabled = False
+                    StatusComboBox.Enabled = False
+                Else
+                    Dim rowsToRemove As New List(Of DataRow)()
+                    For Each row As DataRow In roles.Rows
+                        If My.Settings.roleId = 1 Then
+                            If row("id") = 1 Then
+                                rowsToRemove.Add(row) ' Add the row to be removed later
+                                Exit For ' Exit the loop once the row is removed
+                            End If
+                        Else
+                            If RoleComboBox.Text = "Admin" Then
+                                RoleComboBox.Enabled = False
+                                StatusComboBox.Enabled = False
+                            Else
+                                If row("id") = 1 Or row("id") = 2 Then
+                                    rowsToRemove.Add(row)
+                                End If
+                            End If
+                        End If
+                    Next
+                    For Each row As DataRow In rowsToRemove
+                        roles.Rows.Remove(row)
+                    Next
+                End If
+
+
             Else
                 Dim rowsToRemove As New List(Of DataRow)()
                 For Each row As DataRow In roles.Rows
@@ -54,45 +80,23 @@ Public Class AccountDialog
                             Exit For ' Exit the loop once the row is removed
                         End If
                     Else
-                        If RoleComboBox.Text = "Admin" Then
-                            RoleComboBox.Enabled = False
-                            StatusComboBox.Enabled = False
-                        Else
-                            If row("id") = 1 Or row("id") = 2 Then
-                                rowsToRemove.Add(row)
-                            End If
+                        If row("id") = 1 Or row("id") = 2 Then
+                            rowsToRemove.Add(row)
                         End If
                     End If
                 Next
                 For Each row As DataRow In rowsToRemove
                     roles.Rows.Remove(row)
                 Next
+
+                'For Visibility
+                DeleteAccountButton.Visible = False
+                StatusComboBox.Visible = False
+                ChangePassButton.Visible = False
             End If
+        Catch ex As Exception
 
-
-        Else
-            Dim rowsToRemove As New List(Of DataRow)()
-            For Each row As DataRow In roles.Rows
-                If My.Settings.roleId = 1 Then
-                    If row("id") = 1 Then
-                        rowsToRemove.Add(row) ' Add the row to be removed later
-                        Exit For ' Exit the loop once the row is removed
-                    End If
-                Else
-                    If row("id") = 1 Or row("id") = 2 Then
-                        rowsToRemove.Add(row)
-                    End If
-                End If
-            Next
-            For Each row As DataRow In rowsToRemove
-                roles.Rows.Remove(row)
-            Next
-
-            'For Visibility
-            DeleteAccountButton.Visible = False
-            StatusComboBox.Visible = False
-            ChangePassButton.Visible = False
-        End If
+        End Try
     End Sub
 
     Private Sub AddAccountButton_Click(sender As Object, e As EventArgs) Handles AddAccountButton.Click
@@ -158,23 +162,6 @@ Public Class AccountDialog
     End Sub
 
     Private Sub DeleteAccountButton_Click(sender As Object, e As EventArgs) Handles DeleteAccountButton.Click
-        'Const SUPER_ADMIN As Integer = 1
-        'Const ADMIN As Integer = 2
-
-        'If BaseAccount.ScalarRoleName(_data.Item("role")) = 1 Then 'Or BaseAccount.ScalarRoleName(_data.Item("role")) = 2 Then
-        '    If _data.Item("id") <> My.Settings.roleId Then
-        'Dim baseCommand As New BaseAccount(_data)
-        'Dim invoker As New DeleteCommand(baseCommand)
-        'invoker?.Execute()
-        '_subject.NotifyObserver()
-        'Me.Close()
-        '    Else
-        '        MessageBox.Show("You can't delete your account.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        '    End If
-        'Else
-        '    MessageBox.Show("Action can't be performed.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
-        'End If
-
         If My.Settings.roleId = _data.Item("role") Then
             MessageBox.Show("You can't delete your account.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
@@ -191,10 +178,6 @@ Public Class AccountDialog
     End Sub
 
     Private Sub ChangePassButton_Click(sender As Object, e As EventArgs) Handles ChangePassButton.Click
-        'MsgBox(_data.Item("id"))
-        'Using PasswordDialog()
-        '    PasswordDialog.ShowDialog()
-        'End Using
         Dim dialog As New PasswordDialog(parent:=Me, id:=_data.Item("id"))
         dialog.ShowDialog()
     End Sub

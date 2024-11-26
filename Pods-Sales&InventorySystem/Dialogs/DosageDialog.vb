@@ -14,37 +14,41 @@ Public Class DosageDialog
     End Sub
 
     Private Sub AddDosageButton_Click(sender As Object, e As EventArgs) Handles AddDosageButton.Click
-        Dim controls As Object() = {
-            DoseTextBox
-        }
-        Dim types As DataInput() = {
-            DataInput.STRING_STRING
-        }
-        Dim result As New List(Of Object())
-        For i = 0 To controls.Count - 1
-            result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
-        Next
-
-        If Not result.Any(Function(item As Object()) Not item(0)) Then
-            Dim data As New Dictionary(Of String, String) From {
-                {"id", _data?.Item("id")},
-                {"dosage", result(0)(1)},
-                {"description", If(String.IsNullOrEmpty(DescriptionTextBox.Text), "", DescriptionTextBox.Text)}
+        Try
+            Dim controls As Object() = {
+                  DoseTextBox
+              }
+            Dim types As DataInput() = {
+                DataInput.STRING_STRING
             }
-            Dim baseCommand As New BaseDosage(data)
-            Dim invoker As ICommandInvoker = Nothing
-            If _data Is Nothing Then
-                invoker = New AddCommand(baseCommand)
-            ElseIf _data IsNot Nothing Then
-                invoker = New UpdateCommand(baseCommand)
+            Dim result As New List(Of Object())
+            For i = 0 To controls.Count - 1
+                result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
+            Next
+
+            If Not result.Any(Function(item As Object()) Not item(0)) Then
+                Dim data As New Dictionary(Of String, String) From {
+                    {"id", _data?.Item("id")},
+                    {"dosage", result(0)(1)},
+                    {"description", If(String.IsNullOrEmpty(DescriptionTextBox.Text), "", DescriptionTextBox.Text)}
+                }
+                Dim baseCommand As New BaseDosage(data)
+                Dim invoker As ICommandInvoker = Nothing
+                If _data Is Nothing Then
+                    invoker = New AddCommand(baseCommand)
+                ElseIf _data IsNot Nothing Then
+                    invoker = New UpdateCommand(baseCommand)
+                Else
+                    MessageBox.Show("Dosage exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                End If
+                invoker?.Execute()
+                _subject.NotifyObserver()
+                Me.Close()
             Else
-                MessageBox.Show("Dosage exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                MessageBox.Show("Please fill out all textboxes or provide all valid inputs.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
-            invoker?.Execute()
-            _subject.NotifyObserver()
-            Me.Close()
-        Else
-            MessageBox.Show("Please fill out all textboxes or provide all valid inputs.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-        End If
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class

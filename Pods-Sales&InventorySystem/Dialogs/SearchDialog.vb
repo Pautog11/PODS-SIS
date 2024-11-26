@@ -64,18 +64,22 @@ Public Class SearchDialog
     End Sub
 
     Private Sub ProductDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles ProductDataGridView.CellClick
-        If ProductDataGridView.Rows.Count > 0 Then
-            Dim selectedRows As DataGridViewSelectedRowCollection = ProductDataGridView.SelectedRows
-            Dim row As DataGridViewRow = selectedRows(0)
-            Dim data As New Dictionary(Of String, String) From {
-                {"id", If(String.IsNullOrEmpty(row.Cells(0).Value.ToString()), 0, row.Cells(0).Value.ToString())},
-                {"productname", If(String.IsNullOrEmpty(row.Cells(1).Value.ToString()), 0, row.Cells(1).Value.ToString())},
-                {"price", If(String.IsNullOrEmpty(row.Cells(2).Value.ToString()), 0, row.Cells(2).Value.ToString())},
-                {"quantity", If(String.IsNullOrEmpty(row.Cells(3).Value.ToString()), 0, row.Cells(3).Value.ToString())}
-            }
-            Dim dialog As New TransactionCartDailog(dat2:=data, parent:=_parent)
-            dialog.ShowDialog()
-            Me.Close()
-        End If
+        Try
+            If ProductDataGridView.Rows.Count > 0 Then
+                Dim selectedRows As DataGridViewSelectedRowCollection = ProductDataGridView.SelectedRows
+                Dim row As DataGridViewRow = selectedRows(0)
+                Dim data As New Dictionary(Of String, String) From {
+                    {"id", If(String.IsNullOrEmpty(row.Cells(0).Value.ToString()), 0, row.Cells(0).Value.ToString())},
+                    {"productname", If(String.IsNullOrEmpty(row.Cells(1).Value.ToString()), 0, row.Cells(1).Value.ToString())},
+                    {"price", If(String.IsNullOrEmpty(row.Cells(2).Value.ToString()), 0, row.Cells(2).Value.ToString())},
+                    {"quantity", If(String.IsNullOrEmpty(row.Cells(3).Value.ToString()), 0, row.Cells(3).Value.ToString())}
+                }
+                Dim dialog As New TransactionCartDailog(dat2:=data, parent:=_parent)
+                dialog.ShowDialog()
+                Me.Close()
+            End If
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class

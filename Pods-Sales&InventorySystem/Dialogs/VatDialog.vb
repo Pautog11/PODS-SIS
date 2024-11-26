@@ -11,28 +11,35 @@ Public Class VatDialog
     End Sub
 
     Private Sub VatDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If _data IsNot Nothing Then
-            VatTextBox.Text = _data.Item("vat")
-        End If
+        Try
+            If _data IsNot Nothing Then
+                VatTextBox.Text = _data.Item("vat")
+            End If
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub UpdateButton_Click(sender As Object, e As EventArgs) Handles UpdateButton.Click
+        Try
+            Dim res As New List(Of Object()) From {InputValidation.ValidateInputString(VatTextBox, DataInput.STRING_INTEGER)}
 
-        Dim res As New List(Of Object()) From {InputValidation.ValidateInputString(VatTextBox, DataInput.STRING_INTEGER)}
+            If Not res.Any(Function(item As Object()) Not item(0)) Then
+                Dim data As New Dictionary(Of String, String) From {
+                    {"id", _data.Item("id")},
+                    {"vat", res(0)(1)}
+                }
+                Dim baseCommand As New BaseVat(data)
+                Dim invoker As ICommandInvoker = Nothing
+                invoker = New UpdateCommand(baseCommand)
+                invoker?.Execute()
+                _subject.NotifyObserver()
+                Me.Close()
+            Else
+                MessageBox.Show("Please input a valid vat.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+        Catch ex As Exception
 
-        If Not res.Any(Function(item As Object()) Not item(0)) Then
-            Dim data As New Dictionary(Of String, String) From {
-                {"id", _data.Item("id")},
-                {"vat", res(0)(1)}
-            }
-            Dim baseCommand As New BaseVat(data)
-            Dim invoker As ICommandInvoker = Nothing
-            invoker = New UpdateCommand(baseCommand)
-            invoker?.Execute()
-            _subject.NotifyObserver()
-            Me.Close()
-        Else
-            MessageBox.Show("Please input a valid vat.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-        End If
+        End Try
     End Sub
 End Class
