@@ -46,10 +46,11 @@ Public Class ProductDialog
                 StockLevelTextBox.Text = _data.Item("stock_level")
 
                 Dim productid As DataTable = BaseProduct.Fillproductinfo(_data("id"))
-                'MsgBox(_data.Item("id"))
+
                 If productid.Rows.Count > 0 Then
                     Dim row As DataRow = productid.Rows(0)
-                    DosageTextBox.Text = If(row("dosage_form") Is DBNull.Value, String.Empty, row("dosage_form").ToString())
+                    DosageFormComboBox.Text = If(row("dosage_form") Is DBNull.Value, String.Empty, row("dosage_form").ToString())
+                    'DosageTextBox.Text = If(row("dosage_form") Is DBNull.Value, String.Empty, row("dosage_form").ToString())
                     StrengthTextBox.Text = If(row("strength") Is DBNull.Value, String.Empty, row("strength").ToString())
                     ManufacturerTextBox.Text = If(row("manufacturer") Is DBNull.Value, String.Empty, row("manufacturer").ToString())
                     DoseComboBox.Text = BaseProduct.DoseName(If(row("dose") Is DBNull.Value, String.Empty, row("dose").ToString()))

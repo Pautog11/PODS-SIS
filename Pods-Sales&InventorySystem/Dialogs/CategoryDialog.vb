@@ -55,7 +55,7 @@ Public Class CategoryDialog
                     baseCommand = New BaseCategory(data)
                     invoker = New AddCommand(baseCommand)
                     Me.Close()
-                ElseIf _data IsNot Nothing AndAlso BaseCategory.Exists(result(0)(1)) = 0 Then
+                ElseIf _data IsNot Nothing Then
                     baseCommand = New BaseCategory(data)
                     invoker = New UpdateCommand(baseCommand)
                     Me.Close()
