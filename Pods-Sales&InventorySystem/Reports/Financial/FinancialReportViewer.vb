@@ -41,7 +41,8 @@ Public Class FinancialReportViewer
         Try
             Using con As New SqlConnection(My.Settings.podsdbConnectionString)
                 con.Open()
-                Dim cmd As New SqlCommand("SELECT CONCAT(a.last_name, ' ', a.first_name) AS cashier, 
+                Dim cmd As New SqlCommand("SELECT @startDate as start_date, @endDate as end_date, 
+                                                CONCAT(a.last_name, ' ', a.first_name) AS cashier, 
                                                 t.transaction_number, 
                                                 t.total, 
                                                 t.date, 
