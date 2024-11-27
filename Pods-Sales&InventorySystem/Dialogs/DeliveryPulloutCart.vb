@@ -62,41 +62,45 @@ Public Class DeliveryPulloutCart
 
     Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click
         Try
-            Dim items As New List(Of Dictionary(Of String, String))()
-            Dim data As New Dictionary(Of String, String) From {
-                {"id", _data?.Item("id")},
-                {"account_id", My.Settings.myId},
-                {"delivery_id", _data.Item("id")},
-                {"total", TotalPrice.Text},
-                {"reason", _data?.Item("id")},
-                {"date", DateTimePicker.Value.ToString("MMM dd yyyy")}
-             }
-
-            For Each row As DataGridViewRow In DeliveryPulloutDataGridView.Rows
-                Dim item As New Dictionary(Of String, String) From {
-                    {"product_id", row.Cells(0).Value},
-                    {"pid", row.Cells(1).Value},
-                    {"exd", If(row.Cells(3).Value?.ToString(), "0")},
-                    {"price", If(row.Cells(4).Value?.ToString(), "0")},
-                    {"quantity", If(row.Cells(5).Value?.ToString(), "0")},
-                    {"total", If(row.Cells(6).Value?.ToString(), "0")},
-                    {"delivery_id", data.Item("id")}
+            If DeliveryPulloutDataGridView.Rows.Count > 0 Then
+                Dim items As New List(Of Dictionary(Of String, String))()
+                Dim data As New Dictionary(Of String, String) From {
+                    {"id", _data?.Item("id")},
+                    {"account_id", My.Settings.myId},
+                    {"delivery_id", _data.Item("id")},
+                    {"total", TotalPrice.Text},
+                    {"reason", _data?.Item("id")},
+                    {"date", DateTimePicker.Value.ToString("MMM dd yyyy")}
                 }
-                items.Add(item)
-                'MsgBox(row.Cells(1).Value)
-            Next
 
-            Dim baseCommand As New BasePullouts(data) With {
-                .Items = items
-            }
-            Dim invoker As ICommandInvoker = Nothing
+                For Each row As DataGridViewRow In DeliveryPulloutDataGridView.Rows
+                    Dim item As New Dictionary(Of String, String) From {
+                        {"product_id", row.Cells(0).Value},
+                        {"pid", row.Cells(1).Value},
+                        {"exd", If(row.Cells(3).Value?.ToString(), "0")},
+                        {"price", If(row.Cells(4).Value?.ToString(), "0")},
+                        {"quantity", If(row.Cells(5).Value?.ToString(), "0")},
+                        {"total", If(row.Cells(6).Value?.ToString(), "0")},
+                        {"delivery_id", data.Item("id")}
+                    }
+                    items.Add(item)
+                    'MsgBox(row.Cells(1).Value)
+                Next
 
-            invoker = New AddCommand(baseCommand)
+                Dim baseCommand As New BasePullouts(data) With {
+                    .Items = items
+                }
+                Dim invoker As ICommandInvoker = Nothing
 
-            invoker?.Execute()
-            _subject.NotifyObserver()
-            Me.Close()
-            _parent.Close()
+                invoker = New AddCommand(baseCommand)
+
+                invoker?.Execute()
+                _subject.NotifyObserver()
+                Me.Close()
+                _parent.Close()
+            Else
+                MessageBox.Show("No product selected.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
         Catch ex As Exception
 
         End Try
