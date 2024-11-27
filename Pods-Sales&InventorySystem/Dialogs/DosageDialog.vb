@@ -18,17 +18,18 @@ Public Class DosageDialog
         Catch ex As Exception
 
         End Try
-
     End Sub
 
     Private Sub AddDosageButton_Click(sender As Object, e As EventArgs) Handles AddDosageButton.Click
         Try
             Dim controls As Object() = {
-                  DoseTextBox
-              }
-            Dim types As DataInput() = {
-                DataInput.STRING_STRING
+                DoseTextBox
             }
+
+            Dim types As DataInput() = {
+                DataInput.STRING_DOSE
+            }
+
             Dim result As New List(Of Object())
             For i = 0 To controls.Count - 1
                 result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
