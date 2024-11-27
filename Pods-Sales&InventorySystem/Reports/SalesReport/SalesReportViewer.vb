@@ -60,7 +60,8 @@ Public Class SalesReportViewer
                 con.Open()
                 Dim cmd As New SqlCommand("SELECT @startDate as start_date, @endDate as end_date,
                                                 COALESCE(SUM(t.total), 0) AS total_sales,
-                                                COALESCE(SUM(r.total), 0) AS total_returns
+                                                COALESCE(SUM(r.total), 0) AS total_returns,
+                                                COALESCE(SUM(t.total), 0) - COALESCE(SUM(r.total), 0) AS overall_total
                                             FROM tbltransactions t
                                             FULL JOIN tblreturns r ON t.id = r.transaction_id
                                             WHERE t.date BETWEEN @startDate AND @endDate", con)
