@@ -2,7 +2,7 @@
     Implements IObserverPanel
     Private _subject As IObservablePanel
     Private ReadOnly _tableAapter As New podsTableAdapters.viewtbldosageformTableAdapter 'podsTableAdapters.tblaccountsTableAdapter
-    Private _dataTable As New pods.viewtbldosageformDataTable 'pods.tblaccountsDataTable
+    Private ReadOnly _dataTable As New pods.viewtbldosageformDataTable 'pods.tblaccountsDataTable
 
     Private Sub DosageForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
