@@ -24,6 +24,7 @@ Partial Class SubCategoryDialog
     Private Sub InitializeComponent()
         Me.SubCategoryLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.SubCategoryDescriptionTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -32,7 +33,6 @@ Partial Class SubCategoryDialog
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.DeleteSubCategoryButton = New Guna.UI2.WinForms.Guna2Button()
         Me.AddSubCategoryButton = New Guna.UI2.WinForms.Guna2Button()
-        Me.SubCategoryDescriptionTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.SubCategoryLayoutPanel.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
@@ -67,6 +67,30 @@ Partial Class SubCategoryDialog
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.Size = New System.Drawing.Size(435, 233)
         Me.Guna2Panel1.TabIndex = 0
+        '
+        'SubCategoryDescriptionTextBox
+        '
+        Me.SubCategoryDescriptionTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.SubCategoryDescriptionTextBox.BorderRadius = 10
+        Me.SubCategoryDescriptionTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.SubCategoryDescriptionTextBox.DefaultText = ""
+        Me.SubCategoryDescriptionTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.SubCategoryDescriptionTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.SubCategoryDescriptionTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.SubCategoryDescriptionTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.SubCategoryDescriptionTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.SubCategoryDescriptionTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.SubCategoryDescriptionTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.SubCategoryDescriptionTextBox.Location = New System.Drawing.Point(119, 159)
+        Me.SubCategoryDescriptionTextBox.MaxLength = 100
+        Me.SubCategoryDescriptionTextBox.Multiline = True
+        Me.SubCategoryDescriptionTextBox.Name = "SubCategoryDescriptionTextBox"
+        Me.SubCategoryDescriptionTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.SubCategoryDescriptionTextBox.PlaceholderText = ""
+        Me.SubCategoryDescriptionTextBox.SelectedText = ""
+        Me.SubCategoryDescriptionTextBox.ShortcutsEnabled = False
+        Me.SubCategoryDescriptionTextBox.Size = New System.Drawing.Size(200, 64)
+        Me.SubCategoryDescriptionTextBox.TabIndex = 21
         '
         'Label3
         '
@@ -109,7 +133,7 @@ Partial Class SubCategoryDialog
         Me.SubcategoryNameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.SubcategoryNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.SubcategoryNameTextBox.Location = New System.Drawing.Point(119, 100)
-        Me.SubcategoryNameTextBox.MaxLength = 20
+        Me.SubcategoryNameTextBox.MaxLength = 100
         Me.SubcategoryNameTextBox.Name = "SubcategoryNameTextBox"
         Me.SubcategoryNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.SubcategoryNameTextBox.PlaceholderText = "Ex. (Cough and Cold etc.,)"
@@ -184,30 +208,6 @@ Partial Class SubCategoryDialog
         Me.AddSubCategoryButton.Size = New System.Drawing.Size(128, 37)
         Me.AddSubCategoryButton.TabIndex = 5
         Me.AddSubCategoryButton.Text = "Add"
-        '
-        'SubCategoryDescriptionTextBox
-        '
-        Me.SubCategoryDescriptionTextBox.BorderColor = System.Drawing.Color.Gray
-        Me.SubCategoryDescriptionTextBox.BorderRadius = 10
-        Me.SubCategoryDescriptionTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.SubCategoryDescriptionTextBox.DefaultText = ""
-        Me.SubCategoryDescriptionTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.SubCategoryDescriptionTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.SubCategoryDescriptionTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.SubCategoryDescriptionTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.SubCategoryDescriptionTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.SubCategoryDescriptionTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.SubCategoryDescriptionTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.SubCategoryDescriptionTextBox.Location = New System.Drawing.Point(119, 159)
-        Me.SubCategoryDescriptionTextBox.MaxLength = 50
-        Me.SubCategoryDescriptionTextBox.Multiline = True
-        Me.SubCategoryDescriptionTextBox.Name = "SubCategoryDescriptionTextBox"
-        Me.SubCategoryDescriptionTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.SubCategoryDescriptionTextBox.PlaceholderText = ""
-        Me.SubCategoryDescriptionTextBox.SelectedText = ""
-        Me.SubCategoryDescriptionTextBox.ShortcutsEnabled = False
-        Me.SubCategoryDescriptionTextBox.Size = New System.Drawing.Size(200, 64)
-        Me.SubCategoryDescriptionTextBox.TabIndex = 21
         '
         'SubCategoryDialog
         '

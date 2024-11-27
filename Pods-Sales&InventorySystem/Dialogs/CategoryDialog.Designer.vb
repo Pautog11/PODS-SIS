@@ -117,7 +117,7 @@ Partial Class CategoryDialog
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(57, 91)
+        Me.Label2.Location = New System.Drawing.Point(57, 87)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(108, 13)
         Me.Label2.TabIndex = 3
@@ -145,8 +145,8 @@ Partial Class CategoryDialog
         Me.DescriptionTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DescriptionTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DescriptionTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DescriptionTextBox.Location = New System.Drawing.Point(113, 107)
-        Me.DescriptionTextBox.MaxLength = 50
+        Me.DescriptionTextBox.Location = New System.Drawing.Point(103, 107)
+        Me.DescriptionTextBox.MaxLength = 100
         Me.DescriptionTextBox.Name = "DescriptionTextBox"
         Me.DescriptionTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.DescriptionTextBox.PlaceholderText = ""
@@ -168,8 +168,8 @@ Partial Class CategoryDialog
         Me.CategoryNameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CategoryNameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.CategoryNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CategoryNameTextBox.Location = New System.Drawing.Point(113, 43)
-        Me.CategoryNameTextBox.MaxLength = 25
+        Me.CategoryNameTextBox.Location = New System.Drawing.Point(104, 43)
+        Me.CategoryNameTextBox.MaxLength = 100
         Me.CategoryNameTextBox.Name = "CategoryNameTextBox"
         Me.CategoryNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CategoryNameTextBox.PlaceholderText = "Category Name"

@@ -11,13 +11,13 @@ Public Class ProductDialog
     End Sub
     Private Sub ProductDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            SubCategoryComboBox.DataSource = BaseProduct.FillBySubCategory.DefaultView
+            Dim sc As DataTable = BaseProduct.FillBySubCategory
+            SubCategoryComboBox.DataSource = sc.DefaultView
             SubCategoryComboBox.DisplayMember = "subcategory"
             SubCategoryComboBox.SelectedItem = "id"
-
-            DoseComboBox.DataSource = BaseProduct.FetchDosage.DefaultView
-            DoseComboBox.DisplayMember = "dosage"
-            DoseComboBox.SelectedItem = "id"
+            If sc.Rows.Count > 0 Then
+                SubCategoryComboBox.SelectedIndex = -1
+            End If
 
             Dim dt As DataTable = BaseDosage.FetchDosage
             DoseComboBox.DataSource = dt.DefaultView
@@ -25,6 +25,14 @@ Public Class ProductDialog
             DoseComboBox.SelectedItem = "id"
             If dt.Rows.Count > 0 Then
                 DoseComboBox.SelectedIndex = -1
+            End If
+
+            Dim df As DataTable = BaseDosageForm.FetchDosageform
+            DosageFormComboBox.DataSource = df.DefaultView
+            DosageFormComboBox.DisplayMember = "dosageform"
+            DosageFormComboBox.SelectedItem = "id"
+            If df.Rows.Count > 0 Then
+                DosageFormComboBox.SelectedIndex = -1
             End If
 
             If _data IsNot Nothing Then
@@ -58,8 +66,8 @@ Public Class ProductDialog
     Private Sub AddProductButton_Click(sender As Object, e As EventArgs) Handles AddProductButton.Click
         Try
             Dim controls As Object() = {
-          SubCategoryComboBox, BarcodeTextBox, ProductNameTextBox, StockLevelTextBox, DosageTextBox, StrengthTextBox, DoseComboBox, ManufacturerTextBox
-      }
+                  SubCategoryComboBox, BarcodeTextBox, ProductNameTextBox, StockLevelTextBox, DosageFormComboBox, StrengthTextBox, DoseComboBox, ManufacturerTextBox
+            }
             Dim types As DataInput() = {
                DataInput.STRING_STRING, DataInput.STRING_INTEGER, DataInput.STRING_NAME, DataInput.STRING_INTEGER, DataInput.STRING_STRING, DataInput.STRING_INTEGER, DataInput.STRING_STRING, DataInput.STRING_NAME
             }
