@@ -64,8 +64,8 @@ Public Class SignUp
             PasswordTextBox.UseSystemPasswordChar = False ' Show password
             Guna2TextBox1.UseSystemPasswordChar = False ' Show password
         Else
-            PasswordTextBox.UseSystemPasswordChar = True ' Hide password
-            Guna2TextBox1.UseSystemPasswordChar = True ' Hide password
+            PasswordTextBox.UseSystemPasswordChar = True
+            Guna2TextBox1.UseSystemPasswordChar = True
         End If
     End Sub
 End Class
