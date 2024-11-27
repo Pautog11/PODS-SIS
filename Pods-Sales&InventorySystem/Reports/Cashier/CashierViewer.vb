@@ -37,14 +37,26 @@ Public Class CashierViewer
             Using con As New SqlConnection(My.Settings.podsdbConnectionString)
                 con.Open()
                 Dim cmd As New SqlCommand("SELECT CONCAT(a.first_name, ' ', a.last_name) AS cashier,
-                                   t.transaction_number,
-                                   t.total,
-                                   t.date,
-                                   CONVERT(TIME, t.date) AS time,
-								   SUM(t.total) OVER () AS total_sales
-                                   FROM tbltransactions t
-                                   JOIN tblaccounts a ON t.account_id = a.id
-                                   WHERE CONVERT(DATE, t.date) = @startDate AND t.account_id = @cashierNameCmb", con)
+                                                    t.transaction_number,
+                                                    t.total,
+                                                    t.date,
+                                                    CONVERT(TIME, t.date) AS time,
+                                                    SUM(t.total) OVER () AS total_sales,
+                                                    ISNULL(r.total, 0) AS total_return,
+                                                    SUM(t.total) OVER () - SUM(r.total) OVER () AS overall_total,
+                                                    SUM(r.total) OVER () AS overall_return
+                                                FROM tbltransactions t
+                                                JOIN tblaccounts a ON t.account_id = a.id
+                                                LEFT JOIN tblreturns r ON t.id = r.transaction_id
+                                                JOIN tbltransaction_items ti ON t.id = ti.transaction_id
+                                                JOIN tblproducts p ON ti.product_id = p.id
+                                                WHERE CONVERT(DATE, t.date) = @startDate AND t.account_id = @cashierNameCmb
+                                                GROUP BY 
+                                                    CONCAT(a.first_name, ' ', a.last_name), 
+                                                    t.transaction_number, 
+                                                    t.total, 
+                                                    t.date, 
+                                                    r.total", con)
                 cmd.Parameters.AddWithValue("@startDate", selectedDate)
                 cmd.Parameters.AddWithValue("@cashierNameCmb", cashierName)
                 Dim adapter As New SqlDataAdapter(cmd)
