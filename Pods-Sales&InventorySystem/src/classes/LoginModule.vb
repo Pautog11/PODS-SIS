@@ -11,6 +11,9 @@ Public Class LoginModule
         _sqlAdapter = New SqlDataAdapter(_sqlCommand)
         _dataSet = New DataTable
         _sqlAdapter.Fill(_dataSet)
+        My.Settings.roleId = ""
+        My.Settings.myId = ""
+        My.Settings.Save()
         If _dataSet.Rows.Count > 0 Then
             If BCrypt.Net.BCrypt.Verify(password, _dataSet.Rows(0)(3)) Then
                 If _dataSet.Rows(0)(2) = 1 Then
@@ -20,7 +23,7 @@ Public Class LoginModule
                     BaseAccountLog.Login(My.Settings.myId, "Login")
                     Return {True}
                 Else
-                    MessageBox.Show("Your account is on hold!", "PODS-SIS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    MessageBox.Show("Your account is deactivated!", "PODS-SIS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Return {False}
                 End If
             Else

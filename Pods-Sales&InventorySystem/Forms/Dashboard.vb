@@ -167,11 +167,15 @@ Public Class Dashboard
                     .Series("Series1").IsValueShownAsLabel = True
                     .Series("Series1").IsVisibleInLegend = True
                 End With
-            Else
+                'Else
                 'MessageBox.Show("No data available for the selected time period.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
         Catch ex As Exception
             MessageBox.Show("An error occurred: " & ex.Message)
         End Try
+    End Sub
+
+    Private Sub RefreshButton_Click(sender As Object, e As EventArgs) Handles RefreshButton.Click
+        NotifyObserver()
     End Sub
 End Class

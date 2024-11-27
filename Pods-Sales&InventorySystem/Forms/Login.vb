@@ -35,8 +35,16 @@
                         'main.MaintenaceTabControl.TabPages.Remove(main.Accounts)
                         ''Dim tabss As TabControl = dash.Maintenance.TabIndex. .TabControlContainer.Items()
                         ''Dim tabs As TabControl = dash.Maintenance.TabPageControlCollection 'MaintainanceContainer.TabControlContainer.Items(
+                        dash.DashboardTabControl.TabPages.Remove(dash.Account)
                     Case 3
+                        dash.DashboardTabControl.TabPages.Remove(dash.Products)
                         dash.DashboardTabControl.TabPages.Remove(dash.Maintenance)
+                        dash.DashboardTabControl.TabPages.Remove(dash.Reports)
+                        dash.DashboardTabControl.TabPages.Remove(dash.Witdrawal)
+                        dash.DashboardTabControl.TabPages.Remove(dash.Activity)
+                        dash.DashboardTabControl.TabPages.Remove(dash.Inventory)
+                        dash.DashboardTabControl.TabPages.Remove(dash.Deliveries)
+                        dash.DashboardTabControl.TabPages.Remove(dash.Account)
                 End Select
                 Me.Hide()
                 dash.Show()
