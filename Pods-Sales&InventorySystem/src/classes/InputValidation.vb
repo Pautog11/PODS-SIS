@@ -268,10 +268,12 @@ Public Class InputValidation
                 End If
 
             Case DataInput.STRING_DECIMAL
-                If Regex.IsMatch(stringInput, "^\d+$") Then
+                ' Adjust Regex to allow decimals (e.g., 123.45)
+                If Regex.IsMatch(stringInput, "^\d+(\.\d{1,2})?$") Then
                     Return {True, stringInput}
                 Else
-                    MessageBox.Show("Invalid number.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    MessageBox.Show("Invalid number. Please enter a valid decimal or whole number.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Return {False, Nothing}
                 End If
 
         End Select

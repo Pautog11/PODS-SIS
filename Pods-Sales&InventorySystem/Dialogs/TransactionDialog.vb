@@ -104,7 +104,7 @@ Public Class TransactionDialog
     Private Sub AddTransactionButton_Click(sender As Object, e As EventArgs) Handles AddTransactionButton.Click
         Try
             If TransactionDataGridView.Rows.Count > 0 Then
-                Dim result As New List(Of Object)() From {InputValidation.ValidateInputString(CashTextBox, DataInput.STRING_INTEGER)}
+                Dim result As New List(Of Object)() From {InputValidation.ValidateInputString(CashTextBox, DataInput.STRING_DECIMAL)}
                 If Not result.Any(Function(item As Object()) Not item(0)) Then
                     If Val(CashTextBox.Text) < Val(TotalTextBox.Text) Then
                         MessageBox.Show("Insuffient funds", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
