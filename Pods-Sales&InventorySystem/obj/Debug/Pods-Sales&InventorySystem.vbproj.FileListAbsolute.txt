@@ -974,5 +974,6 @@ C:\Users\Christian\Documents\GitHub\PODS-SIS\Pods-Sales&InventorySystem\obj\Debu
 C:\Users\Christian\Documents\GitHub\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods-Sales&InventorySystem.exe
 C:\Users\Christian\Documents\GitHub\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods-Sales&InventorySystem.xml
 C:\Users\Christian\Documents\GitHub\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods-Sales&InventorySystem.pdb
-C:\Users\Christian\Documents\GitHub\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.DosageForm.resources
-C:\Users\Christian\Documents\GitHub\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.DosageFormDialog.resources
+C:\Users\Madz\Documents\GitHub\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.FinancialReportViewer.resources
+C:\Users\Madz\Documents\GitHub\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.DosageFormDialog.resources
+C:\Users\Madz\Documents\GitHub\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.DosageForm.resources
