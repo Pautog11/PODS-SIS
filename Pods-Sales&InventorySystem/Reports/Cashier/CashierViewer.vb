@@ -43,7 +43,8 @@ Public Class CashierViewer
                                                     CONVERT(TIME, t.date) AS time,
                                                     SUM(t.total) OVER () AS total_sales,
                                                     ISNULL(r.total, 0) AS total_return,
-                                                    SUM(t.total) OVER () - ISNULL(r.total, 0) AS overall_total
+                                                    SUM(t.total) OVER () - SUM(r.total) OVER () AS overall_total,
+                                                    SUM(r.total) OVER () AS overall_return
                                                 FROM tbltransactions t
                                                 JOIN tblaccounts a ON t.account_id = a.id
                                                 LEFT JOIN tblreturns r ON t.id = r.transaction_id
