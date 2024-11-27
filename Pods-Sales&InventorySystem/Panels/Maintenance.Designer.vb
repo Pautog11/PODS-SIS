@@ -23,8 +23,6 @@ Partial Class Maintenance
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.MaintenaceTabControl = New Guna.UI2.WinForms.Guna2TabControl()
-        Me.Accounts = New System.Windows.Forms.TabPage()
-        Me.Account1 = New Pods_Sales_InventorySystem.Account()
         Me.Categories = New System.Windows.Forms.TabPage()
         Me.Category1 = New Pods_Sales_InventorySystem.Category()
         Me.SubCategory = New System.Windows.Forms.TabPage()
@@ -40,7 +38,6 @@ Partial Class Maintenance
         Me.Dosage_Form = New System.Windows.Forms.TabPage()
         Me.DosageForm1 = New Pods_Sales_InventorySystem.DosageForm()
         Me.MaintenaceTabControl.SuspendLayout()
-        Me.Accounts.SuspendLayout()
         Me.Categories.SuspendLayout()
         Me.SubCategory.SuspendLayout()
         Me.Suppliers.SuspendLayout()
@@ -52,7 +49,6 @@ Partial Class Maintenance
         '
         'MaintenaceTabControl
         '
-        Me.MaintenaceTabControl.Controls.Add(Me.Accounts)
         Me.MaintenaceTabControl.Controls.Add(Me.Categories)
         Me.MaintenaceTabControl.Controls.Add(Me.SubCategory)
         Me.MaintenaceTabControl.Controls.Add(Me.Suppliers)
@@ -86,25 +82,6 @@ Partial Class Maintenance
         Me.MaintenaceTabControl.TabIndex = 0
         Me.MaintenaceTabControl.TabMenuBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.MaintenaceTabControl.TabMenuOrientation = Guna.UI2.WinForms.TabMenuOrientation.HorizontalTop
-        '
-        'Accounts
-        '
-        Me.Accounts.Controls.Add(Me.Account1)
-        Me.Accounts.Location = New System.Drawing.Point(4, 84)
-        Me.Accounts.Name = "Accounts"
-        Me.Accounts.Size = New System.Drawing.Size(1279, 452)
-        Me.Accounts.TabIndex = 6
-        Me.Accounts.Text = "Accounts"
-        Me.Accounts.UseVisualStyleBackColor = True
-        '
-        'Account1
-        '
-        Me.Account1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Account1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Account1.Location = New System.Drawing.Point(0, 0)
-        Me.Account1.Name = "Account1"
-        Me.Account1.Size = New System.Drawing.Size(1279, 452)
-        Me.Account1.TabIndex = 0
         '
         'Categories
         '
@@ -228,9 +205,9 @@ Partial Class Maintenance
         'Dosage_Form
         '
         Me.Dosage_Form.Controls.Add(Me.DosageForm1)
-        Me.Dosage_Form.Location = New System.Drawing.Point(4, 84)
+        Me.Dosage_Form.Location = New System.Drawing.Point(4, 44)
         Me.Dosage_Form.Name = "Dosage_Form"
-        Me.Dosage_Form.Size = New System.Drawing.Size(1279, 452)
+        Me.Dosage_Form.Size = New System.Drawing.Size(1279, 492)
         Me.Dosage_Form.TabIndex = 11
         Me.Dosage_Form.Text = "Dosage Form"
         Me.Dosage_Form.UseVisualStyleBackColor = True
@@ -241,7 +218,7 @@ Partial Class Maintenance
         Me.DosageForm1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DosageForm1.Location = New System.Drawing.Point(0, 0)
         Me.DosageForm1.Name = "DosageForm1"
-        Me.DosageForm1.Size = New System.Drawing.Size(1279, 452)
+        Me.DosageForm1.Size = New System.Drawing.Size(1279, 492)
         Me.DosageForm1.TabIndex = 0
         '
         'Maintenance
@@ -252,7 +229,6 @@ Partial Class Maintenance
         Me.Name = "Maintenance"
         Me.Size = New System.Drawing.Size(1287, 540)
         Me.MaintenaceTabControl.ResumeLayout(False)
-        Me.Accounts.ResumeLayout(False)
         Me.Categories.ResumeLayout(False)
         Me.SubCategory.ResumeLayout(False)
         Me.Suppliers.ResumeLayout(False)
@@ -269,8 +245,6 @@ Partial Class Maintenance
     Friend WithEvents Suppliers As TabPage
     Friend WithEvents Supplier1 As Supplier
     Friend WithEvents SubCategory1 As SubCategory
-    Friend WithEvents Accounts As TabPage
-    Friend WithEvents Account1 As Account
     Friend WithEvents Categories As TabPage
     Friend WithEvents Category1 As Category
     Friend WithEvents Vat As TabPage
