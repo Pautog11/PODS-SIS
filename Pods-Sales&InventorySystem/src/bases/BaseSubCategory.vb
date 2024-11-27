@@ -157,7 +157,7 @@ Public Class BaseSubCategory
     Public Shared Function Search(query As String) As pods.viewtblsubcategoriesDataTable
         Try
             Dim conn As New SqlConnection(My.Settings.podsdbConnectionString)
-            Dim cmd As New SqlCommand("SELECT * FROM viewtblsubcategories WHERE id <> 1 AND CATEGORY LIKE CONCAT('%', @query, '%')", conn)
+            Dim cmd As New SqlCommand("SELECT * FROM viewtblsubcategories WHERE id <> 1 AND CATEGORY LIKE CONCAT('%', @query, '%') OR SUBCATEGORY LIKE CONCAT('%', @query, '%')", conn)
             cmd.Parameters.AddWithValue("@query", query)
             Dim dTable As New pods.viewtblsubcategoriesDataTable
             Dim adapter As New SqlDataAdapter(cmd)

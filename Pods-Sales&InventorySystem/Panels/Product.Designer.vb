@@ -27,10 +27,10 @@ Partial Class Product
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.ProductHeaderLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
-        Me.AddProductButton = New Guna.UI2.WinForms.Guna2Button()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.ProductSearchTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.ModalImageButton = New Guna.UI2.WinForms.Guna2ImageButton()
+        Me.AddProductButton = New Guna.UI2.WinForms.Guna2Button()
         Me.ProductTableLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.ProductsDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.ProductHeaderLayoutPanel.SuspendLayout()
@@ -45,6 +45,7 @@ Partial Class Product
         Me.ProductHeaderLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.0!))
         Me.ProductHeaderLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
         Me.ProductHeaderLayoutPanel.Controls.Add(Me.FlowLayoutPanel1, 0, 0)
+        Me.ProductHeaderLayoutPanel.Controls.Add(Me.AddProductButton, 1, 0)
         Me.ProductHeaderLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ProductHeaderLayoutPanel.ForeColor = System.Drawing.SystemColors.Control
         Me.ProductHeaderLayoutPanel.Location = New System.Drawing.Point(3, 3)
@@ -55,29 +56,10 @@ Partial Class Product
         Me.ProductHeaderLayoutPanel.Size = New System.Drawing.Size(798, 44)
         Me.ProductHeaderLayoutPanel.TabIndex = 0
         '
-        'AddProductButton
-        '
-        Me.AddProductButton.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.AddProductButton.BackColor = System.Drawing.Color.Transparent
-        Me.AddProductButton.BorderRadius = 15
-        Me.AddProductButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.AddProductButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.AddProductButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.AddProductButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.AddProductButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.AddProductButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.AddProductButton.ForeColor = System.Drawing.Color.White
-        Me.AddProductButton.Location = New System.Drawing.Point(249, 3)
-        Me.AddProductButton.Name = "AddProductButton"
-        Me.AddProductButton.Size = New System.Drawing.Size(150, 35)
-        Me.AddProductButton.TabIndex = 2
-        Me.AddProductButton.Text = "Add"
-        '
         'FlowLayoutPanel1
         '
         Me.FlowLayoutPanel1.Controls.Add(Me.ProductSearchTextBox)
         Me.FlowLayoutPanel1.Controls.Add(Me.ModalImageButton)
-        Me.FlowLayoutPanel1.Controls.Add(Me.AddProductButton)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
@@ -124,6 +106,24 @@ Partial Class Product
         Me.ModalImageButton.Size = New System.Drawing.Size(40, 42)
         Me.ModalImageButton.TabIndex = 5
         Me.ModalImageButton.Visible = False
+        '
+        'AddProductButton
+        '
+        Me.AddProductButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.AddProductButton.BackColor = System.Drawing.Color.Transparent
+        Me.AddProductButton.BorderRadius = 15
+        Me.AddProductButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.AddProductButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.AddProductButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.AddProductButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.AddProductButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.AddProductButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.AddProductButton.ForeColor = System.Drawing.Color.White
+        Me.AddProductButton.Location = New System.Drawing.Point(645, 4)
+        Me.AddProductButton.Name = "AddProductButton"
+        Me.AddProductButton.Size = New System.Drawing.Size(150, 35)
+        Me.AddProductButton.TabIndex = 2
+        Me.AddProductButton.Text = "Add"
         '
         'ProductTableLayoutPanel
         '

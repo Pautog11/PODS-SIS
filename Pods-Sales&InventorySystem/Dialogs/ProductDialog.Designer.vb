@@ -49,6 +49,7 @@ Partial Class ProductDialog
         Me.ProductNameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.BarcodeTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2AnimateWindow1 = New Guna.UI2.WinForms.Guna2AnimateWindow(Me.components)
+        Me.DosageFormComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
@@ -121,6 +122,7 @@ Partial Class ProductDialog
         '
         'Guna2Panel1
         '
+        Me.Guna2Panel1.Controls.Add(Me.DosageFormComboBox)
         Me.Guna2Panel1.Controls.Add(Me.Label12)
         Me.Guna2Panel1.Controls.Add(Me.Label11)
         Me.Guna2Panel1.Controls.Add(Me.Label10)
@@ -314,7 +316,7 @@ Partial Class ProductDialog
         Me.DosageTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DosageTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DosageTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DosageTextBox.Location = New System.Drawing.Point(308, 92)
+        Me.DosageTextBox.Location = New System.Drawing.Point(315, 281)
         Me.DosageTextBox.MaxLength = 10
         Me.DosageTextBox.Name = "DosageTextBox"
         Me.DosageTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -457,6 +459,23 @@ Partial Class ProductDialog
         Me.BarcodeTextBox.Size = New System.Drawing.Size(200, 36)
         Me.BarcodeTextBox.TabIndex = 3
         '
+        'DosageFormComboBox
+        '
+        Me.DosageFormComboBox.BackColor = System.Drawing.Color.Transparent
+        Me.DosageFormComboBox.BorderColor = System.Drawing.Color.Gray
+        Me.DosageFormComboBox.BorderRadius = 10
+        Me.DosageFormComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.DosageFormComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.DosageFormComboBox.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DosageFormComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DosageFormComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.DosageFormComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.DosageFormComboBox.ItemHeight = 30
+        Me.DosageFormComboBox.Location = New System.Drawing.Point(306, 94)
+        Me.DosageFormComboBox.Name = "DosageFormComboBox"
+        Me.DosageFormComboBox.Size = New System.Drawing.Size(200, 36)
+        Me.DosageFormComboBox.TabIndex = 28
+        '
         'ProductDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -503,4 +522,5 @@ Partial Class ProductDialog
     Friend WithEvents Label3 As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents Guna2AnimateWindow1 As Guna.UI2.WinForms.Guna2AnimateWindow
+    Friend WithEvents DosageFormComboBox As Guna.UI2.WinForms.Guna2ComboBox
 End Class

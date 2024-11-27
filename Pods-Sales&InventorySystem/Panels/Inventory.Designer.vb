@@ -26,8 +26,8 @@ Partial Class Inventory
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.ProductHeaderLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
-        Me.PrintButton = New Guna.UI2.WinForms.Guna2Button()
         Me.ProductSearchTextBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.PrintButton = New Guna.UI2.WinForms.Guna2Button()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.ProductDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.ProductHeaderLayoutPanel.SuspendLayout()
@@ -40,8 +40,8 @@ Partial Class Inventory
         Me.ProductHeaderLayoutPanel.ColumnCount = 2
         Me.ProductHeaderLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.ProductHeaderLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.ProductHeaderLayoutPanel.Controls.Add(Me.ProductSearchTextBox, 1, 0)
-        Me.ProductHeaderLayoutPanel.Controls.Add(Me.PrintButton, 0, 0)
+        Me.ProductHeaderLayoutPanel.Controls.Add(Me.PrintButton, 1, 0)
+        Me.ProductHeaderLayoutPanel.Controls.Add(Me.ProductSearchTextBox, 0, 0)
         Me.ProductHeaderLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ProductHeaderLayoutPanel.Location = New System.Drawing.Point(3, 3)
         Me.ProductHeaderLayoutPanel.Name = "ProductHeaderLayoutPanel"
@@ -50,24 +50,6 @@ Partial Class Inventory
         Me.ProductHeaderLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44.0!))
         Me.ProductHeaderLayoutPanel.Size = New System.Drawing.Size(731, 44)
         Me.ProductHeaderLayoutPanel.TabIndex = 0
-        '
-        'PrintButton
-        '
-        Me.PrintButton.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.PrintButton.BackColor = System.Drawing.Color.Transparent
-        Me.PrintButton.BorderRadius = 15
-        Me.PrintButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.PrintButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.PrintButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.PrintButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.PrintButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.PrintButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.PrintButton.ForeColor = System.Drawing.Color.White
-        Me.PrintButton.Location = New System.Drawing.Point(212, 4)
-        Me.PrintButton.Name = "PrintButton"
-        Me.PrintButton.Size = New System.Drawing.Size(150, 35)
-        Me.PrintButton.TabIndex = 2
-        Me.PrintButton.Text = "Print"
         '
         'ProductSearchTextBox
         '
@@ -83,7 +65,7 @@ Partial Class Inventory
         Me.ProductSearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ProductSearchTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.ProductSearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ProductSearchTextBox.Location = New System.Drawing.Point(368, 4)
+        Me.ProductSearchTextBox.Location = New System.Drawing.Point(3, 4)
         Me.ProductSearchTextBox.Name = "ProductSearchTextBox"
         Me.ProductSearchTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ProductSearchTextBox.PlaceholderText = "Search"
@@ -91,6 +73,24 @@ Partial Class Inventory
         Me.ProductSearchTextBox.ShortcutsEnabled = False
         Me.ProductSearchTextBox.Size = New System.Drawing.Size(200, 36)
         Me.ProductSearchTextBox.TabIndex = 3
+        '
+        'PrintButton
+        '
+        Me.PrintButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.PrintButton.BackColor = System.Drawing.Color.Transparent
+        Me.PrintButton.BorderRadius = 15
+        Me.PrintButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.PrintButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.PrintButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.PrintButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.PrintButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.PrintButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.PrintButton.ForeColor = System.Drawing.Color.White
+        Me.PrintButton.Location = New System.Drawing.Point(578, 4)
+        Me.PrintButton.Name = "PrintButton"
+        Me.PrintButton.Size = New System.Drawing.Size(150, 35)
+        Me.PrintButton.TabIndex = 2
+        Me.PrintButton.Text = "Print"
         '
         'TableLayoutPanel1
         '

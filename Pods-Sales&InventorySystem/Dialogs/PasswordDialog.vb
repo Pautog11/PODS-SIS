@@ -18,14 +18,18 @@ Public Class PasswordDialog
     End Sub
 
     Private Sub UpdateButton_Click(sender As Object, e As EventArgs) Handles UpdateButton.Click
-        Dim result As New List(Of Object)() From {InputValidation.ValidateInputString(PasswordTextBox, DataInput.STRING_STRING)}
+        Try
+            Dim result As New List(Of Object)() From {InputValidation.ValidateInputString(PasswordTextBox, DataInput.STRING_STRING)}
 
-        If Not result.Any(Function(item As Object()) Not item(0)) Then
-            BaseAccount.ChangePass(PasswordTextBox.Text, _id)
-            Me.Close()
-            _parent.Close()
-        Else
-            MessageBox.Show("Enter your new password.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-        End If
+            If Not result.Any(Function(item As Object()) Not item(0)) Then
+                BaseAccount.ChangePass(PasswordTextBox.Text, _id)
+                Me.Close()
+                _parent.Close()
+            Else
+                MessageBox.Show("Enter your new password.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class

@@ -12,10 +12,14 @@ Public Class PricingDialog
         _parent = parent
     End Sub
     Private Sub PricingDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If _data IsNot Nothing Then
-            CostTextBox.Text = _data.Item("cost")
-            txtPrays.Text = _data.Item("price")
-        End If
+        Try
+            If _data IsNot Nothing Then
+                CostTextBox.Text = _data.Item("cost")
+                txtPrays.Text = _data.Item("price")
+            End If
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click

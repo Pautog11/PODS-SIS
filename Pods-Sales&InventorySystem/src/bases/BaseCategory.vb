@@ -82,4 +82,17 @@ Public Class BaseCategory
             Return 0
         End Try
     End Function
+
+    Public Shared Function Count() As Integer
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblcategories", conn)
+
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+            Return 0
+        End Try
+    End Function
+
 End Class

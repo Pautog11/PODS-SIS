@@ -15,62 +15,74 @@ Public Class ReturnCartDialog
     End Sub
 
     Private Sub ReturnCartDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If _data IsNot Nothing Then
-            TransactionTextBox.Text = _data.Item("ref")
-            RetuenDatePicker.Value = _data.Item("date")
-            TotalPrice.Text = _data.Item("total")
-            ' Guna2HtmlLabel2.Text = _data.Item("delivery_id")
-            SaveButton.Visible = False
-        End If
-        TransactionTextBox.Enabled = False
-        RetuenDatePicker.Enabled = False
+        Try
+            If _data IsNot Nothing Then
+                TransactionTextBox.Text = _data.Item("ref")
+                RetuenDatePicker.Value = _data.Item("date")
+                TotalPrice.Text = _data.Item("total")
+                ' Guna2HtmlLabel2.Text = _data.Item("delivery_id")
+                SaveButton.Visible = False
+            End If
+            TransactionTextBox.Enabled = False
+            RetuenDatePicker.Enabled = False
+        Catch ex As Exception
+
+        End Try
     End Sub
     Private Sub AddReturnButton_Click(sender As Object, e As EventArgs) Handles AddReturnButton.Click
         Dim dialog As New ReturnDialog(data:=_data, parent:=Me)
         dialog.ShowDialog()
     End Sub
     Public Sub UpdateVisualData()
-        ReturnDataGridView.DataSource = _itemSource?.DefaultView
-        Dim total As Decimal = 0
-        For i = 0 To ReturnDataGridView?.Rows.Count - 1
-            total += ReturnDataGridView.Rows(i).Cells("TOTAL").Value
-        Next
-        TotalPrice.Text = total
+        Try
+            ReturnDataGridView.DataSource = _itemSource?.DefaultView
+            Dim total As Decimal = 0
+            For i = 0 To ReturnDataGridView?.Rows.Count - 1
+                total += ReturnDataGridView.Rows(i).Cells("TOTAL").Value
+            Next
+            TotalPrice.Text = total
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click
-        If ReturnDataGridView.Rows.Count > 0 Then
-            Dim items As New List(Of Dictionary(Of String, String))()
-            Dim data As New Dictionary(Of String, String) From { '{"id", _data?.Item("id")},
-                {"account_id", My.Settings.myId},
-                {"transaction_id", _data.Item("delivery_id")},
-                {"reason", _data.Item("delivery_id")},
-                {"total", TotalPrice.Text}
-            }
-
-            For Each row As DataGridViewRow In ReturnDataGridView.Rows
-                Dim item As New Dictionary(Of String, String) From {
-                    {"pid", row.Cells(1).Value},
-                    {"price", If(String.IsNullOrEmpty(row.Cells(3).Value?.ToString()), 0, row.Cells(3).Value?.ToString())},
-                    {"quantity", If(String.IsNullOrEmpty(row.Cells(4).Value?.ToString()), 0, row.Cells(4).Value?.ToString())},
-                    {"total", If(String.IsNullOrEmpty(row.Cells(5).Value?.ToString()), 0, row.Cells(5).Value?.ToString())}
+        Try
+            If ReturnDataGridView.Rows.Count > 0 Then
+                Dim items As New List(Of Dictionary(Of String, String))()
+                Dim data As New Dictionary(Of String, String) From { '{"id", _data?.Item("id")},
+                    {"account_id", My.Settings.myId},
+                    {"transaction_id", _data.Item("delivery_id")},
+                    {"reason", _data.Item("delivery_id")},
+                    {"total", TotalPrice.Text}
                 }
-                items.Add(item)
-            Next
 
-            Dim baseCommand As New BaseReturn(data) With {
-                .Items = items
-            }
-            Dim invoker As ICommandInvoker = Nothing
+                For Each row As DataGridViewRow In ReturnDataGridView.Rows
+                    Dim item As New Dictionary(Of String, String) From {
+                        {"pid", row.Cells(1).Value},
+                        {"price", If(String.IsNullOrEmpty(row.Cells(3).Value?.ToString()), 0, row.Cells(3).Value?.ToString())},
+                        {"quantity", If(String.IsNullOrEmpty(row.Cells(4).Value?.ToString()), 0, row.Cells(4).Value?.ToString())},
+                        {"total", If(String.IsNullOrEmpty(row.Cells(5).Value?.ToString()), 0, row.Cells(5).Value?.ToString())}
+                    }
+                    items.Add(item)
+                Next
 
-            invoker = New AddCommand(baseCommand)
+                Dim baseCommand As New BaseReturn(data) With {
+                    .Items = items
+                }
+                Dim invoker As ICommandInvoker = Nothing
 
-            invoker?.Execute()
-            _subject.NotifyObserver()
-            Me.Close()
-            _parent.Close()
-        Else
-            MessageBox.Show("No product selected.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-        End If
+                invoker = New AddCommand(baseCommand)
+
+                invoker?.Execute()
+                _subject.NotifyObserver()
+                Me.Close()
+                _parent.Close()
+            Else
+                MessageBox.Show("No product selected.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class
