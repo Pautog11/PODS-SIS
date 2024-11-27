@@ -89,38 +89,13 @@ Public Class TransactionCartDailog
                                     item.Cells("TOTAL").Value = Decimal.Parse(PriceTextBox.Text) * CInt(QuantityTextBox.Text)
                                     is_existing = True
                                     Exit For
-                                    'Else
-                                    '    item.Cells("PRODUCT").Value = ProductNameTextBox.Text
-                                    '    item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)
-                                    '    item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)
-                                    '    item.Cells("TOTAL").Value = Decimal.Parse(PriceTextBox.Text) * CInt(QuantityTextBox.Text)
-                                    '    is_existing = True
-                                    '    Exit For
-                                End If
-                            ElseIf _dat2 IsNot Nothing Then
-                                If item.Cells("ID").Value.ToString() = _dat2.Item("id") Then
+                                Else
                                     item.Cells("PRODUCT").Value = ProductNameTextBox.Text
                                     item.Cells("PRICE").Value = Decimal.Parse(PriceTextBox.Text)
                                     item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)
                                     item.Cells("TOTAL").Value = Decimal.Parse(PriceTextBox.Text) * CInt(QuantityTextBox.Text)
                                     is_existing = True
                                     Exit For
-                                End If
-                            Else
-                                If item.Cells("ID").Value.ToString() = id Then
-                                    item.Cells("PRODUCT").Value = ProductNameTextBox.Text
-                                    item.Cells("PRICE").Value = Decimal.Parse(PriceTextBox.Text)
-                                    item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)
-                                    item.Cells("TOTAL").Value = Decimal.Parse(PriceTextBox.Text) * CInt(QuantityTextBox.Text)
-                                    is_existing = True
-                                    Exit For
-                                    'Else
-                                    '    item.Cells("PRODUCT").Value = ProductNameTextBox.Text
-                                    '    item.Cells("QUANTITY").Value = CInt(item.Cells("QUANTITY").Value) + CInt(QuantityTextBox.Text)
-                                    '    item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)
-                                    '    item.Cells("TOTAL").Value = Decimal.Parse(PriceTextBox.Text) * CInt(QuantityTextBox.Text)
-                                    '    is_existing = True
-                                    '    Exit For
                                 End If
                             End If
                         End If

@@ -75,15 +75,20 @@ Public Class DeliveryProductDialog
                         Dim is_existing As Boolean = False
                         Dim exd As Date = DateTimePicker.Value.Date
                         For Each item As DataGridViewRow In _parent.DeliveryDataGridView.Rows
-                            If item.Cells("PRODUCT").Value.ToString() = ProductTextBox.Text AndAlso item.Cells("EXPIRY_DATE").Value = exd.ToString("yyyy-MM-dd") OrElse item.Cells("PRODUCT").Value.ToString() = ProductTextBox.Text Then
+                            If item.Cells("PRODUCT").Value.ToString() = ProductTextBox.Text AndAlso item.Cells("EXPIRY_DATE").Value = exd.ToString("yyyy-MM-dd") Then
+                                'item.Cells("MANUFACTURED_DATE").Value = MfdTextBox.Text
                                 If BaseDelivery.Daterequired(id) = 1 Then
                                     item.Cells("EXPIRY_DATE").Value = exd.ToString("yyyy-MM-dd")
                                 Else
                                     item.Cells("EXPIRY_DATE").Value = "N/A"
                                 End If
-                                item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text) + CInt(QuantityTextBox.Text)
+                                'item.Cells("PRICE").Value = Decimal.Parse(txtPrays.Text)
+                                item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)
                                 item.Cells("TOTAL").Value = Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text)
+                                'item.Cells("COST PRICE").Value = Decimal.Parse(CostTextBox.Text)
                                 is_existing = True
+                                ' MessageBox.Show("Product exists.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                                'Me.Close()
                                 Exit For
                             End If
                         Next
