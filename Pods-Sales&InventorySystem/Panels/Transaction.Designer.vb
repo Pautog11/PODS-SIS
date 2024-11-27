@@ -98,8 +98,8 @@ Partial Class Transaction
         Me.AccountHeaderLayoutPanel.ColumnCount = 2
         Me.AccountHeaderLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.AccountHeaderLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.AccountHeaderLayoutPanel.Controls.Add(Me.DeliverySearchTextBox, 0, 0)
-        Me.AccountHeaderLayoutPanel.Controls.Add(Me.AddTransactionButton, 1, 0)
+        Me.AccountHeaderLayoutPanel.Controls.Add(Me.DeliverySearchTextBox, 1, 0)
+        Me.AccountHeaderLayoutPanel.Controls.Add(Me.AddTransactionButton, 0, 0)
         Me.AccountHeaderLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AccountHeaderLayoutPanel.Location = New System.Drawing.Point(3, 3)
         Me.AccountHeaderLayoutPanel.Name = "AccountHeaderLayoutPanel"
@@ -123,7 +123,7 @@ Partial Class Transaction
         Me.DeliverySearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DeliverySearchTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DeliverySearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DeliverySearchTextBox.Location = New System.Drawing.Point(3, 4)
+        Me.DeliverySearchTextBox.Location = New System.Drawing.Point(446, 4)
         Me.DeliverySearchTextBox.Name = "DeliverySearchTextBox"
         Me.DeliverySearchTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.DeliverySearchTextBox.PlaceholderText = "Search"
@@ -144,7 +144,7 @@ Partial Class Transaction
         Me.AddTransactionButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AddTransactionButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddTransactionButton.ForeColor = System.Drawing.Color.White
-        Me.AddTransactionButton.Location = New System.Drawing.Point(734, 4)
+        Me.AddTransactionButton.Location = New System.Drawing.Point(290, 4)
         Me.AddTransactionButton.Name = "AddTransactionButton"
         Me.AddTransactionButton.Size = New System.Drawing.Size(150, 35)
         Me.AddTransactionButton.TabIndex = 2
