@@ -43,25 +43,6 @@ Public Class BaseTransaction
 
             Dim TransactionID As Integer = Convert.ToInt32(_sqlCommand.ExecuteScalar())
 
-            For Each item In _item
-                If item IsNot Nothing AndAlso item.Count > 0 Then
-                    _sqlCommand = New SqlCommand("INSERT INTO tbltransaction_items (transaction_id, product_id, price, quantity, total) VALUES (@transaction_id, @product_id, @price, @quantity, @total)", _sqlConnection, transaction)
-                    _sqlCommand.Parameters.Clear()
-                    _sqlCommand.Parameters.AddWithValue("@transaction_id", TransactionID)
-                    _sqlCommand.Parameters.AddWithValue("@product_id", item("product_id"))
-                    _sqlCommand.Parameters.AddWithValue("@price", item("price"))
-                    _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
-                    _sqlCommand.Parameters.AddWithValue("@total", item("total"))
-                    If item.ContainsKey(item("devid")) Then
-                        _sqlCommand.CommandText = "INSERT INTO tbltransaction_items (transaction_id, product_id, price, quantity, total, delivery_id) VALUES (@transaction_id, @product_id, @price, @quantity, @total, @devid)"
-                        _sqlCommand.Parameters.AddWithValue("@devid", item("devid"))
-                    End If
-
-                    If _sqlCommand.ExecuteNonQuery() <= 0 Then
-                        Throw New Exception("Failed to add transacation items!")
-                    End If
-                End If
-            Next
 
             'For Each item In _item
             '    _sqlCommand = New SqlCommand("UPDATE tbldeliveries_items SET quantity_trans = quantity_trans - @quantity WHERE product_id = @id AND LOWER(status_name) = LOWER('Active')", _sqlConnection, transaction)
@@ -85,6 +66,72 @@ Public Class BaseTransaction
                 _sqlCommand.Parameters.AddWithValue("@TargetProductID", item("product_id"))
                 _sqlCommand.Parameters.AddWithValue("@TargetQuantity", item("quantity"))
                 _sqlCommand.ExecuteNonQuery()
+            Next
+
+            For Each item In _item
+                Dim quant As Integer = item("quantity")
+                While quant > 0
+                    _sqlCommand = New SqlCommand("SELECT TOP 1 id, quantity_trans FROM tbldeliveries_items WHERE product_id = @id AND quantity_trans > 0 ORDER BY quantity_trans ASC", _sqlConnection, transaction)
+                    _sqlCommand.Parameters.AddWithValue("@id", item("product_id"))
+                    Dim dt As New DataTable
+                    Dim adapt As New SqlDataAdapter(_sqlCommand)
+                    adapt.Fill(dt)
+                    If dt.Rows.Count > 0 Then
+                        Dim total As Integer = dt.Rows.Item(0).Item("quantity_trans")
+                        Dim id As Integer = dt.Rows.Item(0).Item("id")
+
+                        _sqlCommand.CommandText = "UPDATE tbldeliveries_items SET quantity_trans = quantity_trans - @rem WHERE id = @id"
+                        _sqlCommand.Parameters.Clear()
+                        _sqlCommand.Parameters.AddWithValue("@id", id)
+                        If quant < total Then
+                            _sqlCommand.Parameters.AddWithValue("@rem", quant)
+                            _sqlCommand.ExecuteNonQuery()
+
+                            If item IsNot Nothing AndAlso item.Count > 0 Then
+                                _sqlCommand = New SqlCommand("INSERT INTO tbltransaction_items (transaction_id, product_id, price, quantity, total, delivery_id) VALUES (@transaction_id, @product_id, @price, @quantity, @total, @divid)", _sqlConnection, transaction)
+                                _sqlCommand.Parameters.Clear()
+                                _sqlCommand.Parameters.AddWithValue("@transaction_id", TransactionID)
+                                _sqlCommand.Parameters.AddWithValue("@product_id", item("product_id"))
+                                _sqlCommand.Parameters.AddWithValue("@price", item("price"))
+                                _sqlCommand.Parameters.AddWithValue("@quantity", quant)
+                                _sqlCommand.Parameters.AddWithValue("@total", quant * CInt(item("price")))
+                                _sqlCommand.Parameters.AddWithValue("@divid", id)
+
+                                If _sqlCommand.ExecuteNonQuery() <= 0 Then
+                                    Throw New Exception("Failed to add transacation items!")
+                                End If
+                            End If
+                            quant -= quant
+                        Else
+
+                            quant = quant - total
+                            _sqlCommand.CommandText = "UPDATE tbldeliveries_items SET quantity_trans = 0 WHERE id = @id"
+                            _sqlCommand.Parameters.Clear()
+                            _sqlCommand.Parameters.AddWithValue("@id", id)
+                            _sqlCommand.ExecuteNonQuery()
+
+                            If item IsNot Nothing AndAlso item.Count > 0 Then
+                                _sqlCommand = New SqlCommand("INSERT INTO tbltransaction_items (transaction_id, product_id, price, quantity, total, delivery_id) VALUES (@transaction_id, @product_id, @price, @quantity, @total, @divid)", _sqlConnection, transaction)
+                                _sqlCommand.Parameters.Clear()
+                                _sqlCommand.Parameters.AddWithValue("@transaction_id", TransactionID)
+                                _sqlCommand.Parameters.AddWithValue("@product_id", item("product_id"))
+                                _sqlCommand.Parameters.AddWithValue("@price", item("price"))
+                                _sqlCommand.Parameters.AddWithValue("@quantity", total)
+                                _sqlCommand.Parameters.AddWithValue("@total", total * CInt(item("price")))
+                                _sqlCommand.Parameters.AddWithValue("@divid", id)
+
+                                If _sqlCommand.ExecuteNonQuery() <= 0 Then
+                                    Throw New Exception("Failed to add transacation items!")
+                                End If
+                            End If
+                        End If
+
+
+
+                    End If
+
+
+                End While
             Next
 
             transaction.Commit()

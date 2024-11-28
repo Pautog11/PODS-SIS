@@ -75,6 +75,7 @@ Public Class DeliveryCartDialog
                 total += DeliveryDataGridView.Rows(i).Cells("TOTAL").Value
             Next
             TotalPrice.Text = total
+            grandtotal.Text = total
         Catch ex As Exception
 
         End Try
@@ -185,7 +186,27 @@ Public Class DeliveryCartDialog
         End Try
     End Sub
 
-    Private Sub SupplierNameComboBox_SelectedValueChanged(sender As Object, e As EventArgs) Handles SupplierNameComboBox.SelectedValueChanged
-        MsgBox("hkljhlkjhl")
+    Private Sub AddDectionButton_Click(sender As Object, e As EventArgs) Handles AddDectionButton.Click
+        'MsgBox(SupplierNameComboBox.SelectedItem("id"))
+        Try
+            If SupplierNameComboBox.Text = "" Then
+                MessageBox.Show("No selected supplier!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Else
+                Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+                Dim cmd As New SqlCommand("select SUM(b.total) as total, a.supplier_id as supplier
+                                            from tbldeliverypullouts b
+                                            join tbldeliveries a on a.id = b.delivery_id
+                                            where a.supplier_id = @data
+                                            group by b.total, a.supplier_id", conn)
+                cmd.Parameters.AddWithValue("@data", SupplierNameComboBox.SelectedItem("id"))
+                Guna2HtmlLabel4.Text = cmd.ExecuteScalar
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End Try
+    End Sub
+
+    Private Sub SupplierNameComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles SupplierNameComboBox.SelectionChangeCommitted
+        Guna2HtmlLabel4.Text = 0
     End Sub
 End Class
