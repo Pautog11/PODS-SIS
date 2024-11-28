@@ -194,7 +194,7 @@ Partial Class DeliveryPullOutCartView
         Me.SupplierComboBox.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.SupplierComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.SupplierComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.SupplierComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.SupplierComboBox.ForeColor = System.Drawing.Color.Black
         Me.SupplierComboBox.ItemHeight = 30
         Me.SupplierComboBox.Location = New System.Drawing.Point(101, 4)
         Me.SupplierComboBox.Name = "SupplierComboBox"
@@ -234,6 +234,7 @@ Partial Class DeliveryPullOutCartView
         Me.TransactionDeliveryTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.TransactionDeliveryTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TransactionDeliveryTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.TransactionDeliveryTextBox.ForeColor = System.Drawing.Color.Black
         Me.TransactionDeliveryTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TransactionDeliveryTextBox.Location = New System.Drawing.Point(265, 3)
         Me.TransactionDeliveryTextBox.Name = "TransactionDeliveryTextBox"

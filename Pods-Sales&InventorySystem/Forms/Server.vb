@@ -30,7 +30,7 @@ Public Class Server
             'c.Fill(d)
             'DatabaseComboBox.DataSource = d.DefaultView
             'DatabaseComboBox.DisplayMember = "name"
-            MessageBox.Show("Connection success!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show("Test connection success!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Error")
         End Try
@@ -45,6 +45,22 @@ Public Class Server
             Me.Close()
         Catch ex As Exception
             MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub Guna2Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Guna2Panel1.Paint
+
+    End Sub
+
+    Private Sub Guna2CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles Guna2CheckBox1.CheckedChanged
+        Try
+            If Guna2CheckBox1.Checked Then
+                PasswordTextBox.UseSystemPasswordChar = False
+            Else
+                PasswordTextBox.UseSystemPasswordChar = True
+            End If
+        Catch ex As Exception
+
         End Try
     End Sub
 End Class

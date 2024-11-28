@@ -133,6 +133,7 @@ Partial Class PullOuts
         Me.PulloutSearchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.PulloutSearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.PulloutSearchTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.PulloutSearchTextBox.ForeColor = System.Drawing.Color.Black
         Me.PulloutSearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.PulloutSearchTextBox.Location = New System.Drawing.Point(3, 4)
         Me.PulloutSearchTextBox.Name = "PulloutSearchTextBox"

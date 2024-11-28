@@ -45,6 +45,7 @@ Partial Class Product
         Me.ProductHeaderLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.0!))
         Me.ProductHeaderLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
         Me.ProductHeaderLayoutPanel.Controls.Add(Me.FlowLayoutPanel1, 0, 0)
+        Me.ProductHeaderLayoutPanel.Controls.Add(Me.AddProductButton, 1, 0)
         Me.ProductHeaderLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ProductHeaderLayoutPanel.ForeColor = System.Drawing.SystemColors.Control
         Me.ProductHeaderLayoutPanel.Location = New System.Drawing.Point(3, 3)
@@ -59,7 +60,6 @@ Partial Class Product
         '
         Me.FlowLayoutPanel1.Controls.Add(Me.ProductSearchTextBox)
         Me.FlowLayoutPanel1.Controls.Add(Me.ModalImageButton)
-        Me.FlowLayoutPanel1.Controls.Add(Me.AddProductButton)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
@@ -80,6 +80,7 @@ Partial Class Product
         Me.ProductSearchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.ProductSearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ProductSearchTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.ProductSearchTextBox.ForeColor = System.Drawing.Color.Black
         Me.ProductSearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ProductSearchTextBox.Location = New System.Drawing.Point(3, 3)
         Me.ProductSearchTextBox.Name = "ProductSearchTextBox"
@@ -119,7 +120,7 @@ Partial Class Product
         Me.AddProductButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AddProductButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddProductButton.ForeColor = System.Drawing.Color.White
-        Me.AddProductButton.Location = New System.Drawing.Point(249, 3)
+        Me.AddProductButton.Location = New System.Drawing.Point(645, 4)
         Me.AddProductButton.Name = "AddProductButton"
         Me.AddProductButton.Size = New System.Drawing.Size(150, 35)
         Me.AddProductButton.TabIndex = 2

@@ -139,6 +139,7 @@ Partial Class Dosage
         Me.AccountSearchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.AccountSearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.AccountSearchTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.AccountSearchTextBox.ForeColor = System.Drawing.Color.Black
         Me.AccountSearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.AccountSearchTextBox.Location = New System.Drawing.Point(3, 4)
         Me.AccountSearchTextBox.Name = "AccountSearchTextBox"

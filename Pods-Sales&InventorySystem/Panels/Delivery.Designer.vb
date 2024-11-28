@@ -26,8 +26,8 @@ Partial Class Delivery
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.AccountHeaderLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
-        Me.DeliverySearchTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.AddDeliveryButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.DeliverySearchTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.DeliveryDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.AccountHeaderLayoutPanel.SuspendLayout()
@@ -51,29 +51,6 @@ Partial Class Delivery
         Me.AccountHeaderLayoutPanel.Size = New System.Drawing.Size(810, 44)
         Me.AccountHeaderLayoutPanel.TabIndex = 0
         '
-        'DeliverySearchTextBox
-        '
-        Me.DeliverySearchTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.DeliverySearchTextBox.BorderColor = System.Drawing.Color.Gray
-        Me.DeliverySearchTextBox.BorderRadius = 15
-        Me.DeliverySearchTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.DeliverySearchTextBox.DefaultText = ""
-        Me.DeliverySearchTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.DeliverySearchTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.DeliverySearchTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.DeliverySearchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.DeliverySearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DeliverySearchTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.DeliverySearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DeliverySearchTextBox.Location = New System.Drawing.Point(3, 4)
-        Me.DeliverySearchTextBox.Name = "DeliverySearchTextBox"
-        Me.DeliverySearchTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.DeliverySearchTextBox.PlaceholderText = "Search"
-        Me.DeliverySearchTextBox.SelectedText = ""
-        Me.DeliverySearchTextBox.ShortcutsEnabled = False
-        Me.DeliverySearchTextBox.Size = New System.Drawing.Size(200, 36)
-        Me.DeliverySearchTextBox.TabIndex = 3
-        '
         'AddDeliveryButton
         '
         Me.AddDeliveryButton.Anchor = System.Windows.Forms.AnchorStyles.Right
@@ -91,6 +68,30 @@ Partial Class Delivery
         Me.AddDeliveryButton.Size = New System.Drawing.Size(150, 35)
         Me.AddDeliveryButton.TabIndex = 2
         Me.AddDeliveryButton.Text = "Add"
+        '
+        'DeliverySearchTextBox
+        '
+        Me.DeliverySearchTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.DeliverySearchTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.DeliverySearchTextBox.BorderRadius = 15
+        Me.DeliverySearchTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.DeliverySearchTextBox.DefaultText = ""
+        Me.DeliverySearchTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.DeliverySearchTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.DeliverySearchTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.DeliverySearchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.DeliverySearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DeliverySearchTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.DeliverySearchTextBox.ForeColor = System.Drawing.Color.Black
+        Me.DeliverySearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DeliverySearchTextBox.Location = New System.Drawing.Point(3, 4)
+        Me.DeliverySearchTextBox.Name = "DeliverySearchTextBox"
+        Me.DeliverySearchTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.DeliverySearchTextBox.PlaceholderText = "Search"
+        Me.DeliverySearchTextBox.SelectedText = ""
+        Me.DeliverySearchTextBox.ShortcutsEnabled = False
+        Me.DeliverySearchTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.DeliverySearchTextBox.TabIndex = 3
         '
         'TableLayoutPanel1
         '

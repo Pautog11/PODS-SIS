@@ -143,14 +143,13 @@ Public Class TransactionDialog
                         }
 
                         invoker = New AddCommand(baseCommand)
-                        invoker?.Execute()
-
                         Dim reslt As DialogResult = MsgBox("Do you want to print a receipt?", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                         Dim autoPrint As Boolean = (reslt = DialogResult.Yes)
 
                         Using dialog As New ReceiptViewer(Reference_number.Text)
                             dialog.ShowDialog()
                         End Using
+                        invoker?.Execute()
                         Me.Close()
                     End If
                 Else

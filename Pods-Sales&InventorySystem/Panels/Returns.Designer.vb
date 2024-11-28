@@ -118,6 +118,7 @@ Partial Class Returns
         Me.ReturnsSearchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.ReturnsSearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ReturnsSearchTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.ReturnsSearchTextBox.ForeColor = System.Drawing.Color.Black
         Me.ReturnsSearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ReturnsSearchTextBox.Location = New System.Drawing.Point(3, 4)
         Me.ReturnsSearchTextBox.Name = "ReturnsSearchTextBox"

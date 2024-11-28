@@ -46,7 +46,7 @@ Partial Class Reports
         Me.AuditTrailTabControl.Location = New System.Drawing.Point(0, 0)
         Me.AuditTrailTabControl.Name = "AuditTrailTabControl"
         Me.AuditTrailTabControl.SelectedIndex = 0
-        Me.AuditTrailTabControl.Size = New System.Drawing.Size(890, 566)
+        Me.AuditTrailTabControl.Size = New System.Drawing.Size(1153, 591)
         Me.AuditTrailTabControl.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty
         Me.AuditTrailTabControl.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.AuditTrailTabControl.TabButtonHoverState.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!)
@@ -72,7 +72,7 @@ Partial Class Reports
         Me.Sales_Reports.Controls.Add(Me.SalesReport1)
         Me.Sales_Reports.Location = New System.Drawing.Point(4, 44)
         Me.Sales_Reports.Name = "Sales_Reports"
-        Me.Sales_Reports.Size = New System.Drawing.Size(882, 518)
+        Me.Sales_Reports.Size = New System.Drawing.Size(1145, 543)
         Me.Sales_Reports.TabIndex = 0
         Me.Sales_Reports.Text = "Sales Reports"
         Me.Sales_Reports.UseVisualStyleBackColor = True
@@ -83,7 +83,7 @@ Partial Class Reports
         Me.SalesReport1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SalesReport1.Location = New System.Drawing.Point(0, 0)
         Me.SalesReport1.Name = "SalesReport1"
-        Me.SalesReport1.Size = New System.Drawing.Size(882, 518)
+        Me.SalesReport1.Size = New System.Drawing.Size(1145, 543)
         Me.SalesReport1.TabIndex = 0
         '
         'Financial_Reports
@@ -128,7 +128,7 @@ Partial Class Reports
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.AuditTrailTabControl)
         Me.Name = "Reports"
-        Me.Size = New System.Drawing.Size(890, 566)
+        Me.Size = New System.Drawing.Size(1153, 591)
         Me.AuditTrailTabControl.ResumeLayout(False)
         Me.Sales_Reports.ResumeLayout(False)
         Me.Financial_Reports.ResumeLayout(False)
