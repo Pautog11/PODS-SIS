@@ -104,7 +104,7 @@ Public Class TransactionDialog
     Private Sub AddTransactionButton_Click(sender As Object, e As EventArgs) Handles AddTransactionButton.Click
         Try
             If TransactionDataGridView.Rows.Count > 0 Then
-                Dim result As New List(Of Object)() From {InputValidation.ValidateInputString(CashTextBox, DataInput.STRING_INTEGER)}
+                Dim result As New List(Of Object)() From {InputValidation.ValidateInputString(CashTextBox, DataInput.STRING_DECIMAL)}
                 If Not result.Any(Function(item As Object()) Not item(0)) Then
                     If Val(CashTextBox.Text) < Val(TotalTextBox.Text) Then
                         MessageBox.Show("Insuffient funds", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -168,28 +168,40 @@ Public Class TransactionDialog
     Private Sub DiscountComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles DiscountComboBox.SelectionChangeCommitted
         Try
             Dim Subtotal As Decimal
+            ' Validate if SubtotalTextBox contains a valid decimal value
             If Not String.IsNullOrEmpty(SubtotalTextBox.Text) AndAlso Decimal.TryParse(SubtotalTextBox.Text, Subtotal) Then
-                ' Ensure the discount combo box has a valid value
+                ' Ensure DiscountComboBox and CashTextBox have valid values
                 Dim discountPercentage As Decimal
                 If Decimal.TryParse(DiscountComboBox.SelectedItem("discount"), discountPercentage) Then
-                    ' Calculate the discount and the total
+                    ' Calculate the discount and update the total
                     Dim discount As Decimal = Subtotal * (discountPercentage / 100)
-                    TotalTextBox.Text = (Subtotal - discount).ToString("F2") ' Format the total to 2 decimal places
+                    Dim total As Decimal = Subtotal - discount
+                    TotalTextBox.Text = total.ToString("F2") ' Format as 2 decimal points
+                    ' Calculate and display change if cash is provided
+                    Dim cash As Decimal
+                    If Decimal.TryParse(CashTextBox.Text, cash) AndAlso cash >= total Then
+                        ChangeTextBox.Text = (cash - total).ToString("C2") ' Format as currency
+                    Else
+                        ChangeTextBox.Text = "Insufficient funds"
+                    End If
                 Else
                     MessageBox.Show("Please select a valid discount percentage.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 End If
+            Else
+                MessageBox.Show("Please enter a valid subtotal.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
         Catch ex As Exception
-
+            MessageBox.Show($"An error occurred: {ex.Message}", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
+
     Private Sub CashTextBox_TextChanged(sender As Object, e As EventArgs) Handles CashTextBox.TextChanged
         Try
-            Dim total As Decimal = 0D
-            Dim cash As Decimal = 0D
+            Dim total As Decimal
+            Dim cash As Decimal
             If Not String.IsNullOrWhiteSpace(TotalTextBox.Text) AndAlso Decimal.TryParse(TotalTextBox.Text, total) AndAlso
-               Not String.IsNullOrWhiteSpace(CashTextBox.Text) AndAlso Decimal.TryParse(CashTextBox.Text, cash) Then
+           Not String.IsNullOrWhiteSpace(CashTextBox.Text) AndAlso Decimal.TryParse(CashTextBox.Text, cash) Then
                 If cash >= total Then
                     ChangeTextBox.Text = (cash - total).ToString("C2") ' Format as currency
                 Else
@@ -199,9 +211,10 @@ Public Class TransactionDialog
                 ChangeTextBox.Text = ""
             End If
         Catch ex As Exception
-
+            MessageBox.Show($"An error occurred: {ex.Message}", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
+
     Private Sub ReturnButton_Click(sender As Object, e As EventArgs) Handles ReturnButton.Click
         Try
             Dim currentDate As DateTime = DateTime.Now

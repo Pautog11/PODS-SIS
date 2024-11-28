@@ -268,23 +268,12 @@ Public Class InputValidation
                 End If
 
             Case DataInput.STRING_DECIMAL
-                If Regex.IsMatch(stringInput, "^\d+$") Then
+                ' Adjust Regex to allow decimals (e.g., 123.45)
+                If Regex.IsMatch(stringInput, "^\d+(\.\d{1,2})?$") Then
                     Return {True, stringInput}
                 Else
-                    MessageBox.Show("Invalid number.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                End If
-
-            Case DataInput.STRING_DOSE
-                If Not String.IsNullOrEmpty(stringInput) AndAlso Not String.IsNullOrWhiteSpace(stringInput) Then
-                    If stringInput.Length >= 1 Then
-                        Dim nameString As String() = stringInput.Split(" ")
-                        For i = 0 To nameString.Count - 1
-                            Dim charArr As Char() = nameString(i).ToArray()
-                            charArr(0) = CStr(charArr(0)).ToUpper
-                            nameString(i) = String.Join("", charArr)
-                        Next
-                        Return {True, String.Join(" ", nameString)}
-                    End If
+                    MessageBox.Show("Invalid number. Please enter a valid decimal or whole number.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Return {False, Nothing}
                 End If
 
         End Select
@@ -305,5 +294,4 @@ Public Enum DataInput
     STRING_PNAME
     STRING_TEL
     STRING_DECIMAL
-    STRING_DOSE
 End Enum

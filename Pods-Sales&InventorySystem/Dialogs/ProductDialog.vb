@@ -70,7 +70,7 @@ Public Class ProductDialog
                   SubCategoryComboBox, BarcodeTextBox, ProductNameTextBox, StockLevelTextBox, DosageFormComboBox, StrengthTextBox, DoseComboBox, ManufacturerTextBox
             }
             Dim types As DataInput() = {
-               DataInput.STRING_STRING, DataInput.STRING_INTEGER, DataInput.STRING_NAME, DataInput.STRING_INTEGER, DataInput.STRING_STRING, DataInput.STRING_INTEGER, DataInput.STRING_DOSE, DataInput.STRING_NAME
+               DataInput.STRING_STRING, DataInput.STRING_INTEGER, DataInput.STRING_NAME, DataInput.STRING_INTEGER, DataInput.STRING_STRING, DataInput.STRING_INTEGER, DataInput.STRING_STRING, DataInput.STRING_NAME
             }
             Dim result As New List(Of Object())
             For i = 0 To controls.Count - 1
@@ -105,12 +105,12 @@ Public Class ProductDialog
                 Dim putangina As Boolean = False
                 Dim item As New Dictionary(Of String, String)
 
-                ' If Not String.IsNullOrEmpty(DosageTextBox.Text) AndAlso Not String.IsNullOrEmpty(StrengthTextBox.Text) AndAlso Not String.IsNullOrEmpty(ManufacturerTextBox.Text) Then
-                item("dosage") = result(4)(1) 'If(String.IsNullOrEmpty(DosageTextBox.Text), Nothing, DosageTextBox.Text)
-                item("strength") = result(5)(1)
-                item("dose") = DoseComboBox.SelectedItem("id")
-                item("manufacturer") = result(7)(1) 'If(String.IsNullOrEmpty(ManufacturerTextBox.Text), Nothing, ManufacturerTextBox.Text)
-                'End If
+                If Not String.IsNullOrEmpty(DosageTextBox.Text) AndAlso Not String.IsNullOrEmpty(StrengthTextBox.Text) AndAlso Not String.IsNullOrEmpty(ManufacturerTextBox.Text) Then
+                    item("dosage") = result(4)(1) 'If(String.IsNullOrEmpty(DosageTextBox.Text), Nothing, DosageTextBox.Text)
+                    item("strength") = result(5)(1)
+                    item("dose") = DoseComboBox.SelectedItem("id")
+                    item("manufacturer") = result(7)(1) 'If(String.IsNullOrEmpty(ManufacturerTextBox.Text), Nothing, ManufacturerTextBox.Text)
+                End If
 
 
 
