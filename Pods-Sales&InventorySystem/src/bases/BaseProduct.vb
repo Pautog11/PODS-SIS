@@ -35,6 +35,13 @@ Public Class BaseProduct
 
     Public Sub Update() Implements ICommandPanel.Update
         Try
+            Dim pnameup As String = _data("product_name").ToString()
+            _sqlCommand = New SqlCommand("SELECT product_name FROM tblproducts WHERE id = @id", _sqlConnection)
+            _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
+            Dim pname As String = _sqlCommand.ExecuteScalar
+            BaseAuditTrail.AddProduct(My.Settings.myId, $"Updated a product {pname} to {pnameup}")
+
+            _sqlCommand.Parameters.Clear()
             _sqlCommand = New SqlCommand("UPDATE tblproducts SET subcategory_id = @subcategory_id, sku = @sku, barcode = @barcode, product_name = @product_name, description = @description, stock_level = @stock_level WHERE id = @id", _sqlConnection)
             _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
             _sqlCommand.Parameters.AddWithValue("@subcategory_id", _data.Item("subcategory_id"))
@@ -133,6 +140,9 @@ Public Class BaseProduct
 
             MessageBox.Show("Product has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
             transaction.Commit()
+            Dim pname As String = _data("product_name").ToString()
+            Dim manuname As String = If(_item?.ContainsKey("manufacturer"), _item("manufacturer").ToString(), "Unknown Manufacturer")
+            BaseAuditTrail.AddProduct(My.Settings.myId, $"Added a product {pname} - {manuname}")
         Catch ex As Exception
             transaction.Rollback()
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)

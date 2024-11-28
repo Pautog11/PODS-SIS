@@ -81,8 +81,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Server=.;Initial Catalog=podsdb;Persist Security Info=True;User ID=admin;Password"& _ 
-            "=password;")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Server=192.168.1.22;Initial Catalog=podsdb;Persist Security Info=True;User ID=adm"& _ 
+            "in;Password=password;")>  _
         Public ReadOnly Property podsdbConnectionString() As String
             Get
                 Return CType(Me("podsdbConnectionString"),String)
@@ -92,7 +92,7 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=podsdb;User ID=admin;Password=password;")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.1.22;Initial Catalog=podsdb;User ID=admin;Password=password;")>  _
         Public ReadOnly Property podsdbConnectionString1() As String
             Get
                 Return CType(Me("podsdbConnectionString1"),String)
@@ -101,8 +101,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=podsdb;Persist Security Info=True;User ID=admin;Pas"& _ 
-            "sword=password;")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property con() As String
             Get
                 Return CType(Me("con"),String)

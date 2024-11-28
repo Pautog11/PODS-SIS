@@ -368,6 +368,12 @@
     <Compile Include="Panels\Activity.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Panels\AuditTrail.Designer.vb">
+      <DependentUpon>AuditTrail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\AuditTrail.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Panels\CashierReport.Designer.vb">
       <DependentUpon>CashierReport.vb</DependentUpon>
     </Compile>
@@ -708,6 +714,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\Activity.resx">
       <DependentUpon>Activity.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\AuditTrail.resx">
+      <DependentUpon>AuditTrail.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\CashierReport.resx">
       <DependentUpon>CashierReport.vb</DependentUpon>
