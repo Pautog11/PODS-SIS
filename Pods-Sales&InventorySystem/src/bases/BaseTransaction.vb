@@ -40,6 +40,7 @@ Public Class BaseTransaction
             _sqlCommand.Parameters.AddWithValue("@date", _data.Item("date"))
             _sqlCommand.Parameters.AddWithValue("@cash", _data.Item("cash"))
 
+
             Dim TransactionID As Integer = Convert.ToInt32(_sqlCommand.ExecuteScalar())
 
             For Each item In _item
@@ -51,6 +52,10 @@ Public Class BaseTransaction
                     _sqlCommand.Parameters.AddWithValue("@price", item("price"))
                     _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
                     _sqlCommand.Parameters.AddWithValue("@total", item("total"))
+                    If item.ContainsKey(item("devid")) Then
+                        _sqlCommand.CommandText = "INSERT INTO tbltransaction_items (transaction_id, product_id, price, quantity, total, delivery_id) VALUES (@transaction_id, @product_id, @price, @quantity, @total, @devid)"
+                        _sqlCommand.Parameters.AddWithValue("@devid", item("devid"))
+                    End If
 
                     If _sqlCommand.ExecuteNonQuery() <= 0 Then
                         Throw New Exception("Failed to add transacation items!")

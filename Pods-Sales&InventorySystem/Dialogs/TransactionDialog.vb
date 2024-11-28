@@ -131,7 +131,8 @@ Public Class TransactionDialog
                                 {"product_id", row.Cells(0).Value},
                                 {"price", If(row.Cells(2).Value?.ToString(), "0")},
                                 {"quantity", If(row.Cells(3).Value?.ToString(), "0")},
-                                {"total", If(row.Cells(4).Value?.ToString(), "0")}
+                                {"total", If(row.Cells(4).Value?.ToString(), "0")},
+                                {"devid", If(row.Cells(4).Value?.ToString(), "0")}
                             }
                                 items.Add(item)
                             End If
