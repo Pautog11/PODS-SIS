@@ -98,8 +98,8 @@ Partial Class Transaction
         Me.AccountHeaderLayoutPanel.ColumnCount = 2
         Me.AccountHeaderLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.AccountHeaderLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.AccountHeaderLayoutPanel.Controls.Add(Me.AddTransactionButton, 1, 0)
         Me.AccountHeaderLayoutPanel.Controls.Add(Me.DeliverySearchTextBox, 0, 0)
+        Me.AccountHeaderLayoutPanel.Controls.Add(Me.AddTransactionButton, 1, 0)
         Me.AccountHeaderLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AccountHeaderLayoutPanel.Location = New System.Drawing.Point(3, 3)
         Me.AccountHeaderLayoutPanel.Name = "AccountHeaderLayoutPanel"
@@ -122,6 +122,7 @@ Partial Class Transaction
         Me.DeliverySearchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.DeliverySearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DeliverySearchTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.DeliverySearchTextBox.ForeColor = System.Drawing.Color.Black
         Me.DeliverySearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DeliverySearchTextBox.Location = New System.Drawing.Point(3, 4)
         Me.DeliverySearchTextBox.Name = "DeliverySearchTextBox"

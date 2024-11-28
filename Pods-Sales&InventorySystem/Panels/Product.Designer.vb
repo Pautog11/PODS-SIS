@@ -80,6 +80,7 @@ Partial Class Product
         Me.ProductSearchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.ProductSearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ProductSearchTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.ProductSearchTextBox.ForeColor = System.Drawing.Color.Black
         Me.ProductSearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ProductSearchTextBox.Location = New System.Drawing.Point(3, 3)
         Me.ProductSearchTextBox.Name = "ProductSearchTextBox"

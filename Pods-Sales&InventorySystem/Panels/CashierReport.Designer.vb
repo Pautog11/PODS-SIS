@@ -31,10 +31,10 @@ Partial Class CashierReport
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.CashierNameComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.FilteredData = New Guna.UI2.WinForms.Guna2Button()
-        Me.PrintButton = New Guna.UI2.WinForms.Guna2Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.PrintButton = New Guna.UI2.WinForms.Guna2Button()
         CType(Me.CashierReportsDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
@@ -121,6 +121,7 @@ Partial Class CashierReport
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.Guna2Panel1, 0, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.PrintButton, 1, 0)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 3)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
@@ -133,7 +134,6 @@ Partial Class CashierReport
         '
         Me.Guna2Panel1.Controls.Add(Me.CashierNameComboBox)
         Me.Guna2Panel1.Controls.Add(Me.FilteredData)
-        Me.Guna2Panel1.Controls.Add(Me.PrintButton)
         Me.Guna2Panel1.Controls.Add(Me.Label2)
         Me.Guna2Panel1.Controls.Add(Me.Label1)
         Me.Guna2Panel1.Controls.Add(Me.DateTimePicker1)
@@ -153,7 +153,7 @@ Partial Class CashierReport
         Me.CashierNameComboBox.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CashierNameComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CashierNameComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.CashierNameComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.CashierNameComboBox.ForeColor = System.Drawing.Color.Black
         Me.CashierNameComboBox.ItemHeight = 30
         Me.CashierNameComboBox.Location = New System.Drawing.Point(324, 3)
         Me.CashierNameComboBox.Name = "CashierNameComboBox"
@@ -169,32 +169,14 @@ Partial Class CashierReport
         Me.FilteredData.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
         Me.FilteredData.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
         Me.FilteredData.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.FilteredData.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.FilteredData.FillColor = System.Drawing.Color.DarkGreen
         Me.FilteredData.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.FilteredData.ForeColor = System.Drawing.Color.White
-        Me.FilteredData.Location = New System.Drawing.Point(686, 3)
+        Me.FilteredData.Location = New System.Drawing.Point(523, 3)
         Me.FilteredData.Name = "FilteredData"
-        Me.FilteredData.Size = New System.Drawing.Size(144, 35)
+        Me.FilteredData.Size = New System.Drawing.Size(105, 35)
         Me.FilteredData.TabIndex = 4
         Me.FilteredData.Text = "Show"
-        '
-        'PrintButton
-        '
-        Me.PrintButton.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.PrintButton.BackColor = System.Drawing.Color.Transparent
-        Me.PrintButton.BorderRadius = 15
-        Me.PrintButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.PrintButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.PrintButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.PrintButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.PrintButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.PrintButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.PrintButton.ForeColor = System.Drawing.Color.White
-        Me.PrintButton.Location = New System.Drawing.Point(536, 3)
-        Me.PrintButton.Name = "PrintButton"
-        Me.PrintButton.Size = New System.Drawing.Size(144, 35)
-        Me.PrintButton.TabIndex = 3
-        Me.PrintButton.Text = "Print"
         '
         'Label2
         '
@@ -223,6 +205,24 @@ Partial Class CashierReport
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(178, 20)
         Me.DateTimePicker1.TabIndex = 0
+        '
+        'PrintButton
+        '
+        Me.PrintButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.PrintButton.BackColor = System.Drawing.Color.Transparent
+        Me.PrintButton.BorderRadius = 15
+        Me.PrintButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.PrintButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.PrintButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.PrintButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.PrintButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.PrintButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.PrintButton.ForeColor = System.Drawing.Color.White
+        Me.PrintButton.Location = New System.Drawing.Point(1000, 4)
+        Me.PrintButton.Name = "PrintButton"
+        Me.PrintButton.Size = New System.Drawing.Size(144, 35)
+        Me.PrintButton.TabIndex = 3
+        Me.PrintButton.Text = "Print"
         '
         'CashierReport
         '

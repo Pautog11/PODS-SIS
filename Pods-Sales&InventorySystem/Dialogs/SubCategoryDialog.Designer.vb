@@ -80,6 +80,7 @@ Partial Class SubCategoryDialog
         Me.SubCategoryDescriptionTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.SubCategoryDescriptionTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.SubCategoryDescriptionTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.SubCategoryDescriptionTextBox.ForeColor = System.Drawing.Color.Black
         Me.SubCategoryDescriptionTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.SubCategoryDescriptionTextBox.Location = New System.Drawing.Point(119, 159)
         Me.SubCategoryDescriptionTextBox.MaxLength = 100
@@ -97,9 +98,9 @@ Partial Class SubCategoryDialog
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(102, 143)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(60, 13)
+        Me.Label3.Size = New System.Drawing.Size(108, 13)
         Me.Label3.TabIndex = 20
-        Me.Label3.Text = "Description"
+        Me.Label3.Text = "Description (Optional)"
         '
         'Label1
         '
@@ -131,6 +132,7 @@ Partial Class SubCategoryDialog
         Me.SubcategoryNameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.SubcategoryNameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.SubcategoryNameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.SubcategoryNameTextBox.ForeColor = System.Drawing.Color.Black
         Me.SubcategoryNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.SubcategoryNameTextBox.Location = New System.Drawing.Point(119, 100)
         Me.SubcategoryNameTextBox.MaxLength = 100
@@ -152,7 +154,7 @@ Partial Class SubCategoryDialog
         Me.CategoryComboBox.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CategoryComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CategoryComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.CategoryComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.CategoryComboBox.ForeColor = System.Drawing.Color.Black
         Me.CategoryComboBox.ItemHeight = 30
         Me.CategoryComboBox.Location = New System.Drawing.Point(119, 44)
         Me.CategoryComboBox.Name = "CategoryComboBox"

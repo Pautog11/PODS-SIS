@@ -153,6 +153,7 @@ Partial Class Supplier
         Me.CategorySearchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.CategorySearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CategorySearchTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.CategorySearchTextBox.ForeColor = System.Drawing.Color.Black
         Me.CategorySearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CategorySearchTextBox.Location = New System.Drawing.Point(3, 4)
         Me.CategorySearchTextBox.Name = "CategorySearchTextBox"

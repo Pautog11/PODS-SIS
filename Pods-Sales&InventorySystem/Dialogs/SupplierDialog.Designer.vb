@@ -56,6 +56,7 @@ Partial Class SupplierDialog
         Me.CompanyNameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.CompanyNameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CompanyNameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.CompanyNameTextBox.ForeColor = System.Drawing.Color.Black
         Me.CompanyNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CompanyNameTextBox.Location = New System.Drawing.Point(45, 37)
         Me.CompanyNameTextBox.MaxLength = 50
@@ -79,6 +80,7 @@ Partial Class SupplierDialog
         Me.FirstnameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.FirstnameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.FirstnameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.FirstnameTextBox.ForeColor = System.Drawing.Color.Black
         Me.FirstnameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.FirstnameTextBox.Location = New System.Drawing.Point(294, 37)
         Me.FirstnameTextBox.MaxLength = 20
@@ -102,6 +104,7 @@ Partial Class SupplierDialog
         Me.CompanyAddressTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.CompanyAddressTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CompanyAddressTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.CompanyAddressTextBox.ForeColor = System.Drawing.Color.Black
         Me.CompanyAddressTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CompanyAddressTextBox.Location = New System.Drawing.Point(45, 147)
         Me.CompanyAddressTextBox.MaxLength = 100
@@ -125,6 +128,7 @@ Partial Class SupplierDialog
         Me.LastnameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.LastnameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.LastnameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.LastnameTextBox.ForeColor = System.Drawing.Color.Black
         Me.LastnameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.LastnameTextBox.Location = New System.Drawing.Point(294, 92)
         Me.LastnameTextBox.MaxLength = 20
@@ -148,6 +152,7 @@ Partial Class SupplierDialog
         Me.PhoneNumberTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.PhoneNumberTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.PhoneNumberTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.PhoneNumberTextBox.ForeColor = System.Drawing.Color.Black
         Me.PhoneNumberTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.PhoneNumberTextBox.Location = New System.Drawing.Point(294, 147)
         Me.PhoneNumberTextBox.MaxLength = 13
@@ -192,6 +197,7 @@ Partial Class SupplierDialog
         Me.CPTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.CPTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CPTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.CPTextBox.ForeColor = System.Drawing.Color.Black
         Me.CPTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CPTextBox.Location = New System.Drawing.Point(45, 92)
         Me.CPTextBox.MaxLength = 13

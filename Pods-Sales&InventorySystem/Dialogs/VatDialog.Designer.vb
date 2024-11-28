@@ -39,6 +39,7 @@ Partial Class VatDialog
         Me.VatTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.VatTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.VatTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.VatTextBox.ForeColor = System.Drawing.Color.Black
         Me.VatTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.VatTextBox.Location = New System.Drawing.Point(59, 59)
         Me.VatTextBox.Name = "VatTextBox"

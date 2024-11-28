@@ -60,12 +60,16 @@ Public Class SignUp
     End Sub
 
     Private Sub Guna2CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles Guna2CheckBox1.CheckedChanged
-        If Guna2CheckBox1.Checked Then
-            PasswordTextBox.UseSystemPasswordChar = False ' Show password
-            Guna2TextBox1.UseSystemPasswordChar = False ' Show password
-        Else
-            PasswordTextBox.UseSystemPasswordChar = True
-            Guna2TextBox1.UseSystemPasswordChar = True
-        End If
+        Try
+            If Guna2CheckBox1.Checked Then
+                PasswordTextBox.UseSystemPasswordChar = False ' Show password
+                Guna2TextBox1.UseSystemPasswordChar = False ' Show password
+            Else
+                PasswordTextBox.UseSystemPasswordChar = True
+                Guna2TextBox1.UseSystemPasswordChar = True
+            End If
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class

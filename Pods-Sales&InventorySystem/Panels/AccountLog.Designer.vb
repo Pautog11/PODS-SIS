@@ -119,6 +119,7 @@ Partial Class AccountLog
         Me.AccountLogSearchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.AccountLogSearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.AccountLogSearchTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.AccountLogSearchTextBox.ForeColor = System.Drawing.Color.Black
         Me.AccountLogSearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.AccountLogSearchTextBox.Location = New System.Drawing.Point(3, 4)
         Me.AccountLogSearchTextBox.Name = "AccountLogSearchTextBox"

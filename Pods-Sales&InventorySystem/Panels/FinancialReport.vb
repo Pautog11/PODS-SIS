@@ -21,17 +21,27 @@ Public Class FinancialReport
             'If SalesReportComboBox.Text = "All" Then
             '    cmd = New SqlCommand("SELECT * FROM tbltransactions", conn)
             'Else
-            cmd = New SqlCommand("SELECT CONCAT(ac.last_name, ' ', ac.first_name) AS CASHIER, 
+            cmd = New SqlCommand("SELECT 
                                         th.transaction_number AS TRANSACTION#, 
-                                        ti.total AS TOTAL, 
+                                        CONCAT(ac.last_name, ' ', ac.first_name) AS CASHIER,  
+                                        SUM(ti.total) AS TOTAL, 
                                         th.date AS DATE, 
-                                        SUM(ti.price - di.cost_price) * SUM(ti.quantity) AS REVENUE
-                                    FROM tbldeliveries_items di
-                                            JOIN tbltransaction_items ti ON di.id = ti.delivery_id
-                                            JOIN tbltransactions th ON ti.transaction_id = th.id
-                                            JOIN tblaccounts ac ON th.account_id = ac.id
-                                    WHERE th.date BETWEEN @start_date AND @end_date
-                                    GROUP BY th.transaction_number, ac.first_name, ac.last_name, th.date, ti.total", conn)
+                                        SUM((ti.price - di.cost_price) * ti.quantity) AS REVENUE
+                                    FROM 
+                                        tbldeliveries_items di
+                                    JOIN 
+                                        tbltransaction_items ti ON di.id = ti.delivery_id
+                                    JOIN 
+                                        tbltransactions th ON ti.transaction_id = th.id
+                                    JOIN 
+                                        tblaccounts ac ON th.account_id = ac.id
+                                    WHERE 
+                                        th.date BETWEEN @start_date AND @end_date
+                                    GROUP BY 
+                                        th.transaction_number, 
+                                        ac.first_name, 
+                                        ac.last_name, 
+                                        th.date", conn)
             cmd.Parameters.AddWithValue("@start_date", DateTimePicker1.Value.ToString("yyyy-MM-dd"))
             cmd.Parameters.AddWithValue("@end_date", DateTimePicker2.Value.ToString("yyyy-MM-dd"))
             'End If
@@ -78,16 +88,27 @@ Public Class FinancialReport
             'If SalesReportComboBox.Text = "All" Then
             '    cmd = New SqlCommand("SELECT * FROM tbltransactions", conn)
             'Else
-            cmd = New SqlCommand("SELECT th.transaction_number AS TRANSACTION#, CONCAT(ac.last_name, ' ', ac.first_name) AS CASHIER,  
-                                        ti.total AS TOTAL, 
+            cmd = New SqlCommand("SELECT 
+                                        th.transaction_number AS TRANSACTION#, 
+                                        CONCAT(ac.last_name, ' ', ac.first_name) AS CASHIER,  
+                                        SUM(ti.total) AS TOTAL, 
                                         th.date AS DATE, 
-                                        SUM(ti.price - di.cost_price) * SUM(ti.quantity) AS REVENUE
-                                    FROM tbldeliveries_items di
-                                            JOIN tbltransaction_items ti ON di.id = ti.delivery_id
-                                            JOIN tbltransactions th ON ti.transaction_id = th.id
-                                            JOIN tblaccounts ac ON th.account_id = ac.id
-                                    WHERE th.date BETWEEN @start_date AND @end_date
-                                    GROUP BY th.transaction_number, ac.first_name, ac.last_name, th.date, ti.total", conn)
+                                        SUM((ti.price - di.cost_price) * ti.quantity) AS REVENUE
+                                    FROM 
+                                        tbldeliveries_items di
+                                    JOIN 
+                                        tbltransaction_items ti ON di.id = ti.delivery_id
+                                    JOIN 
+                                        tbltransactions th ON ti.transaction_id = th.id
+                                    JOIN 
+                                        tblaccounts ac ON th.account_id = ac.id
+                                    WHERE 
+                                        th.date BETWEEN @start_date AND @end_date
+                                    GROUP BY 
+                                        th.transaction_number, 
+                                        ac.first_name, 
+                                        ac.last_name, 
+                                        th.date", conn)
             cmd.Parameters.AddWithValue("@start_date", DateTimePicker1.Value.ToString("yyyy-MM-dd"))
             cmd.Parameters.AddWithValue("@end_date", DateTimePicker2.Value.ToString("yyyy-MM-dd"))
             'End If

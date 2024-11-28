@@ -36,19 +36,19 @@ Partial Class ProductDialog
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DoseComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.ManufacturerTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.StrengthTextBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.SkuTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.SubCategoryComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.StockLevelTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.DescriptionTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.ProductNameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.BarcodeTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2AnimateWindow1 = New Guna.UI2.WinForms.Guna2AnimateWindow(Me.components)
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Guna2ComboBox1 = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
@@ -121,8 +121,6 @@ Partial Class ProductDialog
         '
         'Guna2Panel1
         '
-        Me.Guna2Panel1.Controls.Add(Me.Label8)
-        Me.Guna2Panel1.Controls.Add(Me.Guna2ComboBox1)
         Me.Guna2Panel1.Controls.Add(Me.DosageFormComboBox)
         Me.Guna2Panel1.Controls.Add(Me.Label12)
         Me.Guna2Panel1.Controls.Add(Me.Label11)
@@ -131,11 +129,13 @@ Partial Class ProductDialog
         Me.Guna2Panel1.Controls.Add(Me.Label6)
         Me.Guna2Panel1.Controls.Add(Me.Label5)
         Me.Guna2Panel1.Controls.Add(Me.Label4)
+        Me.Guna2Panel1.Controls.Add(Me.Label3)
         Me.Guna2Panel1.Controls.Add(Me.Label2)
         Me.Guna2Panel1.Controls.Add(Me.Label1)
         Me.Guna2Panel1.Controls.Add(Me.DoseComboBox)
         Me.Guna2Panel1.Controls.Add(Me.ManufacturerTextBox)
         Me.Guna2Panel1.Controls.Add(Me.StrengthTextBox)
+        Me.Guna2Panel1.Controls.Add(Me.SkuTextBox)
         Me.Guna2Panel1.Controls.Add(Me.SubCategoryComboBox)
         Me.Guna2Panel1.Controls.Add(Me.StockLevelTextBox)
         Me.Guna2Panel1.Controls.Add(Me.DescriptionTextBox)
@@ -158,9 +158,9 @@ Partial Class ProductDialog
         Me.DosageFormComboBox.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DosageFormComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DosageFormComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.DosageFormComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.DosageFormComboBox.ForeColor = System.Drawing.Color.Black
         Me.DosageFormComboBox.ItemHeight = 30
-        Me.DosageFormComboBox.Location = New System.Drawing.Point(306, 156)
+        Me.DosageFormComboBox.Location = New System.Drawing.Point(306, 94)
         Me.DosageFormComboBox.Name = "DosageFormComboBox"
         Me.DosageFormComboBox.Size = New System.Drawing.Size(200, 36)
         Me.DosageFormComboBox.TabIndex = 28
@@ -168,7 +168,7 @@ Partial Class ProductDialog
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(372, 253)
+        Me.Label12.Location = New System.Drawing.Point(372, 191)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(71, 13)
         Me.Label12.TabIndex = 27
@@ -177,7 +177,7 @@ Partial Class ProductDialog
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(286, 254)
+        Me.Label11.Location = New System.Drawing.Point(286, 192)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(47, 13)
         Me.Label11.TabIndex = 26
@@ -186,7 +186,7 @@ Partial Class ProductDialog
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(286, 198)
+        Me.Label10.Location = New System.Drawing.Point(286, 136)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(64, 13)
         Me.Label10.TabIndex = 25
@@ -195,7 +195,7 @@ Partial Class ProductDialog
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(286, 80)
+        Me.Label7.Location = New System.Drawing.Point(286, 18)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(70, 13)
         Me.Label7.TabIndex = 22
@@ -204,7 +204,7 @@ Partial Class ProductDialog
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(280, 138)
+        Me.Label6.Location = New System.Drawing.Point(280, 76)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(70, 13)
         Me.Label6.TabIndex = 21
@@ -213,7 +213,7 @@ Partial Class ProductDialog
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(36, 202)
+        Me.Label5.Location = New System.Drawing.Point(36, 246)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(60, 13)
         Me.Label5.TabIndex = 20
@@ -222,16 +222,25 @@ Partial Class ProductDialog
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(36, 143)
+        Me.Label4.Location = New System.Drawing.Point(36, 191)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(75, 13)
         Me.Label4.TabIndex = 19
         Me.Label4.Text = "Product Name"
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(36, 136)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(130, 13)
+        Me.Label3.TabIndex = 18
+        Me.Label3.Text = "SKU (Stock Keeping Unit)"
+        '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(36, 78)
+        Me.Label2.Location = New System.Drawing.Point(36, 75)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(47, 13)
         Me.Label2.TabIndex = 17
@@ -240,7 +249,7 @@ Partial Class ProductDialog
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(277, 21)
+        Me.Label1.Location = New System.Drawing.Point(36, 18)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(71, 13)
         Me.Label1.TabIndex = 16
@@ -256,9 +265,9 @@ Partial Class ProductDialog
         Me.DoseComboBox.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DoseComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DoseComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.DoseComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.DoseComboBox.ForeColor = System.Drawing.Color.Black
         Me.DoseComboBox.ItemHeight = 30
-        Me.DoseComboBox.Location = New System.Drawing.Point(391, 270)
+        Me.DoseComboBox.Location = New System.Drawing.Point(391, 208)
         Me.DoseComboBox.Name = "DoseComboBox"
         Me.DoseComboBox.Size = New System.Drawing.Size(115, 36)
         Me.DoseComboBox.TabIndex = 15
@@ -275,8 +284,9 @@ Partial Class ProductDialog
         Me.ManufacturerTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.ManufacturerTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ManufacturerTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.ManufacturerTextBox.ForeColor = System.Drawing.Color.Black
         Me.ManufacturerTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ManufacturerTextBox.Location = New System.Drawing.Point(306, 96)
+        Me.ManufacturerTextBox.Location = New System.Drawing.Point(306, 34)
         Me.ManufacturerTextBox.MaxLength = 15
         Me.ManufacturerTextBox.Name = "ManufacturerTextBox"
         Me.ManufacturerTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -298,8 +308,9 @@ Partial Class ProductDialog
         Me.StrengthTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.StrengthTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.StrengthTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.StrengthTextBox.ForeColor = System.Drawing.Color.Black
         Me.StrengthTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.StrengthTextBox.Location = New System.Drawing.Point(306, 270)
+        Me.StrengthTextBox.Location = New System.Drawing.Point(306, 208)
         Me.StrengthTextBox.MaxLength = 4
         Me.StrengthTextBox.Name = "StrengthTextBox"
         Me.StrengthTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -308,6 +319,30 @@ Partial Class ProductDialog
         Me.StrengthTextBox.ShortcutsEnabled = False
         Me.StrengthTextBox.Size = New System.Drawing.Size(79, 36)
         Me.StrengthTextBox.TabIndex = 13
+        '
+        'SkuTextBox
+        '
+        Me.SkuTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.SkuTextBox.BorderRadius = 10
+        Me.SkuTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.SkuTextBox.DefaultText = ""
+        Me.SkuTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.SkuTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.SkuTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.SkuTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.SkuTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.SkuTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.SkuTextBox.ForeColor = System.Drawing.Color.Black
+        Me.SkuTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.SkuTextBox.Location = New System.Drawing.Point(64, 152)
+        Me.SkuTextBox.MaxLength = 13
+        Me.SkuTextBox.Name = "SkuTextBox"
+        Me.SkuTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.SkuTextBox.PlaceholderText = ""
+        Me.SkuTextBox.SelectedText = ""
+        Me.SkuTextBox.ShortcutsEnabled = False
+        Me.SkuTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.SkuTextBox.TabIndex = 11
         '
         'SubCategoryComboBox
         '
@@ -319,9 +354,9 @@ Partial Class ProductDialog
         Me.SubCategoryComboBox.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.SubCategoryComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.SubCategoryComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.SubCategoryComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.SubCategoryComboBox.ForeColor = System.Drawing.Color.Black
         Me.SubCategoryComboBox.ItemHeight = 30
-        Me.SubCategoryComboBox.Location = New System.Drawing.Point(305, 37)
+        Me.SubCategoryComboBox.Location = New System.Drawing.Point(64, 34)
         Me.SubCategoryComboBox.Name = "SubCategoryComboBox"
         Me.SubCategoryComboBox.Size = New System.Drawing.Size(200, 36)
         Me.SubCategoryComboBox.TabIndex = 9
@@ -338,8 +373,9 @@ Partial Class ProductDialog
         Me.StockLevelTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.StockLevelTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.StockLevelTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.StockLevelTextBox.ForeColor = System.Drawing.Color.Black
         Me.StockLevelTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.StockLevelTextBox.Location = New System.Drawing.Point(306, 214)
+        Me.StockLevelTextBox.Location = New System.Drawing.Point(306, 152)
         Me.StockLevelTextBox.MaxLength = 3
         Me.StockLevelTextBox.Name = "StockLevelTextBox"
         Me.StockLevelTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -361,8 +397,9 @@ Partial Class ProductDialog
         Me.DescriptionTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.DescriptionTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DescriptionTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.DescriptionTextBox.ForeColor = System.Drawing.Color.Black
         Me.DescriptionTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DescriptionTextBox.Location = New System.Drawing.Point(64, 219)
+        Me.DescriptionTextBox.Location = New System.Drawing.Point(64, 263)
         Me.DescriptionTextBox.MaxLength = 50
         Me.DescriptionTextBox.Multiline = True
         Me.DescriptionTextBox.Name = "DescriptionTextBox"
@@ -385,8 +422,9 @@ Partial Class ProductDialog
         Me.ProductNameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.ProductNameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ProductNameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.ProductNameTextBox.ForeColor = System.Drawing.Color.Black
         Me.ProductNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ProductNameTextBox.Location = New System.Drawing.Point(64, 159)
+        Me.ProductNameTextBox.Location = New System.Drawing.Point(64, 207)
         Me.ProductNameTextBox.MaxLength = 30
         Me.ProductNameTextBox.Name = "ProductNameTextBox"
         Me.ProductNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -408,8 +446,9 @@ Partial Class ProductDialog
         Me.BarcodeTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.BarcodeTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.BarcodeTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.BarcodeTextBox.ForeColor = System.Drawing.Color.Black
         Me.BarcodeTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.BarcodeTextBox.Location = New System.Drawing.Point(64, 97)
+        Me.BarcodeTextBox.Location = New System.Drawing.Point(64, 94)
         Me.BarcodeTextBox.MaxLength = 13
         Me.BarcodeTextBox.Name = "BarcodeTextBox"
         Me.BarcodeTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -418,32 +457,6 @@ Partial Class ProductDialog
         Me.BarcodeTextBox.ShortcutsEnabled = False
         Me.BarcodeTextBox.Size = New System.Drawing.Size(200, 36)
         Me.BarcodeTextBox.TabIndex = 3
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(36, 21)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(49, 13)
-        Me.Label8.TabIndex = 30
-        Me.Label8.Text = "Category"
-        '
-        'Guna2ComboBox1
-        '
-        Me.Guna2ComboBox1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2ComboBox1.BorderColor = System.Drawing.Color.Gray
-        Me.Guna2ComboBox1.BorderRadius = 10
-        Me.Guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.Guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.Guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2ComboBox1.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.Guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.Guna2ComboBox1.ItemHeight = 30
-        Me.Guna2ComboBox1.Location = New System.Drawing.Point(64, 37)
-        Me.Guna2ComboBox1.Name = "Guna2ComboBox1"
-        Me.Guna2ComboBox1.Size = New System.Drawing.Size(200, 36)
-        Me.Guna2ComboBox1.TabIndex = 29
         '
         'ProductDialog
         '
@@ -475,6 +488,7 @@ Partial Class ProductDialog
     Friend WithEvents ProductNameTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents BarcodeTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents SubCategoryComboBox As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents SkuTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents DoseComboBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents ManufacturerTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents StrengthTextBox As Guna.UI2.WinForms.Guna2TextBox
@@ -486,9 +500,8 @@ Partial Class ProductDialog
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
+    Friend WithEvents Label3 As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents Guna2AnimateWindow1 As Guna.UI2.WinForms.Guna2AnimateWindow
     Friend WithEvents DosageFormComboBox As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents Label8 As Label
-    Friend WithEvents Guna2ComboBox1 As Guna.UI2.WinForms.Guna2ComboBox
 End Class

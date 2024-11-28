@@ -60,6 +60,7 @@ Partial Class DiscountDialog
         Me.DiscountTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.DiscountTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DiscountTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.DiscountTextBox.ForeColor = System.Drawing.Color.Black
         Me.DiscountTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DiscountTextBox.Location = New System.Drawing.Point(56, 46)
         Me.DiscountTextBox.MaxLength = 2
@@ -85,9 +86,9 @@ Partial Class DiscountDialog
         Me.Label5.AutoSize = True
         Me.Label5.Location = New System.Drawing.Point(28, 89)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(60, 13)
+        Me.Label5.Size = New System.Drawing.Size(108, 13)
         Me.Label5.TabIndex = 22
-        Me.Label5.Text = "Description"
+        Me.Label5.Text = "Description (Optional)"
         '
         'DescriptionTextBox
         '
@@ -101,6 +102,7 @@ Partial Class DiscountDialog
         Me.DescriptionTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.DescriptionTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DescriptionTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.DescriptionTextBox.ForeColor = System.Drawing.Color.Black
         Me.DescriptionTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DescriptionTextBox.Location = New System.Drawing.Point(56, 106)
         Me.DescriptionTextBox.MaxLength = 50

@@ -206,7 +206,7 @@ Partial Class TransactionDialog
         Me.DiscountComboBox.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DiscountComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DiscountComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.DiscountComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.DiscountComboBox.ForeColor = System.Drawing.Color.Black
         Me.DiscountComboBox.ItemHeight = 30
         Me.DiscountComboBox.Location = New System.Drawing.Point(167, 204)
         Me.DiscountComboBox.Name = "DiscountComboBox"
@@ -284,6 +284,7 @@ Partial Class TransactionDialog
         Me.VatableTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.VatableTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.VatableTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.VatableTextBox.ForeColor = System.Drawing.Color.Black
         Me.VatableTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.VatableTextBox.Location = New System.Drawing.Point(167, 78)
         Me.VatableTextBox.Name = "VatableTextBox"
@@ -315,6 +316,7 @@ Partial Class TransactionDialog
         Me.ChangeTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.ChangeTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ChangeTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.ChangeTextBox.ForeColor = System.Drawing.Color.Black
         Me.ChangeTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ChangeTextBox.Location = New System.Drawing.Point(167, 330)
         Me.ChangeTextBox.Name = "ChangeTextBox"
@@ -336,6 +338,7 @@ Partial Class TransactionDialog
         Me.CashTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.CashTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CashTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.CashTextBox.ForeColor = System.Drawing.Color.Black
         Me.CashTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CashTextBox.Location = New System.Drawing.Point(167, 288)
         Me.CashTextBox.MaxLength = 6
@@ -358,6 +361,7 @@ Partial Class TransactionDialog
         Me.TotalTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.TotalTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TotalTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.TotalTextBox.ForeColor = System.Drawing.Color.Black
         Me.TotalTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TotalTextBox.Location = New System.Drawing.Point(167, 246)
         Me.TotalTextBox.Name = "TotalTextBox"
@@ -379,6 +383,7 @@ Partial Class TransactionDialog
         Me.VatTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.VatTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.VatTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.VatTextBox.ForeColor = System.Drawing.Color.Black
         Me.VatTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.VatTextBox.Location = New System.Drawing.Point(167, 120)
         Me.VatTextBox.Name = "VatTextBox"
@@ -400,6 +405,7 @@ Partial Class TransactionDialog
         Me.SubtotalTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.SubtotalTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.SubtotalTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.SubtotalTextBox.ForeColor = System.Drawing.Color.Black
         Me.SubtotalTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.SubtotalTextBox.Location = New System.Drawing.Point(167, 162)
         Me.SubtotalTextBox.Name = "SubtotalTextBox"

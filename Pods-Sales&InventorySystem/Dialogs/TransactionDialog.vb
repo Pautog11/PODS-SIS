@@ -112,35 +112,35 @@ Public Class TransactionDialog
         Dim dialog As New TransactionCartDailog(parent:=Me)
         dialog.ShowDialog()
     End Sub
-
     Private Sub AddTransactionButton_Click(sender As Object, e As EventArgs) Handles AddTransactionButton.Click
         Try
             If TransactionDataGridView.Rows.Count > 0 Then
                 Dim result As New List(Of Object)() From {InputValidation.ValidateInputString(CashTextBox, DataInput.STRING_DECIMAL)}
                 If Not result.Any(Function(item As Object()) Not item(0)) Then
                     If Val(CashTextBox.Text) < Val(TotalTextBox.Text) Then
-                        MessageBox.Show("Insuffient funds", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        MessageBox.Show("Insufficient funds", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Else
                         Dim items As New List(Of Dictionary(Of String, String))()
                         Dim baseCommand As ICommandPanel
                         Dim invoker As ICommandInvoker
+                        Dim isSuccess As Boolean = False ' Flag to track success
 
                         Dim data As New Dictionary(Of String, String) From {
-                            {"id", If(_data?.Item("id"), String.Empty)},
-                            {"transaction_number", Reference_number.Text},
-                            {"subtotal", If(String.IsNullOrEmpty(SubtotalTextBox.Text), 0, SubtotalTextBox.Text)},
-                            {"vatable", If(String.IsNullOrEmpty(VatableTextBox.Text), 0, VatableTextBox.Text)},
-                            {"vat", If(String.IsNullOrEmpty(VatTextBox.Text), 0, VatTextBox.Text)},
-                            {"discount", If(String.IsNullOrEmpty(DiscountComboBox.Text), 0, DiscountComboBox.Text)},
-                            {"total", If(String.IsNullOrEmpty(TotalTextBox.Text), 0, TotalTextBox.Text)},
-                            {"date", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")},
-                            {"cash", If(String.IsNullOrEmpty(CashTextBox.Text), 0, CashTextBox.Text)}
-                        }
+                        {"id", If(_data?.Item("id"), String.Empty)},
+                        {"transaction_number", Reference_number.Text},
+                        {"subtotal", If(String.IsNullOrEmpty(SubtotalTextBox.Text), "0", SubtotalTextBox.Text)},
+                        {"vatable", If(String.IsNullOrEmpty(VatableTextBox.Text), "0", VatableTextBox.Text)},
+                        {"vat", If(String.IsNullOrEmpty(VatTextBox.Text), "0", VatTextBox.Text)},
+                        {"discount", If(String.IsNullOrEmpty(DiscountComboBox.Text), "0", DiscountComboBox.Text)},
+                        {"total", If(String.IsNullOrEmpty(TotalTextBox.Text), "0", TotalTextBox.Text)},
+                        {"date", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")},
+                        {"cash", If(String.IsNullOrEmpty(CashTextBox.Text), "0", CashTextBox.Text)}
+                    }
 
                         For Each row As DataGridViewRow In TransactionDataGridView.Rows
                             If Not row.IsNewRow Then
                                 Dim item As New Dictionary(Of String, String) From {
-                                {"product_id", row.Cells(0).Value},
+                                {"product_id", row.Cells(0).Value?.ToString()},
                                 {"price", If(row.Cells(2).Value?.ToString(), "0")},
                                 {"quantity", If(row.Cells(3).Value?.ToString(), "0")},
                                 {"total", If(row.Cells(4).Value?.ToString(), "0")},
@@ -151,19 +151,30 @@ Public Class TransactionDialog
                         Next
 
                         baseCommand = New BaseTransaction(data) With {
-                            .Items = items
-                        }
+                        .Items = items
+                    }
 
                         invoker = New AddCommand(baseCommand)
-                        invoker?.Execute()
 
-                        Dim reslt As DialogResult = MsgBox("Do you want to print a receipt?", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-                        Dim autoPrint As Boolean = (reslt = DialogResult.Yes)
+                        ' Execute the transaction and check success
+                        Try
+                            invoker?.Execute()
+                            isSuccess = True ' Mark success if no exceptions occur
+                        Catch ex As Exception
+                            MessageBox.Show($"Transaction failed: {ex.Message}", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        End Try
 
-                        Using dialog As New ReceiptViewer(Reference_number.Text)
-                            dialog.ShowDialog()
-                        End Using
-                        Me.Close()
+                        ' Handle success case
+                        If isSuccess Then
+                            Dim reslt As DialogResult = MsgBox("Do you want to print a receipt?", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                            If reslt = DialogResult.Yes Then
+                                Using dialog As New ReceiptViewer(Reference_number.Text)
+                                    dialog.ShowDialog()
+                                End Using
+                            End If
+                            MessageBox.Show("Transaction completed successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Me.Close()
+                        End If
                     End If
                 Else
                     MessageBox.Show("Enter a valid amount.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -172,9 +183,10 @@ Public Class TransactionDialog
             Else
                 MessageBox.Show("No product selected.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
+
             _subject.NotifyObserver()
         Catch ex As Exception
-
+            MessageBox.Show($"An error occurred: {ex.Message}", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 

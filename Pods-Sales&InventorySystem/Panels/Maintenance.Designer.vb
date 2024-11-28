@@ -62,7 +62,7 @@ Partial Class Maintenance
         Me.MaintenaceTabControl.Margin = New System.Windows.Forms.Padding(0)
         Me.MaintenaceTabControl.Name = "MaintenaceTabControl"
         Me.MaintenaceTabControl.SelectedIndex = 0
-        Me.MaintenaceTabControl.Size = New System.Drawing.Size(1287, 540)
+        Me.MaintenaceTabControl.Size = New System.Drawing.Size(1266, 540)
         Me.MaintenaceTabControl.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty
         Me.MaintenaceTabControl.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.MaintenaceTabControl.TabButtonHoverState.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!)
@@ -88,7 +88,7 @@ Partial Class Maintenance
         Me.Categories.Controls.Add(Me.Category1)
         Me.Categories.Location = New System.Drawing.Point(4, 44)
         Me.Categories.Name = "Categories"
-        Me.Categories.Size = New System.Drawing.Size(1279, 492)
+        Me.Categories.Size = New System.Drawing.Size(1258, 492)
         Me.Categories.TabIndex = 7
         Me.Categories.Text = "Categories"
         Me.Categories.UseVisualStyleBackColor = True
@@ -99,7 +99,7 @@ Partial Class Maintenance
         Me.Category1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Category1.Location = New System.Drawing.Point(0, 0)
         Me.Category1.Name = "Category1"
-        Me.Category1.Size = New System.Drawing.Size(1279, 492)
+        Me.Category1.Size = New System.Drawing.Size(1258, 492)
         Me.Category1.TabIndex = 0
         '
         'SubCategory
@@ -227,7 +227,7 @@ Partial Class Maintenance
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.MaintenaceTabControl)
         Me.Name = "Maintenance"
-        Me.Size = New System.Drawing.Size(1287, 540)
+        Me.Size = New System.Drawing.Size(1266, 540)
         Me.MaintenaceTabControl.ResumeLayout(False)
         Me.Categories.ResumeLayout(False)
         Me.SubCategory.ResumeLayout(False)
