@@ -185,4 +185,7 @@ Public Class DeliveryCartDialog
         End Try
     End Sub
 
+    Private Sub SupplierNameComboBox_SelectedValueChanged(sender As Object, e As EventArgs) Handles SupplierNameComboBox.SelectedValueChanged
+        MsgBox("hkljhlkjhl")
+    End Sub
 End Class
