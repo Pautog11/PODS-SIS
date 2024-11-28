@@ -131,7 +131,7 @@ Partial Class Dashboard
         Me.DashboardTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
         Me.DashboardTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.DashboardTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.DashboardTableLayoutPanel.Size = New System.Drawing.Size(1386, 754)
+        Me.DashboardTableLayoutPanel.Size = New System.Drawing.Size(1567, 754)
         Me.DashboardTableLayoutPanel.TabIndex = 0
         '
         'FlowLayoutPanel1
@@ -832,7 +832,7 @@ Partial Class Dashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1386, 754)
+        Me.ClientSize = New System.Drawing.Size(1567, 754)
         Me.Controls.Add(Me.DashboardTableLayoutPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Dashboard"
