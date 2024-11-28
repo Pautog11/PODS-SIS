@@ -39,6 +39,7 @@ Public Class Server
     Private Sub Guna2Button2_Click(sender As Object, e As EventArgs) Handles Guna2Button2.Click
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         Try
             Dim podsconnection As String = $"Server={ServerTextBox.Text};Initial Catalog=podsdb;Persist Security Info=True;User ID={UsernameTextBox.Text};Password={PasswordTextBox.Text}"
             My.Settings.con = podsconnection
@@ -53,6 +54,8 @@ Public Class Server
 =======
 =======
 >>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
+=======
+>>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
         'Try
         '    Dim podsconnection As String = $"Server={ServerTextBox.Text};Initial Catalog=podsdb;Persist Security Info=True;User ID={UsernameTextBox.Text};Password={PasswordTextBox.Text}"
         '    My.Settings.con = podsconnection
@@ -63,6 +66,7 @@ Public Class Server
         'Catch ex As Exception
         '    MessageBox.Show(ex.Message)
         'End Try
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
     End Sub
@@ -81,6 +85,8 @@ Public Class Server
         Catch ex As Exception
 
         End Try
+=======
+>>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
 =======
 >>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
     End Sub

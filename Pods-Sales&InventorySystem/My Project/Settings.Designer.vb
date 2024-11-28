@@ -103,7 +103,12 @@ Namespace My
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
          Global.System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=podsdb;User ID=admin;Password=password;")>  _
+=======
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=podsdb;Persist Security Info=True;User ID=admin;Pas"& _ 
+            "sword=password;")>  _
+>>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
 =======
          Global.System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=podsdb;Persist Security Info=True;User ID=admin;Pas"& _ 
             "sword=password;")>  _

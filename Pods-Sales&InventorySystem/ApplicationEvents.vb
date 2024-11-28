@@ -12,12 +12,15 @@
             'My.Settings.Save()
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             'MsgBox(My.Settings.con)
             If My.Settings.con = "" Then
                 Dim pota As New Server
                 pota.ShowDialog()
             End If
 =======
+=======
+>>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
 =======
 >>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
 
@@ -29,6 +32,9 @@
             '    Me.MainForm = New Dashboard
             'End If
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
+=======
 >>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
 =======
 >>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)

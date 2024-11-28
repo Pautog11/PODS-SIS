@@ -11169,6 +11169,7 @@ Namespace podsTableAdapters
     '''<summary>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
     <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
@@ -11345,6 +11346,8 @@ Namespace podsTableAdapters
     End Class
     
     '''<summary>
+=======
+>>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
 =======
 >>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
 =======
