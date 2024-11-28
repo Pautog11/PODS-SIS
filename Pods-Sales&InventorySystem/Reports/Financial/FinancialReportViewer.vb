@@ -41,19 +41,22 @@ Public Class FinancialReportViewer
         Try
             Using con As New SqlConnection(My.Settings.podsdbConnectionString)
                 con.Open()
-                Dim cmd As New SqlCommand("SELECT  @startDate as start_date, @endDate as end_date, 
-	                                               th.transaction_number,
-	                                               CONCAT(ac.first_name, ' ', ac.last_name) cashier,
-	                                               SUM(ti.price - di.cost_price) * SUM(ti.quantity) revenue,
-	                                               SUM(ti.total) total,
-	                                               th.date,
-												   SUM(SUM(ti.price - di.cost_price) * SUM(ti.quantity)) OVER () AS total_revenue
-                                            FROM tbldeliveries_items di
-                                            JOIN tbltransaction_items ti ON di.id = ti.delivery_id
-                                            JOIN tbltransactions th ON ti.transaction_id = th.id
-                                            JOIN tblaccounts ac ON th.account_id = ac.id
-                                            WHERE th.date BETWEEN @startDate AND @endDate 
-                                            GROUP BY th.transaction_number, ac.first_name, ac.last_name, th.date", con)
+                Dim cmd As New SqlCommand("SELECT @startDate as start_date, @endDate as end_date, 
+                                                  th.transaction_number,
+                                                  CONCAT(ac.first_name, ' ', ac.last_name) AS cashier,
+                                                  SUM((ti.price - di.cost_price) * ti.quantity) AS revenue,
+                                                  SUM(ti.total) AS total,
+                                                  th.date,
+                                                  SUM(SUM((ti.price - di.cost_price) * ti.quantity)) OVER () AS total_revenue
+                                                FROM tbldeliveries_items di
+                                                JOIN tbltransaction_items ti ON di.id = ti.delivery_id
+                                                JOIN tbltransactions th ON ti.transaction_id = th.id
+                                                JOIN tblaccounts ac ON th.account_id = ac.id
+                                                WHERE th.date BETWEEN @startDate AND @endDate 
+                                                GROUP BY 
+                                                  th.transaction_number, 
+                                                  CONCAT(ac.first_name, ' ', ac.last_name), 
+                                                  th.date", con)
                 cmd.Parameters.AddWithValue("@startDate", startDate)
                 cmd.Parameters.AddWithValue("@endDate", endDate)
 

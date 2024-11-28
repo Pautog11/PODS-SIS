@@ -2,7 +2,7 @@
 
 Public Class Server
     Private Sub Server_Load(sender As Object, e As EventArgs) Handles Me.Load
-
+        PasswordTextBox.UseSystemPasswordChar = True
     End Sub
     Private Sub TestButton_Click(sender As Object, e As EventArgs) Handles TestButton.Click
         Try
