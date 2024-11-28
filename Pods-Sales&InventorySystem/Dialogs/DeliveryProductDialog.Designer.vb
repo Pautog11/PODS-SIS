@@ -43,6 +43,7 @@ Partial Class DeliveryProductDialog
         Me.CostTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.BarcodeTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.AccountDialogLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
+        Me.Guna2CheckBox1 = New Guna.UI2.WinForms.Guna2CheckBox()
         Me.FlowLayoutPanel2.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.AccountDialogLayoutPanel.SuspendLayout()
@@ -55,10 +56,10 @@ Partial Class DeliveryProductDialog
         Me.FlowLayoutPanel2.Controls.Add(Me.VoidButton)
         Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
-        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 399)
+        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 449)
         Me.FlowLayoutPanel2.Margin = New System.Windows.Forms.Padding(0)
         Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(326, 55)
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(327, 55)
         Me.FlowLayoutPanel2.TabIndex = 8
         '
         'AddDeliveryButton
@@ -73,7 +74,7 @@ Partial Class DeliveryProductDialog
         Me.AddDeliveryButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AddDeliveryButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddDeliveryButton.ForeColor = System.Drawing.Color.White
-        Me.AddDeliveryButton.Location = New System.Drawing.Point(195, 8)
+        Me.AddDeliveryButton.Location = New System.Drawing.Point(196, 8)
         Me.AddDeliveryButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.AddDeliveryButton.Name = "AddDeliveryButton"
         Me.AddDeliveryButton.Size = New System.Drawing.Size(128, 37)
@@ -92,7 +93,7 @@ Partial Class DeliveryProductDialog
         Me.VoidButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.VoidButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.VoidButton.ForeColor = System.Drawing.Color.White
-        Me.VoidButton.Location = New System.Drawing.Point(61, 8)
+        Me.VoidButton.Location = New System.Drawing.Point(62, 8)
         Me.VoidButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.VoidButton.Name = "VoidButton"
         Me.VoidButton.Size = New System.Drawing.Size(128, 37)
@@ -101,6 +102,7 @@ Partial Class DeliveryProductDialog
         '
         'Guna2Panel1
         '
+        Me.Guna2Panel1.Controls.Add(Me.Guna2CheckBox1)
         Me.Guna2Panel1.Controls.Add(Me.ProductTextBox)
         Me.Guna2Panel1.Controls.Add(Me.ChangeButton)
         Me.Guna2Panel1.Controls.Add(Me.DateTimePicker)
@@ -121,7 +123,7 @@ Partial Class DeliveryProductDialog
         Me.Guna2Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Size = New System.Drawing.Size(326, 399)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(327, 449)
         Me.Guna2Panel1.TabIndex = 9
         '
         'ProductTextBox
@@ -159,7 +161,7 @@ Partial Class DeliveryProductDialog
         Me.ChangeButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.ChangeButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.ChangeButton.ForeColor = System.Drawing.Color.White
-        Me.ChangeButton.Location = New System.Drawing.Point(65, 223)
+        Me.ChangeButton.Location = New System.Drawing.Point(66, 224)
         Me.ChangeButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.ChangeButton.Name = "ChangeButton"
         Me.ChangeButton.Size = New System.Drawing.Size(200, 37)
@@ -172,7 +174,7 @@ Partial Class DeliveryProductDialog
         Me.DateTimePicker.FillColor = System.Drawing.Color.White
         Me.DateTimePicker.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
-        Me.DateTimePicker.Location = New System.Drawing.Point(66, 347)
+        Me.DateTimePicker.Location = New System.Drawing.Point(62, 378)
         Me.DateTimePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
         Me.DateTimePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
         Me.DateTimePicker.Name = "DateTimePicker"
@@ -215,7 +217,7 @@ Partial Class DeliveryProductDialog
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(42, 322)
+        Me.Label8.Location = New System.Drawing.Point(38, 353)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(79, 13)
         Me.Label8.TabIndex = 31
@@ -373,14 +375,31 @@ Partial Class DeliveryProductDialog
         Me.AccountDialogLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.AccountDialogLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55.0!))
         Me.AccountDialogLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.AccountDialogLayoutPanel.Size = New System.Drawing.Size(326, 454)
+        Me.AccountDialogLayoutPanel.Size = New System.Drawing.Size(327, 504)
         Me.AccountDialogLayoutPanel.TabIndex = 19
+        '
+        'Guna2CheckBox1
+        '
+        Me.Guna2CheckBox1.AutoSize = True
+        Me.Guna2CheckBox1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.Guna2CheckBox1.CheckedState.BorderRadius = 0
+        Me.Guna2CheckBox1.CheckedState.BorderThickness = 0
+        Me.Guna2CheckBox1.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.Guna2CheckBox1.Location = New System.Drawing.Point(66, 330)
+        Me.Guna2CheckBox1.Name = "Guna2CheckBox1"
+        Me.Guna2CheckBox1.Size = New System.Drawing.Size(72, 17)
+        Me.Guna2CheckBox1.TabIndex = 38
+        Me.Guna2CheckBox1.Text = "Expiration"
+        Me.Guna2CheckBox1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        Me.Guna2CheckBox1.UncheckedState.BorderRadius = 0
+        Me.Guna2CheckBox1.UncheckedState.BorderThickness = 0
+        Me.Guna2CheckBox1.UncheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
         '
         'DeliveryProductDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(326, 454)
+        Me.ClientSize = New System.Drawing.Size(327, 504)
         Me.Controls.Add(Me.AccountDialogLayoutPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
@@ -418,4 +437,5 @@ Partial Class DeliveryProductDialog
     Friend WithEvents ProductTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents ChangeButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents VoidButton As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents Guna2CheckBox1 As Guna.UI2.WinForms.Guna2CheckBox
 End Class

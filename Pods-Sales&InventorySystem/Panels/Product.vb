@@ -32,7 +32,7 @@
         'End If
 
         Dim result As DialogResult
-        result = MessageBox.Show("To proceed, please confirm the type of product. Is this product classified as a medicine?",
+        result = MessageBox.Show("Please confirm if this is a medicine?.",
                                  "Product type",
                                  MessageBoxButtons.YesNoCancel,
                                  MessageBoxIcon.Question)

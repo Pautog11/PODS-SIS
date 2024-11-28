@@ -90,4 +90,18 @@ Public Class BaseSupplier
         End Try
     End Function
 
+    Public Shared Function Search(query As String) As pods.viewtblsuppliersDataTable 'pods.tblaccountsDataTable
+        Try
+            Dim conn As New SqlConnection(My.Settings.podsdbConnectionString)
+            Dim cmd As New SqlCommand("SELECT * FROM viewtblsuppliers WHERE id <> 1 AND NAME LIKE CONCAT('%', @query, '%') OR COMPANY LIKE CONCAT('%', @query, '%')", conn)
+            cmd.Parameters.AddWithValue("@query", query)
+            Dim dTable As New pods.viewtblsuppliersDataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New pods.viewtblsuppliersDataTable
+        End Try
+    End Function
 End Class
