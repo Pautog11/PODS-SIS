@@ -105,7 +105,7 @@ Public Class ProductDialog
                 Dim putangina As Boolean = False
                 Dim item As New Dictionary(Of String, String)
 
-                If Not String.IsNullOrEmpty(DosageTextBox.Text) AndAlso Not String.IsNullOrEmpty(StrengthTextBox.Text) AndAlso Not String.IsNullOrEmpty(ManufacturerTextBox.Text) Then
+                If Not String.IsNullOrEmpty(DosageFormComboBox.Text) AndAlso Not String.IsNullOrEmpty(StrengthTextBox.Text) AndAlso Not String.IsNullOrEmpty(ManufacturerTextBox.Text) Then
                     item("dosage") = result(4)(1) 'If(String.IsNullOrEmpty(DosageTextBox.Text), Nothing, DosageTextBox.Text)
                     item("strength") = result(5)(1)
                     item("dose") = DoseComboBox.SelectedItem("id")

@@ -204,6 +204,7 @@ Partial Class AccountDialog
         Me.FirstnameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.FirstnameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.FirstnameTextBox.Location = New System.Drawing.Point(3, 87)
+        Me.FirstnameTextBox.MaxLength = 50
         Me.FirstnameTextBox.Name = "FirstnameTextBox"
         Me.FirstnameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.FirstnameTextBox.PlaceholderText = "Firstname"
@@ -226,6 +227,7 @@ Partial Class AccountDialog
         Me.LastnameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.LastnameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.LastnameTextBox.Location = New System.Drawing.Point(3, 129)
+        Me.LastnameTextBox.MaxLength = 50
         Me.LastnameTextBox.Name = "LastnameTextBox"
         Me.LastnameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.LastnameTextBox.PlaceholderText = "Lastname"
@@ -271,6 +273,7 @@ Partial Class AccountDialog
         Me.AddressTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddressTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.AddressTextBox.Location = New System.Drawing.Point(3, 213)
+        Me.AddressTextBox.MaxLength = 50
         Me.AddressTextBox.Name = "AddressTextBox"
         Me.AddressTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.AddressTextBox.PlaceholderText = "Address"
@@ -302,6 +305,7 @@ Partial Class AccountDialog
         Me.UsernameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.UsernameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.UsernameTextBox.Location = New System.Drawing.Point(3, 3)
+        Me.UsernameTextBox.MaxLength = 20
         Me.UsernameTextBox.Name = "UsernameTextBox"
         Me.UsernameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.UsernameTextBox.PlaceholderText = "Username"

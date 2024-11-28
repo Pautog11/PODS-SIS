@@ -3,14 +3,17 @@
 Public Class ReturnCartDialog
     Private ReadOnly _subject As IObservablePanel
     Private ReadOnly _data As Dictionary(Of String, String) 'Private ReadOnly _parent As ReturnCartDialog = Nothing
+    Private ReadOnly _dat2 As Dictionary(Of String, String) 'Private ReadOnly _parent As ReturnCartDialog = Nothing
     Public _itemSource As DataTable
     Private _parent As TransactionDialog = Nothing
     Public Sub New(Optional data As Dictionary(Of String, String) = Nothing,
+                   Optional dat2 As Dictionary(Of String, String) = Nothing,
                    Optional subject As IObservablePanel = Nothing,
                    Optional parent As TransactionDialog = Nothing)
         InitializeComponent()
         _subject = subject
         _data = data
+        _dat2 = dat2
         _parent = parent
     End Sub
 
@@ -19,8 +22,13 @@ Public Class ReturnCartDialog
             If _data IsNot Nothing Then
                 TransactionTextBox.Text = _data.Item("ref")
                 RetuenDatePicker.Value = _data.Item("date")
-                TotalPrice.Text = _data.Item("total")
-                ' Guna2HtmlLabel2.Text = _data.Item("delivery_id")
+
+                TransactionTextBox.Enabled = False
+            ElseIf _dat2 IsNot Nothing Then
+                TransactionTextBox.Text = _dat2.Item("ref")
+                RetuenDatePicker.Value = _dat2.Item("date")
+
+                TransactionTextBox.Enabled = False
                 SaveButton.Visible = False
             End If
             TransactionTextBox.Enabled = False

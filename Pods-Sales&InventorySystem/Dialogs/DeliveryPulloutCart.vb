@@ -33,7 +33,6 @@ Public Class DeliveryPulloutCart
             If _data IsNot Nothing Then
                 DateTimePicker.MinDate = _data.Item("date")
                 DateTimePicker.MaxDate = DateTime.Today
-
                 SupplierComboBox.Text = _data.Item("supplier_id")
                 TransactionDeliveryTextBox.Text = _data.Item("delivery_number")
                 'Guna2HtmlLabel1.Text = _data.Item("id")

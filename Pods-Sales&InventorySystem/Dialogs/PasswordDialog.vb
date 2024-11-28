@@ -14,13 +14,13 @@ Public Class PasswordDialog
 
     End Sub
     Private Sub PasswordDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        PasswordTextBox.UseSystemPasswordChar = True
+        Guna2TextBox1.UseSystemPasswordChar = True
     End Sub
 
     Private Sub UpdateButton_Click(sender As Object, e As EventArgs) Handles UpdateButton.Click
         Try
             Dim result As New List(Of Object)() From {InputValidation.ValidateInputString(PasswordTextBox, DataInput.STRING_STRING), InputValidation.ValidateInputString(Guna2TextBox1, DataInput.STRING_STRING)}
-
             If Not result.Any(Function(item As Object()) Not item(0)) Then
                 If PasswordTextBox.Text = Guna2TextBox1.Text Then
                     BaseAccount.ChangePass(PasswordTextBox.Text, _id)
@@ -37,5 +37,15 @@ Public Class PasswordDialog
         Catch ex As Exception
 
         End Try
+    End Sub
+
+    Private Sub Guna2CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles Guna2CheckBox1.CheckedChanged
+        If Guna2CheckBox1.Checked Then
+            PasswordTextBox.UseSystemPasswordChar = False ' Show password
+            Guna2TextBox1.UseSystemPasswordChar = False ' Show password
+        Else
+            PasswordTextBox.UseSystemPasswordChar = True
+            Guna2TextBox1.UseSystemPasswordChar = True
+        End If
     End Sub
 End Class

@@ -892,6 +892,7 @@
     <None Include="Resources\sales.png" />
     <None Include="Resources\printer.png" />
     <None Include="Resources\icons8-search-50.png" />
+    <None Include="Resources\icons8-refresh-50.png" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

@@ -21,31 +21,34 @@
     End Sub
 
     Private Sub ReturnsDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles ReturnsDataGridView.CellClick
-        If ReturnsDataGridView.Rows.Count > 0 Then
-            Dim selectedRows As DataGridViewSelectedRowCollection = ReturnsDataGridView.SelectedRows
-            Dim row As DataGridViewRow = selectedRows(0)
-            Dim data As New Dictionary(Of String, String) From {
-              {"ref", row.Cells(2).Value.ToString},
-              {"total", row.Cells(4).Value.ToString},
-              {"date", row.Cells(5).Value.ToString}
-            }
-            Dim dialog As New ReturnCartDialog(data:=data)
-            dialog.AddReturnButton.Visible = False
-            'dialog.ReturnDataGridView.Columns.Item("PID").Visible = False
+        Try
+            If ReturnsDataGridView.Rows.Count > 0 Then
+                Dim selectedRows As DataGridViewSelectedRowCollection = ReturnsDataGridView.SelectedRows
+                Dim row As DataGridViewRow = selectedRows(0)
+                Dim data As New Dictionary(Of String, String) From {
+                  {"ref", row.Cells(2).Value.ToString},
+                  {"total", row.Cells(4).Value.ToString},
+                  {"date", row.Cells(5).Value.ToString}
+                }
+                Dim dialog As New ReturnCartDialog(dat2:=data)
+                dialog.AddReturnButton.Visible = False
+                'dialog.ReturnDataGridView.Columns.Item("PID").Visible = False
 
-            dialog.ReturnDataGridView.Rows.Clear()
-            Dim DeliveryItems As DataTable = BaseReturn.SelectAllReturnById(row.Cells(0).Value.ToString)
-            For Each i As DataRow In DeliveryItems.Rows
-                Dim rowData As New List(Of Object)()
-                For Each column As DataColumn In DeliveryItems.Columns
-                    rowData.Add(i(column))
+                dialog.ReturnDataGridView.Rows.Clear()
+                Dim DeliveryItems As DataTable = BaseReturn.SelectAllReturnById(row.Cells(0).Value.ToString)
+                For Each i As DataRow In DeliveryItems.Rows
+                    Dim rowData As New List(Of Object)()
+                    For Each column As DataColumn In DeliveryItems.Columns
+                        rowData.Add(i(column))
+                    Next
+                    dialog.ReturnDataGridView.Rows.Add(rowData.ToArray())
                 Next
-                dialog.ReturnDataGridView.Rows.Add(rowData.ToArray())
-            Next
 
 
-            dialog.ShowDialog()
-        End If
-        'MsgBox("hello")
+                dialog.ShowDialog()
+            End If
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class

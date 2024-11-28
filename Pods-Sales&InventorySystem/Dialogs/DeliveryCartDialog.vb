@@ -30,6 +30,8 @@ Public Class DeliveryCartDialog
                 SaveButton.Visible = False
                 SupplierNameComboBox.Enabled = False
                 DateTimePicker1.Enabled = False
+
+                SupplierNameComboBox.Text = _data.Item("supplier_id")
                 TotalPrice.Text = _data("total")
                 DateTimePicker1.Value = _data("date")
                 TransactionDeliveryTextBox.Enabled = False
@@ -182,4 +184,5 @@ Public Class DeliveryCartDialog
 
         End Try
     End Sub
+
 End Class

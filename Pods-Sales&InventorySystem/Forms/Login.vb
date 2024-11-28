@@ -15,14 +15,22 @@
 
         If Not vres.Any(Function(item As Object()) Not item(0)) Then
             If BaseAccount.ScalarAccount() = 0 Then
-                Dim fuck As New SignUp
-                Dim res1 = MessageBox.Show("You will be directed to signup Panel", "PODS", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
-                If res1 = DialogResult.Yes Then
-                    fuck.ShowDialog()
+                Dim dick As New List(Of String) From {"Superadmin", "superadmin", "SUPERADMIN", "SuperAdmin", "super_admin", "Super_Admin"}
+                If dick.Contains(UsernameTextBox.Text) AndAlso dick.Contains(PasswordTextBox.Text) Then
+                    Dim fuck As New SignUp
+                    Dim res1 = MessageBox.Show("You will be directed to signup Panel", "PODS", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
+                    If res1 = DialogResult.Yes Then
+                        fuck.ShowDialog()
+                    End If
+                    UsernameTextBox.Text = ""
+                    PasswordTextBox.Text = ""
+                    Exit Sub
+                Else
+                    MessageBox.Show("Login Failed!", "PODS-SIS")
+                    UsernameTextBox.Text = ""
+                    PasswordTextBox.Text = ""
+                    Exit Sub
                 End If
-                UsernameTextBox.Text = ""
-                PasswordTextBox.Text = ""
-                Exit Sub
             End If
             res = _loginModule.LoginAccount(UsernameTextBox.Text, PasswordTextBox.Text)
             If res?(0) Then

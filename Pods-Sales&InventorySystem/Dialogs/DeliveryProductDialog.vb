@@ -43,7 +43,7 @@ Public Class DeliveryProductDialog
                 VoidButton.Visible = False
             End If
             DateTimePicker.MinDate = DateTime.Today.AddMonths(6)
-            SkuComboBox1.Enabled = False
+            'SkuComboBox1.Enabled = False
             ProductTextBox.Enabled = False
             CostTextBox.Enabled = False
             txtPrays.Enabled = False
@@ -169,7 +169,7 @@ Public Class DeliveryProductDialog
                         id = dt.Rows(0).Item("id").ToString()
                         CostTextBox.Text = dt.Rows(0).Item("cost").ToString()
                         txtPrays.Text = dt.Rows(0).Item("price").ToString()
-                        SkuComboBox1.SelectedItem = dt.Rows(0).Item("sku").ToString()
+                        'SkuComboBox1.SelectedItem = dt.Rows(0).Item("sku").ToString()
                         ProductTextBox.Text = dt.Rows(0).Item("product_name").ToString()
 
                         For Each item As DataGridViewRow In _parent.DeliveryDataGridView.Rows
