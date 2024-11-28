@@ -24,7 +24,7 @@
       <Value Profile="(Default)">Data Source=.;Initial Catalog=podsdb;User ID=admin;Password=password;</Value>
     </Setting>
     <Setting Name="con" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Data Source=.;Initial Catalog=podsdb;Persist Security Info=True;User ID=admin;Password=password;</Value>
+      <Value Profile="(Default)">Data Source=192.168.1.22;Initial Catalog=podsdb;Persist Security Info=True;User ID=admin;Password=password;</Value>
     </Setting>
   </Settings>
 </SettingsFile>

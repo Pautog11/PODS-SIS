@@ -101,8 +101,8 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=podsdb;Persist Security Info=True;User ID=admin;Pas"& _ 
-            "sword=password;")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.1.22;Initial Catalog=podsdb;Persist Security Info=True;User I"& _ 
+            "D=admin;Password=password;")>  _
         Public Property con() As String
             Get
                 Return CType(Me("con"),String)
