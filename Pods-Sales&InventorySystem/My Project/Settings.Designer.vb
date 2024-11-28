@@ -81,8 +81,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Server=192.168.1.22;Initial Catalog=podsdb;Persist Security Info=True;User ID=adm"& _ 
-            "in;Password=password;")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Server=192.168.111.1;Initial Catalog=podsdb;Persist Security Info=True;User ID=ad"& _ 
+            "min;Password=password;")>  _
         Public ReadOnly Property podsdbConnectionString() As String
             Get
                 Return CType(Me("podsdbConnectionString"),String)
@@ -92,7 +92,8 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.1.22;Initial Catalog=podsdb;User ID=admin;Password=password;")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.111.1;Initial Catalog=podsdb;User ID=admin;Password=password;"& _ 
+            "")>  _
         Public ReadOnly Property podsdbConnectionString1() As String
             Get
                 Return CType(Me("podsdbConnectionString1"),String)

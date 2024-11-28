@@ -7,6 +7,8 @@ Public Class SqlConnectionPods
     ''' </summary>
     ''' <returns>an open instance of the connection</returns>
     Public Shared Function GetInstance() As SqlConnection
+        'My.Settings.con = ""
+        'My.Settings.Save
         'MsgBox(My.Settings.con)
         'My.Settings.con = "Data Source=.;Initial Catalog=titeko;Persist Security Info=True;User ID=admin;Password=password;"
         'My.Settings.Save()
