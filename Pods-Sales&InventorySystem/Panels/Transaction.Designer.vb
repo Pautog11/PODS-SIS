@@ -98,8 +98,13 @@ Partial Class Transaction
         Me.AccountHeaderLayoutPanel.ColumnCount = 2
         Me.AccountHeaderLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.AccountHeaderLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+<<<<<<< HEAD
         Me.AccountHeaderLayoutPanel.Controls.Add(Me.DeliverySearchTextBox, 0, 0)
         Me.AccountHeaderLayoutPanel.Controls.Add(Me.AddTransactionButton, 1, 0)
+=======
+        Me.AccountHeaderLayoutPanel.Controls.Add(Me.AddTransactionButton, 1, 0)
+        Me.AccountHeaderLayoutPanel.Controls.Add(Me.DeliverySearchTextBox, 0, 0)
+>>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
         Me.AccountHeaderLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AccountHeaderLayoutPanel.Location = New System.Drawing.Point(3, 3)
         Me.AccountHeaderLayoutPanel.Name = "AccountHeaderLayoutPanel"

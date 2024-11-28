@@ -26,10 +26,8 @@ Partial Class Activity
         Me.AccountLogs = New System.Windows.Forms.TabPage()
         Me.AccountLog1 = New Pods_Sales_InventorySystem.AccountLog()
         Me.AuditTrail = New System.Windows.Forms.TabPage()
-        Me.AuditTrail1 = New Pods_Sales_InventorySystem.AuditTrail()
         Me.AuditTrailTabControl.SuspendLayout()
         Me.AccountLogs.SuspendLayout()
-        Me.AuditTrail.SuspendLayout()
         Me.SuspendLayout()
         '
         'AuditTrailTabControl
@@ -82,21 +80,12 @@ Partial Class Activity
         '
         'AuditTrail
         '
-        Me.AuditTrail.Controls.Add(Me.AuditTrail1)
         Me.AuditTrail.Location = New System.Drawing.Point(4, 44)
         Me.AuditTrail.Name = "AuditTrail"
         Me.AuditTrail.Size = New System.Drawing.Size(961, 504)
         Me.AuditTrail.TabIndex = 1
         Me.AuditTrail.Text = "Audit Trail"
         Me.AuditTrail.UseVisualStyleBackColor = True
-        '
-        'AuditTrail1
-        '
-        Me.AuditTrail1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AuditTrail1.Location = New System.Drawing.Point(0, 0)
-        Me.AuditTrail1.Name = "AuditTrail1"
-        Me.AuditTrail1.Size = New System.Drawing.Size(961, 504)
-        Me.AuditTrail1.TabIndex = 0
         '
         'Activity
         '
@@ -107,7 +96,6 @@ Partial Class Activity
         Me.Size = New System.Drawing.Size(969, 552)
         Me.AuditTrailTabControl.ResumeLayout(False)
         Me.AccountLogs.ResumeLayout(False)
-        Me.AuditTrail.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -116,5 +104,4 @@ Partial Class Activity
     Friend WithEvents AccountLogs As TabPage
     Friend WithEvents AccountLog1 As AccountLog
     Friend WithEvents AuditTrail As TabPage
-    Friend WithEvents AuditTrail1 As AuditTrail
 End Class

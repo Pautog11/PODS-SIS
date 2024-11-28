@@ -101,7 +101,12 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+<<<<<<< HEAD
          Global.System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=podsdb;User ID=admin;Password=password;")>  _
+=======
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=podsdb;Persist Security Info=True;User ID=admin;Pas"& _ 
+            "sword=password;")>  _
+>>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
         Public Property con() As String
             Get
                 Return CType(Me("con"),String)

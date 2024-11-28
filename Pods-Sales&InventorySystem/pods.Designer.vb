@@ -57,8 +57,6 @@ Partial Public Class pods
     
     Private tableviewtbldosageform As viewtbldosageformDataTable
     
-    Private tableviewtblaudittrail As viewtblaudittrailDataTable
-    
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -135,9 +133,6 @@ Partial Public Class pods
             End If
             If (Not (ds.Tables("viewtbldosageform")) Is Nothing) Then
                 MyBase.Tables.Add(New viewtbldosageformDataTable(ds.Tables("viewtbldosageform")))
-            End If
-            If (Not (ds.Tables("viewtblaudittrail")) Is Nothing) Then
-                MyBase.Tables.Add(New viewtblaudittrailDataTable(ds.Tables("viewtblaudittrail")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -318,16 +313,6 @@ Partial Public Class pods
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-     Global.System.ComponentModel.Browsable(false),  _
-     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property viewtblaudittrail() As viewtblaudittrailDataTable
-        Get
-            Return Me.tableviewtblaudittrail
-        End Get
-    End Property
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
      Global.System.ComponentModel.BrowsableAttribute(true),  _
      Global.System.ComponentModel.DesignerSerializationVisibilityAttribute(Global.System.ComponentModel.DesignerSerializationVisibility.Visible)>  _
     Public Overrides Property SchemaSerializationMode() As Global.System.Data.SchemaSerializationMode
@@ -440,9 +425,6 @@ Partial Public Class pods
             End If
             If (Not (ds.Tables("viewtbldosageform")) Is Nothing) Then
                 MyBase.Tables.Add(New viewtbldosageformDataTable(ds.Tables("viewtbldosageform")))
-            End If
-            If (Not (ds.Tables("viewtblaudittrail")) Is Nothing) Then
-                MyBase.Tables.Add(New viewtblaudittrailDataTable(ds.Tables("viewtblaudittrail")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -572,12 +554,6 @@ Partial Public Class pods
                 Me.tableviewtbldosageform.InitVars
             End If
         End If
-        Me.tableviewtblaudittrail = CType(MyBase.Tables("viewtblaudittrail"),viewtblaudittrailDataTable)
-        If (initTable = true) Then
-            If (Not (Me.tableviewtblaudittrail) Is Nothing) Then
-                Me.tableviewtblaudittrail.InitVars
-            End If
-        End If
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -620,8 +596,6 @@ Partial Public Class pods
         MyBase.Tables.Add(Me.tableviewtbldiscounts)
         Me.tableviewtbldosageform = New viewtbldosageformDataTable()
         MyBase.Tables.Add(Me.tableviewtbldosageform)
-        Me.tableviewtblaudittrail = New viewtblaudittrailDataTable()
-        MyBase.Tables.Add(Me.tableviewtblaudittrail)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -717,12 +691,6 @@ Partial Public Class pods
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
     Private Function ShouldSerializeviewtbldosageform() As Boolean
-        Return false
-    End Function
-    
-    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Private Function ShouldSerializeviewtblaudittrail() As Boolean
         Return false
     End Function
     
@@ -831,9 +799,6 @@ Partial Public Class pods
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
     Public Delegate Sub viewtbldosageformRowChangeEventHandler(ByVal sender As Object, ByVal e As viewtbldosageformRowChangeEvent)
-    
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Public Delegate Sub viewtblaudittrailRowChangeEventHandler(ByVal sender As Object, ByVal e As viewtblaudittrailRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -6003,326 +5968,6 @@ Partial Public Class pods
     End Class
     
     '''<summary>
-    '''Represents the strongly named DataTable class.
-    '''</summary>
-    <Global.System.Serializable(),  _
-     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class viewtblaudittrailDataTable
-        Inherits Global.System.Data.TypedTableBase(Of viewtblaudittrailRow)
-        
-        Private columnid As Global.System.Data.DataColumn
-        
-        Private columnNAME As Global.System.Data.DataColumn
-        
-        Private columnaction As Global.System.Data.DataColumn
-        
-        Private columndate As Global.System.Data.DataColumn
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub New()
-            MyBase.New
-            Me.TableName = "viewtblaudittrail"
-            Me.BeginInit
-            Me.InitClass
-            Me.EndInit
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Friend Sub New(ByVal table As Global.System.Data.DataTable)
-            MyBase.New
-            Me.TableName = table.TableName
-            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
-                Me.CaseSensitive = table.CaseSensitive
-            End If
-            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
-                Me.Locale = table.Locale
-            End If
-            If (table.Namespace <> table.DataSet.Namespace) Then
-                Me.Namespace = table.Namespace
-            End If
-            Me.Prefix = table.Prefix
-            Me.MinimumCapacity = table.MinimumCapacity
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
-            MyBase.New(info, context)
-            Me.InitVars
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property idColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnid
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property NAMEColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnNAME
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property actionColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnaction
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property dateColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columndate
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Browsable(false)>  _
-        Public ReadOnly Property Count() As Integer
-            Get
-                Return Me.Rows.Count
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As viewtblaudittrailRow
-            Get
-                Return CType(Me.Rows(index),viewtblaudittrailRow)
-            End Get
-        End Property
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event viewtblaudittrailRowChanging As viewtblaudittrailRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event viewtblaudittrailRowChanged As viewtblaudittrailRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event viewtblaudittrailRowDeleting As viewtblaudittrailRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Event viewtblaudittrailRowDeleted As viewtblaudittrailRowChangeEventHandler
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Sub AddviewtblaudittrailRow(ByVal row As viewtblaudittrailRow)
-            Me.Rows.Add(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddviewtblaudittrailRow(ByVal id As Integer, ByVal NAME As String, ByVal action As String, ByVal _date As Date) As viewtblaudittrailRow
-            Dim rowviewtblaudittrailRow As viewtblaudittrailRow = CType(Me.NewRow,viewtblaudittrailRow)
-            Dim columnValuesArray() As Object = New Object() {id, NAME, action, _date}
-            rowviewtblaudittrailRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowviewtblaudittrailRow)
-            Return rowviewtblaudittrailRow
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function FindByid(ByVal id As Integer) As viewtblaudittrailRow
-            Return CType(Me.Rows.Find(New Object() {id}),viewtblaudittrailRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As viewtblaudittrailDataTable = CType(MyBase.Clone,viewtblaudittrailDataTable)
-            cln.InitVars
-            Return cln
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New viewtblaudittrailDataTable()
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Friend Sub InitVars()
-            Me.columnid = MyBase.Columns("ID")
-            Me.columnNAME = MyBase.Columns("NAME")
-            Me.columnaction = MyBase.Columns("ACTION")
-            Me.columndate = MyBase.Columns("DATE")
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Private Sub InitClass()
-            Me.columnid = New Global.System.Data.DataColumn("ID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            Me.columnid.ExtendedProperties.Add("Generator_ColumnPropNameInRow", "id")
-            Me.columnid.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "idColumn")
-            Me.columnid.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columnid")
-            Me.columnid.ExtendedProperties.Add("Generator_UserColumnName", "ID")
-            MyBase.Columns.Add(Me.columnid)
-            Me.columnNAME = New Global.System.Data.DataColumn("NAME", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNAME)
-            Me.columnaction = New Global.System.Data.DataColumn("ACTION", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            Me.columnaction.ExtendedProperties.Add("Generator_ColumnPropNameInRow", "action")
-            Me.columnaction.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "actionColumn")
-            Me.columnaction.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columnaction")
-            Me.columnaction.ExtendedProperties.Add("Generator_UserColumnName", "ACTION")
-            MyBase.Columns.Add(Me.columnaction)
-            Me.columndate = New Global.System.Data.DataColumn("DATE", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            Me.columndate.ExtendedProperties.Add("Generator_ColumnPropNameInRow", "_date")
-            Me.columndate.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "dateColumn")
-            Me.columndate.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columndate")
-            Me.columndate.ExtendedProperties.Add("Generator_UserColumnName", "DATE")
-            MyBase.Columns.Add(Me.columndate)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid}, true))
-            Me.columnid.AllowDBNull = false
-            Me.columnid.Unique = true
-            Me.columnid.Caption = "id"
-            Me.columnNAME.ReadOnly = true
-            Me.columnNAME.MaxLength = 101
-            Me.columnaction.AllowDBNull = false
-            Me.columnaction.Caption = "action"
-            Me.columnaction.MaxLength = 50
-            Me.columndate.AllowDBNull = false
-            Me.columndate.Caption = "date"
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function NewviewtblaudittrailRow() As viewtblaudittrailRow
-            Return CType(Me.NewRow,viewtblaudittrailRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New viewtblaudittrailRow(builder)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(viewtblaudittrailRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanged(e)
-            If (Not (Me.viewtblaudittrailRowChangedEvent) Is Nothing) Then
-                RaiseEvent viewtblaudittrailRowChanged(Me, New viewtblaudittrailRowChangeEvent(CType(e.Row,viewtblaudittrailRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowChanging(e)
-            If (Not (Me.viewtblaudittrailRowChangingEvent) Is Nothing) Then
-                RaiseEvent viewtblaudittrailRowChanging(Me, New viewtblaudittrailRowChangeEvent(CType(e.Row,viewtblaudittrailRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleted(e)
-            If (Not (Me.viewtblaudittrailRowDeletedEvent) Is Nothing) Then
-                RaiseEvent viewtblaudittrailRowDeleted(Me, New viewtblaudittrailRowChangeEvent(CType(e.Row,viewtblaudittrailRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
-            MyBase.OnRowDeleting(e)
-            If (Not (Me.viewtblaudittrailRowDeletingEvent) Is Nothing) Then
-                RaiseEvent viewtblaudittrailRowDeleting(Me, New viewtblaudittrailRowChangeEvent(CType(e.Row,viewtblaudittrailRow), e.Action))
-            End If
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub RemoveviewtblaudittrailRow(ByVal row As viewtblaudittrailRow)
-            Me.Rows.Remove(row)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
-            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
-            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As pods = New pods()
-            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
-            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
-            any1.MinOccurs = New Decimal(0)
-            any1.MaxOccurs = Decimal.MaxValue
-            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any1)
-            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
-            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
-            any2.MinOccurs = New Decimal(1)
-            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
-            sequence.Items.Add(any2)
-            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
-            attribute1.Name = "namespace"
-            attribute1.FixedValue = ds.Namespace
-            type.Attributes.Add(attribute1)
-            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
-            attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "viewtblaudittrailDataTable"
-            type.Attributes.Add(attribute2)
-            type.Particle = sequence
-            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
-            If xs.Contains(dsSchema.TargetNamespace) Then
-                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
-                Try 
-                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
-                    dsSchema.Write(s1)
-                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
-                    Do While schemas.MoveNext
-                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
-                        s2.SetLength(0)
-                        schema.Write(s2)
-                        If (s1.Length = s2.Length) Then
-                            s1.Position = 0
-                            s2.Position = 0
-                            
-                            Do While ((s1.Position <> s1.Length)  _
-                                        AndAlso (s1.ReadByte = s2.ReadByte))
-                                
-                                
-                            Loop
-                            If (s1.Position = s1.Length) Then
-                                Return type
-                            End If
-                        End If
-                        
-                    Loop
-                Finally
-                    If (Not (s1) Is Nothing) Then
-                        s1.Close
-                    End If
-                    If (Not (s2) Is Nothing) Then
-                        s2.Close
-                    End If
-                End Try
-            End If
-            xs.Add(dsSchema)
-            Return type
-        End Function
-    End Class
-    
-    '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
     Partial Public Class viewtblcategoriesRow
@@ -8100,82 +7745,6 @@ Partial Public Class pods
     End Class
     
     '''<summary>
-    '''Represents strongly named DataRow class.
-    '''</summary>
-    Partial Public Class viewtblaudittrailRow
-        Inherits Global.System.Data.DataRow
-        
-        Private tableviewtblaudittrail As viewtblaudittrailDataTable
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
-            MyBase.New(rb)
-            Me.tableviewtblaudittrail = CType(Me.Table,viewtblaudittrailDataTable)
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property id() As Integer
-            Get
-                Return CType(Me(Me.tableviewtblaudittrail.idColumn),Integer)
-            End Get
-            Set
-                Me(Me.tableviewtblaudittrail.idColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property NAME() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableviewtblaudittrail.NAMEColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'NAME' in table 'viewtblaudittrail' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableviewtblaudittrail.NAMEColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property action() As String
-            Get
-                Return CType(Me(Me.tableviewtblaudittrail.actionColumn),String)
-            End Get
-            Set
-                Me(Me.tableviewtblaudittrail.actionColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property _date() As Date
-            Get
-                Return CType(Me(Me.tableviewtblaudittrail.dateColumn),Date)
-            End Get
-            Set
-                Me(Me.tableviewtblaudittrail.dateColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsNAMENull() As Boolean
-            Return Me.IsNull(Me.tableviewtblaudittrail.NAMEColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetNAMENull()
-            Me(Me.tableviewtblaudittrail.NAMEColumn) = Global.System.Convert.DBNull
-        End Sub
-    End Class
-    
-    '''<summary>
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -8737,42 +8306,6 @@ Partial Public Class pods
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public ReadOnly Property Row() As viewtbldosageformRow
-            Get
-                Return Me.eventRow
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
-            Get
-                Return Me.eventAction
-            End Get
-        End Property
-    End Class
-    
-    '''<summary>
-    '''Row event argument class
-    '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-    Public Class viewtblaudittrailRowChangeEvent
-        Inherits Global.System.EventArgs
-        
-        Private eventRow As viewtblaudittrailRow
-        
-        Private eventAction As Global.System.Data.DataRowAction
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub New(ByVal row As viewtblaudittrailRow, ByVal action As Global.System.Data.DataRowAction)
-            MyBase.New
-            Me.eventRow = row
-            Me.eventAction = action
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property Row() As viewtblaudittrailRow
             Get
                 Return Me.eventRow
             End Get
@@ -11634,6 +11167,7 @@ Namespace podsTableAdapters
     End Class
     
     '''<summary>
+<<<<<<< HEAD
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
     <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
@@ -11810,6 +11344,8 @@ Namespace podsTableAdapters
     End Class
     
     '''<summary>
+=======
+>>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
     '''TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     '''</summary>
     <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _

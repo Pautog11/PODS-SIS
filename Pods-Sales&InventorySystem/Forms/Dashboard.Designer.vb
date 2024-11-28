@@ -62,28 +62,28 @@ Partial Class Dashboard
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Chart1 = New System.Windows.Forms.DataVisualization.Charting.Chart()
         Me.Maintenance = New System.Windows.Forms.TabPage()
-        Me.Maintenance1 = New Pods_Sales_InventorySystem.Maintenance()
         Me.Products = New System.Windows.Forms.TabPage()
-        Me.Product1 = New Pods_Sales_InventorySystem.Product()
         Me.Deliveries = New System.Windows.Forms.TabPage()
-        Me.Delivery1 = New Pods_Sales_InventorySystem.Delivery()
         Me.Inventory = New System.Windows.Forms.TabPage()
-        Me.Inventory1 = New Pods_Sales_InventorySystem.Inventory()
         Me.Activity = New System.Windows.Forms.TabPage()
-        Me.AuditTrail1 = New Pods_Sales_InventorySystem.Activity()
         Me.Transaction = New System.Windows.Forms.TabPage()
-        Me.Transaction1 = New Pods_Sales_InventorySystem.Transaction()
         Me.Reports = New System.Windows.Forms.TabPage()
-        Me.Reports1 = New Pods_Sales_InventorySystem.Reports()
         Me.Witdrawal = New System.Windows.Forms.TabPage()
-        Me.ReturnAndPullout1 = New Pods_Sales_InventorySystem.ReturnAndPullout()
         Me.Account = New System.Windows.Forms.TabPage()
-        Me.Account1 = New Pods_Sales_InventorySystem.Account()
         Me.Guna2ContextMenuStrip1 = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DSReport = New Pods_Sales_InventorySystem.DSReport()
         Me.DTTransactionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Maintenance1 = New Pods_Sales_InventorySystem.Maintenance()
+        Me.Product1 = New Pods_Sales_InventorySystem.Product()
+        Me.Delivery1 = New Pods_Sales_InventorySystem.Delivery()
+        Me.Inventory1 = New Pods_Sales_InventorySystem.Inventory()
+        Me.AuditTrail1 = New Pods_Sales_InventorySystem.Activity()
+        Me.Transaction1 = New Pods_Sales_InventorySystem.Transaction()
+        Me.Reports1 = New Pods_Sales_InventorySystem.Reports()
+        Me.ReturnAndPullout1 = New Pods_Sales_InventorySystem.ReturnAndPullout()
+        Me.Account1 = New Pods_Sales_InventorySystem.Account()
         Me.DashboardTableLayoutPanel.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.DashboardPanel.SuspendLayout()
@@ -131,7 +131,11 @@ Partial Class Dashboard
         Me.DashboardTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
         Me.DashboardTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.DashboardTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+<<<<<<< HEAD
         Me.DashboardTableLayoutPanel.Size = New System.Drawing.Size(1368, 768)
+=======
+        Me.DashboardTableLayoutPanel.Size = New System.Drawing.Size(1567, 754)
+>>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
         Me.DashboardTableLayoutPanel.TabIndex = 0
         '
         'FlowLayoutPanel1
@@ -612,7 +616,6 @@ Partial Class Dashboard
         Me.Chart1.Size = New System.Drawing.Size(620, 586)
         Me.Chart1.TabIndex = 0
         Me.Chart1.Text = "Chart1"
-        Me.Chart1.Visible = False
         '
         'Maintenance
         '
@@ -625,6 +628,7 @@ Partial Class Dashboard
         Me.Maintenance.Text = "Maintenance"
         Me.Maintenance.UseVisualStyleBackColor = True
         '
+<<<<<<< HEAD
         'Maintenance1
         '
         Me.Maintenance1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -635,6 +639,8 @@ Partial Class Dashboard
         Me.Maintenance1.Size = New System.Drawing.Size(1174, 708)
         Me.Maintenance1.TabIndex = 0
         '
+=======
+>>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
         'Products
         '
         Me.Products.Controls.Add(Me.Product1)
@@ -645,6 +651,7 @@ Partial Class Dashboard
         Me.Products.Text = "Products"
         Me.Products.UseVisualStyleBackColor = True
         '
+<<<<<<< HEAD
         'Product1
         '
         Me.Product1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -654,6 +661,8 @@ Partial Class Dashboard
         Me.Product1.Size = New System.Drawing.Size(1180, 714)
         Me.Product1.TabIndex = 0
         '
+=======
+>>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
         'Deliveries
         '
         Me.Deliveries.Controls.Add(Me.Delivery1)
@@ -665,6 +674,7 @@ Partial Class Dashboard
         Me.Deliveries.Text = "Deliveries"
         Me.Deliveries.UseVisualStyleBackColor = True
         '
+<<<<<<< HEAD
         'Delivery1
         '
         Me.Delivery1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -675,6 +685,8 @@ Partial Class Dashboard
         Me.Delivery1.Size = New System.Drawing.Size(1174, 708)
         Me.Delivery1.TabIndex = 0
         '
+=======
+>>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
         'Inventory
         '
         Me.Inventory.Controls.Add(Me.Inventory1)
@@ -685,6 +697,7 @@ Partial Class Dashboard
         Me.Inventory.Text = "Inventory"
         Me.Inventory.UseVisualStyleBackColor = True
         '
+<<<<<<< HEAD
         'Inventory1
         '
         Me.Inventory1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -694,6 +707,8 @@ Partial Class Dashboard
         Me.Inventory1.Size = New System.Drawing.Size(1180, 714)
         Me.Inventory1.TabIndex = 0
         '
+=======
+>>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
         'Activity
         '
         Me.Activity.Controls.Add(Me.AuditTrail1)
@@ -705,15 +720,6 @@ Partial Class Dashboard
         Me.Activity.Text = "Activity"
         Me.Activity.UseVisualStyleBackColor = True
         '
-        'AuditTrail1
-        '
-        Me.AuditTrail1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.AuditTrail1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AuditTrail1.Location = New System.Drawing.Point(3, 3)
-        Me.AuditTrail1.Name = "AuditTrail1"
-        Me.AuditTrail1.Size = New System.Drawing.Size(1367, 694)
-        Me.AuditTrail1.TabIndex = 0
-        '
         'Transaction
         '
         Me.Transaction.Controls.Add(Me.Transaction1)
@@ -723,15 +729,6 @@ Partial Class Dashboard
         Me.Transaction.TabIndex = 5
         Me.Transaction.Text = "Transaction"
         Me.Transaction.UseVisualStyleBackColor = True
-        '
-        'Transaction1
-        '
-        Me.Transaction1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Transaction1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Transaction1.Location = New System.Drawing.Point(0, 0)
-        Me.Transaction1.Name = "Transaction1"
-        Me.Transaction1.Size = New System.Drawing.Size(1373, 700)
-        Me.Transaction1.TabIndex = 0
         '
         'Reports
         '
@@ -743,15 +740,6 @@ Partial Class Dashboard
         Me.Reports.Text = "Reports"
         Me.Reports.UseVisualStyleBackColor = True
         '
-        'Reports1
-        '
-        Me.Reports1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Reports1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Reports1.Location = New System.Drawing.Point(0, 0)
-        Me.Reports1.Name = "Reports1"
-        Me.Reports1.Size = New System.Drawing.Size(1373, 700)
-        Me.Reports1.TabIndex = 0
-        '
         'Witdrawal
         '
         Me.Witdrawal.Controls.Add(Me.ReturnAndPullout1)
@@ -762,15 +750,6 @@ Partial Class Dashboard
         Me.Witdrawal.Text = "Withdrawal"
         Me.Witdrawal.UseVisualStyleBackColor = True
         '
-        'ReturnAndPullout1
-        '
-        Me.ReturnAndPullout1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ReturnAndPullout1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ReturnAndPullout1.Location = New System.Drawing.Point(0, 0)
-        Me.ReturnAndPullout1.Name = "ReturnAndPullout1"
-        Me.ReturnAndPullout1.Size = New System.Drawing.Size(1373, 700)
-        Me.ReturnAndPullout1.TabIndex = 0
-        '
         'Account
         '
         Me.Account.BackColor = System.Drawing.Color.Transparent
@@ -780,15 +759,6 @@ Partial Class Dashboard
         Me.Account.Size = New System.Drawing.Size(1373, 700)
         Me.Account.TabIndex = 9
         Me.Account.Text = "Accounts"
-        '
-        'Account1
-        '
-        Me.Account1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Account1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Account1.Location = New System.Drawing.Point(0, 0)
-        Me.Account1.Name = "Account1"
-        Me.Account1.Size = New System.Drawing.Size(1373, 700)
-        Me.Account1.TabIndex = 0
         '
         'Guna2ContextMenuStrip1
         '
@@ -827,11 +797,98 @@ Partial Class Dashboard
         Me.DTTransactionBindingSource.DataMember = "DT_Transaction"
         Me.DTTransactionBindingSource.DataSource = Me.DSReport
         '
+        'Maintenance1
+        '
+        Me.Maintenance1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Maintenance1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Maintenance1.Location = New System.Drawing.Point(3, 3)
+        Me.Maintenance1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Maintenance1.Name = "Maintenance1"
+        Me.Maintenance1.Size = New System.Drawing.Size(1367, 694)
+        Me.Maintenance1.TabIndex = 0
+        '
+        'Product1
+        '
+        Me.Product1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Product1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Product1.Location = New System.Drawing.Point(0, 0)
+        Me.Product1.Name = "Product1"
+        Me.Product1.Size = New System.Drawing.Size(1373, 700)
+        Me.Product1.TabIndex = 0
+        '
+        'Delivery1
+        '
+        Me.Delivery1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Delivery1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Delivery1.Location = New System.Drawing.Point(3, 3)
+        Me.Delivery1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Delivery1.Name = "Delivery1"
+        Me.Delivery1.Size = New System.Drawing.Size(1367, 694)
+        Me.Delivery1.TabIndex = 0
+        '
+        'Inventory1
+        '
+        Me.Inventory1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Inventory1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Inventory1.Location = New System.Drawing.Point(0, 0)
+        Me.Inventory1.Name = "Inventory1"
+        Me.Inventory1.Size = New System.Drawing.Size(1373, 700)
+        Me.Inventory1.TabIndex = 0
+        '
+        'AuditTrail1
+        '
+        Me.AuditTrail1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.AuditTrail1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.AuditTrail1.Location = New System.Drawing.Point(3, 3)
+        Me.AuditTrail1.Name = "AuditTrail1"
+        Me.AuditTrail1.Size = New System.Drawing.Size(1367, 694)
+        Me.AuditTrail1.TabIndex = 0
+        '
+        'Transaction1
+        '
+        Me.Transaction1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Transaction1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Transaction1.Location = New System.Drawing.Point(0, 0)
+        Me.Transaction1.Name = "Transaction1"
+        Me.Transaction1.Size = New System.Drawing.Size(1373, 700)
+        Me.Transaction1.TabIndex = 0
+        '
+        'Reports1
+        '
+        Me.Reports1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Reports1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Reports1.Location = New System.Drawing.Point(0, 0)
+        Me.Reports1.Name = "Reports1"
+        Me.Reports1.Size = New System.Drawing.Size(1373, 700)
+        Me.Reports1.TabIndex = 0
+        '
+        'ReturnAndPullout1
+        '
+        Me.ReturnAndPullout1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ReturnAndPullout1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ReturnAndPullout1.Location = New System.Drawing.Point(0, 0)
+        Me.ReturnAndPullout1.Name = "ReturnAndPullout1"
+        Me.ReturnAndPullout1.Size = New System.Drawing.Size(1373, 700)
+        Me.ReturnAndPullout1.TabIndex = 0
+        '
+        'Account1
+        '
+        Me.Account1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Account1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Account1.Location = New System.Drawing.Point(0, 0)
+        Me.Account1.Name = "Account1"
+        Me.Account1.Size = New System.Drawing.Size(1373, 700)
+        Me.Account1.TabIndex = 0
+        '
         'Dashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+<<<<<<< HEAD
         Me.ClientSize = New System.Drawing.Size(1368, 768)
+=======
+        Me.ClientSize = New System.Drawing.Size(1567, 754)
+>>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
         Me.Controls.Add(Me.DashboardTableLayoutPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Dashboard"

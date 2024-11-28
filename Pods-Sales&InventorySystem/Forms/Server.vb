@@ -37,6 +37,7 @@ Public Class Server
     End Sub
 
     Private Sub Guna2Button2_Click(sender As Object, e As EventArgs) Handles Guna2Button2.Click
+<<<<<<< HEAD
         Try
             Dim podsconnection As String = $"Server={ServerTextBox.Text};Initial Catalog=podsdb;Persist Security Info=True;User ID={UsernameTextBox.Text};Password={PasswordTextBox.Text}"
             My.Settings.con = podsconnection
@@ -48,6 +49,18 @@ Public Class Server
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
+=======
+        'Try
+        '    Dim podsconnection As String = $"Server={ServerTextBox.Text};Initial Catalog=podsdb;Persist Security Info=True;User ID={UsernameTextBox.Text};Password={PasswordTextBox.Text}"
+        '    My.Settings.con = podsconnection
+        '    'My.Settings.podsdbConnectionString = podsconnection
+        '    My.Settings.Save()
+        '    Dim dash As New Dashboard
+        '    dash.Show()
+        'Catch ex As Exception
+        '    MessageBox.Show(ex.Message)
+        'End Try
+>>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
     End Sub
 
     Private Sub Guna2Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Guna2Panel1.Paint
