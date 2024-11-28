@@ -132,7 +132,11 @@ Partial Class Dashboard
         Me.DashboardTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.DashboardTableLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
 <<<<<<< HEAD
+<<<<<<< HEAD
         Me.DashboardTableLayoutPanel.Size = New System.Drawing.Size(1368, 768)
+=======
+        Me.DashboardTableLayoutPanel.Size = New System.Drawing.Size(1567, 754)
+>>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
 =======
         Me.DashboardTableLayoutPanel.Size = New System.Drawing.Size(1567, 754)
 >>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
@@ -629,6 +633,7 @@ Partial Class Dashboard
         Me.Maintenance.UseVisualStyleBackColor = True
         '
 <<<<<<< HEAD
+<<<<<<< HEAD
         'Maintenance1
         '
         Me.Maintenance1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -639,6 +644,8 @@ Partial Class Dashboard
         Me.Maintenance1.Size = New System.Drawing.Size(1174, 708)
         Me.Maintenance1.TabIndex = 0
         '
+=======
+>>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
 =======
 >>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
         'Products
@@ -652,6 +659,7 @@ Partial Class Dashboard
         Me.Products.UseVisualStyleBackColor = True
         '
 <<<<<<< HEAD
+<<<<<<< HEAD
         'Product1
         '
         Me.Product1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -661,6 +669,8 @@ Partial Class Dashboard
         Me.Product1.Size = New System.Drawing.Size(1180, 714)
         Me.Product1.TabIndex = 0
         '
+=======
+>>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
 =======
 >>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
         'Deliveries
@@ -675,6 +685,7 @@ Partial Class Dashboard
         Me.Deliveries.UseVisualStyleBackColor = True
         '
 <<<<<<< HEAD
+<<<<<<< HEAD
         'Delivery1
         '
         Me.Delivery1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -685,6 +696,8 @@ Partial Class Dashboard
         Me.Delivery1.Size = New System.Drawing.Size(1174, 708)
         Me.Delivery1.TabIndex = 0
         '
+=======
+>>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
 =======
 >>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
         'Inventory
@@ -698,6 +711,7 @@ Partial Class Dashboard
         Me.Inventory.UseVisualStyleBackColor = True
         '
 <<<<<<< HEAD
+<<<<<<< HEAD
         'Inventory1
         '
         Me.Inventory1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -707,6 +721,8 @@ Partial Class Dashboard
         Me.Inventory1.Size = New System.Drawing.Size(1180, 714)
         Me.Inventory1.TabIndex = 0
         '
+=======
+>>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
 =======
 >>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
         'Activity
@@ -885,7 +901,11 @@ Partial Class Dashboard
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 <<<<<<< HEAD
+<<<<<<< HEAD
         Me.ClientSize = New System.Drawing.Size(1368, 768)
+=======
+        Me.ClientSize = New System.Drawing.Size(1567, 754)
+>>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
 =======
         Me.ClientSize = New System.Drawing.Size(1567, 754)
 >>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)

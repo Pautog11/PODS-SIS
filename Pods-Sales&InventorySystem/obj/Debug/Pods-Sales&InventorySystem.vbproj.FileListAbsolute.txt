@@ -981,8 +981,11 @@ C:\Users\Christian\Documents\GitHub\PODS-SIS\Pods-Sales&InventorySystem\obj\Debu
 C:\Users\Christian\Documents\GitHub\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.DosageForm.resources
 C:\Users\Christian\Documents\GitHub\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.FinancialReportViewer.resources
 <<<<<<< HEAD
+<<<<<<< HEAD
 C:\Users\Madz\Documents\GitHub\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.AuditTrail.resources
 C:\Users\Christian\Documents\GitHub\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.AuditTrail.resources
 C:\Users\Christian\Documents\GitHub\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.UpdateExpiry.resources
+=======
+>>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
 =======
 >>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)

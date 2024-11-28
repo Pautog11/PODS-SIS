@@ -25,7 +25,11 @@
     </Setting>
     <Setting Name="con" Type="System.String" Scope="User">
 <<<<<<< HEAD
+<<<<<<< HEAD
       <Value Profile="(Default)">Data Source=.;Initial Catalog=podsdb;User ID=admin;Password=password;</Value>
+=======
+      <Value Profile="(Default)">Data Source=.;Initial Catalog=podsdb;Persist Security Info=True;User ID=admin;Password=password;</Value>
+>>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
 =======
       <Value Profile="(Default)">Data Source=.;Initial Catalog=podsdb;Persist Security Info=True;User ID=admin;Password=password;</Value>
 >>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
