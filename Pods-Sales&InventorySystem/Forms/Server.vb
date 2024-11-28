@@ -40,6 +40,8 @@ Public Class Server
         Try
             Dim podsconnection As String = $"Server={ServerTextBox.Text};Initial Catalog=podsdb;Persist Security Info=True;User ID={UsernameTextBox.Text};Password={PasswordTextBox.Text}"
             My.Settings.con = podsconnection
+            'My.Settings.podsdbConnectionString = "Server=.;Initial Catalog=podsdb;Persist Security Info=True;User ID=admin;Password=password;"
+            'My.Settings.podsdbConnectionString1 = "Data Source=.;Initial Catalog=podsdb;User ID=admin;Password=password;"
             'My.Settings.podsdbConnectionString = podsconnection
             My.Settings.Save()
             Me.Close()
