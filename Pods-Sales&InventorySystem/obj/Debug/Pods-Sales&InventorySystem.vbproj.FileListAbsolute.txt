@@ -990,6 +990,7 @@ C:\Users\Madz\Documents\GitHub\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pod
 <<<<<<< HEAD
 <<<<<<< HEAD
 C:\Users\Christian\Documents\GitHub\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.AuditTrail.resources
+<<<<<<< HEAD
 C:\Users\Christian\Documents\GitHub\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.UpdateExpiry.resources
 =======
 >>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
@@ -1007,3 +1008,5 @@ C:\Users\Christian\Documents\GitHub\PODS-SIS\Pods-Sales&InventorySystem\obj\Debu
 >>>>>>> parent of 0d6b02a (Merge branch 'tite' into tamod)
 =======
 >>>>>>> parent of 0d6b02a (Merge branch 'tite' into tamod)
+=======
+>>>>>>> parent of c4d8901 (Merge branch 'tite' into tamod)

@@ -13,7 +13,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             'MsgBox(My.Settings.con)
+=======
+>>>>>>> parent of c4d8901 (Merge branch 'tite' into tamod)
             If My.Settings.con = "" Then
                 Dim pota As New Server
                 pota.ShowDialog()

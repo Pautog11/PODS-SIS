@@ -96,7 +96,10 @@ Partial Class NonMedicalDialog
         Me.SkuTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.SkuTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.SkuTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+<<<<<<< HEAD
         Me.SkuTextBox.ForeColor = System.Drawing.Color.Black
+=======
+>>>>>>> parent of c4d8901 (Merge branch 'tite' into tamod)
         Me.SkuTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.SkuTextBox.Location = New System.Drawing.Point(55, 153)
         Me.SkuTextBox.MaxLength = 13
@@ -139,7 +142,11 @@ Partial Class NonMedicalDialog
         Me.DescriptionTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DescriptionTextBox.ForeColor = System.Drawing.Color.Black
         Me.DescriptionTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+<<<<<<< HEAD
         Me.DescriptionTextBox.Location = New System.Drawing.Point(283, 93)
+=======
+        Me.DescriptionTextBox.Location = New System.Drawing.Point(273, 93)
+>>>>>>> parent of c4d8901 (Merge branch 'tite' into tamod)
         Me.DescriptionTextBox.MaxLength = 50
         Me.DescriptionTextBox.Multiline = True
         Me.DescriptionTextBox.Name = "DescriptionTextBox"
@@ -220,6 +227,28 @@ Partial Class NonMedicalDialog
         Me.Guna2Panel1.Size = New System.Drawing.Size(509, 355)
         Me.Guna2Panel1.TabIndex = 2
         '
+<<<<<<< HEAD
+=======
+        'AddProductButton
+        '
+        Me.AddProductButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.AddProductButton.BackColor = System.Drawing.Color.Transparent
+        Me.AddProductButton.BorderRadius = 15
+        Me.AddProductButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.AddProductButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.AddProductButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.AddProductButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.AddProductButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.AddProductButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.AddProductButton.ForeColor = System.Drawing.Color.White
+        Me.AddProductButton.Location = New System.Drawing.Point(369, 306)
+        Me.AddProductButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
+        Me.AddProductButton.Name = "AddProductButton"
+        Me.AddProductButton.Size = New System.Drawing.Size(128, 37)
+        Me.AddProductButton.TabIndex = 26
+        Me.AddProductButton.Text = "Add"
+        '
+>>>>>>> parent of c4d8901 (Merge branch 'tite' into tamod)
         'Label10
         '
         Me.Label10.AutoSize = True

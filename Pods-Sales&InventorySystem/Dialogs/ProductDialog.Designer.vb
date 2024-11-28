@@ -332,7 +332,10 @@ Partial Class ProductDialog
         Me.SkuTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
         Me.SkuTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.SkuTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+<<<<<<< HEAD
         Me.SkuTextBox.ForeColor = System.Drawing.Color.Black
+=======
+>>>>>>> parent of c4d8901 (Merge branch 'tite' into tamod)
         Me.SkuTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.SkuTextBox.Location = New System.Drawing.Point(64, 152)
         Me.SkuTextBox.MaxLength = 13

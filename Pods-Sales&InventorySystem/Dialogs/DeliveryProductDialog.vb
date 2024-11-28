@@ -15,7 +15,6 @@ Public Class DeliveryProductDialog
 
     Private Sub DeliveryProductDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            DateTimePicker.Enabled = False
             If _data IsNot Nothing Then
                 ProductTextBox.Text = _data.Item("name")
                 txtPrays.Text = _data.Item("sellingprice")
@@ -78,7 +77,7 @@ Public Class DeliveryProductDialog
                         For Each item As DataGridViewRow In _parent.DeliveryDataGridView.Rows
                             If item.Cells("PRODUCT").Value.ToString() = ProductTextBox.Text AndAlso item.Cells("EXPIRY_DATE").Value = exd.ToString("yyyy-MM-dd") Then
                                 'item.Cells("MANUFACTURED_DATE").Value = MfdTextBox.Text
-                                If DateTimePicker.Enabled = True Then
+                                If BaseDelivery.Daterequired(id) = 1 Then
                                     item.Cells("EXPIRY_DATE").Value = exd.ToString("yyyy-MM-dd")
                                 Else
                                     item.Cells("EXPIRY_DATE").Value = "N/A"
@@ -95,7 +94,7 @@ Public Class DeliveryProductDialog
                         Next
 
                         If Not is_existing Then
-                            If DateTimePicker.Enabled = True Then
+                            If BaseDelivery.Daterequired(id) = 1 Then
                                 If DateTimePicker.Value >= Date.Today Then
                                     _parent.DeliveryDataGridView.Rows.Add({BaseTransaction.NamebyID(ProductTextBox.Text),
                                                                               ProductTextBox.Text,
@@ -181,11 +180,11 @@ Public Class DeliveryProductDialog
                         Next
                         e.Handled = True
 
-                        'If BaseProduct.Disableexd(dt.Rows(0).Item("id").ToString()) = 1 Then
-                        '    DateTimePicker.Enabled = True
-                        'Else
-                        '    DateTimePicker.Enabled = False
-                        'End If
+                        If BaseProduct.Disableexd(dt.Rows(0).Item("id").ToString()) = 1 Then
+                            DateTimePicker.Enabled = True
+                        Else
+                            DateTimePicker.Enabled = False
+                        End If
                     Else
                         MessageBox.Show("No, product found!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     End If
@@ -229,17 +228,5 @@ Public Class DeliveryProductDialog
         Catch ex As Exception
 
         End Try
-    End Sub
-
-    Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles SearchButton.Click
-
-    End Sub
-
-    Private Sub Guna2CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles Guna2CheckBox1.CheckedChanged
-        If Guna2CheckBox1.Checked Then
-            DateTimePicker.Enabled = True
-        Else
-            DateTimePicker.Enabled = False
-        End If
     End Sub
 End Class

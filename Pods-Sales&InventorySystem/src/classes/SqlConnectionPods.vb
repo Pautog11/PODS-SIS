@@ -13,14 +13,9 @@ Public Class SqlConnectionPods
         'My.Settings.con = "Data Source=.;Initial Catalog=titeko;Persist Security Info=True;User ID=admin;Password=password;"
         'My.Settings.Save()
         'MsgBox(My.Settings.con)
-        Try
-            If _sqlConnection.State = ConnectionState.Closed Then
-                _sqlConnection.Open()
-            End If
-            Return _sqlConnection
-        Catch ex As Exception
-            MsgBox(ex.Message)
-            Return Nothing
-        End Try
+        If _sqlConnection.State = ConnectionState.Closed Then
+            _sqlConnection.Open()
+        End If
+        Return _sqlConnection
     End Function
 End Class
