@@ -202,7 +202,7 @@ Public Class DeliveryCartDialog
                 Guna2HtmlLabel4.Text = cmd.ExecuteScalar
             End If
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+
         End Try
     End Sub
 
