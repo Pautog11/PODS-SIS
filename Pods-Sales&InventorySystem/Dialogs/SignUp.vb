@@ -25,20 +25,20 @@ Public Class SignUp
                 End If
             Next
 
-
-            If PasswordTextBox.Text = Guna2TextBox1.Text Then
-                If Not result.Any(Function(item As Object()) Not item(0)) Then
+            If Not result.Any(Function(item As Object()) Not item(0)) Then
+                If PasswordTextBox.Text = Guna2TextBox1.Text Then
                     Dim data As New Dictionary(Of String, String) From {
-                            {"id", _data?.Item("id")},
-                            {"role_id", 1},
-                            {"status_id", 1},
-                            {"first_name", result(0)(1)},
-                            {"last_name", result(1)(1)},
-                            {"phone_number", result(2)(1)},
-                            {"address", result(3)(1)},
-                            {"username", result(4)(1)},
-                            {"password", result(5)(1)}
-                        }
+                          {"id", _data?.Item("id")},
+                          {"role_id", 1},
+                          {"status_id", 1},
+                          {"first_name", result(0)(1)},
+                          {"last_name", result(1)(1)},
+                          {"phone_number", result(2)(1)},
+                          {"address", result(3)(1)},
+                          {"username", result(4)(1)},
+                          {"password", result(5)(1)}
+                    }
+
                     Dim baseCommand As New BaseAccount(data)
                     Dim invoker As ICommandInvoker = Nothing
                     If BaseAccount.Exists(result(4)(1)) = 0 AndAlso _data Is Nothing Then
@@ -49,10 +49,10 @@ Public Class SignUp
                         MessageBox.Show("Username exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                     End If
                 Else
-                    MessageBox.Show("Please fill out all textboxes or provide all valid inputs.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    MessageBox.Show("Password doesn't match.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
             Else
-                MessageBox.Show("Password doesn't match.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Please fill out all textboxes or provide all valid inputs.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         Catch ex As Exception
 

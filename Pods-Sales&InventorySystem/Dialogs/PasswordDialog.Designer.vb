@@ -25,6 +25,8 @@ Partial Class PasswordDialog
         Me.UpdateButton = New Guna.UI2.WinForms.Guna2Button()
         Me.PasswordTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Guna2TextBox1 = New Guna.UI2.WinForms.Guna2TextBox()
         Me.SuspendLayout()
         '
         'UpdateButton
@@ -39,7 +41,7 @@ Partial Class PasswordDialog
         Me.UpdateButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.UpdateButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.UpdateButton.ForeColor = System.Drawing.Color.White
-        Me.UpdateButton.Location = New System.Drawing.Point(194, 122)
+        Me.UpdateButton.Location = New System.Drawing.Point(193, 169)
         Me.UpdateButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.UpdateButton.Name = "UpdateButton"
         Me.UpdateButton.Size = New System.Drawing.Size(128, 37)
@@ -59,10 +61,10 @@ Partial Class PasswordDialog
         Me.PasswordTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.PasswordTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.PasswordTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.PasswordTextBox.Location = New System.Drawing.Point(77, 56)
+        Me.PasswordTextBox.Location = New System.Drawing.Point(69, 40)
         Me.PasswordTextBox.Name = "PasswordTextBox"
-        Me.PasswordTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.PasswordTextBox.PlaceholderText = "Must have atleast 6 letters"
+        Me.PasswordTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.PasswordTextBox.PlaceholderText = ""
         Me.PasswordTextBox.SelectedText = ""
         Me.PasswordTextBox.ShortcutsEnabled = False
         Me.PasswordTextBox.Size = New System.Drawing.Size(173, 36)
@@ -71,17 +73,50 @@ Partial Class PasswordDialog
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(50, 40)
+        Me.Label1.Location = New System.Drawing.Point(42, 19)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(53, 13)
         Me.Label1.TabIndex = 25
         Me.Label1.Text = "Password"
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(42, 80)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(89, 13)
+        Me.Label2.TabIndex = 27
+        Me.Label2.Text = "Retype password"
+        '
+        'Guna2TextBox1
+        '
+        Me.Guna2TextBox1.BorderColor = System.Drawing.Color.Gray
+        Me.Guna2TextBox1.BorderRadius = 10
+        Me.Guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.Guna2TextBox1.DefaultText = ""
+        Me.Guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.Guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.Guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.Guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox1.Location = New System.Drawing.Point(69, 105)
+        Me.Guna2TextBox1.Name = "Guna2TextBox1"
+        Me.Guna2TextBox1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.Guna2TextBox1.PlaceholderText = ""
+        Me.Guna2TextBox1.SelectedText = ""
+        Me.Guna2TextBox1.ShortcutsEnabled = False
+        Me.Guna2TextBox1.Size = New System.Drawing.Size(173, 36)
+        Me.Guna2TextBox1.TabIndex = 26
+        '
         'PasswordDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(334, 171)
+        Me.ClientSize = New System.Drawing.Size(333, 218)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Guna2TextBox1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PasswordTextBox)
         Me.Controls.Add(Me.UpdateButton)
@@ -91,7 +126,7 @@ Partial Class PasswordDialog
         Me.Name = "PasswordDialog"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "PasswordDialog"
+        Me.Text = "Change Password"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -100,4 +135,6 @@ Partial Class PasswordDialog
     Friend WithEvents UpdateButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents PasswordTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Guna2TextBox1 As Guna.UI2.WinForms.Guna2TextBox
 End Class

@@ -19,12 +19,18 @@ Public Class PasswordDialog
 
     Private Sub UpdateButton_Click(sender As Object, e As EventArgs) Handles UpdateButton.Click
         Try
-            Dim result As New List(Of Object)() From {InputValidation.ValidateInputString(PasswordTextBox, DataInput.STRING_STRING)}
+            Dim result As New List(Of Object)() From {InputValidation.ValidateInputString(PasswordTextBox, DataInput.STRING_STRING), InputValidation.ValidateInputString(Guna2TextBox1, DataInput.STRING_STRING)}
 
             If Not result.Any(Function(item As Object()) Not item(0)) Then
-                BaseAccount.ChangePass(PasswordTextBox.Text, _id)
-                Me.Close()
-                _parent.Close()
+                If PasswordTextBox.Text = Guna2TextBox1.Text Then
+                    BaseAccount.ChangePass(PasswordTextBox.Text, _id)
+                    Me.Close()
+                    _parent.Close()
+                Else
+                    MessageBox.Show("Password doesn't match.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    PasswordTextBox.Text = ""
+                    Guna2TextBox1.Text = ""
+                End If
             Else
                 MessageBox.Show("Enter your new password.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
