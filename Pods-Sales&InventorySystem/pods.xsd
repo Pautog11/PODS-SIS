@@ -332,6 +332,25 @@
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="viewtblaudittrailTableAdapter" GeneratorDataComponentClassName="viewtblaudittrailTableAdapter" Name="viewtblaudittrail" UserDataComponentName="viewtblaudittrailTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="podsdbConnectionString1 (MySettings)" DbObjectName="podsdb.dbo.viewtblaudittrail" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ID, NAME, ACTION, DATE FROM dbo.viewtblaudittrail</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="NAME" DataSetColumn="NAME" />
+              <Mapping SourceColumn="ACTION" DataSetColumn="ACTION" />
+              <Mapping SourceColumn="DATE" DataSetColumn="DATE" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -783,6 +802,28 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="viewtblaudittrail" msprop:Generator_TableClassName="viewtblaudittrailDataTable" msprop:Generator_TableVarName="tableviewtblaudittrail" msprop:Generator_TablePropName="viewtblaudittrail" msprop:Generator_RowDeletingName="viewtblaudittrailRowDeleting" msprop:Generator_RowChangingName="viewtblaudittrailRowChanging" msprop:Generator_RowEvHandlerName="viewtblaudittrailRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtblaudittrailRowDeleted" msprop:Generator_UserTableName="viewtblaudittrail" msprop:Generator_RowChangedName="viewtblaudittrailRowChanged" msprop:Generator_RowEvArgName="viewtblaudittrailRowChangeEvent" msprop:Generator_RowClassName="viewtblaudittrailRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="NAME" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNAME" msprop:Generator_ColumnPropNameInRow="NAME" msprop:Generator_ColumnPropNameInTable="NAMEColumn" msprop:Generator_UserColumnName="NAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="101" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ACTION" msprop:Generator_ColumnVarNameInTable="columnACTION" msprop:Generator_ColumnPropNameInRow="ACTION" msprop:Generator_ColumnPropNameInTable="ACTIONColumn" msprop:Generator_UserColumnName="ACTION">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DATE" msprop:Generator_ColumnVarNameInTable="columnDATE" msprop:Generator_ColumnPropNameInRow="_DATE" msprop:Generator_ColumnPropNameInTable="DATEColumn" msprop:Generator_UserColumnName="DATE" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -843,6 +884,10 @@
     </xs:unique>
     <xs:unique name="viewtbldosageform_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:viewtbldosageform" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="viewtblaudittrail_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:viewtblaudittrail" />
       <xs:field xpath="mstns:ID" />
     </xs:unique>
   </xs:element>
