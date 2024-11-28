@@ -113,7 +113,9 @@ Public Class BaseReturn
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("select * from tblreturn_items where tblreturn_id = @transaction_id", conn)
+            cmd = New SqlCommand("select a.id, tblreturn_id, b.product_name, a.price, a.quantity, a.total from tblreturn_items a
+                                  join tblproducts b on b.id = a.product_id
+                                  where tblreturn_id = @transaction_id", conn)
             cmd.Parameters.AddWithValue("@transaction_id", id)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)

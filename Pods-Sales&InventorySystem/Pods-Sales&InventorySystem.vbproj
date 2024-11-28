@@ -292,6 +292,12 @@
     <Compile Include="Dialogs\TransactionDialog.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Dialogs\UpdateExpiry.Designer.vb">
+      <DependentUpon>UpdateExpiry.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\UpdateExpiry.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Dialogs\VatDialog.Designer.vb">
       <DependentUpon>VatDialog.vb</DependentUpon>
     </Compile>
@@ -678,6 +684,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\TransactionDialog.resx">
       <DependentUpon>TransactionDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\UpdateExpiry.resx">
+      <DependentUpon>UpdateExpiry.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\VatDialog.resx">
       <DependentUpon>VatDialog.vb</DependentUpon>
