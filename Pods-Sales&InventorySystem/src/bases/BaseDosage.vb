@@ -58,4 +58,16 @@ Public Class BaseDosage
             Return New DataTable
         End Try
     End Function
+
+    Public Shared Function ScalarDose(data As String) As Integer
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tbldosage where lower(dasage) = @sa", conn)
+            cmd.Parameters.AddWithValue("@sa", data)
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
 End Class

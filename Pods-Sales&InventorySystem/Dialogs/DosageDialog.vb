@@ -42,7 +42,7 @@ Public Class DosageDialog
                 }
                 Dim baseCommand As New BaseDosage(data)
                 Dim invoker As ICommandInvoker = Nothing
-                If _data Is Nothing Then
+                If BaseDosage.ScalarDose(result(0)(1)) = 0 AndAlso _data Is Nothing Then
                     invoker = New AddCommand(baseCommand)
                 ElseIf _data IsNot Nothing Then
                     invoker = New UpdateCommand(baseCommand)

@@ -12,7 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
@@ -290,6 +290,12 @@
       <DependentUpon>TransactionDialog.vb</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\TransactionDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\UpdateExpiry.Designer.vb">
+      <DependentUpon>UpdateExpiry.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\UpdateExpiry.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialogs\VatDialog.Designer.vb">
@@ -678,6 +684,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\TransactionDialog.resx">
       <DependentUpon>TransactionDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\UpdateExpiry.resx">
+      <DependentUpon>UpdateExpiry.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\VatDialog.resx">
       <DependentUpon>VatDialog.vb</DependentUpon>

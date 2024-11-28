@@ -45,6 +45,18 @@ Public Class TransactionDialog
                 CashTextBox.Enabled = False
                 DiscountComboBox.Enabled = False
                 'MsgBox(_data.Item("id"))
+                Dim productDate As Date
+
+                ' Parse the date from the label
+                If Date.TryParse(DateLabel.Text, productDate) Then
+                    Dim daysDifference As Integer = (Date.Today - productDate).Days
+                    If daysDifference > 7 Then
+                        ReturnButton.Enabled = False
+                        'Else
+                        '    ReturnButton.Enabled = True
+                    End If
+                End If
+
 
                 If BaseTransaction.Returnbutton(_data.Item("id")) = 1 Then
                     ReturnButton.Enabled = False
