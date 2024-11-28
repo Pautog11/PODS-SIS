@@ -138,6 +138,7 @@ Partial Class Dashboard
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         Me.DashboardTableLayoutPanel.Size = New System.Drawing.Size(1368, 768)
 =======
         Me.DashboardTableLayoutPanel.Size = New System.Drawing.Size(1567, 754)
@@ -148,6 +149,9 @@ Partial Class Dashboard
 =======
         Me.DashboardTableLayoutPanel.Size = New System.Drawing.Size(1567, 754)
 >>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
+=======
+        Me.DashboardTableLayoutPanel.Size = New System.Drawing.Size(1386, 754)
+>>>>>>> parent of 0d6b02a (Merge branch 'tite' into tamod)
 =======
         Me.DashboardTableLayoutPanel.Size = New System.Drawing.Size(1386, 754)
 >>>>>>> parent of 0d6b02a (Merge branch 'tite' into tamod)
@@ -939,6 +943,7 @@ Partial Class Dashboard
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         Me.ClientSize = New System.Drawing.Size(1368, 768)
 =======
         Me.ClientSize = New System.Drawing.Size(1567, 754)
@@ -949,6 +954,9 @@ Partial Class Dashboard
 =======
         Me.ClientSize = New System.Drawing.Size(1567, 754)
 >>>>>>> parent of abde64a (Merge branch 'betlog' into tamod)
+=======
+        Me.ClientSize = New System.Drawing.Size(1386, 754)
+>>>>>>> parent of 0d6b02a (Merge branch 'tite' into tamod)
 =======
         Me.ClientSize = New System.Drawing.Size(1386, 754)
 >>>>>>> parent of 0d6b02a (Merge branch 'tite' into tamod)
