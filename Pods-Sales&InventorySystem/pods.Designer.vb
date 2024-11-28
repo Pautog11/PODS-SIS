@@ -6010,13 +6010,13 @@ Partial Public Class pods
     Partial Public Class viewtblaudittrailDataTable
         Inherits Global.System.Data.TypedTableBase(Of viewtblaudittrailRow)
         
-        Private columnID As Global.System.Data.DataColumn
+        Private columnid As Global.System.Data.DataColumn
         
         Private columnNAME As Global.System.Data.DataColumn
         
-        Private columnACTION As Global.System.Data.DataColumn
+        Private columnaction As Global.System.Data.DataColumn
         
-        Private columnDATE As Global.System.Data.DataColumn
+        Private columndate As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -6055,9 +6055,9 @@ Partial Public Class pods
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property IDColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property idColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnID
+                Return Me.columnid
             End Get
         End Property
         
@@ -6071,17 +6071,17 @@ Partial Public Class pods
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property ACTIONColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property actionColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnACTION
+                Return Me.columnaction
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property DATEColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property dateColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnDATE
+                Return Me.columndate
             End Get
         End Property
         
@@ -6122,9 +6122,9 @@ Partial Public Class pods
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddviewtblaudittrailRow(ByVal ID As Integer, ByVal NAME As String, ByVal ACTION As String, ByVal _DATE As Date) As viewtblaudittrailRow
+        Public Overloads Function AddviewtblaudittrailRow(ByVal id As Integer, ByVal NAME As String, ByVal action As String, ByVal _date As Date) As viewtblaudittrailRow
             Dim rowviewtblaudittrailRow As viewtblaudittrailRow = CType(Me.NewRow,viewtblaudittrailRow)
-            Dim columnValuesArray() As Object = New Object() {ID, NAME, ACTION, _DATE}
+            Dim columnValuesArray() As Object = New Object() {id, NAME, action, _date}
             rowviewtblaudittrailRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowviewtblaudittrailRow)
             Return rowviewtblaudittrailRow
@@ -6132,8 +6132,8 @@ Partial Public Class pods
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function FindByID(ByVal ID As Integer) As viewtblaudittrailRow
-            Return CType(Me.Rows.Find(New Object() {ID}),viewtblaudittrailRow)
+        Public Function FindByid(ByVal id As Integer) As viewtblaudittrailRow
+            Return CType(Me.Rows.Find(New Object() {id}),viewtblaudittrailRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6153,34 +6153,46 @@ Partial Public Class pods
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnID = MyBase.Columns("ID")
+            Me.columnid = MyBase.Columns("ID")
             Me.columnNAME = MyBase.Columns("NAME")
-            Me.columnACTION = MyBase.Columns("ACTION")
-            Me.columnDATE = MyBase.Columns("DATE")
+            Me.columnaction = MyBase.Columns("ACTION")
+            Me.columndate = MyBase.Columns("DATE")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnID = New Global.System.Data.DataColumn("ID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnID)
+            Me.columnid = New Global.System.Data.DataColumn("ID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnid.ExtendedProperties.Add("Generator_ColumnPropNameInRow", "id")
+            Me.columnid.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "idColumn")
+            Me.columnid.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columnid")
+            Me.columnid.ExtendedProperties.Add("Generator_UserColumnName", "ID")
+            MyBase.Columns.Add(Me.columnid)
             Me.columnNAME = New Global.System.Data.DataColumn("NAME", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNAME)
-            Me.columnACTION = New Global.System.Data.DataColumn("ACTION", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnACTION)
-            Me.columnDATE = New Global.System.Data.DataColumn("DATE", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            Me.columnDATE.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "DATEColumn")
-            Me.columnDATE.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columnDATE")
-            Me.columnDATE.ExtendedProperties.Add("Generator_UserColumnName", "DATE")
-            MyBase.Columns.Add(Me.columnDATE)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
-            Me.columnID.AllowDBNull = false
-            Me.columnID.Unique = true
+            Me.columnaction = New Global.System.Data.DataColumn("ACTION", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnaction.ExtendedProperties.Add("Generator_ColumnPropNameInRow", "action")
+            Me.columnaction.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "actionColumn")
+            Me.columnaction.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columnaction")
+            Me.columnaction.ExtendedProperties.Add("Generator_UserColumnName", "ACTION")
+            MyBase.Columns.Add(Me.columnaction)
+            Me.columndate = New Global.System.Data.DataColumn("DATE", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            Me.columndate.ExtendedProperties.Add("Generator_ColumnPropNameInRow", "_date")
+            Me.columndate.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "dateColumn")
+            Me.columndate.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columndate")
+            Me.columndate.ExtendedProperties.Add("Generator_UserColumnName", "DATE")
+            MyBase.Columns.Add(Me.columndate)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid}, true))
+            Me.columnid.AllowDBNull = false
+            Me.columnid.Unique = true
+            Me.columnid.Caption = "id"
             Me.columnNAME.ReadOnly = true
             Me.columnNAME.MaxLength = 101
-            Me.columnACTION.AllowDBNull = false
-            Me.columnACTION.MaxLength = 50
-            Me.columnDATE.AllowDBNull = false
+            Me.columnaction.AllowDBNull = false
+            Me.columnaction.Caption = "action"
+            Me.columnaction.MaxLength = 50
+            Me.columndate.AllowDBNull = false
+            Me.columndate.Caption = "date"
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -8104,12 +8116,12 @@ Partial Public Class pods
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property ID() As Integer
+        Public Property id() As Integer
             Get
-                Return CType(Me(Me.tableviewtblaudittrail.IDColumn),Integer)
+                Return CType(Me(Me.tableviewtblaudittrail.idColumn),Integer)
             End Get
             Set
-                Me(Me.tableviewtblaudittrail.IDColumn) = value
+                Me(Me.tableviewtblaudittrail.idColumn) = value
             End Set
         End Property
         
@@ -8130,23 +8142,23 @@ Partial Public Class pods
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property ACTION() As String
+        Public Property action() As String
             Get
-                Return CType(Me(Me.tableviewtblaudittrail.ACTIONColumn),String)
+                Return CType(Me(Me.tableviewtblaudittrail.actionColumn),String)
             End Get
             Set
-                Me(Me.tableviewtblaudittrail.ACTIONColumn) = value
+                Me(Me.tableviewtblaudittrail.actionColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property _DATE() As Date
+        Public Property _date() As Date
             Get
-                Return CType(Me(Me.tableviewtblaudittrail.DATEColumn),Date)
+                Return CType(Me(Me.tableviewtblaudittrail.dateColumn),Date)
             End Get
             Set
-                Me(Me.tableviewtblaudittrail.DATEColumn) = value
+                Me(Me.tableviewtblaudittrail.dateColumn) = value
             End Set
         End Property
         
@@ -11748,10 +11760,10 @@ Namespace podsTableAdapters
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "viewtblaudittrail"
-            tableMapping.ColumnMappings.Add("ID", "ID")
+            tableMapping.ColumnMappings.Add("id", "ID")
             tableMapping.ColumnMappings.Add("NAME", "NAME")
-            tableMapping.ColumnMappings.Add("ACTION", "ACTION")
-            tableMapping.ColumnMappings.Add("DATE", "DATE")
+            tableMapping.ColumnMappings.Add("action", "ACTION")
+            tableMapping.ColumnMappings.Add("date", "DATE")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -11759,7 +11771,7 @@ Namespace podsTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = Global.Pods_Sales_InventorySystem.My.MySettings.Default.podsdbConnectionString1
+            Me._connection.ConnectionString = My.Settings.con
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -11768,7 +11780,7 @@ Namespace podsTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ID, NAME, ACTION, DATE FROM dbo.viewtblaudittrail"
+            Me._commandCollection(0).CommandText = "SELECT id, NAME, action, date FROM dbo.viewtblaudittrail"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         

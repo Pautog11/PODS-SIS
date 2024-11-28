@@ -130,9 +130,11 @@ Public Class ProductDialog
                 Else
                     MessageBox.Show("Product exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 End If
+
             Else
                 MessageBox.Show("Please fill out all textboxes or provide all valid inputs.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
+
         Catch ex As Exception
 
         End Try
