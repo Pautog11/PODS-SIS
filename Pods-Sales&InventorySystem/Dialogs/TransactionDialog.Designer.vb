@@ -208,7 +208,7 @@ Partial Class TransactionDialog
         Me.DiscountComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.DiscountComboBox.ForeColor = System.Drawing.Color.Black
         Me.DiscountComboBox.ItemHeight = 30
-        Me.DiscountComboBox.Location = New System.Drawing.Point(167, 204)
+        Me.DiscountComboBox.Location = New System.Drawing.Point(167, 222)
         Me.DiscountComboBox.Name = "DiscountComboBox"
         Me.DiscountComboBox.Size = New System.Drawing.Size(125, 36)
         Me.DiscountComboBox.TabIndex = 40
@@ -217,7 +217,7 @@ Partial Class TransactionDialog
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(71, 339)
+        Me.Label9.Location = New System.Drawing.Point(71, 357)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(63, 15)
         Me.Label9.TabIndex = 39
@@ -227,7 +227,7 @@ Partial Class TransactionDialog
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(71, 297)
+        Me.Label3.Location = New System.Drawing.Point(71, 315)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(43, 15)
         Me.Label3.TabIndex = 38
@@ -237,7 +237,7 @@ Partial Class TransactionDialog
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(71, 256)
+        Me.Label6.Location = New System.Drawing.Point(71, 274)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(49, 15)
         Me.Label6.TabIndex = 37
@@ -247,7 +247,7 @@ Partial Class TransactionDialog
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(71, 215)
+        Me.Label10.Location = New System.Drawing.Point(71, 233)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(93, 15)
         Me.Label10.TabIndex = 36
@@ -257,7 +257,7 @@ Partial Class TransactionDialog
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(71, 173)
+        Me.Label4.Location = New System.Drawing.Point(71, 191)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(77, 15)
         Me.Label4.TabIndex = 35
@@ -267,7 +267,7 @@ Partial Class TransactionDialog
         '
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label13.Location = New System.Drawing.Point(71, 131)
+        Me.Label13.Location = New System.Drawing.Point(71, 149)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(31, 15)
         Me.Label13.TabIndex = 34
@@ -286,7 +286,7 @@ Partial Class TransactionDialog
         Me.VatableTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.VatableTextBox.ForeColor = System.Drawing.Color.Black
         Me.VatableTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.VatableTextBox.Location = New System.Drawing.Point(167, 78)
+        Me.VatableTextBox.Location = New System.Drawing.Point(167, 96)
         Me.VatableTextBox.Name = "VatableTextBox"
         Me.VatableTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.VatableTextBox.PlaceholderText = ""
@@ -299,7 +299,7 @@ Partial Class TransactionDialog
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(71, 90)
+        Me.Label12.Location = New System.Drawing.Point(71, 108)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(59, 15)
         Me.Label12.TabIndex = 31
@@ -318,7 +318,7 @@ Partial Class TransactionDialog
         Me.ChangeTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.ChangeTextBox.ForeColor = System.Drawing.Color.Black
         Me.ChangeTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ChangeTextBox.Location = New System.Drawing.Point(167, 330)
+        Me.ChangeTextBox.Location = New System.Drawing.Point(167, 348)
         Me.ChangeTextBox.Name = "ChangeTextBox"
         Me.ChangeTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ChangeTextBox.PlaceholderText = ""
@@ -340,8 +340,8 @@ Partial Class TransactionDialog
         Me.CashTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.CashTextBox.ForeColor = System.Drawing.Color.Black
         Me.CashTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CashTextBox.Location = New System.Drawing.Point(167, 288)
-        Me.CashTextBox.MaxLength = 6
+        Me.CashTextBox.Location = New System.Drawing.Point(167, 306)
+        Me.CashTextBox.MaxLength = 10
         Me.CashTextBox.Name = "CashTextBox"
         Me.CashTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CashTextBox.PlaceholderText = ""
@@ -363,7 +363,7 @@ Partial Class TransactionDialog
         Me.TotalTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.TotalTextBox.ForeColor = System.Drawing.Color.Black
         Me.TotalTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TotalTextBox.Location = New System.Drawing.Point(167, 246)
+        Me.TotalTextBox.Location = New System.Drawing.Point(167, 264)
         Me.TotalTextBox.Name = "TotalTextBox"
         Me.TotalTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.TotalTextBox.PlaceholderText = ""
@@ -385,7 +385,7 @@ Partial Class TransactionDialog
         Me.VatTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.VatTextBox.ForeColor = System.Drawing.Color.Black
         Me.VatTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.VatTextBox.Location = New System.Drawing.Point(167, 120)
+        Me.VatTextBox.Location = New System.Drawing.Point(167, 138)
         Me.VatTextBox.Name = "VatTextBox"
         Me.VatTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.VatTextBox.PlaceholderText = ""
@@ -407,7 +407,7 @@ Partial Class TransactionDialog
         Me.SubtotalTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.SubtotalTextBox.ForeColor = System.Drawing.Color.Black
         Me.SubtotalTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.SubtotalTextBox.Location = New System.Drawing.Point(167, 162)
+        Me.SubtotalTextBox.Location = New System.Drawing.Point(167, 180)
         Me.SubtotalTextBox.Name = "SubtotalTextBox"
         Me.SubtotalTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.SubtotalTextBox.PlaceholderText = ""

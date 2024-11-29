@@ -26,6 +26,7 @@ Partial Class DeliveryProductDialog
         Me.AddDeliveryButton = New Guna.UI2.WinForms.Guna2Button()
         Me.VoidButton = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Guna2CheckBox1 = New Guna.UI2.WinForms.Guna2CheckBox()
         Me.ProductTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.ChangeButton = New Guna.UI2.WinForms.Guna2Button()
         Me.DateTimePicker = New Guna.UI2.WinForms.Guna2DateTimePicker()
@@ -36,14 +37,12 @@ Partial Class DeliveryProductDialog
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.SearchButton = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
         Me.QuantityTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.CostTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.BarcodeTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.AccountDialogLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
-        Me.Guna2CheckBox1 = New Guna.UI2.WinForms.Guna2CheckBox()
         Me.FlowLayoutPanel2.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.AccountDialogLayoutPanel.SuspendLayout()
@@ -113,7 +112,6 @@ Partial Class DeliveryProductDialog
         Me.Guna2Panel1.Controls.Add(Me.Label6)
         Me.Guna2Panel1.Controls.Add(Me.Label4)
         Me.Guna2Panel1.Controls.Add(Me.Label1)
-        Me.Guna2Panel1.Controls.Add(Me.SearchButton)
         Me.Guna2Panel1.Controls.Add(Me.Guna2HtmlLabel1)
         Me.Guna2Panel1.Controls.Add(Me.Guna2Separator1)
         Me.Guna2Panel1.Controls.Add(Me.QuantityTextBox)
@@ -125,6 +123,23 @@ Partial Class DeliveryProductDialog
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.Size = New System.Drawing.Size(327, 449)
         Me.Guna2Panel1.TabIndex = 9
+        '
+        'Guna2CheckBox1
+        '
+        Me.Guna2CheckBox1.AutoSize = True
+        Me.Guna2CheckBox1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.Guna2CheckBox1.CheckedState.BorderRadius = 0
+        Me.Guna2CheckBox1.CheckedState.BorderThickness = 0
+        Me.Guna2CheckBox1.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.Guna2CheckBox1.Location = New System.Drawing.Point(66, 330)
+        Me.Guna2CheckBox1.Name = "Guna2CheckBox1"
+        Me.Guna2CheckBox1.Size = New System.Drawing.Size(72, 17)
+        Me.Guna2CheckBox1.TabIndex = 38
+        Me.Guna2CheckBox1.Text = "Expiration"
+        Me.Guna2CheckBox1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        Me.Guna2CheckBox1.UncheckedState.BorderRadius = 0
+        Me.Guna2CheckBox1.UncheckedState.BorderThickness = 0
+        Me.Guna2CheckBox1.UncheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
         '
         'ProductTextBox
         '
@@ -147,7 +162,7 @@ Partial Class DeliveryProductDialog
         Me.ProductTextBox.PlaceholderText = "Ex. Biogesic"
         Me.ProductTextBox.SelectedText = ""
         Me.ProductTextBox.ShortcutsEnabled = False
-        Me.ProductTextBox.Size = New System.Drawing.Size(142, 36)
+        Me.ProductTextBox.Size = New System.Drawing.Size(200, 36)
         Me.ProductTextBox.TabIndex = 36
         '
         'ChangeButton
@@ -261,22 +276,6 @@ Partial Class DeliveryProductDialog
         Me.Label1.TabIndex = 24
         Me.Label1.Text = "Barcode"
         '
-        'SearchButton
-        '
-        Me.SearchButton.BorderRadius = 15
-        Me.SearchButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.SearchButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.SearchButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.SearchButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.SearchButton.FillColor = System.Drawing.Color.White
-        Me.SearchButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.SearchButton.ForeColor = System.Drawing.Color.White
-        Me.SearchButton.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.search
-        Me.SearchButton.Location = New System.Drawing.Point(214, 115)
-        Me.SearchButton.Name = "SearchButton"
-        Me.SearchButton.Size = New System.Drawing.Size(52, 36)
-        Me.SearchButton.TabIndex = 23
-        '
         'Guna2HtmlLabel1
         '
         Me.Guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent
@@ -383,23 +382,6 @@ Partial Class DeliveryProductDialog
         Me.AccountDialogLayoutPanel.Size = New System.Drawing.Size(327, 504)
         Me.AccountDialogLayoutPanel.TabIndex = 19
         '
-        'Guna2CheckBox1
-        '
-        Me.Guna2CheckBox1.AutoSize = True
-        Me.Guna2CheckBox1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.Guna2CheckBox1.CheckedState.BorderRadius = 0
-        Me.Guna2CheckBox1.CheckedState.BorderThickness = 0
-        Me.Guna2CheckBox1.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.Guna2CheckBox1.Location = New System.Drawing.Point(66, 330)
-        Me.Guna2CheckBox1.Name = "Guna2CheckBox1"
-        Me.Guna2CheckBox1.Size = New System.Drawing.Size(72, 17)
-        Me.Guna2CheckBox1.TabIndex = 38
-        Me.Guna2CheckBox1.Text = "Expiration"
-        Me.Guna2CheckBox1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
-        Me.Guna2CheckBox1.UncheckedState.BorderRadius = 0
-        Me.Guna2CheckBox1.UncheckedState.BorderThickness = 0
-        Me.Guna2CheckBox1.UncheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
-        '
         'DeliveryProductDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -430,7 +412,6 @@ Partial Class DeliveryProductDialog
     Friend WithEvents BarcodeTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2HtmlLabel1 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Guna2Separator1 As Guna.UI2.WinForms.Guna2Separator
-    Friend WithEvents SearchButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Label4 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents Label8 As Label

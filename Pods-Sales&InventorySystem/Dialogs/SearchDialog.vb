@@ -28,6 +28,7 @@ Public Class SearchDialog
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
         _tableAapter.Fill(_dataTable)
         ProductDataGridView.DataSource = _dataTable
+        ProductDataGridView.Columns.Item("ID").Visible = False
         'ProductDataGridView.DataSource = _dataTable
         ''ProductDataGridView.Columns.Item("STOCK_LEVEL").Visible = False
         ''ProductDataGridView.Columns.Item("SUBCATEGORY").Visible = False

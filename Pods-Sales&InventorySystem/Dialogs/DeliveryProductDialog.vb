@@ -25,7 +25,7 @@ Public Class DeliveryProductDialog
                 AddDeliveryButton.Text = "Update"
                 ChangeButton.Enabled = False
                 BarcodeTextBox.Enabled = False
-                SearchButton.Enabled = False
+                'SearchButton.Enabled = False
                 If BaseProduct.Disableexd(_data.Item("id").ToString()) = 1 Then
                     DateTimePicker.Enabled = True
                     id = _data.Item("id")
@@ -231,7 +231,7 @@ Public Class DeliveryProductDialog
         End Try
     End Sub
 
-    Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles SearchButton.Click
+    Private Sub SearchButton_Click(sender As Object, e As EventArgs)
 
     End Sub
 

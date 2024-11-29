@@ -103,35 +103,35 @@ Public Class ReturnCartDialog
     Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
         Dim transaction As SqlTransaction = SqlConnectionPods.GetInstance.BeginTransaction()
         Try
-            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As New SqlCommand
+            'Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            'Dim cmd As New SqlCommand
 
-            ' Prepare and execute the main delivery insertion
-            cmd = New SqlCommand("INSERT INTO tblreturns (account_id, transaction_id, reason, total) VALUES (@account_id, @transaction_id, @reason, @total); SELECT SCOPE_IDENTITY()", conn, Transaction)
-            cmd.Parameters.AddWithValue("@account_id", _data.Item("account_id"))
-            cmd.Parameters.AddWithValue("@transaction_id", _data.Item("transaction_id"))
-            cmd.Parameters.AddWithValue("@reason", _data.Item("reason"))
-            cmd.Parameters.AddWithValue("@total", _data.Item("total"))
+            '' Prepare and execute the main delivery insertion
+            'cmd = New SqlCommand("INSERT INTO tblreturns (account_id, transaction_id, reason, total) VALUES (@account_id, @transaction_id, @reason, @total); SELECT SCOPE_IDENTITY()", conn, Transaction)
+            'cmd.Parameters.AddWithValue("@account_id", _data.Item("account_id"))
+            'cmd.Parameters.AddWithValue("@transaction_id", _data.Item("transaction_id"))
+            'cmd.Parameters.AddWithValue("@reason", _data.Item("reason"))
+            'cmd.Parameters.AddWithValue("@total", _data.Item("total"))
 
-            Dim deliveryId As Integer = Convert.ToInt32(cmd.ExecuteScalar())
+            'Dim deliveryId As Integer = Convert.ToInt32(cmd.ExecuteScalar())
 
-            For Each item In ReturnDataGridView.Rows
-                If item IsNot Nothing AndAlso item.Count > 0 Then
-                    ' Insert into tbldeliveries_items
-                    cmd.Parameters.Clear()
-                    cmd = New SqlCommand("INSERT INTO tblreturn_items (tblreturn_id, product_id, price, quantity, total) VALUES (@tblreturn_id, @product_id, @price, @quantity, @total); SELECT SCOPE_IDENTITY()", conn, Transaction)
-                    cmd.Parameters.AddWithValue("@tblreturn_id", deliveryId)
-                    cmd.Parameters.AddWithValue("@product_id", item("pid"))
-                    cmd.Parameters.AddWithValue("@price", item("price"))
-                    cmd.Parameters.AddWithValue("@quantity", item("quantity"))
-                    cmd.Parameters.AddWithValue("@total", item("total"))
+            'For Each item In ReturnDataGridView.Rows
+            '    If item IsNot Nothing AndAlso item.Count > 0 Then
+            '        ' Insert into tbldeliveries_items
+            '        cmd.Parameters.Clear()
+            '        cmd = New SqlCommand("INSERT INTO tblreturn_items (tblreturn_id, product_id, price, quantity, total) VALUES (@tblreturn_id, @product_id, @price, @quantity, @total); SELECT SCOPE_IDENTITY()", conn, Transaction)
+            '        cmd.Parameters.AddWithValue("@tblreturn_id", deliveryId)
+            '        cmd.Parameters.AddWithValue("@product_id", item("pid"))
+            '        cmd.Parameters.AddWithValue("@price", item("price"))
+            '        cmd.Parameters.AddWithValue("@quantity", item("quantity"))
+            '        cmd.Parameters.AddWithValue("@total", item("total"))
 
-                    If cmd.ExecuteNonQuery <= 0 Then
-                        Throw New Exception("Failed to add return items!")
-                    End If
-                End If
-            Next
-            Transaction.Commit()
+            '        If cmd.ExecuteNonQuery <= 0 Then
+            '            Throw New Exception("Failed to add return items!")
+            '        End If
+            '    End If
+            'Next
+            'Transaction.Commit()
         Catch ex As Exception
             Transaction.Rollback()
         End Try
