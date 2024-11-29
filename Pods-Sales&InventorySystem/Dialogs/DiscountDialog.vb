@@ -36,7 +36,7 @@ Public Class DiscountDialog
                 Dim invoker As ICommandInvoker = Nothing
                 If BaseDiscount.Exists(result(0)(1)) = 0 AndAlso _data Is Nothing Then
                     invoker = New AddCommand(baseCommand)
-                ElseIf _data IsNot Nothing AndAlso BaseDiscount.IdExists(_data?.Item("id"), result(0)(1)) = 0 Then 'AndAlso BaseDiscount.Exists(result(0)(1)) = 0 Then
+                ElseIf _data IsNot Nothing AndAlso BaseDiscount.IdExists(_data?.Item("id"), result(0)(1)) = 1 Then
                     invoker = New UpdateCommand(baseCommand)
                 Else
                     MessageBox.Show("Discount exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)

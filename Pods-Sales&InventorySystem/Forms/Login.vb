@@ -48,11 +48,16 @@
                         dash.DashboardTabControl.TabPages.Remove(dash.Products)
                         dash.DashboardTabControl.TabPages.Remove(dash.Maintenance)
                         dash.DashboardTabControl.TabPages.Remove(dash.Reports)
-                        dash.DashboardTabControl.TabPages.Remove(dash.Witdrawal)
+                        'dash.DashboardTabControl.TabPages.Remove(dash.Witdrawal)
                         dash.DashboardTabControl.TabPages.Remove(dash.Activity)
                         dash.DashboardTabControl.TabPages.Remove(dash.Inventory)
                         dash.DashboardTabControl.TabPages.Remove(dash.Deliveries)
                         dash.DashboardTabControl.TabPages.Remove(dash.Account)
+
+                        'Dim tab As TabControl = dash.DashboardTabControl(Witdrawal)
+                        'tab.reabControl.TabPages.Remove(withdrawalTab)
+                        'Dim tab As TabControl = dash.DashboardTabControl.TabPages(dash.Witdrawal)
+                        'tab.TabPages.Remove(tab.ReturnandPulloutTabControl)
                 End Select
                 Me.Hide()
                 dash.Show()

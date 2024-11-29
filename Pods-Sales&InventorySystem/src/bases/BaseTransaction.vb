@@ -103,7 +103,6 @@ Public Class BaseTransaction
                             End If
                             quant -= quant
                         Else
-
                             quant = quant - total
                             _sqlCommand.CommandText = "UPDATE tbldeliveries_items SET quantity_trans = 0 WHERE id = @id"
                             _sqlCommand.Parameters.Clear()

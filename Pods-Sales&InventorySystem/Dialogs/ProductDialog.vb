@@ -11,13 +11,21 @@ Public Class ProductDialog
     End Sub
     Private Sub ProductDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
+            Dim ca As DataTable = BaseCategory.Category
+            Guna2ComboBox1.DataSource = ca.DefaultView
+            Guna2ComboBox1.DisplayMember = "category"
+            Guna2ComboBox1.SelectedItem = "id"
+            'If ca.Rows.Count > 0 Then
+            '    Guna2ComboBox1.SelectedIndex = -1
+            'End If
+
             Dim sc As DataTable = BaseProduct.FillBySubCategory
             SubCategoryComboBox.DataSource = sc.DefaultView
             SubCategoryComboBox.DisplayMember = "subcategory"
             SubCategoryComboBox.SelectedItem = "id"
-            If sc.Rows.Count > 0 Then
-                SubCategoryComboBox.SelectedIndex = -1
-            End If
+            'If sc.Rows.Count > 0 Then
+            '    SubCategoryComboBox.SelectedIndex = -1
+            'End If
 
             Dim dt As DataTable = BaseDosage.FetchDosage
             DoseComboBox.DataSource = dt.DefaultView
@@ -26,6 +34,7 @@ Public Class ProductDialog
             If dt.Rows.Count > 0 Then
                 DoseComboBox.SelectedIndex = -1
             End If
+
 
             Dim df As DataTable = BaseDosageForm.FetchDosageform
             DosageFormComboBox.DataSource = df.DefaultView
@@ -36,10 +45,21 @@ Public Class ProductDialog
             End If
 
             If _data IsNot Nothing Then
+                'MsgBox(_data.Item("subcategory_id"))
+                SubCategoryComboBox.Text = _data.Item("subcategory_id")
+                'SubCategoryComboBox.Enabled = False
                 AddProductButton.Text = "Update"
 
-                SubCategoryComboBox.Text = BaseProduct.SubcategoryName(_data.Item("subcategory_id"))
-                SkuTextBox.Text = _data.Item("sku")
+
+                'Dim fuck As Object = BaseSubCategory.Subcategory(_data.Item("subcategory_id"))
+                ''SubCategoryComboBox.Text = fuck
+                'If fuck IsNot Nothing Then
+                '    Guna2ComboBox1.Text = fuck
+                'End If
+
+                'Guna2ComboBox1.Text =
+
+                'SkuTextBox.Text = _data.Item("sku")
                 BarcodeTextBox.Text = _data.Item("barcode")
                 ProductNameTextBox.Text = _data.Item("product_name")
                 DescriptionTextBox.Text = _data.Item("description")
@@ -70,7 +90,7 @@ Public Class ProductDialog
                   SubCategoryComboBox, BarcodeTextBox, ProductNameTextBox, StockLevelTextBox, DosageFormComboBox, StrengthTextBox, DoseComboBox, ManufacturerTextBox
             }
             Dim types As DataInput() = {
-               DataInput.STRING_STRING, DataInput.STRING_INTEGER, DataInput.STRING_NAME, DataInput.STRING_INTEGER, DataInput.STRING_STRING, DataInput.STRING_INTEGER, DataInput.STRING_STRING, DataInput.STRING_NAME
+                 DataInput.STRING_STRING, DataInput.STRING_INTEGER, DataInput.STRING_NAME, DataInput.STRING_INTEGER, DataInput.STRING_STRING, DataInput.STRING_INTEGER, DataInput.STRING_STRING, DataInput.STRING_NAME
             }
             Dim result As New List(Of Object())
             For i = 0 To controls.Count - 1
@@ -92,8 +112,7 @@ Public Class ProductDialog
             If Not result.Any(Function(item As Object()) Not item(0)) Then
                 Dim data As New Dictionary(Of String, String) From {
                     {"id", _data?.Item("id")},
-                    {"subcategory_id", SubCategoryComboBox.SelectedItem("id")},
-                    {"sku", If(String.IsNullOrEmpty(SkuTextBox.Text), "", SkuTextBox.Text)},
+                    {"subcategory_id", SubCategoryComboBox.SelectedItem("id")}, '{"sku", If(String.IsNullOrEmpty(SkuTextBox.Text), "", SkuTextBox.Text)},
                     {"barcode", result(1)(1)},
                     {"product_name", result(2)(1)},
                     {"description", If(String.IsNullOrEmpty(DescriptionTextBox.Text), "", DescriptionTextBox.Text)},' result(3)(1)},   'If(String.IsNullOrEmpty(ProductDescriptionTextBox.Text), "", ProductDescriptionTextBox.Text)}
@@ -117,7 +136,7 @@ Public Class ProductDialog
                 Dim baseCommand As BaseProduct '(data) 'With {.Items = item}
                 baseCommand = New BaseProduct(data) With {.Items = item}
                 Dim invoker As ICommandInvoker = Nothing
-                If BaseProduct.Exists(result(2)(1)) = 0 AndAlso BaseProduct.BarcodeExists(result(1)(1)) = 0 AndAlso _data Is Nothing Then
+                If BaseProduct.Exists(result(3)(1)) = 0 AndAlso BaseProduct.BarcodeExists(result(2)(1)) = 0 AndAlso _data Is Nothing Then
                     invoker = New AddCommand(baseCommand)
                     invoker?.Execute()
                     _subject.NotifyObserver()
@@ -136,7 +155,7 @@ Public Class ProductDialog
             End If
 
         Catch ex As Exception
-
+            MsgBox(ex.Message)
         End Try
     End Sub
 
@@ -146,5 +165,20 @@ Public Class ProductDialog
         invoker?.Execute()
         _subject.NotifyObserver()
         Me.Close()
+    End Sub
+
+    Private Sub Guna2ComboBox1_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles Guna2ComboBox1.SelectionChangeCommitted
+        Try
+            Dim dt As DataTable = BaseSubCategory.Subcategory(Guna2ComboBox1.SelectedItem("id"))
+            SubCategoryComboBox.DataSource = dt.DefaultView
+            SubCategoryComboBox.DisplayMember = "subcategory"
+            SubCategoryComboBox.SelectedItem = "id"
+            If dt.Rows.Count > 0 Then
+                SubCategoryComboBox.SelectedIndex = -1
+            End If
+            SubCategoryComboBox.Enabled = True
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class

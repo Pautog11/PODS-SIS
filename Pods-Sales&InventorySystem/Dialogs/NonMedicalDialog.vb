@@ -19,7 +19,7 @@ Public Class NonMedicalDialog
             If _data IsNot Nothing Then
                 AddProductButton.Text = "Update"
                 SubCategoryComboBox.Text = BaseProduct.SubcategoryName(_data.Item("subcategory_id"))
-                SkuTextBox.Text = _data.Item("sku")
+                ' SkuTextBox.Text = _data.Item("sku")
                 BarcodeTextBox.Text = _data.Item("barcode")
                 ProductNameTextBox.Text = _data.Item("product_name")
                 DescriptionTextBox.Text = _data.Item("description")
@@ -33,11 +33,12 @@ Public Class NonMedicalDialog
     Private Sub AddProductButton_Click(sender As Object, e As EventArgs) Handles AddProductButton.Click
         Try
             Dim controls As Object() = {
-   SubCategoryComboBox, BarcodeTextBox, ProductNameTextBox, StockLevelTextBox
-}
+               SubCategoryComboBox, BarcodeTextBox, ProductNameTextBox, StockLevelTextBox
+            }
             Dim types As DataInput() = {
                DataInput.STRING_STRING, DataInput.STRING_INTEGER, DataInput.STRING_NAME, DataInput.STRING_INTEGER
             }
+
             Dim result As New List(Of Object())
             For i = 0 To controls.Count - 1
                 result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
@@ -50,7 +51,7 @@ Public Class NonMedicalDialog
                 Dim data As New Dictionary(Of String, String) From {
                     {"id", _data?.Item("id")},
                     {"subcategory_id", SubCategoryComboBox.SelectedItem("id")},
-                    {"sku", If(String.IsNullOrEmpty(SkuTextBox.Text), "", SkuTextBox.Text)},
+                    {"sku", 0},
                     {"barcode", result(1)(1)},
                     {"product_name", result(2)(1)},
                     {"description", If(String.IsNullOrEmpty(DescriptionTextBox.Text), "", DescriptionTextBox.Text)},' result(3)(1)},   'If(String.IsNullOrEmpty(ProductDescriptionTextBox.Text), "", ProductDescriptionTextBox.Text)}
