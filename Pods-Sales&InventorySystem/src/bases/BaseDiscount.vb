@@ -15,6 +15,12 @@ Public Class BaseDiscount
 
     Public Sub Update() Implements ICommandPanel.Update
         Try
+            Dim pnameup As String = _data("discount").ToString()
+            _sqlCommand = New SqlCommand("SELECT discount FROM tblproducts WHERE id = @id", _sqlConnection)
+            _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
+            Dim pname As String = _sqlCommand.ExecuteScalar
+            BaseAuditTrail.AddProduct(My.Settings.myId, $"Updated a discount {pname} to {pnameup}")
+
             _sqlCommand = New SqlCommand("UPDATE tbldiscounts SET discount = @discount, description = @description WHERE id = @id", _sqlConnection)
             _sqlCommand.Parameters.AddWithValue("@discount", _data.Item("discount"))
             _sqlCommand.Parameters.AddWithValue("@description", _data.Item("description"))
@@ -38,6 +44,9 @@ Public Class BaseDiscount
                 MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
                 MessageBox.Show("Discount has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Dim pname As String = _data("discount").ToString()
+                Dim desc As String = _data("description").ToString()
+                BaseAuditTrail.AddProduct(My.Settings.myId, $"Added a discount: {pname}% - {desc}")
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)

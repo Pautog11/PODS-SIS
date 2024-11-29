@@ -15,6 +15,12 @@ Public Class BaseDosage
 
     Public Sub Update() Implements ICommandPanel.Update
         Try
+            Dim pnameup As String = _data("dosage").ToString()
+            _sqlCommand = New SqlCommand("SELECT dasage FROM tbldosage WHERE id = @id", _sqlConnection)
+            _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
+            Dim pname As String = _sqlCommand.ExecuteScalar
+            BaseAuditTrail.AddProduct(My.Settings.myId, $"Updated a dosage {pname} to {pnameup}")
+
             _sqlCommand = New SqlCommand("UPDATE tbldosage SET dasage = @dasage, description = @description WHERE id = @id", _sqlConnection)
             _sqlCommand.Parameters.AddWithValue("@dasage", _data.Item("dosage"))
             _sqlCommand.Parameters.AddWithValue("@description", _data.Item("description"))

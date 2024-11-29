@@ -113,6 +113,9 @@ Public Class BasePullouts
 
             MessageBox.Show("Product has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
             transaction.Commit()
+            Dim pname As String = _data("discount").ToString()
+            Dim desc As String = _data("description").ToString()
+            BaseAuditTrail.AddProduct(My.Settings.myId, $"Added a discount: {pname}% - {desc}")
         Catch ex As Exception
             transaction.Rollback()
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)

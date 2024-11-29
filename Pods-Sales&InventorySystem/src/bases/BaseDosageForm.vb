@@ -15,6 +15,12 @@ Public Class BaseDosageForm
 
     Public Sub Update() Implements ICommandPanel.Update
         Try
+            Dim pnameup As String = _data("dosageform").ToString()
+            _sqlCommand = New SqlCommand("SELECT dosageform FROM tbldosageform WHERE id = @id", _sqlConnection)
+            _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
+            Dim pname As String = _sqlCommand.ExecuteScalar
+            BaseAuditTrail.AddProduct(My.Settings.myId, $"Updated a dosage form {pname} to {pnameup}")
+
             _sqlCommand = New SqlCommand("UPDATE tbldosageform SET dosageform = @dosageform, description = @description WHERE id = @id", _sqlConnection)
             _sqlCommand.Parameters.AddWithValue("@dosageform", _data.Item("dosageform"))
             _sqlCommand.Parameters.AddWithValue("@description", _data.Item("description"))
@@ -38,6 +44,9 @@ Public Class BaseDosageForm
                 MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
                 MessageBox.Show("Dosage Form has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Dim pname As String = _data("dosageform").ToString()
+                Dim desc As String = _data("description").ToString()
+                BaseAuditTrail.AddProduct(My.Settings.myId, $"Added a dosage form: {pname}% - {desc}")
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)

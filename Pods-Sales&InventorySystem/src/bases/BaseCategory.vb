@@ -25,6 +25,12 @@ Public Class BaseCategory
 
     Public Sub Update() Implements ICommandPanel.Update
         Try
+            Dim pnameup As String = _data("category").ToString()
+            _sqlCommand = New SqlCommand("SELECT category FROM tblcategories WHERE id = @id", _sqlConnection)
+            _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
+            Dim pname As String = _sqlCommand.ExecuteScalar
+            BaseAuditTrail.AddProduct(My.Settings.myId, $"Updated a category {pname} to {pnameup}")
+
             _sqlCommand = New SqlCommand("UPDATE tblcategories SET category = @category, description = @description WHERE id = @id", _sqlConnection)
             _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
             _sqlCommand.Parameters.AddWithValue("@category", _data.Item("category"))

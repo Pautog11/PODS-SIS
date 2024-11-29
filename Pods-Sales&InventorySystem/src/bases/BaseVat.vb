@@ -15,6 +15,12 @@ Public Class BaseVat
     Public Sub Update() Implements ICommandPanel.Update
         'Throw New NotImplementedException()
         Try
+            Dim pnameup As String = _data("vat").ToString()
+            _sqlCommand = New SqlCommand("SELECT vat FROM tblvat WHERE id = @id", _sqlConnection)
+            _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
+            Dim pname As String = _sqlCommand.ExecuteScalar
+            BaseAuditTrail.AddProduct(My.Settings.myId, $"Updated a vat {pname} to {pnameup}")
+
             _sqlCommand = New SqlCommand("UPDATE tblvat SET vat = @vat WHERE id = @id", _sqlConnection)
             _sqlCommand.Parameters.AddWithValue("@vat", _data.Item("vat"))
             _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
