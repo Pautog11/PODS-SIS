@@ -17,7 +17,7 @@
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
         _tableAapter.Fill(_dataTable)
         DosageFormDataGridView.DataSource = _dataTable
-        'DosageFormDataGridView.Columns.Item("ID").Visible = False
+        DosageFormDataGridView.Columns.Item("ID").Visible = False
     End Sub
 
     Private Sub AddDosageFormButton_Click(sender As Object, e As EventArgs) Handles AddDosageFormButton.Click

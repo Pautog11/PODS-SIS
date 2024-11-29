@@ -324,6 +324,7 @@ Partial Class DeliveryCartDialog
         Me.grandtotal.Size = New System.Drawing.Size(9, 15)
         Me.grandtotal.TabIndex = 8
         Me.grandtotal.Text = "0"
+        Me.grandtotal.Visible = False
         '
         'Guna2HtmlLabel7
         '
@@ -333,6 +334,7 @@ Partial Class DeliveryCartDialog
         Me.Guna2HtmlLabel7.Size = New System.Drawing.Size(59, 15)
         Me.Guna2HtmlLabel7.TabIndex = 7
         Me.Guna2HtmlLabel7.Text = "Grand Total"
+        Me.Guna2HtmlLabel7.Visible = False
         '
         'Guna2HtmlLabel4
         '
@@ -342,6 +344,7 @@ Partial Class DeliveryCartDialog
         Me.Guna2HtmlLabel4.Size = New System.Drawing.Size(9, 15)
         Me.Guna2HtmlLabel4.TabIndex = 6
         Me.Guna2HtmlLabel4.Text = "0"
+        Me.Guna2HtmlLabel4.Visible = False
         '
         'Guna2HtmlLabel5
         '
@@ -351,6 +354,7 @@ Partial Class DeliveryCartDialog
         Me.Guna2HtmlLabel5.Size = New System.Drawing.Size(61, 15)
         Me.Guna2HtmlLabel5.TabIndex = 5
         Me.Guna2HtmlLabel5.Text = "Total pullout"
+        Me.Guna2HtmlLabel5.Visible = False
         '
         'Guna2HtmlLabel3
         '
@@ -455,6 +459,7 @@ Partial Class DeliveryCartDialog
         Me.AddDectionButton.Size = New System.Drawing.Size(150, 35)
         Me.AddDectionButton.TabIndex = 8
         Me.AddDectionButton.Text = "Add Deduction"
+        Me.AddDectionButton.Visible = False
         '
         'DeliveryCartDialog
         '
