@@ -48,6 +48,8 @@ Public Class BaseCategory
                 MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
                 MessageBox.Show("Category has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Dim pname As String = _data("category").ToString()
+                BaseAuditTrail.AddProduct(My.Settings.myId, $"Added a category: {pname}")
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)

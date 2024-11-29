@@ -38,6 +38,8 @@ Public Class BaseDosage
                 MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
                 MessageBox.Show("Dosage has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Dim pname As String = _data("dosage").ToString()
+                BaseAuditTrail.AddProduct(My.Settings.myId, $"Added a dosage: {pname}")
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)

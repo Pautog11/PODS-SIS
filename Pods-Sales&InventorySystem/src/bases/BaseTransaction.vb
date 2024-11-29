@@ -135,6 +135,8 @@ Public Class BaseTransaction
 
             transaction.Commit()
             MessageBox.Show("Transaction has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Dim pname As String = _data("transaction_number").ToString()
+            BaseAuditTrail.AddProduct(My.Settings.myId, $"Added a transaction: {pname}")
         Catch ex As Exception
             transaction.Rollback()
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)

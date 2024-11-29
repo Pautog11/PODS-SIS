@@ -24,6 +24,12 @@ Public Class BaseSubCategory
 
     Public Sub Update() Implements ICommandPanel.Update
         Try
+            Dim pnameup As String = _data("subcategory").ToString()
+            _sqlCommand = New SqlCommand("SELECT subcategory FROM tblsubcategories WHERE id = @id", _sqlConnection)
+            _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
+            Dim pname As String = _sqlCommand.ExecuteScalar
+            BaseAuditTrail.AddProduct(My.Settings.myId, $"Updated a subcategory {pname} to {pnameup}")
+
             _sqlCommand = New SqlCommand("UPDATE tblsubcategories SET category_id = @category_id, subcategory = @subcategory, description = @description WHERE id = @id", _sqlConnection)
             _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
             _sqlCommand.Parameters.AddWithValue("@category_id", _data.Item("category_id"))
@@ -49,6 +55,8 @@ Public Class BaseSubCategory
                 MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
                 MessageBox.Show("Subcategory has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Dim pname As String = _data("subcategory").ToString()
+                BaseAuditTrail.AddProduct(My.Settings.myId, $"Added a subcategory: {pname}")
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)

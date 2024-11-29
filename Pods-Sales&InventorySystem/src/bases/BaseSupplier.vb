@@ -56,6 +56,10 @@ Public Class BaseSupplier
                 MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
                 MessageBox.Show("Supplier has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Dim pname As String = _data("company_name").ToString()
+                Dim fname As String = _data("first_name").ToString()
+                Dim lname As String = _data("last_name").ToString()
+                BaseAuditTrail.AddProduct(My.Settings.myId, $"Added a supplier: {pname} - {fname}, {lname}")
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)

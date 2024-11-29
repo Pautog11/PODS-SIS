@@ -148,6 +148,8 @@ Public Class BaseDelivery
 
             transaction.Commit()
             MessageBox.Show("Delivery has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Dim pname As String = _data("delivery_number").ToString()
+            BaseAuditTrail.AddProduct(My.Settings.myId, $"Added a delivery: {pname}")
         Catch ex As Exception
             transaction.Rollback()
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
