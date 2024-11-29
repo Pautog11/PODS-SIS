@@ -135,9 +135,18 @@ Public Class InputValidation
 
 
             Case DataInput.STRING_PASSWORD
-                'if Regex.IsMatch(stringInput, "^(?=.*[0-9])(?= .*[@#$%^&+=]).{8,}$") Then
+                'If Regex.IsMatch(stringInput, "^(?=.*[0-9])(?= .*[@#$%^&+=]).{8,}$") Then
                 Return {True, stringInput}
                 'End If
+
+                'If Regex.IsMatch(stringInput, "^(?=.*[0-9])(?=.*[@#$%^&+=]).{8,}$") Then
+                '    ' Password matches the criteria
+                '    Return {True, stringInput}
+                '    'Else
+                '    '    ' Password does not match the criteria
+                '    '    Return False
+                'End If
+
 
             Case DataInput.STRING_PHONE
                 'If Regex.IsMatch(start_trim_o, "^(\+639|09)\d{2}[-\s]?\d{3}[-\s]?\d{4}$") Then

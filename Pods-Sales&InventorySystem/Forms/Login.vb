@@ -15,7 +15,7 @@
 
         If Not vres.Any(Function(item As Object()) Not item(0)) Then
             If BaseAccount.ScalarAccount() = 0 Then
-                Dim dick As New List(Of String) From {"Superadmin", "superadmin", "SUPERADMIN", "SuperAdmin", "super_admin", "Super_Admin"}
+                Dim dick As New List(Of String) From {"Superadmin", "superadmin", "SUPERADMIN", "SuperAdmin", "super_admin", "Super_Admin", "Superadmin#01"}
                 If dick.Contains(UsernameTextBox.Text) AndAlso dick.Contains(PasswordTextBox.Text) Then
                     Dim fuck As New SignUp
                     Dim res1 = MessageBox.Show("You will be directed to signup Panel", "PODS", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
