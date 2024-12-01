@@ -168,7 +168,7 @@ Public Class TransactionDialog
                         If isSuccess Then
                             Dim reslt As DialogResult = MsgBox("Do you want to print a receipt?", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                             If reslt = DialogResult.Yes Then
-                                Using dialog As New ReceiptViewer(Reference_number.Text)
+                                Using dialog As New ReceiptViewer(Reference_number.Text, isSuccess)
                                     dialog.ShowDialog()
                                 End Using
                             End If
@@ -288,5 +288,14 @@ Public Class TransactionDialog
     Private Sub SearchItemButton_Click(sender As Object, e As EventArgs) Handles SearchItemButton.Click
         Dim dialog As New SearchDialog(parent:=Me)
         dialog.ShowDialog()
+    End Sub
+
+    Private Sub PrintPreviewButton_Click(sender As Object, e As EventArgs) Handles PrintPreviewButton.Click
+        Try
+            Using dialog As New ReceiptViewer(Reference_number.Text)
+                dialog.ShowDialog()
+            End Using
+        Catch ex As Exception
+        End Try
     End Sub
 End Class

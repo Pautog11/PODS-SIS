@@ -58,6 +58,7 @@ Partial Class TransactionDialog
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.ReturnButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.PrintPreviewButton = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel3.SuspendLayout()
         CType(Me.TransactionDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2Panel2.SuspendLayout()
@@ -545,6 +546,7 @@ Partial Class TransactionDialog
         '
         Me.FlowLayoutPanel1.Controls.Add(Me.AddTransactionButton)
         Me.FlowLayoutPanel1.Controls.Add(Me.ReturnButton)
+        Me.FlowLayoutPanel1.Controls.Add(Me.PrintPreviewButton)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(778, 545)
@@ -571,6 +573,24 @@ Partial Class TransactionDialog
         Me.ReturnButton.Size = New System.Drawing.Size(150, 35)
         Me.ReturnButton.TabIndex = 8
         Me.ReturnButton.Text = "Return"
+        '
+        'PrintPreviewButton
+        '
+        Me.PrintPreviewButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.PrintPreviewButton.BackColor = System.Drawing.Color.Transparent
+        Me.PrintPreviewButton.BorderRadius = 15
+        Me.PrintPreviewButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.PrintPreviewButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.PrintPreviewButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.PrintPreviewButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.PrintPreviewButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.PrintPreviewButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.PrintPreviewButton.ForeColor = System.Drawing.Color.White
+        Me.PrintPreviewButton.Location = New System.Drawing.Point(197, 51)
+        Me.PrintPreviewButton.Name = "PrintPreviewButton"
+        Me.PrintPreviewButton.Size = New System.Drawing.Size(150, 35)
+        Me.PrintPreviewButton.TabIndex = 9
+        Me.PrintPreviewButton.Text = "Print Preview"
         '
         'TransactionDialog
         '
@@ -629,4 +649,5 @@ Partial Class TransactionDialog
     Friend WithEvents AddTransactionButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents ReturnButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents SearchItemButton As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents PrintPreviewButton As Guna.UI2.WinForms.Guna2Button
 End Class
