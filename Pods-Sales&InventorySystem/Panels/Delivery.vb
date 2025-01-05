@@ -18,7 +18,7 @@ Public Class Delivery
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
         _tableAapter.Fill(_dataTable)
         DeliveryDataGridView.DataSource = _dataTable
-        'DeliveryDataGridView.Columns.Item("ID").Visible = False
+        DeliveryDataGridView.Columns.Item("ID").Visible = False
     End Sub
 
     Private Sub AddDeliveryButton_Click(sender As Object, e As EventArgs) Handles AddDeliveryButton.Click

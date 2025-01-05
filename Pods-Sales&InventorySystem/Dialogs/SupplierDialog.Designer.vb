@@ -62,7 +62,7 @@ Partial Class SupplierDialog
         Me.CompanyNameTextBox.MaxLength = 50
         Me.CompanyNameTextBox.Name = "CompanyNameTextBox"
         Me.CompanyNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.CompanyNameTextBox.PlaceholderText = "Enter Company Name"
+        Me.CompanyNameTextBox.PlaceholderText = "Ex. Unilab"
         Me.CompanyNameTextBox.SelectedText = ""
         Me.CompanyNameTextBox.ShortcutsEnabled = False
         Me.CompanyNameTextBox.Size = New System.Drawing.Size(200, 36)
@@ -110,7 +110,7 @@ Partial Class SupplierDialog
         Me.CompanyAddressTextBox.MaxLength = 100
         Me.CompanyAddressTextBox.Name = "CompanyAddressTextBox"
         Me.CompanyAddressTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.CompanyAddressTextBox.PlaceholderText = "Enter Complete Address"
+        Me.CompanyAddressTextBox.PlaceholderText = "Ex. Taguig"
         Me.CompanyAddressTextBox.SelectedText = ""
         Me.CompanyAddressTextBox.ShortcutsEnabled = False
         Me.CompanyAddressTextBox.Size = New System.Drawing.Size(200, 36)
@@ -203,7 +203,7 @@ Partial Class SupplierDialog
         Me.CPTextBox.MaxLength = 13
         Me.CPTextBox.Name = "CPTextBox"
         Me.CPTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.CPTextBox.PlaceholderText = "Enter Company Phone Number"
+        Me.CPTextBox.PlaceholderText = "Ex. +012-345-6789"
         Me.CPTextBox.SelectedText = ""
         Me.CPTextBox.ShortcutsEnabled = False
         Me.CPTextBox.Size = New System.Drawing.Size(200, 36)
@@ -241,18 +241,18 @@ Partial Class SupplierDialog
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(21, 131)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(92, 13)
+        Me.Label3.Size = New System.Drawing.Size(45, 13)
         Me.Label3.TabIndex = 20
-        Me.Label3.Text = "Company Address"
+        Me.Label3.Text = "Address"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(21, 76)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(91, 13)
+        Me.Label1.Size = New System.Drawing.Size(98, 13)
         Me.Label1.TabIndex = 19
-        Me.Label1.Text = "Company Number"
+        Me.Label1.Text = "Telephone Number"
         '
         'Label2
         '

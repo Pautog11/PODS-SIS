@@ -15,7 +15,7 @@
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
         _tableAapter.Fill(_dataTable)
         ProductsDataGridView.DataSource = _dataTable
-        'ProductsDataGridView.Columns.Item("ID").Visible = False
+        ProductsDataGridView.Columns.Item("ID").Visible = False
         ProductsDataGridView.Columns.Item("QUANTITY").Visible = False
         ProductsDataGridView.Columns.Item("SKU").Visible = False
         ProductsDataGridView.Columns.Item("DESCRIPTION").Visible = False

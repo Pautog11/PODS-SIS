@@ -11,10 +11,10 @@ Public Class ProductDialog
     End Sub
     Private Sub ProductDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            Dim ca As DataTable = BaseCategory.Category
-            Guna2ComboBox1.DataSource = ca.DefaultView
-            Guna2ComboBox1.DisplayMember = "category"
-            Guna2ComboBox1.SelectedItem = "id"
+            'Dim ca As DataTable = BaseCategory.Category
+            'Guna2ComboBox1.DataSource = ca.DefaultView
+            'Guna2ComboBox1.DisplayMember = "category"
+            'Guna2ComboBox1.SelectedItem = "id"
             'If ca.Rows.Count > 0 Then
             '    Guna2ComboBox1.SelectedIndex = -1
             'End If
@@ -167,18 +167,18 @@ Public Class ProductDialog
         Me.Close()
     End Sub
 
-    Private Sub Guna2ComboBox1_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles Guna2ComboBox1.SelectionChangeCommitted
-        Try
-            Dim dt As DataTable = BaseSubCategory.Subcategory(Guna2ComboBox1.SelectedItem("id"))
-            SubCategoryComboBox.DataSource = dt.DefaultView
-            SubCategoryComboBox.DisplayMember = "subcategory"
-            SubCategoryComboBox.SelectedItem = "id"
-            If dt.Rows.Count > 0 Then
-                SubCategoryComboBox.SelectedIndex = -1
-            End If
-            SubCategoryComboBox.Enabled = True
-        Catch ex As Exception
+    'Private Sub Guna2ComboBox1_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles Guna2ComboBox1.SelectionChangeCommitted
+    '    Try
+    '        Dim dt As DataTable = BaseSubCategory.Subcategory(Guna2ComboBox1.SelectedItem("id"))
+    '        SubCategoryComboBox.DataSource = dt.DefaultView
+    '        SubCategoryComboBox.DisplayMember = "subcategory"
+    '        SubCategoryComboBox.SelectedItem = "id"
+    '        If dt.Rows.Count > 0 Then
+    '            SubCategoryComboBox.SelectedIndex = -1
+    '        End If
+    '        SubCategoryComboBox.Enabled = True
+    '    Catch ex As Exception
 
-        End Try
-    End Sub
+    '    End Try
+    'End Sub
 End Class

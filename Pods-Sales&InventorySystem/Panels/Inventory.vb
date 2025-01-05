@@ -44,7 +44,7 @@ Public Class Inventory
 
         'End Try
         ProductDataGridView.DataSource = _dataTable
-        'ProductDataGridView.Columns.Item("ID").Visible = False
+        ProductDataGridView.Columns.Item("ID").Visible = False
     End Sub
 
     Private Sub PrintButton_Click(sender As Object, e As EventArgs) Handles PrintButton.Click

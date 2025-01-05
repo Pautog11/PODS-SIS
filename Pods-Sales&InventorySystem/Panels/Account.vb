@@ -46,6 +46,8 @@ Public Class Account
                 MessageBox.Show("You cant edit this account.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
                 Dim Dialog As New AccountDialog(data:=data, subject:=_subject)
+                Dialog.Guna2TextBox1.Visible = False
+                Dialog.Guna2CheckBox1.Visible = False
                 Dialog.ShowDialog()
             End If
         End If

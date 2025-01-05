@@ -10,6 +10,8 @@ Public Class AccountDialog
         _data = data
     End Sub
     Private Sub Account_Dialog(sender As Object, e As EventArgs) Handles MyBase.Load
+        PasswordTextBox.UseSystemPasswordChar = True ' Show password
+        Guna2TextBox1.UseSystemPasswordChar = True ' Show password
         Try
             'For Roles
             Dim roles As DataTable = BaseAccount.FillByRoles()
@@ -37,7 +39,7 @@ Public Class AccountDialog
                 UsernameTextBox.Text = _data.Item("username")
 
                 'For Visibility
-                UsernameTextBox.Enabled = False
+                'UsernameTextBox.Enabled = False
                 DeleteAccountButton.Visible = False
                 PasswordTextBox.Visible = False
                 'RoleComboBox.Enabled = False
@@ -184,5 +186,15 @@ Public Class AccountDialog
     Private Sub ChangePassButton_Click(sender As Object, e As EventArgs) Handles ChangePassButton.Click
         Dim dialog As New PasswordDialog(parent:=Me, id:=_data.Item("id"))
         dialog.ShowDialog()
+    End Sub
+
+    Private Sub Guna2CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles Guna2CheckBox1.CheckedChanged
+        If Guna2CheckBox1.Checked Then
+            PasswordTextBox.UseSystemPasswordChar = False ' Show password
+            Guna2TextBox1.UseSystemPasswordChar = False ' Show password
+        Else
+            PasswordTextBox.UseSystemPasswordChar = True
+            Guna2TextBox1.UseSystemPasswordChar = True
+        End If
     End Sub
 End Class

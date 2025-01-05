@@ -26,7 +26,7 @@ Public Class ReturnCartDialog
 
                 TransactionTextBox.Enabled = False
                 Guna2Button1.Enabled = False
-                Guna2Button2.Enabled = False
+                'Guna2Button2.Enabled = False
 
             ElseIf _dat2 IsNot Nothing Then
                 TransactionTextBox.Text = _dat2.Item("ref")
@@ -137,8 +137,8 @@ Public Class ReturnCartDialog
         End Try
     End Sub
 
-    Private Sub Guna2Button2_Click(sender As Object, e As EventArgs) Handles Guna2Button2.Click
-        Dim dialog As New UpdateExpiry
-        dialog.ShowDialog()
-    End Sub
+    'Private Sub Guna2Button2_Click(sender As Object, e As EventArgs) Handles Guna2Button2.Click
+    '    Dim dialog As New UpdateExpiry
+    '    dialog.ShowDialog()
+    'End Sub
 End Class
