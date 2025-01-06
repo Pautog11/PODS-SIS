@@ -1121,8 +1121,6 @@ C:\Users\Christian\Desktop\New folder (5)\PODS-SIS\Pods-Sales&InventorySystem\ob
 C:\Users\Christian\Desktop\New folder (5)\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.UpdateExpiry.resources
 C:\Users\Christian\Desktop\New folder (5)\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.VatDialog.resources
 C:\Users\Christian\Desktop\New folder (5)\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Dashboard.resources
-C:\Users\Christian\Desktop\New folder (5)\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Form1.resources
-C:\Users\Christian\Desktop\New folder (5)\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Form2.resources
 C:\Users\Christian\Desktop\New folder (5)\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Login.resources
 C:\Users\Christian\Desktop\New folder (5)\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Server.resources
 C:\Users\Christian\Desktop\New folder (5)\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Dialog1.resources
