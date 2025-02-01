@@ -33,8 +33,8 @@ Public Class SupplierDialog
     Private Sub AddSupplierButton_Click(sender As Object, e As EventArgs) Handles AddSupplierButton.Click
         Try
             Dim controls As Object() = {
-         CompanyNameTextBox, CPTextBox, CompanyAddressTextBox, FirstnameTextBox, LastnameTextBox, PhoneNumberTextBox
-      }
+                CompanyNameTextBox, CPTextBox, CompanyAddressTextBox, FirstnameTextBox, LastnameTextBox, PhoneNumberTextBox
+            }
             Dim types As DataInput() = {
                 DataInput.STRING_NAME, DataInput.STRING_TEL, DataInput.STRING_STRING, DataInput.STRING_PNAME, DataInput.STRING_PNAME, DataInput.STRING_PHONE
             }

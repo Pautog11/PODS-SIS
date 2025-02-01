@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class ProductDialog
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class ProductDialog
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
@@ -28,6 +28,8 @@ Partial Class ProductDialog
         Me.DeleteProductButton = New Guna.UI2.WinForms.Guna2Button()
         Me.AddProductButton = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.CategoryComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.DosageFormComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -121,6 +123,8 @@ Partial Class ProductDialog
         '
         'Guna2Panel1
         '
+        Me.Guna2Panel1.Controls.Add(Me.Label8)
+        Me.Guna2Panel1.Controls.Add(Me.CategoryComboBox)
         Me.Guna2Panel1.Controls.Add(Me.DosageFormComboBox)
         Me.Guna2Panel1.Controls.Add(Me.Label12)
         Me.Guna2Panel1.Controls.Add(Me.Label11)
@@ -148,6 +152,32 @@ Partial Class ProductDialog
         Me.Guna2Panel1.Size = New System.Drawing.Size(545, 352)
         Me.Guna2Panel1.TabIndex = 1
         '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(36, 19)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(49, 13)
+        Me.Label8.TabIndex = 30
+        Me.Label8.Text = "Category"
+        '
+        'CategoryComboBox
+        '
+        Me.CategoryComboBox.BackColor = System.Drawing.Color.Transparent
+        Me.CategoryComboBox.BorderColor = System.Drawing.Color.Gray
+        Me.CategoryComboBox.BorderRadius = 10
+        Me.CategoryComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.CategoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CategoryComboBox.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CategoryComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CategoryComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.CategoryComboBox.ForeColor = System.Drawing.Color.Black
+        Me.CategoryComboBox.ItemHeight = 30
+        Me.CategoryComboBox.Location = New System.Drawing.Point(64, 35)
+        Me.CategoryComboBox.Name = "CategoryComboBox"
+        Me.CategoryComboBox.Size = New System.Drawing.Size(200, 36)
+        Me.CategoryComboBox.TabIndex = 29
+        '
         'DosageFormComboBox
         '
         Me.DosageFormComboBox.BackColor = System.Drawing.Color.Transparent
@@ -160,7 +190,7 @@ Partial Class ProductDialog
         Me.DosageFormComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.DosageFormComboBox.ForeColor = System.Drawing.Color.Black
         Me.DosageFormComboBox.ItemHeight = 30
-        Me.DosageFormComboBox.Location = New System.Drawing.Point(306, 94)
+        Me.DosageFormComboBox.Location = New System.Drawing.Point(298, 151)
         Me.DosageFormComboBox.Name = "DosageFormComboBox"
         Me.DosageFormComboBox.Size = New System.Drawing.Size(200, 36)
         Me.DosageFormComboBox.TabIndex = 28
@@ -168,7 +198,7 @@ Partial Class ProductDialog
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(372, 191)
+        Me.Label12.Location = New System.Drawing.Point(364, 248)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(71, 13)
         Me.Label12.TabIndex = 27
@@ -177,7 +207,7 @@ Partial Class ProductDialog
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(286, 192)
+        Me.Label11.Location = New System.Drawing.Point(278, 249)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(47, 13)
         Me.Label11.TabIndex = 26
@@ -186,16 +216,16 @@ Partial Class ProductDialog
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(286, 136)
+        Me.Label10.Location = New System.Drawing.Point(278, 193)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(64, 13)
+        Me.Label10.Size = New System.Drawing.Size(67, 13)
         Me.Label10.TabIndex = 25
-        Me.Label10.Text = "Stock Level"
+        Me.Label10.Text = "Critical Level"
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(286, 18)
+        Me.Label7.Location = New System.Drawing.Point(278, 75)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(70, 13)
         Me.Label7.TabIndex = 22
@@ -204,7 +234,7 @@ Partial Class ProductDialog
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(280, 76)
+        Me.Label6.Location = New System.Drawing.Point(272, 133)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(70, 13)
         Me.Label6.TabIndex = 21
@@ -249,7 +279,7 @@ Partial Class ProductDialog
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(36, 18)
+        Me.Label1.Location = New System.Drawing.Point(277, 19)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(71, 13)
         Me.Label1.TabIndex = 16
@@ -267,7 +297,7 @@ Partial Class ProductDialog
         Me.DoseComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.DoseComboBox.ForeColor = System.Drawing.Color.Black
         Me.DoseComboBox.ItemHeight = 30
-        Me.DoseComboBox.Location = New System.Drawing.Point(391, 208)
+        Me.DoseComboBox.Location = New System.Drawing.Point(383, 265)
         Me.DoseComboBox.Name = "DoseComboBox"
         Me.DoseComboBox.Size = New System.Drawing.Size(115, 36)
         Me.DoseComboBox.TabIndex = 15
@@ -286,7 +316,7 @@ Partial Class ProductDialog
         Me.ManufacturerTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.ManufacturerTextBox.ForeColor = System.Drawing.Color.Black
         Me.ManufacturerTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ManufacturerTextBox.Location = New System.Drawing.Point(306, 34)
+        Me.ManufacturerTextBox.Location = New System.Drawing.Point(298, 91)
         Me.ManufacturerTextBox.MaxLength = 15
         Me.ManufacturerTextBox.Name = "ManufacturerTextBox"
         Me.ManufacturerTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -310,7 +340,7 @@ Partial Class ProductDialog
         Me.StrengthTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.StrengthTextBox.ForeColor = System.Drawing.Color.Black
         Me.StrengthTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.StrengthTextBox.Location = New System.Drawing.Point(306, 208)
+        Me.StrengthTextBox.Location = New System.Drawing.Point(298, 265)
         Me.StrengthTextBox.MaxLength = 4
         Me.StrengthTextBox.Name = "StrengthTextBox"
         Me.StrengthTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -356,7 +386,7 @@ Partial Class ProductDialog
         Me.SubCategoryComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.SubCategoryComboBox.ForeColor = System.Drawing.Color.Black
         Me.SubCategoryComboBox.ItemHeight = 30
-        Me.SubCategoryComboBox.Location = New System.Drawing.Point(64, 34)
+        Me.SubCategoryComboBox.Location = New System.Drawing.Point(299, 35)
         Me.SubCategoryComboBox.Name = "SubCategoryComboBox"
         Me.SubCategoryComboBox.Size = New System.Drawing.Size(200, 36)
         Me.SubCategoryComboBox.TabIndex = 9
@@ -375,7 +405,7 @@ Partial Class ProductDialog
         Me.StockLevelTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.StockLevelTextBox.ForeColor = System.Drawing.Color.Black
         Me.StockLevelTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.StockLevelTextBox.Location = New System.Drawing.Point(306, 152)
+        Me.StockLevelTextBox.Location = New System.Drawing.Point(298, 209)
         Me.StockLevelTextBox.MaxLength = 3
         Me.StockLevelTextBox.Name = "StockLevelTextBox"
         Me.StockLevelTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -504,4 +534,6 @@ Partial Class ProductDialog
     Friend WithEvents Label12 As Label
     Friend WithEvents Guna2AnimateWindow1 As Guna.UI2.WinForms.Guna2AnimateWindow
     Friend WithEvents DosageFormComboBox As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents CategoryComboBox As Guna.UI2.WinForms.Guna2ComboBox
 End Class

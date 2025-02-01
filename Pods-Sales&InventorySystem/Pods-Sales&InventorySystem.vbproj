@@ -214,12 +214,6 @@
     <Compile Include="Dialogs\DosageFormDialog.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\NonMedicalDialog.Designer.vb">
-      <DependentUpon>NonMedicalDialog.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\NonMedicalDialog.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Dialogs\PasswordDialog.Designer.vb">
       <DependentUpon>PasswordDialog.vb</DependentUpon>
     </Compile>
@@ -320,12 +314,6 @@
       <DependentUpon>Server.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms\Server.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Modal\Dialog1.Designer.vb">
-      <DependentUpon>Dialog1.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Modal\Dialog1.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -634,9 +622,6 @@
     <EmbeddedResource Include="Dialogs\DosageFormDialog.resx">
       <DependentUpon>DosageFormDialog.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\NonMedicalDialog.resx">
-      <DependentUpon>NonMedicalDialog.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\PasswordDialog.resx">
       <DependentUpon>PasswordDialog.vb</DependentUpon>
     </EmbeddedResource>
@@ -687,9 +672,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Server.resx">
       <DependentUpon>Server.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Modal\Dialog1.resx">
-      <DependentUpon>Dialog1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

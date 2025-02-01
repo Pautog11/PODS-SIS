@@ -43,10 +43,6 @@ Partial Class DeliveryCartDialog
         Me.TransactionDeliveryTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2HtmlLabel2 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.grandtotal = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.Guna2HtmlLabel7 = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.Guna2HtmlLabel4 = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.Guna2HtmlLabel5 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Guna2HtmlLabel3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.TotalPrice = New Guna.UI2.WinForms.Guna2HtmlLabel()
@@ -54,7 +50,6 @@ Partial Class DeliveryCartDialog
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
         Me.SaveButton = New Guna.UI2.WinForms.Guna2Button()
         Me.PulloutButton = New Guna.UI2.WinForms.Guna2Button()
-        Me.AddDectionButton = New Guna.UI2.WinForms.Guna2Button()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.DeliveryDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.AccountHeaderLayoutPanel.SuspendLayout()
@@ -302,10 +297,6 @@ Partial Class DeliveryCartDialog
         '
         'Guna2Panel1
         '
-        Me.Guna2Panel1.Controls.Add(Me.grandtotal)
-        Me.Guna2Panel1.Controls.Add(Me.Guna2HtmlLabel7)
-        Me.Guna2Panel1.Controls.Add(Me.Guna2HtmlLabel4)
-        Me.Guna2Panel1.Controls.Add(Me.Guna2HtmlLabel5)
         Me.Guna2Panel1.Controls.Add(Me.Guna2HtmlLabel3)
         Me.Guna2Panel1.Controls.Add(Me.DateTimePicker1)
         Me.Guna2Panel1.Controls.Add(Me.TotalPrice)
@@ -315,42 +306,6 @@ Partial Class DeliveryCartDialog
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.Size = New System.Drawing.Size(961, 44)
         Me.Guna2Panel1.TabIndex = 6
-        '
-        'grandtotal
-        '
-        Me.grandtotal.BackColor = System.Drawing.Color.Transparent
-        Me.grandtotal.Location = New System.Drawing.Point(309, 14)
-        Me.grandtotal.Name = "grandtotal"
-        Me.grandtotal.Size = New System.Drawing.Size(9, 15)
-        Me.grandtotal.TabIndex = 8
-        Me.grandtotal.Text = "0"
-        '
-        'Guna2HtmlLabel7
-        '
-        Me.Guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2HtmlLabel7.Location = New System.Drawing.Point(237, 14)
-        Me.Guna2HtmlLabel7.Name = "Guna2HtmlLabel7"
-        Me.Guna2HtmlLabel7.Size = New System.Drawing.Size(59, 15)
-        Me.Guna2HtmlLabel7.TabIndex = 7
-        Me.Guna2HtmlLabel7.Text = "Grand Total"
-        '
-        'Guna2HtmlLabel4
-        '
-        Me.Guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2HtmlLabel4.Location = New System.Drawing.Point(200, 14)
-        Me.Guna2HtmlLabel4.Name = "Guna2HtmlLabel4"
-        Me.Guna2HtmlLabel4.Size = New System.Drawing.Size(9, 15)
-        Me.Guna2HtmlLabel4.TabIndex = 6
-        Me.Guna2HtmlLabel4.Text = "0"
-        '
-        'Guna2HtmlLabel5
-        '
-        Me.Guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2HtmlLabel5.Location = New System.Drawing.Point(123, 14)
-        Me.Guna2HtmlLabel5.Name = "Guna2HtmlLabel5"
-        Me.Guna2HtmlLabel5.Size = New System.Drawing.Size(61, 15)
-        Me.Guna2HtmlLabel5.TabIndex = 5
-        Me.Guna2HtmlLabel5.Text = "Total pullout"
         '
         'Guna2HtmlLabel3
         '
@@ -390,7 +345,6 @@ Partial Class DeliveryCartDialog
         '
         Me.FlowLayoutPanel2.Controls.Add(Me.SaveButton)
         Me.FlowLayoutPanel2.Controls.Add(Me.PulloutButton)
-        Me.FlowLayoutPanel2.Controls.Add(Me.AddDectionButton)
         Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
         Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 492)
@@ -436,25 +390,6 @@ Partial Class DeliveryCartDialog
         Me.PulloutButton.Size = New System.Drawing.Size(150, 35)
         Me.PulloutButton.TabIndex = 7
         Me.PulloutButton.Text = "Pull out"
-        '
-        'AddDectionButton
-        '
-        Me.AddDectionButton.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.AddDectionButton.BackColor = System.Drawing.Color.Transparent
-        Me.AddDectionButton.BorderRadius = 15
-        Me.AddDectionButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.AddDectionButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.AddDectionButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.AddDectionButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.AddDectionButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.AddDectionButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.AddDectionButton.ForeColor = System.Drawing.Color.White
-        Me.AddDectionButton.Location = New System.Drawing.Point(502, 7)
-        Me.AddDectionButton.Margin = New System.Windows.Forms.Padding(3, 7, 3, 3)
-        Me.AddDectionButton.Name = "AddDectionButton"
-        Me.AddDectionButton.Size = New System.Drawing.Size(150, 35)
-        Me.AddDectionButton.TabIndex = 8
-        Me.AddDectionButton.Text = "Add Deduction"
         '
         'DeliveryCartDialog
         '
@@ -508,9 +443,4 @@ Partial Class DeliveryCartDialog
     Friend WithEvents quantity As DataGridViewTextBoxColumn
     Friend WithEvents total As DataGridViewTextBoxColumn
     Friend WithEvents Guna2HtmlLabel3 As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents Guna2HtmlLabel4 As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents Guna2HtmlLabel5 As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents AddDectionButton As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents grandtotal As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents Guna2HtmlLabel7 As Guna.UI2.WinForms.Guna2HtmlLabel
 End Class

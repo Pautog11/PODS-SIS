@@ -74,7 +74,6 @@ Partial Class Login
         '
         Me.Guna2ImageButton1.BackColor = System.Drawing.Color.Transparent
         Me.Guna2ImageButton1.CheckedState.ImageSize = New System.Drawing.Size(64, 64)
-        Me.Guna2ImageButton1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Guna2ImageButton1.HoverState.ImageSize = New System.Drawing.Size(450, 120)
         Me.Guna2ImageButton1.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.icon_pods
         Me.Guna2ImageButton1.ImageOffset = New System.Drawing.Point(0, 0)
@@ -84,7 +83,7 @@ Partial Class Login
         Me.Guna2ImageButton1.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2ImageButton1.Name = "Guna2ImageButton1"
         Me.Guna2ImageButton1.PressedState.ImageSize = New System.Drawing.Size(450, 120)
-        Me.Guna2ImageButton1.Size = New System.Drawing.Size(488, 409)
+        Me.Guna2ImageButton1.Size = New System.Drawing.Size(488, 297)
         Me.Guna2ImageButton1.TabIndex = 4
         '
         'Guna2Panel1

@@ -75,7 +75,7 @@ Public Class DeliveryCartDialog
                 total += DeliveryDataGridView.Rows(i).Cells("TOTAL").Value
             Next
             TotalPrice.Text = total
-            grandtotal.Text = total
+            'grandtotal.Text = total
         Catch ex As Exception
 
         End Try
@@ -90,7 +90,7 @@ Public Class DeliveryCartDialog
         Try
             Dim controls As Object() = {
                  TransactionDeliveryTextBox, SupplierNameComboBox
-             }
+            }
 
             Dim types As DataInput() = {
                 DataInput.STRING_STRING, DataInput.STRING_NAME
@@ -114,18 +114,16 @@ Public Class DeliveryCartDialog
                 }
 
                 For Each row As DataGridViewRow In DeliveryDataGridView.Rows
-                    Dim exdValue As String = row.Cells(2).Value?.ToString()
-                    If exdValue = "N/A" Then
-                        exdValue = Nothing
-                    End If
+                    'Dim exdValue As String = row.Cells(2).Value?.ToString()
+                    'If exdValue = "N/A" Then
+                    '    exdValue = Nothing
+                    'End If
 
                     Dim item As New Dictionary(Of String, String) From {
-                        {"product_id", row.Cells(0).Value},
-                        {"exd", exdValue},
+                        {"product_id", row.Cells(0).Value}, '{"exd", exdValue},
                         {"price", If(row.Cells(3).Value?.ToString(), "0")},
-                        {"quantity", If(row.Cells(5).Value?.ToString(), "0")},
-                        {"total", If(row.Cells(6).Value?.ToString(), "0")},
-                        {"cost_price", If(row.Cells(4).Value?.ToString(), "0")}
+                        {"cost_price", If(row.Cells(4).Value?.ToString(), "0")},
+                        {"quantity", If(row.Cells(5).Value?.ToString(), "0")}
                     }
                     items.Add(item)
                 Next
@@ -148,16 +146,6 @@ Public Class DeliveryCartDialog
 
         End Try
     End Sub
-
-    'Private Sub DeliveryDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DeliveryDataGridView.CellClick
-    '    If _data IsNot Nothing Then
-    '        MsgBox("clicked!")
-    '    End If
-    ' End Sub
-
-    'Private Sub SupplierNameComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles SupplierNameComboBox.SelectionChangeCommitted
-    '    MsgBox(SupplierNameComboBox.SelectedItem("ID"))
-    'End Sub
 
     Private Sub PulloutButton_Click(sender As Object, e As EventArgs) Handles PulloutButton.Click
         Dim dialog As New DeliveryPulloutCart(data:=_data, subject:=_subject, parent:=Me)
@@ -186,27 +174,4 @@ Public Class DeliveryCartDialog
         End Try
     End Sub
 
-    Private Sub AddDectionButton_Click(sender As Object, e As EventArgs) Handles AddDectionButton.Click
-        'MsgBox(SupplierNameComboBox.SelectedItem("id"))
-        Try
-            If SupplierNameComboBox.Text = "" Then
-                MessageBox.Show("No selected supplier!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Else
-                Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-                Dim cmd As New SqlCommand("select SUM(b.total) as total, a.supplier_id as supplier
-                                            from tbldeliverypullouts b
-                                            join tbldeliveries a on a.id = b.delivery_id
-                                            where a.supplier_id = @data
-                                            group by b.total, a.supplier_id", conn)
-                cmd.Parameters.AddWithValue("@data", SupplierNameComboBox.SelectedItem("id"))
-                Guna2HtmlLabel4.Text = cmd.ExecuteScalar
-            End If
-        Catch ex As Exception
-
-        End Try
-    End Sub
-
-    Private Sub SupplierNameComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles SupplierNameComboBox.SelectionChangeCommitted
-        Guna2HtmlLabel4.Text = 0
-    End Sub
 End Class

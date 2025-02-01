@@ -184,7 +184,7 @@ Public Class BaseTransaction
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT p.id as id, subcategory_id, sku, product_name, p.price as price, p.cost as cost, p.quantity FROM tblproducts p 
+            cmd = New SqlCommand("SELECT p.id as id, subcategory_id, sku, product_name FROM tblproducts p 
                                   LEFT JOIN tbldeliveries_items di ON p.id = di.product_id WHERE barcode = @barcode", conn)
             cmd.Parameters.AddWithValue("@barcode", barcode)
             Dim dTable As New DataTable

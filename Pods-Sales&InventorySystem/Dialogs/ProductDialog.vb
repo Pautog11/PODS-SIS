@@ -59,7 +59,7 @@ Public Class ProductDialog
 
                 'Guna2ComboBox1.Text =
 
-                'SkuTextBox.Text = _data.Item("sku")
+                SkuTextBox.Text = _data.Item("sku")
                 BarcodeTextBox.Text = _data.Item("barcode")
                 ProductNameTextBox.Text = _data.Item("product_name")
                 DescriptionTextBox.Text = _data.Item("description")
@@ -75,9 +75,9 @@ Public Class ProductDialog
                     ManufacturerTextBox.Text = If(row("manufacturer") Is DBNull.Value, String.Empty, row("manufacturer").ToString())
                     DoseComboBox.Text = BaseProduct.DoseName(If(row("dose") Is DBNull.Value, String.Empty, row("dose").ToString()))
                 End If
-                DeleteProductButton.Visible = False
+                'DeleteProductButton.Visible = False
             Else
-                DeleteProductButton.Visible = False
+                'DeleteProductButton.Visible = False
             End If
         Catch ex As Exception
 
@@ -93,21 +93,21 @@ Public Class ProductDialog
                  DataInput.STRING_STRING, DataInput.STRING_INTEGER, DataInput.STRING_NAME, DataInput.STRING_INTEGER, DataInput.STRING_STRING, DataInput.STRING_INTEGER, DataInput.STRING_STRING, DataInput.STRING_NAME
             }
             Dim result As New List(Of Object())
-            For i = 0 To controls.Count - 1
-                result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
-                If Not CType(result(i), Object())(0) AndAlso Not String.IsNullOrEmpty(controls(i).Text) Then
-                    Exit Sub
-                End If
-            Next
+            'For i = 0 To controls.Count - 1
+            '    result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
+            '    If Not CType(result(i), Object())(0) AndAlso Not String.IsNullOrEmpty(controls(i).Text) Then
+            '        Exit Sub
+            '    End If
+            'Next
 
-            Dim inputValue As Integer
-            ' Check if the input is a valid integer and if it exceeds 500
-            If Integer.TryParse(StockLevelTextBox.Text, inputValue) Then
-                If inputValue > 500 Then
-                    MessageBox.Show("Should not greater than 500!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                    Exit Sub
-                End If
-            End If
+            'Dim inputValue As Integer
+            '' Check if the input is a valid integer and if it exceeds 500
+            'If Integer.TryParse(StockLevelTextBox.Text, inputValue) Then
+            '    If inputValue > 500 Then
+            '        MessageBox.Show("Should not greater than 500!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            '        Exit Sub
+            '    End If
+            'End If
 
             If Not result.Any(Function(item As Object()) Not item(0)) Then
                 Dim data As New Dictionary(Of String, String) From {
@@ -116,36 +116,33 @@ Public Class ProductDialog
                     {"barcode", result(1)(1)},
                     {"product_name", result(2)(1)},
                     {"description", If(String.IsNullOrEmpty(DescriptionTextBox.Text), "", DescriptionTextBox.Text)},' result(3)(1)},   'If(String.IsNullOrEmpty(ProductDescriptionTextBox.Text), "", ProductDescriptionTextBox.Text)}
-                    {"product_price", 0},'If(String.IsNullOrEmpty(PriceTextBox.Text), "", PriceTextBox.Text)},
-                    {"product_cost", 0},'If(String.IsNullOrEmpty(CostTextBox.Text), "", CostTextBox.Text)},
                     {"stock_level", result(3)(1)}
                 }
 
-                Dim putangina As Boolean = False
-                Dim item As New Dictionary(Of String, String)
+                'Dim putangina As Boolean = False
+                'Dim item As New Dictionary(Of String, String)
 
-                If Not String.IsNullOrEmpty(DosageFormComboBox.Text) AndAlso Not String.IsNullOrEmpty(StrengthTextBox.Text) AndAlso Not String.IsNullOrEmpty(ManufacturerTextBox.Text) Then
-                    item("dosage") = result(4)(1) 'If(String.IsNullOrEmpty(DosageTextBox.Text), Nothing, DosageTextBox.Text)
-                    item("strength") = result(5)(1)
-                    item("dose") = DoseComboBox.SelectedItem("id")
-                    item("manufacturer") = result(7)(1) 'If(String.IsNullOrEmpty(ManufacturerTextBox.Text), Nothing, ManufacturerTextBox.Text)
-                End If
-
-
+                'If Not String.IsNullOrEmpty(DosageFormComboBox.Text) AndAlso Not String.IsNullOrEmpty(StrengthTextBox.Text) AndAlso Not String.IsNullOrEmpty(ManufacturerTextBox.Text) Then
+                '    item("dosage") = result(4)(1) 'If(String.IsNullOrEmpty(DosageTextBox.Text), Nothing, DosageTextBox.Text)
+                '    item("strength") = result(5)(1)
+                '    item("dose") = DoseComboBox.SelectedItem("id")
+                '    item("manufacturer") = result(7)(1) 'If(String.IsNullOrEmpty(ManufacturerTextBox.Text), Nothing, ManufacturerTextBox.Text)
+                'End If
 
                 Dim baseCommand As BaseProduct '(data) 'With {.Items = item}
-                baseCommand = New BaseProduct(data) With {.Items = item}
+                'baseCommand = New BaseProduct(data) With {.Items = item}
+                baseCommand = New BaseProduct(data)
                 Dim invoker As ICommandInvoker = Nothing
                 If BaseProduct.Exists(result(3)(1)) = 0 AndAlso BaseProduct.BarcodeExists(result(2)(1)) = 0 AndAlso _data Is Nothing Then
                     invoker = New AddCommand(baseCommand)
                     invoker?.Execute()
                     _subject.NotifyObserver()
                     Me.Close()
-                ElseIf _data IsNot Nothing Then
-                    invoker = New UpdateCommand(baseCommand)
-                    invoker?.Execute()
-                    _subject.NotifyObserver()
-                    Me.Close()
+                    'ElseIf _data IsNot Nothing Then
+                    '    invoker = New UpdateCommand(baseCommand)
+                    '    invoker?.Execute()
+                    '    _subject.NotifyObserver()
+                    '    Me.Close()
                 Else
                     MessageBox.Show("Product exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 End If
@@ -166,19 +163,4 @@ Public Class ProductDialog
         _subject.NotifyObserver()
         Me.Close()
     End Sub
-
-    'Private Sub Guna2ComboBox1_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles Guna2ComboBox1.SelectionChangeCommitted
-    '    Try
-    '        Dim dt As DataTable = BaseSubCategory.Subcategory(Guna2ComboBox1.SelectedItem("id"))
-    '        SubCategoryComboBox.DataSource = dt.DefaultView
-    '        SubCategoryComboBox.DisplayMember = "subcategory"
-    '        SubCategoryComboBox.SelectedItem = "id"
-    '        If dt.Rows.Count > 0 Then
-    '            SubCategoryComboBox.SelectedIndex = -1
-    '        End If
-    '        SubCategoryComboBox.Enabled = True
-    '    Catch ex As Exception
-
-    '    End Try
-    'End Sub
 End Class

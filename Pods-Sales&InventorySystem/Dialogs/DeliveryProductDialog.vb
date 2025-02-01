@@ -45,9 +45,9 @@ Public Class DeliveryProductDialog
             End If
             DateTimePicker.MinDate = DateTime.Today.AddMonths(6)
             'SkuComboBox1.Enabled = False
-            ProductTextBox.Enabled = False
-            CostTextBox.Enabled = False
-            txtPrays.Enabled = False
+            'ProductTextBox.Enabled = False
+            'CostTextBox.Enabled = False
+            'txtPrays.Enabled = False
         Catch ex As Exception
 
         End Try
@@ -168,8 +168,8 @@ Public Class DeliveryProductDialog
                     Dim dt As DataTable = BaseTransaction.SelectProductsByBarcode(BarcodeTextBox.Text)
                     If BarcodeTextBox.Text.Length <= 13 AndAlso dt.Rows.Count > 0 Then
                         id = dt.Rows(0).Item("id").ToString()
-                        CostTextBox.Text = dt.Rows(0).Item("cost").ToString()
-                        txtPrays.Text = dt.Rows(0).Item("price").ToString()
+                        'CostTextBox.Text = dt.Rows(0).Item("cost").ToString()
+                        'txtPrays.Text = dt.Rows(0).Item("price").ToString()
                         'SkuComboBox1.SelectedItem = dt.Rows(0).Item("sku").ToString()
                         ProductTextBox.Text = dt.Rows(0).Item("product_name").ToString()
 
@@ -194,7 +194,7 @@ Public Class DeliveryProductDialog
                 End If
             End If
         Catch ex As Exception
-
+            MsgBox(ex.Message)
         End Try
     End Sub
 

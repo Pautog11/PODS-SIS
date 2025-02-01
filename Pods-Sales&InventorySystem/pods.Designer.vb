@@ -5972,6 +5972,8 @@ Partial Public Class pods
         
         Private columnID As Global.System.Data.DataColumn
         
+        Private columnCATEGORY As Global.System.Data.DataColumn
+        
         Private columnSUBCATEGORY As Global.System.Data.DataColumn
         
         Private columnSKU As Global.System.Data.DataColumn
@@ -5981,8 +5983,6 @@ Partial Public Class pods
         Private columnPRODUCT As Global.System.Data.DataColumn
         
         Private columnDESCRIPTION As Global.System.Data.DataColumn
-        
-        Private columnQUANTITY As Global.System.Data.DataColumn
         
         Private columnCRITICAL_LEVEL As Global.System.Data.DataColumn
         
@@ -6031,6 +6031,14 @@ Partial Public Class pods
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property CATEGORYColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnCATEGORY
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public ReadOnly Property SUBCATEGORYColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnSUBCATEGORY
@@ -6066,14 +6074,6 @@ Partial Public Class pods
         Public ReadOnly Property DESCRIPTIONColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnDESCRIPTION
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property QUANTITYColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnQUANTITY
             End Get
         End Property
         
@@ -6122,9 +6122,9 @@ Partial Public Class pods
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddviewtblproductsRow(ByVal ID As Integer, ByVal SUBCATEGORY As String, ByVal SKU As String, ByVal BARCODE As String, ByVal PRODUCT As String, ByVal DESCRIPTION As String, ByVal QUANTITY As Integer, ByVal CRITICAL_LEVEL As Integer) As viewtblproductsRow
+        Public Overloads Function AddviewtblproductsRow(ByVal ID As Integer, ByVal CATEGORY As String, ByVal SUBCATEGORY As String, ByVal SKU As String, ByVal BARCODE As String, ByVal PRODUCT As String, ByVal DESCRIPTION As String, ByVal CRITICAL_LEVEL As Integer) As viewtblproductsRow
             Dim rowviewtblproductsRow As viewtblproductsRow = CType(Me.NewRow,viewtblproductsRow)
-            Dim columnValuesArray() As Object = New Object() {ID, SUBCATEGORY, SKU, BARCODE, PRODUCT, DESCRIPTION, QUANTITY, CRITICAL_LEVEL}
+            Dim columnValuesArray() As Object = New Object() {ID, CATEGORY, SUBCATEGORY, SKU, BARCODE, PRODUCT, DESCRIPTION, CRITICAL_LEVEL}
             rowviewtblproductsRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowviewtblproductsRow)
             Return rowviewtblproductsRow
@@ -6154,12 +6154,12 @@ Partial Public Class pods
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub InitVars()
             Me.columnID = MyBase.Columns("ID")
+            Me.columnCATEGORY = MyBase.Columns("CATEGORY")
             Me.columnSUBCATEGORY = MyBase.Columns("SUBCATEGORY")
             Me.columnSKU = MyBase.Columns("SKU")
             Me.columnBARCODE = MyBase.Columns("BARCODE")
             Me.columnPRODUCT = MyBase.Columns("PRODUCT")
             Me.columnDESCRIPTION = MyBase.Columns("DESCRIPTION")
-            Me.columnQUANTITY = MyBase.Columns("QUANTITY")
             Me.columnCRITICAL_LEVEL = MyBase.Columns("CRITICAL LEVEL")
         End Sub
         
@@ -6168,6 +6168,8 @@ Partial Public Class pods
         Private Sub InitClass()
             Me.columnID = New Global.System.Data.DataColumn("ID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnID)
+            Me.columnCATEGORY = New Global.System.Data.DataColumn("CATEGORY", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCATEGORY)
             Me.columnSUBCATEGORY = New Global.System.Data.DataColumn("SUBCATEGORY", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnSUBCATEGORY)
             Me.columnSKU = New Global.System.Data.DataColumn("SKU", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -6178,13 +6180,12 @@ Partial Public Class pods
             MyBase.Columns.Add(Me.columnPRODUCT)
             Me.columnDESCRIPTION = New Global.System.Data.DataColumn("DESCRIPTION", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDESCRIPTION)
-            Me.columnQUANTITY = New Global.System.Data.DataColumn("QUANTITY", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnQUANTITY)
             Me.columnCRITICAL_LEVEL = New Global.System.Data.DataColumn("CRITICAL LEVEL", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCRITICAL_LEVEL)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
             Me.columnID.AllowDBNull = false
             Me.columnID.Unique = true
+            Me.columnCATEGORY.MaxLength = 50
             Me.columnSUBCATEGORY.AllowDBNull = false
             Me.columnSUBCATEGORY.MaxLength = 50
             Me.columnSKU.MaxLength = 50
@@ -6192,7 +6193,6 @@ Partial Public Class pods
             Me.columnPRODUCT.AllowDBNull = false
             Me.columnPRODUCT.MaxLength = 50
             Me.columnDESCRIPTION.MaxLength = 2147483647
-            Me.columnQUANTITY.AllowDBNull = false
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -8035,6 +8035,21 @@ Partial Public Class pods
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property CATEGORY() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableviewtblproducts.CATEGORYColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'CATEGORY' in table 'viewtblproducts' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableviewtblproducts.CATEGORYColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property SUBCATEGORY() As String
             Get
                 Return CType(Me(Me.tableviewtblproducts.SUBCATEGORYColumn),String)
@@ -8102,17 +8117,6 @@ Partial Public Class pods
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property QUANTITY() As Integer
-            Get
-                Return CType(Me(Me.tableviewtblproducts.QUANTITYColumn),Integer)
-            End Get
-            Set
-                Me(Me.tableviewtblproducts.QUANTITYColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property CRITICAL_LEVEL() As Integer
             Get
                 Try 
@@ -8125,6 +8129,18 @@ Partial Public Class pods
                 Me(Me.tableviewtblproducts.CRITICAL_LEVELColumn) = value
             End Set
         End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsCATEGORYNull() As Boolean
+            Return Me.IsNull(Me.tableviewtblproducts.CATEGORYColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetCATEGORYNull()
+            Me(Me.tableviewtblproducts.CATEGORYColumn) = Global.System.Convert.DBNull
+        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -11590,7 +11606,7 @@ Namespace podsTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = My.MySettings.Default.podsdbConnectionString1
+            Me._connection.ConnectionString = My.Settings.podsdbConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -11756,12 +11772,12 @@ Namespace podsTableAdapters
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "viewtblproducts"
             tableMapping.ColumnMappings.Add("ID", "ID")
+            tableMapping.ColumnMappings.Add("CATEGORY", "CATEGORY")
             tableMapping.ColumnMappings.Add("SUBCATEGORY", "SUBCATEGORY")
             tableMapping.ColumnMappings.Add("SKU", "SKU")
             tableMapping.ColumnMappings.Add("BARCODE", "BARCODE")
             tableMapping.ColumnMappings.Add("PRODUCT", "PRODUCT")
             tableMapping.ColumnMappings.Add("DESCRIPTION", "DESCRIPTION")
-            tableMapping.ColumnMappings.Add("QUANTITY", "QUANTITY")
             tableMapping.ColumnMappings.Add("CRITICAL LEVEL", "CRITICAL LEVEL")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
@@ -11779,7 +11795,7 @@ Namespace podsTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ID, SUBCATEGORY, SKU, BARCODE, PRODUCT, DESCRIPTION, QUANTITY, [CRITICAL L"& _ 
+            Me._commandCollection(0).CommandText = "SELECT ID, CATEGORY, SUBCATEGORY, SKU, BARCODE, PRODUCT, DESCRIPTION, [CRITICAL L"& _ 
                 "EVEL] FROM dbo.viewtblproducts"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
