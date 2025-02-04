@@ -178,10 +178,10 @@
     <Compile Include="Dialogs\DeliveryCartDialog.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\DeliveryProductDialog.Designer.vb">
+    <Compile Include="Sub Dialogs\DeliveryProductDialog.Designer.vb">
       <DependentUpon>DeliveryProductDialog.vb</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\DeliveryProductDialog.vb">
+    <Compile Include="Sub Dialogs\DeliveryProductDialog.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialogs\DeliveryPulloutCart.Designer.vb">
@@ -604,7 +604,7 @@
     <EmbeddedResource Include="Dialogs\DeliveryCartDialog.resx">
       <DependentUpon>DeliveryCartDialog.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\DeliveryProductDialog.resx">
+    <EmbeddedResource Include="Sub Dialogs\DeliveryProductDialog.resx">
       <DependentUpon>DeliveryProductDialog.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\DeliveryPulloutCart.resx">

@@ -4,20 +4,20 @@
     Private ReadOnly _tableAapter As New podsTableAdapters.viewtblproductsTableAdapter
     Private _dataTable As New pods.viewtblproductsDataTable
     Private Sub Product_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Try
-            _subject = Application.OpenForms.OfType(Of Dashboard).FirstOrDefault
-            _subject?.RegisterObserver(Me)
-            _subject?.NotifyObserver()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Observer Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
+        'Try
+        '    _subject = Application.OpenForms.OfType(Of Dashboard).FirstOrDefault
+        '    _subject?.RegisterObserver(Me)
+        '    _subject?.NotifyObserver()
+        'Catch ex As Exception
+        '    MessageBox.Show(ex.Message, "Observer Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        'End Try
     End Sub
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
         _tableAapter.Fill(_dataTable)
-        'ProductsDataGridView.DataSource = _dataTable
-        'ProductsDataGridView.Columns.Item("ID").Visible = False
-        'ProductsDataGridView.Columns.Item("SKU").Visible = False
-        'ProductsDataGridView.Columns.Item("DESCRIPTION").Visible = False
+        ProductsDataGridView.DataSource = _dataTable
+        ProductsDataGridView.Columns.Item("ID").Visible = False
+        ProductsDataGridView.Columns.Item("SKU").Visible = False
+        ProductsDataGridView.Columns.Item("DESCRIPTION").Visible = False
     End Sub
     Private Sub AddProductButton_Click(sender As Object, e As EventArgs) Handles AddProductButton.Click
         ''Dim result As DialogResult

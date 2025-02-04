@@ -37,27 +37,20 @@ Public Class DeliveryCartDialog
                 TransactionDeliveryTextBox.Enabled = False
                 TransactionDeliveryTextBox.Text = _data("delivery_number")
 
-                'Populate items 
-                DeliveryDataGridView.Rows.Clear()
+                'DeliveryDataGridView.Rows.Clear()
                 Dim DeliveryItems As DataTable = BaseDelivery.SelectAllDeliveryItems(_data("id"))
                 For Each row As DataRow In DeliveryItems.Rows
-                    Dim rowData As New List(Of Object)()
+                    Dim data As New List(Of Object)()
                     For Each column As DataColumn In DeliveryItems.Columns
-                        If column.ColumnName = "exd" Then
-                            If row(column) IsNot DBNull.Value Then
-                                Dim dateValue As Date = Convert.ToDateTime(row(column))
-                                rowData.Add(dateValue.ToString("yyyy-MM-dd"))
-                            Else
-                                rowData.Add("N/A")
-                            End If
+                        If row(column) IsNot DBNull.Value AndAlso TypeOf row(column) Is DateTime Then
+                            data.Add(CType(row(column), DateTime).ToString("yyyy-MM-dd"))
                         Else
-                            rowData.Add(row(column))
+                            data.Add(row(column))
                         End If
                     Next
-                    DeliveryDataGridView.Rows.Add(rowData.ToArray())
+                    DeliveryDataGridView.Rows.Add(data.ToArray())
                 Next
-                'Clear any existing rows first to prevent duplication
-                'MsgBox(DeliveryItems.Rows.Count)
+                'DataGridView1.DataSource = DeliveryItems.ToString
             Else
                 PulloutButton.Visible = False
                 DateTimePicker1.MaxDate = DateTime.Now
@@ -109,21 +102,20 @@ Public Class DeliveryCartDialog
                     {"id", If(_data?.Item("id"), String.Empty)},
                     {"delivery_number", result(0)(1)},
                     {"supplier_id", If(DirectCast(SupplierNameComboBox.SelectedItem, DataRowView)("id"), String.Empty)},
-                    {"total", TotalPrice.Text},
+                    {"total", If(String.IsNullOrEmpty(TotalPrice.Text) OrElse TotalPrice.Text = "", 0, TotalPrice.Text)},
                     {"date", DateTimePicker1.Value.ToString("MMM dd yyyy")}
                 }
 
                 For Each row As DataGridViewRow In DeliveryDataGridView.Rows
-                    'Dim exdValue As String = row.Cells(2).Value?.ToString()
-                    'If exdValue = "N/A" Then
-                    '    exdValue = Nothing
-                    'End If
 
                     Dim item As New Dictionary(Of String, String) From {
                         {"product_id", row.Cells(0).Value}, '{"exd", exdValue},
                         {"price", If(row.Cells(3).Value?.ToString(), "0")},
                         {"cost_price", If(row.Cells(4).Value?.ToString(), "0")},
-                        {"quantity", If(row.Cells(5).Value?.ToString(), "0")}
+                        {"quantity", If(row.Cells(5).Value?.ToString(), "0")},
+                        {"inventory_quantity", If(row.Cells(5).Value?.ToString(), "0")},
+                        {"batch_number", "123123"},
+                        {"expiration_date", "7-4-1999"}
                     }
                     items.Add(item)
                 Next
@@ -173,5 +165,4 @@ Public Class DeliveryCartDialog
 
         End Try
     End Sub
-
 End Class

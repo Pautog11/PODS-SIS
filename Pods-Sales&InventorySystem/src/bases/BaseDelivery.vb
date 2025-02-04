@@ -44,13 +44,15 @@ Public Class BaseDelivery
             For Each item In _item
                 If item IsNot Nothing AndAlso item.Count > 0 Then
                     ' Insert into tbldeliveries_items
-                    _sqlCommand = New SqlCommand("INSERT INTO tbldeliveries_items (delivery_id, product_id, price, cost_price, quantity, inventory_quantity) VALUES (@delivery_id, @product_id, @price, @cost_price, @quantity,  @inventory_quantity); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
+                    _sqlCommand = New SqlCommand("INSERT INTO tbldeliveries_items (delivery_id, product_id, price, cost_price, quantity, inventory_quantity, batch_number, expiration_date) VALUES (@delivery_id, @product_id, @price, @cost_price, @quantity,  @inventory_quantity, @batch_number, @expiration_date); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
                     _sqlCommand.Parameters.AddWithValue("@delivery_id", deliveryId)
                     _sqlCommand.Parameters.AddWithValue("@product_id", item("product_id"))
                     _sqlCommand.Parameters.AddWithValue("@price", item("price"))
                     _sqlCommand.Parameters.AddWithValue("@cost_price", item("cost_price"))
                     _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
                     _sqlCommand.Parameters.AddWithValue("@inventory_quantity", item("quantity"))
+                    _sqlCommand.Parameters.AddWithValue("@batch_number", item("batch_number"))
+                    _sqlCommand.Parameters.AddWithValue("@expiration_date", item("expiration_date"))
 
                     If _sqlCommand.ExecuteNonQuery() <= 0 Then
                         MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -64,44 +66,21 @@ Public Class BaseDelivery
             transaction.Rollback()
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End Try
-
     End Sub
 
     Public Shared Function SelectAllDeliveryItems(delivery_id As Integer) As DataTable
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            'cmd = New SqlCommand("SELECT id, product_id, price, quantity, total FROM tbldeliveries_items WHERE delivery_id = @delivery_id", conn)
-            'cmd = New SqlCommand("SELECT tbldeliveries_items.id, product_name, price, tbldeliveries_items.quantity, total 
-            '                      FROM tbldeliveries_items join tblproducts on tbldeliveries_items.product_id = tblproducts.id WHERE delivery_id = @delivery_id", conn)
-
-            '  cmd = New SqlCommand("SELECT tbldeliveries_items.id, 
-            '                               product_name,  
-            '                               ISNULL(mfd, NULL) AS mfd, 
-            '                               ISNULL(exd, NULL) AS exd, 
-            '                               price, 
-            '                               tbldeliveries_items.quantity, 
-            '                               total 
-            '                        FROM tbldeliveries_items 
-            'JOIN tblproducts on tbldeliveries_items.product_id = tblproducts.id 
-            'LEFT JOIN tblproduct_notif on  tbldeliveries_items.delivery_id = tblproduct_notif.delivery_id
-            'WHERE tbldeliveries_items.delivery_id = @delivery_id;", conn)
-
-            'cmd = New SqlCommand("SELECT tbldeliveries_items.id, product_name, ISNULL(mfd, NULL) AS mfd, ISNULL(exd, NULL) AS exd, price, tbldeliveries_items.quantity, total 
-            '                                FROM tbldeliveries_items join tblproducts ON tbldeliveries_items.product_id = tblproducts.id 
-            '                                LEFT JOIN tblproduct_notif ON tbldeliveries_items.delivery_id = tblproduct_notif.delivery_id AND tbldeliveries_items.product_id = tblproduct_notif.product_id
-            '                                WHERE tbldeliveries_items.delivery_id = @delivery_id;", conn)
-
-            'cmd = New SqlCommand("SELECT tbldeliveries_items.id, product_name, ISNULL(exd, NULL) AS exd, price, tbldeliveries_items.quantity, total 
-            '                                FROM tbldeliveries_items join tblproducts ON tbldeliveries_items.product_id = tblproducts.id 
-            '                                LEFT JOIN tblproduct_notif ON tbldeliveries_items.id = tblproduct_notif.product_info_id
-            '                                WHERE tbldeliveries_items.delivery_id = @delivery_id", conn)
-
-            cmd = New SqlCommand("SELECT tbldeliveries_items.id, product_name, ISNULL(exd, NULL) AS exd, tbldeliveries_items.price, tbldeliveries_items.cost_price, tbldeliveries_items.quantity, total 
-												FROM tbldeliveries_items 
-												JOIN tblproducts ON tbldeliveries_items.product_id = tblproducts.id 
-												LEFT JOIN tblproduct_notif ON tbldeliveries_items.id = tblproduct_notif.product_info_id
-												WHERE tbldeliveries_items.delivery_id =  @delivery_id", conn)
+            cmd = New SqlCommand("SELECT a.id, product_name, 
+                                               ISNULL(expiration_date, NULL) AS expiration, 
+                                               a.price, 
+                                               a.cost_price, 
+                                               a.quantity, 
+                                               a.cost_price * a.quantity as total
+                                        FROM tbldeliveries_items a
+                                        JOIN tblproducts ON a.product_id = tblproducts.id 
+                                        WHERE a.delivery_id = @delivery_id", conn)
             cmd.Parameters.AddWithValue("@delivery_id", delivery_id)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
@@ -112,22 +91,6 @@ Public Class BaseDelivery
             Return New DataTable
         End Try
     End Function
-
-    'Public Shared Function FillSkuByProduct(product_name As String) As DataTable
-    '    Try
-    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-    '        Dim cmd As SqlCommand
-    '        cmd = New SqlCommand("SELECT sku FROM tblproducts WHERE product_name = @product_name", conn)
-    '        cmd.Parameters.AddWithValue("@product_name", product_name)
-    '        Dim dTable As New DataTable
-    '        Dim adapter As New SqlDataAdapter(cmd)
-    '        adapter.Fill(dTable)
-    '        Return dTable
-    '    Catch ex As Exception
-    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-    '        Return New DataTable
-    '    End Try
-    'End Function
 
     Public Shared Function Exists(delivery_number As String) As Integer
         Try
@@ -141,19 +104,6 @@ Public Class BaseDelivery
             Return 0
         End Try
     End Function
-
-    'Public Shared Function Daterequired(product_id As Integer) As Integer
-    '    Try
-    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-    '        Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblproduct_info where product_id = @product_id", conn)
-    '        cmd.Parameters.AddWithValue("@product_id", product_id)
-
-    '        Return cmd.ExecuteScalar()
-    '    Catch ex As Exception
-    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-    '        Return 0
-    '    End Try
-    'End Function
 
     Public Shared Function FillPulloutProduct(delivery_id As Integer) As DataTable
         Try

@@ -20,10 +20,9 @@ Public Class DeliveryProductDialog
                 ProductTextBox.Text = _data.Item("name")
                 txtPrays.Text = _data.Item("sellingprice")
                 CostTextBox.Text = _data.Item("costprice")
-                'DateTimePicker.Value = _data.Item("date")
 
                 AddDeliveryButton.Text = "Update"
-                ChangeButton.Enabled = False
+
                 BarcodeTextBox.Enabled = False
                 SearchButton.Enabled = False
                 If BaseProduct.Disableexd(_data.Item("id").ToString()) = 1 Then
@@ -34,12 +33,12 @@ Public Class DeliveryProductDialog
                     id = _data.Item("id")
                 End If
 
-                For Each item As DataGridViewRow In _parent.DeliveryDataGridView.Rows
-                    If item.Cells("PRODUCT").Value.ToString() = ProductTextBox.Text Then
-                        ChangeButton.Enabled = False
-                        Exit For
-                    End If
-                Next
+                'For Each item As DataGridViewRow In _parent.DeliveryDataGridView.Rows
+                '    If item.Cells("PRODUCT").Value.ToString() = ProductTextBox.Text Then
+                '        ChangeButton.Enabled = False
+                '        Exit For
+                '    End If
+                'Next
             Else
                 VoidButton.Visible = False
             End If
@@ -57,47 +56,35 @@ Public Class DeliveryProductDialog
         Try
             If ProductTextBox.Text = "" Then
                 MessageBox.Show("No product selected!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Else
-                Dim controls As Object() = {
-                    QuantityTextBox
-                }
-                Dim types As DataInput() = {
-                    DataInput.STRING_INTEGER
-                }
-                Dim result As New List(Of Object())
-                For i = 0 To controls.Count - 1
-                    result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
-                Next
+                Exit Sub
+            End If
 
-                If Not result.Any(Function(item As Object()) Not item(0)) Then
-                    If Val(txtPrays.Text) = 0 AndAlso Val(CostTextBox.Text) = 0 OrElse ProductTextBox.Text = "" Then
-                        MessageBox.Show("Please set the selling price and cost price first!.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    Else
-                        Dim is_existing As Boolean = False
-                        Dim exd As Date = DateTimePicker.Value.Date
-                        For Each item As DataGridViewRow In _parent.DeliveryDataGridView.Rows
-                            If item.Cells("PRODUCT").Value.ToString() = ProductTextBox.Text AndAlso item.Cells("EXPIRY_DATE").Value = exd.ToString("yyyy-MM-dd") Then
-                                'item.Cells("MANUFACTURED_DATE").Value = MfdTextBox.Text
-                                If DateTimePicker.Enabled = True Then
-                                    item.Cells("EXPIRY_DATE").Value = exd.ToString("yyyy-MM-dd")
-                                Else
-                                    item.Cells("EXPIRY_DATE").Value = "N/A"
-                                End If
-                                'item.Cells("PRICE").Value = Decimal.Parse(txtPrays.Text)
-                                item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)
-                                item.Cells("TOTAL").Value = Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text)
-                                'item.Cells("COST PRICE").Value = Decimal.Parse(CostTextBox.Text)
-                                is_existing = True
-                                ' MessageBox.Show("Product exists.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                                'Me.Close()
-                                Exit For
-                            End If
-                        Next
-
-                        If Not is_existing Then
+            Dim result As New List(Of Object()) From {InputValidation.ValidateInputString(QuantityTextBox, DataInput.STRING_INTEGER)}
+            If Not result.Any(Function(item As Object()) Not item(0)) Then
+                If Val(txtPrays.Text) = 0 AndAlso Val(CostTextBox.Text) = 0 OrElse ProductTextBox.Text = "" Then
+                    MessageBox.Show("Please set the selling price and cost price first!.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Else
+                    Dim is_existing As Boolean = False
+                    Dim exd As Date = DateTimePicker.Value.Date
+                    For Each item As DataGridViewRow In _parent.DeliveryDataGridView.Rows
+                        If item.Cells("PRODUCT").Value.ToString() = ProductTextBox.Text AndAlso item.Cells("EXPIRY_DATE").Value = exd.ToString("yyyy-MM-dd") Then
+                            'item.Cells("MANUFACTURED_DATE").Value = MfdTextBox.Text
                             If DateTimePicker.Enabled = True Then
-                                If DateTimePicker.Value >= Date.Today Then
-                                    _parent.DeliveryDataGridView.Rows.Add({BaseTransaction.NamebyID(ProductTextBox.Text),
+                                item.Cells("EXPIRY_DATE").Value = exd.ToString("yyyy-MM-dd")
+                            Else
+                                item.Cells("EXPIRY_DATE").Value = "N/A"
+                            End If
+                            item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)
+                            item.Cells("TOTAL").Value = Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text)
+                            is_existing = True
+                            Exit For
+                        End If
+                    Next
+
+                    If Not is_existing Then
+                        If DateTimePicker.Enabled = True Then
+                            If DateTimePicker.Value >= Date.Today Then
+                                _parent.DeliveryDataGridView.Rows.Add({BaseTransaction.NamebyID(ProductTextBox.Text),
                                                                               ProductTextBox.Text,
                                                                               exd.ToString("yyyy-MM-dd"),
                                                                               If(String.IsNullOrEmpty(txtPrays.Text), 0, txtPrays.Text),
@@ -105,11 +92,11 @@ Public Class DeliveryProductDialog
                                                                               If(String.IsNullOrEmpty(QuantityTextBox.Text), 0, QuantityTextBox.Text),
                                                                               CDec(CostTextBox.Text) * CDec(QuantityTextBox.Text)
                                                                               })
-                                Else
-                                    MessageBox.Show("The Expiration date must not be before today.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                                End If
                             Else
-                                _parent.DeliveryDataGridView.Rows.Add({BaseTransaction.NamebyID(ProductTextBox.Text),
+                                MessageBox.Show("The Expiration date must not be before today.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                            End If
+                        Else
+                            _parent.DeliveryDataGridView.Rows.Add({BaseTransaction.NamebyID(ProductTextBox.Text),
                                                                     ProductTextBox.Text,
                                                                     "N/A",
                                                                     txtPrays.Text,
@@ -117,15 +104,22 @@ Public Class DeliveryProductDialog
                                                                     QuantityTextBox.Text,
                                                                     CDec(If(String.IsNullOrEmpty(CostTextBox.Text) OrElse CostTextBox.Text = "", 0, CostTextBox.Text)) * CDec(QuantityTextBox.Text)
                                                                     })
-                            End If
                         End If
-                        _parent.UpdateVisualData()
-                        Me.Close()
+                        '_parent.DeliveryDataGridView.Rows.Add({BaseTransaction.NamebyID(ProductTextBox.Text),
+                        '                                                      ProductTextBox.Text,
+                        '                                                      exd.ToString("yyyy-MM-dd"),
+                        '                                                      If(String.IsNullOrEmpty(txtPrays.Text), 0, txtPrays.Text),
+                        '                                                      If(String.IsNullOrEmpty(CostTextBox.Text), 0, CostTextBox.Text),
+                        '                                                      If(String.IsNullOrEmpty(QuantityTextBox.Text), 0, QuantityTextBox.Text),
+                        '                                                      CDec(CostTextBox.Text) * CDec(QuantityTextBox.Text)
+                        '                                                      })
                     End If
-                Else
-                    MessageBox.Show("Invalid quantity!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                    QuantityTextBox.Text = ""
+                    _parent.UpdateVisualData()
+                    Me.Close()
                 End If
+            Else
+                MessageBox.Show("Invalid quantity!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                QuantityTextBox.Text = ""
             End If
         Catch ex As Exception
 
@@ -173,12 +167,12 @@ Public Class DeliveryProductDialog
                         'SkuComboBox1.SelectedItem = dt.Rows(0).Item("sku").ToString()
                         ProductTextBox.Text = dt.Rows(0).Item("product_name").ToString()
 
-                        For Each item As DataGridViewRow In _parent.DeliveryDataGridView.Rows
-                            If item.Cells("PRODUCT").Value.ToString() = ProductTextBox.Text Then
-                                ChangeButton.Enabled = False
-                                Exit For
-                            End If
-                        Next
+                        'For Each item As DataGridViewRow In _parent.DeliveryDataGridView.Rows
+                        '    If item.Cells("PRODUCT").Value.ToString() = ProductTextBox.Text Then
+                        '        ChangeButton.Enabled = False
+                        '        Exit For
+                        '    End If
+                        'Next
                         e.Handled = True
 
                         'If BaseProduct.Disableexd(dt.Rows(0).Item("id").ToString()) = 1 Then
@@ -198,7 +192,7 @@ Public Class DeliveryProductDialog
         End Try
     End Sub
 
-    Private Sub ChangeButton_Click(sender As Object, e As EventArgs) Handles ChangeButton.Click
+    Private Sub ChangeButton_Click(sender As Object, e As EventArgs)
         Try
             If ProductTextBox.Text = "" Then
                 MessageBox.Show("No, product selected!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)

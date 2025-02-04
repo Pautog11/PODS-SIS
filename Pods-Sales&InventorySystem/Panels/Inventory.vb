@@ -3,8 +3,8 @@
 Public Class Inventory
     Implements IObserverPanel
     Private _subject As IObservablePanel
-    'Private ReadOnly _tableAapter As New podsTableAdapters.viewtblinventoriesTableAdapter
-    'Private ReadOnly _dataTable As New pods.viewtblinventoriesDataTable
+    Private ReadOnly _tableAapter As New podsTableAdapters.viewtblinventoryTableAdapter
+    Private ReadOnly _dataTable As New pods.viewtblinventoryDataTable
     Private Sub Inventory_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             _subject = Application.OpenForms.OfType(Of Dashboard).FirstOrDefault
@@ -16,7 +16,8 @@ Public Class Inventory
     End Sub
 
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
-        '_tableAapter.Fill(_dataTable)
+        _tableAapter.Fill(_dataTable)
+        ProductDataGridView.DataSource = _dataTable
         'Dim dt As New DataTable
         'Try
         '    Using conn As New SqlConnection(My.Settings.con)
@@ -45,6 +46,9 @@ Public Class Inventory
         'End Try
         'ProductDataGridView.DataSource = _dataTable
         'ProductDataGridView.Columns.Item("ID").Visible = False
+
+        'Dim DeliveryItems As DataTable = BaseDelivery.SelectAllDeliveryItems("1251")
+        'ProductDataGridView.DataSource = DeliveryItems.ToString
     End Sub
 
     Private Sub PrintButton_Click(sender As Object, e As EventArgs) Handles PrintButton.Click
