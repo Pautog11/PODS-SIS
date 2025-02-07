@@ -5,28 +5,36 @@ Public Class InventoryReportsViewer
     Private Sub InventoryReportsViewer_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim InventoryData As DataSet = InventoryReports()
         Dim reportDocument As New InventoryReports()
-        reportDocument.SetDataSource(InventoryData.Tables("DT_Products"))
+        reportDocument.SetDataSource(InventoryData.Tables("DT_Inventory"))
 
         CrystalReportViewer1.ReportSource = reportDocument
         CrystalReportViewer1.RefreshReport()
     End Sub
 
     Private Function InventoryReports()
-        Dim dset As New DataSet
-
         Try
-            Using con As New SqlConnection(My.Settings.podsdbConnectionString)
-                con.Open()
-                Dim cmd As New SqlCommand("SELECT sc.subcategory, p.product_name product, p.barcode, p.price, p.stock_level, p.quantity stocks 
-                                            FROM tblProducts p
-                                            JOIN tblsubcategories sc ON sc.id = p.subcategory_id", con)
-
+            Dim dset As New DataSet
+            Using con As SqlConnection = SqlConnectionPods.GetInstance
+                Dim cmd As New SqlCommand("SELECT a.sku AS SKU, 
+                                                  a.barcode AS BARCODE, 
+                                                  a.product_name AS PRODUCT, 
+                                                  b.price AS PRICE, 
+                                                  b.cost_price AS 'COST PRICE', 
+                                                  SUM(b.inventory_quantity) AS QUANTITY
+                                            FROM tblproducts a
+                                            JOIN tbldeliveries_items b on a.id = b.product_id
+											GROUP BY  a.sku,
+											      a.barcode, 
+                                                  a.product_name, 
+                                                  b.price, 
+                                                  b.cost_price", con)
                 Dim adapter As New SqlDataAdapter(cmd)
-                adapter.Fill(dset, "DT_Products")
+                adapter.Fill(dset, "DT_Inventory")
+                Return dset
             End Using
         Catch ex As Exception
-            MessageBox.Show($"Error loading inventory data: {ex.Message}")
+            '    MessageBox.Show($"Error loading inventory data: {ex.Message}")
+            Return New DataSet
         End Try
-        Return dset
     End Function
 End Class

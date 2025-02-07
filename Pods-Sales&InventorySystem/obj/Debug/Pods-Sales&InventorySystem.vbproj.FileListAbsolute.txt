@@ -1160,3 +1160,4 @@ C:\Users\Christian\Desktop\New folder (5)\PODS-SIS\Pods-Sales&InventorySystem\ob
 C:\Users\Christian\Desktop\New folder (5)\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods-Sales&InventorySystem.exe
 C:\Users\Christian\Desktop\New folder (5)\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods-Sales&InventorySystem.xml
 C:\Users\Christian\Desktop\New folder (5)\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods-Sales&InventorySystem.pdb
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Pos.resources

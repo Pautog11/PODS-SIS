@@ -26,13 +26,13 @@ Partial Class Inventory
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.ProductHeaderLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
-        Me.ProductSearchTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.PrintButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.ProductSearchTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.ProductDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.InventoryDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.ProductHeaderLayoutPanel.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
-        CType(Me.ProductDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.InventoryDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ProductHeaderLayoutPanel
@@ -50,6 +50,24 @@ Partial Class Inventory
         Me.ProductHeaderLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44.0!))
         Me.ProductHeaderLayoutPanel.Size = New System.Drawing.Size(731, 44)
         Me.ProductHeaderLayoutPanel.TabIndex = 0
+        '
+        'PrintButton
+        '
+        Me.PrintButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.PrintButton.BackColor = System.Drawing.Color.Transparent
+        Me.PrintButton.BorderRadius = 15
+        Me.PrintButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.PrintButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.PrintButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.PrintButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.PrintButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.PrintButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.PrintButton.ForeColor = System.Drawing.Color.White
+        Me.PrintButton.Location = New System.Drawing.Point(578, 4)
+        Me.PrintButton.Name = "PrintButton"
+        Me.PrintButton.Size = New System.Drawing.Size(150, 35)
+        Me.PrintButton.TabIndex = 2
+        Me.PrintButton.Text = "Print"
         '
         'ProductSearchTextBox
         '
@@ -74,29 +92,11 @@ Partial Class Inventory
         Me.ProductSearchTextBox.Size = New System.Drawing.Size(200, 36)
         Me.ProductSearchTextBox.TabIndex = 3
         '
-        'PrintButton
-        '
-        Me.PrintButton.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.PrintButton.BackColor = System.Drawing.Color.Transparent
-        Me.PrintButton.BorderRadius = 15
-        Me.PrintButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.PrintButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.PrintButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.PrintButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.PrintButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.PrintButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.PrintButton.ForeColor = System.Drawing.Color.White
-        Me.PrintButton.Location = New System.Drawing.Point(578, 4)
-        Me.PrintButton.Name = "PrintButton"
-        Me.PrintButton.Size = New System.Drawing.Size(150, 35)
-        Me.PrintButton.TabIndex = 2
-        Me.PrintButton.Text = "Print"
-        '
         'TableLayoutPanel1
         '
         Me.TableLayoutPanel1.ColumnCount = 1
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel1.Controls.Add(Me.ProductDataGridView, 0, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.InventoryDataGridView, 0, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.ProductHeaderLayoutPanel, 0, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
@@ -108,14 +108,14 @@ Partial Class Inventory
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(737, 531)
         Me.TableLayoutPanel1.TabIndex = 1
         '
-        'ProductDataGridView
+        'InventoryDataGridView
         '
-        Me.ProductDataGridView.AllowUserToAddRows = False
-        Me.ProductDataGridView.AllowUserToDeleteRows = False
-        Me.ProductDataGridView.AllowUserToResizeColumns = False
-        Me.ProductDataGridView.AllowUserToResizeRows = False
+        Me.InventoryDataGridView.AllowUserToAddRows = False
+        Me.InventoryDataGridView.AllowUserToDeleteRows = False
+        Me.InventoryDataGridView.AllowUserToResizeColumns = False
+        Me.InventoryDataGridView.AllowUserToResizeRows = False
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
-        Me.ProductDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.InventoryDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -123,7 +123,7 @@ Partial Class Inventory
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.ProductDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.InventoryDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -131,39 +131,39 @@ Partial Class Inventory
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.ProductDataGridView.DefaultCellStyle = DataGridViewCellStyle3
-        Me.ProductDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ProductDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ProductDataGridView.Location = New System.Drawing.Point(0, 50)
-        Me.ProductDataGridView.Margin = New System.Windows.Forms.Padding(0)
-        Me.ProductDataGridView.MultiSelect = False
-        Me.ProductDataGridView.Name = "ProductDataGridView"
-        Me.ProductDataGridView.ReadOnly = True
-        Me.ProductDataGridView.RowHeadersVisible = False
-        Me.ProductDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.ProductDataGridView.Size = New System.Drawing.Size(737, 481)
-        Me.ProductDataGridView.TabIndex = 4
-        Me.ProductDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
-        Me.ProductDataGridView.ThemeStyle.AlternatingRowsStyle.Font = Nothing
-        Me.ProductDataGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty
-        Me.ProductDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty
-        Me.ProductDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty
-        Me.ProductDataGridView.ThemeStyle.BackColor = System.Drawing.Color.White
-        Me.ProductDataGridView.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ProductDataGridView.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ProductDataGridView.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        Me.ProductDataGridView.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ProductDataGridView.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
-        Me.ProductDataGridView.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.ProductDataGridView.ThemeStyle.HeaderStyle.Height = 23
-        Me.ProductDataGridView.ThemeStyle.ReadOnly = True
-        Me.ProductDataGridView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White
-        Me.ProductDataGridView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
-        Me.ProductDataGridView.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ProductDataGridView.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.ProductDataGridView.ThemeStyle.RowsStyle.Height = 22
-        Me.ProductDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ProductDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.InventoryDataGridView.DefaultCellStyle = DataGridViewCellStyle3
+        Me.InventoryDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.InventoryDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.InventoryDataGridView.Location = New System.Drawing.Point(0, 50)
+        Me.InventoryDataGridView.Margin = New System.Windows.Forms.Padding(0)
+        Me.InventoryDataGridView.MultiSelect = False
+        Me.InventoryDataGridView.Name = "InventoryDataGridView"
+        Me.InventoryDataGridView.ReadOnly = True
+        Me.InventoryDataGridView.RowHeadersVisible = False
+        Me.InventoryDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        Me.InventoryDataGridView.Size = New System.Drawing.Size(737, 481)
+        Me.InventoryDataGridView.TabIndex = 4
+        Me.InventoryDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
+        Me.InventoryDataGridView.ThemeStyle.AlternatingRowsStyle.Font = Nothing
+        Me.InventoryDataGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty
+        Me.InventoryDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty
+        Me.InventoryDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty
+        Me.InventoryDataGridView.ThemeStyle.BackColor = System.Drawing.Color.White
+        Me.InventoryDataGridView.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.InventoryDataGridView.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.InventoryDataGridView.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.InventoryDataGridView.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.InventoryDataGridView.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
+        Me.InventoryDataGridView.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.InventoryDataGridView.ThemeStyle.HeaderStyle.Height = 23
+        Me.InventoryDataGridView.ThemeStyle.ReadOnly = True
+        Me.InventoryDataGridView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White
+        Me.InventoryDataGridView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.InventoryDataGridView.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.InventoryDataGridView.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.InventoryDataGridView.ThemeStyle.RowsStyle.Height = 22
+        Me.InventoryDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.InventoryDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         '
         'Inventory
         '
@@ -174,7 +174,7 @@ Partial Class Inventory
         Me.Size = New System.Drawing.Size(737, 531)
         Me.ProductHeaderLayoutPanel.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
-        CType(Me.ProductDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.InventoryDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -183,5 +183,5 @@ Partial Class Inventory
     Friend WithEvents PrintButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents ProductSearchTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
-    Friend WithEvents ProductDataGridView As Guna.UI2.WinForms.Guna2DataGridView
+    Friend WithEvents InventoryDataGridView As Guna.UI2.WinForms.Guna2DataGridView
 End Class

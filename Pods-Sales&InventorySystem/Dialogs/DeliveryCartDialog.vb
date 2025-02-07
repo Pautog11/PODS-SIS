@@ -75,8 +75,12 @@ Public Class DeliveryCartDialog
     End Sub
 
     Private Sub AddProductButton_Click(sender As Object, e As EventArgs) Handles AddProductButton.Click
-        Dim dialog As New DeliveryProductDialog(parent:=Me)
-        dialog.ShowDialog()
+        Try
+            Dim dialog As New DeliveryProductDialog(parent:=Me)
+            dialog.ShowDialog()
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click
@@ -140,8 +144,12 @@ Public Class DeliveryCartDialog
     End Sub
 
     Private Sub PulloutButton_Click(sender As Object, e As EventArgs) Handles PulloutButton.Click
-        Dim dialog As New DeliveryPulloutCart(data:=_data, subject:=_subject, parent:=Me)
-        dialog.ShowDialog()
+        Try
+            Dim dialog As New DeliveryPulloutCart(data:=_data, subject:=_subject, parent:=Me)
+            dialog.ShowDialog()
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub DeliveryDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DeliveryDataGridView.CellClick

@@ -6002,35 +6002,33 @@ Partial Public Class pods
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
     Partial Public Class viewtblinventoryDataTable
         Inherits Global.System.Data.TypedTableBase(Of viewtblinventoryRow)
-        
-        Private columnID As Global.System.Data.DataColumn
-        
-        Private columnSKU As Global.System.Data.DataColumn
-        
+
         Private columnBARCODE As Global.System.Data.DataColumn
-        
+
         Private columnPRODUCT As Global.System.Data.DataColumn
-        
+
         Private columnDESCRIPTION As Global.System.Data.DataColumn
-        
-        Private columnPRICE As Global.System.Data.DataColumn
-        
+
+        Private columnSKU As Global.System.Data.DataColumn
+
         Private columnCOST_PRICE As Global.System.Data.DataColumn
-        
+
+        Private columnPRICE As Global.System.Data.DataColumn
+
         Private columnQUANTITY As Global.System.Data.DataColumn
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Public Sub New()
             MyBase.New
             Me.TableName = "viewtblinventory"
-            Me.BeginInit
-            Me.InitClass
-            Me.EndInit
+            Me.BeginInit()
+            Me.InitClass()
+            Me.EndInit()
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Friend Sub New(ByVal table As Global.System.Data.DataTable)
             MyBase.New
             Me.TableName = table.TableName
@@ -6046,185 +6044,165 @@ Partial Public Class pods
             Me.Prefix = table.Prefix
             Me.MinimumCapacity = table.MinimumCapacity
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
             MyBase.New(info, context)
-            Me.InitVars
+            Me.InitVars()
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property IDColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnID
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property SKUColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnSKU
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Public ReadOnly Property BARCODEColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnBARCODE
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Public ReadOnly Property PRODUCTColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnPRODUCT
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Public ReadOnly Property DESCRIPTIONColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnDESCRIPTION
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property PRICEColumn() As Global.System.Data.DataColumn
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
+        Public ReadOnly Property SKUColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnPRICE
+                Return Me.columnSKU
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Public ReadOnly Property COST_PRICEColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnCOST_PRICE
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
+        Public ReadOnly Property PRICEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnPRICE
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Public ReadOnly Property QUANTITYColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnQUANTITY
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Browsable(false)>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),
+         Global.System.ComponentModel.Browsable(False)>
         Public ReadOnly Property Count() As Integer
             Get
                 Return Me.Rows.Count
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As viewtblinventoryRow
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
+        Default Public ReadOnly Property Item(ByVal index As Integer) As viewtblinventoryRow
             Get
-                Return CType(Me.Rows(index),viewtblinventoryRow)
+                Return CType(Me.Rows(index), viewtblinventoryRow)
             End Get
         End Property
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Public Event viewtblinventoryRowChanging As viewtblinventoryRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Public Event viewtblinventoryRowChanged As viewtblinventoryRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Public Event viewtblinventoryRowDeleting As viewtblinventoryRowChangeEventHandler
-        
-        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Public Event viewtblinventoryRowDeleted As viewtblinventoryRowChangeEventHandler
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Public Overloads Sub AddviewtblinventoryRow(ByVal row As viewtblinventoryRow)
             Me.Rows.Add(row)
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddviewtblinventoryRow(ByVal ID As Integer, ByVal SKU As String, ByVal BARCODE As String, ByVal PRODUCT As String, ByVal DESCRIPTION As String, ByVal PRICE As Decimal, ByVal COST_PRICE As Decimal, ByVal QUANTITY As Integer) As viewtblinventoryRow
-            Dim rowviewtblinventoryRow As viewtblinventoryRow = CType(Me.NewRow,viewtblinventoryRow)
-            Dim columnValuesArray() As Object = New Object() {ID, SKU, BARCODE, PRODUCT, DESCRIPTION, PRICE, COST_PRICE, QUANTITY}
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
+        Public Overloads Function AddviewtblinventoryRow(ByVal BARCODE As String, ByVal PRODUCT As String, ByVal DESCRIPTION As String, ByVal SKU As String, ByVal COST_PRICE As Decimal, ByVal PRICE As Decimal, ByVal QUANTITY As Integer) As viewtblinventoryRow
+            Dim rowviewtblinventoryRow As viewtblinventoryRow = CType(Me.NewRow, viewtblinventoryRow)
+            Dim columnValuesArray() As Object = New Object() {BARCODE, PRODUCT, DESCRIPTION, SKU, COST_PRICE, PRICE, QUANTITY}
             rowviewtblinventoryRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowviewtblinventoryRow)
             Return rowviewtblinventoryRow
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function FindByID(ByVal ID As Integer) As viewtblinventoryRow
-            Return CType(Me.Rows.Find(New Object() {ID}),viewtblinventoryRow)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As viewtblinventoryDataTable = CType(MyBase.Clone,viewtblinventoryDataTable)
-            cln.InitVars
+            Dim cln As viewtblinventoryDataTable = CType(MyBase.Clone, viewtblinventoryDataTable)
+            cln.InitVars()
             Return cln
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
             Return New viewtblinventoryDataTable()
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Friend Sub InitVars()
-            Me.columnID = MyBase.Columns("ID")
-            Me.columnSKU = MyBase.Columns("SKU")
             Me.columnBARCODE = MyBase.Columns("BARCODE")
             Me.columnPRODUCT = MyBase.Columns("PRODUCT")
             Me.columnDESCRIPTION = MyBase.Columns("DESCRIPTION")
-            Me.columnPRICE = MyBase.Columns("PRICE")
+            Me.columnSKU = MyBase.Columns("SKU")
             Me.columnCOST_PRICE = MyBase.Columns("COST PRICE")
+            Me.columnPRICE = MyBase.Columns("PRICE")
             Me.columnQUANTITY = MyBase.Columns("QUANTITY")
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Private Sub InitClass()
-            Me.columnID = New Global.System.Data.DataColumn("ID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnID)
-            Me.columnSKU = New Global.System.Data.DataColumn("SKU", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnSKU)
             Me.columnBARCODE = New Global.System.Data.DataColumn("BARCODE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnBARCODE)
             Me.columnPRODUCT = New Global.System.Data.DataColumn("PRODUCT", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnPRODUCT)
             Me.columnDESCRIPTION = New Global.System.Data.DataColumn("DESCRIPTION", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDESCRIPTION)
-            Me.columnPRICE = New Global.System.Data.DataColumn("PRICE", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnPRICE)
+            Me.columnSKU = New Global.System.Data.DataColumn("SKU", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSKU)
             Me.columnCOST_PRICE = New Global.System.Data.DataColumn("COST PRICE", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCOST_PRICE)
+            Me.columnPRICE = New Global.System.Data.DataColumn("PRICE", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPRICE)
             Me.columnQUANTITY = New Global.System.Data.DataColumn("QUANTITY", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnQUANTITY)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, True))
-            Me.columnID.AllowDBNull = False
-            Me.columnID.Unique = True
-            Me.columnSKU.MaxLength = 50
             Me.columnBARCODE.MaxLength = 2147483647
             Me.columnPRODUCT.AllowDBNull = False
             Me.columnPRODUCT.MaxLength = 50
             Me.columnDESCRIPTION.MaxLength = 2147483647
-            Me.columnPRICE.AllowDBNull = False
+            Me.columnSKU.MaxLength = 50
             Me.columnCOST_PRICE.AllowDBNull = False
+            Me.columnPRICE.AllowDBNull = False
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
@@ -6342,10 +6320,10 @@ Partial Public Class pods
                     Loop
                 Finally
                     If (Not (s1) Is Nothing) Then
-                        s1.Close
+                        s1.Close()
                     End If
                     If (Not (s2) Is Nothing) Then
-                        s2.Close
+                        s2.Close()
                     End If
                 End Try
             End If
@@ -6376,7 +6354,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtblcategories.IDColumn), Integer)
             End Get
             Set
-                Me(Me.tableviewtblcategories.IDColumn) = value
+                Me(Me.tableviewtblcategories.IDColumn) = Value
             End Set
         End Property
 
@@ -6391,7 +6369,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtblcategories.CATEGORYColumn) = value
+                Me(Me.tableviewtblcategories.CATEGORYColumn) = Value
             End Set
         End Property
 
@@ -6406,7 +6384,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtblcategories.DESCRIPTIONColumn) = value
+                Me(Me.tableviewtblcategories.DESCRIPTIONColumn) = Value
             End Set
         End Property
 
@@ -6457,7 +6435,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtblsubcategories.IDColumn), Integer)
             End Get
             Set
-                Me(Me.tableviewtblsubcategories.IDColumn) = value
+                Me(Me.tableviewtblsubcategories.IDColumn) = Value
             End Set
         End Property
 
@@ -6472,7 +6450,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtblsubcategories.CATEGORYColumn) = value
+                Me(Me.tableviewtblsubcategories.CATEGORYColumn) = Value
             End Set
         End Property
 
@@ -6483,7 +6461,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtblsubcategories.SUBCATEGORYColumn), String)
             End Get
             Set
-                Me(Me.tableviewtblsubcategories.SUBCATEGORYColumn) = value
+                Me(Me.tableviewtblsubcategories.SUBCATEGORYColumn) = Value
             End Set
         End Property
 
@@ -6498,7 +6476,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtblsubcategories.DESCRIPTIONColumn) = value
+                Me(Me.tableviewtblsubcategories.DESCRIPTIONColumn) = Value
             End Set
         End Property
 
@@ -6549,7 +6527,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtblaccounts.IDColumn), Integer)
             End Get
             Set
-                Me(Me.tableviewtblaccounts.IDColumn) = value
+                Me(Me.tableviewtblaccounts.IDColumn) = Value
             End Set
         End Property
 
@@ -6564,7 +6542,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtblaccounts.ROLEColumn) = value
+                Me(Me.tableviewtblaccounts.ROLEColumn) = Value
             End Set
         End Property
 
@@ -6579,7 +6557,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtblaccounts.STATUSColumn) = value
+                Me(Me.tableviewtblaccounts.STATUSColumn) = Value
             End Set
         End Property
 
@@ -6594,7 +6572,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtblaccounts.NAMEColumn) = value
+                Me(Me.tableviewtblaccounts.NAMEColumn) = Value
             End Set
         End Property
 
@@ -6609,7 +6587,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtblaccounts.PHONE_NUMBERColumn) = value
+                Me(Me.tableviewtblaccounts.PHONE_NUMBERColumn) = Value
             End Set
         End Property
 
@@ -6624,7 +6602,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtblaccounts.ADDRESSColumn) = value
+                Me(Me.tableviewtblaccounts.ADDRESSColumn) = Value
             End Set
         End Property
 
@@ -6639,7 +6617,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtblaccounts.USERNAMEColumn) = value
+                Me(Me.tableviewtblaccounts.USERNAMEColumn) = Value
             End Set
         End Property
 
@@ -6654,7 +6632,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtblaccounts.DATE_UPDATEDColumn) = value
+                Me(Me.tableviewtblaccounts.DATE_UPDATEDColumn) = Value
             End Set
         End Property
 
@@ -6765,7 +6743,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtblsuppliers.IDColumn), Integer)
             End Get
             Set
-                Me(Me.tableviewtblsuppliers.IDColumn) = value
+                Me(Me.tableviewtblsuppliers.IDColumn) = Value
             End Set
         End Property
 
@@ -6780,7 +6758,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtblsuppliers.COMPANYColumn) = value
+                Me(Me.tableviewtblsuppliers.COMPANYColumn) = Value
             End Set
         End Property
 
@@ -6795,7 +6773,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtblsuppliers.CONTACT_NUMBERColumn) = value
+                Me(Me.tableviewtblsuppliers.CONTACT_NUMBERColumn) = Value
             End Set
         End Property
 
@@ -6810,7 +6788,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtblsuppliers.ADRESSColumn) = value
+                Me(Me.tableviewtblsuppliers.ADRESSColumn) = Value
             End Set
         End Property
 
@@ -6825,7 +6803,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtblsuppliers.NAMEColumn) = value
+                Me(Me.tableviewtblsuppliers.NAMEColumn) = Value
             End Set
         End Property
 
@@ -6840,7 +6818,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtblsuppliers.PHONE_NUMBERColumn) = value
+                Me(Me.tableviewtblsuppliers.PHONE_NUMBERColumn) = Value
             End Set
         End Property
 
@@ -6851,7 +6829,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtblsuppliers.DATE_UPDATEDColumn), String)
             End Get
             Set
-                Me(Me.tableviewtblsuppliers.DATE_UPDATEDColumn) = value
+                Me(Me.tableviewtblsuppliers.DATE_UPDATEDColumn) = Value
             End Set
         End Property
 
@@ -6938,7 +6916,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtblaccount_logs.IDColumn), Integer)
             End Get
             Set
-                Me(Me.tableviewtblaccount_logs.IDColumn) = value
+                Me(Me.tableviewtblaccount_logs.IDColumn) = Value
             End Set
         End Property
 
@@ -6953,7 +6931,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtblaccount_logs.NAMEColumn) = value
+                Me(Me.tableviewtblaccount_logs.NAMEColumn) = Value
             End Set
         End Property
 
@@ -6964,7 +6942,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtblaccount_logs.ACTIONColumn), String)
             End Get
             Set
-                Me(Me.tableviewtblaccount_logs.ACTIONColumn) = value
+                Me(Me.tableviewtblaccount_logs.ACTIONColumn) = Value
             End Set
         End Property
 
@@ -6979,7 +6957,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtblaccount_logs.DATEColumn) = value
+                Me(Me.tableviewtblaccount_logs.DATEColumn) = Value
             End Set
         End Property
 
@@ -6994,7 +6972,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtblaccount_logs.TIMEColumn) = value
+                Me(Me.tableviewtblaccount_logs.TIMEColumn) = Value
             End Set
         End Property
 
@@ -7057,7 +7035,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtblvat.IDColumn), Integer)
             End Get
             Set
-                Me(Me.tableviewtblvat.IDColumn) = value
+                Me(Me.tableviewtblvat.IDColumn) = Value
             End Set
         End Property
 
@@ -7068,7 +7046,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtblvat.VATColumn), Integer)
             End Get
             Set
-                Me(Me.tableviewtblvat.VATColumn) = value
+                Me(Me.tableviewtblvat.VATColumn) = Value
             End Set
         End Property
     End Class
@@ -7095,7 +7073,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtbldeliverypullouts.IDColumn), Integer)
             End Get
             Set
-                Me(Me.tableviewtbldeliverypullouts.IDColumn) = value
+                Me(Me.tableviewtbldeliverypullouts.IDColumn) = Value
             End Set
         End Property
 
@@ -7110,7 +7088,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtbldeliverypullouts.PROCESS_BYColumn) = value
+                Me(Me.tableviewtbldeliverypullouts.PROCESS_BYColumn) = Value
             End Set
         End Property
 
@@ -7121,7 +7099,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtbldeliverypullouts.DELIVERY_NUMBERColumn), String)
             End Get
             Set
-                Me(Me.tableviewtbldeliverypullouts.DELIVERY_NUMBERColumn) = value
+                Me(Me.tableviewtbldeliverypullouts.DELIVERY_NUMBERColumn) = Value
             End Set
         End Property
 
@@ -7132,7 +7110,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtbldeliverypullouts.TOTALColumn), Decimal)
             End Get
             Set
-                Me(Me.tableviewtbldeliverypullouts.TOTALColumn) = value
+                Me(Me.tableviewtbldeliverypullouts.TOTALColumn) = Value
             End Set
         End Property
 
@@ -7143,7 +7121,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtbldeliverypullouts.DATEColumn), Date)
             End Get
             Set
-                Me(Me.tableviewtbldeliverypullouts.DATEColumn) = value
+                Me(Me.tableviewtbldeliverypullouts.DATEColumn) = Value
             End Set
         End Property
 
@@ -7182,7 +7160,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtbltransactions.IDColumn), Integer)
             End Get
             Set
-                Me(Me.tableviewtbltransactions.IDColumn) = value
+                Me(Me.tableviewtbltransactions.IDColumn) = Value
             End Set
         End Property
 
@@ -7197,7 +7175,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtbltransactions.PROCESS_BYColumn) = value
+                Me(Me.tableviewtbltransactions.PROCESS_BYColumn) = Value
             End Set
         End Property
 
@@ -7208,7 +7186,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtbltransactions.REFERENCEColumn), String)
             End Get
             Set
-                Me(Me.tableviewtbltransactions.REFERENCEColumn) = value
+                Me(Me.tableviewtbltransactions.REFERENCEColumn) = Value
             End Set
         End Property
 
@@ -7219,7 +7197,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtbltransactions.SUBTOTALColumn), Decimal)
             End Get
             Set
-                Me(Me.tableviewtbltransactions.SUBTOTALColumn) = value
+                Me(Me.tableviewtbltransactions.SUBTOTALColumn) = Value
             End Set
         End Property
 
@@ -7234,7 +7212,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtbltransactions.VATABLEColumn) = value
+                Me(Me.tableviewtbltransactions.VATABLEColumn) = Value
             End Set
         End Property
 
@@ -7245,7 +7223,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtbltransactions.VATColumn), Double)
             End Get
             Set
-                Me(Me.tableviewtbltransactions.VATColumn) = value
+                Me(Me.tableviewtbltransactions.VATColumn) = Value
             End Set
         End Property
 
@@ -7256,7 +7234,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtbltransactions.DISCOUNTColumn), Double)
             End Get
             Set
-                Me(Me.tableviewtbltransactions.DISCOUNTColumn) = value
+                Me(Me.tableviewtbltransactions.DISCOUNTColumn) = Value
             End Set
         End Property
 
@@ -7267,7 +7245,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtbltransactions.TOTALColumn), Decimal)
             End Get
             Set
-                Me(Me.tableviewtbltransactions.TOTALColumn) = value
+                Me(Me.tableviewtbltransactions.TOTALColumn) = Value
             End Set
         End Property
 
@@ -7282,7 +7260,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtbltransactions.DATEColumn) = value
+                Me(Me.tableviewtbltransactions.DATEColumn) = Value
             End Set
         End Property
 
@@ -7293,7 +7271,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtbltransactions.CASHColumn), Decimal)
             End Get
             Set
-                Me(Me.tableviewtbltransactions.CASHColumn) = value
+                Me(Me.tableviewtbltransactions.CASHColumn) = Value
             End Set
         End Property
 
@@ -7356,7 +7334,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtblreturns.IDColumn), Integer)
             End Get
             Set
-                Me(Me.tableviewtblreturns.IDColumn) = value
+                Me(Me.tableviewtblreturns.IDColumn) = Value
             End Set
         End Property
 
@@ -7371,7 +7349,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtblreturns.PROCESS_BYColumn) = value
+                Me(Me.tableviewtblreturns.PROCESS_BYColumn) = Value
             End Set
         End Property
 
@@ -7382,7 +7360,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtblreturns.TRANSACTION_REFColumn), String)
             End Get
             Set
-                Me(Me.tableviewtblreturns.TRANSACTION_REFColumn) = value
+                Me(Me.tableviewtblreturns.TRANSACTION_REFColumn) = Value
             End Set
         End Property
 
@@ -7393,7 +7371,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtblreturns.REASONColumn), String)
             End Get
             Set
-                Me(Me.tableviewtblreturns.REASONColumn) = value
+                Me(Me.tableviewtblreturns.REASONColumn) = Value
             End Set
         End Property
 
@@ -7408,7 +7386,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtblreturns.TOTALColumn) = value
+                Me(Me.tableviewtblreturns.TOTALColumn) = Value
             End Set
         End Property
 
@@ -7419,7 +7397,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtblreturns.DATEColumn), Date)
             End Get
             Set
-                Me(Me.tableviewtblreturns.DATEColumn) = value
+                Me(Me.tableviewtblreturns.DATEColumn) = Value
             End Set
         End Property
 
@@ -7470,7 +7448,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtblproductsearch.IDColumn), Integer)
             End Get
             Set
-                Me(Me.tableviewtblproductsearch.IDColumn) = value
+                Me(Me.tableviewtblproductsearch.IDColumn) = Value
             End Set
         End Property
 
@@ -7481,7 +7459,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtblproductsearch.NAMEColumn), String)
             End Get
             Set
-                Me(Me.tableviewtblproductsearch.NAMEColumn) = value
+                Me(Me.tableviewtblproductsearch.NAMEColumn) = Value
             End Set
         End Property
 
@@ -7496,7 +7474,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtblproductsearch.PRICEColumn) = value
+                Me(Me.tableviewtblproductsearch.PRICEColumn) = Value
             End Set
         End Property
 
@@ -7507,7 +7485,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtblproductsearch.QUANTITYColumn), Integer)
             End Get
             Set
-                Me(Me.tableviewtblproductsearch.QUANTITYColumn) = value
+                Me(Me.tableviewtblproductsearch.QUANTITYColumn) = Value
             End Set
         End Property
 
@@ -7546,7 +7524,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtbldosage.IDColumn), Integer)
             End Get
             Set
-                Me(Me.tableviewtbldosage.IDColumn) = value
+                Me(Me.tableviewtbldosage.IDColumn) = Value
             End Set
         End Property
 
@@ -7557,7 +7535,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtbldosage.DOSAGEColumn), String)
             End Get
             Set
-                Me(Me.tableviewtbldosage.DOSAGEColumn) = value
+                Me(Me.tableviewtbldosage.DOSAGEColumn) = Value
             End Set
         End Property
 
@@ -7572,7 +7550,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtbldosage.DESCRIPTIONColumn) = value
+                Me(Me.tableviewtbldosage.DESCRIPTIONColumn) = Value
             End Set
         End Property
 
@@ -7611,7 +7589,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtbldiscounts.IDColumn), Integer)
             End Get
             Set
-                Me(Me.tableviewtbldiscounts.IDColumn) = value
+                Me(Me.tableviewtbldiscounts.IDColumn) = Value
             End Set
         End Property
 
@@ -7622,7 +7600,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtbldiscounts.DISCOUNTColumn), Integer)
             End Get
             Set
-                Me(Me.tableviewtbldiscounts.DISCOUNTColumn) = value
+                Me(Me.tableviewtbldiscounts.DISCOUNTColumn) = Value
             End Set
         End Property
 
@@ -7637,7 +7615,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtbldiscounts.DESCRIPTIONColumn) = value
+                Me(Me.tableviewtbldiscounts.DESCRIPTIONColumn) = Value
             End Set
         End Property
 
@@ -7676,7 +7654,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtbldosageform.IDColumn), Integer)
             End Get
             Set
-                Me(Me.tableviewtbldosageform.IDColumn) = value
+                Me(Me.tableviewtbldosageform.IDColumn) = Value
             End Set
         End Property
 
@@ -7687,7 +7665,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtbldosageform.DOSAGE_FORMColumn), String)
             End Get
             Set
-                Me(Me.tableviewtbldosageform.DOSAGE_FORMColumn) = value
+                Me(Me.tableviewtbldosageform.DOSAGE_FORMColumn) = Value
             End Set
         End Property
 
@@ -7702,7 +7680,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtbldosageform.DESCRIPTIONColumn) = value
+                Me(Me.tableviewtbldosageform.DESCRIPTIONColumn) = Value
             End Set
         End Property
 
@@ -7741,7 +7719,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtblaudittrail.idColumn), Integer)
             End Get
             Set
-                Me(Me.tableviewtblaudittrail.idColumn) = value
+                Me(Me.tableviewtblaudittrail.idColumn) = Value
             End Set
         End Property
 
@@ -7756,7 +7734,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtblaudittrail.NAMEColumn) = value
+                Me(Me.tableviewtblaudittrail.NAMEColumn) = Value
             End Set
         End Property
 
@@ -7767,7 +7745,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtblaudittrail.actionColumn), String)
             End Get
             Set
-                Me(Me.tableviewtblaudittrail.actionColumn) = value
+                Me(Me.tableviewtblaudittrail.actionColumn) = Value
             End Set
         End Property
 
@@ -7778,7 +7756,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtblaudittrail.dateColumn), Date)
             End Get
             Set
-                Me(Me.tableviewtblaudittrail.dateColumn) = value
+                Me(Me.tableviewtblaudittrail.dateColumn) = Value
             End Set
         End Property
 
@@ -7817,7 +7795,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtblproducts.IDColumn), Integer)
             End Get
             Set
-                Me(Me.tableviewtblproducts.IDColumn) = value
+                Me(Me.tableviewtblproducts.IDColumn) = Value
             End Set
         End Property
 
@@ -7832,7 +7810,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtblproducts.CATEGORYColumn) = value
+                Me(Me.tableviewtblproducts.CATEGORYColumn) = Value
             End Set
         End Property
 
@@ -7843,7 +7821,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtblproducts.SUBCATEGORYColumn), String)
             End Get
             Set
-                Me(Me.tableviewtblproducts.SUBCATEGORYColumn) = value
+                Me(Me.tableviewtblproducts.SUBCATEGORYColumn) = Value
             End Set
         End Property
 
@@ -7858,7 +7836,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtblproducts.SKUColumn) = value
+                Me(Me.tableviewtblproducts.SKUColumn) = Value
             End Set
         End Property
 
@@ -7873,7 +7851,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtblproducts.BARCODEColumn) = value
+                Me(Me.tableviewtblproducts.BARCODEColumn) = Value
             End Set
         End Property
 
@@ -7884,7 +7862,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtblproducts.PRODUCTColumn), String)
             End Get
             Set
-                Me(Me.tableviewtblproducts.PRODUCTColumn) = value
+                Me(Me.tableviewtblproducts.PRODUCTColumn) = Value
             End Set
         End Property
 
@@ -7899,7 +7877,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtblproducts.DESCRIPTIONColumn) = value
+                Me(Me.tableviewtblproducts.DESCRIPTIONColumn) = Value
             End Set
         End Property
 
@@ -7914,7 +7892,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtblproducts.CRITICAL_LEVELColumn) = value
+                Me(Me.tableviewtblproducts.CRITICAL_LEVELColumn) = Value
             End Set
         End Property
 
@@ -8001,7 +7979,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtbldeliveries.IDColumn), Integer)
             End Get
             Set
-                Me(Me.tableviewtbldeliveries.IDColumn) = value
+                Me(Me.tableviewtbldeliveries.IDColumn) = Value
             End Set
         End Property
 
@@ -8012,7 +7990,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtbldeliveries.DELIVERY_NUMBERColumn), String)
             End Get
             Set
-                Me(Me.tableviewtbldeliveries.DELIVERY_NUMBERColumn) = value
+                Me(Me.tableviewtbldeliveries.DELIVERY_NUMBERColumn) = Value
             End Set
         End Property
 
@@ -8027,7 +8005,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtbldeliveries.PROCESS_BYColumn) = value
+                Me(Me.tableviewtbldeliveries.PROCESS_BYColumn) = Value
             End Set
         End Property
 
@@ -8042,7 +8020,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtbldeliveries.SUPPLIER_NAMEColumn) = value
+                Me(Me.tableviewtbldeliveries.SUPPLIER_NAMEColumn) = Value
             End Set
         End Property
 
@@ -8053,7 +8031,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtbldeliveries.TOTALColumn), Decimal)
             End Get
             Set
-                Me(Me.tableviewtbldeliveries.TOTALColumn) = value
+                Me(Me.tableviewtbldeliveries.TOTALColumn) = Value
             End Set
         End Property
 
@@ -8064,7 +8042,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtbldeliveries.DATEColumn), Date)
             End Get
             Set
-                Me(Me.tableviewtbldeliveries.DATEColumn) = value
+                Me(Me.tableviewtbldeliveries.DATEColumn) = Value
             End Set
         End Property
 
@@ -8110,32 +8088,6 @@ Partial Public Class pods
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
-        Public Property ID() As Integer
-            Get
-                Return CType(Me(Me.tableviewtblinventory.IDColumn), Integer)
-            End Get
-            Set
-                Me(Me.tableviewtblinventory.IDColumn) = value
-            End Set
-        End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
-        Public Property SKU() As String
-            Get
-                Try
-                    Return CType(Me(Me.tableviewtblinventory.SKUColumn), String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'SKU' in table 'viewtblinventory' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableviewtblinventory.SKUColumn) = value
-            End Set
-        End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Public Property BARCODE() As String
             Get
                 Try
@@ -8145,7 +8097,7 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtblinventory.BARCODEColumn) = value
+                Me(Me.tableviewtblinventory.BARCODEColumn) = Value
             End Set
         End Property
 
@@ -8156,7 +8108,7 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtblinventory.PRODUCTColumn), String)
             End Get
             Set
-                Me(Me.tableviewtblinventory.PRODUCTColumn) = value
+                Me(Me.tableviewtblinventory.PRODUCTColumn) = Value
             End Set
         End Property
 
@@ -8171,18 +8123,22 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtblinventory.DESCRIPTIONColumn) = value
+                Me(Me.tableviewtblinventory.DESCRIPTIONColumn) = Value
             End Set
         End Property
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
-        Public Property PRICE() As Decimal
+        Public Property SKU() As String
             Get
-                Return CType(Me(Me.tableviewtblinventory.PRICEColumn), Decimal)
+                Try
+                    Return CType(Me(Me.tableviewtblinventory.SKUColumn), String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'SKU' in table 'viewtblinventory' is DBNull.", e)
+                End Try
             End Get
             Set
-                Me(Me.tableviewtblinventory.PRICEColumn) = value
+                Me(Me.tableviewtblinventory.SKUColumn) = Value
             End Set
         End Property
 
@@ -8193,7 +8149,18 @@ Partial Public Class pods
                 Return CType(Me(Me.tableviewtblinventory.COST_PRICEColumn), Decimal)
             End Get
             Set
-                Me(Me.tableviewtblinventory.COST_PRICEColumn) = value
+                Me(Me.tableviewtblinventory.COST_PRICEColumn) = Value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
+        Public Property PRICE() As Decimal
+            Get
+                Return CType(Me(Me.tableviewtblinventory.PRICEColumn), Decimal)
+            End Get
+            Set
+                Me(Me.tableviewtblinventory.PRICEColumn) = Value
             End Set
         End Property
 
@@ -8208,21 +8175,9 @@ Partial Public Class pods
                 End Try
             End Get
             Set
-                Me(Me.tableviewtblinventory.QUANTITYColumn) = value
+                Me(Me.tableviewtblinventory.QUANTITYColumn) = Value
             End Set
         End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
-        Public Function IsSKUNull() As Boolean
-            Return Me.IsNull(Me.tableviewtblinventory.SKUColumn)
-        End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
-        Public Sub SetSKUNull()
-            Me(Me.tableviewtblinventory.SKUColumn) = Global.System.Convert.DBNull
-        End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
@@ -8246,6 +8201,18 @@ Partial Public Class pods
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Public Sub SetDESCRIPTIONNull()
             Me(Me.tableviewtblinventory.DESCRIPTIONColumn) = Global.System.Convert.DBNull
+        End Sub
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
+        Public Function IsSKUNull() As Boolean
+            Return Me.IsNull(Me.tableviewtblinventory.SKUColumn)
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
+        Public Sub SetSKUNull()
+            Me(Me.tableviewtblinventory.SKUColumn) = Global.System.Convert.DBNull
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
@@ -8910,7 +8877,7 @@ Namespace podsTableAdapters
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
@@ -8921,25 +8888,25 @@ Namespace podsTableAdapters
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
             Set
-                Me._connection = value
+                Me._connection = Value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
-                    Me.Adapter.InsertCommand.Connection = value
+                    Me.Adapter.InsertCommand.Connection = Value
                 End If
                 If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
-                    Me.Adapter.DeleteCommand.Connection = value
+                    Me.Adapter.DeleteCommand.Connection = Value
                 End If
                 If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
-                    Me.Adapter.UpdateCommand.Connection = value
+                    Me.Adapter.UpdateCommand.Connection = Value
                 End If
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = Value
                     End If
                     i = (i + 1)
                 Loop
@@ -8953,7 +8920,7 @@ Namespace podsTableAdapters
                 Return Me._transaction
             End Get
             Set
-                Me._transaction = value
+                Me._transaction = Value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
@@ -8979,7 +8946,7 @@ Namespace podsTableAdapters
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
@@ -8992,7 +8959,7 @@ Namespace podsTableAdapters
                 Return Me._clearBeforeFill
             End Get
             Set
-                Me._clearBeforeFill = value
+                Me._clearBeforeFill = Value
             End Set
         End Property
 
@@ -9033,7 +9000,7 @@ Namespace podsTableAdapters
         Public Overridable Overloads Function Fill(ByVal dataTable As pods.viewtblcategoriesDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
@@ -9085,7 +9052,7 @@ Namespace podsTableAdapters
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
@@ -9096,25 +9063,25 @@ Namespace podsTableAdapters
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
             Set
-                Me._connection = value
+                Me._connection = Value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
-                    Me.Adapter.InsertCommand.Connection = value
+                    Me.Adapter.InsertCommand.Connection = Value
                 End If
                 If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
-                    Me.Adapter.DeleteCommand.Connection = value
+                    Me.Adapter.DeleteCommand.Connection = Value
                 End If
                 If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
-                    Me.Adapter.UpdateCommand.Connection = value
+                    Me.Adapter.UpdateCommand.Connection = Value
                 End If
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = Value
                     End If
                     i = (i + 1)
                 Loop
@@ -9128,7 +9095,7 @@ Namespace podsTableAdapters
                 Return Me._transaction
             End Get
             Set
-                Me._transaction = value
+                Me._transaction = Value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
@@ -9154,7 +9121,7 @@ Namespace podsTableAdapters
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
@@ -9167,7 +9134,7 @@ Namespace podsTableAdapters
                 Return Me._clearBeforeFill
             End Get
             Set
-                Me._clearBeforeFill = value
+                Me._clearBeforeFill = Value
             End Set
         End Property
 
@@ -9209,7 +9176,7 @@ Namespace podsTableAdapters
         Public Overridable Overloads Function Fill(ByVal dataTable As pods.viewtblsubcategoriesDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
@@ -9261,7 +9228,7 @@ Namespace podsTableAdapters
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
@@ -9272,25 +9239,25 @@ Namespace podsTableAdapters
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
             Set
-                Me._connection = value
+                Me._connection = Value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
-                    Me.Adapter.InsertCommand.Connection = value
+                    Me.Adapter.InsertCommand.Connection = Value
                 End If
                 If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
-                    Me.Adapter.DeleteCommand.Connection = value
+                    Me.Adapter.DeleteCommand.Connection = Value
                 End If
                 If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
-                    Me.Adapter.UpdateCommand.Connection = value
+                    Me.Adapter.UpdateCommand.Connection = Value
                 End If
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = Value
                     End If
                     i = (i + 1)
                 Loop
@@ -9304,7 +9271,7 @@ Namespace podsTableAdapters
                 Return Me._transaction
             End Get
             Set
-                Me._transaction = value
+                Me._transaction = Value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
@@ -9330,7 +9297,7 @@ Namespace podsTableAdapters
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
@@ -9343,7 +9310,7 @@ Namespace podsTableAdapters
                 Return Me._clearBeforeFill
             End Get
             Set
-                Me._clearBeforeFill = value
+                Me._clearBeforeFill = Value
             End Set
         End Property
 
@@ -9390,7 +9357,7 @@ Namespace podsTableAdapters
         Public Overridable Overloads Function Fill(ByVal dataTable As pods.viewtblaccountsDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
@@ -9442,7 +9409,7 @@ Namespace podsTableAdapters
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
@@ -9453,25 +9420,25 @@ Namespace podsTableAdapters
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
             Set
-                Me._connection = value
+                Me._connection = Value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
-                    Me.Adapter.InsertCommand.Connection = value
+                    Me.Adapter.InsertCommand.Connection = Value
                 End If
                 If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
-                    Me.Adapter.DeleteCommand.Connection = value
+                    Me.Adapter.DeleteCommand.Connection = Value
                 End If
                 If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
-                    Me.Adapter.UpdateCommand.Connection = value
+                    Me.Adapter.UpdateCommand.Connection = Value
                 End If
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = Value
                     End If
                     i = (i + 1)
                 Loop
@@ -9485,7 +9452,7 @@ Namespace podsTableAdapters
                 Return Me._transaction
             End Get
             Set
-                Me._transaction = value
+                Me._transaction = Value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
@@ -9511,7 +9478,7 @@ Namespace podsTableAdapters
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
@@ -9524,7 +9491,7 @@ Namespace podsTableAdapters
                 Return Me._clearBeforeFill
             End Get
             Set
-                Me._clearBeforeFill = value
+                Me._clearBeforeFill = Value
             End Set
         End Property
 
@@ -9570,7 +9537,7 @@ Namespace podsTableAdapters
         Public Overridable Overloads Function Fill(ByVal dataTable As pods.viewtblsuppliersDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
@@ -9622,7 +9589,7 @@ Namespace podsTableAdapters
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
@@ -9633,25 +9600,25 @@ Namespace podsTableAdapters
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
             Set
-                Me._connection = value
+                Me._connection = Value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
-                    Me.Adapter.InsertCommand.Connection = value
+                    Me.Adapter.InsertCommand.Connection = Value
                 End If
                 If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
-                    Me.Adapter.DeleteCommand.Connection = value
+                    Me.Adapter.DeleteCommand.Connection = Value
                 End If
                 If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
-                    Me.Adapter.UpdateCommand.Connection = value
+                    Me.Adapter.UpdateCommand.Connection = Value
                 End If
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = Value
                     End If
                     i = (i + 1)
                 Loop
@@ -9665,7 +9632,7 @@ Namespace podsTableAdapters
                 Return Me._transaction
             End Get
             Set
-                Me._transaction = value
+                Me._transaction = Value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
@@ -9691,7 +9658,7 @@ Namespace podsTableAdapters
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
@@ -9704,7 +9671,7 @@ Namespace podsTableAdapters
                 Return Me._clearBeforeFill
             End Get
             Set
-                Me._clearBeforeFill = value
+                Me._clearBeforeFill = Value
             End Set
         End Property
 
@@ -9747,7 +9714,7 @@ Namespace podsTableAdapters
         Public Overridable Overloads Function Fill(ByVal dataTable As pods.viewtblaccount_logsDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
@@ -9799,7 +9766,7 @@ Namespace podsTableAdapters
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
@@ -9810,25 +9777,25 @@ Namespace podsTableAdapters
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
             Set
-                Me._connection = value
+                Me._connection = Value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
-                    Me.Adapter.InsertCommand.Connection = value
+                    Me.Adapter.InsertCommand.Connection = Value
                 End If
                 If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
-                    Me.Adapter.DeleteCommand.Connection = value
+                    Me.Adapter.DeleteCommand.Connection = Value
                 End If
                 If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
-                    Me.Adapter.UpdateCommand.Connection = value
+                    Me.Adapter.UpdateCommand.Connection = Value
                 End If
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = Value
                     End If
                     i = (i + 1)
                 Loop
@@ -9842,7 +9809,7 @@ Namespace podsTableAdapters
                 Return Me._transaction
             End Get
             Set
-                Me._transaction = value
+                Me._transaction = Value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
@@ -9868,7 +9835,7 @@ Namespace podsTableAdapters
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
@@ -9881,7 +9848,7 @@ Namespace podsTableAdapters
                 Return Me._clearBeforeFill
             End Get
             Set
-                Me._clearBeforeFill = value
+                Me._clearBeforeFill = Value
             End Set
         End Property
 
@@ -9921,7 +9888,7 @@ Namespace podsTableAdapters
         Public Overridable Overloads Function Fill(ByVal dataTable As pods.viewtblvatDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
@@ -9973,7 +9940,7 @@ Namespace podsTableAdapters
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
@@ -9984,25 +9951,25 @@ Namespace podsTableAdapters
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
             Set
-                Me._connection = value
+                Me._connection = Value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
-                    Me.Adapter.InsertCommand.Connection = value
+                    Me.Adapter.InsertCommand.Connection = Value
                 End If
                 If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
-                    Me.Adapter.DeleteCommand.Connection = value
+                    Me.Adapter.DeleteCommand.Connection = Value
                 End If
                 If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
-                    Me.Adapter.UpdateCommand.Connection = value
+                    Me.Adapter.UpdateCommand.Connection = Value
                 End If
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = Value
                     End If
                     i = (i + 1)
                 Loop
@@ -10016,7 +9983,7 @@ Namespace podsTableAdapters
                 Return Me._transaction
             End Get
             Set
-                Me._transaction = value
+                Me._transaction = Value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
@@ -10042,7 +10009,7 @@ Namespace podsTableAdapters
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
@@ -10055,7 +10022,7 @@ Namespace podsTableAdapters
                 Return Me._clearBeforeFill
             End Get
             Set
-                Me._clearBeforeFill = value
+                Me._clearBeforeFill = Value
             End Set
         End Property
 
@@ -10099,7 +10066,7 @@ Namespace podsTableAdapters
         Public Overridable Overloads Function Fill(ByVal dataTable As pods.viewtbldeliverypulloutsDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
@@ -10151,7 +10118,7 @@ Namespace podsTableAdapters
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
@@ -10162,25 +10129,25 @@ Namespace podsTableAdapters
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
             Set
-                Me._connection = value
+                Me._connection = Value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
-                    Me.Adapter.InsertCommand.Connection = value
+                    Me.Adapter.InsertCommand.Connection = Value
                 End If
                 If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
-                    Me.Adapter.DeleteCommand.Connection = value
+                    Me.Adapter.DeleteCommand.Connection = Value
                 End If
                 If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
-                    Me.Adapter.UpdateCommand.Connection = value
+                    Me.Adapter.UpdateCommand.Connection = Value
                 End If
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = Value
                     End If
                     i = (i + 1)
                 Loop
@@ -10194,7 +10161,7 @@ Namespace podsTableAdapters
                 Return Me._transaction
             End Get
             Set
-                Me._transaction = value
+                Me._transaction = Value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
@@ -10220,7 +10187,7 @@ Namespace podsTableAdapters
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
@@ -10233,7 +10200,7 @@ Namespace podsTableAdapters
                 Return Me._clearBeforeFill
             End Get
             Set
-                Me._clearBeforeFill = value
+                Me._clearBeforeFill = Value
             End Set
         End Property
 
@@ -10282,7 +10249,7 @@ Namespace podsTableAdapters
         Public Overridable Overloads Function Fill(ByVal dataTable As pods.viewtbltransactionsDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
@@ -10334,7 +10301,7 @@ Namespace podsTableAdapters
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
@@ -10345,25 +10312,25 @@ Namespace podsTableAdapters
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
             Set
-                Me._connection = value
+                Me._connection = Value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
-                    Me.Adapter.InsertCommand.Connection = value
+                    Me.Adapter.InsertCommand.Connection = Value
                 End If
                 If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
-                    Me.Adapter.DeleteCommand.Connection = value
+                    Me.Adapter.DeleteCommand.Connection = Value
                 End If
                 If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
-                    Me.Adapter.UpdateCommand.Connection = value
+                    Me.Adapter.UpdateCommand.Connection = Value
                 End If
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = Value
                     End If
                     i = (i + 1)
                 Loop
@@ -10377,7 +10344,7 @@ Namespace podsTableAdapters
                 Return Me._transaction
             End Get
             Set
-                Me._transaction = value
+                Me._transaction = Value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
@@ -10403,7 +10370,7 @@ Namespace podsTableAdapters
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
@@ -10416,7 +10383,7 @@ Namespace podsTableAdapters
                 Return Me._clearBeforeFill
             End Get
             Set
-                Me._clearBeforeFill = value
+                Me._clearBeforeFill = Value
             End Set
         End Property
 
@@ -10461,7 +10428,7 @@ Namespace podsTableAdapters
         Public Overridable Overloads Function Fill(ByVal dataTable As pods.viewtblreturnsDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
@@ -10513,7 +10480,7 @@ Namespace podsTableAdapters
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
@@ -10524,25 +10491,25 @@ Namespace podsTableAdapters
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
             Set
-                Me._connection = value
+                Me._connection = Value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
-                    Me.Adapter.InsertCommand.Connection = value
+                    Me.Adapter.InsertCommand.Connection = Value
                 End If
                 If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
-                    Me.Adapter.DeleteCommand.Connection = value
+                    Me.Adapter.DeleteCommand.Connection = Value
                 End If
                 If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
-                    Me.Adapter.UpdateCommand.Connection = value
+                    Me.Adapter.UpdateCommand.Connection = Value
                 End If
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = Value
                     End If
                     i = (i + 1)
                 Loop
@@ -10556,7 +10523,7 @@ Namespace podsTableAdapters
                 Return Me._transaction
             End Get
             Set
-                Me._transaction = value
+                Me._transaction = Value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
@@ -10582,7 +10549,7 @@ Namespace podsTableAdapters
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
@@ -10595,7 +10562,7 @@ Namespace podsTableAdapters
                 Return Me._clearBeforeFill
             End Get
             Set
-                Me._clearBeforeFill = value
+                Me._clearBeforeFill = Value
             End Set
         End Property
 
@@ -10637,7 +10604,7 @@ Namespace podsTableAdapters
         Public Overridable Overloads Function Fill(ByVal dataTable As pods.viewtblproductsearchDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
@@ -10689,7 +10656,7 @@ Namespace podsTableAdapters
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
@@ -10700,25 +10667,25 @@ Namespace podsTableAdapters
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
             Set
-                Me._connection = value
+                Me._connection = Value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
-                    Me.Adapter.InsertCommand.Connection = value
+                    Me.Adapter.InsertCommand.Connection = Value
                 End If
                 If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
-                    Me.Adapter.DeleteCommand.Connection = value
+                    Me.Adapter.DeleteCommand.Connection = Value
                 End If
                 If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
-                    Me.Adapter.UpdateCommand.Connection = value
+                    Me.Adapter.UpdateCommand.Connection = Value
                 End If
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = Value
                     End If
                     i = (i + 1)
                 Loop
@@ -10732,7 +10699,7 @@ Namespace podsTableAdapters
                 Return Me._transaction
             End Get
             Set
-                Me._transaction = value
+                Me._transaction = Value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
@@ -10758,7 +10725,7 @@ Namespace podsTableAdapters
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
@@ -10771,7 +10738,7 @@ Namespace podsTableAdapters
                 Return Me._clearBeforeFill
             End Get
             Set
-                Me._clearBeforeFill = value
+                Me._clearBeforeFill = Value
             End Set
         End Property
 
@@ -10812,7 +10779,7 @@ Namespace podsTableAdapters
         Public Overridable Overloads Function Fill(ByVal dataTable As pods.viewtbldosageDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
@@ -10864,7 +10831,7 @@ Namespace podsTableAdapters
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
@@ -10875,25 +10842,25 @@ Namespace podsTableAdapters
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
             Set
-                Me._connection = value
+                Me._connection = Value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
-                    Me.Adapter.InsertCommand.Connection = value
+                    Me.Adapter.InsertCommand.Connection = Value
                 End If
                 If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
-                    Me.Adapter.DeleteCommand.Connection = value
+                    Me.Adapter.DeleteCommand.Connection = Value
                 End If
                 If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
-                    Me.Adapter.UpdateCommand.Connection = value
+                    Me.Adapter.UpdateCommand.Connection = Value
                 End If
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = Value
                     End If
                     i = (i + 1)
                 Loop
@@ -10907,7 +10874,7 @@ Namespace podsTableAdapters
                 Return Me._transaction
             End Get
             Set
-                Me._transaction = value
+                Me._transaction = Value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
@@ -10933,7 +10900,7 @@ Namespace podsTableAdapters
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
@@ -10946,7 +10913,7 @@ Namespace podsTableAdapters
                 Return Me._clearBeforeFill
             End Get
             Set
-                Me._clearBeforeFill = value
+                Me._clearBeforeFill = Value
             End Set
         End Property
 
@@ -10987,7 +10954,7 @@ Namespace podsTableAdapters
         Public Overridable Overloads Function Fill(ByVal dataTable As pods.viewtbldiscountsDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
@@ -11039,7 +11006,7 @@ Namespace podsTableAdapters
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
@@ -11050,25 +11017,25 @@ Namespace podsTableAdapters
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
             Set
-                Me._connection = value
+                Me._connection = Value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
-                    Me.Adapter.InsertCommand.Connection = value
+                    Me.Adapter.InsertCommand.Connection = Value
                 End If
                 If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
-                    Me.Adapter.DeleteCommand.Connection = value
+                    Me.Adapter.DeleteCommand.Connection = Value
                 End If
                 If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
-                    Me.Adapter.UpdateCommand.Connection = value
+                    Me.Adapter.UpdateCommand.Connection = Value
                 End If
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = Value
                     End If
                     i = (i + 1)
                 Loop
@@ -11082,7 +11049,7 @@ Namespace podsTableAdapters
                 Return Me._transaction
             End Get
             Set
-                Me._transaction = value
+                Me._transaction = Value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
@@ -11108,7 +11075,7 @@ Namespace podsTableAdapters
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
@@ -11121,7 +11088,7 @@ Namespace podsTableAdapters
                 Return Me._clearBeforeFill
             End Get
             Set
-                Me._clearBeforeFill = value
+                Me._clearBeforeFill = Value
             End Set
         End Property
 
@@ -11162,7 +11129,7 @@ Namespace podsTableAdapters
         Public Overridable Overloads Function Fill(ByVal dataTable As pods.viewtbldosageformDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = True) Then
-                dataTable.Clear
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
@@ -11214,7 +11181,7 @@ Namespace podsTableAdapters
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
@@ -11225,25 +11192,25 @@ Namespace podsTableAdapters
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
             Set
-                Me._connection = value
+                Me._connection = Value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
-                    Me.Adapter.InsertCommand.Connection = value
+                    Me.Adapter.InsertCommand.Connection = Value
                 End If
                 If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
-                    Me.Adapter.DeleteCommand.Connection = value
+                    Me.Adapter.DeleteCommand.Connection = Value
                 End If
                 If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
-                    Me.Adapter.UpdateCommand.Connection = value
+                    Me.Adapter.UpdateCommand.Connection = Value
                 End If
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = Value
                     End If
                     i = (i + 1)
                 Loop
@@ -11257,7 +11224,7 @@ Namespace podsTableAdapters
                 Return Me._transaction
             End Get
             Set
-                Me._transaction = value
+                Me._transaction = Value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
@@ -11283,7 +11250,7 @@ Namespace podsTableAdapters
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
@@ -11296,7 +11263,7 @@ Namespace podsTableAdapters
                 Return Me._clearBeforeFill
             End Get
             Set
-                Me._clearBeforeFill = value
+                Me._clearBeforeFill = Value
             End Set
         End Property
 
@@ -11320,9 +11287,9 @@ Namespace podsTableAdapters
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
             Me._connection.ConnectionString = Global.Pods_Sales_InventorySystem.My.MySettings.Default.podsdbConnectionString
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
@@ -11330,154 +11297,154 @@ Namespace podsTableAdapters
             Me._commandCollection(0).CommandText = "SELECT id, NAME, action, date FROM dbo.viewtblaudittrail"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As pods.viewtblaudittrailDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)>
+        Public Overridable Overloads Function Fill(ByVal dataTable As pods.viewtblaudittrailDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As pods.viewtblaudittrailDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)>
+        Public Overridable Overloads Function GetData() As pods.viewtblaudittrailDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As pods.viewtblaudittrailDataTable = New pods.viewtblaudittrailDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-    
+
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),
+     Global.System.ComponentModel.ToolboxItem(True),
+     Global.System.ComponentModel.DataObjectAttribute(True),
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" &
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>
     Partial Public Class viewtblproductsTableAdapter
         Inherits Global.System.ComponentModel.Component
-        
+
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
+
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
+
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-        
+
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
+
         Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Public Sub New()
             MyBase.New
-            Me.ClearBeforeFill = true
+            Me.ClearBeforeFill = True
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
             Set
-                Me._connection = value
+                Me._connection = Value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
-                    Me.Adapter.InsertCommand.Connection = value
+                    Me.Adapter.InsertCommand.Connection = Value
                 End If
                 If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
-                    Me.Adapter.DeleteCommand.Connection = value
+                    Me.Adapter.DeleteCommand.Connection = Value
                 End If
                 If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
-                    Me.Adapter.UpdateCommand.Connection = value
+                    Me.Adapter.UpdateCommand.Connection = Value
                 End If
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = Value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
             Set
-                Me._transaction = value
+                Me._transaction = Value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
             Set
-                Me._clearBeforeFill = value
+                Me._clearBeforeFill = Value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
@@ -11493,172 +11460,172 @@ Namespace podsTableAdapters
             tableMapping.ColumnMappings.Add("CRITICAL LEVEL", "CRITICAL LEVEL")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
             Me._connection.ConnectionString = Global.Pods_Sales_InventorySystem.My.MySettings.Default.podsdbConnectionString1
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ID, CATEGORY, SUBCATEGORY, SKU, BARCODE, PRODUCT, DESCRIPTION, [CRITICAL L"& _ 
+            Me._commandCollection(0).CommandText = "SELECT ID, CATEGORY, SUBCATEGORY, SKU, BARCODE, PRODUCT, DESCRIPTION, [CRITICAL L" &
                 "EVEL] FROM dbo.viewtblproducts"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As pods.viewtblproductsDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)>
+        Public Overridable Overloads Function Fill(ByVal dataTable As pods.viewtblproductsDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As pods.viewtblproductsDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)>
+        Public Overridable Overloads Function GetData() As pods.viewtblproductsDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As pods.viewtblproductsDataTable = New pods.viewtblproductsDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-    
+
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),
+     Global.System.ComponentModel.ToolboxItem(True),
+     Global.System.ComponentModel.DataObjectAttribute(True),
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" &
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>
     Partial Public Class viewtbldeliveriesTableAdapter
         Inherits Global.System.ComponentModel.Component
-        
+
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
+
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
+
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-        
+
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
+
         Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Public Sub New()
             MyBase.New
-            Me.ClearBeforeFill = true
+            Me.ClearBeforeFill = True
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
             Set
-                Me._connection = value
+                Me._connection = Value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
-                    Me.Adapter.InsertCommand.Connection = value
+                    Me.Adapter.InsertCommand.Connection = Value
                 End If
                 If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
-                    Me.Adapter.DeleteCommand.Connection = value
+                    Me.Adapter.DeleteCommand.Connection = Value
                 End If
                 If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
-                    Me.Adapter.UpdateCommand.Connection = value
+                    Me.Adapter.UpdateCommand.Connection = Value
                 End If
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = Value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
             Set
-                Me._transaction = value
+                Me._transaction = Value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
             Set
-                Me._clearBeforeFill = value
+                Me._clearBeforeFill = Value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
@@ -11672,203 +11639,202 @@ Namespace podsTableAdapters
             tableMapping.ColumnMappings.Add("DATE", "DATE")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
             Me._connection.ConnectionString = Global.Pods_Sales_InventorySystem.My.MySettings.Default.podsdbConnectionString1
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ID, [DELIVERY NUMBER], [PROCESS BY], [SUPPLIER NAME], TOTAL, DATE FROM dbo"& _ 
+            Me._commandCollection(0).CommandText = "SELECT ID, [DELIVERY NUMBER], [PROCESS BY], [SUPPLIER NAME], TOTAL, DATE FROM dbo" &
                 ".viewtbldeliveries"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As pods.viewtbldeliveriesDataTable) As Integer
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, True)>
+        Public Overridable Overloads Function Fill(ByVal dataTable As pods.viewtbldeliveriesDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            If (Me.ClearBeforeFill = true) Then
-                dataTable.Clear
+            If (Me.ClearBeforeFill = True) Then
+                dataTable.Clear()
             End If
             Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
             Return returnValue
         End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As pods.viewtbldeliveriesDataTable
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], True)>
+        Public Overridable Overloads Function GetData() As pods.viewtbldeliveriesDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             Dim dataTable As pods.viewtbldeliveriesDataTable = New pods.viewtbldeliveriesDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
     End Class
-    
+
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
     '''</summary>
-    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
-     Global.System.ComponentModel.ToolboxItem(true),  _
-     Global.System.ComponentModel.DataObjectAttribute(true),  _
-     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
-     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),
+     Global.System.ComponentModel.ToolboxItem(True),
+     Global.System.ComponentModel.DataObjectAttribute(True),
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" &
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>
     Partial Public Class viewtblinventoryTableAdapter
         Inherits Global.System.ComponentModel.Component
-        
+
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
-        
+
         Private _connection As Global.System.Data.SqlClient.SqlConnection
-        
+
         Private _transaction As Global.System.Data.SqlClient.SqlTransaction
-        
+
         Private _commandCollection() As Global.System.Data.SqlClient.SqlCommand
-        
+
         Private _clearBeforeFill As Boolean
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Public Sub New()
             MyBase.New
-            Me.ClearBeforeFill = true
+            Me.ClearBeforeFill = True
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Protected Friend ReadOnly Property Adapter() As Global.System.Data.SqlClient.SqlDataAdapter
             Get
                 If (Me._adapter Is Nothing) Then
-                    Me.InitAdapter
+                    Me.InitAdapter()
                 End If
                 Return Me._adapter
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Friend Property Connection() As Global.System.Data.SqlClient.SqlConnection
             Get
                 If (Me._connection Is Nothing) Then
-                    Me.InitConnection
+                    Me.InitConnection()
                 End If
                 Return Me._connection
             End Get
             Set
-                Me._connection = value
+                Me._connection = Value
                 If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
-                    Me.Adapter.InsertCommand.Connection = value
+                    Me.Adapter.InsertCommand.Connection = Value
                 End If
                 If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
-                    Me.Adapter.DeleteCommand.Connection = value
+                    Me.Adapter.DeleteCommand.Connection = Value
                 End If
                 If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
-                    Me.Adapter.UpdateCommand.Connection = value
+                    Me.Adapter.UpdateCommand.Connection = Value
                 End If
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     If (Not (Me.CommandCollection(i)) Is Nothing) Then
-                        CType(Me.CommandCollection(i),Global.System.Data.SqlClient.SqlCommand).Connection = value
+                        CType(Me.CommandCollection(i), Global.System.Data.SqlClient.SqlCommand).Connection = Value
                     End If
                     i = (i + 1)
                 Loop
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Friend Property Transaction() As Global.System.Data.SqlClient.SqlTransaction
             Get
                 Return Me._transaction
             End Get
             Set
-                Me._transaction = value
+                Me._transaction = Value
                 Dim i As Integer = 0
                 Do While (i < Me.CommandCollection.Length)
                     Me.CommandCollection(i).Transaction = Me._transaction
                     i = (i + 1)
                 Loop
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
                     Me.Adapter.DeleteCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
                     Me.Adapter.InsertCommand.Transaction = Me._transaction
                 End If
-                If ((Not (Me.Adapter) Is Nothing)  _
+                If ((Not (Me.Adapter) Is Nothing) _
                             AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
                     Me.Adapter.UpdateCommand.Transaction = Me._transaction
                 End If
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Protected ReadOnly Property CommandCollection() As Global.System.Data.SqlClient.SqlCommand()
             Get
                 If (Me._commandCollection Is Nothing) Then
-                    Me.InitCommandCollection
+                    Me.InitCommandCollection()
                 End If
                 Return Me._commandCollection
             End Get
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Public Property ClearBeforeFill() As Boolean
             Get
                 Return Me._clearBeforeFill
             End Get
             Set
-                Me._clearBeforeFill = value
+                Me._clearBeforeFill = Value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Private Sub InitAdapter()
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "viewtblinventory"
-            tableMapping.ColumnMappings.Add("ID", "ID")
-            tableMapping.ColumnMappings.Add("SKU", "SKU")
             tableMapping.ColumnMappings.Add("BARCODE", "BARCODE")
             tableMapping.ColumnMappings.Add("PRODUCT", "PRODUCT")
             tableMapping.ColumnMappings.Add("DESCRIPTION", "DESCRIPTION")
-            tableMapping.ColumnMappings.Add("PRICE", "PRICE")
+            tableMapping.ColumnMappings.Add("SKU", "SKU")
             tableMapping.ColumnMappings.Add("COST PRICE", "COST PRICE")
+            tableMapping.ColumnMappings.Add("PRICE", "PRICE")
             tableMapping.ColumnMappings.Add("QUANTITY", "QUANTITY")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
             Me._connection.ConnectionString = Global.Pods_Sales_InventorySystem.My.MySettings.Default.podsdbConnectionString1
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Private Sub InitCommandCollection()
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ID, SKU, BARCODE, PRODUCT, DESCRIPTION, PRICE, [COST PRICE], QUANTITY FROM"& _ 
-                " dbo.viewtblinventory"
+            Me._commandCollection(0).CommandText = "SELECT        BARCODE, PRODUCT, DESCRIPTION, SKU, [COST PRICE], PRICE, QUANTITY" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) &
+                "FROM            viewtblinventory"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
