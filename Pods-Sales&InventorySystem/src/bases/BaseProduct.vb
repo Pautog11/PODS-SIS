@@ -41,15 +41,15 @@ Public Class BaseProduct
             'Dim pname As String = _sqlCommand.ExecuteScalar
             'BaseAuditTrail.AddProduct(My.Settings.myId, $"Updated a product {pname} to {pnameup}")
 
-            _sqlCommand.Parameters.Clear()
+            '_sqlCommand.Parameters.Clear()
             _sqlCommand = New SqlCommand("UPDATE tblproducts SET subcategory_id = @subcategory_id, sku = @sku, barcode = @barcode, product_name = @product_name, description = @description, critical_level = @critical_level WHERE id = @id", _sqlConnection)
             _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
             _sqlCommand.Parameters.AddWithValue("@subcategory_id", _data.Item("subcategory_id"))
-            _sqlCommand.Parameters.AddWithValue("@sku", _data.Item("sku"))
+            _sqlCommand.Parameters.AddWithValue("@sku", "4654654654")
             _sqlCommand.Parameters.AddWithValue("@barcode", _data.Item("barcode"))
             _sqlCommand.Parameters.AddWithValue("@product_name", _data.Item("product_name"))
             _sqlCommand.Parameters.AddWithValue("@description", If(String.IsNullOrEmpty(_data.Item("description")), DBNull.Value, _data.Item("description"))) '_data.Item("description"))
-            _sqlCommand.Parameters.AddWithValue("@critical_level", _data.Item("stock_level"))
+            _sqlCommand.Parameters.AddWithValue("@critical_level", _data.Item("critical_level"))
 
             If _sqlCommand.ExecuteNonQuery() <= 0 Then
                 MessageBox.Show("An error occured!")
@@ -203,18 +203,18 @@ Public Class BaseProduct
         End Try
     End Function
 
-    Public Shared Function SubcategoryName(id As String) As String
-        Try
-            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As New SqlCommand("SELECT subcategory FROM tblsubcategories WHERE id = @id", conn)
-            cmd.Parameters.AddWithValue("@id", id)
+    'Public Shared Function SubcategoryName(id As String) As String
+    '    Try
+    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+    '        Dim cmd As New SqlCommand("SELECT subcategory FROM tblsubcategories WHERE id = @id", conn)
+    '        cmd.Parameters.AddWithValue("@id", id)
 
-            Return cmd.ExecuteScalar()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return 0
-        End Try
-    End Function
+    '        Return cmd.ExecuteScalar()
+    '    Catch ex As Exception
+    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+    '        Return 0
+    '    End Try
+    'End Function
 
     Public Shared Function Search(query As String) As pods.viewtblproductsDataTable 'pods.tblaccountsDataTable
         Try
@@ -234,47 +234,47 @@ Public Class BaseProduct
         End Try
     End Function
 
-    Public Shared Function ProductInfo(id As String) As DataTable
-        Try
-            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As New SqlCommand("SELECT BARCODE, QUANTITY, PRICE, COST FROM viewtblproducts WHERE id = @id", conn)
-            cmd.Parameters.AddWithValue("@id", id)
-            Dim dTable As New DataTable
-            Dim adapter As New SqlDataAdapter(cmd)
-            adapter.Fill(dTable)
-            Return dTable
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return New DataTable
-        End Try
-    End Function
+    'Public Shared Function ProductInfo(id As String) As DataTable
+    '    Try
+    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+    '        Dim cmd As New SqlCommand("SELECT BARCODE, QUANTITY, PRICE, COST FROM viewtblproducts WHERE id = @id", conn)
+    '        cmd.Parameters.AddWithValue("@id", id)
+    '        Dim dTable As New DataTable
+    '        Dim adapter As New SqlDataAdapter(cmd)
+    '        adapter.Fill(dTable)
+    '        Return dTable
+    '    Catch ex As Exception
+    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+    '        Return New DataTable
+    '    End Try
+    'End Function
 
-    Public Shared Function FetchProductBySubcategory(subcategory_id As String) As DataTable
-        Try
-            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As New SqlCommand("SELECT id, product_name FROM tblproducts WHERE subcategory_id = @subcategory_id", conn)
-            cmd.Parameters.AddWithValue("subcategory_id", subcategory_id)
-            Dim dTable As New DataTable
-            Dim adapter As New SqlDataAdapter(cmd)
-            adapter.Fill(dTable)
-            Return dTable
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return New DataTable
-        End Try
-    End Function
-    Public Shared Function ScalarProductId(product_name As String) As Integer
-        Try
-            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As New SqlCommand("SELECT id FROM tblproducts WHERE product_name = @product_name", conn)
-            cmd.Parameters.AddWithValue("@product_name", product_name)
+    'Public Shared Function FetchProductBySubcategory(subcategory_id As String) As DataTable
+    '    Try
+    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+    '        Dim cmd As New SqlCommand("SELECT id, product_name FROM tblproducts WHERE subcategory_id = @subcategory_id", conn)
+    '        cmd.Parameters.AddWithValue("subcategory_id", subcategory_id)
+    '        Dim dTable As New DataTable
+    '        Dim adapter As New SqlDataAdapter(cmd)
+    '        adapter.Fill(dTable)
+    '        Return dTable
+    '    Catch ex As Exception
+    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+    '        Return New DataTable
+    '    End Try
+    'End Function
+    'Public Shared Function ScalarProductId(product_name As String) As Integer
+    '    Try
+    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+    '        Dim cmd As New SqlCommand("SELECT id FROM tblproducts WHERE product_name = @product_name", conn)
+    '        cmd.Parameters.AddWithValue("@product_name", product_name)
 
-            Return cmd.ExecuteScalar()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return 0
-        End Try
-    End Function
+    '        Return cmd.ExecuteScalar()
+    '    Catch ex As Exception
+    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+    '        Return 0
+    '    End Try
+    'End Function
 
     Public Shared Function Fillproductinfo(product_id As String) As DataTable
         Try
@@ -332,40 +332,40 @@ Public Class BaseProduct
         End Try
     End Function
 
-    Public Shared Function ChangeDialog(id As Integer) As Integer
-        Try
-            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As New SqlCommand("SELECT 
-                                        CASE 
-                                            WHEN EXISTS (
-                                                SELECT 1 
-                                                FROM tblproduct_info t2 
-                                                WHERE t2.product_id = t1.id
-                                            ) THEN 1 
-                                            ELSE 0 
-                                        END AS id_exists
-                                    FROM tblproducts t1 where t1.id = @id", conn)
-            cmd.Parameters.AddWithValue("@id", id)
-            Return cmd.ExecuteScalar()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return 0
-        End Try
-    End Function
+    'Public Shared Function ChangeDialog(id As Integer) As Integer
+    '    Try
+    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+    '        Dim cmd As New SqlCommand("SELECT 
+    '                                    CASE 
+    '                                        WHEN EXISTS (
+    '                                            SELECT 1 
+    '                                            FROM tblproduct_info t2 
+    '                                            WHERE t2.product_id = t1.id
+    '                                        ) THEN 1 
+    '                                        ELSE 0 
+    '                                    END AS id_exists
+    '                                FROM tblproducts t1 where t1.id = @id", conn)
+    '        cmd.Parameters.AddWithValue("@id", id)
+    '        Return cmd.ExecuteScalar()
+    '    Catch ex As Exception
+    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+    '        Return 0
+    '    End Try
+    'End Function
 
-    Public Shared Function FetchDosage() As DataTable
-        Try
-            Dim conn As New SqlConnection(My.Settings.podsdbConnectionString)
-            Dim cmd As New SqlCommand("SELECT * FROM tbldosage", conn)
-            Dim dTable As New DataTable
-            Dim adapter As New SqlDataAdapter(cmd)
-            adapter.Fill(dTable)
-            Return dTable
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return New DataTable
-        End Try
-    End Function
+    'Public Shared Function FetchDosage() As DataTable
+    '    Try
+    '        Dim conn As New SqlConnection(My.Settings.podsdbConnectionString)
+    '        Dim cmd As New SqlCommand("SELECT * FROM tbldosage", conn)
+    '        Dim dTable As New DataTable
+    '        Dim adapter As New SqlDataAdapter(cmd)
+    '        adapter.Fill(dTable)
+    '        Return dTable
+    '    Catch ex As Exception
+    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+    '        Return New DataTable
+    '    End Try
+    'End Function
 
     Public Shared Function DoseName(id As String) As String
         Try

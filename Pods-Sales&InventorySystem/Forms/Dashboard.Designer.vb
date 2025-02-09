@@ -739,7 +739,6 @@ Partial Class Dashboard
         '
         'Pos
         '
-        Me.Pos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Pos.Controls.Add(Me.Pos1)
         Me.Pos.Location = New System.Drawing.Point(184, 4)
         Me.Pos.Name = "Pos"
@@ -753,7 +752,7 @@ Partial Class Dashboard
         Me.Pos1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Pos1.Location = New System.Drawing.Point(0, 0)
         Me.Pos1.Name = "Pos1"
-        Me.Pos1.Size = New System.Drawing.Size(1178, 712)
+        Me.Pos1.Size = New System.Drawing.Size(1180, 714)
         Me.Pos1.TabIndex = 0
         '
         'Guna2ContextMenuStrip1

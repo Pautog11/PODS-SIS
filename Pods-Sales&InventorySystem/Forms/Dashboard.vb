@@ -33,7 +33,7 @@ Public Class Dashboard
         Sales.Text = BaseTransaction.ScalarTransaction
 
         'Dim expiry As DataTable = BaseNotifications.Expiry
-        Dim critical As DataTable = BaseNotifications.CriticalLevel
+        'Dim critical As DataTable = BaseNotifications.CriticalLevel
 
         ' Clear the existing rows in the DataGridView
         NotificationDataGridView.Rows.Clear()
@@ -55,13 +55,18 @@ Public Class Dashboard
         Login.Show()
     End Sub
 
+    Public Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+        Using dialog As New AboutBox
+            dialog.ShowDialog()
+        End Using
+    End Sub
+
     Private Sub RefreshButton_Click(sender As Object, e As EventArgs) Handles RefreshButton.Click
         NotifyObserver()
     End Sub
 
     Private Sub DashboardTabControl_Click(sender As Object, e As EventArgs) Handles DashboardTabControl.Click
         If DashboardTabControl.SelectedTab Is DashboardTabControl.TabPages("pos") Then
-            'Pos.Focus()
             NotifyObserver()
         End If
     End Sub

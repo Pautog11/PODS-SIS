@@ -53,13 +53,13 @@ Partial Class TransactionCartDailog
         Me.QuantityTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.QuantityTextBox.ForeColor = System.Drawing.Color.Black
         Me.QuantityTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.QuantityTextBox.Location = New System.Drawing.Point(66, 269)
+        Me.QuantityTextBox.Location = New System.Drawing.Point(27, 269)
         Me.QuantityTextBox.Name = "QuantityTextBox"
         Me.QuantityTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.QuantityTextBox.PlaceholderText = "0"
         Me.QuantityTextBox.SelectedText = ""
         Me.QuantityTextBox.ShortcutsEnabled = False
-        Me.QuantityTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.QuantityTextBox.Size = New System.Drawing.Size(253, 36)
         Me.QuantityTextBox.TabIndex = 13
         '
         'PriceTextBox
@@ -76,13 +76,13 @@ Partial Class TransactionCartDailog
         Me.PriceTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.PriceTextBox.ForeColor = System.Drawing.Color.Black
         Me.PriceTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.PriceTextBox.Location = New System.Drawing.Point(66, 159)
+        Me.PriceTextBox.Location = New System.Drawing.Point(27, 159)
         Me.PriceTextBox.Name = "PriceTextBox"
         Me.PriceTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.PriceTextBox.PlaceholderText = "0.00"
         Me.PriceTextBox.SelectedText = ""
         Me.PriceTextBox.ShortcutsEnabled = False
-        Me.PriceTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.PriceTextBox.Size = New System.Drawing.Size(253, 36)
         Me.PriceTextBox.TabIndex = 12
         '
         'AddTransactionButton
@@ -118,13 +118,13 @@ Partial Class TransactionCartDailog
         Me.StocksTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.StocksTextBox.ForeColor = System.Drawing.Color.Black
         Me.StocksTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.StocksTextBox.Location = New System.Drawing.Point(66, 214)
+        Me.StocksTextBox.Location = New System.Drawing.Point(27, 214)
         Me.StocksTextBox.Name = "StocksTextBox"
         Me.StocksTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.StocksTextBox.PlaceholderText = "0"
         Me.StocksTextBox.SelectedText = ""
         Me.StocksTextBox.ShortcutsEnabled = False
-        Me.StocksTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.StocksTextBox.Size = New System.Drawing.Size(253, 36)
         Me.StocksTextBox.TabIndex = 17
         '
         'Guna2Separator1
@@ -150,14 +150,14 @@ Partial Class TransactionCartDailog
         Me.BarcodeTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.BarcodeTextBox.ForeColor = System.Drawing.Color.Black
         Me.BarcodeTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.BarcodeTextBox.Location = New System.Drawing.Point(66, 33)
+        Me.BarcodeTextBox.Location = New System.Drawing.Point(27, 33)
         Me.BarcodeTextBox.MaxLength = 13
         Me.BarcodeTextBox.Name = "BarcodeTextBox"
         Me.BarcodeTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.BarcodeTextBox.PlaceholderText = "Scan Here"
         Me.BarcodeTextBox.SelectedText = ""
         Me.BarcodeTextBox.ShortcutsEnabled = False
-        Me.BarcodeTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.BarcodeTextBox.Size = New System.Drawing.Size(253, 36)
         Me.BarcodeTextBox.TabIndex = 18
         '
         'ProductNameTextBox
@@ -174,13 +174,13 @@ Partial Class TransactionCartDailog
         Me.ProductNameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.ProductNameTextBox.ForeColor = System.Drawing.Color.Black
         Me.ProductNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ProductNameTextBox.Location = New System.Drawing.Point(66, 104)
+        Me.ProductNameTextBox.Location = New System.Drawing.Point(27, 104)
         Me.ProductNameTextBox.Name = "ProductNameTextBox"
         Me.ProductNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ProductNameTextBox.PlaceholderText = "Ex. (Biogesic)"
         Me.ProductNameTextBox.SelectedText = ""
         Me.ProductNameTextBox.ShortcutsEnabled = False
-        Me.ProductNameTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.ProductNameTextBox.Size = New System.Drawing.Size(253, 36)
         Me.ProductNameTextBox.TabIndex = 21
         '
         'VoidButton
@@ -216,7 +216,7 @@ Partial Class TransactionCartDailog
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(39, 17)
+        Me.Label2.Location = New System.Drawing.Point(31, 17)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(47, 13)
         Me.Label2.TabIndex = 24
@@ -225,7 +225,7 @@ Partial Class TransactionCartDailog
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(39, 88)
+        Me.Label1.Location = New System.Drawing.Point(31, 88)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(44, 13)
         Me.Label1.TabIndex = 25
@@ -234,7 +234,7 @@ Partial Class TransactionCartDailog
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(39, 143)
+        Me.Label3.Location = New System.Drawing.Point(31, 143)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(31, 13)
         Me.Label3.TabIndex = 26
@@ -243,7 +243,7 @@ Partial Class TransactionCartDailog
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(39, 198)
+        Me.Label4.Location = New System.Drawing.Point(31, 198)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(40, 13)
         Me.Label4.TabIndex = 27
@@ -252,7 +252,7 @@ Partial Class TransactionCartDailog
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(39, 253)
+        Me.Label5.Location = New System.Drawing.Point(31, 253)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(46, 13)
         Me.Label5.TabIndex = 28

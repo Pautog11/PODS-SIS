@@ -95,6 +95,11 @@ Public Class ProductDialog
                     invoker?.Execute()
                     _subject.NotifyObserver()
                     Me.Close()
+                ElseIf _data IsNot Nothing Then
+                    invoker = New UpdateCommand(baseCommand)
+                    invoker?.Execute()
+                    _subject.NotifyObserver()
+                    Me.Close()
                 Else
                     MessageBox.Show("Product exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 End If

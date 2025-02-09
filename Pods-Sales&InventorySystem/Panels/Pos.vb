@@ -16,9 +16,9 @@
         Datepurchased.Text = DateAndTime.Now.ToString("F")
     End Sub
 
-    Private Sub Pos_KeyPress(sender As Object, e As KeyPressEventArgs) Handles MyBase.KeyPress
-        If e.KeyChar = ChrW(Keys.Enter) Then
-            MsgBox("pressed")
-        End If
+    Private Sub AddItemButton_Click(sender As Object, e As EventArgs) Handles AddItemButton.Click
+        Using dialog As New TransactionCartDailog
+            dialog.ShowDialog()
+        End Using
     End Sub
 End Class

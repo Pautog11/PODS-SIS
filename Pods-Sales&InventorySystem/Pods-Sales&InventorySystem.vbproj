@@ -160,6 +160,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Dialogs\AboutBox.Designer.vb">
+      <DependentUpon>AboutBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\AboutBox.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Dialogs\CategoryDialog.Designer.vb">
       <DependentUpon>CategoryDialog.vb</DependentUpon>
     </Compile>
@@ -601,6 +607,9 @@
     <Compile Include="src\interface\IObserverPanel.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Dialogs\AboutBox.resx">
+      <DependentUpon>AboutBox.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\CategoryDialog.resx">
       <DependentUpon>CategoryDialog.vb</DependentUpon>
     </EmbeddedResource>

@@ -30,7 +30,7 @@ Partial Class Pos
         Me.Guna2ImageButton2 = New Guna.UI2.WinForms.Guna2ImageButton()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.SearchItemButton = New Guna.UI2.WinForms.Guna2Button()
-        Me.AddItemTransactionButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.AddItemButton = New Guna.UI2.WinForms.Guna2Button()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.AddTransactionButton = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
@@ -78,11 +78,11 @@ Partial Class Pos
         Me.TableLayoutPanel1.ColumnCount = 2
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 350.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.Guna2ImageButton2, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Guna2Panel1, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.FlowLayoutPanel1, 1, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.Guna2Panel2, 1, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.Guna2Panel3, 0, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.Guna2ImageButton2, 1, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
@@ -114,8 +114,10 @@ Partial Class Pos
         '
         'Guna2Panel1
         '
+        Me.Guna2Panel1.BorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Panel1.BorderThickness = 1
         Me.Guna2Panel1.Controls.Add(Me.SearchItemButton)
-        Me.Guna2Panel1.Controls.Add(Me.AddItemTransactionButton)
+        Me.Guna2Panel1.Controls.Add(Me.AddItemButton)
         Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Guna2Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
@@ -139,23 +141,23 @@ Partial Class Pos
         Me.SearchItemButton.Size = New System.Drawing.Size(52, 36)
         Me.SearchItemButton.TabIndex = 24
         '
-        'AddItemTransactionButton
+        'AddItemButton
         '
-        Me.AddItemTransactionButton.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.AddItemTransactionButton.BackColor = System.Drawing.Color.Transparent
-        Me.AddItemTransactionButton.BorderRadius = 15
-        Me.AddItemTransactionButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.AddItemTransactionButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.AddItemTransactionButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.AddItemTransactionButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.AddItemTransactionButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.AddItemTransactionButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.AddItemTransactionButton.ForeColor = System.Drawing.Color.White
-        Me.AddItemTransactionButton.Location = New System.Drawing.Point(752, 9)
-        Me.AddItemTransactionButton.Name = "AddItemTransactionButton"
-        Me.AddItemTransactionButton.Size = New System.Drawing.Size(150, 35)
-        Me.AddItemTransactionButton.TabIndex = 11
-        Me.AddItemTransactionButton.Text = "Add"
+        Me.AddItemButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.AddItemButton.BackColor = System.Drawing.Color.Transparent
+        Me.AddItemButton.BorderRadius = 15
+        Me.AddItemButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.AddItemButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.AddItemButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.AddItemButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.AddItemButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.AddItemButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.AddItemButton.ForeColor = System.Drawing.Color.White
+        Me.AddItemButton.Location = New System.Drawing.Point(752, 9)
+        Me.AddItemButton.Name = "AddItemButton"
+        Me.AddItemButton.Size = New System.Drawing.Size(150, 35)
+        Me.AddItemButton.TabIndex = 11
+        Me.AddItemButton.Text = "Add"
         '
         'FlowLayoutPanel1
         '
@@ -228,6 +230,8 @@ Partial Class Pos
         '
         Me.Guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent
         Me.Guna2HtmlLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2HtmlLabel1.IsContextMenuEnabled = False
+        Me.Guna2HtmlLabel1.IsSelectionEnabled = False
         Me.Guna2HtmlLabel1.Location = New System.Drawing.Point(10, 5)
         Me.Guna2HtmlLabel1.Name = "Guna2HtmlLabel1"
         Me.Guna2HtmlLabel1.Size = New System.Drawing.Size(73, 17)
@@ -238,6 +242,8 @@ Partial Class Pos
         '
         Me.Reference_number.BackColor = System.Drawing.Color.Transparent
         Me.Reference_number.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Reference_number.IsContextMenuEnabled = False
+        Me.Reference_number.IsSelectionEnabled = False
         Me.Reference_number.Location = New System.Drawing.Point(89, 5)
         Me.Reference_number.Name = "Reference_number"
         Me.Reference_number.Size = New System.Drawing.Size(104, 17)
@@ -259,6 +265,8 @@ Partial Class Pos
         '
         Me.Datepurchased.BackColor = System.Drawing.Color.Transparent
         Me.Datepurchased.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Datepurchased.IsContextMenuEnabled = False
+        Me.Datepurchased.IsSelectionEnabled = False
         Me.Datepurchased.Location = New System.Drawing.Point(57, 5)
         Me.Datepurchased.Name = "Datepurchased"
         Me.Datepurchased.Size = New System.Drawing.Size(104, 17)
@@ -269,6 +277,8 @@ Partial Class Pos
         '
         Me.Guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent
         Me.Guna2HtmlLabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2HtmlLabel2.IsContextMenuEnabled = False
+        Me.Guna2HtmlLabel2.IsSelectionEnabled = False
         Me.Guna2HtmlLabel2.Location = New System.Drawing.Point(11, 5)
         Me.Guna2HtmlLabel2.Name = "Guna2HtmlLabel2"
         Me.Guna2HtmlLabel2.Size = New System.Drawing.Size(37, 17)
@@ -294,20 +304,20 @@ Partial Class Pos
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.Location = New System.Drawing.Point(8, 350)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(63, 15)
+        Me.Label9.Size = New System.Drawing.Size(65, 16)
         Me.Label9.TabIndex = 55
         Me.Label9.Text = "CHANGE"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(8, 308)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(43, 15)
+        Me.Label3.Size = New System.Drawing.Size(45, 16)
         Me.Label3.TabIndex = 54
         Me.Label3.Text = "CASH"
         '
@@ -336,10 +346,10 @@ Partial Class Pos
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(8, 267)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(49, 15)
+        Me.Label6.Size = New System.Drawing.Size(52, 16)
         Me.Label6.TabIndex = 53
         Me.Label6.Text = "TOTAL"
         '
@@ -368,10 +378,10 @@ Partial Class Pos
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.Location = New System.Drawing.Point(8, 226)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(93, 15)
+        Me.Label10.Size = New System.Drawing.Size(93, 16)
         Me.Label10.TabIndex = 52
         Me.Label10.Text = "DISCOUNT %"
         '
@@ -400,10 +410,10 @@ Partial Class Pos
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(8, 184)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(77, 15)
+        Me.Label4.Size = New System.Drawing.Size(80, 16)
         Me.Label4.TabIndex = 51
         Me.Label4.Text = "SUBTOTAL"
         '
@@ -433,10 +443,10 @@ Partial Class Pos
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.Location = New System.Drawing.Point(8, 142)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(31, 15)
+        Me.Label13.Size = New System.Drawing.Size(35, 16)
         Me.Label13.TabIndex = 50
         Me.Label13.Text = "VAT"
         '
@@ -487,10 +497,10 @@ Partial Class Pos
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.Location = New System.Drawing.Point(8, 101)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(59, 15)
+        Me.Label12.Size = New System.Drawing.Size(62, 16)
         Me.Label12.TabIndex = 48
         Me.Label12.Text = "VATable"
         '
@@ -633,7 +643,7 @@ Partial Class Pos
     Friend WithEvents Guna2ImageButton2 As Guna.UI2.WinForms.Guna2ImageButton
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents SearchItemButton As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents AddItemTransactionButton As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents AddItemButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents TransactionDataGridView As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents ID As DataGridViewTextBoxColumn
     Friend WithEvents product As DataGridViewTextBoxColumn
