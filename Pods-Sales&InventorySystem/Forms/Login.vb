@@ -1,4 +1,7 @@
-﻿Public Class Login
+﻿
+Imports System.Windows.Forms.TabControl
+
+Public Class Login
     Private _loginModule As New LoginModule
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         PasswordTextBox.UseSystemPasswordChar = True
@@ -35,15 +38,16 @@
             res = _loginModule.LoginAccount(UsernameTextBox.Text, PasswordTextBox.Text)
             If res?(0) Then
                 Dim dash As New Dashboard
-                Dim main As New Maintenance
                 Select Case My.Settings.roleId
                     Case 1
-                        'dash.DashboardTabControl.TabPages.Remove(dash.AuditTrail)
+
                     Case 2
                         'main.MaintenaceTabControl.TabPages.Remove(main.Accounts)
                         ''Dim tabss As TabControl = dash.Maintenance.TabIndex. .TabControlContainer.Items()
                         ''Dim tabs As TabControl = dash.Maintenance.TabPageControlCollection 'MaintainanceContainer.TabControlContainer.Items(
-                        dash.DashboardTabControl.TabPages.Remove(dash.Account)
+                        'dash.DashboardTabControl.TabPages.Remove(dash.Account)
+                        Dim tabs As TabPageCollection = dash.Maintenance1.MaintenaceTabControl.TabPages
+                        tabs.Remove(dash.Maintenance1.Accounts)
                     Case 3
                         dash.DashboardTabControl.TabPages.Remove(dash.Products)
                         dash.DashboardTabControl.TabPages.Remove(dash.Maintenance)
@@ -52,18 +56,13 @@
                         dash.DashboardTabControl.TabPages.Remove(dash.Activity)
                         dash.DashboardTabControl.TabPages.Remove(dash.Inventory)
                         dash.DashboardTabControl.TabPages.Remove(dash.Deliveries)
-                        dash.DashboardTabControl.TabPages.Remove(dash.Account)
-
-                        'Dim tab As TabControl = dash.DashboardTabControl(Witdrawal)
-                        'tab.reabControl.TabPages.Remove(withdrawalTab)
-                        'Dim tab As TabControl = dash.DashboardTabControl.TabPages(dash.Witdrawal)
-                        'tab.TabPages.Remove(tab.ReturnandPulloutTabControl)
+                        'dash.DashboardTabControl.TabPages.Remove(dash.Account)
                 End Select
                 Me.Hide()
                 dash.Show()
             End If
         Else
-            MessageBox.Show("Login Failed!", "PODS-SIS")
+            MessageBox.Show("Login Failed!", "PODS-SIS", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
         UsernameTextBox.Text = ""
         PasswordTextBox.Text = ""

@@ -72,8 +72,6 @@ Partial Class Dashboard
         Me.Reports1 = New Pods_Sales_InventorySystem.Reports()
         Me.Witdrawal = New System.Windows.Forms.TabPage()
         Me.ReturnAndPullout1 = New Pods_Sales_InventorySystem.ReturnAndPullout()
-        Me.Account = New System.Windows.Forms.TabPage()
-        Me.Account1 = New Pods_Sales_InventorySystem.Account()
         Me.Pos = New System.Windows.Forms.TabPage()
         Me.Pos1 = New Pods_Sales_InventorySystem.Pos()
         Me.Guna2ContextMenuStrip1 = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
@@ -105,7 +103,6 @@ Partial Class Dashboard
         Me.Transaction.SuspendLayout()
         Me.Reports.SuspendLayout()
         Me.Witdrawal.SuspendLayout()
-        Me.Account.SuspendLayout()
         Me.Pos.SuspendLayout()
         Me.Guna2ContextMenuStrip1.SuspendLayout()
         CType(Me.DSReport, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -253,7 +250,6 @@ Partial Class Dashboard
         Me.DashboardTabControl.Controls.Add(Me.Transaction)
         Me.DashboardTabControl.Controls.Add(Me.Reports)
         Me.DashboardTabControl.Controls.Add(Me.Witdrawal)
-        Me.DashboardTabControl.Controls.Add(Me.Account)
         Me.DashboardTabControl.Controls.Add(Me.Pos)
         Me.DashboardTabControl.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DashboardTabControl.Dock = System.Windows.Forms.DockStyle.Fill
@@ -741,25 +737,6 @@ Partial Class Dashboard
         Me.ReturnAndPullout1.Size = New System.Drawing.Size(1180, 714)
         Me.ReturnAndPullout1.TabIndex = 0
         '
-        'Account
-        '
-        Me.Account.BackColor = System.Drawing.Color.Transparent
-        Me.Account.Controls.Add(Me.Account1)
-        Me.Account.Location = New System.Drawing.Point(184, 4)
-        Me.Account.Name = "Account"
-        Me.Account.Size = New System.Drawing.Size(1180, 714)
-        Me.Account.TabIndex = 9
-        Me.Account.Text = "Accounts"
-        '
-        'Account1
-        '
-        Me.Account1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Account1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Account1.Location = New System.Drawing.Point(0, 0)
-        Me.Account1.Name = "Account1"
-        Me.Account1.Size = New System.Drawing.Size(1180, 714)
-        Me.Account1.TabIndex = 0
-        '
         'Pos
         '
         Me.Pos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -854,7 +831,6 @@ Partial Class Dashboard
         Me.Transaction.ResumeLayout(False)
         Me.Reports.ResumeLayout(False)
         Me.Witdrawal.ResumeLayout(False)
-        Me.Account.ResumeLayout(False)
         Me.Pos.ResumeLayout(False)
         Me.Guna2ContextMenuStrip1.ResumeLayout(False)
         CType(Me.DSReport, System.ComponentModel.ISupportInitialize).EndInit()
@@ -913,8 +889,6 @@ Partial Class Dashboard
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Label4 As Label
     Friend WithEvents RefreshButton As Guna.UI2.WinForms.Guna2ImageButton
-    Friend WithEvents Account As TabPage
-    Friend WithEvents Account1 As Account
     Friend WithEvents Panel4 As Panel
     Friend WithEvents Pos As TabPage
     Friend WithEvents Pos1 As Pos

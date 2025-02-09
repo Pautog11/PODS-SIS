@@ -125,7 +125,7 @@ Partial Class Login
         Me.Guna2CheckBox1.CheckedState.BorderRadius = 0
         Me.Guna2CheckBox1.CheckedState.BorderThickness = 0
         Me.Guna2CheckBox1.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.Guna2CheckBox1.Location = New System.Drawing.Point(44, 197)
+        Me.Guna2CheckBox1.Location = New System.Drawing.Point(27, 197)
         Me.Guna2CheckBox1.Name = "Guna2CheckBox1"
         Me.Guna2CheckBox1.Size = New System.Drawing.Size(101, 17)
         Me.Guna2CheckBox1.TabIndex = 3
@@ -146,9 +146,9 @@ Partial Class Login
         Me.LoginButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.LoginButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.LoginButton.ForeColor = System.Drawing.Color.White
-        Me.LoginButton.Location = New System.Drawing.Point(54, 225)
+        Me.LoginButton.Location = New System.Drawing.Point(55, 220)
         Me.LoginButton.Name = "LoginButton"
-        Me.LoginButton.Size = New System.Drawing.Size(180, 45)
+        Me.LoginButton.Size = New System.Drawing.Size(197, 36)
         Me.LoginButton.TabIndex = 2
         Me.LoginButton.Text = "Login"
         '

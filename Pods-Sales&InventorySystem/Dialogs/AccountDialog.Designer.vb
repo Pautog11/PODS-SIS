@@ -38,8 +38,17 @@ Partial Class AccountDialog
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.UsernameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.PasswordTextBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Guna2TextBox1 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Password2TextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2CheckBox1 = New Guna.UI2.WinForms.Guna2CheckBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.PasswordLabel = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.StatusLabel = New System.Windows.Forms.Label()
+        Me.RoleLabel = New System.Windows.Forms.Label()
+        Me.FirstnameLabel = New System.Windows.Forms.Label()
+        Me.LastnameLabel = New System.Windows.Forms.Label()
+        Me.PhonenumberLabel = New System.Windows.Forms.Label()
+        Me.AddressLabel = New System.Windows.Forms.Label()
         Me.FlowLayoutPanel2.SuspendLayout()
         Me.AccountDialogLayoutPanel.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
@@ -55,10 +64,10 @@ Partial Class AccountDialog
         Me.FlowLayoutPanel2.Controls.Add(Me.ChangePassButton)
         Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
-        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 266)
+        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 364)
         Me.FlowLayoutPanel2.Margin = New System.Windows.Forms.Padding(0)
         Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(586, 55)
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(491, 55)
         Me.FlowLayoutPanel2.TabIndex = 8
         '
         'DeleteAccountButton
@@ -73,7 +82,7 @@ Partial Class AccountDialog
         Me.DeleteAccountButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(18, Byte), Integer), CType(CType(31, Byte), Integer))
         Me.DeleteAccountButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DeleteAccountButton.ForeColor = System.Drawing.Color.White
-        Me.DeleteAccountButton.Location = New System.Drawing.Point(455, 9)
+        Me.DeleteAccountButton.Location = New System.Drawing.Point(360, 9)
         Me.DeleteAccountButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.DeleteAccountButton.Name = "DeleteAccountButton"
         Me.DeleteAccountButton.Size = New System.Drawing.Size(128, 35)
@@ -92,7 +101,7 @@ Partial Class AccountDialog
         Me.AddAccountButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AddAccountButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddAccountButton.ForeColor = System.Drawing.Color.White
-        Me.AddAccountButton.Location = New System.Drawing.Point(321, 8)
+        Me.AddAccountButton.Location = New System.Drawing.Point(226, 8)
         Me.AddAccountButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.AddAccountButton.Name = "AddAccountButton"
         Me.AddAccountButton.Size = New System.Drawing.Size(128, 37)
@@ -111,7 +120,7 @@ Partial Class AccountDialog
         Me.ChangePassButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.ChangePassButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.ChangePassButton.ForeColor = System.Drawing.Color.White
-        Me.ChangePassButton.Location = New System.Drawing.Point(187, 8)
+        Me.ChangePassButton.Location = New System.Drawing.Point(92, 8)
         Me.ChangePassButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.ChangePassButton.Name = "ChangePassButton"
         Me.ChangePassButton.Size = New System.Drawing.Size(128, 37)
@@ -131,7 +140,7 @@ Partial Class AccountDialog
         Me.AccountDialogLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.AccountDialogLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55.0!))
         Me.AccountDialogLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.AccountDialogLayoutPanel.Size = New System.Drawing.Size(586, 321)
+        Me.AccountDialogLayoutPanel.Size = New System.Drawing.Size(491, 419)
         Me.AccountDialogLayoutPanel.TabIndex = 18
         '
         'Guna2Panel1
@@ -142,20 +151,26 @@ Partial Class AccountDialog
         Me.Guna2Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Size = New System.Drawing.Size(586, 266)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(491, 364)
         Me.Guna2Panel1.TabIndex = 9
         '
         'FlowLayoutPanel3
         '
+        Me.FlowLayoutPanel3.Controls.Add(Me.RoleLabel)
         Me.FlowLayoutPanel3.Controls.Add(Me.RoleComboBox)
+        Me.FlowLayoutPanel3.Controls.Add(Me.StatusLabel)
         Me.FlowLayoutPanel3.Controls.Add(Me.StatusComboBox)
+        Me.FlowLayoutPanel3.Controls.Add(Me.FirstnameLabel)
         Me.FlowLayoutPanel3.Controls.Add(Me.FirstnameTextBox)
+        Me.FlowLayoutPanel3.Controls.Add(Me.LastnameLabel)
         Me.FlowLayoutPanel3.Controls.Add(Me.LastnameTextBox)
+        Me.FlowLayoutPanel3.Controls.Add(Me.PhonenumberLabel)
         Me.FlowLayoutPanel3.Controls.Add(Me.Phone_numberTextBox)
+        Me.FlowLayoutPanel3.Controls.Add(Me.AddressLabel)
         Me.FlowLayoutPanel3.Controls.Add(Me.AddressTextBox)
-        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(83, 3)
+        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(12, 12)
         Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
-        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(183, 259)
+        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(229, 347)
         Me.FlowLayoutPanel3.TabIndex = 25
         '
         'RoleComboBox
@@ -170,9 +185,9 @@ Partial Class AccountDialog
         Me.RoleComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.RoleComboBox.ForeColor = System.Drawing.Color.Black
         Me.RoleComboBox.ItemHeight = 30
-        Me.RoleComboBox.Location = New System.Drawing.Point(3, 3)
+        Me.RoleComboBox.Location = New System.Drawing.Point(3, 16)
         Me.RoleComboBox.Name = "RoleComboBox"
-        Me.RoleComboBox.Size = New System.Drawing.Size(173, 36)
+        Me.RoleComboBox.Size = New System.Drawing.Size(206, 36)
         Me.RoleComboBox.TabIndex = 22
         '
         'StatusComboBox
@@ -187,9 +202,9 @@ Partial Class AccountDialog
         Me.StatusComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.StatusComboBox.ForeColor = System.Drawing.Color.Black
         Me.StatusComboBox.ItemHeight = 30
-        Me.StatusComboBox.Location = New System.Drawing.Point(3, 45)
+        Me.StatusComboBox.Location = New System.Drawing.Point(3, 71)
         Me.StatusComboBox.Name = "StatusComboBox"
-        Me.StatusComboBox.Size = New System.Drawing.Size(173, 36)
+        Me.StatusComboBox.Size = New System.Drawing.Size(206, 36)
         Me.StatusComboBox.TabIndex = 27
         '
         'FirstnameTextBox
@@ -206,14 +221,14 @@ Partial Class AccountDialog
         Me.FirstnameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.FirstnameTextBox.ForeColor = System.Drawing.Color.Black
         Me.FirstnameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.FirstnameTextBox.Location = New System.Drawing.Point(3, 87)
+        Me.FirstnameTextBox.Location = New System.Drawing.Point(3, 126)
         Me.FirstnameTextBox.MaxLength = 50
         Me.FirstnameTextBox.Name = "FirstnameTextBox"
         Me.FirstnameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.FirstnameTextBox.PlaceholderText = "Firstname"
+        Me.FirstnameTextBox.PlaceholderText = "Juan"
         Me.FirstnameTextBox.SelectedText = ""
         Me.FirstnameTextBox.ShortcutsEnabled = False
-        Me.FirstnameTextBox.Size = New System.Drawing.Size(173, 36)
+        Me.FirstnameTextBox.Size = New System.Drawing.Size(206, 36)
         Me.FirstnameTextBox.TabIndex = 23
         '
         'LastnameTextBox
@@ -230,14 +245,14 @@ Partial Class AccountDialog
         Me.LastnameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.LastnameTextBox.ForeColor = System.Drawing.Color.Black
         Me.LastnameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.LastnameTextBox.Location = New System.Drawing.Point(3, 129)
+        Me.LastnameTextBox.Location = New System.Drawing.Point(3, 181)
         Me.LastnameTextBox.MaxLength = 50
         Me.LastnameTextBox.Name = "LastnameTextBox"
         Me.LastnameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.LastnameTextBox.PlaceholderText = "Lastname"
+        Me.LastnameTextBox.PlaceholderText = "Dela Cruz"
         Me.LastnameTextBox.SelectedText = ""
         Me.LastnameTextBox.ShortcutsEnabled = False
-        Me.LastnameTextBox.Size = New System.Drawing.Size(173, 36)
+        Me.LastnameTextBox.Size = New System.Drawing.Size(206, 36)
         Me.LastnameTextBox.TabIndex = 24
         '
         'Phone_numberTextBox
@@ -254,14 +269,14 @@ Partial Class AccountDialog
         Me.Phone_numberTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.Phone_numberTextBox.ForeColor = System.Drawing.Color.Black
         Me.Phone_numberTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Phone_numberTextBox.Location = New System.Drawing.Point(3, 171)
+        Me.Phone_numberTextBox.Location = New System.Drawing.Point(3, 236)
         Me.Phone_numberTextBox.MaxLength = 13
         Me.Phone_numberTextBox.Name = "Phone_numberTextBox"
         Me.Phone_numberTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.Phone_numberTextBox.PlaceholderText = "Phone Number"
+        Me.Phone_numberTextBox.PlaceholderText = "09** *** ****"
         Me.Phone_numberTextBox.SelectedText = ""
         Me.Phone_numberTextBox.ShortcutsEnabled = False
-        Me.Phone_numberTextBox.Size = New System.Drawing.Size(173, 36)
+        Me.Phone_numberTextBox.Size = New System.Drawing.Size(206, 36)
         Me.Phone_numberTextBox.TabIndex = 25
         '
         'AddressTextBox
@@ -278,25 +293,28 @@ Partial Class AccountDialog
         Me.AddressTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddressTextBox.ForeColor = System.Drawing.Color.Black
         Me.AddressTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.AddressTextBox.Location = New System.Drawing.Point(3, 213)
+        Me.AddressTextBox.Location = New System.Drawing.Point(3, 291)
         Me.AddressTextBox.MaxLength = 50
         Me.AddressTextBox.Name = "AddressTextBox"
         Me.AddressTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.AddressTextBox.PlaceholderText = "Address"
+        Me.AddressTextBox.PlaceholderText = "Taguig City"
         Me.AddressTextBox.SelectedText = ""
         Me.AddressTextBox.ShortcutsEnabled = False
-        Me.AddressTextBox.Size = New System.Drawing.Size(173, 36)
+        Me.AddressTextBox.Size = New System.Drawing.Size(206, 36)
         Me.AddressTextBox.TabIndex = 26
         '
         'FlowLayoutPanel1
         '
+        Me.FlowLayoutPanel1.Controls.Add(Me.Label1)
         Me.FlowLayoutPanel1.Controls.Add(Me.UsernameTextBox)
+        Me.FlowLayoutPanel1.Controls.Add(Me.PasswordLabel)
         Me.FlowLayoutPanel1.Controls.Add(Me.PasswordTextBox)
-        Me.FlowLayoutPanel1.Controls.Add(Me.Guna2TextBox1)
+        Me.FlowLayoutPanel1.Controls.Add(Me.Label3)
+        Me.FlowLayoutPanel1.Controls.Add(Me.Password2TextBox)
         Me.FlowLayoutPanel1.Controls.Add(Me.Guna2CheckBox1)
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(376, 3)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(261, 12)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(178, 259)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(219, 327)
         Me.FlowLayoutPanel1.TabIndex = 24
         '
         'UsernameTextBox
@@ -313,14 +331,14 @@ Partial Class AccountDialog
         Me.UsernameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.UsernameTextBox.ForeColor = System.Drawing.Color.Black
         Me.UsernameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.UsernameTextBox.Location = New System.Drawing.Point(3, 3)
+        Me.UsernameTextBox.Location = New System.Drawing.Point(3, 16)
         Me.UsernameTextBox.MaxLength = 20
         Me.UsernameTextBox.Name = "UsernameTextBox"
         Me.UsernameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.UsernameTextBox.PlaceholderText = "Username"
+        Me.UsernameTextBox.PlaceholderText = "Juan"
         Me.UsernameTextBox.SelectedText = ""
         Me.UsernameTextBox.ShortcutsEnabled = False
-        Me.UsernameTextBox.Size = New System.Drawing.Size(173, 36)
+        Me.UsernameTextBox.Size = New System.Drawing.Size(206, 36)
         Me.UsernameTextBox.TabIndex = 22
         '
         'PasswordTextBox
@@ -337,37 +355,37 @@ Partial Class AccountDialog
         Me.PasswordTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.PasswordTextBox.ForeColor = System.Drawing.Color.Black
         Me.PasswordTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.PasswordTextBox.Location = New System.Drawing.Point(3, 45)
+        Me.PasswordTextBox.Location = New System.Drawing.Point(3, 71)
         Me.PasswordTextBox.Name = "PasswordTextBox"
         Me.PasswordTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.PasswordTextBox.PlaceholderText = "Password"
+        Me.PasswordTextBox.PlaceholderText = ""
         Me.PasswordTextBox.SelectedText = ""
         Me.PasswordTextBox.ShortcutsEnabled = False
-        Me.PasswordTextBox.Size = New System.Drawing.Size(173, 36)
+        Me.PasswordTextBox.Size = New System.Drawing.Size(206, 36)
         Me.PasswordTextBox.TabIndex = 23
         '
-        'Guna2TextBox1
+        'Password2TextBox
         '
-        Me.Guna2TextBox1.BorderColor = System.Drawing.Color.Gray
-        Me.Guna2TextBox1.BorderRadius = 10
-        Me.Guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.Guna2TextBox1.DefaultText = ""
-        Me.Guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.Guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.Guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Guna2TextBox1.ForeColor = System.Drawing.Color.Black
-        Me.Guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox1.Location = New System.Drawing.Point(3, 87)
-        Me.Guna2TextBox1.Name = "Guna2TextBox1"
-        Me.Guna2TextBox1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.Guna2TextBox1.PlaceholderText = "Retype password"
-        Me.Guna2TextBox1.SelectedText = ""
-        Me.Guna2TextBox1.ShortcutsEnabled = False
-        Me.Guna2TextBox1.Size = New System.Drawing.Size(173, 36)
-        Me.Guna2TextBox1.TabIndex = 24
+        Me.Password2TextBox.BorderColor = System.Drawing.Color.Gray
+        Me.Password2TextBox.BorderRadius = 10
+        Me.Password2TextBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.Password2TextBox.DefaultText = ""
+        Me.Password2TextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.Password2TextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.Password2TextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Password2TextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Password2TextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Password2TextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.Password2TextBox.ForeColor = System.Drawing.Color.Black
+        Me.Password2TextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Password2TextBox.Location = New System.Drawing.Point(3, 126)
+        Me.Password2TextBox.Name = "Password2TextBox"
+        Me.Password2TextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.Password2TextBox.PlaceholderText = ""
+        Me.Password2TextBox.SelectedText = ""
+        Me.Password2TextBox.ShortcutsEnabled = False
+        Me.Password2TextBox.Size = New System.Drawing.Size(206, 36)
+        Me.Password2TextBox.TabIndex = 24
         '
         'Guna2CheckBox1
         '
@@ -376,7 +394,7 @@ Partial Class AccountDialog
         Me.Guna2CheckBox1.CheckedState.BorderRadius = 0
         Me.Guna2CheckBox1.CheckedState.BorderThickness = 0
         Me.Guna2CheckBox1.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.Guna2CheckBox1.Location = New System.Drawing.Point(3, 129)
+        Me.Guna2CheckBox1.Location = New System.Drawing.Point(3, 168)
         Me.Guna2CheckBox1.Name = "Guna2CheckBox1"
         Me.Guna2CheckBox1.Size = New System.Drawing.Size(101, 17)
         Me.Guna2CheckBox1.TabIndex = 39
@@ -386,11 +404,92 @@ Partial Class AccountDialog
         Me.Guna2CheckBox1.UncheckedState.BorderThickness = 0
         Me.Guna2CheckBox1.UncheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(3, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(55, 13)
+        Me.Label1.TabIndex = 40
+        Me.Label1.Text = "Username"
+        '
+        'PasswordLabel
+        '
+        Me.PasswordLabel.AutoSize = True
+        Me.PasswordLabel.Location = New System.Drawing.Point(3, 55)
+        Me.PasswordLabel.Name = "PasswordLabel"
+        Me.PasswordLabel.Size = New System.Drawing.Size(53, 13)
+        Me.PasswordLabel.TabIndex = 41
+        Me.PasswordLabel.Text = "Password"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(3, 110)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(84, 13)
+        Me.Label3.TabIndex = 42
+        Me.Label3.Text = "Retype pasword"
+        '
+        'StatusLabel
+        '
+        Me.StatusLabel.AutoSize = True
+        Me.StatusLabel.Location = New System.Drawing.Point(3, 55)
+        Me.StatusLabel.Name = "StatusLabel"
+        Me.StatusLabel.Size = New System.Drawing.Size(37, 13)
+        Me.StatusLabel.TabIndex = 43
+        Me.StatusLabel.Text = "Status"
+        '
+        'RoleLabel
+        '
+        Me.RoleLabel.AutoSize = True
+        Me.RoleLabel.Location = New System.Drawing.Point(3, 0)
+        Me.RoleLabel.Name = "RoleLabel"
+        Me.RoleLabel.Size = New System.Drawing.Size(29, 13)
+        Me.RoleLabel.TabIndex = 43
+        Me.RoleLabel.Text = "Role"
+        '
+        'FirstnameLabel
+        '
+        Me.FirstnameLabel.AutoSize = True
+        Me.FirstnameLabel.Location = New System.Drawing.Point(3, 110)
+        Me.FirstnameLabel.Name = "FirstnameLabel"
+        Me.FirstnameLabel.Size = New System.Drawing.Size(52, 13)
+        Me.FirstnameLabel.TabIndex = 43
+        Me.FirstnameLabel.Text = "Firstname"
+        '
+        'LastnameLabel
+        '
+        Me.LastnameLabel.AutoSize = True
+        Me.LastnameLabel.Location = New System.Drawing.Point(3, 165)
+        Me.LastnameLabel.Name = "LastnameLabel"
+        Me.LastnameLabel.Size = New System.Drawing.Size(53, 13)
+        Me.LastnameLabel.TabIndex = 43
+        Me.LastnameLabel.Text = "Lastname"
+        '
+        'PhonenumberLabel
+        '
+        Me.PhonenumberLabel.AutoSize = True
+        Me.PhonenumberLabel.Location = New System.Drawing.Point(3, 220)
+        Me.PhonenumberLabel.Name = "PhonenumberLabel"
+        Me.PhonenumberLabel.Size = New System.Drawing.Size(78, 13)
+        Me.PhonenumberLabel.TabIndex = 43
+        Me.PhonenumberLabel.Text = "Phone Number"
+        '
+        'AddressLabel
+        '
+        Me.AddressLabel.AutoSize = True
+        Me.AddressLabel.Location = New System.Drawing.Point(3, 275)
+        Me.AddressLabel.Name = "AddressLabel"
+        Me.AddressLabel.Size = New System.Drawing.Size(45, 13)
+        Me.AddressLabel.TabIndex = 44
+        Me.AddressLabel.Text = "Address"
+        '
         'AccountDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(586, 321)
+        Me.ClientSize = New System.Drawing.Size(491, 419)
         Me.Controls.Add(Me.AccountDialogLayoutPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
@@ -403,6 +502,7 @@ Partial Class AccountDialog
         Me.AccountDialogLayoutPanel.ResumeLayout(False)
         Me.Guna2Panel1.ResumeLayout(False)
         Me.FlowLayoutPanel3.ResumeLayout(False)
+        Me.FlowLayoutPanel3.PerformLayout()
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.FlowLayoutPanel1.PerformLayout()
         Me.ResumeLayout(False)
@@ -424,6 +524,15 @@ Partial Class AccountDialog
     Friend WithEvents AddressTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents ChangePassButton As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents Guna2TextBox1 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Password2TextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2CheckBox1 As Guna.UI2.WinForms.Guna2CheckBox
+    Friend WithEvents RoleLabel As Label
+    Friend WithEvents StatusLabel As Label
+    Friend WithEvents FirstnameLabel As Label
+    Friend WithEvents LastnameLabel As Label
+    Friend WithEvents PhonenumberLabel As Label
+    Friend WithEvents AddressLabel As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents PasswordLabel As Label
+    Friend WithEvents Label3 As Label
 End Class
