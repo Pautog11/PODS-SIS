@@ -94,14 +94,13 @@ Public Class BaseProduct
     Public Sub Add() Implements ICommandPanel.Add
         Dim transaction As SqlTransaction = SqlConnectionPods.GetInstance.BeginTransaction()
         Try
-            _sqlCommand = New SqlCommand("INSERT INTO tblproducts (subcategory_id, sku, barcode, batch_number, product_name, description, stock_level) VALUES (@subcategory_id, @sku, @barcode, @batch_number, @product_name, @description, @stock_level); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
+            _sqlCommand = New SqlCommand("INSERT INTO tblproducts (subcategory_id, sku, barcode, product_name, description, critical_level) VALUES (@subcategory_id, @sku, @barcode, @product_name, @description, @critical_level); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
             _sqlCommand.Parameters.AddWithValue("@subcategory_id", _data.Item("subcategory_id"))
             _sqlCommand.Parameters.AddWithValue("@sku", "none")
             _sqlCommand.Parameters.AddWithValue("@barcode", _data.Item("barcode"))
-            _sqlCommand.Parameters.AddWithValue("@batch_number", _data.Item("batch"))
             _sqlCommand.Parameters.AddWithValue("@product_name", _data.Item("product_name"))
             _sqlCommand.Parameters.AddWithValue("@description", If(String.IsNullOrEmpty(_data.Item("description")), DBNull.Value, _data.Item("description"))) '_data.Item("description"))
-            _sqlCommand.Parameters.AddWithValue("@stock_level", _data.Item("stock_level"))
+            _sqlCommand.Parameters.AddWithValue("@critical_level", _data.Item("critical_level"))
             'Dim productid As Integer = Convert.ToInt32(_sqlCommand.ExecuteScalar())
 
             'If _item.Item("dosage") = "" And _item.Item("strength") = "" And _item.Item("manufacturer") = "" Then
@@ -154,9 +153,9 @@ Public Class BaseProduct
 
             MessageBox.Show("Product has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
             transaction.Commit()
-            Dim pname As String = _data("product_name").ToString()
-            Dim manuname As String = If(_item?.ContainsKey("manufacturer"), _item("manufacturer").ToString(), "Unknown Manufacturer")
-            BaseAuditTrail.AddProduct(My.Settings.myId, $"Added a product {pname} - {manuname}")
+            'Dim pname As String = _data("product_name").ToString()
+            'Dim manuname As String = If(_item?.ContainsKey("manufacturer"), _item("manufacturer").ToString(), "Unknown Manufacturer")
+            'BaseAuditTrail.AddProduct(My.Settings.myId, $"Added a product {pname} - {manuname}")
         Catch ex As Exception
             transaction.Rollback()
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)

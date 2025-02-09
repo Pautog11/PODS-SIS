@@ -93,12 +93,12 @@ Public Class ProductDialog
                  DataInput.STRING_STRING, DataInput.STRING_INTEGER, DataInput.STRING_NAME, DataInput.STRING_INTEGER, DataInput.STRING_STRING, DataInput.STRING_INTEGER, DataInput.STRING_STRING, DataInput.STRING_NAME
             }
             Dim result As New List(Of Object())
-            'For i = 0 To controls.Count - 1
-            '    result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
-            '    If Not CType(result(i), Object())(0) AndAlso Not String.IsNullOrEmpty(controls(i).Text) Then
-            '        Exit Sub
-            '    End If
-            'Next
+            For i = 0 To controls.Count - 1
+                result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
+                If Not CType(result(i), Object())(0) AndAlso Not String.IsNullOrEmpty(controls(i).Text) Then
+                    Exit Sub
+                End If
+            Next
 
             'Dim inputValue As Integer
             '' Check if the input is a valid integer and if it exceeds 500
@@ -116,7 +116,7 @@ Public Class ProductDialog
                     {"barcode", result(1)(1)},
                     {"product_name", result(2)(1)},
                     {"description", If(String.IsNullOrEmpty(DescriptionTextBox.Text), "", DescriptionTextBox.Text)},' result(3)(1)},   'If(String.IsNullOrEmpty(ProductDescriptionTextBox.Text), "", ProductDescriptionTextBox.Text)}
-                    {"stock_level", result(3)(1)}
+                    {"critical_level", result(3)(1)}
                 }
 
                 'Dim putangina As Boolean = False
@@ -133,7 +133,7 @@ Public Class ProductDialog
                 'baseCommand = New BaseProduct(data) With {.Items = item}
                 baseCommand = New BaseProduct(data)
                 Dim invoker As ICommandInvoker = Nothing
-                If BaseProduct.Exists(result(3)(1)) = 0 AndAlso BaseProduct.BarcodeExists(result(2)(1)) = 0 AndAlso _data Is Nothing Then
+                If BaseProduct.Exists(result(2)(1)) = 0 AndAlso BaseProduct.BarcodeExists(result(1)(1)) = 0 AndAlso _data Is Nothing Then
                     invoker = New AddCommand(baseCommand)
                     invoker?.Execute()
                     _subject.NotifyObserver()
@@ -146,11 +146,9 @@ Public Class ProductDialog
                 Else
                     MessageBox.Show("Product exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 End If
-
             Else
                 MessageBox.Show("Please fill out all textboxes or provide all valid inputs.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
-
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try

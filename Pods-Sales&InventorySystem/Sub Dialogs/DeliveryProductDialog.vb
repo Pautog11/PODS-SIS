@@ -225,15 +225,15 @@ Public Class DeliveryProductDialog
         End Try
     End Sub
 
-    Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles SearchButton.Click
+    'Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles SearchButton.Click
 
-    End Sub
+    'End Sub
 
-    Private Sub Guna2CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles Guna2CheckBox1.CheckedChanged
-        If Guna2CheckBox1.Checked Then
-            DateTimePicker.Enabled = True
-        Else
-            DateTimePicker.Enabled = False
-        End If
-    End Sub
+    'Private Sub Guna2CheckBox1_CheckedChanged(sender As Object, e As EventArgs)
+    '    If Guna2CheckBox1.Checked Then
+    '        DateTimePicker.Enabled = True
+    '    Else
+    '        DateTimePicker.Enabled = False
+    '    End If
+    'End Sub
 End Class

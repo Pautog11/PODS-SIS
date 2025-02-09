@@ -33,7 +33,6 @@ Public Class InventoryReportsViewer
                 Return dset
             End Using
         Catch ex As Exception
-            '    MessageBox.Show($"Error loading inventory data: {ex.Message}")
             Return New DataSet
         End Try
     End Function
