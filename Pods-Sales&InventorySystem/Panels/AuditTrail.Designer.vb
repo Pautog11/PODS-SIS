@@ -22,9 +22,9 @@ Partial Class AuditTrail
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.AuditTrailDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.AuditTrailHeaderLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.AuditTrailSearchTextBox = New Guna.UI2.WinForms.Guna2TextBox()
@@ -40,34 +40,34 @@ Partial Class AuditTrail
         Me.AuditTrailDataGridView.AllowUserToDeleteRows = False
         Me.AuditTrailDataGridView.AllowUserToResizeColumns = False
         Me.AuditTrailDataGridView.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
-        Me.AuditTrailDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.AuditTrailDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.AuditTrailDataGridView.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
+        Me.AuditTrailDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.AuditTrailDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.AuditTrailDataGridView.DefaultCellStyle = DataGridViewCellStyle6
         Me.AuditTrailDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AuditTrailDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.AuditTrailDataGridView.Location = New System.Drawing.Point(2, 54)
+        Me.AuditTrailDataGridView.Location = New System.Drawing.Point(0, 50)
         Me.AuditTrailDataGridView.Margin = New System.Windows.Forms.Padding(0)
         Me.AuditTrailDataGridView.MultiSelect = False
         Me.AuditTrailDataGridView.Name = "AuditTrailDataGridView"
         Me.AuditTrailDataGridView.ReadOnly = True
         Me.AuditTrailDataGridView.RowHeadersVisible = False
         Me.AuditTrailDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.AuditTrailDataGridView.Size = New System.Drawing.Size(894, 520)
+        Me.AuditTrailDataGridView.Size = New System.Drawing.Size(823, 526)
         Me.AuditTrailDataGridView.TabIndex = 4
         Me.AuditTrailDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.AuditTrailDataGridView.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -98,12 +98,13 @@ Partial Class AuditTrail
         Me.AuditTrailHeaderLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.AuditTrailHeaderLayoutPanel.Controls.Add(Me.AuditTrailSearchTextBox, 0, 0)
         Me.AuditTrailHeaderLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AuditTrailHeaderLayoutPanel.Location = New System.Drawing.Point(5, 5)
+        Me.AuditTrailHeaderLayoutPanel.Location = New System.Drawing.Point(0, 0)
+        Me.AuditTrailHeaderLayoutPanel.Margin = New System.Windows.Forms.Padding(0)
         Me.AuditTrailHeaderLayoutPanel.Name = "AuditTrailHeaderLayoutPanel"
         Me.AuditTrailHeaderLayoutPanel.RowCount = 1
         Me.AuditTrailHeaderLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.AuditTrailHeaderLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44.0!))
-        Me.AuditTrailHeaderLayoutPanel.Size = New System.Drawing.Size(888, 44)
+        Me.AuditTrailHeaderLayoutPanel.Size = New System.Drawing.Size(823, 50)
         Me.AuditTrailHeaderLayoutPanel.TabIndex = 0
         '
         'AuditTrailSearchTextBox
@@ -121,7 +122,7 @@ Partial Class AuditTrail
         Me.AuditTrailSearchTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AuditTrailSearchTextBox.ForeColor = System.Drawing.Color.Black
         Me.AuditTrailSearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.AuditTrailSearchTextBox.Location = New System.Drawing.Point(3, 4)
+        Me.AuditTrailSearchTextBox.Location = New System.Drawing.Point(3, 7)
         Me.AuditTrailSearchTextBox.Name = "AuditTrailSearchTextBox"
         Me.AuditTrailSearchTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.AuditTrailSearchTextBox.PlaceholderText = "Search"
@@ -132,13 +133,13 @@ Partial Class AuditTrail
         '
         'TableLayoutPanel1
         '
-        Me.TableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Outset
         Me.TableLayoutPanel1.ColumnCount = 1
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel1.Controls.Add(Me.AuditTrailDataGridView, 0, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.AuditTrailHeaderLayoutPanel, 0, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 2
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))

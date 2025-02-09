@@ -11,21 +11,10 @@ Public Class ProductDialog
     End Sub
     Private Sub ProductDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            'Dim ca As DataTable = BaseCategory.Category
-            'Guna2ComboBox1.DataSource = ca.DefaultView
-            'Guna2ComboBox1.DisplayMember = "category"
-            'Guna2ComboBox1.SelectedItem = "id"
-            'If ca.Rows.Count > 0 Then
-            '    Guna2ComboBox1.SelectedIndex = -1
-            'End If
-
             Dim sc As DataTable = BaseProduct.FillBySubCategory
             SubCategoryComboBox.DataSource = sc.DefaultView
             SubCategoryComboBox.DisplayMember = "subcategory"
             SubCategoryComboBox.SelectedItem = "id"
-            'If sc.Rows.Count > 0 Then
-            '    SubCategoryComboBox.SelectedIndex = -1
-            'End If
 
             Dim dt As DataTable = BaseDosage.FetchDosage
             DoseComboBox.DataSource = dt.DefaultView
@@ -45,19 +34,8 @@ Public Class ProductDialog
             End If
 
             If _data IsNot Nothing Then
-                'MsgBox(_data.Item("subcategory_id"))
                 SubCategoryComboBox.Text = _data.Item("subcategory_id")
-                'SubCategoryComboBox.Enabled = False
                 AddProductButton.Text = "Update"
-
-
-                'Dim fuck As Object = BaseSubCategory.Subcategory(_data.Item("subcategory_id"))
-                ''SubCategoryComboBox.Text = fuck
-                'If fuck IsNot Nothing Then
-                '    Guna2ComboBox1.Text = fuck
-                'End If
-
-                'Guna2ComboBox1.Text =
 
                 SkuTextBox.Text = _data.Item("sku")
                 BarcodeTextBox.Text = _data.Item("barcode")
@@ -70,12 +48,10 @@ Public Class ProductDialog
                 If productid.Rows.Count > 0 Then
                     Dim row As DataRow = productid.Rows(0)
                     DosageFormComboBox.Text = If(row("dosage_form") Is DBNull.Value, String.Empty, row("dosage_form").ToString())
-                    'DosageTextBox.Text = If(row("dosage_form") Is DBNull.Value, String.Empty, row("dosage_form").ToString())
                     StrengthTextBox.Text = If(row("strength") Is DBNull.Value, String.Empty, row("strength").ToString())
                     ManufacturerTextBox.Text = If(row("manufacturer") Is DBNull.Value, String.Empty, row("manufacturer").ToString())
                     DoseComboBox.Text = BaseProduct.DoseName(If(row("dose") Is DBNull.Value, String.Empty, row("dose").ToString()))
                 End If
-                'DeleteProductButton.Visible = False
             Else
                 'DeleteProductButton.Visible = False
             End If
@@ -100,34 +76,15 @@ Public Class ProductDialog
                 End If
             Next
 
-            'Dim inputValue As Integer
-            '' Check if the input is a valid integer and if it exceeds 500
-            'If Integer.TryParse(StockLevelTextBox.Text, inputValue) Then
-            '    If inputValue > 500 Then
-            '        MessageBox.Show("Should not greater than 500!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            '        Exit Sub
-            '    End If
-            'End If
-
             If Not result.Any(Function(item As Object()) Not item(0)) Then
                 Dim data As New Dictionary(Of String, String) From {
                     {"id", _data?.Item("id")},
-                    {"subcategory_id", SubCategoryComboBox.SelectedItem("id")}, '{"sku", If(String.IsNullOrEmpty(SkuTextBox.Text), "", SkuTextBox.Text)},
+                    {"subcategory_id", SubCategoryComboBox.SelectedItem("id")},
                     {"barcode", result(1)(1)},
                     {"product_name", result(2)(1)},
-                    {"description", If(String.IsNullOrEmpty(DescriptionTextBox.Text), "", DescriptionTextBox.Text)},' result(3)(1)},   'If(String.IsNullOrEmpty(ProductDescriptionTextBox.Text), "", ProductDescriptionTextBox.Text)}
+                    {"description", If(String.IsNullOrEmpty(DescriptionTextBox.Text), "", DescriptionTextBox.Text)},
                     {"critical_level", result(3)(1)}
                 }
-
-                'Dim putangina As Boolean = False
-                'Dim item As New Dictionary(Of String, String)
-
-                'If Not String.IsNullOrEmpty(DosageFormComboBox.Text) AndAlso Not String.IsNullOrEmpty(StrengthTextBox.Text) AndAlso Not String.IsNullOrEmpty(ManufacturerTextBox.Text) Then
-                '    item("dosage") = result(4)(1) 'If(String.IsNullOrEmpty(DosageTextBox.Text), Nothing, DosageTextBox.Text)
-                '    item("strength") = result(5)(1)
-                '    item("dose") = DoseComboBox.SelectedItem("id")
-                '    item("manufacturer") = result(7)(1) 'If(String.IsNullOrEmpty(ManufacturerTextBox.Text), Nothing, ManufacturerTextBox.Text)
-                'End If
 
                 Dim baseCommand As BaseProduct '(data) 'With {.Items = item}
                 'baseCommand = New BaseProduct(data) With {.Items = item}
@@ -138,11 +95,6 @@ Public Class ProductDialog
                     invoker?.Execute()
                     _subject.NotifyObserver()
                     Me.Close()
-                    'ElseIf _data IsNot Nothing Then
-                    '    invoker = New UpdateCommand(baseCommand)
-                    '    invoker?.Execute()
-                    '    _subject.NotifyObserver()
-                    '    Me.Close()
                 Else
                     MessageBox.Show("Product exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 End If

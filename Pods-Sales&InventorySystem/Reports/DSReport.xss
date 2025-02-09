@@ -8,7 +8,7 @@
   <Shapes>
     <Shape ID="DesignTable:DT_Transaction" ZOrder="11" X="274" Y="152" Height="219" Width="155" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="215" />
     <Shape ID="DesignTable:DT_Transactionitems" ZOrder="10" X="487" Y="171" Height="124" Width="186" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="120" />
-    <Shape ID="DesignTable:DT_Products" ZOrder="9" X="710" Y="196" Height="162" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="24" SplitterPosition="158" />
+    <Shape ID="DesignTable:DT_Products" ZOrder="9" X="687" Y="176" Height="162" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="24" SplitterPosition="158" />
     <Shape ID="DesignTable:DT_Prod" ZOrder="8" X="982" Y="238" Height="162" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="158" />
     <Shape ID="DesignTable:DT_Transac" ZOrder="7" X="492" Y="308" Height="220" Width="151" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="216" />
     <Shape ID="DesignTable:DT_SalesReport" ZOrder="6" X="480" Y="586" Height="181" Width="156" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="177" />

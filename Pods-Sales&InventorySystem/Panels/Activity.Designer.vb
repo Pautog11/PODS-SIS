@@ -24,8 +24,8 @@ Partial Class Activity
     Private Sub InitializeComponent()
         Me.AuditTrailTabControl = New Guna.UI2.WinForms.Guna2TabControl()
         Me.AccountLogs = New System.Windows.Forms.TabPage()
-        Me.AccountLog1 = New Pods_Sales_InventorySystem.AccountLog()
         Me.AuditTrail = New System.Windows.Forms.TabPage()
+        Me.AccountLog1 = New Pods_Sales_InventorySystem.AccountLog()
         Me.AuditTrail1 = New Pods_Sales_InventorySystem.AuditTrail()
         Me.AuditTrailTabControl.SuspendLayout()
         Me.AccountLogs.SuspendLayout()
@@ -39,6 +39,7 @@ Partial Class Activity
         Me.AuditTrailTabControl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AuditTrailTabControl.ItemSize = New System.Drawing.Size(180, 40)
         Me.AuditTrailTabControl.Location = New System.Drawing.Point(0, 0)
+        Me.AuditTrailTabControl.Margin = New System.Windows.Forms.Padding(0)
         Me.AuditTrailTabControl.Name = "AuditTrailTabControl"
         Me.AuditTrailTabControl.SelectedIndex = 0
         Me.AuditTrailTabControl.Size = New System.Drawing.Size(969, 552)
@@ -66,19 +67,12 @@ Partial Class Activity
         '
         Me.AccountLogs.Controls.Add(Me.AccountLog1)
         Me.AccountLogs.Location = New System.Drawing.Point(4, 44)
+        Me.AccountLogs.Margin = New System.Windows.Forms.Padding(0)
         Me.AccountLogs.Name = "AccountLogs"
         Me.AccountLogs.Size = New System.Drawing.Size(961, 504)
         Me.AccountLogs.TabIndex = 0
         Me.AccountLogs.Text = "Account Logs"
         Me.AccountLogs.UseVisualStyleBackColor = True
-        '
-        'AccountLog1
-        '
-        Me.AccountLog1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AccountLog1.Location = New System.Drawing.Point(0, 0)
-        Me.AccountLog1.Name = "AccountLog1"
-        Me.AccountLog1.Size = New System.Drawing.Size(961, 504)
-        Me.AccountLog1.TabIndex = 0
         '
         'AuditTrail
         '
@@ -90,10 +84,22 @@ Partial Class Activity
         Me.AuditTrail.Text = "Audit Trail"
         Me.AuditTrail.UseVisualStyleBackColor = True
         '
+        'AccountLog1
+        '
+        Me.AccountLog1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.AccountLog1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.AccountLog1.Location = New System.Drawing.Point(0, 0)
+        Me.AccountLog1.Margin = New System.Windows.Forms.Padding(0)
+        Me.AccountLog1.Name = "AccountLog1"
+        Me.AccountLog1.Size = New System.Drawing.Size(961, 504)
+        Me.AccountLog1.TabIndex = 0
+        '
         'AuditTrail1
         '
+        Me.AuditTrail1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.AuditTrail1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AuditTrail1.Location = New System.Drawing.Point(0, 0)
+        Me.AuditTrail1.Margin = New System.Windows.Forms.Padding(0)
         Me.AuditTrail1.Name = "AuditTrail1"
         Me.AuditTrail1.Size = New System.Drawing.Size(961, 504)
         Me.AuditTrail1.TabIndex = 0

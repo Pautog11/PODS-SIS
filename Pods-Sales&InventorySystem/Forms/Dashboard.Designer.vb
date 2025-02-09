@@ -74,12 +74,13 @@ Partial Class Dashboard
         Me.ReturnAndPullout1 = New Pods_Sales_InventorySystem.ReturnAndPullout()
         Me.Account = New System.Windows.Forms.TabPage()
         Me.Account1 = New Pods_Sales_InventorySystem.Account()
+        Me.Pos = New System.Windows.Forms.TabPage()
+        Me.Pos1 = New Pods_Sales_InventorySystem.Pos()
         Me.Guna2ContextMenuStrip1 = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DSReport = New Pods_Sales_InventorySystem.DSReport()
         Me.DTTransactionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.DashboardTableLayoutPanel.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.DashboardPanel.SuspendLayout()
@@ -105,6 +106,7 @@ Partial Class Dashboard
         Me.Reports.SuspendLayout()
         Me.Witdrawal.SuspendLayout()
         Me.Account.SuspendLayout()
+        Me.Pos.SuspendLayout()
         Me.Guna2ContextMenuStrip1.SuspendLayout()
         CType(Me.DSReport, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DTTransactionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -252,7 +254,7 @@ Partial Class Dashboard
         Me.DashboardTabControl.Controls.Add(Me.Reports)
         Me.DashboardTabControl.Controls.Add(Me.Witdrawal)
         Me.DashboardTabControl.Controls.Add(Me.Account)
-        Me.DashboardTabControl.Controls.Add(Me.TabPage1)
+        Me.DashboardTabControl.Controls.Add(Me.Pos)
         Me.DashboardTabControl.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DashboardTabControl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DashboardTabControl.ItemSize = New System.Drawing.Size(180, 40)
@@ -349,10 +351,11 @@ Partial Class Dashboard
         '
         'PictureBox3
         '
+        Me.PictureBox3.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.PictureBox3.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.sales
-        Me.PictureBox3.Location = New System.Drawing.Point(32, 0)
+        Me.PictureBox3.Location = New System.Drawing.Point(38, 8)
         Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(103, 98)
+        Me.PictureBox3.Size = New System.Drawing.Size(93, 85)
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox3.TabIndex = 6
         Me.PictureBox3.TabStop = False
@@ -423,8 +426,9 @@ Partial Class Dashboard
         '
         'PictureBox2
         '
+        Me.PictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.PictureBox2.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.shopping_cart
-        Me.PictureBox2.Location = New System.Drawing.Point(17, 11)
+        Me.PictureBox2.Location = New System.Drawing.Point(20, 14)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(89, 68)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -486,6 +490,7 @@ Partial Class Dashboard
         '
         'PictureBox1
         '
+        Me.PictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top
         Me.PictureBox1.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.user1
         Me.PictureBox1.Location = New System.Drawing.Point(18, 2)
         Me.PictureBox1.Name = "PictureBox1"
@@ -755,6 +760,25 @@ Partial Class Dashboard
         Me.Account1.Size = New System.Drawing.Size(1180, 714)
         Me.Account1.TabIndex = 0
         '
+        'Pos
+        '
+        Me.Pos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Pos.Controls.Add(Me.Pos1)
+        Me.Pos.Location = New System.Drawing.Point(184, 4)
+        Me.Pos.Name = "Pos"
+        Me.Pos.Size = New System.Drawing.Size(1180, 714)
+        Me.Pos.TabIndex = 10
+        Me.Pos.Text = "Pos"
+        Me.Pos.UseVisualStyleBackColor = True
+        '
+        'Pos1
+        '
+        Me.Pos1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Pos1.Location = New System.Drawing.Point(0, 0)
+        Me.Pos1.Name = "Pos1"
+        Me.Pos1.Size = New System.Drawing.Size(1178, 712)
+        Me.Pos1.TabIndex = 0
+        '
         'Guna2ContextMenuStrip1
         '
         Me.Guna2ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem, Me.LogoutToolStripMenuItem})
@@ -791,15 +815,6 @@ Partial Class Dashboard
         '
         Me.DTTransactionBindingSource.DataMember = "DT_Transaction"
         Me.DTTransactionBindingSource.DataSource = Me.DSReport
-        '
-        'TabPage1
-        '
-        Me.TabPage1.Location = New System.Drawing.Point(184, 4)
-        Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Size = New System.Drawing.Size(1180, 714)
-        Me.TabPage1.TabIndex = 10
-        Me.TabPage1.Text = "Pos"
-        Me.TabPage1.UseVisualStyleBackColor = True
         '
         'Dashboard
         '
@@ -840,6 +855,7 @@ Partial Class Dashboard
         Me.Reports.ResumeLayout(False)
         Me.Witdrawal.ResumeLayout(False)
         Me.Account.ResumeLayout(False)
+        Me.Pos.ResumeLayout(False)
         Me.Guna2ContextMenuStrip1.ResumeLayout(False)
         CType(Me.DSReport, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DTTransactionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -900,5 +916,6 @@ Partial Class Dashboard
     Friend WithEvents Account As TabPage
     Friend WithEvents Account1 As Account
     Friend WithEvents Panel4 As Panel
-    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents Pos As TabPage
+    Friend WithEvents Pos1 As Pos
 End Class

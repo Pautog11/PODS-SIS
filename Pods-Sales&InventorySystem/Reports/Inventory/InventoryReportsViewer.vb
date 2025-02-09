@@ -2,6 +2,7 @@
 Imports System.Windows.Forms
 
 Public Class InventoryReportsViewer
+    'Inherits SqlBaseConnection
     Private Sub InventoryReportsViewer_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim InventoryData As DataSet = InventoryReports()
         Dim reportDocument As New InventoryReports()
@@ -14,7 +15,8 @@ Public Class InventoryReportsViewer
     Private Function InventoryReports()
         Try
             Dim dset As New DataSet
-            Using con As SqlConnection = SqlConnectionPods.GetInstance
+            Using con As New SqlConnection(My.Settings.podsdbConnectionString)
+                con.Open()
                 Dim cmd As New SqlCommand("SELECT a.sku AS SKU, 
                                                   a.barcode AS BARCODE, 
                                                   a.product_name AS PRODUCT, 

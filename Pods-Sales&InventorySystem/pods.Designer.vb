@@ -6002,18 +6002,14 @@ Partial Public Class pods
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
     Partial Public Class viewtblinventoryDataTable
         Inherits Global.System.Data.TypedTableBase(Of viewtblinventoryRow)
-
-        Private columnBARCODE As Global.System.Data.DataColumn
+        
+        Private columnID As Global.System.Data.DataColumn
 
         Private columnPRODUCT As Global.System.Data.DataColumn
 
+        Private columnBARCODE As Global.System.Data.DataColumn
+
         Private columnDESCRIPTION As Global.System.Data.DataColumn
-
-        Private columnSKU As Global.System.Data.DataColumn
-
-        Private columnCOST_PRICE As Global.System.Data.DataColumn
-
-        Private columnPRICE As Global.System.Data.DataColumn
 
         Private columnQUANTITY As Global.System.Data.DataColumn
 
@@ -6054,9 +6050,9 @@ Partial Public Class pods
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
-        Public ReadOnly Property BARCODEColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property IDColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnBARCODE
+                Return Me.columnID
             End Get
         End Property
 
@@ -6070,33 +6066,17 @@ Partial Public Class pods
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
+        Public ReadOnly Property BARCODEColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnBARCODE
+            End Get
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Public ReadOnly Property DESCRIPTIONColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnDESCRIPTION
-            End Get
-        End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
-        Public ReadOnly Property SKUColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnSKU
-            End Get
-        End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
-        Public ReadOnly Property COST_PRICEColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnCOST_PRICE
-            End Get
-        End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
-        Public ReadOnly Property PRICEColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnPRICE
             End Get
         End Property
 
@@ -6145,12 +6125,18 @@ Partial Public Class pods
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
-        Public Overloads Function AddviewtblinventoryRow(ByVal BARCODE As String, ByVal PRODUCT As String, ByVal DESCRIPTION As String, ByVal SKU As String, ByVal COST_PRICE As Decimal, ByVal PRICE As Decimal, ByVal QUANTITY As Integer) As viewtblinventoryRow
+        Public Overloads Function AddviewtblinventoryRow(ByVal ID As Integer, ByVal PRODUCT As String, ByVal BARCODE As String, ByVal DESCRIPTION As String, ByVal QUANTITY As Integer) As viewtblinventoryRow
             Dim rowviewtblinventoryRow As viewtblinventoryRow = CType(Me.NewRow, viewtblinventoryRow)
-            Dim columnValuesArray() As Object = New Object() {BARCODE, PRODUCT, DESCRIPTION, SKU, COST_PRICE, PRICE, QUANTITY}
+            Dim columnValuesArray() As Object = New Object() {ID, PRODUCT, BARCODE, DESCRIPTION, QUANTITY}
             rowviewtblinventoryRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowviewtblinventoryRow)
             Return rowviewtblinventoryRow
+        End Function
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
+        Public Function FindByID(ByVal ID As Integer) As viewtblinventoryRow
+            Return CType(Me.Rows.Find(New Object() {ID}), viewtblinventoryRow)
         End Function
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
@@ -6170,39 +6156,33 @@ Partial Public Class pods
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Friend Sub InitVars()
-            Me.columnBARCODE = MyBase.Columns("BARCODE")
+            Me.columnID = MyBase.Columns("ID")
             Me.columnPRODUCT = MyBase.Columns("PRODUCT")
+            Me.columnBARCODE = MyBase.Columns("BARCODE")
             Me.columnDESCRIPTION = MyBase.Columns("DESCRIPTION")
-            Me.columnSKU = MyBase.Columns("SKU")
-            Me.columnCOST_PRICE = MyBase.Columns("COST PRICE")
-            Me.columnPRICE = MyBase.Columns("PRICE")
             Me.columnQUANTITY = MyBase.Columns("QUANTITY")
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Private Sub InitClass()
-            Me.columnBARCODE = New Global.System.Data.DataColumn("BARCODE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnBARCODE)
+            Me.columnID = New Global.System.Data.DataColumn("ID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnID)
             Me.columnPRODUCT = New Global.System.Data.DataColumn("PRODUCT", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnPRODUCT)
+            Me.columnBARCODE = New Global.System.Data.DataColumn("BARCODE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnBARCODE)
             Me.columnDESCRIPTION = New Global.System.Data.DataColumn("DESCRIPTION", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDESCRIPTION)
-            Me.columnSKU = New Global.System.Data.DataColumn("SKU", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnSKU)
-            Me.columnCOST_PRICE = New Global.System.Data.DataColumn("COST PRICE", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnCOST_PRICE)
-            Me.columnPRICE = New Global.System.Data.DataColumn("PRICE", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnPRICE)
             Me.columnQUANTITY = New Global.System.Data.DataColumn("QUANTITY", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnQUANTITY)
-            Me.columnBARCODE.MaxLength = 2147483647
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, True))
+            Me.columnID.AllowDBNull = False
+            Me.columnID.Unique = True
             Me.columnPRODUCT.AllowDBNull = False
             Me.columnPRODUCT.MaxLength = 50
+            Me.columnBARCODE.MaxLength = 2147483647
             Me.columnDESCRIPTION.MaxLength = 2147483647
-            Me.columnSKU.MaxLength = 50
-            Me.columnCOST_PRICE.AllowDBNull = False
-            Me.columnPRICE.AllowDBNull = False
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
@@ -8088,16 +8068,12 @@ Partial Public Class pods
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
-        Public Property BARCODE() As String
+        Public Property ID() As Integer
             Get
-                Try
-                    Return CType(Me(Me.tableviewtblinventory.BARCODEColumn), String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'BARCODE' in table 'viewtblinventory' is DBNull.", e)
-                End Try
+                Return CType(Me(Me.tableviewtblinventory.IDColumn), Integer)
             End Get
             Set
-                Me(Me.tableviewtblinventory.BARCODEColumn) = Value
+                Me(Me.tableviewtblinventory.IDColumn) = Value
             End Set
         End Property
 
@@ -8114,6 +8090,21 @@ Partial Public Class pods
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
+        Public Property BARCODE() As String
+            Get
+                Try
+                    Return CType(Me(Me.tableviewtblinventory.BARCODEColumn), String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'BARCODE' in table 'viewtblinventory' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableviewtblinventory.BARCODEColumn) = Value
+            End Set
+        End Property
+
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Public Property DESCRIPTION() As String
             Get
                 Try
@@ -8124,43 +8115,6 @@ Partial Public Class pods
             End Get
             Set
                 Me(Me.tableviewtblinventory.DESCRIPTIONColumn) = Value
-            End Set
-        End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
-        Public Property SKU() As String
-            Get
-                Try
-                    Return CType(Me(Me.tableviewtblinventory.SKUColumn), String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'SKU' in table 'viewtblinventory' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableviewtblinventory.SKUColumn) = Value
-            End Set
-        End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
-        Public Property COST_PRICE() As Decimal
-            Get
-                Return CType(Me(Me.tableviewtblinventory.COST_PRICEColumn), Decimal)
-            End Get
-            Set
-                Me(Me.tableviewtblinventory.COST_PRICEColumn) = Value
-            End Set
-        End Property
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
-        Public Property PRICE() As Decimal
-            Get
-                Return CType(Me(Me.tableviewtblinventory.PRICEColumn), Decimal)
-            End Get
-            Set
-                Me(Me.tableviewtblinventory.PRICEColumn) = Value
             End Set
         End Property
 
@@ -8201,18 +8155,6 @@ Partial Public Class pods
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
         Public Sub SetDESCRIPTIONNull()
             Me(Me.tableviewtblinventory.DESCRIPTIONColumn) = Global.System.Convert.DBNull
-        End Sub
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
-        Public Function IsSKUNull() As Boolean
-            Return Me.IsNull(Me.tableviewtblinventory.SKUColumn)
-        End Function
-
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>
-        Public Sub SetSKUNull()
-            Me(Me.tableviewtblinventory.SKUColumn) = Global.System.Convert.DBNull
         End Sub
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),
@@ -11810,12 +11752,10 @@ Namespace podsTableAdapters
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "viewtblinventory"
-            tableMapping.ColumnMappings.Add("BARCODE", "BARCODE")
+            tableMapping.ColumnMappings.Add("ID", "ID")
             tableMapping.ColumnMappings.Add("PRODUCT", "PRODUCT")
+            tableMapping.ColumnMappings.Add("BARCODE", "BARCODE")
             tableMapping.ColumnMappings.Add("DESCRIPTION", "DESCRIPTION")
-            tableMapping.ColumnMappings.Add("SKU", "SKU")
-            tableMapping.ColumnMappings.Add("COST PRICE", "COST PRICE")
-            tableMapping.ColumnMappings.Add("PRICE", "PRICE")
             tableMapping.ColumnMappings.Add("QUANTITY", "QUANTITY")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
@@ -11833,8 +11773,7 @@ Namespace podsTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT        BARCODE, PRODUCT, DESCRIPTION, SKU, [COST PRICE], PRICE, QUANTITY" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) &
-                "FROM            viewtblinventory"
+            Me._commandCollection(0).CommandText = "SELECT ID, PRODUCT, BARCODE, DESCRIPTION, QUANTITY FROM dbo.viewtblinventory"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         

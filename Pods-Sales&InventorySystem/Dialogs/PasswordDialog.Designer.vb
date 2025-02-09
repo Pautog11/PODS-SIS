@@ -63,13 +63,13 @@ Partial Class PasswordDialog
         Me.PasswordTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.PasswordTextBox.ForeColor = System.Drawing.Color.Black
         Me.PasswordTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.PasswordTextBox.Location = New System.Drawing.Point(63, 35)
+        Me.PasswordTextBox.Location = New System.Drawing.Point(39, 35)
         Me.PasswordTextBox.Name = "PasswordTextBox"
         Me.PasswordTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.PasswordTextBox.PlaceholderText = ""
         Me.PasswordTextBox.SelectedText = ""
         Me.PasswordTextBox.ShortcutsEnabled = False
-        Me.PasswordTextBox.Size = New System.Drawing.Size(173, 36)
+        Me.PasswordTextBox.Size = New System.Drawing.Size(221, 36)
         Me.PasswordTextBox.TabIndex = 24
         '
         'Label1
@@ -104,13 +104,13 @@ Partial Class PasswordDialog
         Me.Guna2TextBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.Guna2TextBox1.ForeColor = System.Drawing.Color.Black
         Me.Guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox1.Location = New System.Drawing.Point(63, 91)
+        Me.Guna2TextBox1.Location = New System.Drawing.Point(39, 91)
         Me.Guna2TextBox1.Name = "Guna2TextBox1"
         Me.Guna2TextBox1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.Guna2TextBox1.PlaceholderText = ""
         Me.Guna2TextBox1.SelectedText = ""
         Me.Guna2TextBox1.ShortcutsEnabled = False
-        Me.Guna2TextBox1.Size = New System.Drawing.Size(173, 36)
+        Me.Guna2TextBox1.Size = New System.Drawing.Size(221, 36)
         Me.Guna2TextBox1.TabIndex = 26
         '
         'Guna2CheckBox1

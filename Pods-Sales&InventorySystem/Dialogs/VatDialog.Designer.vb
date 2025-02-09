@@ -42,6 +42,7 @@ Partial Class VatDialog
         Me.VatTextBox.ForeColor = System.Drawing.Color.Black
         Me.VatTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.VatTextBox.Location = New System.Drawing.Point(59, 59)
+        Me.VatTextBox.MaxLength = 2
         Me.VatTextBox.Name = "VatTextBox"
         Me.VatTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.VatTextBox.PlaceholderText = "0"
@@ -92,7 +93,8 @@ Partial Class VatDialog
         Me.Name = "VatDialog"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "VatDialog"
+        Me.Text = "Vat Dialog"
+        Me.TopMost = True
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

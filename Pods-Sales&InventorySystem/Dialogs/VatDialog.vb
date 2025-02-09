@@ -23,7 +23,7 @@ Public Class VatDialog
     Private Sub UpdateButton_Click(sender As Object, e As EventArgs) Handles UpdateButton.Click
         Try
             Dim res As New List(Of Object()) From {InputValidation.ValidateInputString(VatTextBox, DataInput.STRING_INTEGER)}
-
+            'Exit Sub
             If Not res.Any(Function(item As Object()) Not item(0)) Then
                 Dim data As New Dictionary(Of String, String) From {
                     {"id", _data.Item("id")},
@@ -35,8 +35,8 @@ Public Class VatDialog
                 invoker?.Execute()
                 _subject.NotifyObserver()
                 Me.Close()
-            Else
-                MessageBox.Show("Please input a valid vat.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                'Else
+                '    MessageBox.Show("Please input a valid vat.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
         Catch ex As Exception
 
