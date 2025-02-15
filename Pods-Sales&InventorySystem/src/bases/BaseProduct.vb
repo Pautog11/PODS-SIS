@@ -379,4 +379,32 @@ Public Class BaseProduct
             Return 0
         End Try
     End Function
+
+    'Private Shared Function SearchProduct() As AutoCompleteStringCollection
+    '    'Using conn As New SqlConnection(connectionString)
+    '    '    Using cmd As New SqlCommand(query, conn)
+    '    '        conn.Open()
+
+    '    '        Using reader As SqlDataReader = cmd.ExecuteReader()
+    '    '            While reader.Read()
+    '    '                autocompleteList.Add(reader("product_name").ToString())
+    '    '            End While
+    '    '        End Using
+    '    '    End Using
+    '    'End Using
+
+    '    Try
+    '        'Dim autocompleteList As New AutoCompleteStringCollection()
+    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+    '        Dim cmd As New SqlCommand("SELECT product_name FROM tblproducts", conn)
+    '        Dim reader As SqlDataReader = cmd.ExecuteReader
+    '        While reader.Read
+    '            autocompleteList.Add(reader("product_name").ToString())
+    '        End While
+    '        Return autocompleteList.Count
+    '    Catch ex As Exception
+    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+    '        Return 0
+    '    End Try
+    'End Function
 End Class

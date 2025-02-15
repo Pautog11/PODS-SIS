@@ -77,40 +77,40 @@ Public Class TransactionDialog
         End Try
     End Sub
 
-    Public Sub UpdateVisualData()
-        Try
-            TransactionDataGridView.DataSource = _itemSource?.DefaultView
-            Dim subtotal As Decimal = 0D
-            For i As Integer = 0 To TransactionDataGridView.Rows.Count - 1
-                Dim total As Object = TransactionDataGridView.Rows(i).Cells("TOTAL").Value
-                If total IsNot Nothing Then
-                    Dim add As Decimal
-                    If Decimal.TryParse(total.ToString(), add) Then
-                        subtotal += add
-                    End If
-                End If
-            Next
-            SubtotalTextBox.Text = subtotal.ToString("F2")
-            TotalTextBox.Text = subtotal.ToString("F2")
+    'Public Sub UpdateVisualData()
+    '    Try
+    '        TransactionDataGridView.DataSource = _itemSource?.DefaultView
+    '        Dim subtotal As Decimal = 0D
+    '        For i As Integer = 0 To TransactionDataGridView.Rows.Count - 1
+    '            Dim total As Object = TransactionDataGridView.Rows(i).Cells("TOTAL").Value
+    '            If total IsNot Nothing Then
+    '                Dim add As Decimal
+    '                If Decimal.TryParse(total.ToString(), add) Then
+    '                    subtotal += add
+    '                End If
+    '            End If
+    '        Next
+    '        SubtotalTextBox.Text = subtotal.ToString("F2")
+    '        TotalTextBox.Text = subtotal.ToString("F2")
 
-            'For Vat
-            Dim vat As Decimal = BaseTransaction.ScalarVat / 100
-            'Dim subtotal As Decimal
-            If Decimal.TryParse(SubtotalTextBox.Text, subtotal) Then
-                Dim vatAmount As Decimal = subtotal * vat / (1 + vat)
-                VatTextBox.Text = vatAmount.ToString("F2")
-            End If
-            Dim vatable As Decimal
-            vatable = SubtotalTextBox.Text - VatTextBox.Text
-            VatableTextBox.Text = vatable
-        Catch ex As Exception
+    '        'For Vat
+    '        Dim vat As Decimal = BaseTransaction.ScalarVat / 100
+    '        'Dim subtotal As Decimal
+    '        If Decimal.TryParse(SubtotalTextBox.Text, subtotal) Then
+    '            Dim vatAmount As Decimal = subtotal * vat / (1 + vat)
+    '            VatTextBox.Text = vatAmount.ToString("F2")
+    '        End If
+    '        Dim vatable As Decimal
+    '        vatable = SubtotalTextBox.Text - VatTextBox.Text
+    '        VatableTextBox.Text = vatable
+    '    Catch ex As Exception
 
-        End Try
-    End Sub
+    '    End Try
+    'End Sub
 
     Private Sub AddItemTransactionButton_Click(sender As Object, e As EventArgs) Handles AddItemTransactionButton.Click
-        Dim dialog As New TransactionCartDailog(parent:=Me)
-        dialog.ShowDialog()
+        'Dim dialog As New TransactionProductDailog(parent:=Me)
+        'dialog.ShowDialog()
     End Sub
     Private Sub AddTransactionButton_Click(sender As Object, e As EventArgs) Handles AddTransactionButton.Click
         Try
@@ -276,7 +276,7 @@ Public Class TransactionDialog
                         {"price", row.Cells(2).Value.ToString()},
                         {"quantity", row.Cells(3).Value.ToString()}
                     }
-                    Dim dialog As New TransactionCartDailog(data:=data, parent:=Me)
+                    Dim dialog As New TransactionProductDailog(data:=data) ', parent:=Me)
                     dialog.ShowDialog()
                 End If
             End If

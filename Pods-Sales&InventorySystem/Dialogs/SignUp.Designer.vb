@@ -54,13 +54,13 @@ Partial Class SignUp
         Me.FirstnameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.FirstnameTextBox.ForeColor = System.Drawing.Color.Black
         Me.FirstnameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.FirstnameTextBox.Location = New System.Drawing.Point(53, 35)
+        Me.FirstnameTextBox.Location = New System.Drawing.Point(12, 32)
         Me.FirstnameTextBox.Name = "FirstnameTextBox"
         Me.FirstnameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.FirstnameTextBox.PlaceholderText = "Firstname"
+        Me.FirstnameTextBox.PlaceholderText = "Juan"
         Me.FirstnameTextBox.SelectedText = ""
         Me.FirstnameTextBox.ShortcutsEnabled = False
-        Me.FirstnameTextBox.Size = New System.Drawing.Size(173, 36)
+        Me.FirstnameTextBox.Size = New System.Drawing.Size(214, 36)
         Me.FirstnameTextBox.TabIndex = 23
         '
         'LastnameTextBox
@@ -77,13 +77,13 @@ Partial Class SignUp
         Me.LastnameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.LastnameTextBox.ForeColor = System.Drawing.Color.Black
         Me.LastnameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.LastnameTextBox.Location = New System.Drawing.Point(298, 35)
+        Me.LastnameTextBox.Location = New System.Drawing.Point(251, 35)
         Me.LastnameTextBox.Name = "LastnameTextBox"
         Me.LastnameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.LastnameTextBox.PlaceholderText = "Lastname"
+        Me.LastnameTextBox.PlaceholderText = "Dela Cruz"
         Me.LastnameTextBox.SelectedText = ""
         Me.LastnameTextBox.ShortcutsEnabled = False
-        Me.LastnameTextBox.Size = New System.Drawing.Size(173, 36)
+        Me.LastnameTextBox.Size = New System.Drawing.Size(218, 36)
         Me.LastnameTextBox.TabIndex = 24
         '
         'Phone_numberTextBox
@@ -100,14 +100,14 @@ Partial Class SignUp
         Me.Phone_numberTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.Phone_numberTextBox.ForeColor = System.Drawing.Color.Black
         Me.Phone_numberTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Phone_numberTextBox.Location = New System.Drawing.Point(53, 101)
+        Me.Phone_numberTextBox.Location = New System.Drawing.Point(12, 88)
         Me.Phone_numberTextBox.MaxLength = 13
         Me.Phone_numberTextBox.Name = "Phone_numberTextBox"
         Me.Phone_numberTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.Phone_numberTextBox.PlaceholderText = "Phone Number"
+        Me.Phone_numberTextBox.PlaceholderText = "09** *** ****"
         Me.Phone_numberTextBox.SelectedText = ""
         Me.Phone_numberTextBox.ShortcutsEnabled = False
-        Me.Phone_numberTextBox.Size = New System.Drawing.Size(173, 36)
+        Me.Phone_numberTextBox.Size = New System.Drawing.Size(214, 36)
         Me.Phone_numberTextBox.TabIndex = 25
         '
         'UsernameTextBox
@@ -124,13 +124,13 @@ Partial Class SignUp
         Me.UsernameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.UsernameTextBox.ForeColor = System.Drawing.Color.Black
         Me.UsernameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.UsernameTextBox.Location = New System.Drawing.Point(53, 168)
+        Me.UsernameTextBox.Location = New System.Drawing.Point(12, 146)
         Me.UsernameTextBox.Name = "UsernameTextBox"
         Me.UsernameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.UsernameTextBox.PlaceholderText = "Username"
+        Me.UsernameTextBox.PlaceholderText = "Juan"
         Me.UsernameTextBox.SelectedText = ""
         Me.UsernameTextBox.ShortcutsEnabled = False
-        Me.UsernameTextBox.Size = New System.Drawing.Size(173, 36)
+        Me.UsernameTextBox.Size = New System.Drawing.Size(214, 36)
         Me.UsernameTextBox.TabIndex = 22
         '
         'PasswordTextBox
@@ -147,13 +147,13 @@ Partial Class SignUp
         Me.PasswordTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.PasswordTextBox.ForeColor = System.Drawing.Color.Black
         Me.PasswordTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.PasswordTextBox.Location = New System.Drawing.Point(53, 236)
+        Me.PasswordTextBox.Location = New System.Drawing.Point(12, 203)
         Me.PasswordTextBox.Name = "PasswordTextBox"
         Me.PasswordTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.PasswordTextBox.PlaceholderText = "Password"
+        Me.PasswordTextBox.PlaceholderText = ""
         Me.PasswordTextBox.SelectedText = ""
         Me.PasswordTextBox.ShortcutsEnabled = False
-        Me.PasswordTextBox.Size = New System.Drawing.Size(173, 36)
+        Me.PasswordTextBox.Size = New System.Drawing.Size(214, 36)
         Me.PasswordTextBox.TabIndex = 23
         '
         'AddAccountButton
@@ -168,7 +168,7 @@ Partial Class SignUp
         Me.AddAccountButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AddAccountButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddAccountButton.ForeColor = System.Drawing.Color.White
-        Me.AddAccountButton.Location = New System.Drawing.Point(351, 317)
+        Me.AddAccountButton.Location = New System.Drawing.Point(342, 266)
         Me.AddAccountButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.AddAccountButton.Name = "AddAccountButton"
         Me.AddAccountButton.Size = New System.Drawing.Size(128, 37)
@@ -178,7 +178,7 @@ Partial Class SignUp
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(18, 146)
+        Me.Label1.Location = New System.Drawing.Point(18, 128)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(55, 13)
         Me.Label1.TabIndex = 28
@@ -187,7 +187,7 @@ Partial Class SignUp
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(21, 214)
+        Me.Label2.Location = New System.Drawing.Point(20, 185)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(53, 13)
         Me.Label2.TabIndex = 29
@@ -196,7 +196,7 @@ Partial Class SignUp
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(18, 16)
+        Me.Label3.Location = New System.Drawing.Point(16, 16)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(52, 13)
         Me.Label3.TabIndex = 30
@@ -205,7 +205,7 @@ Partial Class SignUp
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(258, 17)
+        Me.Label4.Location = New System.Drawing.Point(248, 16)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(53, 13)
         Me.Label4.TabIndex = 31
@@ -214,7 +214,7 @@ Partial Class SignUp
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(17, 80)
+        Me.Label5.Location = New System.Drawing.Point(17, 71)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(78, 13)
         Me.Label5.TabIndex = 32
@@ -223,7 +223,7 @@ Partial Class SignUp
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(258, 82)
+        Me.Label6.Location = New System.Drawing.Point(248, 74)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(45, 13)
         Me.Label6.TabIndex = 33
@@ -232,7 +232,7 @@ Partial Class SignUp
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(258, 214)
+        Me.Label7.Location = New System.Drawing.Point(248, 185)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(69, 13)
         Me.Label7.TabIndex = 35
@@ -252,13 +252,13 @@ Partial Class SignUp
         Me.Guna2TextBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.Guna2TextBox1.ForeColor = System.Drawing.Color.Black
         Me.Guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox1.Location = New System.Drawing.Point(298, 236)
+        Me.Guna2TextBox1.Location = New System.Drawing.Point(251, 203)
         Me.Guna2TextBox1.Name = "Guna2TextBox1"
         Me.Guna2TextBox1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.Guna2TextBox1.PlaceholderText = "Password"
+        Me.Guna2TextBox1.PlaceholderText = ""
         Me.Guna2TextBox1.SelectedText = ""
         Me.Guna2TextBox1.ShortcutsEnabled = False
-        Me.Guna2TextBox1.Size = New System.Drawing.Size(173, 36)
+        Me.Guna2TextBox1.Size = New System.Drawing.Size(218, 36)
         Me.Guna2TextBox1.TabIndex = 34
         '
         'AddressTextBox
@@ -275,7 +275,7 @@ Partial Class SignUp
         Me.AddressTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddressTextBox.ForeColor = System.Drawing.Color.Black
         Me.AddressTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.AddressTextBox.Location = New System.Drawing.Point(298, 101)
+        Me.AddressTextBox.Location = New System.Drawing.Point(251, 90)
         Me.AddressTextBox.MaxLength = 200
         Me.AddressTextBox.Multiline = True
         Me.AddressTextBox.Name = "AddressTextBox"
@@ -283,7 +283,7 @@ Partial Class SignUp
         Me.AddressTextBox.PlaceholderText = ""
         Me.AddressTextBox.SelectedText = ""
         Me.AddressTextBox.ShortcutsEnabled = False
-        Me.AddressTextBox.Size = New System.Drawing.Size(173, 103)
+        Me.AddressTextBox.Size = New System.Drawing.Size(218, 92)
         Me.AddressTextBox.TabIndex = 36
         '
         'Guna2CheckBox1
@@ -293,7 +293,7 @@ Partial Class SignUp
         Me.Guna2CheckBox1.CheckedState.BorderRadius = 0
         Me.Guna2CheckBox1.CheckedState.BorderThickness = 0
         Me.Guna2CheckBox1.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.Guna2CheckBox1.Location = New System.Drawing.Point(53, 278)
+        Me.Guna2CheckBox1.Location = New System.Drawing.Point(19, 245)
         Me.Guna2CheckBox1.Name = "Guna2CheckBox1"
         Me.Guna2CheckBox1.Size = New System.Drawing.Size(101, 17)
         Me.Guna2CheckBox1.TabIndex = 37
@@ -307,7 +307,7 @@ Partial Class SignUp
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(491, 366)
+        Me.ClientSize = New System.Drawing.Size(482, 315)
         Me.Controls.Add(Me.Guna2CheckBox1)
         Me.Controls.Add(Me.AddressTextBox)
         Me.Controls.Add(Me.Label7)

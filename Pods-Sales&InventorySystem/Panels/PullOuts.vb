@@ -4,7 +4,7 @@
     Private _tableAapter As New podsTableAdapters.viewtbldeliverypulloutsTableAdapter 'podsTableAdapters.tblaccountsTableAdapter
     Private _dataTable As New pods.viewtbldeliverypulloutsDataTable 'pods.tblaccountsDataTable
 
-    Private Sub Account_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub Pullout_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             _subject = Application.OpenForms.OfType(Of Dashboard).FirstOrDefault
             _subject?.RegisterObserver(Me)

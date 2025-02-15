@@ -30,7 +30,7 @@ Public Class Dashboard
 
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
         Accounts.Text = BaseAccount.ScalarAccount
-        Sales.Text = BaseTransaction.ScalarTransaction
+        'Sales.Text = BaseTransaction.ScalarTransaction
 
         'Dim expiry As DataTable = BaseNotifications.Expiry
         'Dim critical As DataTable = BaseNotifications.CriticalLevel

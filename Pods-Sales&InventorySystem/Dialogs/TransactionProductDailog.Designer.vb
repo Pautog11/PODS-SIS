@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class TransactionCartDailog
+Partial Class TransactionProductDailog
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -150,7 +150,7 @@ Partial Class TransactionCartDailog
         Me.BarcodeTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.BarcodeTextBox.ForeColor = System.Drawing.Color.Black
         Me.BarcodeTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.BarcodeTextBox.Location = New System.Drawing.Point(27, 33)
+        Me.BarcodeTextBox.Location = New System.Drawing.Point(27, 30)
         Me.BarcodeTextBox.MaxLength = 13
         Me.BarcodeTextBox.Name = "BarcodeTextBox"
         Me.BarcodeTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -216,7 +216,7 @@ Partial Class TransactionCartDailog
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(31, 17)
+        Me.Label2.Location = New System.Drawing.Point(31, 14)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(47, 13)
         Me.Label2.TabIndex = 24
@@ -258,7 +258,7 @@ Partial Class TransactionCartDailog
         Me.Label5.TabIndex = 28
         Me.Label5.Text = "Quantity"
         '
-        'TransactionCartDailog
+        'TransactionProductDailog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -278,7 +278,7 @@ Partial Class TransactionCartDailog
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
         Me.MinimizeBox = False
-        Me.Name = "TransactionCartDailog"
+        Me.Name = "TransactionProductDailog"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "TransactionCartDailog"

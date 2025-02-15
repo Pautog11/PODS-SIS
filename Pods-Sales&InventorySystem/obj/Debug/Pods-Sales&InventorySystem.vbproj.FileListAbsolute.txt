@@ -124,7 +124,6 @@ C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sa
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Transaction.resources
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.ReturnAndPullout.resources
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.TransactionDialog.resources
-C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.TransactionCartDailog.resources
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.DeliveryPulloutCart.resources
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.PullOutProductDialog.resources
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.PullOuts.resources
@@ -1160,5 +1159,8 @@ C:\Users\Christian\Desktop\New folder (5)\PODS-SIS\Pods-Sales&InventorySystem\ob
 C:\Users\Christian\Desktop\New folder (5)\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods-Sales&InventorySystem.exe
 C:\Users\Christian\Desktop\New folder (5)\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods-Sales&InventorySystem.xml
 C:\Users\Christian\Desktop\New folder (5)\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods-Sales&InventorySystem.pdb
-C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Pos.resources
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.AboutBox.resources
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.TransactionProductDailog.resources
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Form1.resources
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.PoS.resources
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.PosPanel.resources

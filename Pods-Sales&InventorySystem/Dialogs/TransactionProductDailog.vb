@@ -1,26 +1,25 @@
 ﻿Imports System.Windows.Forms
 
-Public Class TransactionCartDailog
+Public Class TransactionProductDailog
     Private ReadOnly _data As Dictionary(Of String, String)
     Private ReadOnly _dat2 As Dictionary(Of String, String)
     Private ReadOnly _tableAdapter As New podsTableAdapters.viewtblcategoriesTableAdapter
     Private ReadOnly _dataTable As New pods.viewtblcategoriesDataTable
     Private ReadOnly _subject As IObservablePanel
-    Private ReadOnly _parent As TransactionDialog = Nothing
+    Private ReadOnly _parent As PosPanel = Nothing
     Dim id As Integer = Nothing
     Public Sub New(Optional subject As IObservablePanel = Nothing,
-                   Optional parent As TransactionDialog = Nothing,
-                   Optional data As Dictionary(Of String, String) = Nothing,
-                   Optional dat2 As Dictionary(Of String, String) = Nothing)
+                   Optional parent As PosPanel = Nothing,
+                   Optional data As Dictionary(Of String, String) = Nothing) ',
+        'Optional dat2 As Dictionary(Of String, String) = Nothing)
         InitializeComponent()
         _parent = parent
         _subject = subject
         _data = data
-        _dat2 = dat2
+        '_dat2 = dat2
     End Sub
     Private Sub TransactionCartDailog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-
             If _data IsNot Nothing Then
                 ProductNameTextBox.Text = _data.Item("productname")
                 PriceTextBox.Text = _data.Item("price")
@@ -129,7 +128,7 @@ Public Class TransactionCartDailog
             If e.KeyCode = Keys.Enter Then
                 Dim res As New List(Of Object()) From {InputValidation.ValidateInputString(BarcodeTextBox, DataInput.STRING_INTEGER)}
                 If Not res.Any(Function(item As Object()) Not item(0)) Then
-                    Dim dt As DataTable = BaseTransaction.SelectProductsByBarcode(BarcodeTextBox.Text)
+                    Dim dt As DataTable = BaseTransaction.Sales(BarcodeTextBox.Text)
                     If BarcodeTextBox.Text.Length <= 13 AndAlso dt.Rows.Count > 0 Then
                         id = If(String.IsNullOrEmpty(dt.Rows(0).Item("id").ToString()), "", dt.Rows(0).Item("id").ToString())
                         ProductNameTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("product_name").ToString()), "", dt.Rows(0).Item("product_name").ToString())

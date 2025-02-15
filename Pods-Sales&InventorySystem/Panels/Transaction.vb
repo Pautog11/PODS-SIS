@@ -40,7 +40,6 @@
                 {"vatable", row.Cells(4).Value.ToString()},
                 {"vat", row.Cells(5).Value.ToString()},
                 {"discount", row.Cells(6).Value.ToString()},
-                {"total", row.Cells(7).Value.ToString()},
                 {"date", row.Cells(8).Value.ToString()},
                 {"cash", row.Cells(9).Value.ToString()}
             }

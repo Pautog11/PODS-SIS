@@ -24,9 +24,9 @@ Partial Class ReturnAndPullout
     Private Sub InitializeComponent()
         Me.ReturnandPulloutTabControl = New Guna.UI2.WinForms.Guna2TabControl()
         Me.Returns = New System.Windows.Forms.TabPage()
+        Me.Returns1 = New Pods_Sales_InventorySystem.Returns()
         Me.PullOuts = New System.Windows.Forms.TabPage()
         Me.PullOuts1 = New Pods_Sales_InventorySystem.PullOuts()
-        Me.Returns1 = New Pods_Sales_InventorySystem.Returns()
         Me.ReturnandPulloutTabControl.SuspendLayout()
         Me.Returns.SuspendLayout()
         Me.PullOuts.SuspendLayout()
@@ -67,16 +67,28 @@ Partial Class ReturnAndPullout
         '
         Me.Returns.Controls.Add(Me.Returns1)
         Me.Returns.Location = New System.Drawing.Point(4, 44)
+        Me.Returns.Margin = New System.Windows.Forms.Padding(0)
         Me.Returns.Name = "Returns"
         Me.Returns.Size = New System.Drawing.Size(1014, 532)
         Me.Returns.TabIndex = 6
         Me.Returns.Text = "Returns"
         Me.Returns.UseVisualStyleBackColor = True
         '
+        'Returns1
+        '
+        Me.Returns1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Returns1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Returns1.Location = New System.Drawing.Point(0, 0)
+        Me.Returns1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Returns1.Name = "Returns1"
+        Me.Returns1.Size = New System.Drawing.Size(1014, 532)
+        Me.Returns1.TabIndex = 0
+        '
         'PullOuts
         '
         Me.PullOuts.Controls.Add(Me.PullOuts1)
         Me.PullOuts.Location = New System.Drawing.Point(4, 44)
+        Me.PullOuts.Margin = New System.Windows.Forms.Padding(0)
         Me.PullOuts.Name = "PullOuts"
         Me.PullOuts.Size = New System.Drawing.Size(1014, 532)
         Me.PullOuts.TabIndex = 7
@@ -88,18 +100,10 @@ Partial Class ReturnAndPullout
         Me.PullOuts1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.PullOuts1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PullOuts1.Location = New System.Drawing.Point(0, 0)
+        Me.PullOuts1.Margin = New System.Windows.Forms.Padding(0)
         Me.PullOuts1.Name = "PullOuts1"
         Me.PullOuts1.Size = New System.Drawing.Size(1014, 532)
         Me.PullOuts1.TabIndex = 0
-        '
-        'Returns1
-        '
-        Me.Returns1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Returns1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Returns1.Location = New System.Drawing.Point(0, 0)
-        Me.Returns1.Name = "Returns1"
-        Me.Returns1.Size = New System.Drawing.Size(1014, 532)
-        Me.Returns1.TabIndex = 0
         '
         'ReturnAndPullout
         '

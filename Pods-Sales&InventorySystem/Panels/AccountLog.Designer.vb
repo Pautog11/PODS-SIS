@@ -103,7 +103,7 @@ Partial Class AccountLog
         Me.AccountHeaderLayoutPanel.Name = "AccountHeaderLayoutPanel"
         Me.AccountHeaderLayoutPanel.RowCount = 1
         Me.AccountHeaderLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.AccountHeaderLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44.0!))
+        Me.AccountHeaderLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
         Me.AccountHeaderLayoutPanel.Size = New System.Drawing.Size(896, 50)
         Me.AccountHeaderLayoutPanel.TabIndex = 0
         '

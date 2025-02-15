@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Pos
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class PoS
     Inherits System.Windows.Forms.UserControl
 
     'UserControl overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()>
+    <System.Diagnostics.DebuggerNonUserCode()> _
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,23 +20,25 @@ Partial Class Pos
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()>
+    <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Guna2ImageButton2 = New Guna.UI2.WinForms.Guna2ImageButton()
-        Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.SearchItemButton = New Guna.UI2.WinForms.Guna2Button()
-        Me.AddItemButton = New Guna.UI2.WinForms.Guna2Button()
-        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.AddTransactionButton = New Guna.UI2.WinForms.Guna2Button()
-        Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.CASH = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.quantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.price = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.product = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Guna2Panel3 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.TransactionDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Reference_number = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(Me.components)
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Datepurchased = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Guna2HtmlLabel2 = New Guna.UI2.WinForms.Guna2HtmlLabel()
@@ -45,6 +47,13 @@ Partial Class Pos
         Me.Label3 = New System.Windows.Forms.Label()
         Me.SubtotalTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.SearchTextbox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.AddItemButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.AddTransactionButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
         Me.VatTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.TotalTextBox = New Guna.UI2.WinForms.Guna2TextBox()
@@ -54,45 +63,15 @@ Partial Class Pos
         Me.ChangeTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.VatableTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.Guna2Panel3 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.TransactionDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.product = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.price = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.quantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.CASH = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(Me.components)
+        Me.Guna2Panel3.SuspendLayout()
+        CType(Me.TransactionDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel2.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.Guna2Panel2.SuspendLayout()
-        Me.Panel2.SuspendLayout()
-        Me.Panel1.SuspendLayout()
-        Me.Guna2Panel3.SuspendLayout()
-        CType(Me.TransactionDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'TableLayoutPanel1
-        '
-        Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 350.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.Guna2Panel1, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.FlowLayoutPanel1, 1, 2)
-        Me.TableLayoutPanel1.Controls.Add(Me.Guna2Panel2, 1, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.Guna2Panel3, 0, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.Guna2ImageButton2, 1, 0)
-        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 3
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1260, 922)
-        Me.TableLayoutPanel1.TabIndex = 1
         '
         'Guna2ImageButton2
         '
@@ -104,7 +83,7 @@ Partial Class Pos
         Me.Guna2ImageButton2.ImageOffset = New System.Drawing.Point(0, 0)
         Me.Guna2ImageButton2.ImageRotate = 0!
         Me.Guna2ImageButton2.ImageSize = New System.Drawing.Size(345, 55)
-        Me.Guna2ImageButton2.Location = New System.Drawing.Point(910, 0)
+        Me.Guna2ImageButton2.Location = New System.Drawing.Point(685, 0)
         Me.Guna2ImageButton2.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2ImageButton2.Name = "Guna2ImageButton2"
         Me.Guna2ImageButton2.PressedState.ImageSize = New System.Drawing.Size(345, 55)
@@ -112,109 +91,113 @@ Partial Class Pos
         Me.Guna2ImageButton2.TabIndex = 19
         Me.Guna2ImageButton2.UseTransparentBackground = True
         '
-        'Guna2Panel1
+        'CASH
         '
-        Me.Guna2Panel1.BorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2Panel1.BorderThickness = 1
-        Me.Guna2Panel1.Controls.Add(Me.SearchItemButton)
-        Me.Guna2Panel1.Controls.Add(Me.AddItemButton)
-        Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Guna2Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Size = New System.Drawing.Size(910, 55)
-        Me.Guna2Panel1.TabIndex = 12
+        Me.CASH.HeaderText = "CASH"
+        Me.CASH.Name = "CASH"
+        Me.CASH.ReadOnly = True
+        Me.CASH.Visible = False
         '
-        'SearchItemButton
+        'total
         '
-        Me.SearchItemButton.BorderRadius = 15
-        Me.SearchItemButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.SearchItemButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.SearchItemButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.SearchItemButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.SearchItemButton.FillColor = System.Drawing.Color.White
-        Me.SearchItemButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.SearchItemButton.ForeColor = System.Drawing.Color.White
-        Me.SearchItemButton.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.search
-        Me.SearchItemButton.Location = New System.Drawing.Point(12, 9)
-        Me.SearchItemButton.Name = "SearchItemButton"
-        Me.SearchItemButton.Size = New System.Drawing.Size(52, 36)
-        Me.SearchItemButton.TabIndex = 24
+        Me.total.HeaderText = "TOTAL"
+        Me.total.Name = "total"
+        Me.total.ReadOnly = True
         '
-        'AddItemButton
+        'quantity
         '
-        Me.AddItemButton.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.AddItemButton.BackColor = System.Drawing.Color.Transparent
-        Me.AddItemButton.BorderRadius = 15
-        Me.AddItemButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.AddItemButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.AddItemButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.AddItemButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.AddItemButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.AddItemButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.AddItemButton.ForeColor = System.Drawing.Color.White
-        Me.AddItemButton.Location = New System.Drawing.Point(752, 9)
-        Me.AddItemButton.Name = "AddItemButton"
-        Me.AddItemButton.Size = New System.Drawing.Size(150, 35)
-        Me.AddItemButton.TabIndex = 11
-        Me.AddItemButton.Text = "Add"
+        Me.quantity.HeaderText = "QUANTITY"
+        Me.quantity.Name = "quantity"
+        Me.quantity.ReadOnly = True
         '
-        'FlowLayoutPanel1
+        'price
         '
-        Me.FlowLayoutPanel1.Controls.Add(Me.AddTransactionButton)
-        Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(910, 867)
-        Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
-        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Padding = New System.Windows.Forms.Padding(0, 7, 0, 0)
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(350, 55)
-        Me.FlowLayoutPanel1.TabIndex = 21
+        Me.price.HeaderText = "PRICE"
+        Me.price.Name = "price"
+        Me.price.ReadOnly = True
         '
-        'AddTransactionButton
+        'product
         '
-        Me.AddTransactionButton.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.AddTransactionButton.BackColor = System.Drawing.Color.Transparent
-        Me.AddTransactionButton.BorderRadius = 15
-        Me.AddTransactionButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.AddTransactionButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.AddTransactionButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.AddTransactionButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.AddTransactionButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.AddTransactionButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.AddTransactionButton.ForeColor = System.Drawing.Color.White
-        Me.AddTransactionButton.Location = New System.Drawing.Point(197, 10)
-        Me.AddTransactionButton.Name = "AddTransactionButton"
-        Me.AddTransactionButton.Size = New System.Drawing.Size(150, 35)
-        Me.AddTransactionButton.TabIndex = 7
-        Me.AddTransactionButton.Text = "Proceed"
+        Me.product.HeaderText = "PRODUCT"
+        Me.product.Name = "product"
+        Me.product.ReadOnly = True
         '
-        'Guna2Panel2
+        'ID
         '
-        Me.Guna2Panel2.BorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2Panel2.BorderThickness = 1
-        Me.Guna2Panel2.Controls.Add(Me.Panel2)
-        Me.Guna2Panel2.Controls.Add(Me.Panel1)
-        Me.Guna2Panel2.Controls.Add(Me.DiscountComboBox)
-        Me.Guna2Panel2.Controls.Add(Me.Label9)
-        Me.Guna2Panel2.Controls.Add(Me.Label3)
-        Me.Guna2Panel2.Controls.Add(Me.SubtotalTextBox)
-        Me.Guna2Panel2.Controls.Add(Me.Label6)
-        Me.Guna2Panel2.Controls.Add(Me.VatTextBox)
-        Me.Guna2Panel2.Controls.Add(Me.Label10)
-        Me.Guna2Panel2.Controls.Add(Me.TotalTextBox)
-        Me.Guna2Panel2.Controls.Add(Me.Label4)
-        Me.Guna2Panel2.Controls.Add(Me.CashTextBox)
-        Me.Guna2Panel2.Controls.Add(Me.Label13)
-        Me.Guna2Panel2.Controls.Add(Me.ChangeTextBox)
-        Me.Guna2Panel2.Controls.Add(Me.VatableTextBox)
-        Me.Guna2Panel2.Controls.Add(Me.Label12)
-        Me.Guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Guna2Panel2.Location = New System.Drawing.Point(910, 55)
-        Me.Guna2Panel2.Margin = New System.Windows.Forms.Padding(0)
-        Me.Guna2Panel2.Name = "Guna2Panel2"
-        Me.Guna2Panel2.Size = New System.Drawing.Size(350, 812)
-        Me.Guna2Panel2.TabIndex = 22
+        Me.ID.HeaderText = "ID"
+        Me.ID.Name = "ID"
+        Me.ID.ReadOnly = True
+        '
+        'Guna2Panel3
+        '
+        Me.Guna2Panel3.BorderThickness = 1
+        Me.Guna2Panel3.Controls.Add(Me.TransactionDataGridView)
+        Me.Guna2Panel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Guna2Panel3.Location = New System.Drawing.Point(0, 55)
+        Me.Guna2Panel3.Margin = New System.Windows.Forms.Padding(0)
+        Me.Guna2Panel3.Name = "Guna2Panel3"
+        Me.TableLayoutPanel1.SetRowSpan(Me.Guna2Panel3, 2)
+        Me.Guna2Panel3.Size = New System.Drawing.Size(685, 573)
+        Me.Guna2Panel3.TabIndex = 20
+        '
+        'TransactionDataGridView
+        '
+        Me.TransactionDataGridView.AllowUserToAddRows = False
+        Me.TransactionDataGridView.AllowUserToDeleteRows = False
+        Me.TransactionDataGridView.AllowUserToResizeColumns = False
+        Me.TransactionDataGridView.AllowUserToResizeRows = False
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
+        Me.TransactionDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.TransactionDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.TransactionDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.TransactionDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.product, Me.price, Me.quantity, Me.total, Me.CASH})
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.TransactionDataGridView.DefaultCellStyle = DataGridViewCellStyle3
+        Me.TransactionDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TransactionDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.TransactionDataGridView.Location = New System.Drawing.Point(0, 0)
+        Me.TransactionDataGridView.Margin = New System.Windows.Forms.Padding(0)
+        Me.TransactionDataGridView.MultiSelect = False
+        Me.TransactionDataGridView.Name = "TransactionDataGridView"
+        Me.TransactionDataGridView.ReadOnly = True
+        Me.TransactionDataGridView.RowHeadersVisible = False
+        Me.TransactionDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        Me.TransactionDataGridView.Size = New System.Drawing.Size(685, 573)
+        Me.TransactionDataGridView.TabIndex = 6
+        Me.TransactionDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
+        Me.TransactionDataGridView.ThemeStyle.AlternatingRowsStyle.Font = Nothing
+        Me.TransactionDataGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty
+        Me.TransactionDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty
+        Me.TransactionDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty
+        Me.TransactionDataGridView.ThemeStyle.BackColor = System.Drawing.Color.White
+        Me.TransactionDataGridView.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.TransactionDataGridView.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.TransactionDataGridView.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        Me.TransactionDataGridView.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TransactionDataGridView.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
+        Me.TransactionDataGridView.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.TransactionDataGridView.ThemeStyle.HeaderStyle.Height = 23
+        Me.TransactionDataGridView.ThemeStyle.ReadOnly = True
+        Me.TransactionDataGridView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White
+        Me.TransactionDataGridView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
+        Me.TransactionDataGridView.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TransactionDataGridView.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        Me.TransactionDataGridView.ThemeStyle.RowsStyle.Height = 22
+        Me.TransactionDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.TransactionDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         '
         'Panel2
         '
@@ -249,6 +232,12 @@ Partial Class Pos
         Me.Reference_number.Size = New System.Drawing.Size(104, 17)
         Me.Reference_number.TabIndex = 61
         Me.Reference_number.Text = "Guna2HtmlLabel1"
+        '
+        'Guna2BorderlessForm1
+        '
+        Me.Guna2BorderlessForm1.ContainerControl = Me
+        Me.Guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6R
+        Me.Guna2BorderlessForm1.TransparentWhileDrag = True
         '
         'Panel1
         '
@@ -352,6 +341,140 @@ Partial Class Pos
         Me.Label6.Size = New System.Drawing.Size(52, 16)
         Me.Label6.TabIndex = 53
         Me.Label6.Text = "TOTAL"
+        '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.ColumnCount = 2
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 350.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.Guna2Panel1, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.FlowLayoutPanel1, 1, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.Guna2Panel2, 1, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.Guna2Panel3, 0, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.Guna2ImageButton2, 1, 0)
+        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 3
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1035, 628)
+        Me.TableLayoutPanel1.TabIndex = 2
+        '
+        'Guna2Panel1
+        '
+        Me.Guna2Panel1.BorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Panel1.BorderThickness = 1
+        Me.Guna2Panel1.Controls.Add(Me.SearchTextbox)
+        Me.Guna2Panel1.Controls.Add(Me.AddItemButton)
+        Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Guna2Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Guna2Panel1.Name = "Guna2Panel1"
+        Me.Guna2Panel1.Size = New System.Drawing.Size(685, 55)
+        Me.Guna2Panel1.TabIndex = 12
+        '
+        'SearchTextbox
+        '
+        Me.SearchTextbox.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.SearchTextbox.BorderColor = System.Drawing.Color.Gray
+        Me.SearchTextbox.BorderRadius = 15
+        Me.SearchTextbox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.SearchTextbox.DefaultText = ""
+        Me.SearchTextbox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.SearchTextbox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.SearchTextbox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.SearchTextbox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.SearchTextbox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.SearchTextbox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.SearchTextbox.ForeColor = System.Drawing.Color.Black
+        Me.SearchTextbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.SearchTextbox.Location = New System.Drawing.Point(9, 11)
+        Me.SearchTextbox.MaxLength = 50
+        Me.SearchTextbox.Name = "SearchTextbox"
+        Me.SearchTextbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.SearchTextbox.PlaceholderText = "Search"
+        Me.SearchTextbox.SelectedText = ""
+        Me.SearchTextbox.ShortcutsEnabled = False
+        Me.SearchTextbox.Size = New System.Drawing.Size(200, 36)
+        Me.SearchTextbox.TabIndex = 25
+        '
+        'AddItemButton
+        '
+        Me.AddItemButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.AddItemButton.BackColor = System.Drawing.Color.Transparent
+        Me.AddItemButton.BorderRadius = 15
+        Me.AddItemButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.AddItemButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.AddItemButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.AddItemButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.AddItemButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.AddItemButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.AddItemButton.ForeColor = System.Drawing.Color.White
+        Me.AddItemButton.Location = New System.Drawing.Point(527, 9)
+        Me.AddItemButton.Name = "AddItemButton"
+        Me.AddItemButton.Size = New System.Drawing.Size(150, 35)
+        Me.AddItemButton.TabIndex = 11
+        Me.AddItemButton.Text = "Add"
+        '
+        'FlowLayoutPanel1
+        '
+        Me.FlowLayoutPanel1.Controls.Add(Me.AddTransactionButton)
+        Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(685, 573)
+        Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
+        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
+        Me.FlowLayoutPanel1.Padding = New System.Windows.Forms.Padding(0, 7, 0, 0)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(350, 55)
+        Me.FlowLayoutPanel1.TabIndex = 21
+        '
+        'AddTransactionButton
+        '
+        Me.AddTransactionButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.AddTransactionButton.BackColor = System.Drawing.Color.Transparent
+        Me.AddTransactionButton.BorderRadius = 15
+        Me.AddTransactionButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.AddTransactionButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.AddTransactionButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.AddTransactionButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.AddTransactionButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.AddTransactionButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.AddTransactionButton.ForeColor = System.Drawing.Color.White
+        Me.AddTransactionButton.Location = New System.Drawing.Point(197, 10)
+        Me.AddTransactionButton.Name = "AddTransactionButton"
+        Me.AddTransactionButton.Size = New System.Drawing.Size(150, 35)
+        Me.AddTransactionButton.TabIndex = 7
+        Me.AddTransactionButton.Text = "Proceed"
+        '
+        'Guna2Panel2
+        '
+        Me.Guna2Panel2.BorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Panel2.BorderThickness = 1
+        Me.Guna2Panel2.Controls.Add(Me.Panel2)
+        Me.Guna2Panel2.Controls.Add(Me.Panel1)
+        Me.Guna2Panel2.Controls.Add(Me.DiscountComboBox)
+        Me.Guna2Panel2.Controls.Add(Me.Label9)
+        Me.Guna2Panel2.Controls.Add(Me.Label3)
+        Me.Guna2Panel2.Controls.Add(Me.SubtotalTextBox)
+        Me.Guna2Panel2.Controls.Add(Me.Label6)
+        Me.Guna2Panel2.Controls.Add(Me.VatTextBox)
+        Me.Guna2Panel2.Controls.Add(Me.Label10)
+        Me.Guna2Panel2.Controls.Add(Me.TotalTextBox)
+        Me.Guna2Panel2.Controls.Add(Me.Label4)
+        Me.Guna2Panel2.Controls.Add(Me.CashTextBox)
+        Me.Guna2Panel2.Controls.Add(Me.Label13)
+        Me.Guna2Panel2.Controls.Add(Me.ChangeTextBox)
+        Me.Guna2Panel2.Controls.Add(Me.VatableTextBox)
+        Me.Guna2Panel2.Controls.Add(Me.Label12)
+        Me.Guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Guna2Panel2.Location = New System.Drawing.Point(685, 55)
+        Me.Guna2Panel2.Margin = New System.Windows.Forms.Padding(0)
+        Me.Guna2Panel2.Name = "Guna2Panel2"
+        Me.Guna2Panel2.Size = New System.Drawing.Size(350, 518)
+        Me.Guna2Panel2.TabIndex = 22
         '
         'VatTextBox
         '
@@ -504,158 +627,50 @@ Partial Class Pos
         Me.Label12.TabIndex = 48
         Me.Label12.Text = "VATable"
         '
-        'Guna2Panel3
-        '
-        Me.Guna2Panel3.BorderThickness = 1
-        Me.Guna2Panel3.Controls.Add(Me.TransactionDataGridView)
-        Me.Guna2Panel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Guna2Panel3.Location = New System.Drawing.Point(0, 55)
-        Me.Guna2Panel3.Margin = New System.Windows.Forms.Padding(0)
-        Me.Guna2Panel3.Name = "Guna2Panel3"
-        Me.TableLayoutPanel1.SetRowSpan(Me.Guna2Panel3, 2)
-        Me.Guna2Panel3.Size = New System.Drawing.Size(910, 867)
-        Me.Guna2Panel3.TabIndex = 20
-        '
-        'TransactionDataGridView
-        '
-        Me.TransactionDataGridView.AllowUserToAddRows = False
-        Me.TransactionDataGridView.AllowUserToDeleteRows = False
-        Me.TransactionDataGridView.AllowUserToResizeColumns = False
-        Me.TransactionDataGridView.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
-        Me.TransactionDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.TransactionDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.TransactionDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.TransactionDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.product, Me.price, Me.quantity, Me.total, Me.CASH})
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.TransactionDataGridView.DefaultCellStyle = DataGridViewCellStyle3
-        Me.TransactionDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TransactionDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TransactionDataGridView.Location = New System.Drawing.Point(0, 0)
-        Me.TransactionDataGridView.Margin = New System.Windows.Forms.Padding(0)
-        Me.TransactionDataGridView.MultiSelect = False
-        Me.TransactionDataGridView.Name = "TransactionDataGridView"
-        Me.TransactionDataGridView.ReadOnly = True
-        Me.TransactionDataGridView.RowHeadersVisible = False
-        Me.TransactionDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.TransactionDataGridView.Size = New System.Drawing.Size(910, 867)
-        Me.TransactionDataGridView.TabIndex = 6
-        Me.TransactionDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
-        Me.TransactionDataGridView.ThemeStyle.AlternatingRowsStyle.Font = Nothing
-        Me.TransactionDataGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty
-        Me.TransactionDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty
-        Me.TransactionDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty
-        Me.TransactionDataGridView.ThemeStyle.BackColor = System.Drawing.Color.White
-        Me.TransactionDataGridView.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TransactionDataGridView.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TransactionDataGridView.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        Me.TransactionDataGridView.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TransactionDataGridView.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White
-        Me.TransactionDataGridView.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.TransactionDataGridView.ThemeStyle.HeaderStyle.Height = 23
-        Me.TransactionDataGridView.ThemeStyle.ReadOnly = True
-        Me.TransactionDataGridView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White
-        Me.TransactionDataGridView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
-        Me.TransactionDataGridView.ThemeStyle.RowsStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TransactionDataGridView.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        Me.TransactionDataGridView.ThemeStyle.RowsStyle.Height = 22
-        Me.TransactionDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TransactionDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        '
-        'ID
-        '
-        Me.ID.HeaderText = "ID"
-        Me.ID.Name = "ID"
-        Me.ID.ReadOnly = True
-        '
-        'product
-        '
-        Me.product.HeaderText = "PRODUCT"
-        Me.product.Name = "product"
-        Me.product.ReadOnly = True
-        '
-        'price
-        '
-        Me.price.HeaderText = "PRICE"
-        Me.price.Name = "price"
-        Me.price.ReadOnly = True
-        '
-        'quantity
-        '
-        Me.quantity.HeaderText = "QUANTITY"
-        Me.quantity.Name = "quantity"
-        Me.quantity.ReadOnly = True
-        '
-        'total
-        '
-        Me.total.HeaderText = "TOTAL"
-        Me.total.Name = "total"
-        Me.total.ReadOnly = True
-        '
-        'CASH
-        '
-        Me.CASH.HeaderText = "CASH"
-        Me.CASH.Name = "CASH"
-        Me.CASH.ReadOnly = True
-        Me.CASH.Visible = False
-        '
-        'Guna2BorderlessForm1
-        '
-        Me.Guna2BorderlessForm1.ContainerControl = Me
-        Me.Guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6R
-        Me.Guna2BorderlessForm1.TransparentWhileDrag = True
-        '
-        'Pos
+        'UserControl1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.TableLayoutPanel1)
-        Me.Name = "Pos"
-        Me.Size = New System.Drawing.Size(1260, 922)
+        Me.Name = "UserControl1"
+        Me.Size = New System.Drawing.Size(1035, 628)
+        Me.Guna2Panel3.ResumeLayout(False)
+        CType(Me.TransactionDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.Guna2Panel1.ResumeLayout(False)
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.Guna2Panel2.ResumeLayout(False)
         Me.Guna2Panel2.PerformLayout()
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
-        Me.Panel1.ResumeLayout(False)
-        Me.Panel1.PerformLayout()
-        Me.Guna2Panel3.ResumeLayout(False)
-        CType(Me.TransactionDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+
     Friend WithEvents Guna2ImageButton2 As Guna.UI2.WinForms.Guna2ImageButton
-    Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents SearchItemButton As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents AddItemButton As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents TransactionDataGridView As Guna.UI2.WinForms.Guna2DataGridView
-    Friend WithEvents ID As DataGridViewTextBoxColumn
-    Friend WithEvents product As DataGridViewTextBoxColumn
-    Friend WithEvents price As DataGridViewTextBoxColumn
-    Friend WithEvents quantity As DataGridViewTextBoxColumn
-    Friend WithEvents total As DataGridViewTextBoxColumn
     Friend WithEvents CASH As DataGridViewTextBoxColumn
+    Friend WithEvents total As DataGridViewTextBoxColumn
+    Friend WithEvents quantity As DataGridViewTextBoxColumn
+    Friend WithEvents price As DataGridViewTextBoxColumn
+    Friend WithEvents product As DataGridViewTextBoxColumn
+    Friend WithEvents ID As DataGridViewTextBoxColumn
+    Friend WithEvents Guna2Panel3 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents TransactionDataGridView As Guna.UI2.WinForms.Guna2DataGridView
+    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents SearchTextbox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents AddItemButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents AddTransactionButton As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents Guna2BorderlessForm1 As Guna.UI2.WinForms.Guna2BorderlessForm
     Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Guna2HtmlLabel1 As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents Reference_number As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents Datepurchased As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents Guna2HtmlLabel2 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents DiscountComboBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents Label9 As Label
     Friend WithEvents Label3 As Label
@@ -670,10 +685,5 @@ Partial Class Pos
     Friend WithEvents ChangeTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents VatableTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label12 As Label
-    Friend WithEvents Panel2 As Panel
-    Friend WithEvents Reference_number As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents Guna2Panel3 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents Guna2HtmlLabel1 As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents Guna2HtmlLabel2 As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents Datepurchased As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents Guna2BorderlessForm1 As Guna.UI2.WinForms.Guna2BorderlessForm
 End Class

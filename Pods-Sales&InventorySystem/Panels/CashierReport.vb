@@ -22,20 +22,20 @@ Public Class CashierReport
 
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
         Try
-            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As SqlCommand
+            'Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            'Dim cmd As SqlCommand
 
-            cmd = New SqlCommand("SELECT CONCAT(a.first_name, ' ', a.last_name) AS CASHIER,
-                                   t.transaction_number AS TRANSACTION#,
-                                   t.total AS TOTAL,
-                                   t.date AS DATE
-                                   FROM tbltransactions t
-                                   JOIN tblaccounts a ON t.account_id = a.id", conn)
+            'cmd = New SqlCommand("SELECT CONCAT(a.first_name, ' ', a.last_name) AS CASHIER,
+            '                       t.transaction_number AS TRANSACTION#,
+            '                       t.total AS TOTAL,
+            '                       t.date AS DATE
+            '                       FROM tbltransactions t
+            '                       JOIN tblaccounts a ON t.account_id = a.id", conn)
 
-            Dim dTable As New DataTable
-            Dim adapter As New SqlDataAdapter(cmd)
-            adapter.Fill(dTable)
-            CashierReportsDataGridView.DataSource = dTable
+            'Dim dTable As New DataTable
+            'Dim adapter As New SqlDataAdapter(cmd)
+            'adapter.Fill(dTable)
+            'CashierReportsDataGridView.DataSource = dTable
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End Try

@@ -148,31 +148,6 @@
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="viewtbltransactionsTableAdapter" GeneratorDataComponentClassName="viewtbltransactionsTableAdapter" Name="viewtbltransactions" UserDataComponentName="viewtbltransactionsTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="podsdbConnectionString1 (MySettings)" DbObjectName="podsdb.dbo.viewtbltransactions" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT ID, PROCESS_BY, REFERENCE, SUBTOTAL, VATABLE, VAT, DISCOUNT, TOTAL, DATE, CASH FROM dbo.viewtbltransactions</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="ID" DataSetColumn="ID" />
-              <Mapping SourceColumn="PROCESS_BY" DataSetColumn="PROCESS_BY" />
-              <Mapping SourceColumn="REFERENCE" DataSetColumn="REFERENCE" />
-              <Mapping SourceColumn="SUBTOTAL" DataSetColumn="SUBTOTAL" />
-              <Mapping SourceColumn="VATABLE" DataSetColumn="VATABLE" />
-              <Mapping SourceColumn="VAT" DataSetColumn="VAT" />
-              <Mapping SourceColumn="DISCOUNT" DataSetColumn="DISCOUNT" />
-              <Mapping SourceColumn="TOTAL" DataSetColumn="TOTAL" />
-              <Mapping SourceColumn="DATE" DataSetColumn="DATE" />
-              <Mapping SourceColumn="CASH" DataSetColumn="CASH" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="viewtblreturnsTableAdapter" GeneratorDataComponentClassName="viewtblreturnsTableAdapter" Name="viewtblreturns" UserDataComponentName="viewtblreturnsTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="podsdbConnectionString1 (MySettings)" DbObjectName="podsdb.dbo.viewtblreturns" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
@@ -347,6 +322,31 @@
               <Mapping SourceColumn="BARCODE" DataSetColumn="BARCODE" />
               <Mapping SourceColumn="DESCRIPTION" DataSetColumn="DESCRIPTION" />
               <Mapping SourceColumn="QUANTITY" DataSetColumn="QUANTITY" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="viewtbltransactionsTableAdapter" GeneratorDataComponentClassName="viewtbltransactionsTableAdapter" Name="viewtbltransactions" UserDataComponentName="viewtbltransactionsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="podsdbConnectionString1 (MySettings)" DbObjectName="podsdb.dbo.viewtbltransactions" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT id, PROCESS_BY, REFERENCE, subtotal, vatable, vat, discount, total, date, cash FROM dbo.viewtbltransactions</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="PROCESS_BY" DataSetColumn="PROCESS_BY" />
+              <Mapping SourceColumn="REFERENCE" DataSetColumn="REFERENCE" />
+              <Mapping SourceColumn="subtotal" DataSetColumn="subtotal" />
+              <Mapping SourceColumn="vatable" DataSetColumn="vatable" />
+              <Mapping SourceColumn="vat" DataSetColumn="vat" />
+              <Mapping SourceColumn="discount" DataSetColumn="discount" />
+              <Mapping SourceColumn="total" DataSetColumn="total" />
+              <Mapping SourceColumn="date" DataSetColumn="date" />
+              <Mapping SourceColumn="cash" DataSetColumn="cash" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -563,34 +563,6 @@
               </xs:element>
               <xs:element name="TOTAL" msprop:Generator_ColumnVarNameInTable="columnTOTAL" msprop:Generator_ColumnPropNameInRow="TOTAL" msprop:Generator_ColumnPropNameInTable="TOTALColumn" msprop:Generator_UserColumnName="TOTAL" type="xs:decimal" />
               <xs:element name="DATE" msprop:Generator_ColumnVarNameInTable="columnDATE" msprop:Generator_ColumnPropNameInRow="_DATE" msprop:Generator_ColumnPropNameInTable="DATEColumn" msprop:Generator_UserColumnName="DATE" type="xs:dateTime" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="viewtbltransactions" msprop:Generator_TableClassName="viewtbltransactionsDataTable" msprop:Generator_TableVarName="tableviewtbltransactions" msprop:Generator_RowChangedName="viewtbltransactionsRowChanged" msprop:Generator_TablePropName="viewtbltransactions" msprop:Generator_RowDeletingName="viewtbltransactionsRowDeleting" msprop:Generator_RowChangingName="viewtbltransactionsRowChanging" msprop:Generator_RowEvHandlerName="viewtbltransactionsRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtbltransactionsRowDeleted" msprop:Generator_RowClassName="viewtbltransactionsRow" msprop:Generator_UserTableName="viewtbltransactions" msprop:Generator_RowEvArgName="viewtbltransactionsRowChangeEvent">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
-              <xs:element name="PROCESS_BY" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPROCESS_BY" msprop:Generator_ColumnPropNameInRow="PROCESS_BY" msprop:Generator_ColumnPropNameInTable="PROCESS_BYColumn" msprop:Generator_UserColumnName="PROCESS_BY" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="101" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="REFERENCE" msprop:Generator_ColumnVarNameInTable="columnREFERENCE" msprop:Generator_ColumnPropNameInRow="REFERENCE" msprop:Generator_ColumnPropNameInTable="REFERENCEColumn" msprop:Generator_UserColumnName="REFERENCE">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="SUBTOTAL" msprop:Generator_ColumnVarNameInTable="columnSUBTOTAL" msprop:Generator_ColumnPropNameInRow="SUBTOTAL" msprop:Generator_ColumnPropNameInTable="SUBTOTALColumn" msprop:Generator_UserColumnName="SUBTOTAL" type="xs:decimal" />
-              <xs:element name="VATABLE" msprop:Generator_ColumnVarNameInTable="columnVATABLE" msprop:Generator_ColumnPropNameInRow="VATABLE" msprop:Generator_ColumnPropNameInTable="VATABLEColumn" msprop:Generator_UserColumnName="VATABLE" type="xs:decimal" minOccurs="0" />
-              <xs:element name="VAT" msprop:Generator_ColumnVarNameInTable="columnVAT" msprop:Generator_ColumnPropNameInRow="VAT" msprop:Generator_ColumnPropNameInTable="VATColumn" msprop:Generator_UserColumnName="VAT" type="xs:double" />
-              <xs:element name="DISCOUNT" msprop:Generator_ColumnVarNameInTable="columnDISCOUNT" msprop:Generator_ColumnPropNameInRow="DISCOUNT" msprop:Generator_ColumnPropNameInTable="DISCOUNTColumn" msprop:Generator_UserColumnName="DISCOUNT" type="xs:double" />
-              <xs:element name="TOTAL" msprop:Generator_ColumnVarNameInTable="columnTOTAL" msprop:Generator_ColumnPropNameInRow="TOTAL" msprop:Generator_ColumnPropNameInTable="TOTALColumn" msprop:Generator_UserColumnName="TOTAL" type="xs:decimal" />
-              <xs:element name="DATE" msprop:Generator_ColumnVarNameInTable="columnDATE" msprop:Generator_ColumnPropNameInRow="_DATE" msprop:Generator_ColumnPropNameInTable="DATEColumn" msprop:Generator_UserColumnName="DATE" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="CASH" msprop:Generator_ColumnVarNameInTable="columnCASH" msprop:Generator_ColumnPropNameInRow="CASH" msprop:Generator_ColumnPropNameInTable="CASHColumn" msprop:Generator_UserColumnName="CASH" type="xs:decimal" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -828,6 +800,34 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="viewtbltransactions" msprop:Generator_TableClassName="viewtbltransactionsDataTable" msprop:Generator_TableVarName="tableviewtbltransactions" msprop:Generator_TablePropName="viewtbltransactions" msprop:Generator_RowDeletingName="viewtbltransactionsRowDeleting" msprop:Generator_RowChangingName="viewtbltransactionsRowChanging" msprop:Generator_RowEvHandlerName="viewtbltransactionsRowChangeEventHandler" msprop:Generator_RowDeletedName="viewtbltransactionsRowDeleted" msprop:Generator_UserTableName="viewtbltransactions" msprop:Generator_RowChangedName="viewtbltransactionsRowChanged" msprop:Generator_RowEvArgName="viewtbltransactionsRowChangeEvent" msprop:Generator_RowClassName="viewtbltransactionsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="PROCESS_BY" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnPROCESS_BY" msprop:Generator_ColumnPropNameInRow="PROCESS_BY" msprop:Generator_ColumnPropNameInTable="PROCESS_BYColumn" msprop:Generator_UserColumnName="PROCESS_BY" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="101" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="REFERENCE" msprop:Generator_ColumnVarNameInTable="columnREFERENCE" msprop:Generator_ColumnPropNameInRow="REFERENCE" msprop:Generator_ColumnPropNameInTable="REFERENCEColumn" msprop:Generator_UserColumnName="REFERENCE">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="subtotal" msprop:Generator_ColumnVarNameInTable="columnsubtotal" msprop:Generator_ColumnPropNameInRow="subtotal" msprop:Generator_ColumnPropNameInTable="subtotalColumn" msprop:Generator_UserColumnName="subtotal" type="xs:decimal" />
+              <xs:element name="vatable" msprop:Generator_ColumnVarNameInTable="columnvatable" msprop:Generator_ColumnPropNameInRow="vatable" msprop:Generator_ColumnPropNameInTable="vatableColumn" msprop:Generator_UserColumnName="vatable" type="xs:decimal" minOccurs="0" />
+              <xs:element name="vat" msprop:Generator_ColumnVarNameInTable="columnvat" msprop:Generator_ColumnPropNameInRow="vat" msprop:Generator_ColumnPropNameInTable="vatColumn" msprop:Generator_UserColumnName="vat" type="xs:double" />
+              <xs:element name="discount" msprop:Generator_ColumnVarNameInTable="columndiscount" msprop:Generator_ColumnPropNameInRow="discount" msprop:Generator_ColumnPropNameInTable="discountColumn" msprop:Generator_UserColumnName="discount" type="xs:double" />
+              <xs:element name="total" msprop:Generator_ColumnVarNameInTable="columntotal" msprop:Generator_ColumnPropNameInRow="total" msprop:Generator_ColumnPropNameInTable="totalColumn" msprop:Generator_UserColumnName="total" type="xs:decimal" />
+              <xs:element name="date" msprop:Generator_ColumnVarNameInTable="columndate" msprop:Generator_ColumnPropNameInRow="_date" msprop:Generator_ColumnPropNameInTable="dateColumn" msprop:Generator_UserColumnName="date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="cash" msprop:Generator_ColumnVarNameInTable="columncash" msprop:Generator_ColumnPropNameInRow="cash" msprop:Generator_ColumnPropNameInTable="cashColumn" msprop:Generator_UserColumnName="cash" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -852,10 +852,6 @@
     </xs:unique>
     <xs:unique name="viewtbldeliverypullouts_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:viewtbldeliverypullouts" />
-      <xs:field xpath="mstns:ID" />
-    </xs:unique>
-    <xs:unique name="viewtbltransactions_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:viewtbltransactions" />
       <xs:field xpath="mstns:ID" />
     </xs:unique>
     <xs:unique name="viewtblreturns_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
@@ -893,6 +889,10 @@
     <xs:unique name="viewtblinventory_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:viewtblinventory" />
       <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="viewtbltransactions_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:viewtbltransactions" />
+      <xs:field xpath="mstns:id" />
     </xs:unique>
   </xs:element>
 </xs:schema>

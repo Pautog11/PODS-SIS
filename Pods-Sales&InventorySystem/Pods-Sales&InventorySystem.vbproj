@@ -184,10 +184,22 @@
     <Compile Include="Dialogs\DeliveryCartDialog.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Panels\Pos.Designer.vb">
-      <DependentUpon>Pos.vb</DependentUpon>
+    <Compile Include="Forms\Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
     </Compile>
-    <Compile Include="Panels\Pos.vb">
+    <Compile Include="Forms\Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Panels\PoS.Designer.vb">
+      <DependentUpon>PoS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\PoS.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Panels\PosPanel.Designer.vb">
+      <DependentUpon>PosPanel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\PosPanel.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Sub Dialogs\DeliveryProductDialog.Designer.vb">
@@ -286,10 +298,10 @@
     <Compile Include="Dialogs\SupplierDialog.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\TransactionCartDailog.Designer.vb">
-      <DependentUpon>TransactionCartDailog.vb</DependentUpon>
+    <Compile Include="Dialogs\TransactionProductDailog.Designer.vb">
+      <DependentUpon>TransactionProductDailog.vb</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\TransactionCartDailog.vb">
+    <Compile Include="Dialogs\TransactionProductDailog.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialogs\TransactionDialog.Designer.vb">
@@ -619,8 +631,14 @@
     <EmbeddedResource Include="Dialogs\DeliveryCartDialog.resx">
       <DependentUpon>DeliveryCartDialog.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Panels\Pos.resx">
-      <DependentUpon>Pos.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\PoS.resx">
+      <DependentUpon>PoS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\PosPanel.resx">
+      <DependentUpon>PosPanel.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sub Dialogs\DeliveryProductDialog.resx">
       <DependentUpon>DeliveryProductDialog.vb</DependentUpon>
@@ -670,8 +688,8 @@
     <EmbeddedResource Include="Dialogs\SupplierDialog.resx">
       <DependentUpon>SupplierDialog.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\TransactionCartDailog.resx">
-      <DependentUpon>TransactionCartDailog.vb</DependentUpon>
+    <EmbeddedResource Include="Dialogs\TransactionProductDailog.resx">
+      <DependentUpon>TransactionProductDailog.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\TransactionDialog.resx">
       <DependentUpon>TransactionDialog.vb</DependentUpon>

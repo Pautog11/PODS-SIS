@@ -18,6 +18,8 @@
         ProductsDataGridView.Columns.Item("ID").Visible = False
         ProductsDataGridView.Columns.Item("SKU").Visible = False
         ProductsDataGridView.Columns.Item("DESCRIPTION").Visible = False
+        ProductsDataGridView.Columns.Item("BARCODE").Visible = False
+        ProductsDataGridView.Columns.Item("CRITICAL LEVEL").Visible = False
     End Sub
     Private Sub AddProductButton_Click(sender As Object, e As EventArgs) Handles AddProductButton.Click
         Dim Dialog As New ProductDialog(subject:=_subject)

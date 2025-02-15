@@ -34,7 +34,6 @@ Public Class SalesReport
             'Else
             cmd = New SqlCommand("SELECT CONCAT(a.first_name, ' ', a.last_name) AS CASHIER,
                                    t.transaction_number AS TRANSACTION#,
-                                   t.total AS TOTAL,
                                    t.date AS DATE
                                    FROM tbltransactions t
                                    JOIN tblaccounts a ON t.account_id = a.id

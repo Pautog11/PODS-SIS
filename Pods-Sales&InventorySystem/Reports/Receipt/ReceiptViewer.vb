@@ -84,13 +84,14 @@ Public Class ReceiptViewer
     '        Return Nothing
     '    End Try
     'End Function
-    Private _transactionNumber As String
-    Private _autoPrint As Boolean
+    Private ReadOnly _transactionNumber As String
+    'Private _autoPrint As Boolean
 
-    Public Sub New(transactionNumber As String, Optional autoPrint As Boolean = False)
+    Public Sub New(Optional transactionNumber As String = Nothing)
+        'Optional autoPrint As Boolean = False)
         InitializeComponent()
         _transactionNumber = transactionNumber
-        _autoPrint = autoPrint
+        '_autoPrint = autoPrint
     End Sub
 
     Private Sub ReceiptViewer_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -109,44 +110,64 @@ Public Class ReceiptViewer
             CrystalReportViewer1.ReportSource = reportDocument
             CrystalReportViewer1.RefreshReport()
 
-            If _autoPrint Then
-                reportDocument.PrintToPrinter(1, False, 0, 0)
-                MessageBox.Show("Receipt auto-printed successfully.")
-                Me.Close() ' Close after printing if required
-            End If
+            'If _autoPrint Then
+            '    reportDocument.PrintToPrinter(1, False, 0, 0)
+            '    MessageBox.Show("Receipt auto-printed successfully.")
+            '    Me.Close() ' Close after printing if required
+            'End If
         Catch ex As Exception
             MessageBox.Show($"Error loading receipt: {ex.Message}")
             Me.Close()
         End Try
     End Sub
+
     Private Function Transactions(transactionNumber As String) As DataSet
-        Dim dset As New DataSet
         Try
             Using con As New SqlConnection(My.Settings.podsdbConnectionString)
                 con.Open()
                 Dim cmd As New SqlCommand("SELECT 
-                                            t.transaction_number,
+		                                	t.transaction_number,
                                             t.subtotal,
                                             t.vat,
                                             t.discount,
                                             t.total,
                                             t.date,
                                             CONCAT(u.first_name, ' ', u.last_name) AS name,
-                                            t.cash, (t.cash - t.total) change,
-											p.product_name AS product, ti.quantity, ti.price, ti.total as product_total, t.vatable
+											p.product_name AS product, 
+											ti.quantity, 
+											ti.price AS price, 
+											t.vatable,
+											SUM(ti.quantity * price) AS product_total,
+                                            t.cash,
+                                            SUM(t.cash - t.total) AS CHANGE
                                           FROM tbltransactions t
                                           JOIN tblaccounts u ON t.account_id = u.id
                                           JOIN tbltransaction_items ti ON t.id = ti.transaction_id
                                           JOIN tblproducts p ON ti.product_id = p.id
-                                          WHERE t.transaction_number = @transaction_number", con)
+                                          WHERE t.id = @transaction_number
+										  group by
+										  t.transaction_number,
+                                            t.subtotal,
+                                            t.vat,
+                                            t.discount,
+                                            t.total,
+                                            t.date,
+                                            CONCAT(u.first_name, ' ', u.last_name),
+											p.product_name, 
+											ti.quantity, 
+											ti.price, 
+											t.vatable,
+                                            t.cash", con)
                 cmd.Parameters.AddWithValue("@transaction_number", transactionNumber)
 
                 Dim adapter As New SqlDataAdapter(cmd)
+                Dim dset As New DataSet
                 adapter.Fill(dset, "DT_Transac")
                 Return dset
             End Using
         Catch ex As Exception
-            Return Nothing
+            'Return Nothing
+            MsgBox(ex.Message)
         End Try
     End Function
 
