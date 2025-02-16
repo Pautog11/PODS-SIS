@@ -86,21 +86,29 @@ Public Class DeliveryCartDialog
     Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click
         Try
             Dim controls As Object() = {
-                 TransactionDeliveryTextBox, SupplierNameComboBox
+                  SupplierNameComboBox, TransactionDeliveryTextBox
             }
 
             Dim types As DataInput() = {
-                DataInput.STRING_STRING, DataInput.STRING_NAME
+                DataInput.STRING_NAME, DataInput.STRING_STRING
             }
+
             Dim result As New List(Of Object())
             For i = 0 To controls.Count - 1
                 result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
+                Dim validationResult = TryCast(result(i), Object())
+                If validationResult IsNot Nothing AndAlso validationResult.Length > 0 Then
+                    If Not validationResult(0) = True Then
+                        Exit Sub
+                    End If
+                Else
+                    Throw New Exception
+                End If
             Next
-
 
             If DeliveryDataGridView.Rows.Count > 0 AndAlso Not result.Any(Function(item As Object()) Not item(0)) Then
                 Dim items As New List(Of Dictionary(Of String, String))()
-                Dim baseCommand As ICommandPanel ' = Nothing
+                Dim baseCommand As ICommandPanel
                 Dim invoker As ICommandInvoker
                 Dim data As New Dictionary(Of String, String) From {
                     {"id", If(_data?.Item("id"), String.Empty)},
@@ -114,19 +122,17 @@ Public Class DeliveryCartDialog
 
                     Dim item As New Dictionary(Of String, String) From {
                         {"product_id", row.Cells(0).Value}, '{"exd", exdValue},
-                        {"price", If(row.Cells(3).Value?.ToString(), "0")},
-                        {"cost_price", If(row.Cells(4).Value?.ToString(), "0")},
-                        {"quantity", If(row.Cells(5).Value?.ToString(), "0")},
-                        {"inventory_quantity", If(row.Cells(5).Value?.ToString(), "0")},
-                        {"batch_number", "123123"},
-                        {"expiration_date", "7-4-1999"}
+                        {"price", If(row.Cells(4).Value?.ToString(), "0")},
+                        {"cost_price", If(row.Cells(5).Value?.ToString(), "0")},
+                        {"quantity", If(row.Cells(6).Value?.ToString(), "0")}, '{"inventory_quantity", If(row.Cells(5).Value?.ToString(), "0")},
+                        {"batch_number", If(row.Cells(3).Value?.ToString(), "0")},
+                        {"expiration_date", If(row.Cells(2).Value?.ToString(), "0")}
                     }
                     items.Add(item)
                 Next
 
-                baseCommand = New BaseDelivery(data) With {
-                    .Items = items
-                }
+                baseCommand = New BaseDelivery(data) With {.Items = items}
+
                 If BaseDelivery.Exists(result(0)(1)) = 0 Then
                     invoker = New AddCommand(baseCommand)
                     invoker?.Execute()
@@ -136,10 +142,10 @@ Public Class DeliveryCartDialog
                     MessageBox.Show("Transaction reference is already exist!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 End If
             Else
-                MessageBox.Show("Select product or provide valid inputs!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                MessageBox.Show("Please select product first.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
         Catch ex As Exception
-
+            MsgBox(ex.Message)
         End Try
     End Sub
 
@@ -162,8 +168,9 @@ Public Class DeliveryCartDialog
                         {"id", row.Cells(0).Value.ToString()},
                         {"name", row.Cells(1).Value.ToString()},
                         {"date", row.Cells(2).Value.ToString()},
-                        {"sellingprice", row.Cells(3).Value.ToString()},
-                        {"costprice", row.Cells(4).Value.ToString()}
+                        {"batch_number", row.Cells(3).Value.ToString()},
+                        {"selling_price", row.Cells(4).Value.ToString()},
+                        {"cost_price", row.Cells(5).Value.ToString()}
                     }
                     Dim dialog As New DeliveryProductDialog(data:=data, parent:=Me)
                     dialog.ShowDialog()

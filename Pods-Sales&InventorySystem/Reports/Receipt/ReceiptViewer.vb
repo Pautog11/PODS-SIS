@@ -85,8 +85,6 @@ Public Class ReceiptViewer
     '    End Try
     'End Function
     Private ReadOnly _transactionNumber As String
-    'Private _autoPrint As Boolean
-
     Public Sub New(Optional transactionNumber As String = Nothing)
         'Optional autoPrint As Boolean = False)
         InitializeComponent()
@@ -110,11 +108,6 @@ Public Class ReceiptViewer
             CrystalReportViewer1.ReportSource = reportDocument
             CrystalReportViewer1.RefreshReport()
 
-            'If _autoPrint Then
-            '    reportDocument.PrintToPrinter(1, False, 0, 0)
-            '    MessageBox.Show("Receipt auto-printed successfully.")
-            '    Me.Close() ' Close after printing if required
-            'End If
         Catch ex As Exception
             MessageBox.Show($"Error loading receipt: {ex.Message}")
             Me.Close()
@@ -166,7 +159,7 @@ Public Class ReceiptViewer
                 Return dset
             End Using
         Catch ex As Exception
-            'Return Nothing
+            Return Nothing
             MsgBox(ex.Message)
         End Try
     End Function

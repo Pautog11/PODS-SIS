@@ -36,6 +36,7 @@ Public Class InputValidation
         stringInput = stringInput.TrimStart("0")
         If String.IsNullOrEmpty(stringInput) OrElse String.IsNullOrWhiteSpace(stringInput) Then
             control.BorderColor = Color.Red
+            MessageBox.Show("Invalid input.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Return {False, stringInput}
         End If
 
@@ -53,6 +54,8 @@ Public Class InputValidation
                         Next
                         Return {True, String.Join(" ", nameString)}
                     End If
+                    'Else
+                    '    MessageBox.Show("Invalid name.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
             Case DataInput.STRING_NAME
                 'If stringInput.Count > 1 Then
@@ -272,7 +275,7 @@ Public Class InputValidation
                 If Regex.IsMatch(stringInput, "^\d+(\.\d{1,2})?$") Then
                     Return {True, stringInput}
                 Else
-                    MessageBox.Show("Invalid number. Please enter a valid decimal or whole number.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    MessageBox.Show("Please enter a valid decimal number.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Return {False, Nothing}
                 End If
 

@@ -50,7 +50,7 @@ Public Class PricingDialog
                     Else
                         MessageBox.Show("Price has been updated successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         _parent.CostTextBox.Text = CostTextBox.Text
-                        _parent.txtPrays.Text = txtPrays.Text
+                        _parent.SellingTextBox.Text = txtPrays.Text
                         Me.Close()
                     End If
                 End If

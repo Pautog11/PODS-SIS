@@ -27,17 +27,16 @@ Partial Class DeliveryProductDialog
         Me.VoidButton = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Guna2TextBox1 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.BatchTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.ProductTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.DateTimePicker = New Guna.UI2.WinForms.Guna2DateTimePicker()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.txtPrays = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.SellingTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.SearchButton = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Guna2Separator1 = New Guna.UI2.WinForms.Guna2Separator()
         Me.QuantityTextBox = New Guna.UI2.WinForms.Guna2TextBox()
@@ -103,17 +102,16 @@ Partial Class DeliveryProductDialog
         'Guna2Panel1
         '
         Me.Guna2Panel1.Controls.Add(Me.Label2)
-        Me.Guna2Panel1.Controls.Add(Me.Guna2TextBox1)
+        Me.Guna2Panel1.Controls.Add(Me.BatchTextBox)
         Me.Guna2Panel1.Controls.Add(Me.ProductTextBox)
         Me.Guna2Panel1.Controls.Add(Me.DateTimePicker)
         Me.Guna2Panel1.Controls.Add(Me.Label9)
-        Me.Guna2Panel1.Controls.Add(Me.txtPrays)
+        Me.Guna2Panel1.Controls.Add(Me.SellingTextBox)
         Me.Guna2Panel1.Controls.Add(Me.Label8)
         Me.Guna2Panel1.Controls.Add(Me.Label7)
         Me.Guna2Panel1.Controls.Add(Me.Label6)
         Me.Guna2Panel1.Controls.Add(Me.Label4)
         Me.Guna2Panel1.Controls.Add(Me.Label1)
-        Me.Guna2Panel1.Controls.Add(Me.SearchButton)
         Me.Guna2Panel1.Controls.Add(Me.Guna2HtmlLabel1)
         Me.Guna2Panel1.Controls.Add(Me.Guna2Separator1)
         Me.Guna2Panel1.Controls.Add(Me.QuantityTextBox)
@@ -135,29 +133,29 @@ Partial Class DeliveryProductDialog
         Me.Label2.TabIndex = 40
         Me.Label2.Text = "Batch number"
         '
-        'Guna2TextBox1
+        'BatchTextBox
         '
-        Me.Guna2TextBox1.BorderColor = System.Drawing.Color.Gray
-        Me.Guna2TextBox1.BorderRadius = 10
-        Me.Guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.Guna2TextBox1.DefaultText = ""
-        Me.Guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.Guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.Guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Guna2TextBox1.ForeColor = System.Drawing.Color.Black
-        Me.Guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox1.Location = New System.Drawing.Point(29, 291)
-        Me.Guna2TextBox1.MaxLength = 20
-        Me.Guna2TextBox1.Name = "Guna2TextBox1"
-        Me.Guna2TextBox1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.Guna2TextBox1.PlaceholderText = "0"
-        Me.Guna2TextBox1.SelectedText = ""
-        Me.Guna2TextBox1.ShortcutsEnabled = False
-        Me.Guna2TextBox1.Size = New System.Drawing.Size(270, 36)
-        Me.Guna2TextBox1.TabIndex = 39
+        Me.BatchTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.BatchTextBox.BorderRadius = 10
+        Me.BatchTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.BatchTextBox.DefaultText = ""
+        Me.BatchTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.BatchTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.BatchTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.BatchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.BatchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.BatchTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.BatchTextBox.ForeColor = System.Drawing.Color.Black
+        Me.BatchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.BatchTextBox.Location = New System.Drawing.Point(29, 291)
+        Me.BatchTextBox.MaxLength = 20
+        Me.BatchTextBox.Name = "BatchTextBox"
+        Me.BatchTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.BatchTextBox.PlaceholderText = "0"
+        Me.BatchTextBox.SelectedText = ""
+        Me.BatchTextBox.ShortcutsEnabled = False
+        Me.BatchTextBox.Size = New System.Drawing.Size(270, 36)
+        Me.BatchTextBox.TabIndex = 39
         '
         'ProductTextBox
         '
@@ -180,7 +178,7 @@ Partial Class DeliveryProductDialog
         Me.ProductTextBox.PlaceholderText = "Ex. Biogesic"
         Me.ProductTextBox.SelectedText = ""
         Me.ProductTextBox.ShortcutsEnabled = False
-        Me.ProductTextBox.Size = New System.Drawing.Size(212, 36)
+        Me.ProductTextBox.Size = New System.Drawing.Size(270, 36)
         Me.ProductTextBox.TabIndex = 36
         '
         'DateTimePicker
@@ -206,29 +204,29 @@ Partial Class DeliveryProductDialog
         Me.Label9.TabIndex = 33
         Me.Label9.Text = "Selling Price"
         '
-        'txtPrays
+        'SellingTextBox
         '
-        Me.txtPrays.BorderColor = System.Drawing.Color.Gray
-        Me.txtPrays.BorderRadius = 10
-        Me.txtPrays.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.txtPrays.DefaultText = ""
-        Me.txtPrays.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.txtPrays.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.txtPrays.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtPrays.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.txtPrays.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtPrays.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.txtPrays.ForeColor = System.Drawing.Color.Black
-        Me.txtPrays.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.txtPrays.Location = New System.Drawing.Point(29, 172)
-        Me.txtPrays.MaxLength = 13
-        Me.txtPrays.Name = "txtPrays"
-        Me.txtPrays.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.txtPrays.PlaceholderText = "0.00"
-        Me.txtPrays.SelectedText = ""
-        Me.txtPrays.ShortcutsEnabled = False
-        Me.txtPrays.Size = New System.Drawing.Size(126, 36)
-        Me.txtPrays.TabIndex = 32
+        Me.SellingTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.SellingTextBox.BorderRadius = 10
+        Me.SellingTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.SellingTextBox.DefaultText = ""
+        Me.SellingTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.SellingTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.SellingTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.SellingTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.SellingTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.SellingTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.SellingTextBox.ForeColor = System.Drawing.Color.Black
+        Me.SellingTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.SellingTextBox.Location = New System.Drawing.Point(29, 172)
+        Me.SellingTextBox.MaxLength = 13
+        Me.SellingTextBox.Name = "SellingTextBox"
+        Me.SellingTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.SellingTextBox.PlaceholderText = "0.00"
+        Me.SellingTextBox.SelectedText = ""
+        Me.SellingTextBox.ShortcutsEnabled = False
+        Me.SellingTextBox.Size = New System.Drawing.Size(126, 36)
+        Me.SellingTextBox.TabIndex = 32
         '
         'Label8
         '
@@ -274,22 +272,6 @@ Partial Class DeliveryProductDialog
         Me.Label1.Size = New System.Drawing.Size(47, 13)
         Me.Label1.TabIndex = 24
         Me.Label1.Text = "Barcode"
-        '
-        'SearchButton
-        '
-        Me.SearchButton.BorderRadius = 15
-        Me.SearchButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.SearchButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.SearchButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.SearchButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.SearchButton.FillColor = System.Drawing.Color.White
-        Me.SearchButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.SearchButton.ForeColor = System.Drawing.Color.White
-        Me.SearchButton.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.search
-        Me.SearchButton.Location = New System.Drawing.Point(247, 109)
-        Me.SearchButton.Name = "SearchButton"
-        Me.SearchButton.Size = New System.Drawing.Size(52, 36)
-        Me.SearchButton.TabIndex = 23
         '
         'Guna2HtmlLabel1
         '
@@ -427,17 +409,16 @@ Partial Class DeliveryProductDialog
     Friend WithEvents BarcodeTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2HtmlLabel1 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Guna2Separator1 As Guna.UI2.WinForms.Guna2Separator
-    Friend WithEvents SearchButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Label4 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents Label6 As Label
-    Friend WithEvents txtPrays As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents SellingTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label9 As Label
     Friend WithEvents DateTimePicker As Guna.UI2.WinForms.Guna2DateTimePicker
     Friend WithEvents ProductTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents VoidButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Label2 As Label
-    Friend WithEvents Guna2TextBox1 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents BatchTextBox As Guna.UI2.WinForms.Guna2TextBox
 End Class

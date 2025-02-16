@@ -52,7 +52,12 @@ Public Class BaseDelivery
                     _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
                     _sqlCommand.Parameters.AddWithValue("@inventory_quantity", item("quantity"))
                     _sqlCommand.Parameters.AddWithValue("@batch_number", item("batch_number"))
-                    _sqlCommand.Parameters.AddWithValue("@expiration_date", item("expiration_date"))
+                    If String.IsNullOrEmpty(item("expiration_date").ToString()) Then
+                        _sqlCommand.Parameters.AddWithValue("@expiration_date", DBNull.Value)
+                    Else
+                        _sqlCommand.Parameters.AddWithValue("@expiration_date", item("expiration_date"))
+                    End If
+                    '_sqlCommand.Parameters.AddWithValue("@expiration_date", item("expiration_date"))
 
                     If _sqlCommand.ExecuteNonQuery() <= 0 Then
                         MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -72,12 +77,14 @@ Public Class BaseDelivery
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT a.id, product_name, 
-                                               ISNULL(expiration_date, NULL) AS expiration, 
-                                               a.price, 
-                                               a.cost_price, 
-                                               a.quantity, 
-                                               a.cost_price * a.quantity as total
+            cmd = New SqlCommand("SELECT a.id, 
+                                         product_name, 
+                                         ISNULL(expiration_date, NULL) AS expiration,
+                                         a.batch_number,
+                                         a.price, 
+                                         a.cost_price, 
+                                         a.quantity, 
+                                         a.cost_price * a.quantity as total
                                         FROM tbldeliveries_items a
                                         JOIN tblproducts ON a.product_id = tblproducts.id 
                                         WHERE a.delivery_id = @delivery_id", conn)
@@ -158,6 +165,18 @@ Public Class BaseDelivery
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return New DataTable
+        End Try
+    End Function
+
+    Public Shared Function EnableExp(id As Integer) As Integer
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT expiration FROM tblproducts WHERE id =  @id", conn)
+            cmd.Parameters.AddWithValue("@id", id)
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
         End Try
     End Function
 End Class

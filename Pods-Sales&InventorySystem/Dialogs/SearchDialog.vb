@@ -1,8 +1,8 @@
 ﻿Public Class SearchDialog
     Implements IObserverPanel
     Private _subject As IObservablePanel
-    Private ReadOnly _tableAapter As New podsTableAdapters.viewtblproductsearchTableAdapter
-    Private _dataTable As New pods.viewtblproductsearchDataTable
+    'Private ReadOnly _tableAapter As New podsTableAdapters.viewtblproductsearchTableAdapter
+    'Private _dataTable As New pods.viewtblproductsearchDataTable
     Private ReadOnly _data As Dictionary(Of String, String)
     Private ReadOnly _parent As TransactionDialog = Nothing
     Public Sub New(Optional data As Dictionary(Of String, String) = Nothing,
@@ -13,18 +13,18 @@
     End Sub
 
     Private Sub SearchDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Try
-            _subject = Application.OpenForms.OfType(Of Dashboard).FirstOrDefault
-            _subject?.RegisterObserver(Me)
-            _subject?.NotifyObserver()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "Observer Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
+        'Try
+        '    _subject = Application.OpenForms.OfType(Of Dashboard).FirstOrDefault
+        '    _subject?.RegisterObserver(Me)
+        '    _subject?.NotifyObserver()
+        'Catch ex As Exception
+        '    MessageBox.Show(ex.Message, "Observer Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        'End Try
     End Sub
 
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
-        _tableAapter.Fill(_dataTable)
-        ProductDataGridView.DataSource = _dataTable
+        '_tableAapter.Fill(_dataTable)
+        'ProductDataGridView.DataSource = _dataTable
         'ProductDataGridView.DataSource = _dataTable
         ''ProductDataGridView.Columns.Item("STOCK_LEVEL").Visible = False
         ''ProductDataGridView.Columns.Item("SUBCATEGORY").Visible = False
@@ -56,8 +56,8 @@
         'End Try
     End Sub
     Private Sub ProductSearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles ProductSearchTextBox.TextChanged
-        _dataTable = BaseProduct.SearchDilog(ProductSearchTextBox.Text)
-        ProductDataGridView.DataSource = _dataTable
+        '_dataTable = BaseProduct.SearchDilog(ProductSearchTextBox.Text)
+        'ProductDataGridView.DataSource = _dataTable
     End Sub
 
     Private Sub ProductDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles ProductDataGridView.CellClick

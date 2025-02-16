@@ -291,6 +291,22 @@ Public Class BaseProduct
         End Try
     End Function
 
+    Public Shared Function PopulateAutoCompleteList() As AutoCompleteStringCollection
+        Try
+            Dim autocompleteList As New AutoCompleteStringCollection()
+            Dim _tableAdapter As New podsTableAdapters.viewtblproductsTableAdapter
+            Dim accountsTable As pods.viewtblproductsDataTable = _tableAdapter.GetData()
+            autocompleteList.Clear()
+            For Each row As pods.viewtblproductsRow In accountsTable
+                autocompleteList.Add(row.PRODUCT)
+            Next
+            Return autocompleteList
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New AutoCompleteStringCollection()
+        End Try
+    End Function
+
     Public Shared Function Disableexd(id As Integer) As Integer
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
@@ -317,20 +333,20 @@ Public Class BaseProduct
         End Try
     End Function
 
-    Public Shared Function SearchDilog(query As String) As pods.viewtblproductsearchDataTable 'pods.tblaccountsDataTable
-        Try
-            Dim conn As New SqlConnection(My.Settings.podsdbConnectionString)
-            Dim cmd As New SqlCommand("SELECT * FROM viewtblproductsearch WHERE id <> 1 AND NAME LIKE CONCAT('%', @query, '%')", conn)
-            cmd.Parameters.AddWithValue("@query", query)
-            Dim dTable As New pods.viewtblproductsearchDataTable
-            Dim adapter As New SqlDataAdapter(cmd)
-            adapter.Fill(dTable)
-            Return dTable
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return New pods.viewtblproductsearchDataTable
-        End Try
-    End Function
+    'Public Shared Function SearchDilog(query As String) As pods.viewtblproductsearchDataTable 'pods.tblaccountsDataTable
+    '    Try
+    '        Dim conn As New SqlConnection(My.Settings.podsdbConnectionString)
+    '        Dim cmd As New SqlCommand("SELECT * FROM viewtblproductsearch WHERE id <> 1 AND NAME LIKE CONCAT('%', @query, '%')", conn)
+    '        cmd.Parameters.AddWithValue("@query", query)
+    '        Dim dTable As New pods.viewtblproductsearchDataTable
+    '        Dim adapter As New SqlDataAdapter(cmd)
+    '        adapter.Fill(dTable)
+    '        Return dTable
+    '    Catch ex As Exception
+    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+    '        Return New pods.viewtblproductsearchDataTable
+    '    End Try
+    'End Function
 
     'Public Shared Function ChangeDialog(id As Integer) As Integer
     '    Try
