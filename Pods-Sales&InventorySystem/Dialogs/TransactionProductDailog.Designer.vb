@@ -59,7 +59,7 @@ Partial Class TransactionProductDailog
         Me.QuantityTextBox.PlaceholderText = "0"
         Me.QuantityTextBox.SelectedText = ""
         Me.QuantityTextBox.ShortcutsEnabled = False
-        Me.QuantityTextBox.Size = New System.Drawing.Size(253, 36)
+        Me.QuantityTextBox.Size = New System.Drawing.Size(255, 36)
         Me.QuantityTextBox.TabIndex = 13
         '
         'PriceTextBox
@@ -82,7 +82,7 @@ Partial Class TransactionProductDailog
         Me.PriceTextBox.PlaceholderText = "0.00"
         Me.PriceTextBox.SelectedText = ""
         Me.PriceTextBox.ShortcutsEnabled = False
-        Me.PriceTextBox.Size = New System.Drawing.Size(253, 36)
+        Me.PriceTextBox.Size = New System.Drawing.Size(255, 36)
         Me.PriceTextBox.TabIndex = 12
         '
         'AddTransactionButton
@@ -97,7 +97,7 @@ Partial Class TransactionProductDailog
         Me.AddTransactionButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AddTransactionButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddTransactionButton.ForeColor = System.Drawing.Color.White
-        Me.AddTransactionButton.Location = New System.Drawing.Point(164, 7)
+        Me.AddTransactionButton.Location = New System.Drawing.Point(163, 7)
         Me.AddTransactionButton.Margin = New System.Windows.Forms.Padding(3, 7, 3, 3)
         Me.AddTransactionButton.Name = "AddTransactionButton"
         Me.AddTransactionButton.Size = New System.Drawing.Size(150, 35)
@@ -124,7 +124,7 @@ Partial Class TransactionProductDailog
         Me.StocksTextBox.PlaceholderText = "0"
         Me.StocksTextBox.SelectedText = ""
         Me.StocksTextBox.ShortcutsEnabled = False
-        Me.StocksTextBox.Size = New System.Drawing.Size(253, 36)
+        Me.StocksTextBox.Size = New System.Drawing.Size(255, 36)
         Me.StocksTextBox.TabIndex = 17
         '
         'Guna2Separator1
@@ -133,7 +133,7 @@ Partial Class TransactionProductDailog
         Me.Guna2Separator1.FillThickness = 2
         Me.Guna2Separator1.Location = New System.Drawing.Point(27, 75)
         Me.Guna2Separator1.Name = "Guna2Separator1"
-        Me.Guna2Separator1.Size = New System.Drawing.Size(279, 10)
+        Me.Guna2Separator1.Size = New System.Drawing.Size(255, 10)
         Me.Guna2Separator1.TabIndex = 19
         '
         'BarcodeTextBox
@@ -157,7 +157,7 @@ Partial Class TransactionProductDailog
         Me.BarcodeTextBox.PlaceholderText = "Scan Here"
         Me.BarcodeTextBox.SelectedText = ""
         Me.BarcodeTextBox.ShortcutsEnabled = False
-        Me.BarcodeTextBox.Size = New System.Drawing.Size(253, 36)
+        Me.BarcodeTextBox.Size = New System.Drawing.Size(255, 36)
         Me.BarcodeTextBox.TabIndex = 18
         '
         'ProductNameTextBox
@@ -180,7 +180,7 @@ Partial Class TransactionProductDailog
         Me.ProductNameTextBox.PlaceholderText = "Ex. (Biogesic)"
         Me.ProductNameTextBox.SelectedText = ""
         Me.ProductNameTextBox.ShortcutsEnabled = False
-        Me.ProductNameTextBox.Size = New System.Drawing.Size(253, 36)
+        Me.ProductNameTextBox.Size = New System.Drawing.Size(255, 36)
         Me.ProductNameTextBox.TabIndex = 21
         '
         'VoidButton
@@ -195,7 +195,7 @@ Partial Class TransactionProductDailog
         Me.VoidButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.VoidButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.VoidButton.ForeColor = System.Drawing.Color.White
-        Me.VoidButton.Location = New System.Drawing.Point(8, 7)
+        Me.VoidButton.Location = New System.Drawing.Point(7, 7)
         Me.VoidButton.Margin = New System.Windows.Forms.Padding(3, 7, 3, 3)
         Me.VoidButton.Name = "VoidButton"
         Me.VoidButton.Size = New System.Drawing.Size(150, 35)
@@ -208,9 +208,9 @@ Partial Class TransactionProductDailog
         Me.FlowLayoutPanel1.Controls.Add(Me.VoidButton)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 317)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 322)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(317, 51)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(316, 51)
         Me.FlowLayoutPanel1.TabIndex = 23
         '
         'Label2
@@ -262,7 +262,7 @@ Partial Class TransactionProductDailog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(317, 368)
+        Me.ClientSize = New System.Drawing.Size(316, 373)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)

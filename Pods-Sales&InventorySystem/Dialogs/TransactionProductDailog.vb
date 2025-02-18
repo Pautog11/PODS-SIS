@@ -161,4 +161,28 @@ Public Class TransactionProductDailog
 
         End Try
     End Sub
+
+    Private Sub ProductNameTextBox_TextChanged(sender As Object, e As EventArgs) Handles ProductNameTextBox.TextChanged
+
+    End Sub
+
+    Private Sub PriceTextBox_TextChanged(sender As Object, e As EventArgs) Handles PriceTextBox.TextChanged
+
+    End Sub
+
+    Private Sub StocksTextBox_TextChanged(sender As Object, e As EventArgs) Handles StocksTextBox.TextChanged
+
+    End Sub
+
+    Private Sub QuantityTextBox_TextChanged(sender As Object, e As EventArgs) Handles QuantityTextBox.TextChanged
+
+    End Sub
+
+    Private Sub BarcodeTextBox_TextChanged(sender As Object, e As EventArgs) Handles BarcodeTextBox.TextChanged
+
+    End Sub
+
+    Private Sub Guna2Separator1_Click(sender As Object, e As EventArgs) Handles Guna2Separator1.Click
+
+    End Sub
 End Class

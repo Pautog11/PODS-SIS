@@ -45,9 +45,10 @@ Public Class BaseTransaction
 
             For Each item In _item
                 _sqlCommand.Parameters.Clear()
-                _sqlCommand = New SqlCommand("EXEC updatetblproduct_notif @id, @quantity", _sqlConnection, transaction)
+                _sqlCommand = New SqlCommand("EXEC updateinventory @id, @quantity, @transaction_id", _sqlConnection, transaction)
                 _sqlCommand.Parameters.AddWithValue("@id", item("product_id"))
                 _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
+                _sqlCommand.Parameters.AddWithValue("@transaction_id", TransactionID)
                 _sqlCommand.ExecuteNonQuery()
             Next
 
@@ -160,17 +161,21 @@ Public Class BaseTransaction
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End Try
     End Sub
-    Public Shared Function ScalarTransaction() As Integer
-        Try
-            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As New SqlCommand("SELECT CASE WHEN SUM(total) IS NULL THEN 0 ELSE SUM(total) END FROM tbltransactions;", conn)
-            Return cmd.ExecuteScalar()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return 0
-        End Try
-    End Function
+    'Public Shared Function ScalarTransaction() As Integer
+    '    Try
+    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+    '        Dim cmd As New SqlCommand("SELECT CASE WHEN SUM(total) IS NULL THEN 0 ELSE SUM(total) END FROM tbltransactions;", conn)
+    '        Return cmd.ExecuteScalar()
+    '    Catch ex As Exception
+    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+    '        Return 0
+    '    End Try
+    'End Function
 
+    ''' <summary>
+    ''' Fetch vat
+    ''' </summary>
+    ''' <returns></returns>
     Public Shared Function ScalarVat() As Integer
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
@@ -190,35 +195,6 @@ Public Class BaseTransaction
                                         join tblproducts t2 on  t1.product_id = t2.id
                                         WHERE transaction_id =  @transaction_id", conn)
             cmd.Parameters.AddWithValue("@transaction_id", transaction_id)
-            Dim dTable As New DataTable
-            Dim adapter As New SqlDataAdapter(cmd)
-            adapter.Fill(dTable)
-            Return dTable
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return New DataTable
-        End Try
-    End Function
-
-    ''' <summary>
-    ''' Searching items query for deliveries
-    ''' </summary>
-    ''' <param name="barcode"></param>
-    ''' <returns></returns>
-    Public Shared Function Delivery(barcode As String) As DataTable
-        Try
-            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT top 1 p.id AS id, 
-                                               subcategory_id, 
-                                               sku, 
-                                               product_name, 
-                                               ISNULL(cost_price, 0) AS cost_price, 
-                                               ISNULL(price, 0) AS price 
-                                  FROM tblproducts p 
-                                  LEFT JOIN tbldeliveries_items di ON p.id = di.product_id WHERE barcode = @barcode
-                                  ORDER BY price DESC", conn)
-            cmd.Parameters.AddWithValue("@barcode", barcode)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
             adapter.Fill(dTable)
@@ -331,17 +307,17 @@ Public Class BaseTransaction
     '    End Try
     'End Function
 
-    Public Shared Function NamebyID(product_name As String) As Integer
-        Try
-            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As New SqlCommand("select id from tblproducts where product_name = @product_name;", conn)
-            cmd.Parameters.AddWithValue("@product_name", product_name)
-            Return cmd.ExecuteScalar()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return 0
-        End Try
-    End Function
+    'Public Shared Function NamebyID(product_name As String) As Integer
+    '    Try
+    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+    '        Dim cmd As New SqlCommand("select id from tblproducts where product_name = @product_name;", conn)
+    '        cmd.Parameters.AddWithValue("@product_name", product_name)
+    '        Return cmd.ExecuteScalar()
+    '    Catch ex As Exception
+    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+    '        Return 0
+    '    End Try
+    'End Function
 
     Public Shared Function Returnbutton(id As Integer) As Integer
         Try

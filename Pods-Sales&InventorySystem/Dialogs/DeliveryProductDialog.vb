@@ -162,7 +162,7 @@ Public Class DeliveryProductDialog
             If e.KeyCode = Keys.Enter Then
                 Dim res As New List(Of Object()) From {InputValidation.ValidateInputString(BarcodeTextBox, DataInput.STRING_INTEGER)}
                 If Not res.Any(Function(item As Object()) Not item(0)) Then
-                    Dim dt As DataTable = BaseTransaction.Delivery(BarcodeTextBox.Text)
+                    Dim dt As DataTable = BaseDelivery.BarcodeFetching(BarcodeTextBox.Text)
                     If BarcodeTextBox.Text.Length <= 13 AndAlso dt.Rows.Count > 0 Then
                         id = If(String.IsNullOrEmpty(dt.Rows(0).Item("id").ToString()), 0, dt.Rows(0).Item("id").ToString())
                         ProductTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("product_name").ToString()), 0, dt.Rows(0).Item("product_name"))
@@ -177,12 +177,13 @@ Public Class DeliveryProductDialog
                     Clear()
                 End If
             End If
-            tite = BaseDelivery.EnableExp(id)
-            If tite = 1 Then
-                DateTimePicker.Enabled = True
-            Else
-                DateTimePicker.Enabled = False
-            End If
+            txite()
+            'tite = BaseDelivery.EnableExp(id)
+            'If tite = 1 Then
+            '    DateTimePicker.Enabled = True
+            'Else
+            '    DateTimePicker.Enabled = False
+            'End If
         Catch ex As Exception
 
         End Try
@@ -228,12 +229,31 @@ Public Class DeliveryProductDialog
         SellingTextBox.Text = ""
         QuantityTextBox.Text = ""
     End Sub
-
+    Public Sub txite()
+        tite = BaseDelivery.EnableExp(id)
+        If tite = 1 Then
+            DateTimePicker.Enabled = True
+        Else
+            DateTimePicker.Enabled = False
+        End If
+    End Sub
     Private Sub ProductTextBox_TextChanged(sender As Object, e As KeyEventArgs) Handles ProductTextBox.KeyDown
         Try
             If e.KeyCode = Keys.Enter Then
-                MsgBox(ProductTextBox.Text)
+                'MsgBox(ProductTextBox.Text)
+                Dim dt As DataTable = BaseDelivery.NameFetching(ProductTextBox.Text)
+                If BarcodeTextBox.Text.Length <= 13 AndAlso dt.Rows.Count > 0 Then
+                    id = If(String.IsNullOrEmpty(dt.Rows(0).Item("id").ToString()), 0, dt.Rows(0).Item("id").ToString())
+                    ProductTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("product_name").ToString()), 0, dt.Rows(0).Item("product_name"))
+                    SellingTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("price").ToString()), 0, dt.Rows(0).Item("price").ToString())
+                    CostTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("cost_price").ToString()), 0, dt.Rows(0).Item("cost_price").ToString())
+                    ' e.Handled = True
+                Else
+                    MessageBox.Show("No product found!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Clear()
+                End If
             End If
+            txite()
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try

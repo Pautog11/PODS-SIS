@@ -91,27 +91,33 @@ Public Class FinancialReport
             'If SalesReportComboBox.Text = "All" Then
             '    cmd = New SqlCommand("SELECT * FROM tbltransactions", conn)
             'Else
-            cmd = New SqlCommand("SELECT 
-                                        th.transaction_number AS TRANSACTION#, 
-                                        CONCAT(ac.last_name, ' ', ac.first_name) AS CASHIER,  
-                                        SUM(ti.total) AS TOTAL, 
-                                        th.date AS DATE, 
-                                        SUM((ti.price - di.cost_price) * ti.quantity) AS REVENUE
-                                    FROM 
-                                        tbldeliveries_items di
-                                    JOIN 
-                                        tbltransaction_items ti ON di.id = ti.delivery_id
-                                    JOIN 
-                                        tbltransactions th ON ti.transaction_id = th.id
-                                    JOIN 
-                                        tblaccounts ac ON th.account_id = ac.id
-                                    WHERE 
-                                        th.date BETWEEN @start_date AND @end_date
-                                    GROUP BY 
-                                        th.transaction_number, 
-                                        ac.first_name, 
-                                        ac.last_name, 
-                                        th.date", conn)
+            'cmd = New SqlCommand("SELECT 
+            '                            th.transaction_number AS TRANSACTION#, 
+            '                            CONCAT(ac.last_name, ' ', ac.first_name) AS CASHIER,  
+            '                            SUM(ti.total) AS TOTAL, 
+            '                            th.date AS DATE, 
+            '                            SUM((ti.price - di.cost_price) * ti.quantity) AS REVENUE
+            '                        FROM 
+            '                            tbldeliveries_items di
+            '                        JOIN 
+            '                            tbltransaction_items ti ON di.id = ti.delivery_id
+            '                        JOIN 
+            '                            tbltransactions th ON ti.transaction_id = th.id
+            '                        JOIN 
+            '                            tblaccounts ac ON th.account_id = ac.id
+            '                        WHERE 
+            '                            th.date BETWEEN @start_date AND @end_date
+            '                        GROUP BY 
+            '                            th.transaction_number, 
+            '                            ac.first_name, 
+            '                            ac.last_name, 
+            '                            th.date", conn)
+
+            cmd = New SqlCommand("SELECT product_name, price, cost, sum(price - cost) as kita from tbltransactions a
+                                    JOIN tbltransaction_items b on a.id = b.transaction_id
+                                    JOIN tblproducts c on b.product_id = c.id
+                                    JOIN getrev d on d.transaction_id = a.id
+                                    GROUP BY product_name, price, cost", conn)
             cmd.Parameters.AddWithValue("@start_date", DateTimePicker1.Value.ToString("yyyy-MM-dd"))
             cmd.Parameters.AddWithValue("@end_date", DateTimePicker2.Value.ToString("yyyy-MM-dd"))
             'End If
@@ -127,10 +133,8 @@ Public Class FinancialReport
     Private Sub PrintButton_Click(sender As Object, e As EventArgs) Handles PrintButton.Click
         Try
             PrintButton.Enabled = False
-
             Dim startDate As DateTime = DateTimePicker1.Value.ToString("yyyy-MM-dd")
             Dim endDate As DateTime = DateTimePicker2.Value.ToString("yyyy-MM-dd")
-
             Using dialog As New FinancialReportViewer(startDate, endDate)
                 dialog.ShowDialog()
             End Using

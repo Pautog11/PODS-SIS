@@ -187,7 +187,7 @@ Partial Class DeliveryProductDialog
         Me.DateTimePicker.FillColor = System.Drawing.Color.White
         Me.DateTimePicker.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
-        Me.DateTimePicker.Location = New System.Drawing.Point(29, 355)
+        Me.DateTimePicker.Location = New System.Drawing.Point(29, 354)
         Me.DateTimePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
         Me.DateTimePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
         Me.DateTimePicker.Name = "DateTimePicker"
@@ -231,7 +231,7 @@ Partial Class DeliveryProductDialog
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(31, 339)
+        Me.Label8.Location = New System.Drawing.Point(31, 333)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(79, 13)
         Me.Label8.TabIndex = 31
@@ -287,9 +287,9 @@ Partial Class DeliveryProductDialog
         '
         Me.Guna2Separator1.FillColor = System.Drawing.Color.Gray
         Me.Guna2Separator1.FillThickness = 2
-        Me.Guna2Separator1.Location = New System.Drawing.Point(12, 77)
+        Me.Guna2Separator1.Location = New System.Drawing.Point(29, 77)
         Me.Guna2Separator1.Name = "Guna2Separator1"
-        Me.Guna2Separator1.Size = New System.Drawing.Size(305, 10)
+        Me.Guna2Separator1.Size = New System.Drawing.Size(270, 10)
         Me.Guna2Separator1.TabIndex = 21
         '
         'QuantityTextBox

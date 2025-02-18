@@ -179,4 +179,62 @@ Public Class BaseDelivery
             Return 0
         End Try
     End Function
+
+    ''' <summary>
+    ''' Searching items query for deliveries
+    ''' </summary>
+    ''' <param name="barcode"></param>
+    ''' <returns></returns>
+    Public Shared Function BarcodeFetching(barcode As String) As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("SELECT top 1 p.id AS id, 
+                                               subcategory_id, 
+                                               sku, 
+                                               product_name, 
+                                               ISNULL(cost_price, 0) AS cost_price, 
+                                               ISNULL(price, 0) AS price 
+                                  FROM tblproducts p 
+                                  LEFT JOIN tbldeliveries_items di ON p.id = di.product_id WHERE barcode = @barcode
+                                  ORDER BY price DESC", conn)
+            cmd.Parameters.AddWithValue("@barcode", barcode)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
+        End Try
+    End Function
+
+    ''' <summary>
+    ''' Searching items by name
+    ''' </summary>
+    ''' <param name="name"></param>
+    ''' <returns></returns>
+    Public Shared Function NameFetching(name As String) As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("SELECT top 1 p.id AS id, 
+                                               subcategory_id, 
+                                               sku, 
+                                               product_name, 
+                                               ISNULL(cost_price, 0) AS cost_price, 
+                                               ISNULL(price, 0) AS price 
+                                  FROM tblproducts p 
+                                  LEFT JOIN tbldeliveries_items di ON p.id = di.product_id WHERE product_name = @name
+                                  ORDER BY price DESC", conn)
+            cmd.Parameters.AddWithValue("@name", name)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
+        End Try
+    End Function
 End Class

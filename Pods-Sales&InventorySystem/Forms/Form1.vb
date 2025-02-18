@@ -42,10 +42,24 @@ Public Class Form1
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim a As Integer = 184
-        Using dialog As New ReceiptViewer(transactionNumber:=a)
-            dialog.ShowDialog()
-        End Using
+        'Dim a As Integer = 184
+        'Using dialog As New ReceiptViewer(transactionNumber:=a)
+        '    dialog.ShowDialog()
+        'End Using
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance()
+            Dim cmd As New SqlCommand("DECLARE @tite VARCHAR(50)
+                                    SET @tite = 'papapqqqpa'
+                                    print('The value of tite is: %s'+ @tite);", conn)
+
+            ' Execute the command
+            Throw New Exception(cmd.ExecuteNonQuery)
+
+        Catch ex As SqlException
+            ' Capture and show the message from the SQL Server error
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End Try
+
     End Sub
 
     '' This function will be triggered when the user types something into the ComboBox
