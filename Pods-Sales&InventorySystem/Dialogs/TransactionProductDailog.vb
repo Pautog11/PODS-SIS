@@ -74,49 +74,51 @@ Public Class TransactionProductDailog
         Try
             If ProductNameTextBox.Text = "" AndAlso StocksTextBox.Text = "" Then
                 MessageBox.Show("No product selected!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Else
-                Dim result As New List(Of Object()) From {InputValidation.ValidateInputString(QuantityTextBox, DataInput.STRING_INTEGER)}
-                Dim is_existing As Boolean = False
-                If Not result.Any(Function(item As Object()) Not item(0)) Then
-                    For Each item As DataGridViewRow In _parent.TransactionDataGridView.Rows
-                        If CInt(StocksTextBox.Text) >= QuantityTextBox.Text Then
-                            If _data IsNot Nothing Then
-                                If item.Cells("ID").Value.ToString() = _data.Item("id") Then
-                                    item.Cells("PRODUCT").Value = ProductNameTextBox.Text
-                                    item.Cells("PRICE").Value = Decimal.Parse(PriceTextBox.Text)
-                                    item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)
-                                    item.Cells("TOTAL").Value = Decimal.Parse(PriceTextBox.Text) * CInt(QuantityTextBox.Text)
-                                    is_existing = True
-                                    Exit For
-                                Else
-                                    item.Cells("PRODUCT").Value = ProductNameTextBox.Text
-                                    item.Cells("PRICE").Value = Decimal.Parse(PriceTextBox.Text)
-                                    item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)
-                                    item.Cells("TOTAL").Value = Decimal.Parse(PriceTextBox.Text) * CInt(QuantityTextBox.Text)
-                                    is_existing = True
-                                    Exit For
-                                End If
+                Exit Sub
+            End If
+
+            Dim result As New List(Of Object()) From {InputValidation.ValidateInputString(QuantityTextBox, DataInput.STRING_INTEGER)}
+            Dim is_existing As Boolean = False
+
+            If Not result.Any(Function(item As Object()) Not item(0)) Then
+                For Each item As DataGridViewRow In _parent.TransactionDataGridView.Rows
+                    If CInt(StocksTextBox.Text) >= QuantityTextBox.Text Then
+                        If _data IsNot Nothing Then
+                            If item.Cells("ID").Value.ToString() = _data.Item("id") Then
+                                item.Cells("PRODUCT").Value = ProductNameTextBox.Text
+                                item.Cells("PRICE").Value = Decimal.Parse(PriceTextBox.Text)
+                                item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)
+                                item.Cells("TOTAL").Value = Decimal.Parse(PriceTextBox.Text) * CInt(QuantityTextBox.Text)
+                                is_existing = True
+                                Exit For
+                            Else
+                                item.Cells("PRODUCT").Value = ProductNameTextBox.Text
+                                item.Cells("PRICE").Value = Decimal.Parse(PriceTextBox.Text)
+                                item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)
+                                item.Cells("TOTAL").Value = Decimal.Parse(PriceTextBox.Text) * CInt(QuantityTextBox.Text)
+                                is_existing = True
+                                Exit For
                             End If
                         End If
-                    Next
-
-                    If Not is_existing Then
-                        If CInt(If(String.IsNullOrEmpty(StocksTextBox.Text), 0, StocksTextBox.Text)) >= QuantityTextBox.Text Then
-                            _parent.TransactionDataGridView.Rows.Add({If(IsDBNull(id), 0, id),
-                                                            If(String.IsNullOrEmpty(ProductNameTextBox.Text), 0, ProductNameTextBox.Text),
-                                                            If(String.IsNullOrEmpty(PriceTextBox.Text), 0, PriceTextBox.Text),
-                                                            If(String.IsNullOrEmpty(QuantityTextBox.Text), 0, QuantityTextBox.Text),
-                                                            CDec(PriceTextBox.Text) * CDec(QuantityTextBox.Text)
-                                                            })
-                        Else
-                            MessageBox.Show("Insufficient stocks!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                        End If
                     End If
-                    _parent.UpdateVisualData()
-                    Me.Close()
-                Else
-                    MessageBox.Show("Invalid quantity!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Next
+
+                If Not is_existing Then
+                    If CInt(If(String.IsNullOrEmpty(StocksTextBox.Text), 0, StocksTextBox.Text)) >= QuantityTextBox.Text Then
+                        _parent.TransactionDataGridView.Rows.Add({If(IsDBNull(id), 0, id),
+                                                        If(String.IsNullOrEmpty(ProductNameTextBox.Text), 0, ProductNameTextBox.Text),
+                                                        If(String.IsNullOrEmpty(PriceTextBox.Text), 0, PriceTextBox.Text),
+                                                        If(String.IsNullOrEmpty(QuantityTextBox.Text), 0, QuantityTextBox.Text),
+                                                        CDec(PriceTextBox.Text) * CDec(QuantityTextBox.Text)
+                                                        })
+                    Else
+                        MessageBox.Show("Insufficient stocks!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    End If
                 End If
+                _parent.UpdateVisualData()
+                Me.Close()
+            Else
+                MessageBox.Show("Invalid quantity!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
         Catch ex As Exception
 
@@ -136,9 +138,11 @@ Public Class TransactionProductDailog
                         PriceTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("price").ToString()), "", dt.Rows(0).Item("price").ToString())
                         e.Handled = True
                     Else
+                        Clear()
                         MessageBox.Show("No, product found!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     End If
                 Else
+                    Clear()
                     MessageBox.Show("Barcode not valid!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 End If
             End If
@@ -162,27 +166,11 @@ Public Class TransactionProductDailog
         End Try
     End Sub
 
-    Private Sub ProductNameTextBox_TextChanged(sender As Object, e As EventArgs) Handles ProductNameTextBox.TextChanged
-
-    End Sub
-
-    Private Sub PriceTextBox_TextChanged(sender As Object, e As EventArgs) Handles PriceTextBox.TextChanged
-
-    End Sub
-
-    Private Sub StocksTextBox_TextChanged(sender As Object, e As EventArgs) Handles StocksTextBox.TextChanged
-
-    End Sub
-
-    Private Sub QuantityTextBox_TextChanged(sender As Object, e As EventArgs) Handles QuantityTextBox.TextChanged
-
-    End Sub
-
-    Private Sub BarcodeTextBox_TextChanged(sender As Object, e As EventArgs) Handles BarcodeTextBox.TextChanged
-
-    End Sub
-
-    Private Sub Guna2Separator1_Click(sender As Object, e As EventArgs) Handles Guna2Separator1.Click
-
+    Public Sub Clear()
+        BarcodeTextBox.Text = ""
+        ProductNameTextBox.Text = ""
+        PriceTextBox.Text = ""
+        QuantityTextBox.Text = ""
+        StocksTextBox.Text = ""
     End Sub
 End Class

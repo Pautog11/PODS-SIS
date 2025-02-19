@@ -281,7 +281,7 @@ Partial Class TransactionProductDailog
         Me.Name = "TransactionProductDailog"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "TransactionCartDailog"
+        Me.Text = "Transaction Dailog"
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()

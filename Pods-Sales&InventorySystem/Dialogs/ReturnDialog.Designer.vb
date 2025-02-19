@@ -44,9 +44,9 @@ Partial Class ReturnDialog
         Me.ProductComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.ProductComboBox.ForeColor = System.Drawing.Color.Black
         Me.ProductComboBox.ItemHeight = 30
-        Me.ProductComboBox.Location = New System.Drawing.Point(34, 41)
+        Me.ProductComboBox.Location = New System.Drawing.Point(24, 40)
         Me.ProductComboBox.Name = "ProductComboBox"
-        Me.ProductComboBox.Size = New System.Drawing.Size(200, 36)
+        Me.ProductComboBox.Size = New System.Drawing.Size(218, 36)
         Me.ProductComboBox.TabIndex = 1
         '
         'SaveButton
@@ -82,14 +82,14 @@ Partial Class ReturnDialog
         Me.CostTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.CostTextBox.ForeColor = System.Drawing.Color.Black
         Me.CostTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CostTextBox.Location = New System.Drawing.Point(34, 96)
+        Me.CostTextBox.Location = New System.Drawing.Point(24, 95)
         Me.CostTextBox.MaxLength = 4
         Me.CostTextBox.Name = "CostTextBox"
         Me.CostTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CostTextBox.PlaceholderText = "0.00"
         Me.CostTextBox.SelectedText = ""
         Me.CostTextBox.ShortcutsEnabled = False
-        Me.CostTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.CostTextBox.Size = New System.Drawing.Size(218, 36)
         Me.CostTextBox.TabIndex = 22
         '
         'QuantityTextBox
@@ -106,14 +106,14 @@ Partial Class ReturnDialog
         Me.QuantityTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.QuantityTextBox.ForeColor = System.Drawing.Color.Black
         Me.QuantityTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.QuantityTextBox.Location = New System.Drawing.Point(34, 206)
+        Me.QuantityTextBox.Location = New System.Drawing.Point(24, 205)
         Me.QuantityTextBox.MaxLength = 4
         Me.QuantityTextBox.Name = "QuantityTextBox"
         Me.QuantityTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.QuantityTextBox.PlaceholderText = "0"
         Me.QuantityTextBox.SelectedText = ""
         Me.QuantityTextBox.ShortcutsEnabled = False
-        Me.QuantityTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.QuantityTextBox.Size = New System.Drawing.Size(218, 36)
         Me.QuantityTextBox.TabIndex = 21
         '
         'StocksTextBox
@@ -130,14 +130,14 @@ Partial Class ReturnDialog
         Me.StocksTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.StocksTextBox.ForeColor = System.Drawing.Color.Black
         Me.StocksTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.StocksTextBox.Location = New System.Drawing.Point(34, 151)
+        Me.StocksTextBox.Location = New System.Drawing.Point(24, 150)
         Me.StocksTextBox.MaxLength = 4
         Me.StocksTextBox.Name = "StocksTextBox"
         Me.StocksTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.StocksTextBox.PlaceholderText = "0"
         Me.StocksTextBox.SelectedText = ""
         Me.StocksTextBox.ShortcutsEnabled = False
-        Me.StocksTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.StocksTextBox.Size = New System.Drawing.Size(218, 36)
         Me.StocksTextBox.TabIndex = 20
         '
         'Label2
@@ -152,7 +152,7 @@ Partial Class ReturnDialog
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(21, 80)
+        Me.Label1.Location = New System.Drawing.Point(21, 79)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(31, 13)
         Me.Label1.TabIndex = 24
@@ -161,7 +161,7 @@ Partial Class ReturnDialog
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(21, 135)
+        Me.Label3.Location = New System.Drawing.Point(21, 134)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(70, 13)
         Me.Label3.TabIndex = 25
@@ -170,7 +170,7 @@ Partial Class ReturnDialog
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(21, 190)
+        Me.Label4.Location = New System.Drawing.Point(21, 189)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(46, 13)
         Me.Label4.TabIndex = 26

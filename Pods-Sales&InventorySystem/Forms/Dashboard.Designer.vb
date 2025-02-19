@@ -23,62 +23,62 @@ Partial Class Dashboard
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.DashboardTableLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Guna2ControlBox2 = New Guna.UI2.WinForms.Guna2ControlBox()
         Me.Guna2ControlBox3 = New Guna.UI2.WinForms.Guna2ControlBox()
         Me.Guna2ControlBox1 = New Guna.UI2.WinForms.Guna2ControlBox()
+        Me.SettingButton = New Guna.UI2.WinForms.Guna2ImageButton()
+        Me.RefreshButton = New Guna.UI2.WinForms.Guna2ImageButton()
+        Me.Guna2ImageButton1 = New Guna.UI2.WinForms.Guna2ImageButton()
         Me.DashboardPanel = New Guna.UI2.WinForms.Guna2Panel()
         Me.DashboardTabControl = New Guna.UI2.WinForms.Guna2TabControl()
         Me.Home = New System.Windows.Forms.TabPage()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel6 = New System.Windows.Forms.Panel()
+        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
         Me.Sales = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Accounts = New System.Windows.Forms.Label()
         Me.Panel5 = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.NotificationDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Maintenance = New System.Windows.Forms.TabPage()
+        Me.Maintenance1 = New Pods_Sales_InventorySystem.Maintenance()
         Me.Products = New System.Windows.Forms.TabPage()
+        Me.Product1 = New Pods_Sales_InventorySystem.Product()
         Me.Deliveries = New System.Windows.Forms.TabPage()
+        Me.Delivery1 = New Pods_Sales_InventorySystem.Delivery()
         Me.Inventory = New System.Windows.Forms.TabPage()
+        Me.Inventory1 = New Pods_Sales_InventorySystem.Inventory()
         Me.Activity = New System.Windows.Forms.TabPage()
+        Me.AuditTrail1 = New Pods_Sales_InventorySystem.Activity()
         Me.Transaction = New System.Windows.Forms.TabPage()
+        Me.Transaction1 = New Pods_Sales_InventorySystem.Transaction()
         Me.Reports = New System.Windows.Forms.TabPage()
+        Me.Reports1 = New Pods_Sales_InventorySystem.Reports()
         Me.Witdrawal = New System.Windows.Forms.TabPage()
+        Me.ReturnAndPullout1 = New Pods_Sales_InventorySystem.ReturnAndPullout()
         Me.Pos = New System.Windows.Forms.TabPage()
+        Me.PosPanel1 = New Pods_Sales_InventorySystem.PosPanel()
         Me.Guna2ContextMenuStrip1 = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DSReport = New Pods_Sales_InventorySystem.DSReport()
         Me.DTTransactionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.SettingButton = New Guna.UI2.WinForms.Guna2ImageButton()
-        Me.RefreshButton = New Guna.UI2.WinForms.Guna2ImageButton()
-        Me.Guna2ImageButton1 = New Guna.UI2.WinForms.Guna2ImageButton()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Maintenance1 = New Pods_Sales_InventorySystem.Maintenance()
-        Me.Product1 = New Pods_Sales_InventorySystem.Product()
-        Me.Delivery1 = New Pods_Sales_InventorySystem.Delivery()
-        Me.Inventory1 = New Pods_Sales_InventorySystem.Inventory()
-        Me.AuditTrail1 = New Pods_Sales_InventorySystem.Activity()
-        Me.Transaction1 = New Pods_Sales_InventorySystem.Transaction()
-        Me.Reports1 = New Pods_Sales_InventorySystem.Reports()
-        Me.ReturnAndPullout1 = New Pods_Sales_InventorySystem.ReturnAndPullout()
-        Me.PosPanel1 = New Pods_Sales_InventorySystem.PosPanel()
         Me.DashboardTableLayoutPanel.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.DashboardPanel.SuspendLayout()
@@ -87,10 +87,13 @@ Partial Class Dashboard
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel4.SuspendLayout()
         Me.Panel6.SuspendLayout()
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel3.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.Panel5.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.NotificationDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Maintenance.SuspendLayout()
         Me.Products.SuspendLayout()
@@ -104,9 +107,6 @@ Partial Class Dashboard
         Me.Guna2ContextMenuStrip1.SuspendLayout()
         CType(Me.DSReport, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DTTransactionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DashboardTableLayoutPanel
@@ -181,6 +181,53 @@ Partial Class Dashboard
         Me.Guna2ControlBox1.Size = New System.Drawing.Size(45, 37)
         Me.Guna2ControlBox1.TabIndex = 3
         '
+        'SettingButton
+        '
+        Me.SettingButton.CheckedState.ImageSize = New System.Drawing.Size(64, 64)
+        Me.SettingButton.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SettingButton.HoverState.ImageSize = New System.Drawing.Size(13, 13)
+        Me.SettingButton.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.icon_setting
+        Me.SettingButton.ImageOffset = New System.Drawing.Point(0, 0)
+        Me.SettingButton.ImageRotate = 0!
+        Me.SettingButton.ImageSize = New System.Drawing.Size(13, 13)
+        Me.SettingButton.Location = New System.Drawing.Point(1020, 0)
+        Me.SettingButton.Margin = New System.Windows.Forms.Padding(0)
+        Me.SettingButton.Name = "SettingButton"
+        Me.SettingButton.PressedState.ImageSize = New System.Drawing.Size(13, 13)
+        Me.SettingButton.Size = New System.Drawing.Size(39, 37)
+        Me.SettingButton.TabIndex = 4
+        '
+        'RefreshButton
+        '
+        Me.RefreshButton.CheckedState.ImageSize = New System.Drawing.Size(64, 64)
+        Me.RefreshButton.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.RefreshButton.HoverState.ImageSize = New System.Drawing.Size(13, 13)
+        Me.RefreshButton.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.refresh
+        Me.RefreshButton.ImageOffset = New System.Drawing.Point(0, 0)
+        Me.RefreshButton.ImageRotate = 0!
+        Me.RefreshButton.ImageSize = New System.Drawing.Size(15, 15)
+        Me.RefreshButton.Location = New System.Drawing.Point(981, 0)
+        Me.RefreshButton.Margin = New System.Windows.Forms.Padding(0)
+        Me.RefreshButton.Name = "RefreshButton"
+        Me.RefreshButton.PressedState.ImageSize = New System.Drawing.Size(13, 13)
+        Me.RefreshButton.Size = New System.Drawing.Size(39, 37)
+        Me.RefreshButton.TabIndex = 5
+        '
+        'Guna2ImageButton1
+        '
+        Me.Guna2ImageButton1.CheckedState.ImageSize = New System.Drawing.Size(64, 64)
+        Me.Guna2ImageButton1.HoverState.ImageSize = New System.Drawing.Size(180, 40)
+        Me.Guna2ImageButton1.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.icon_pods
+        Me.Guna2ImageButton1.ImageOffset = New System.Drawing.Point(0, 0)
+        Me.Guna2ImageButton1.ImageRotate = 0!
+        Me.Guna2ImageButton1.ImageSize = New System.Drawing.Size(180, 40)
+        Me.Guna2ImageButton1.Location = New System.Drawing.Point(0, 0)
+        Me.Guna2ImageButton1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Guna2ImageButton1.Name = "Guna2ImageButton1"
+        Me.Guna2ImageButton1.PressedState.ImageSize = New System.Drawing.Size(180, 35)
+        Me.Guna2ImageButton1.Size = New System.Drawing.Size(180, 40)
+        Me.Guna2ImageButton1.TabIndex = 2
+        '
         'DashboardPanel
         '
         Me.DashboardTableLayoutPanel.SetColumnSpan(Me.DashboardPanel, 2)
@@ -199,11 +246,11 @@ Partial Class Dashboard
         Me.DashboardTabControl.Controls.Add(Me.Products)
         Me.DashboardTabControl.Controls.Add(Me.Deliveries)
         Me.DashboardTabControl.Controls.Add(Me.Inventory)
-        Me.DashboardTabControl.Controls.Add(Me.Activity)
-        Me.DashboardTabControl.Controls.Add(Me.Transaction)
-        Me.DashboardTabControl.Controls.Add(Me.Reports)
-        Me.DashboardTabControl.Controls.Add(Me.Witdrawal)
         Me.DashboardTabControl.Controls.Add(Me.Pos)
+        Me.DashboardTabControl.Controls.Add(Me.Transaction)
+        Me.DashboardTabControl.Controls.Add(Me.Witdrawal)
+        Me.DashboardTabControl.Controls.Add(Me.Reports)
+        Me.DashboardTabControl.Controls.Add(Me.Activity)
         Me.DashboardTabControl.Cursor = System.Windows.Forms.Cursors.Hand
         Me.DashboardTabControl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DashboardTabControl.ItemSize = New System.Drawing.Size(180, 40)
@@ -298,6 +345,17 @@ Partial Class Dashboard
         Me.Panel6.Size = New System.Drawing.Size(153, 98)
         Me.Panel6.TabIndex = 0
         '
+        'PictureBox3
+        '
+        Me.PictureBox3.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.PictureBox3.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.sales
+        Me.PictureBox3.Location = New System.Drawing.Point(38, 8)
+        Me.PictureBox3.Name = "PictureBox3"
+        Me.PictureBox3.Size = New System.Drawing.Size(93, 85)
+        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox3.TabIndex = 6
+        Me.PictureBox3.TabStop = False
+        '
         'Sales
         '
         Me.Sales.Anchor = System.Windows.Forms.AnchorStyles.None
@@ -362,6 +420,17 @@ Partial Class Dashboard
         Me.Panel1.Size = New System.Drawing.Size(126, 98)
         Me.Panel1.TabIndex = 0
         '
+        'PictureBox2
+        '
+        Me.PictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.PictureBox2.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.shopping_cart
+        Me.PictureBox2.Location = New System.Drawing.Point(20, 14)
+        Me.PictureBox2.Name = "PictureBox2"
+        Me.PictureBox2.Size = New System.Drawing.Size(89, 68)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox2.TabIndex = 2
+        Me.PictureBox2.TabStop = False
+        '
         'Label4
         '
         Me.Label4.Anchor = System.Windows.Forms.AnchorStyles.None
@@ -415,6 +484,17 @@ Partial Class Dashboard
         Me.Panel5.Size = New System.Drawing.Size(152, 98)
         Me.Panel5.TabIndex = 0
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top
+        Me.PictureBox1.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.user1
+        Me.PictureBox1.Location = New System.Drawing.Point(18, 2)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(119, 97)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 1
+        Me.PictureBox1.TabStop = False
+        '
         'Label1
         '
         Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.None
@@ -432,26 +512,26 @@ Partial Class Dashboard
         Me.NotificationDataGridView.AllowUserToDeleteRows = False
         Me.NotificationDataGridView.AllowUserToResizeColumns = False
         Me.NotificationDataGridView.AllowUserToResizeRows = False
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
-        Me.NotificationDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
+        Me.NotificationDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.NotificationDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.NotificationDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.NotificationDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.NotificationDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.total})
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.NotificationDataGridView.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.NotificationDataGridView.DefaultCellStyle = DataGridViewCellStyle3
         Me.NotificationDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.NotificationDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.NotificationDataGridView.Location = New System.Drawing.Point(780, 103)
@@ -511,6 +591,16 @@ Partial Class Dashboard
         Me.Maintenance.Text = "Maintenance"
         Me.Maintenance.UseVisualStyleBackColor = True
         '
+        'Maintenance1
+        '
+        Me.Maintenance1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Maintenance1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Maintenance1.Location = New System.Drawing.Point(0, 0)
+        Me.Maintenance1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Maintenance1.Name = "Maintenance1"
+        Me.Maintenance1.Size = New System.Drawing.Size(1180, 714)
+        Me.Maintenance1.TabIndex = 0
+        '
         'Products
         '
         Me.Products.Controls.Add(Me.Product1)
@@ -520,6 +610,16 @@ Partial Class Dashboard
         Me.Products.TabIndex = 3
         Me.Products.Text = "Products"
         Me.Products.UseVisualStyleBackColor = True
+        '
+        'Product1
+        '
+        Me.Product1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Product1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Product1.Location = New System.Drawing.Point(0, 0)
+        Me.Product1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Product1.Name = "Product1"
+        Me.Product1.Size = New System.Drawing.Size(1180, 714)
+        Me.Product1.TabIndex = 0
         '
         'Deliveries
         '
@@ -532,6 +632,16 @@ Partial Class Dashboard
         Me.Deliveries.Text = "Deliveries"
         Me.Deliveries.UseVisualStyleBackColor = True
         '
+        'Delivery1
+        '
+        Me.Delivery1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Delivery1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Delivery1.Location = New System.Drawing.Point(0, 0)
+        Me.Delivery1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Delivery1.Name = "Delivery1"
+        Me.Delivery1.Size = New System.Drawing.Size(1180, 714)
+        Me.Delivery1.TabIndex = 0
+        '
         'Inventory
         '
         Me.Inventory.Controls.Add(Me.Inventory1)
@@ -542,6 +652,16 @@ Partial Class Dashboard
         Me.Inventory.TabIndex = 4
         Me.Inventory.Text = "Inventory"
         Me.Inventory.UseVisualStyleBackColor = True
+        '
+        'Inventory1
+        '
+        Me.Inventory1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Inventory1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Inventory1.Location = New System.Drawing.Point(0, 0)
+        Me.Inventory1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Inventory1.Name = "Inventory1"
+        Me.Inventory1.Size = New System.Drawing.Size(1180, 714)
+        Me.Inventory1.TabIndex = 0
         '
         'Activity
         '
@@ -554,6 +674,16 @@ Partial Class Dashboard
         Me.Activity.Text = "Activity"
         Me.Activity.UseVisualStyleBackColor = True
         '
+        'AuditTrail1
+        '
+        Me.AuditTrail1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.AuditTrail1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.AuditTrail1.Location = New System.Drawing.Point(0, 0)
+        Me.AuditTrail1.Margin = New System.Windows.Forms.Padding(0)
+        Me.AuditTrail1.Name = "AuditTrail1"
+        Me.AuditTrail1.Size = New System.Drawing.Size(1180, 714)
+        Me.AuditTrail1.TabIndex = 0
+        '
         'Transaction
         '
         Me.Transaction.Controls.Add(Me.Transaction1)
@@ -564,6 +694,16 @@ Partial Class Dashboard
         Me.Transaction.TabIndex = 5
         Me.Transaction.Text = "Transactions"
         Me.Transaction.UseVisualStyleBackColor = True
+        '
+        'Transaction1
+        '
+        Me.Transaction1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Transaction1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Transaction1.Location = New System.Drawing.Point(0, 0)
+        Me.Transaction1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Transaction1.Name = "Transaction1"
+        Me.Transaction1.Size = New System.Drawing.Size(1180, 714)
+        Me.Transaction1.TabIndex = 0
         '
         'Reports
         '
@@ -576,6 +716,16 @@ Partial Class Dashboard
         Me.Reports.Text = "Reports"
         Me.Reports.UseVisualStyleBackColor = True
         '
+        'Reports1
+        '
+        Me.Reports1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Reports1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Reports1.Location = New System.Drawing.Point(0, 0)
+        Me.Reports1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Reports1.Name = "Reports1"
+        Me.Reports1.Size = New System.Drawing.Size(1180, 714)
+        Me.Reports1.TabIndex = 0
+        '
         'Witdrawal
         '
         Me.Witdrawal.Controls.Add(Me.ReturnAndPullout1)
@@ -587,6 +737,16 @@ Partial Class Dashboard
         Me.Witdrawal.Text = "Withdrawal"
         Me.Witdrawal.UseVisualStyleBackColor = True
         '
+        'ReturnAndPullout1
+        '
+        Me.ReturnAndPullout1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.ReturnAndPullout1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ReturnAndPullout1.Location = New System.Drawing.Point(0, 0)
+        Me.ReturnAndPullout1.Margin = New System.Windows.Forms.Padding(0)
+        Me.ReturnAndPullout1.Name = "ReturnAndPullout1"
+        Me.ReturnAndPullout1.Size = New System.Drawing.Size(1180, 714)
+        Me.ReturnAndPullout1.TabIndex = 0
+        '
         'Pos
         '
         Me.Pos.Controls.Add(Me.PosPanel1)
@@ -597,6 +757,15 @@ Partial Class Dashboard
         Me.Pos.TabIndex = 9
         Me.Pos.Text = "Pos"
         Me.Pos.UseVisualStyleBackColor = True
+        '
+        'PosPanel1
+        '
+        Me.PosPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PosPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.PosPanel1.Margin = New System.Windows.Forms.Padding(0)
+        Me.PosPanel1.Name = "PosPanel1"
+        Me.PosPanel1.Size = New System.Drawing.Size(1180, 714)
+        Me.PosPanel1.TabIndex = 0
         '
         'Guna2ContextMenuStrip1
         '
@@ -635,175 +804,6 @@ Partial Class Dashboard
         Me.DTTransactionBindingSource.DataMember = "DT_Transaction"
         Me.DTTransactionBindingSource.DataSource = Me.DSReport
         '
-        'SettingButton
-        '
-        Me.SettingButton.CheckedState.ImageSize = New System.Drawing.Size(64, 64)
-        Me.SettingButton.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SettingButton.HoverState.ImageSize = New System.Drawing.Size(13, 13)
-        Me.SettingButton.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.icon_setting
-        Me.SettingButton.ImageOffset = New System.Drawing.Point(0, 0)
-        Me.SettingButton.ImageRotate = 0!
-        Me.SettingButton.ImageSize = New System.Drawing.Size(13, 13)
-        Me.SettingButton.Location = New System.Drawing.Point(1020, 0)
-        Me.SettingButton.Margin = New System.Windows.Forms.Padding(0)
-        Me.SettingButton.Name = "SettingButton"
-        Me.SettingButton.PressedState.ImageSize = New System.Drawing.Size(13, 13)
-        Me.SettingButton.Size = New System.Drawing.Size(39, 37)
-        Me.SettingButton.TabIndex = 4
-        '
-        'RefreshButton
-        '
-        Me.RefreshButton.CheckedState.ImageSize = New System.Drawing.Size(64, 64)
-        Me.RefreshButton.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.RefreshButton.HoverState.ImageSize = New System.Drawing.Size(13, 13)
-        Me.RefreshButton.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.refresh
-        Me.RefreshButton.ImageOffset = New System.Drawing.Point(0, 0)
-        Me.RefreshButton.ImageRotate = 0!
-        Me.RefreshButton.ImageSize = New System.Drawing.Size(15, 15)
-        Me.RefreshButton.Location = New System.Drawing.Point(981, 0)
-        Me.RefreshButton.Margin = New System.Windows.Forms.Padding(0)
-        Me.RefreshButton.Name = "RefreshButton"
-        Me.RefreshButton.PressedState.ImageSize = New System.Drawing.Size(13, 13)
-        Me.RefreshButton.Size = New System.Drawing.Size(39, 37)
-        Me.RefreshButton.TabIndex = 5
-        '
-        'Guna2ImageButton1
-        '
-        Me.Guna2ImageButton1.CheckedState.ImageSize = New System.Drawing.Size(64, 64)
-        Me.Guna2ImageButton1.HoverState.ImageSize = New System.Drawing.Size(180, 40)
-        Me.Guna2ImageButton1.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.icon_pods
-        Me.Guna2ImageButton1.ImageOffset = New System.Drawing.Point(0, 0)
-        Me.Guna2ImageButton1.ImageRotate = 0!
-        Me.Guna2ImageButton1.ImageSize = New System.Drawing.Size(180, 40)
-        Me.Guna2ImageButton1.Location = New System.Drawing.Point(0, 0)
-        Me.Guna2ImageButton1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Guna2ImageButton1.Name = "Guna2ImageButton1"
-        Me.Guna2ImageButton1.PressedState.ImageSize = New System.Drawing.Size(180, 35)
-        Me.Guna2ImageButton1.Size = New System.Drawing.Size(180, 40)
-        Me.Guna2ImageButton1.TabIndex = 2
-        '
-        'PictureBox3
-        '
-        Me.PictureBox3.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.PictureBox3.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.sales
-        Me.PictureBox3.Location = New System.Drawing.Point(38, 8)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(93, 85)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox3.TabIndex = 6
-        Me.PictureBox3.TabStop = False
-        '
-        'PictureBox2
-        '
-        Me.PictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.PictureBox2.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.shopping_cart
-        Me.PictureBox2.Location = New System.Drawing.Point(20, 14)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(89, 68)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 2
-        Me.PictureBox2.TabStop = False
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top
-        Me.PictureBox1.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.user1
-        Me.PictureBox1.Location = New System.Drawing.Point(18, 2)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(119, 97)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 1
-        Me.PictureBox1.TabStop = False
-        '
-        'Maintenance1
-        '
-        Me.Maintenance1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Maintenance1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Maintenance1.Location = New System.Drawing.Point(0, 0)
-        Me.Maintenance1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Maintenance1.Name = "Maintenance1"
-        Me.Maintenance1.Size = New System.Drawing.Size(1180, 714)
-        Me.Maintenance1.TabIndex = 0
-        '
-        'Product1
-        '
-        Me.Product1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Product1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Product1.Location = New System.Drawing.Point(0, 0)
-        Me.Product1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Product1.Name = "Product1"
-        Me.Product1.Size = New System.Drawing.Size(1180, 714)
-        Me.Product1.TabIndex = 0
-        '
-        'Delivery1
-        '
-        Me.Delivery1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Delivery1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Delivery1.Location = New System.Drawing.Point(0, 0)
-        Me.Delivery1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Delivery1.Name = "Delivery1"
-        Me.Delivery1.Size = New System.Drawing.Size(1180, 714)
-        Me.Delivery1.TabIndex = 0
-        '
-        'Inventory1
-        '
-        Me.Inventory1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Inventory1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Inventory1.Location = New System.Drawing.Point(0, 0)
-        Me.Inventory1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Inventory1.Name = "Inventory1"
-        Me.Inventory1.Size = New System.Drawing.Size(1180, 714)
-        Me.Inventory1.TabIndex = 0
-        '
-        'AuditTrail1
-        '
-        Me.AuditTrail1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.AuditTrail1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AuditTrail1.Location = New System.Drawing.Point(0, 0)
-        Me.AuditTrail1.Margin = New System.Windows.Forms.Padding(0)
-        Me.AuditTrail1.Name = "AuditTrail1"
-        Me.AuditTrail1.Size = New System.Drawing.Size(1180, 714)
-        Me.AuditTrail1.TabIndex = 0
-        '
-        'Transaction1
-        '
-        Me.Transaction1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Transaction1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Transaction1.Location = New System.Drawing.Point(0, 0)
-        Me.Transaction1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Transaction1.Name = "Transaction1"
-        Me.Transaction1.Size = New System.Drawing.Size(1180, 714)
-        Me.Transaction1.TabIndex = 0
-        '
-        'Reports1
-        '
-        Me.Reports1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Reports1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Reports1.Location = New System.Drawing.Point(0, 0)
-        Me.Reports1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Reports1.Name = "Reports1"
-        Me.Reports1.Size = New System.Drawing.Size(1180, 714)
-        Me.Reports1.TabIndex = 0
-        '
-        'ReturnAndPullout1
-        '
-        Me.ReturnAndPullout1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.ReturnAndPullout1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ReturnAndPullout1.Location = New System.Drawing.Point(0, 0)
-        Me.ReturnAndPullout1.Margin = New System.Windows.Forms.Padding(0)
-        Me.ReturnAndPullout1.Name = "ReturnAndPullout1"
-        Me.ReturnAndPullout1.Size = New System.Drawing.Size(1180, 714)
-        Me.ReturnAndPullout1.TabIndex = 0
-        '
-        'PosPanel1
-        '
-        Me.PosPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PosPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.PosPanel1.Margin = New System.Windows.Forms.Padding(0)
-        Me.PosPanel1.Name = "PosPanel1"
-        Me.PosPanel1.Size = New System.Drawing.Size(1180, 714)
-        Me.PosPanel1.TabIndex = 0
-        '
         'Dashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -824,12 +824,15 @@ Partial Class Dashboard
         Me.TableLayoutPanel4.ResumeLayout(False)
         Me.TableLayoutPanel4.PerformLayout()
         Me.Panel6.ResumeLayout(False)
+        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel3.ResumeLayout(False)
         Me.TableLayoutPanel3.PerformLayout()
         Me.Panel1.ResumeLayout(False)
+        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
         Me.Panel5.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.NotificationDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Maintenance.ResumeLayout(False)
         Me.Products.ResumeLayout(False)
@@ -843,9 +846,6 @@ Partial Class Dashboard
         Me.Guna2ContextMenuStrip1.ResumeLayout(False)
         CType(Me.DSReport, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DTTransactionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

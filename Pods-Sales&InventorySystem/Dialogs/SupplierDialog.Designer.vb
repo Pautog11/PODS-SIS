@@ -58,14 +58,14 @@ Partial Class SupplierDialog
         Me.CompanyNameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.CompanyNameTextBox.ForeColor = System.Drawing.Color.Black
         Me.CompanyNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CompanyNameTextBox.Location = New System.Drawing.Point(45, 37)
+        Me.CompanyNameTextBox.Location = New System.Drawing.Point(24, 37)
         Me.CompanyNameTextBox.MaxLength = 50
         Me.CompanyNameTextBox.Name = "CompanyNameTextBox"
         Me.CompanyNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CompanyNameTextBox.PlaceholderText = "Ex. Unilab"
         Me.CompanyNameTextBox.SelectedText = ""
         Me.CompanyNameTextBox.ShortcutsEnabled = False
-        Me.CompanyNameTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.CompanyNameTextBox.Size = New System.Drawing.Size(221, 36)
         Me.CompanyNameTextBox.TabIndex = 0
         '
         'FirstnameTextBox
@@ -82,14 +82,14 @@ Partial Class SupplierDialog
         Me.FirstnameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.FirstnameTextBox.ForeColor = System.Drawing.Color.Black
         Me.FirstnameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.FirstnameTextBox.Location = New System.Drawing.Point(294, 37)
+        Me.FirstnameTextBox.Location = New System.Drawing.Point(278, 37)
         Me.FirstnameTextBox.MaxLength = 20
         Me.FirstnameTextBox.Name = "FirstnameTextBox"
         Me.FirstnameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.FirstnameTextBox.PlaceholderText = "Ex. (Juan)"
         Me.FirstnameTextBox.SelectedText = ""
         Me.FirstnameTextBox.ShortcutsEnabled = False
-        Me.FirstnameTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.FirstnameTextBox.Size = New System.Drawing.Size(216, 36)
         Me.FirstnameTextBox.TabIndex = 3
         '
         'CompanyAddressTextBox
@@ -106,14 +106,14 @@ Partial Class SupplierDialog
         Me.CompanyAddressTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.CompanyAddressTextBox.ForeColor = System.Drawing.Color.Black
         Me.CompanyAddressTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CompanyAddressTextBox.Location = New System.Drawing.Point(45, 147)
+        Me.CompanyAddressTextBox.Location = New System.Drawing.Point(24, 147)
         Me.CompanyAddressTextBox.MaxLength = 100
         Me.CompanyAddressTextBox.Name = "CompanyAddressTextBox"
         Me.CompanyAddressTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CompanyAddressTextBox.PlaceholderText = "Ex. Taguig"
         Me.CompanyAddressTextBox.SelectedText = ""
         Me.CompanyAddressTextBox.ShortcutsEnabled = False
-        Me.CompanyAddressTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.CompanyAddressTextBox.Size = New System.Drawing.Size(221, 36)
         Me.CompanyAddressTextBox.TabIndex = 2
         '
         'LastnameTextBox
@@ -130,14 +130,14 @@ Partial Class SupplierDialog
         Me.LastnameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.LastnameTextBox.ForeColor = System.Drawing.Color.Black
         Me.LastnameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.LastnameTextBox.Location = New System.Drawing.Point(294, 92)
+        Me.LastnameTextBox.Location = New System.Drawing.Point(278, 92)
         Me.LastnameTextBox.MaxLength = 20
         Me.LastnameTextBox.Name = "LastnameTextBox"
         Me.LastnameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.LastnameTextBox.PlaceholderText = "Ex. (Dela Cruz)"
         Me.LastnameTextBox.SelectedText = ""
         Me.LastnameTextBox.ShortcutsEnabled = False
-        Me.LastnameTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.LastnameTextBox.Size = New System.Drawing.Size(216, 36)
         Me.LastnameTextBox.TabIndex = 4
         '
         'PhoneNumberTextBox
@@ -154,14 +154,14 @@ Partial Class SupplierDialog
         Me.PhoneNumberTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.PhoneNumberTextBox.ForeColor = System.Drawing.Color.Black
         Me.PhoneNumberTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.PhoneNumberTextBox.Location = New System.Drawing.Point(294, 147)
+        Me.PhoneNumberTextBox.Location = New System.Drawing.Point(278, 147)
         Me.PhoneNumberTextBox.MaxLength = 13
         Me.PhoneNumberTextBox.Name = "PhoneNumberTextBox"
         Me.PhoneNumberTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.PhoneNumberTextBox.PlaceholderText = "Ex. (09123456789)"
         Me.PhoneNumberTextBox.SelectedText = ""
         Me.PhoneNumberTextBox.ShortcutsEnabled = False
-        Me.PhoneNumberTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.PhoneNumberTextBox.Size = New System.Drawing.Size(216, 36)
         Me.PhoneNumberTextBox.TabIndex = 5
         '
         'Guna2Panel1
@@ -182,7 +182,7 @@ Partial Class SupplierDialog
         Me.Guna2Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Size = New System.Drawing.Size(539, 211)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(518, 199)
         Me.Guna2Panel1.TabIndex = 7
         '
         'CPTextBox
@@ -199,14 +199,14 @@ Partial Class SupplierDialog
         Me.CPTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.CPTextBox.ForeColor = System.Drawing.Color.Black
         Me.CPTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CPTextBox.Location = New System.Drawing.Point(45, 92)
+        Me.CPTextBox.Location = New System.Drawing.Point(24, 92)
         Me.CPTextBox.MaxLength = 13
         Me.CPTextBox.Name = "CPTextBox"
         Me.CPTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CPTextBox.PlaceholderText = "Ex. +012-345-6789"
         Me.CPTextBox.SelectedText = ""
         Me.CPTextBox.ShortcutsEnabled = False
-        Me.CPTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.CPTextBox.Size = New System.Drawing.Size(221, 36)
         Me.CPTextBox.TabIndex = 24
         '
         'Label6
@@ -275,7 +275,7 @@ Partial Class SupplierDialog
         Me.TableLayoutPanel1.RowCount = 2
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(539, 266)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(518, 254)
         Me.TableLayoutPanel1.TabIndex = 8
         '
         'FooterLayoutPanel
@@ -284,10 +284,10 @@ Partial Class SupplierDialog
         Me.FooterLayoutPanel.Controls.Add(Me.AddSupplierButton)
         Me.FooterLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FooterLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
-        Me.FooterLayoutPanel.Location = New System.Drawing.Point(0, 211)
+        Me.FooterLayoutPanel.Location = New System.Drawing.Point(0, 199)
         Me.FooterLayoutPanel.Margin = New System.Windows.Forms.Padding(0)
         Me.FooterLayoutPanel.Name = "FooterLayoutPanel"
-        Me.FooterLayoutPanel.Size = New System.Drawing.Size(539, 55)
+        Me.FooterLayoutPanel.Size = New System.Drawing.Size(518, 55)
         Me.FooterLayoutPanel.TabIndex = 8
         '
         'DeleteSupplierButton
@@ -302,7 +302,7 @@ Partial Class SupplierDialog
         Me.DeleteSupplierButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(18, Byte), Integer), CType(CType(31, Byte), Integer))
         Me.DeleteSupplierButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DeleteSupplierButton.ForeColor = System.Drawing.Color.White
-        Me.DeleteSupplierButton.Location = New System.Drawing.Point(408, 9)
+        Me.DeleteSupplierButton.Location = New System.Drawing.Point(387, 9)
         Me.DeleteSupplierButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.DeleteSupplierButton.Name = "DeleteSupplierButton"
         Me.DeleteSupplierButton.Size = New System.Drawing.Size(128, 35)
@@ -321,7 +321,7 @@ Partial Class SupplierDialog
         Me.AddSupplierButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AddSupplierButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddSupplierButton.ForeColor = System.Drawing.Color.White
-        Me.AddSupplierButton.Location = New System.Drawing.Point(274, 8)
+        Me.AddSupplierButton.Location = New System.Drawing.Point(253, 8)
         Me.AddSupplierButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.AddSupplierButton.Name = "AddSupplierButton"
         Me.AddSupplierButton.Size = New System.Drawing.Size(128, 37)
@@ -332,7 +332,7 @@ Partial Class SupplierDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(539, 266)
+        Me.ClientSize = New System.Drawing.Size(518, 254)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False

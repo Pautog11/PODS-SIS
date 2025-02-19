@@ -20,7 +20,7 @@ Public Class CategoryDialog
                 'To populate the data
                 CategoryNameTextBox.Text = _data("category")
                 DescriptionTextBox.Text = _data("description")
-                DeleteCategoryButton.Visible = False
+                'DeleteCategoryButton.Visible = False
             Else
                 'To disable the delete button
                 DeleteCategoryButton.Visible = False
@@ -55,13 +55,14 @@ Public Class CategoryDialog
                     baseCommand = New BaseCategory(data)
                     invoker = New AddCommand(baseCommand)
                     Me.Close()
-                ElseIf _data IsNot Nothing Then
+                ElseIf _data IsNot Nothing AndAlso BaseCategory.Exists(result(0)(1)) = 0 Then
                     baseCommand = New BaseCategory(data)
                     invoker = New UpdateCommand(baseCommand)
                     Me.Close()
                 Else
                     MessageBox.Show("Category exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 End If
+                'baseCommand = New BaseCategory(data)
                 invoker?.Execute()
                 _subject.NotifyObserver()
                 'Me.Close()
@@ -69,7 +70,7 @@ Public Class CategoryDialog
                 MessageBox.Show("Please fill out all textboxes or provide all valid inputs.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
         Catch ex As Exception
-
+            MsgBox(ex.Message)
         End Try
     End Sub
 

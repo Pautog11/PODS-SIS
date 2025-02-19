@@ -28,9 +28,7 @@ Public Class SalesReportViewer
             End If
 
             ' Check if datasets have the expected tables
-            If salesViewData.Tables.Contains("DT_SalesView") AndAlso
-                transactionData.Tables.Contains("DT_SalesReport") AndAlso
-                returnData.Tables.Contains("DT_ReturnsReport") Then
+            If salesViewData.Tables.Contains("DT_SalesView") AndAlso transactionData.Tables.Contains("DT_SalesReport") AndAlso returnData.Tables.Contains("DT_ReturnsReport") Then
 
                 Dim reportDocument As New SalesRpt()
                 reportDocument.SetDataSource(salesViewData.Tables("DT_SalesView"))

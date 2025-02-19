@@ -23,6 +23,8 @@ Partial Class Maintenance
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.MaintenaceTabControl = New Guna.UI2.WinForms.Guna2TabControl()
+        Me.Accounts = New System.Windows.Forms.TabPage()
+        Me.Account1 = New Pods_Sales_InventorySystem.Account()
         Me.Categories = New System.Windows.Forms.TabPage()
         Me.Category1 = New Pods_Sales_InventorySystem.Category()
         Me.SubCategory = New System.Windows.Forms.TabPage()
@@ -37,9 +39,8 @@ Partial Class Maintenance
         Me.Dosage1 = New Pods_Sales_InventorySystem.Dosage()
         Me.Dosage_Form = New System.Windows.Forms.TabPage()
         Me.DosageForm1 = New Pods_Sales_InventorySystem.DosageForm()
-        Me.Accounts = New System.Windows.Forms.TabPage()
-        Me.Account1 = New Pods_Sales_InventorySystem.Account()
         Me.MaintenaceTabControl.SuspendLayout()
+        Me.Accounts.SuspendLayout()
         Me.Categories.SuspendLayout()
         Me.SubCategory.SuspendLayout()
         Me.Suppliers.SuspendLayout()
@@ -47,7 +48,6 @@ Partial Class Maintenance
         Me.Discounts.SuspendLayout()
         Me.Dosage.SuspendLayout()
         Me.Dosage_Form.SuspendLayout()
-        Me.Accounts.SuspendLayout()
         Me.SuspendLayout()
         '
         'MaintenaceTabControl
@@ -87,6 +87,27 @@ Partial Class Maintenance
         Me.MaintenaceTabControl.TabMenuBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.MaintenaceTabControl.TabMenuOrientation = Guna.UI2.WinForms.TabMenuOrientation.HorizontalTop
         '
+        'Accounts
+        '
+        Me.Accounts.BackColor = System.Drawing.Color.White
+        Me.Accounts.Controls.Add(Me.Account1)
+        Me.Accounts.Location = New System.Drawing.Point(4, 84)
+        Me.Accounts.Margin = New System.Windows.Forms.Padding(0)
+        Me.Accounts.Name = "Accounts"
+        Me.Accounts.Size = New System.Drawing.Size(1307, 561)
+        Me.Accounts.TabIndex = 12
+        Me.Accounts.Text = "Accounts"
+        '
+        'Account1
+        '
+        Me.Account1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Account1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Account1.Location = New System.Drawing.Point(0, 0)
+        Me.Account1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Account1.Name = "Account1"
+        Me.Account1.Size = New System.Drawing.Size(1307, 561)
+        Me.Account1.TabIndex = 0
+        '
         'Categories
         '
         Me.Categories.Controls.Add(Me.Category1)
@@ -113,7 +134,7 @@ Partial Class Maintenance
         Me.SubCategory.Name = "SubCategory"
         Me.SubCategory.Size = New System.Drawing.Size(1307, 601)
         Me.SubCategory.TabIndex = 3
-        Me.SubCategory.Text = "Sub Categories"
+        Me.SubCategory.Text = "Subcategories"
         Me.SubCategory.UseVisualStyleBackColor = True
         '
         'SubCategory1
@@ -187,10 +208,10 @@ Partial Class Maintenance
         'Dosage
         '
         Me.Dosage.Controls.Add(Me.Dosage1)
-        Me.Dosage.Location = New System.Drawing.Point(4, 84)
+        Me.Dosage.Location = New System.Drawing.Point(4, 44)
         Me.Dosage.Margin = New System.Windows.Forms.Padding(0)
         Me.Dosage.Name = "Dosage"
-        Me.Dosage.Size = New System.Drawing.Size(1307, 561)
+        Me.Dosage.Size = New System.Drawing.Size(1307, 601)
         Me.Dosage.TabIndex = 10
         Me.Dosage.Text = "Dosage"
         Me.Dosage.UseVisualStyleBackColor = True
@@ -202,7 +223,7 @@ Partial Class Maintenance
         Me.Dosage1.Location = New System.Drawing.Point(0, 0)
         Me.Dosage1.Margin = New System.Windows.Forms.Padding(0)
         Me.Dosage1.Name = "Dosage1"
-        Me.Dosage1.Size = New System.Drawing.Size(1307, 561)
+        Me.Dosage1.Size = New System.Drawing.Size(1307, 601)
         Me.Dosage1.TabIndex = 0
         '
         'Dosage_Form
@@ -224,27 +245,6 @@ Partial Class Maintenance
         Me.DosageForm1.Size = New System.Drawing.Size(1307, 561)
         Me.DosageForm1.TabIndex = 0
         '
-        'Accounts
-        '
-        Me.Accounts.BackColor = System.Drawing.Color.White
-        Me.Accounts.Controls.Add(Me.Account1)
-        Me.Accounts.Location = New System.Drawing.Point(4, 84)
-        Me.Accounts.Margin = New System.Windows.Forms.Padding(0)
-        Me.Accounts.Name = "Accounts"
-        Me.Accounts.Size = New System.Drawing.Size(1307, 561)
-        Me.Accounts.TabIndex = 12
-        Me.Accounts.Text = "Accounts"
-        '
-        'Account1
-        '
-        Me.Account1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Account1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Account1.Location = New System.Drawing.Point(0, 0)
-        Me.Account1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Account1.Name = "Account1"
-        Me.Account1.Size = New System.Drawing.Size(1307, 561)
-        Me.Account1.TabIndex = 0
-        '
         'Maintenance
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -253,6 +253,7 @@ Partial Class Maintenance
         Me.Name = "Maintenance"
         Me.Size = New System.Drawing.Size(1315, 649)
         Me.MaintenaceTabControl.ResumeLayout(False)
+        Me.Accounts.ResumeLayout(False)
         Me.Categories.ResumeLayout(False)
         Me.SubCategory.ResumeLayout(False)
         Me.Suppliers.ResumeLayout(False)
@@ -260,7 +261,6 @@ Partial Class Maintenance
         Me.Discounts.ResumeLayout(False)
         Me.Dosage.ResumeLayout(False)
         Me.Dosage_Form.ResumeLayout(False)
-        Me.Accounts.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub

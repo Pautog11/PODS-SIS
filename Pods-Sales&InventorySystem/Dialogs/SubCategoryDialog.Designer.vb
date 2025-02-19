@@ -50,7 +50,7 @@ Partial Class SubCategoryDialog
         Me.SubCategoryLayoutPanel.RowCount = 2
         Me.SubCategoryLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.SubCategoryLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55.0!))
-        Me.SubCategoryLayoutPanel.Size = New System.Drawing.Size(435, 288)
+        Me.SubCategoryLayoutPanel.Size = New System.Drawing.Size(287, 282)
         Me.SubCategoryLayoutPanel.TabIndex = 0
         '
         'Guna2Panel1
@@ -65,7 +65,7 @@ Partial Class SubCategoryDialog
         Me.Guna2Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Size = New System.Drawing.Size(435, 233)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(287, 227)
         Me.Guna2Panel1.TabIndex = 0
         '
         'SubCategoryDescriptionTextBox
@@ -82,7 +82,7 @@ Partial Class SubCategoryDialog
         Me.SubCategoryDescriptionTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.SubCategoryDescriptionTextBox.ForeColor = System.Drawing.Color.Black
         Me.SubCategoryDescriptionTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.SubCategoryDescriptionTextBox.Location = New System.Drawing.Point(119, 159)
+        Me.SubCategoryDescriptionTextBox.Location = New System.Drawing.Point(26, 150)
         Me.SubCategoryDescriptionTextBox.MaxLength = 100
         Me.SubCategoryDescriptionTextBox.Multiline = True
         Me.SubCategoryDescriptionTextBox.Name = "SubCategoryDescriptionTextBox"
@@ -90,13 +90,13 @@ Partial Class SubCategoryDialog
         Me.SubCategoryDescriptionTextBox.PlaceholderText = ""
         Me.SubCategoryDescriptionTextBox.SelectedText = ""
         Me.SubCategoryDescriptionTextBox.ShortcutsEnabled = False
-        Me.SubCategoryDescriptionTextBox.Size = New System.Drawing.Size(200, 64)
+        Me.SubCategoryDescriptionTextBox.Size = New System.Drawing.Size(222, 64)
         Me.SubCategoryDescriptionTextBox.TabIndex = 21
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(102, 143)
+        Me.Label3.Location = New System.Drawing.Point(23, 134)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(108, 13)
         Me.Label3.TabIndex = 20
@@ -105,16 +105,16 @@ Partial Class SubCategoryDialog
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(102, 83)
+        Me.Label1.Location = New System.Drawing.Point(23, 74)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(102, 13)
+        Me.Label1.Size = New System.Drawing.Size(98, 13)
         Me.Label1.TabIndex = 19
-        Me.Label1.Text = "Sub Category Name"
+        Me.Label1.Text = "Subcategory Name"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(102, 28)
+        Me.Label2.Location = New System.Drawing.Point(23, 19)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(49, 13)
         Me.Label2.TabIndex = 18
@@ -134,14 +134,14 @@ Partial Class SubCategoryDialog
         Me.SubcategoryNameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.SubcategoryNameTextBox.ForeColor = System.Drawing.Color.Black
         Me.SubcategoryNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.SubcategoryNameTextBox.Location = New System.Drawing.Point(119, 100)
+        Me.SubcategoryNameTextBox.Location = New System.Drawing.Point(26, 91)
         Me.SubcategoryNameTextBox.MaxLength = 100
         Me.SubcategoryNameTextBox.Name = "SubcategoryNameTextBox"
         Me.SubcategoryNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.SubcategoryNameTextBox.PlaceholderText = "Ex. (Cough and Cold etc.,)"
         Me.SubcategoryNameTextBox.SelectedText = ""
         Me.SubcategoryNameTextBox.ShortcutsEnabled = False
-        Me.SubcategoryNameTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.SubcategoryNameTextBox.Size = New System.Drawing.Size(222, 36)
         Me.SubcategoryNameTextBox.TabIndex = 4
         '
         'CategoryComboBox
@@ -156,9 +156,9 @@ Partial Class SubCategoryDialog
         Me.CategoryComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.CategoryComboBox.ForeColor = System.Drawing.Color.Black
         Me.CategoryComboBox.ItemHeight = 30
-        Me.CategoryComboBox.Location = New System.Drawing.Point(119, 44)
+        Me.CategoryComboBox.Location = New System.Drawing.Point(26, 35)
         Me.CategoryComboBox.Name = "CategoryComboBox"
-        Me.CategoryComboBox.Size = New System.Drawing.Size(200, 36)
+        Me.CategoryComboBox.Size = New System.Drawing.Size(222, 36)
         Me.CategoryComboBox.TabIndex = 2
         '
         'FlowLayoutPanel1
@@ -167,10 +167,10 @@ Partial Class SubCategoryDialog
         Me.FlowLayoutPanel1.Controls.Add(Me.AddSubCategoryButton)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 233)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 227)
         Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(435, 55)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(287, 55)
         Me.FlowLayoutPanel1.TabIndex = 1
         '
         'DeleteSubCategoryButton
@@ -185,7 +185,7 @@ Partial Class SubCategoryDialog
         Me.DeleteSubCategoryButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(18, Byte), Integer), CType(CType(31, Byte), Integer))
         Me.DeleteSubCategoryButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DeleteSubCategoryButton.ForeColor = System.Drawing.Color.White
-        Me.DeleteSubCategoryButton.Location = New System.Drawing.Point(304, 9)
+        Me.DeleteSubCategoryButton.Location = New System.Drawing.Point(156, 9)
         Me.DeleteSubCategoryButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.DeleteSubCategoryButton.Name = "DeleteSubCategoryButton"
         Me.DeleteSubCategoryButton.Size = New System.Drawing.Size(128, 35)
@@ -204,7 +204,7 @@ Partial Class SubCategoryDialog
         Me.AddSubCategoryButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AddSubCategoryButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddSubCategoryButton.ForeColor = System.Drawing.Color.White
-        Me.AddSubCategoryButton.Location = New System.Drawing.Point(170, 8)
+        Me.AddSubCategoryButton.Location = New System.Drawing.Point(22, 8)
         Me.AddSubCategoryButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.AddSubCategoryButton.Name = "AddSubCategoryButton"
         Me.AddSubCategoryButton.Size = New System.Drawing.Size(128, 37)
@@ -215,7 +215,7 @@ Partial Class SubCategoryDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(435, 288)
+        Me.ClientSize = New System.Drawing.Size(287, 282)
         Me.Controls.Add(Me.SubCategoryLayoutPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
@@ -223,7 +223,7 @@ Partial Class SubCategoryDialog
         Me.Name = "SubCategoryDialog"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Sub Category Dialog"
+        Me.Text = "Subcategory Dialog"
         Me.SubCategoryLayoutPanel.ResumeLayout(False)
         Me.Guna2Panel1.ResumeLayout(False)
         Me.Guna2Panel1.PerformLayout()

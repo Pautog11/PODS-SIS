@@ -268,12 +268,6 @@
     <Compile Include="Dialogs\ReturnDialog.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\SearchDialog.Designer.vb">
-      <DependentUpon>SearchDialog.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\SearchDialog.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Dialogs\SignUp.Designer.vb">
       <DependentUpon>SignUp.vb</DependentUpon>
     </Compile>
@@ -666,9 +660,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ReturnDialog.resx">
       <DependentUpon>ReturnDialog.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\SearchDialog.resx">
-      <DependentUpon>SearchDialog.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\SignUp.resx">
       <DependentUpon>SignUp.vb</DependentUpon>

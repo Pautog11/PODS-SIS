@@ -41,14 +41,14 @@ Partial Class VatDialog
         Me.VatTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.VatTextBox.ForeColor = System.Drawing.Color.Black
         Me.VatTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.VatTextBox.Location = New System.Drawing.Point(59, 59)
+        Me.VatTextBox.Location = New System.Drawing.Point(24, 40)
         Me.VatTextBox.MaxLength = 2
         Me.VatTextBox.Name = "VatTextBox"
         Me.VatTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.VatTextBox.PlaceholderText = "0"
         Me.VatTextBox.SelectedText = ""
         Me.VatTextBox.ShortcutsEnabled = False
-        Me.VatTextBox.Size = New System.Drawing.Size(173, 36)
+        Me.VatTextBox.Size = New System.Drawing.Size(239, 36)
         Me.VatTextBox.TabIndex = 23
         '
         'UpdateButton
@@ -63,7 +63,7 @@ Partial Class VatDialog
         Me.UpdateButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.UpdateButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.UpdateButton.ForeColor = System.Drawing.Color.White
-        Me.UpdateButton.Location = New System.Drawing.Point(159, 148)
+        Me.UpdateButton.Location = New System.Drawing.Point(146, 109)
         Me.UpdateButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.UpdateButton.Name = "UpdateButton"
         Me.UpdateButton.Size = New System.Drawing.Size(128, 37)
@@ -73,7 +73,7 @@ Partial Class VatDialog
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(45, 43)
+        Me.Label2.Location = New System.Drawing.Point(21, 24)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(28, 13)
         Me.Label2.TabIndex = 25
@@ -83,7 +83,7 @@ Partial Class VatDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(299, 197)
+        Me.ClientSize = New System.Drawing.Size(286, 158)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.UpdateButton)
         Me.Controls.Add(Me.VatTextBox)

@@ -34,14 +34,14 @@
             Dim selectedRows As DataGridViewSelectedRowCollection = TransactionDataGridView.SelectedRows
             Dim row As DataGridViewRow = selectedRows(0)
             Dim data As New Dictionary(Of String, String) From {
-                {"id", row.Cells(0).Value.ToString()},
-                {"transaction_number", row.Cells(2).Value.ToString()},
-                {"subtotal", row.Cells(3).Value.ToString()},
-                {"vatable", row.Cells(4).Value.ToString()},
-                {"vat", row.Cells(5).Value.ToString()},
-                {"discount", row.Cells(6).Value.ToString()},
-                {"date", row.Cells(8).Value.ToString()},
-                {"cash", row.Cells(9).Value.ToString()}
+                {"id", If(String.IsNullOrEmpty(row.Cells(0).Value.ToString()), "0", row.Cells(0).Value.ToString())},
+                {"transaction_number", If(String.IsNullOrEmpty(row.Cells(2).Value.ToString()), "0", row.Cells(2).Value.ToString())},
+                {"subtotal", If(String.IsNullOrEmpty(row.Cells(3).Value.ToString()), "0", row.Cells(3).Value.ToString())},
+                {"vatable", If(String.IsNullOrEmpty(row.Cells(4).Value.ToString()), "0", row.Cells(4).Value.ToString())},
+                {"vat", If(String.IsNullOrEmpty(row.Cells(5).Value.ToString()), "0", row.Cells(5).Value.ToString())},
+                {"discount", If(String.IsNullOrEmpty(row.Cells(6).Value.ToString()), "0", row.Cells(6).Value.ToString())},
+                {"date", If(String.IsNullOrEmpty(row.Cells(8).Value.ToString()), "0", row.Cells(8).Value.ToString())},
+                {"cash", If(String.IsNullOrEmpty(row.Cells(9).Value.ToString()), "0", row.Cells(9).Value.ToString())}
             }
             Dim Dialog As New TransactionDialog(data:=data, subject:=_subject)
             Dialog.ShowDialog()

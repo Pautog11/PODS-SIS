@@ -191,9 +191,17 @@ Public Class BaseTransaction
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT t1.id, t2.product_name, t2.price, t1.quantity, total FROM tbltransaction_items t1
-                                        join tblproducts t2 on  t1.product_id = t2.id
-                                        WHERE transaction_id =  @transaction_id", conn)
+            cmd = New SqlCommand("SELECT b.id, 
+                                        product_name, 
+                                        price, quantity, 
+                                        SUM(price * quantity) AS total 
+                                FROM tbltransaction_items a
+                                JOIN tblproducts b on  a.product_id = b.id
+                                WHERE transaction_id = @transaction_id
+								GROUP BY b.id, 
+                                        product_name, 
+                                        price, 
+                                        quantity", conn)
             cmd.Parameters.AddWithValue("@transaction_id", transaction_id)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
@@ -214,12 +222,16 @@ Public Class BaseTransaction
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT a.id as id, product_name, MAX(price) as price, SUM(b.inventory_quantity) as quantity
+            cmd = New SqlCommand("SELECT a.id as id, 
+                                         product_name, 
+                                         MAX(price) as price, 
+                                         SUM(b.inventory_quantity) as quantity
                                 FROM tblproducts a
                                 LEFT JOIN tbldeliveries_items b 
                                 ON a.id = b.product_id 
                                 WHERE barcode = @barcode
-                                GROUP BY a.id, product_name;", conn)
+                                GROUP BY a.id, 
+                                         product_name;", conn)
             cmd.Parameters.AddWithValue("@barcode", barcode)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)

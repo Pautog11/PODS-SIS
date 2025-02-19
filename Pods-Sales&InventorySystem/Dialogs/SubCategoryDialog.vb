@@ -1,8 +1,10 @@
 ﻿Imports System.Windows.Forms
 
 Public Class SubCategoryDialog
+    Private ReadOnly _tableAdapter As New podsTableAdapters.viewtblsubcategoriesTableAdapter
     Private ReadOnly _data As Dictionary(Of String, String)
     Private ReadOnly _subject As IObservablePanel
+
     Public Sub New(Optional data As Dictionary(Of String, String) = Nothing,
                    Optional subject As IObservablePanel = Nothing)
         InitializeComponent()
@@ -12,11 +14,13 @@ Public Class SubCategoryDialog
 
     Private Sub SubCategoryDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            ' To fill the data to CategoryComboBox
-            CategoryComboBox.DataSource = BaseSubCategory.FillByCategory
-            CategoryComboBox.DisplayMember = "category"
-            CategoryComboBox.SelectedItem = "id"
-
+            Dim subcategory_data As pods.viewtblsubcategoriesDataTable = _tableAdapter.GetData()
+            CategoryComboBox.DataSource = subcategory_data
+            CategoryComboBox.DisplayMember = "CATEGORY"
+            CategoryComboBox.ValueMember = "ID"
+            If subcategory_data.Rows.Count > 0 Then
+                CategoryComboBox.SelectedIndex = -1
+            End If
 
             If _data IsNot Nothing Then
                 'To addbutton changed Update
@@ -37,26 +41,31 @@ Public Class SubCategoryDialog
 
     Private Sub AddSubCategoryButton_Click(sender As Object, e As EventArgs) Handles AddSubCategoryButton.Click
         Try
-            Dim controls As Object() = {SubcategoryNameTextBox}
-            Dim types As DataInput() = {DataInput.STRING_STRING}
+            Dim controls As Object() = {CategoryComboBox, SubcategoryNameTextBox}
+            Dim types As DataInput() = {DataInput.STRING_STRING, DataInput.STRING_STRING}
 
             Dim result As New List(Of Object())
             For i = 0 To controls.Count - 1
                 result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
-                If Not CType(result(i), Object())(0) AndAlso Not String.IsNullOrEmpty(controls(i).Text) Then
-                    Exit Sub
+                Dim validationResult = TryCast(result(i), Object())
+                If validationResult IsNot Nothing AndAlso validationResult.Length > 0 Then
+                    If Not validationResult(0) = True Then
+                        Exit Sub
+                    End If
+                Else
+                    Throw New Exception
                 End If
             Next
             If Not result.Any(Function(item As Object()) Not item(0)) Then
                 Dim data As New Dictionary(Of String, String) From {
                     {"id", _data?.Item("id")},
                     {"category_id", CategoryComboBox.SelectedItem("id")},
-                    {"subcategory", result(0)(1)},
+                    {"subcategory", result(1)(1)},
                     {"description", SubCategoryDescriptionTextBox.Text}
                 }
                 Dim baseCommand As New BaseSubCategory(data)
                 Dim invoker As ICommandInvoker = Nothing
-                If BaseSubCategory.CategoryAndSubcategoryExists(CategoryComboBox.SelectedItem("id"), result(0)(1)) = 0 AndAlso _data Is Nothing Then 'BaseSubCategory.Exists(result(0)(1)) = 0 AndAlso
+                If BaseSubCategory.CategoryAndSubcategoryExists(CategoryComboBox.SelectedItem("id"), result(1)(1)) = 0 AndAlso _data Is Nothing Then 'BaseSubCategory.Exists(result(0)(1)) = 0 AndAlso
                     invoker = New AddCommand(baseCommand)
                 ElseIf _data IsNot Nothing AndAlso BaseSubCategory.CategoryAndSubcategoryExists(CategoryComboBox.SelectedItem("id"), result(0)(1)) = 0 Then
                     invoker = New UpdateCommand(baseCommand)

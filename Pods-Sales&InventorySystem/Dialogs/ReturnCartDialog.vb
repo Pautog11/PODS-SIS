@@ -3,8 +3,8 @@ Imports System.Windows.Forms
 
 Public Class ReturnCartDialog
     Private ReadOnly _subject As IObservablePanel
-    Private ReadOnly _data As Dictionary(Of String, String) 'Private ReadOnly _parent As ReturnCartDialog = Nothing
-    Private ReadOnly _dat2 As Dictionary(Of String, String) 'Private ReadOnly _parent As ReturnCartDialog = Nothing
+    Private ReadOnly _data As Dictionary(Of String, String)
+    Private ReadOnly _dat2 As Dictionary(Of String, String)
     Public _itemSource As DataTable
     Private _parent As TransactionDialog = Nothing
     Public Sub New(Optional data As Dictionary(Of String, String) = Nothing,
@@ -25,7 +25,7 @@ Public Class ReturnCartDialog
                 RetuenDatePicker.Value = _data.Item("date")
 
                 TransactionTextBox.Enabled = False
-                Guna2Button1.Enabled = False
+                'Guna2Button1.Enabled = False
                 'Guna2Button2.Enabled = False
 
             ElseIf _dat2 IsNot Nothing Then
@@ -42,6 +42,7 @@ Public Class ReturnCartDialog
         Catch ex As Exception
 
         End Try
+        'MsgBox(_data.Item("delivery_id"))
     End Sub
     Private Sub AddReturnButton_Click(sender As Object, e As EventArgs) Handles AddReturnButton.Click
         Dim dialog As New ReturnDialog(data:=_data, parent:=Me)
@@ -64,19 +65,19 @@ Public Class ReturnCartDialog
         Try
             If ReturnDataGridView.Rows.Count > 0 Then
                 Dim items As New List(Of Dictionary(Of String, String))()
-                Dim data As New Dictionary(Of String, String) From { '{"id", _data?.Item("id")},
-                    {"account_id", My.Settings.myId},
-                    {"transaction_id", _data.Item("delivery_id")},
-                    {"reason", _data.Item("delivery_id")},
-                    {"total", TotalPrice.Text}
+                Dim data As New Dictionary(Of String, String) From {
+                    {"account_id", If(String.IsNullOrEmpty(My.Settings.myId), 0, My.Settings.myId)},
+                    {"transaction_id", If(String.IsNullOrEmpty(_data.Item("delivery_id")), 0, _data.Item("delivery_id"))},
+                    {"reason", If(String.IsNullOrEmpty(_data.Item("delivery_id")), 0, _data.Item("delivery_id"))},
+                    {"total", If(String.IsNullOrEmpty(TotalPrice.Text), 0, TotalPrice.Text)}
                 }
 
                 For Each row As DataGridViewRow In ReturnDataGridView.Rows
                     Dim item As New Dictionary(Of String, String) From {
-                        {"pid", row.Cells(1).Value},
-                        {"price", If(String.IsNullOrEmpty(row.Cells(3).Value?.ToString()), 0, row.Cells(3).Value?.ToString())},
-                        {"quantity", If(String.IsNullOrEmpty(row.Cells(4).Value?.ToString()), 0, row.Cells(4).Value?.ToString())},
-                        {"total", If(String.IsNullOrEmpty(row.Cells(5).Value?.ToString()), 0, row.Cells(5).Value?.ToString())}
+                        {"id", row.Cells(0).Value},
+                        {"price", If(String.IsNullOrEmpty(row.Cells(2).Value?.ToString()), 0, row.Cells(2).Value?.ToString())},
+                        {"quantity", If(String.IsNullOrEmpty(row.Cells(3).Value?.ToString()), 0, row.Cells(3).Value?.ToString())},
+                        {"total", If(String.IsNullOrEmpty(row.Cells(4).Value?.ToString()), 0, row.Cells(4).Value?.ToString())}
                     }
                     items.Add(item)
                 Next
@@ -100,45 +101,40 @@ Public Class ReturnCartDialog
         End Try
     End Sub
 
-    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
-        Dim transaction As SqlTransaction = SqlConnectionPods.GetInstance.BeginTransaction()
-        Try
-            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As New SqlCommand
+    'Private Sub Guna2Button1_Click(sender As Object, e As EventArgs)
+    '    Dim transaction As SqlTransaction = SqlConnectionPods.GetInstance.BeginTransaction()
+    '    Try
+    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+    '        Dim cmd As New SqlCommand
 
-            ' Prepare and execute the main delivery insertion
-            cmd = New SqlCommand("INSERT INTO tblreturns (account_id, transaction_id, reason, total) VALUES (@account_id, @transaction_id, @reason, @total); SELECT SCOPE_IDENTITY()", conn, Transaction)
-            cmd.Parameters.AddWithValue("@account_id", _data.Item("account_id"))
-            cmd.Parameters.AddWithValue("@transaction_id", _data.Item("transaction_id"))
-            cmd.Parameters.AddWithValue("@reason", _data.Item("reason"))
-            cmd.Parameters.AddWithValue("@total", _data.Item("total"))
+    '        ' Prepare and execute the main delivery insertion
+    '        cmd = New SqlCommand("INSERT INTO tblreturns (account_id, transaction_id, reason, total) VALUES (@account_id, @transaction_id, @reason, @total); SELECT SCOPE_IDENTITY()", conn, transaction)
+    '        cmd.Parameters.AddWithValue("@account_id", _data.Item("account_id"))
+    '        cmd.Parameters.AddWithValue("@transaction_id", _data.Item("transaction_id"))
+    '        cmd.Parameters.AddWithValue("@reason", _data.Item("reason"))
+    '        cmd.Parameters.AddWithValue("@total", _data.Item("total"))
 
-            Dim deliveryId As Integer = Convert.ToInt32(cmd.ExecuteScalar())
+    '        Dim deliveryId As Integer = Convert.ToInt32(cmd.ExecuteScalar())
 
-            For Each item In ReturnDataGridView.Rows
-                If item IsNot Nothing AndAlso item.Count > 0 Then
-                    ' Insert into tbldeliveries_items
-                    cmd.Parameters.Clear()
-                    cmd = New SqlCommand("INSERT INTO tblreturn_items (tblreturn_id, product_id, price, quantity, total) VALUES (@tblreturn_id, @product_id, @price, @quantity, @total); SELECT SCOPE_IDENTITY()", conn, Transaction)
-                    cmd.Parameters.AddWithValue("@tblreturn_id", deliveryId)
-                    cmd.Parameters.AddWithValue("@product_id", item("pid"))
-                    cmd.Parameters.AddWithValue("@price", item("price"))
-                    cmd.Parameters.AddWithValue("@quantity", item("quantity"))
-                    cmd.Parameters.AddWithValue("@total", item("total"))
+    '        For Each item In ReturnDataGridView.Rows
+    '            If item IsNot Nothing AndAlso item.Count > 0 Then
+    '                ' Insert into tbldeliveries_items
+    '                cmd.Parameters.Clear()
+    '                cmd = New SqlCommand("INSERT INTO tblreturn_items (tblreturn_id, product_id, price, quantity, total) VALUES (@tblreturn_id, @product_id, @price, @quantity, @total); SELECT SCOPE_IDENTITY()", conn, transaction)
+    '                cmd.Parameters.AddWithValue("@tblreturn_id", deliveryId)
+    '                cmd.Parameters.AddWithValue("@product_id", item("pid"))
+    '                cmd.Parameters.AddWithValue("@price", item("price"))
+    '                cmd.Parameters.AddWithValue("@quantity", item("quantity"))
+    '                cmd.Parameters.AddWithValue("@total", item("total"))
 
-                    If cmd.ExecuteNonQuery <= 0 Then
-                        Throw New Exception("Failed to add return items!")
-                    End If
-                End If
-            Next
-            Transaction.Commit()
-        Catch ex As Exception
-            Transaction.Rollback()
-        End Try
-    End Sub
-
-    'Private Sub Guna2Button2_Click(sender As Object, e As EventArgs) Handles Guna2Button2.Click
-    '    Dim dialog As New UpdateExpiry
-    '    dialog.ShowDialog()
+    '                If cmd.ExecuteNonQuery <= 0 Then
+    '                    Throw New Exception("Failed to add return items!")
+    '                End If
+    '            End If
+    '        Next
+    '        transaction.Commit()
+    '    Catch ex As Exception
+    '        transaction.Rollback()
+    '    End Try
     'End Sub
 End Class

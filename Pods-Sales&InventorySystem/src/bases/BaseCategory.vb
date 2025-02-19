@@ -83,46 +83,46 @@ Public Class BaseCategory
         End Try
     End Function
 
-    Public Shared Function Count() As Integer
-        Try
-            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblcategories", conn)
+    'Public Shared Function Count() As Integer
+    '    Try
+    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+    '        Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblcategories", conn)
 
-            Return cmd.ExecuteScalar()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-            Return 0
-        End Try
-    End Function
+    '        Return cmd.ExecuteScalar()
+    '    Catch ex As Exception
+    '        MessageBox.Show(ex.Message)
+    '        Return 0
+    '    End Try
+    'End Function
 
-    Public Shared Function Category() As DataTable
-        Try
-            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As New SqlCommand("SELECT id, category FROM tblcategories", conn)
-            Dim dTable As New DataTable
-            Dim adapter As New SqlDataAdapter(cmd)
-            adapter.Fill(dTable)
-            Return dTable
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-            Return New DataTable
-        End Try
-    End Function
+    'Public Shared Function Category() As DataTable
+    '    Try
+    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+    '        Dim cmd As New SqlCommand("SELECT id, category FROM tblcategories", conn)
+    '        Dim dTable As New DataTable
+    '        Dim adapter As New SqlDataAdapter(cmd)
+    '        adapter.Fill(dTable)
+    '        Return dTable
+    '    Catch ex As Exception
+    '        MessageBox.Show(ex.Message)
+    '        Return New DataTable
+    '    End Try
+    'End Function
 
-    Public Shared Function FechCategory(id As String) As DataTable
-        Try
-            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As New SqlCommand("SELECT id, category FROM tblcategories where id = @id", conn)
-            cmd.Parameters.AddWithValue("@id", id)
-            Dim dTable As New DataTable
-            Dim adapter As New SqlDataAdapter(cmd)
-            adapter.Fill(dTable)
-            Return dTable
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-            Return New DataTable
-        End Try
-    End Function
+    'Public Shared Function FechCategory(id As String) As DataTable
+    '    Try
+    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+    '        Dim cmd As New SqlCommand("SELECT id, category FROM tblcategories where id = @id", conn)
+    '        cmd.Parameters.AddWithValue("@id", id)
+    '        Dim dTable As New DataTable
+    '        Dim adapter As New SqlDataAdapter(cmd)
+    '        adapter.Fill(dTable)
+    '        Return dTable
+    '    Catch ex As Exception
+    '        MessageBox.Show(ex.Message)
+    '        Return New DataTable
+    '    End Try
+    'End Function
 
 
 End Class

@@ -44,7 +44,7 @@ Public Class BaseReturn
                     _sqlCommand.Parameters.Clear()
                     _sqlCommand = New SqlCommand("INSERT INTO tblreturn_items (tblreturn_id, product_id, price, quantity, total) VALUES (@tblreturn_id, @product_id, @price, @quantity, @total); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
                     _sqlCommand.Parameters.AddWithValue("@tblreturn_id", deliveryId)
-                    _sqlCommand.Parameters.AddWithValue("@product_id", item("pid"))
+                    _sqlCommand.Parameters.AddWithValue("@product_id", item("id"))
                     _sqlCommand.Parameters.AddWithValue("@price", item("price"))
                     _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
                     _sqlCommand.Parameters.AddWithValue("@total", item("total"))
@@ -94,9 +94,13 @@ Public Class BaseReturn
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("select a.id, transaction_id, b.id as pid, b.product_name as name, a.price, a.quantity, total from tbltransaction_items a
-                                    join tblproducts b on b.id = a.product_id
-                                    where transaction_id = @transaction_id", conn)
+            cmd = New SqlCommand("SELECT b.id, 
+                                         b.product_name as name, 
+                                         a.price, 
+                                         a.quantity 
+                                  FROM tbltransaction_items a
+                                  JOIN tblproducts b ON b.id = a.product_id
+                                  WHERE transaction_id = @transaction_id", conn)
             cmd.Parameters.AddWithValue("@transaction_id", transaction_id)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
