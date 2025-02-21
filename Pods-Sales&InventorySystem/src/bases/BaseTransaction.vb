@@ -222,16 +222,34 @@ Public Class BaseTransaction
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT a.id as id, 
-                                         product_name, 
-                                         MAX(price) as price, 
-                                         SUM(b.inventory_quantity) as quantity
-                                FROM tblproducts a
-                                LEFT JOIN tbldeliveries_items b 
-                                ON a.id = b.product_id 
-                                WHERE barcode = @barcode
-                                GROUP BY a.id, 
-                                         product_name;", conn)
+            cmd = New SqlCommand("WITH 
+                                        LatestPrice AS (
+                                            SELECT 
+                                                b.product_id AS idngprod,
+                                                b.price,
+                                                ROW_NUMBER() OVER (PARTITION BY b.product_id ORDER BY b.id DESC) AS row_num
+                                            FROM tbldeliveries_items b
+                                            LEFT JOIN tblproducts a ON a.id = b.product_id
+                                            WHERE a.barcode = @barcode
+                                        ),
+                                        TotalQuantity AS (
+                                            SELECT 
+                                                b.product_id AS idngprod,
+                                                SUM(b.inventory_quantity) AS total_quantity
+                                            FROM tbldeliveries_items b
+                                            WHERE b.product_id IN (SELECT id FROM tblproducts WHERE barcode = @barcode)
+                                            GROUP BY b.product_id
+                                        )
+                                    SELECT 
+                                        a.id AS idngprod,
+                                        a.product_name,
+                                        lp.price AS price,
+                                        tq.total_quantity AS quantity
+                                    FROM tblproducts a
+                                    LEFT JOIN LatestPrice lp ON lp.idngprod = a.id AND lp.row_num = 1
+                                    LEFT JOIN TotalQuantity tq ON tq.idngprod = a.id
+                                    WHERE a.barcode = @barcode
+                                    ORDER BY idngprod DESC;", conn)
             cmd.Parameters.AddWithValue("@barcode", barcode)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)

@@ -41,7 +41,7 @@ Partial Class DiscountDialog
         Me.AddDiscountButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AddDiscountButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddDiscountButton.ForeColor = System.Drawing.Color.White
-        Me.AddDiscountButton.Location = New System.Drawing.Point(180, 213)
+        Me.AddDiscountButton.Location = New System.Drawing.Point(141, 186)
         Me.AddDiscountButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.AddDiscountButton.Name = "AddDiscountButton"
         Me.AddDiscountButton.Size = New System.Drawing.Size(128, 37)
@@ -62,20 +62,20 @@ Partial Class DiscountDialog
         Me.DiscountTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DiscountTextBox.ForeColor = System.Drawing.Color.Black
         Me.DiscountTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DiscountTextBox.Location = New System.Drawing.Point(56, 46)
+        Me.DiscountTextBox.Location = New System.Drawing.Point(21, 32)
         Me.DiscountTextBox.MaxLength = 2
         Me.DiscountTextBox.Name = "DiscountTextBox"
         Me.DiscountTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.DiscountTextBox.PlaceholderText = "0"
         Me.DiscountTextBox.SelectedText = ""
         Me.DiscountTextBox.ShortcutsEnabled = False
-        Me.DiscountTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.DiscountTextBox.Size = New System.Drawing.Size(242, 36)
         Me.DiscountTextBox.TabIndex = 7
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(35, 30)
+        Me.Label1.Location = New System.Drawing.Point(18, 16)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(60, 13)
         Me.Label1.TabIndex = 8
@@ -84,7 +84,7 @@ Partial Class DiscountDialog
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(28, 89)
+        Me.Label5.Location = New System.Drawing.Point(11, 75)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(108, 13)
         Me.Label5.TabIndex = 22
@@ -104,7 +104,7 @@ Partial Class DiscountDialog
         Me.DescriptionTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DescriptionTextBox.ForeColor = System.Drawing.Color.Black
         Me.DescriptionTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DescriptionTextBox.Location = New System.Drawing.Point(56, 106)
+        Me.DescriptionTextBox.Location = New System.Drawing.Point(21, 92)
         Me.DescriptionTextBox.MaxLength = 50
         Me.DescriptionTextBox.Multiline = True
         Me.DescriptionTextBox.Name = "DescriptionTextBox"
@@ -112,14 +112,14 @@ Partial Class DiscountDialog
         Me.DescriptionTextBox.PlaceholderText = ""
         Me.DescriptionTextBox.SelectedText = ""
         Me.DescriptionTextBox.ShortcutsEnabled = False
-        Me.DescriptionTextBox.Size = New System.Drawing.Size(200, 64)
+        Me.DescriptionTextBox.Size = New System.Drawing.Size(242, 64)
         Me.DescriptionTextBox.TabIndex = 21
         '
         'DiscountDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(320, 262)
+        Me.ClientSize = New System.Drawing.Size(281, 235)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.DescriptionTextBox)
         Me.Controls.Add(Me.Label1)
@@ -131,7 +131,7 @@ Partial Class DiscountDialog
         Me.Name = "DiscountDialog"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "DiscountDialog"
+        Me.Text = "Discount Dialog"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

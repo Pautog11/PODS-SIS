@@ -91,17 +91,18 @@ Partial Class Reports
         Me.Financial_Reports.Controls.Add(Me.FinancialReport1)
         Me.Financial_Reports.Location = New System.Drawing.Point(4, 44)
         Me.Financial_Reports.Name = "Financial_Reports"
-        Me.Financial_Reports.Size = New System.Drawing.Size(882, 518)
+        Me.Financial_Reports.Size = New System.Drawing.Size(1145, 543)
         Me.Financial_Reports.TabIndex = 1
         Me.Financial_Reports.Text = "Financial Reports"
         Me.Financial_Reports.UseVisualStyleBackColor = True
         '
         'FinancialReport1
         '
+        Me.FinancialReport1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.FinancialReport1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FinancialReport1.Location = New System.Drawing.Point(0, 0)
         Me.FinancialReport1.Name = "FinancialReport1"
-        Me.FinancialReport1.Size = New System.Drawing.Size(882, 518)
+        Me.FinancialReport1.Size = New System.Drawing.Size(1145, 543)
         Me.FinancialReport1.TabIndex = 0
         '
         'TabPage1
@@ -109,17 +110,18 @@ Partial Class Reports
         Me.TabPage1.Controls.Add(Me.CashierReport1)
         Me.TabPage1.Location = New System.Drawing.Point(4, 44)
         Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Size = New System.Drawing.Size(882, 518)
+        Me.TabPage1.Size = New System.Drawing.Size(1145, 543)
         Me.TabPage1.TabIndex = 2
         Me.TabPage1.Text = "Cashier Reports"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
         'CashierReport1
         '
+        Me.CashierReport1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.CashierReport1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.CashierReport1.Location = New System.Drawing.Point(0, 0)
         Me.CashierReport1.Name = "CashierReport1"
-        Me.CashierReport1.Size = New System.Drawing.Size(882, 518)
+        Me.CashierReport1.Size = New System.Drawing.Size(1145, 543)
         Me.CashierReport1.TabIndex = 0
         '
         'Reports

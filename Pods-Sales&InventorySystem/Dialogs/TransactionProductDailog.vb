@@ -20,38 +20,38 @@ Public Class TransactionProductDailog
     End Sub
     Private Sub TransactionCartDailog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            If _data IsNot Nothing Then
-                ProductNameTextBox.Text = _data.Item("productname")
-                PriceTextBox.Text = _data.Item("price")
-                ' QuantityTextBox.Text = _data.Item("quantity")
+            'If _data IsNot Nothing Then
+            '    ProductNameTextBox.Text = _data.Item("productname")
+            '    PriceTextBox.Text = _data.Item("price")
+            '    ' QuantityTextBox.Text = _data.Item("quantity")
 
-                Dim dipota As Integer = BaseTransaction.ScalarStocks(_data.Item("id"))
-                StocksTextBox.Text = dipota
-                AddTransactionButton.Text = "Update"
+            '    Dim dipota As Integer = BaseTransaction.ScalarStocks(_data.Item("id"))
+            '    StocksTextBox.Text = dipota
+            '    AddTransactionButton.Text = "Update"
 
-                'If _data.Item("id") IsNot Nothing Then
-                '    id = _data.Item("id")
-                '    AddTransactionButton.Text = "Add"
-                '    'VoidButton.Visible = False
-                '    BarcodeTextBox.Enabled = False
-                'End If
-                'VoidButton.Visible = False
-            ElseIf _dat2 IsNot Nothing Then
-                If _dat2.Item("id") IsNot Nothing Then
-                    id = _dat2.Item("id")
+            '    'If _data.Item("id") IsNot Nothing Then
+            '    '    id = _data.Item("id")
+            '    '    AddTransactionButton.Text = "Add"
+            '    '    'VoidButton.Visible = False
+            '    '    BarcodeTextBox.Enabled = False
+            '    'End If
+            '    'VoidButton.Visible = False
+            'ElseIf _dat2 IsNot Nothing Then
+            '    If _dat2.Item("id") IsNot Nothing Then
+            '        id = _dat2.Item("id")
 
-                    ProductNameTextBox.Text = _dat2.Item("productname")
-                    PriceTextBox.Text = _dat2.Item("price")
-                    StocksTextBox.Text = _dat2.Item("quantity")
-                    AddTransactionButton.Text = "Add"
-                    'VoidButton.Visible = False
-                    BarcodeTextBox.Enabled = False
-                    VoidButton.Visible = False
-                End If
-                'VoidButton.Visible = False
-            Else
-                VoidButton.Visible = False
-            End If
+            '        ProductNameTextBox.Text = _dat2.Item("productname")
+            '        PriceTextBox.Text = _dat2.Item("price")
+            '        StocksTextBox.Text = _dat2.Item("quantity")
+            '        AddTransactionButton.Text = "Add"
+            '        'VoidButton.Visible = False
+            '        BarcodeTextBox.Enabled = False
+            '        VoidButton.Visible = False
+            '    End If
+            '    'VoidButton.Visible = False
+            'Else
+            '    VoidButton.Visible = False
+            'End If
 
 
             'CategoryComboBox.DataSource = _tableAdapter.GetData
@@ -66,7 +66,7 @@ Public Class TransactionProductDailog
 
             'End If
         Catch ex As Exception
-
+            MsgBox(ex.Message)
         End Try
     End Sub
 
@@ -78,6 +78,15 @@ Public Class TransactionProductDailog
             End If
 
             Dim result As New List(Of Object()) From {InputValidation.ValidateInputString(QuantityTextBox, DataInput.STRING_INTEGER)}
+            Dim validationResult = TryCast(result(0), Object())
+            If validationResult IsNot Nothing AndAlso validationResult.Length > 0 Then
+                If Not validationResult(0) = True Then
+                    Exit Sub
+                End If
+            Else
+                Throw New Exception
+            End If
+
             Dim is_existing As Boolean = False
 
             If Not result.Any(Function(item As Object()) Not item(0)) Then
@@ -121,7 +130,7 @@ Public Class TransactionProductDailog
                 MessageBox.Show("Invalid quantity!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
         Catch ex As Exception
-
+            MsgBox(ex.Message)
         End Try
     End Sub
 
@@ -132,10 +141,10 @@ Public Class TransactionProductDailog
                 If Not res.Any(Function(item As Object()) Not item(0)) Then
                     Dim dt As DataTable = BaseTransaction.Sales(BarcodeTextBox.Text)
                     If BarcodeTextBox.Text.Length <= 13 AndAlso dt.Rows.Count > 0 Then
-                        id = If(String.IsNullOrEmpty(dt.Rows(0).Item("id").ToString()), "", dt.Rows(0).Item("id").ToString())
-                        ProductNameTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("product_name").ToString()), "", dt.Rows(0).Item("product_name").ToString())
-                        StocksTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("quantity").ToString()), "", dt.Rows(0).Item("quantity").ToString())
-                        PriceTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("price").ToString()), "", dt.Rows(0).Item("price").ToString())
+                        id = If(String.IsNullOrEmpty(dt.Rows(0).Item("idngprod").ToString()), 0, dt.Rows(0).Item("idngprod").ToString())
+                        ProductNameTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("product_name").ToString()), 0, dt.Rows(0).Item("product_name").ToString())
+                        StocksTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("quantity").ToString()), 0, dt.Rows(0).Item("quantity").ToString())
+                        PriceTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("price").ToString()), 0, dt.Rows(0).Item("price").ToString())
                         e.Handled = True
                     Else
                         Clear()
@@ -147,7 +156,7 @@ Public Class TransactionProductDailog
                 End If
             End If
         Catch ex As Exception
-
+            MsgBox(ex.Message)
         End Try
     End Sub
 
@@ -162,7 +171,7 @@ Public Class TransactionProductDailog
             _parent.UpdateVisualData()
             Me.Close()
         Catch ex As Exception
-
+            MsgBox(ex.Message)
         End Try
     End Sub
 

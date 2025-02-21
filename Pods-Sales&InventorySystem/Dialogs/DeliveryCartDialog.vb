@@ -30,11 +30,11 @@ Public Class DeliveryCartDialog
                 AddProductButton.Visible = False
                 SaveButton.Visible = False
                 SupplierNameComboBox.Enabled = False
-                DateTimePicker1.Enabled = False
+                DatePicker.Enabled = False
 
                 SupplierNameComboBox.Text = _data.Item("supplier_id")
                 TotalPrice.Text = _data("total")
-                DateTimePicker1.Value = _data("date")
+                DatePicker.Value = _data("date")
                 TransactionDeliveryTextBox.Enabled = False
                 TransactionDeliveryTextBox.Text = _data("delivery_number")
 
@@ -54,7 +54,7 @@ Public Class DeliveryCartDialog
                 'DataGridView1.DataSource = DeliveryItems.ToString
             Else
                 PulloutButton.Visible = False
-                DateTimePicker1.MaxDate = DateTime.Now
+                DatePicker.MaxDate = DateTime.Now
             End If
         Catch ex As Exception
 
@@ -112,7 +112,7 @@ Public Class DeliveryCartDialog
                     {"delivery_number", result(1)(1)},
                     {"supplier_id", If(DirectCast(SupplierNameComboBox.SelectedItem, DataRowView)("id"), String.Empty)},
                     {"total", If(String.IsNullOrEmpty(TotalPrice.Text) OrElse TotalPrice.Text = "", 0, TotalPrice.Text)},
-                    {"date", DateTimePicker1.Value.ToString("MMM dd yyyy")}
+                    {"date", DatePicker.Value.ToString("MMM dd yyyy")}
                 }
 
                 For Each row As DataGridViewRow In DeliveryDataGridView.Rows

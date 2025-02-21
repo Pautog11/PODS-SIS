@@ -38,13 +38,11 @@ Partial Class ProductDialog
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DoseComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.ManufacturerTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.StrengthTextBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.SkuTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.SubCategoryComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.StockLevelTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.DescriptionTextBox = New Guna.UI2.WinForms.Guna2TextBox()
@@ -68,7 +66,7 @@ Partial Class ProductDialog
         Me.TableLayoutPanel1.RowCount = 2
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(545, 407)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(527, 378)
         Me.TableLayoutPanel1.TabIndex = 1
         '
         'FlowLayoutPanel1
@@ -77,10 +75,10 @@ Partial Class ProductDialog
         Me.FlowLayoutPanel1.Controls.Add(Me.AddProductButton)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 352)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 323)
         Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(545, 55)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(527, 55)
         Me.FlowLayoutPanel1.TabIndex = 0
         '
         'DeleteProductButton
@@ -95,7 +93,7 @@ Partial Class ProductDialog
         Me.DeleteProductButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(18, Byte), Integer), CType(CType(31, Byte), Integer))
         Me.DeleteProductButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DeleteProductButton.ForeColor = System.Drawing.Color.White
-        Me.DeleteProductButton.Location = New System.Drawing.Point(414, 9)
+        Me.DeleteProductButton.Location = New System.Drawing.Point(396, 9)
         Me.DeleteProductButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.DeleteProductButton.Name = "DeleteProductButton"
         Me.DeleteProductButton.Size = New System.Drawing.Size(128, 35)
@@ -114,7 +112,7 @@ Partial Class ProductDialog
         Me.AddProductButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AddProductButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddProductButton.ForeColor = System.Drawing.Color.White
-        Me.AddProductButton.Location = New System.Drawing.Point(280, 8)
+        Me.AddProductButton.Location = New System.Drawing.Point(262, 8)
         Me.AddProductButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.AddProductButton.Name = "AddProductButton"
         Me.AddProductButton.Size = New System.Drawing.Size(128, 37)
@@ -133,13 +131,11 @@ Partial Class ProductDialog
         Me.Guna2Panel1.Controls.Add(Me.Label6)
         Me.Guna2Panel1.Controls.Add(Me.Label5)
         Me.Guna2Panel1.Controls.Add(Me.Label4)
-        Me.Guna2Panel1.Controls.Add(Me.Label3)
         Me.Guna2Panel1.Controls.Add(Me.Label2)
         Me.Guna2Panel1.Controls.Add(Me.Label1)
         Me.Guna2Panel1.Controls.Add(Me.DoseComboBox)
         Me.Guna2Panel1.Controls.Add(Me.ManufacturerTextBox)
         Me.Guna2Panel1.Controls.Add(Me.StrengthTextBox)
-        Me.Guna2Panel1.Controls.Add(Me.SkuTextBox)
         Me.Guna2Panel1.Controls.Add(Me.SubCategoryComboBox)
         Me.Guna2Panel1.Controls.Add(Me.StockLevelTextBox)
         Me.Guna2Panel1.Controls.Add(Me.DescriptionTextBox)
@@ -149,7 +145,7 @@ Partial Class ProductDialog
         Me.Guna2Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Size = New System.Drawing.Size(545, 352)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(527, 323)
         Me.Guna2Panel1.TabIndex = 1
         '
         'Label8
@@ -243,7 +239,7 @@ Partial Class ProductDialog
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(27, 246)
+        Me.Label5.Location = New System.Drawing.Point(27, 188)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(60, 13)
         Me.Label5.TabIndex = 20
@@ -252,20 +248,11 @@ Partial Class ProductDialog
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(27, 191)
+        Me.Label4.Location = New System.Drawing.Point(27, 133)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(75, 13)
         Me.Label4.TabIndex = 19
         Me.Label4.Text = "Product Name"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(27, 136)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(130, 13)
-        Me.Label3.TabIndex = 18
-        Me.Label3.Text = "SKU (Stock Keeping Unit)"
         '
         'Label2
         '
@@ -350,30 +337,6 @@ Partial Class ProductDialog
         Me.StrengthTextBox.Size = New System.Drawing.Size(97, 36)
         Me.StrengthTextBox.TabIndex = 13
         '
-        'SkuTextBox
-        '
-        Me.SkuTextBox.BorderColor = System.Drawing.Color.Gray
-        Me.SkuTextBox.BorderRadius = 10
-        Me.SkuTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.SkuTextBox.DefaultText = ""
-        Me.SkuTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.SkuTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.SkuTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.SkuTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.SkuTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.SkuTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.SkuTextBox.ForeColor = System.Drawing.Color.Black
-        Me.SkuTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.SkuTextBox.Location = New System.Drawing.Point(30, 152)
-        Me.SkuTextBox.MaxLength = 13
-        Me.SkuTextBox.Name = "SkuTextBox"
-        Me.SkuTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.SkuTextBox.PlaceholderText = ""
-        Me.SkuTextBox.SelectedText = ""
-        Me.SkuTextBox.ShortcutsEnabled = False
-        Me.SkuTextBox.Size = New System.Drawing.Size(225, 36)
-        Me.SkuTextBox.TabIndex = 11
-        '
         'SubCategoryComboBox
         '
         Me.SubCategoryComboBox.BackColor = System.Drawing.Color.Transparent
@@ -429,7 +392,7 @@ Partial Class ProductDialog
         Me.DescriptionTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DescriptionTextBox.ForeColor = System.Drawing.Color.Black
         Me.DescriptionTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DescriptionTextBox.Location = New System.Drawing.Point(30, 263)
+        Me.DescriptionTextBox.Location = New System.Drawing.Point(30, 205)
         Me.DescriptionTextBox.MaxLength = 50
         Me.DescriptionTextBox.Multiline = True
         Me.DescriptionTextBox.Name = "DescriptionTextBox"
@@ -454,7 +417,7 @@ Partial Class ProductDialog
         Me.ProductNameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.ProductNameTextBox.ForeColor = System.Drawing.Color.Black
         Me.ProductNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ProductNameTextBox.Location = New System.Drawing.Point(30, 207)
+        Me.ProductNameTextBox.Location = New System.Drawing.Point(30, 149)
         Me.ProductNameTextBox.MaxLength = 30
         Me.ProductNameTextBox.Name = "ProductNameTextBox"
         Me.ProductNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -492,7 +455,7 @@ Partial Class ProductDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(545, 407)
+        Me.ClientSize = New System.Drawing.Size(527, 378)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
@@ -518,7 +481,6 @@ Partial Class ProductDialog
     Friend WithEvents ProductNameTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents BarcodeTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents SubCategoryComboBox As Guna.UI2.WinForms.Guna2ComboBox
-    Friend WithEvents SkuTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents DoseComboBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents ManufacturerTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents StrengthTextBox As Guna.UI2.WinForms.Guna2TextBox
@@ -530,7 +492,6 @@ Partial Class ProductDialog
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
-    Friend WithEvents Label3 As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents Guna2AnimateWindow1 As Guna.UI2.WinForms.Guna2AnimateWindow
     Friend WithEvents DosageFormComboBox As Guna.UI2.WinForms.Guna2ComboBox

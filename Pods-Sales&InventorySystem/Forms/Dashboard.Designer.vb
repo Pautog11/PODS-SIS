@@ -64,16 +64,16 @@ Partial Class Dashboard
         Me.Delivery1 = New Pods_Sales_InventorySystem.Delivery()
         Me.Inventory = New System.Windows.Forms.TabPage()
         Me.Inventory1 = New Pods_Sales_InventorySystem.Inventory()
-        Me.Activity = New System.Windows.Forms.TabPage()
-        Me.AuditTrail1 = New Pods_Sales_InventorySystem.Activity()
-        Me.Transaction = New System.Windows.Forms.TabPage()
-        Me.Transaction1 = New Pods_Sales_InventorySystem.Transaction()
-        Me.Reports = New System.Windows.Forms.TabPage()
-        Me.Reports1 = New Pods_Sales_InventorySystem.Reports()
-        Me.Witdrawal = New System.Windows.Forms.TabPage()
-        Me.ReturnAndPullout1 = New Pods_Sales_InventorySystem.ReturnAndPullout()
         Me.Pos = New System.Windows.Forms.TabPage()
         Me.PosPanel1 = New Pods_Sales_InventorySystem.PosPanel()
+        Me.Transaction = New System.Windows.Forms.TabPage()
+        Me.Transaction1 = New Pods_Sales_InventorySystem.Transaction()
+        Me.Witdrawal = New System.Windows.Forms.TabPage()
+        Me.ReturnAndPullout1 = New Pods_Sales_InventorySystem.ReturnAndPullout()
+        Me.Reports = New System.Windows.Forms.TabPage()
+        Me.Reports1 = New Pods_Sales_InventorySystem.Reports()
+        Me.Activity = New System.Windows.Forms.TabPage()
+        Me.AuditTrail1 = New Pods_Sales_InventorySystem.Activity()
         Me.Guna2ContextMenuStrip1 = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -99,11 +99,11 @@ Partial Class Dashboard
         Me.Products.SuspendLayout()
         Me.Deliveries.SuspendLayout()
         Me.Inventory.SuspendLayout()
-        Me.Activity.SuspendLayout()
-        Me.Transaction.SuspendLayout()
-        Me.Reports.SuspendLayout()
-        Me.Witdrawal.SuspendLayout()
         Me.Pos.SuspendLayout()
+        Me.Transaction.SuspendLayout()
+        Me.Witdrawal.SuspendLayout()
+        Me.Reports.SuspendLayout()
+        Me.Activity.SuspendLayout()
         Me.Guna2ContextMenuStrip1.SuspendLayout()
         CType(Me.DSReport, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DTTransactionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -663,26 +663,25 @@ Partial Class Dashboard
         Me.Inventory1.Size = New System.Drawing.Size(1180, 714)
         Me.Inventory1.TabIndex = 0
         '
-        'Activity
+        'Pos
         '
-        Me.Activity.Controls.Add(Me.AuditTrail1)
-        Me.Activity.Location = New System.Drawing.Point(184, 4)
-        Me.Activity.Margin = New System.Windows.Forms.Padding(0)
-        Me.Activity.Name = "Activity"
-        Me.Activity.Size = New System.Drawing.Size(1180, 714)
-        Me.Activity.TabIndex = 2
-        Me.Activity.Text = "Activity"
-        Me.Activity.UseVisualStyleBackColor = True
+        Me.Pos.Controls.Add(Me.PosPanel1)
+        Me.Pos.Location = New System.Drawing.Point(184, 4)
+        Me.Pos.Margin = New System.Windows.Forms.Padding(0)
+        Me.Pos.Name = "Pos"
+        Me.Pos.Size = New System.Drawing.Size(1180, 714)
+        Me.Pos.TabIndex = 9
+        Me.Pos.Text = "Pos"
+        Me.Pos.UseVisualStyleBackColor = True
         '
-        'AuditTrail1
+        'PosPanel1
         '
-        Me.AuditTrail1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.AuditTrail1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AuditTrail1.Location = New System.Drawing.Point(0, 0)
-        Me.AuditTrail1.Margin = New System.Windows.Forms.Padding(0)
-        Me.AuditTrail1.Name = "AuditTrail1"
-        Me.AuditTrail1.Size = New System.Drawing.Size(1180, 714)
-        Me.AuditTrail1.TabIndex = 0
+        Me.PosPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PosPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.PosPanel1.Margin = New System.Windows.Forms.Padding(0)
+        Me.PosPanel1.Name = "PosPanel1"
+        Me.PosPanel1.Size = New System.Drawing.Size(1180, 714)
+        Me.PosPanel1.TabIndex = 0
         '
         'Transaction
         '
@@ -705,27 +704,6 @@ Partial Class Dashboard
         Me.Transaction1.Size = New System.Drawing.Size(1180, 714)
         Me.Transaction1.TabIndex = 0
         '
-        'Reports
-        '
-        Me.Reports.Controls.Add(Me.Reports1)
-        Me.Reports.Location = New System.Drawing.Point(184, 4)
-        Me.Reports.Margin = New System.Windows.Forms.Padding(0)
-        Me.Reports.Name = "Reports"
-        Me.Reports.Size = New System.Drawing.Size(1180, 714)
-        Me.Reports.TabIndex = 6
-        Me.Reports.Text = "Reports"
-        Me.Reports.UseVisualStyleBackColor = True
-        '
-        'Reports1
-        '
-        Me.Reports1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Reports1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Reports1.Location = New System.Drawing.Point(0, 0)
-        Me.Reports1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Reports1.Name = "Reports1"
-        Me.Reports1.Size = New System.Drawing.Size(1180, 714)
-        Me.Reports1.TabIndex = 0
-        '
         'Witdrawal
         '
         Me.Witdrawal.Controls.Add(Me.ReturnAndPullout1)
@@ -747,25 +725,47 @@ Partial Class Dashboard
         Me.ReturnAndPullout1.Size = New System.Drawing.Size(1180, 714)
         Me.ReturnAndPullout1.TabIndex = 0
         '
-        'Pos
+        'Reports
         '
-        Me.Pos.Controls.Add(Me.PosPanel1)
-        Me.Pos.Location = New System.Drawing.Point(184, 4)
-        Me.Pos.Margin = New System.Windows.Forms.Padding(0)
-        Me.Pos.Name = "Pos"
-        Me.Pos.Size = New System.Drawing.Size(1180, 714)
-        Me.Pos.TabIndex = 9
-        Me.Pos.Text = "Pos"
-        Me.Pos.UseVisualStyleBackColor = True
+        Me.Reports.Controls.Add(Me.Reports1)
+        Me.Reports.Location = New System.Drawing.Point(184, 4)
+        Me.Reports.Margin = New System.Windows.Forms.Padding(0)
+        Me.Reports.Name = "Reports"
+        Me.Reports.Size = New System.Drawing.Size(1180, 714)
+        Me.Reports.TabIndex = 6
+        Me.Reports.Text = "Reports"
+        Me.Reports.UseVisualStyleBackColor = True
         '
-        'PosPanel1
+        'Reports1
         '
-        Me.PosPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PosPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.PosPanel1.Margin = New System.Windows.Forms.Padding(0)
-        Me.PosPanel1.Name = "PosPanel1"
-        Me.PosPanel1.Size = New System.Drawing.Size(1180, 714)
-        Me.PosPanel1.TabIndex = 0
+        Me.Reports1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Reports1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Reports1.Location = New System.Drawing.Point(0, 0)
+        Me.Reports1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Reports1.Name = "Reports1"
+        Me.Reports1.Size = New System.Drawing.Size(1180, 714)
+        Me.Reports1.TabIndex = 0
+        '
+        'Activity
+        '
+        Me.Activity.Controls.Add(Me.AuditTrail1)
+        Me.Activity.Location = New System.Drawing.Point(184, 4)
+        Me.Activity.Margin = New System.Windows.Forms.Padding(0)
+        Me.Activity.Name = "Activity"
+        Me.Activity.Size = New System.Drawing.Size(1180, 714)
+        Me.Activity.TabIndex = 2
+        Me.Activity.Text = "Activity"
+        Me.Activity.UseVisualStyleBackColor = True
+        '
+        'AuditTrail1
+        '
+        Me.AuditTrail1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.AuditTrail1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.AuditTrail1.Location = New System.Drawing.Point(0, 0)
+        Me.AuditTrail1.Margin = New System.Windows.Forms.Padding(0)
+        Me.AuditTrail1.Name = "AuditTrail1"
+        Me.AuditTrail1.Size = New System.Drawing.Size(1180, 714)
+        Me.AuditTrail1.TabIndex = 0
         '
         'Guna2ContextMenuStrip1
         '
@@ -838,11 +838,11 @@ Partial Class Dashboard
         Me.Products.ResumeLayout(False)
         Me.Deliveries.ResumeLayout(False)
         Me.Inventory.ResumeLayout(False)
-        Me.Activity.ResumeLayout(False)
-        Me.Transaction.ResumeLayout(False)
-        Me.Reports.ResumeLayout(False)
-        Me.Witdrawal.ResumeLayout(False)
         Me.Pos.ResumeLayout(False)
+        Me.Transaction.ResumeLayout(False)
+        Me.Witdrawal.ResumeLayout(False)
+        Me.Reports.ResumeLayout(False)
+        Me.Activity.ResumeLayout(False)
         Me.Guna2ContextMenuStrip1.ResumeLayout(False)
         CType(Me.DSReport, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DTTransactionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

@@ -94,7 +94,7 @@ Public Class FinancialReport
             'cmd = New SqlCommand("SELECT 
             '                            th.transaction_number AS TRANSACTION#, 
             '                            CONCAT(ac.last_name, ' ', ac.first_name) AS CASHIER,  
-            '                            SUM(ti.total) AS TOTAL, 
+            '                          SUM(ti.total) AS TOTAL, 
             '                            th.date AS DATE, 
             '                            SUM((ti.price - di.cost_price) * ti.quantity) AS REVENUE
             '                        FROM 
@@ -113,13 +113,32 @@ Public Class FinancialReport
             '                            ac.last_name, 
             '                            th.date", conn)
 
-            cmd = New SqlCommand("SELECT product_name, price, cost, sum(price - cost) as kita from tbltransactions a
-                                    JOIN tbltransaction_items b on a.id = b.transaction_id
-                                    JOIN tblproducts c on b.product_id = c.id
-                                    JOIN getrev d on d.transaction_id = a.id
-                                    GROUP BY product_name, price, cost", conn)
-            cmd.Parameters.AddWithValue("@start_date", DateTimePicker1.Value.ToString("yyyy-MM-dd"))
-            cmd.Parameters.AddWithValue("@end_date", DateTimePicker2.Value.ToString("yyyy-MM-dd"))
+            cmd = New SqlCommand("WITH
+                                    Panuway AS (
+                                        SELECT transaction_id AS id, price,
+		                                product_id
+                                        FROM tbltransaction_items 
+                                        --WHERE transaction_id = @id
+                                    ),
+                                    Dipota AS (
+                                        SELECT transaction_id AS id, cost , quantity
+                                        FROM getrev 
+                                        --WHERE transaction_id = @id and quantity !=0
+                                    ),
+	                                Magic as (
+		                                SELECT a.id, product_id, price, a.cost, a.quantity, sum(price * a.quantity) as total, sum(a.cost * a.quantity) as kapital
+		                                FROM Dipota a
+		                                JOIN Panuway b ON a.id = b.id
+		                                group by a.id, product_id, price, a.cost, a.quantity
+	                                ),
+	                                Tite as (
+	                                Select id, product_id, price, cost, quantity, total, kapital, sum(total - kapital) as tubo from Magic
+	                                group by id, product_id, price, cost, quantity, total, kapital
+	                                )
+                                select b.id, b.transaction_number, sum(a.total) as total, b.date, b.account_id, sum(a.tubo) as Revenue from Tite a left join tbltransactions b on a.id = b.id
+                                group by b.id, b.transaction_number, b.date, b.account_id", conn)
+            'cmd.Parameters.AddWithValue("@start_date", DateTimePicker1.Value.ToString("yyyy-MM-dd"))
+            'cmd.Parameters.AddWithValue("@end_date", DateTimePicker2.Value.ToString("yyyy-MM-dd"))
             'End If
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)

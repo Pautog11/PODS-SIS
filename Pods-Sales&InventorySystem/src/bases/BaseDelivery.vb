@@ -189,15 +189,14 @@ Public Class BaseDelivery
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT top 1 p.id AS id, 
-                                               subcategory_id, 
-                                               sku, 
+            cmd = New SqlCommand("SELECT TOP 1 p.id AS id, di.id as idngdeli,
+                                               subcategory_id,
                                                product_name, 
                                                ISNULL(cost_price, 0) AS cost_price, 
                                                ISNULL(price, 0) AS price 
                                   FROM tblproducts p 
                                   LEFT JOIN tbldeliveries_items di ON p.id = di.product_id WHERE barcode = @barcode
-                                  ORDER BY price DESC", conn)
+                                  ORDER BY idngdeli DESC", conn)
             cmd.Parameters.AddWithValue("@barcode", barcode)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
@@ -235,6 +234,30 @@ Public Class BaseDelivery
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return New DataTable
+        End Try
+    End Function
+
+    ''' <summary>
+    ''' Price check shoild not lower than from the current price
+    ''' </summary>
+    ''' <param name="price"></param>
+    ''' <param name="id"></param>
+    ''' <returns></returns>
+    Public Shared Function Pricing(price As Decimal, id As Integer) As Integer
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("SELECT COUNT(*) 
+                                 FROM tbldeliveries_items 
+                                 WHERE price > @price 
+                                 AND inventory_quantity != 0 
+                                 AND product_id = @id", conn)
+            cmd.Parameters.AddWithValue("@price", price)
+            cmd.Parameters.AddWithValue("@id", id)
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
         End Try
     End Function
 End Class

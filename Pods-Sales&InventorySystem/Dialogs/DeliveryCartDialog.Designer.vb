@@ -36,7 +36,6 @@ Partial Class DeliveryCartDialog
         Me.Guna2HtmlLabel2 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Guna2HtmlLabel3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.TotalPrice = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
@@ -51,6 +50,7 @@ Partial Class DeliveryCartDialog
         Me.cost_price = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.quantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DatePicker = New Guna.UI2.WinForms.Guna2DateTimePicker()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.AccountHeaderLayoutPanel.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -120,7 +120,7 @@ Partial Class DeliveryCartDialog
         Me.SupplierNameComboBox.ItemHeight = 30
         Me.SupplierNameComboBox.Location = New System.Drawing.Point(92, 5)
         Me.SupplierNameComboBox.Name = "SupplierNameComboBox"
-        Me.SupplierNameComboBox.Size = New System.Drawing.Size(136, 36)
+        Me.SupplierNameComboBox.Size = New System.Drawing.Size(178, 36)
         Me.SupplierNameComboBox.TabIndex = 1
         '
         'SuppliersLabel
@@ -198,8 +198,8 @@ Partial Class DeliveryCartDialog
         '
         'Guna2Panel1
         '
+        Me.Guna2Panel1.Controls.Add(Me.DatePicker)
         Me.Guna2Panel1.Controls.Add(Me.Guna2HtmlLabel3)
-        Me.Guna2Panel1.Controls.Add(Me.DateTimePicker1)
         Me.Guna2Panel1.Controls.Add(Me.TotalPrice)
         Me.Guna2Panel1.Controls.Add(Me.Guna2HtmlLabel1)
         Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -216,13 +216,6 @@ Partial Class DeliveryCartDialog
         Me.Guna2HtmlLabel3.Size = New System.Drawing.Size(26, 15)
         Me.Guna2HtmlLabel3.TabIndex = 4
         Me.Guna2HtmlLabel3.Text = "Date"
-        '
-        'DateTimePicker1
-        '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(751, 11)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(200, 20)
-        Me.DateTimePicker1.TabIndex = 3
         '
         'TotalPrice
         '
@@ -400,6 +393,21 @@ Partial Class DeliveryCartDialog
         Me.total.Name = "total"
         Me.total.ReadOnly = True
         '
+        'DatePicker
+        '
+        Me.DatePicker.BorderRadius = 15
+        Me.DatePicker.Checked = True
+        Me.DatePicker.FillColor = System.Drawing.Color.White
+        Me.DatePicker.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.DatePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
+        Me.DatePicker.Location = New System.Drawing.Point(754, 4)
+        Me.DatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.DatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.DatePicker.Name = "DatePicker"
+        Me.DatePicker.Size = New System.Drawing.Size(200, 36)
+        Me.DatePicker.TabIndex = 5
+        Me.DatePicker.Value = New Date(2025, 2, 21, 14, 59, 33, 737)
+        '
         'DeliveryCartDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -436,7 +444,6 @@ Partial Class DeliveryCartDialog
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents TotalPrice As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Guna2HtmlLabel1 As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents TransactionDeliveryTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents Guna2HtmlLabel2 As Guna.UI2.WinForms.Guna2HtmlLabel
@@ -453,4 +460,5 @@ Partial Class DeliveryCartDialog
     Friend WithEvents cost_price As DataGridViewTextBoxColumn
     Friend WithEvents quantity As DataGridViewTextBoxColumn
     Friend WithEvents total As DataGridViewTextBoxColumn
+    Friend WithEvents DatePicker As Guna.UI2.WinForms.Guna2DateTimePicker
 End Class

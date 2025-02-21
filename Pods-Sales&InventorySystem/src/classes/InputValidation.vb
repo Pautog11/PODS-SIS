@@ -58,84 +58,24 @@ Public Class InputValidation
                     '    MessageBox.Show("Invalid name.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
             Case DataInput.STRING_NAME
-                'If stringInput.Count > 1 Then
-                '    Dim nameString As String() = stringInput.Split(" ")
-                '    For i = 0 To nameString.Count - 1
-                '        Dim charArr As Char() = nameString(i).ToArray()
-                '        charArr(0) = CStr(charArr(0)).ToUpper
-                '        nameString(i) = String.Join("", charArr)
-                '    Next
-                '    Return {True, String.Join(" ", nameString)}
-                'End If
-
-                'If stringInput.Count > 1 Then
-                '    Dim nameString As String() = stringInput.Split(" ")
-                '    Dim regex As New Regex("^[A-Za-z]")
-
-                '    For i = 0 To nameString.Count - 1
-                '        If regex.IsMatch(nameString(i)) Then
-                '            Dim charArr As Char() = nameString(i).ToArray()
-                '            charArr(0) = Char.ToUpper(charArr(0))
-                '            nameString(i) = String.Join("", charArr)
-                '            Return {True, String.Join(" ", nameString)}
-                '        End If
-                '    Next
-                'End If
-                '---------------------------------------------------------------------------------------
-                'stringInput = System.Text.RegularExpressions.Regex.Replace(stringInput.Trim(), "\s+", " ")
-
-                '' Check if there's more than one word
-                'If stringInput.Count > 1 Then
-                '    ' Split the string into words
-                '    Dim nameString As String() = stringInput.Split(" "c)
-                '    Dim regex As New Regex("^[A-Za-z]")
-
-                '    ' Iterate through each word
-                '    For i = 0 To nameString.Count - 1
-                '        ' Capitalize the first letter if the word contains alphabetic characters
-                '        If regex.IsMatch(nameString(i)) Then
-                '            ' Capitalize the first character and join the rest of the word
-                '            Dim charArr As Char() = nameString(i).ToArray()
-                '            charArr(0) = Char.ToUpper(charArr(0))
-                '            nameString(i) = String.Join("", charArr)
-                '        End If
-                '    Next
-
-                '    ' Return the processed result
-                '    Return {True, String.Join(" ", nameString)}
-                'End If
-
                 If stringInput.Count > 1 Then
-                    ' Split the string into words
                     Dim nameString As String() = stringInput.Split(" "c)
-
-                    ' Regex to match words with only alphabetic characters or specific special symbols (",", "&", ".", "'")
                     Dim allowedCharsRegex As New Regex("^[A-Za-z,.'&-]+$")
-
-                    ' Iterate through each word
                     For i = 0 To nameString.Count - 1
-                        ' Check if the word only contains allowed characters (alphabetic or specific symbols)
                         If Not allowedCharsRegex.IsMatch(nameString(i)) Then
                             MessageBox.Show("Invalid characters detected.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                             Return {False}
                         End If
-
-                        ' Capitalize the first letter if the word contains alphabetic characters
                         If nameString(i).Any(Function(c) Char.IsLetter(c)) Then
-                            ' Capitalize the first character and join the rest of the word
                             Dim charArr As Char() = nameString(i).ToArray()
                             charArr(0) = Char.ToUpper(charArr(0))
                             nameString(i) = String.Join("", charArr)
                         End If
                     Next
-
-                    ' Return the processed result
                     Return {True, String.Join(" ", nameString)}
                 Else
                     MessageBox.Show("Invalid name.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
-
-
 
             Case DataInput.STRING_PASSWORD
                 'if Regex.IsMatch(stringInput, "^(?=.*[0-9])(?= .*[@#$%^&+=]).{8,}$") Then
@@ -147,19 +87,12 @@ Public Class InputValidation
                 '    Return {True, start_trim_o}
                 'End If
 
-                ' Trim any leading/trailing spaces
                 start_trim_o = start_trim_o.Trim()
-
-                ' Check if the phone number matches the pattern for mobile numbers
                 If Regex.IsMatch(start_trim_o, "^(\+639|09)\d{2}[-\s]?\d{3}[-\s]?\d{4}$") Then
-                    ' Remove spaces and dashes from the phone number
                     If start_trim_o.StartsWith("+63") Then
                         start_trim_o = "0" & start_trim_o.Substring(3)
                     End If
-
                     start_trim_o = Regex.Replace(start_trim_o, "[-\s]", "")
-
-                    ' Return the cleaned phone number
                     Return {True, start_trim_o}
                     'Else
                     '    ' If the phone number does not match the expected pattern
@@ -197,88 +130,61 @@ Public Class InputValidation
                         Return {False, "Invalid date."}
                     End If
                 Else
-                    'MsgBox("Invalid date format.")
-                    'Return {False, "Invalid date format."}
                     MessageBox.Show("Invalid date format.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
 
             Case DataInput.STRING_PNAME
-                'If stringInput.Count > 1 Then
-                '    ' Split the string into words
-                '    Dim nameString As String() = stringInput.Split(" "c)
-                '    Dim regex As New Regex("^[A-Za-z]")
-
-                '    ' Iterate through each word
-                '    For i = 0 To nameString.Count - 1
-                '        ' Capitalize the first letter if the word contains alphabetic characters
-                '        If regex.IsMatch(nameString(i)) Then
-                '            ' Capitalize the first character and join the rest of the word
-                '            Dim charArr As Char() = nameString(i).ToArray()
-                '            charArr(0) = Char.ToUpper(charArr(0))
-                '            nameString(i) = String.Join("", charArr)
-                '        End If
-                '    Next
-                '    Return {True, String.Join(" ", nameString)}
-                'End If
-
                 If stringInput.Count > 1 Then
-                    ' Trim extra spaces and split the string into words
                     Dim nameString As String() = stringInput.Trim().Split(New Char() {" "c}, StringSplitOptions.RemoveEmptyEntries)
-
-                    ' Regex to match words with only alphabetic characters or specific special characters ("-" and ".")
                     Dim regex As New Regex("^[A-Za-z.-]+$")
-
-                    ' Iterate through each word
                     For i = 0 To nameString.Count - 1
-                        ' Check if the word only contains valid characters (alphabetic or "-" or ".")
                         If Not regex.IsMatch(nameString(i)) Then
                             MessageBox.Show("Invalid characters detected.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                             Return {False}
                         End If
-
-                        ' Capitalize the first letter if the word contains alphabetic characters
                         If nameString(i).Any(Function(c) Char.IsLetter(c)) Then
-                            ' Capitalize the first character and join the rest of the word
                             Dim charArr As Char() = nameString(i).ToArray()
                             charArr(0) = Char.ToUpper(charArr(0))
                             nameString(i) = String.Join("", charArr)
                         End If
                     Next
-
-                    ' Return the processed result (with single spaces between words)
                     Return {True, String.Join(" ", nameString)}
                 Else
                     MessageBox.Show("Invalid name.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
 
             Case DataInput.STRING_TEL
-                If Regex.IsMatch(start_trim_o, "^(?:\+639|09)\d{2}[-\s]?\d{3}[-\s]?\d{4}$|^\d{4}[-\s]?\d{4}$") Then
-                    ' Trim leading and trailing spaces before processing
+                'If Regex.IsMatch(start_trim_o, "^(?:\+639|09)\d{2}[-\s]?\d{3}[-\s]?\d{4}$|^\d{4}[-\s]?\d{4}$") Then
+                '    start_trim_o = start_trim_o.Trim()
+                '    If start_trim_o.StartsWith("+63") Then
+                '        start_trim_o = "0" & start_trim_o.Substring(3)
+                '    End If
+                '    start_trim_o = Regex.Replace(start_trim_o, "[-\s]", "")
+                '    Return {True, start_trim_o}
+                'Else
+                '    MessageBox.Show("Invalid phone number.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                'End If
+
+                If Regex.IsMatch(start_trim_o, "^(?:\+639|09)\d{2}[-\s]?\d{3}[-\s]?\d{4}$|^\d{4}[-\s]?\d{4}$|^\d{2}[-\s]?\d{3}[-\s]?\d{4}$") Then
                     start_trim_o = start_trim_o.Trim()
-
-                    ' Remove spaces and dashes from the phone number
                     If start_trim_o.StartsWith("+63") Then
-                        start_trim_o = "0" & start_trim_o.Substring(3) ' Convert +63 to 0
+                        start_trim_o = "0" & start_trim_o.Substring(3)
                     End If
-
-                    ' Remove all spaces and dashes from the phone number
-                    'start_trim_o = String.Join(" ", start_trim_o.Split(New Char() {" "c}, StringSplitOptions.RemoveEmptyEntries))
                     start_trim_o = Regex.Replace(start_trim_o, "[-\s]", "")
-                    ' Return the cleaned phone number
                     Return {True, start_trim_o}
                 Else
-                    MessageBox.Show("Invalid phone number.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    MessageBox.Show("Invalid phone or telephone number.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
 
+
+
             Case DataInput.STRING_DECIMAL
-                ' Adjust Regex to allow decimals (e.g., 123.45)
                 If Regex.IsMatch(stringInput, "^\d+(\.\d{1,2})?$") Then
                     Return {True, stringInput}
                 Else
                     MessageBox.Show("Please enter a valid decimal number.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Return {False, Nothing}
                 End If
-
         End Select
         control.BorderColor = Color.Red
         Return {False, stringInput}

@@ -76,9 +76,13 @@ Public Class DeliveryProductDialog
                     Throw New Exception
                 End If
             Next
+            If Not (BaseDelivery.Pricing(result(1)(1), id) = 0) Then
+                MessageBox.Show("Lugi ka angkol", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Exit Sub
+            End If
 
             If Val(CostTextBox.Text) >= Val(SellingTextBox.Text) Then
-                MessageBox.Show("It should not be less than the cost price.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                MessageBox.Show("It should not be less than the cost price.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Exit Sub
             End If
             If Not result.Any(Function(item As Object()) Not item(0)) Then
@@ -123,7 +127,6 @@ Public Class DeliveryProductDialog
                         End If
                     End If
                 Next
-
 
                 _parent.UpdateVisualData()
                 Me.Close()

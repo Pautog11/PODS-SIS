@@ -14,6 +14,12 @@
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Observer Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
+
+        Dim dt As DataTable = BaseTransaction.FetchDiscounts
+        DiscountComboBox.DataSource = dt.DefaultView
+        DiscountComboBox.DisplayMember = "des"
+        DiscountComboBox.ValueMember = "discount"
+
         _timer.Interval = 1000
         _timer.Start()
     End Sub
