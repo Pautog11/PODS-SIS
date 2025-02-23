@@ -28,7 +28,6 @@ Partial Class Transaction
         Me.TransactionDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.AccountHeaderLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.DeliverySearchTextBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.AddTransactionButton = New Guna.UI2.WinForms.Guna2Button()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         CType(Me.TransactionDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.AccountHeaderLayoutPanel.SuspendLayout()
@@ -99,7 +98,6 @@ Partial Class Transaction
         Me.AccountHeaderLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.AccountHeaderLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.AccountHeaderLayoutPanel.Controls.Add(Me.DeliverySearchTextBox, 0, 0)
-        Me.AccountHeaderLayoutPanel.Controls.Add(Me.AddTransactionButton, 1, 0)
         Me.AccountHeaderLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AccountHeaderLayoutPanel.Location = New System.Drawing.Point(3, 3)
         Me.AccountHeaderLayoutPanel.Name = "AccountHeaderLayoutPanel"
@@ -133,24 +131,6 @@ Partial Class Transaction
         Me.DeliverySearchTextBox.Size = New System.Drawing.Size(200, 36)
         Me.DeliverySearchTextBox.TabIndex = 3
         '
-        'AddTransactionButton
-        '
-        Me.AddTransactionButton.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.AddTransactionButton.BackColor = System.Drawing.Color.Transparent
-        Me.AddTransactionButton.BorderRadius = 15
-        Me.AddTransactionButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.AddTransactionButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.AddTransactionButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.AddTransactionButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.AddTransactionButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.AddTransactionButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.AddTransactionButton.ForeColor = System.Drawing.Color.White
-        Me.AddTransactionButton.Location = New System.Drawing.Point(734, 4)
-        Me.AddTransactionButton.Name = "AddTransactionButton"
-        Me.AddTransactionButton.Size = New System.Drawing.Size(150, 35)
-        Me.AddTransactionButton.TabIndex = 2
-        Me.AddTransactionButton.Text = "Add"
-        '
         'TableLayoutPanel1
         '
         Me.TableLayoutPanel1.ColumnCount = 1
@@ -183,7 +163,6 @@ Partial Class Transaction
 
     Friend WithEvents TransactionDataGridView As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents AccountHeaderLayoutPanel As TableLayoutPanel
-    Friend WithEvents AddTransactionButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents DeliverySearchTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
 End Class

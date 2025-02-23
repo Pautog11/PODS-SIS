@@ -2,8 +2,8 @@
 Public Class Account
     Implements IObserverPanel
     Private _subject As IObservablePanel
-    Private ReadOnly _tableAapter As New podsTableAdapters.viewtblaccountsTableAdapter 'podsTableAdapters.tblaccountsTableAdapter
-    Private _dataTable As New pods.viewtblaccountsDataTable 'pods.tblaccountsDataTable
+    Private ReadOnly _tableAapter As New podsTableAdapters.viewtblaccountsTableAdapter
+    Private _dataTable As New pods.viewtblaccountsDataTable
 
     Private Sub Account_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try

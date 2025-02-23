@@ -24,10 +24,10 @@
         TransactionDataGridView.Columns.Item("SUBTOTAL").Visible = False
     End Sub
 
-    Private Sub AddDeliveryButton_Click(sender As Object, e As EventArgs) Handles AddTransactionButton.Click
-        Dim dialog As New TransactionDialog(subject:=_subject)
-        dialog.ShowDialog()
-    End Sub
+    'Private Sub AddDeliveryButton_Click(sender As Object, e As EventArgs)
+    '    Dim dialog As New TransactionDialog(subject:=_subject)
+    '    dialog.ShowDialog()
+    'End Sub
 
     Private Sub TransactionDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles TransactionDataGridView.CellClick
         If TransactionDataGridView.SelectedRows.Count > 0 Then

@@ -15,11 +15,6 @@
             MessageBox.Show(ex.Message, "Observer Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
-        Dim dt As DataTable = BaseTransaction.FetchDiscounts
-        DiscountComboBox.DataSource = dt.DefaultView
-        DiscountComboBox.DisplayMember = "des"
-        DiscountComboBox.ValueMember = "discount"
-
         _timer.Interval = 1000
         _timer.Start()
     End Sub
@@ -27,6 +22,11 @@
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
         Reference_number.Text = Helpers.GenInvoiceNumber(InvoiceType.Transaction)
         Datepurchased.Text = DateAndTime.Now.ToString("F")
+
+        Dim dt As DataTable = BaseTransaction.FetchDiscounts
+        DiscountComboBox.DataSource = dt.DefaultView
+        DiscountComboBox.DisplayMember = "des"
+        DiscountComboBox.ValueMember = "discount"
 
         SearchTextbox.AutoCompleteMode = AutoCompleteMode.SuggestAppend
         SearchTextbox.AutoCompleteSource = AutoCompleteSource.CustomSource
@@ -117,7 +117,7 @@
                 {"subtotal", If(String.IsNullOrEmpty(SubtotalTextBox.Text), "0", SubtotalTextBox.Text)},
                 {"vatable", If(String.IsNullOrEmpty(VatableTextBox.Text), "0", VatableTextBox.Text)},
                 {"vat", If(String.IsNullOrEmpty(VatTextBox.Text), "0", VatTextBox.Text)},
-                {"discount", If(String.IsNullOrEmpty(DiscountComboBox.Text), "0", DiscountComboBox.Text)},
+                {"discount", If(String.IsNullOrEmpty(DiscountComboBox.SelectedValue), "0", DiscountComboBox.SelectedValue)},
                 {"total", If(String.IsNullOrEmpty(TotalTextBox.Text), "0", TotalTextBox.Text)},
                 {"date", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")},
                 {"cash", If(String.IsNullOrEmpty(CashTextBox.Text), "0", CashTextBox.Text)}
@@ -128,8 +128,7 @@
                     Dim item As New Dictionary(Of String, String) From {
                         {"product_id", If(row.Cells(0).Value?.ToString(), "0")},
                         {"price", If(row.Cells(2).Value?.ToString(), "0")},
-                        {"quantity", If(row.Cells(3).Value?.ToString(), "0")},
-                        {"total", If(row.Cells(4).Value?.ToString(), "0")}
+                        {"quantity", If(row.Cells(3).Value?.ToString(), "0")}
                     }
                     items.Add(item)
                 End If
@@ -155,5 +154,9 @@
         TotalTextBox.Text = ""
         CashTextBox.Text = ""
         ChangeTextBox.Text = ""
+    End Sub
+
+    Private Sub DiscountComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles DiscountComboBox.SelectionChangeCommitted
+        'MsgBox(DiscountComboBox.SelectedValue)
     End Sub
 End Class

@@ -32,7 +32,6 @@
                 }
                 Dim dialog As New ReturnCartDialog(dat2:=data)
                 dialog.AddReturnButton.Visible = False
-                'dialog.ReturnDataGridView.Columns.Item("PID").Visible = False
 
                 dialog.ReturnDataGridView.Rows.Clear()
                 Dim DeliveryItems As DataTable = BaseReturn.SelectAllReturnById(row.Cells(0).Value.ToString)

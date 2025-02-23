@@ -76,8 +76,7 @@ Public Class ReturnCartDialog
                     Dim item As New Dictionary(Of String, String) From {
                         {"id", row.Cells(0).Value},
                         {"price", If(String.IsNullOrEmpty(row.Cells(2).Value?.ToString()), 0, row.Cells(2).Value?.ToString())},
-                        {"quantity", If(String.IsNullOrEmpty(row.Cells(3).Value?.ToString()), 0, row.Cells(3).Value?.ToString())},
-                        {"total", If(String.IsNullOrEmpty(row.Cells(4).Value?.ToString()), 0, row.Cells(4).Value?.ToString())}
+                        {"quantity", If(String.IsNullOrEmpty(row.Cells(3).Value?.ToString()), 0, row.Cells(3).Value?.ToString())}
                     }
                     items.Add(item)
                 Next

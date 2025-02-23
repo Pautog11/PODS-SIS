@@ -42,12 +42,11 @@ Public Class BaseReturn
                 If item IsNot Nothing AndAlso item.Count > 0 Then
                     ' Insert into tbldeliveries_items
                     _sqlCommand.Parameters.Clear()
-                    _sqlCommand = New SqlCommand("INSERT INTO tblreturn_items (tblreturn_id, product_id, price, quantity, total) VALUES (@tblreturn_id, @product_id, @price, @quantity, @total); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
+                    _sqlCommand = New SqlCommand("INSERT INTO tblreturn_items (tblreturn_id, product_id, price, quantity) VALUES (@tblreturn_id, @product_id, @price, @quantity); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
                     _sqlCommand.Parameters.AddWithValue("@tblreturn_id", deliveryId)
                     _sqlCommand.Parameters.AddWithValue("@product_id", item("id"))
                     _sqlCommand.Parameters.AddWithValue("@price", item("price"))
                     _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
-                    _sqlCommand.Parameters.AddWithValue("@total", item("total"))
 
                     If _sqlCommand.ExecuteNonQuery <= 0 Then
                         Throw New Exception("Failed to add return items!")
@@ -117,9 +116,20 @@ Public Class BaseReturn
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("select a.id, tblreturn_id, b.product_name, a.price, a.quantity, a.total from tblreturn_items a
-                                  join tblproducts b on b.id = a.product_id
-                                  where tblreturn_id = @transaction_id", conn)
+            cmd = New SqlCommand("SELECT a.id, 
+                                         tblreturn_id, 
+                                         product_name, 
+                                         price, 
+                                         quantity,
+										 SUM(price * quantity) as total
+                                  FROM tblreturn_items a
+                                  JOIN tblproducts b on b.id = a.product_id
+                                  WHERE tblreturn_id = @transaction_id
+								  GROUP BY a.id, 
+                                           tblreturn_id, 
+                                           b.product_name, 
+                                           price, 
+                                           quantity", conn)
             cmd.Parameters.AddWithValue("@transaction_id", id)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)

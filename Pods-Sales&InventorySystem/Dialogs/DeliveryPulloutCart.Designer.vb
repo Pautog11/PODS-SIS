@@ -62,10 +62,11 @@ Partial Class DeliveryPulloutCart
         Me.FlowLayoutPanel2.Controls.Add(Me.SaveButton)
         Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
-        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 492)
+        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 402)
         Me.FlowLayoutPanel2.Margin = New System.Windows.Forms.Padding(0)
         Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(967, 50)
+        Me.FlowLayoutPanel2.Padding = New System.Windows.Forms.Padding(0, 5, 5, 0)
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(710, 50)
         Me.FlowLayoutPanel2.TabIndex = 7
         '
         'SaveButton
@@ -80,7 +81,7 @@ Partial Class DeliveryPulloutCart
         Me.SaveButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.SaveButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.SaveButton.ForeColor = System.Drawing.Color.White
-        Me.SaveButton.Location = New System.Drawing.Point(814, 3)
+        Me.SaveButton.Location = New System.Drawing.Point(552, 8)
         Me.SaveButton.Name = "SaveButton"
         Me.SaveButton.Size = New System.Drawing.Size(150, 35)
         Me.SaveButton.TabIndex = 6
@@ -119,7 +120,7 @@ Partial Class DeliveryPulloutCart
         Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Guna2Panel1.Location = New System.Drawing.Point(3, 3)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Size = New System.Drawing.Size(961, 44)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(704, 44)
         Me.Guna2Panel1.TabIndex = 6
         '
         'AddPulloutProductButton
@@ -134,7 +135,7 @@ Partial Class DeliveryPulloutCart
         Me.AddPulloutProductButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AddPulloutProductButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddPulloutProductButton.ForeColor = System.Drawing.Color.White
-        Me.AddPulloutProductButton.Location = New System.Drawing.Point(457, 3)
+        Me.AddPulloutProductButton.Location = New System.Drawing.Point(294, 3)
         Me.AddPulloutProductButton.Name = "AddPulloutProductButton"
         Me.AddPulloutProductButton.Size = New System.Drawing.Size(150, 35)
         Me.AddPulloutProductButton.TabIndex = 2
@@ -152,7 +153,7 @@ Partial Class DeliveryPulloutCart
         Me.TransactionDeliveryTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.TransactionDeliveryTextBox.ForeColor = System.Drawing.Color.Black
         Me.TransactionDeliveryTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TransactionDeliveryTextBox.Location = New System.Drawing.Point(285, 3)
+        Me.TransactionDeliveryTextBox.Location = New System.Drawing.Point(122, 3)
         Me.TransactionDeliveryTextBox.Name = "TransactionDeliveryTextBox"
         Me.TransactionDeliveryTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.TransactionDeliveryTextBox.PlaceholderText = ""
@@ -165,7 +166,7 @@ Partial Class DeliveryPulloutCart
         '
         Me.Guna2HtmlLabel2.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.Guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2HtmlLabel2.Location = New System.Drawing.Point(220, 13)
+        Me.Guna2HtmlLabel2.Location = New System.Drawing.Point(57, 13)
         Me.Guna2HtmlLabel2.Name = "Guna2HtmlLabel2"
         Me.Guna2HtmlLabel2.Size = New System.Drawing.Size(59, 15)
         Me.Guna2HtmlLabel2.TabIndex = 5
@@ -178,10 +179,10 @@ Partial Class DeliveryPulloutCart
         Me.FlowLayoutPanel1.Controls.Add(Me.Guna2HtmlLabel2)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(351, 0)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(257, 0)
         Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(610, 44)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(447, 44)
         Me.FlowLayoutPanel1.TabIndex = 4
         '
         'SuppliersLabel
@@ -206,7 +207,7 @@ Partial Class DeliveryPulloutCart
         Me.AccountHeaderLayoutPanel.RowCount = 1
         Me.AccountHeaderLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.AccountHeaderLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44.0!))
-        Me.AccountHeaderLayoutPanel.Size = New System.Drawing.Size(961, 44)
+        Me.AccountHeaderLayoutPanel.Size = New System.Drawing.Size(704, 44)
         Me.AccountHeaderLayoutPanel.TabIndex = 0
         '
         'Panel1
@@ -217,7 +218,7 @@ Partial Class DeliveryPulloutCart
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(351, 44)
+        Me.Panel1.Size = New System.Drawing.Size(257, 44)
         Me.Panel1.TabIndex = 3
         '
         'SupplierComboBox
@@ -253,7 +254,7 @@ Partial Class DeliveryPulloutCart
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(967, 542)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(710, 452)
         Me.TableLayoutPanel1.TabIndex = 3
         '
         'DeliveryPulloutDataGridView
@@ -289,7 +290,7 @@ Partial Class DeliveryPulloutCart
         Me.DeliveryPulloutDataGridView.ReadOnly = True
         Me.DeliveryPulloutDataGridView.RowHeadersVisible = False
         Me.DeliveryPulloutDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.DeliveryPulloutDataGridView.Size = New System.Drawing.Size(961, 386)
+        Me.DeliveryPulloutDataGridView.Size = New System.Drawing.Size(704, 296)
         Me.DeliveryPulloutDataGridView.TabIndex = 4
         Me.DeliveryPulloutDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.DeliveryPulloutDataGridView.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -359,7 +360,7 @@ Partial Class DeliveryPulloutCart
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(967, 542)
+        Me.ClientSize = New System.Drawing.Size(710, 452)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
