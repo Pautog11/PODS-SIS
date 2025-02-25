@@ -18,6 +18,7 @@ Public Class Inventory
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
         _tableAapter.Fill(_dataTable)
         InventoryDataGridView.DataSource = _dataTable
+        InventoryDataGridView.Columns.Item("ID").Visible = False
         'InventoryDataGridView.DataSource = BaseInventory.Inventory
     End Sub
 

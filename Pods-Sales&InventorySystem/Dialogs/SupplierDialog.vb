@@ -21,7 +21,7 @@ Public Class SupplierDialog
                 FirstnameTextBox.Text = _data("first_name")
                 LastnameTextBox.Text = _data("last_name")
                 PhoneNumberTextBox.Text = _data("phone_number")
-                'DeleteSupplierButton.Visible = False
+                DeleteSupplierButton.Visible = False
             Else
                 DeleteSupplierButton.Visible = False
             End If

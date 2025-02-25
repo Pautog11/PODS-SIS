@@ -4,20 +4,20 @@ Public Class BaseProduct
     Implements ICommandPanel
 
     Private ReadOnly _data As Dictionary(Of String, String)
-    Private _item As Dictionary(Of String, String)
+    'Private _item As Dictionary(Of String, String)
 
     Public Sub New(data As Dictionary(Of String, String))
         _data = data
     End Sub
 
-    Public Property Items() As Dictionary(Of String, String)
-        Set(value As Dictionary(Of String, String))
-            _item = value
-        End Set
-        Get
-            Return _item
-        End Get
-    End Property
+    'Public Property Items() As Dictionary(Of String, String)
+    '    Set(value As Dictionary(Of String, String))
+    '        _item = value
+    '    End Set
+    '    Get
+    '        Return _item
+    '    End Get
+    'End Property
 
     Public Sub Delete() Implements ICommandPanel.Delete
         Try
@@ -34,6 +34,7 @@ Public Class BaseProduct
     End Sub
 
     Public Sub Update() Implements ICommandPanel.Update
+        Dim transaction As SqlTransaction = SqlConnectionPods.GetInstance.BeginTransaction()
         Try
             'Dim pnameup As String = _data("product_name").ToString()
             '_sqlCommand = New SqlCommand("SELECT product_name FROM tblproducts WHERE id = @id", _sqlConnection)
@@ -42,50 +43,32 @@ Public Class BaseProduct
             'BaseAuditTrail.AddProduct(My.Settings.myId, $"Updated a product {pname} to {pnameup}")
 
             '_sqlCommand.Parameters.Clear()
-            _sqlCommand = New SqlCommand("UPDATE tblproducts SET subcategory_id = @subcategory_id, barcode = @barcode, product_name = @product_name, description = @description, critical_level = @critical_level WHERE id = @id", _sqlConnection)
+            _sqlCommand = New SqlCommand("UPDATE tblproducts SET subcategory_id = @subcategory_id, barcode = @barcode, product_name = @product_name, description = @description, critical_level = @critical_level, expiration = @expiration WHERE id = @id", _sqlConnection, transaction)
             _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
             _sqlCommand.Parameters.AddWithValue("@subcategory_id", _data.Item("subcategory_id"))
             _sqlCommand.Parameters.AddWithValue("@barcode", If(String.IsNullOrEmpty(_data.Item("barcode")), DBNull.Value, _data.Item("barcode")))
             _sqlCommand.Parameters.AddWithValue("@product_name", _data.Item("product_name"))
             _sqlCommand.Parameters.AddWithValue("@description", If(String.IsNullOrEmpty(_data.Item("description")), DBNull.Value, _data.Item("description"))) '_data.Item("description"))
             _sqlCommand.Parameters.AddWithValue("@critical_level", _data.Item("critical_level"))
-
+            _sqlCommand.Parameters.AddWithValue("@expiration", _data.Item("expiration"))
             If _sqlCommand.ExecuteNonQuery() <= 0 Then
-                MessageBox.Show("An error occured!")
-            Else
-                MessageBox.Show("Product has been Updated successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Throw New Exception("Failed to update product!")
             End If
 
-            'If _sqlCommand.ExecuteNonQuery() <= 0 Then
-            '    Throw New Exception("An error occured!")
-            'End If
-
-            'If ChangeDialog(_data.Item("id")) = 1 Then
-            '    '_sqlCommand.Parameters.Clear()
-            '    '_sqlCommand = New SqlCommand("INSERT INTO tblproduct_info (product_id, dosage_form, strength, manufacturer) VALUES (@product_id, @dosage_form, @strength, @manufacturer)", _sqlConnection)
-            '    '_sqlCommand.Parameters.AddWithValue("@product_id", _data.Item("id"))
-            '    '_sqlCommand.Parameters.AddWithValue("@dosage_form", _item.Item("dosage")) '_item.Item("dosage"))
-            '    '_sqlCommand.Parameters.AddWithValue("@strength", _item.Item("strength"))
-            '    '_sqlCommand.Parameters.AddWithValue("@manufacturer", _item.Item("manufacturer"))
-            '    'ElseIf _item.Item("dosage") IsNot DBNull.Value AndAlso String.IsNullOrEmpty(CStr(_item.Item("dosage"))) AndAlso _item.Item("strength") IsNot DBNull.Value AndAlso String.IsNullOrEmpty(CStr(_item.Item("strength"))) AndAlso _item.Item("manufacturer") IsNot DBNull.Value AndAlso String.IsNullOrEmpty(CStr(_item.Item("manufacturer"))) Then '_item.Item("dosage_form") = "" Then 'AndAlso String.IsNullOrEmpty(_item.Item("strength") OrElse _item.Item("strength") Is DBNull.Value) AndAlso String.IsNullOrEmpty(_item.Item("manufacturer") OrElse _item.Item("manufacturer") Is DBNull.Value) Then
-            '    '    _sqlCommand.Parameters.Clear()
-            '    '    _sqlCommand = New SqlCommand("DELETE tblproduct_info WHERE product_id = @product_id", _sqlConnection)
-            '    '    _sqlCommand.Parameters.AddWithValue("@product_id", _data.Item("id"))
-            '    'Else
-            '    _sqlCommand.Parameters.Clear()
-            '    _sqlCommand = New SqlCommand("UPDATE tblproduct_info SET dosage_form = @dosage_form, strength = @strength, dose = @dose, manufacturer = @manufacturer WHERE product_id = @product_id", _sqlConnection)
-            '    _sqlCommand.Parameters.AddWithValue("@product_id", _data.Item("id"))
-            '    _sqlCommand.Parameters.AddWithValue("@dosage_form", _item.Item("dosage")) '_item.Item("dosage"))
-            '    _sqlCommand.Parameters.AddWithValue("@strength", _item.Item("strength"))
-            '    _sqlCommand.Parameters.AddWithValue("@dose", _item.Item("dose"))
-            '    _sqlCommand.Parameters.AddWithValue("@manufacturer", _item.Item("manufacturer"))
-            'End If
-
-            'If _sqlCommand.ExecuteNonQuery() <= 0 Then
-            '    Throw New Exception("An error occured!")
-            'End If
-            'MessageBox.Show("Product has been updated successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            _sqlCommand.Parameters.Clear()
+            _sqlCommand = New SqlCommand("UPDATE tblproduct_info SET dosage_form = @dosage_form, strength = @strength, dose = @dose, manufacturer = @manufacturer WHERE product_id = @product_id;", _sqlConnection, Transaction)
+            _sqlCommand.Parameters.AddWithValue("@product_id", _data.Item("id"))
+            _sqlCommand.Parameters.AddWithValue("@dosage_form", If(String.IsNullOrEmpty(_data.Item("dosage_form")), DBNull.Value, _data.Item("dosage_form")))
+            _sqlCommand.Parameters.AddWithValue("@strength", If(String.IsNullOrEmpty(_data.Item("strength")), DBNull.Value, _data.Item("strength")))
+            _sqlCommand.Parameters.AddWithValue("@dose", If(String.IsNullOrEmpty(_data.Item("dose")), DBNull.Value, _data.Item("dose")))
+            _sqlCommand.Parameters.AddWithValue("@manufacturer", If(String.IsNullOrEmpty(_data.Item("manufacturer")), DBNull.Value, _data.Item("manufacturer")))
+            If _sqlCommand.ExecuteNonQuery() <= 0 Then
+                Throw New Exception("Failed to update product!")
+            End If
+            MessageBox.Show("Product has been updated successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Transaction.Commit()
         Catch ex As Exception
+            Transaction.Rollback()
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End Try
     End Sub
@@ -93,13 +76,25 @@ Public Class BaseProduct
     Public Sub Add() Implements ICommandPanel.Add
         Dim transaction As SqlTransaction = SqlConnectionPods.GetInstance.BeginTransaction()
         Try
-            _sqlCommand = New SqlCommand("INSERT INTO tblproducts (subcategory_id, barcode, product_name, description, critical_level) VALUES (@subcategory_id, @barcode, @product_name, @description, @critical_level); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
+            _sqlCommand = New SqlCommand("INSERT INTO tblproducts (subcategory_id, barcode, product_name, description, critical_level, expiration) VALUES (@subcategory_id, @barcode, @product_name, @description, @critical_level, @expiration); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
             _sqlCommand.Parameters.AddWithValue("@subcategory_id", _data.Item("subcategory_id"))
             _sqlCommand.Parameters.AddWithValue("@barcode", If(String.IsNullOrEmpty(_data.Item("barcode")), DBNull.Value, _data.Item("barcode")))
             _sqlCommand.Parameters.AddWithValue("@product_name", _data.Item("product_name"))
             _sqlCommand.Parameters.AddWithValue("@description", If(String.IsNullOrEmpty(_data.Item("description")), DBNull.Value, _data.Item("description"))) '_data.Item("description"))
             _sqlCommand.Parameters.AddWithValue("@critical_level", _data.Item("critical_level"))
-            'Dim productid As Integer = Convert.ToInt32(_sqlCommand.ExecuteScalar())
+            _sqlCommand.Parameters.AddWithValue("@expiration", _data.Item("expiration"))
+            Dim productid As Integer = Convert.ToInt32(_sqlCommand.ExecuteScalar())
+
+            _sqlCommand.Parameters.Clear()
+            _sqlCommand = New SqlCommand("INSERT INTO tblproduct_info (product_id, dosage_form, strength, dose, manufacturer) VALUES (@product_id, @dosage_form, @strength, @dose, @manufacturer)", _sqlConnection, transaction)
+            _sqlCommand.Parameters.AddWithValue("@product_id", productid)
+            _sqlCommand.Parameters.AddWithValue("@dosage_form", If(String.IsNullOrEmpty(_data.Item("dosage_form")), DBNull.Value, _data.Item("dosage_form")))
+            _sqlCommand.Parameters.AddWithValue("@strength", If(String.IsNullOrEmpty(_data.Item("strength")), DBNull.Value, _data.Item("strength")))
+            _sqlCommand.Parameters.AddWithValue("@dose", If(String.IsNullOrEmpty(_data.Item("dose")), DBNull.Value, _data.Item("dose")))
+            _sqlCommand.Parameters.AddWithValue("@manufacturer", If(String.IsNullOrEmpty(_data.Item("manufacturer")), DBNull.Value, _data.Item("manufacturer")))
+            If _sqlCommand.ExecuteNonQuery() <= 0 Then
+                Throw New Exception("Failed to add product!")
+            End If
 
             'If _item.Item("dosage") = "" And _item.Item("strength") = "" And _item.Item("manufacturer") = "" Then
             '    _item = Nothing
@@ -143,10 +138,10 @@ Public Class BaseProduct
 
             'End If
 
-            If _sqlCommand.ExecuteNonQuery() <= 0 Then
-                'Throw New Exception("Failed to add delivery items!")
-                Throw New Exception("An error occured!")
-            End If
+            'If _sqlCommand.ExecuteNonQuery() <= 0 Then
+            '    'Throw New Exception("Failed to add delivery items!")
+            '    Throw New Exception("An error occured!")
+            'End If
 
 
             MessageBox.Show("Product has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -414,11 +409,11 @@ Public Class BaseProduct
     '    End Try
     'End Function
 
-    Public Shared Function DoseName(id As String) As String
+    Public Shared Function DoseName(dasage As String) As String
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As New SqlCommand("SELECT dasage FROM tbldosage WHERE id = @id", conn)
-            cmd.Parameters.AddWithValue("@id", id)
+            Dim cmd As New SqlCommand("SELECT id FROM tbldosage WHERE LOWER(dasage) = @dasage", conn)
+            cmd.Parameters.AddWithValue("@dasage", dasage.Trim.ToLower)
 
             Return cmd.ExecuteScalar()
         Catch ex As Exception

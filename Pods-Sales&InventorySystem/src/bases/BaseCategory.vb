@@ -83,6 +83,21 @@ Public Class BaseCategory
         End Try
     End Function
 
+    Public Shared Function FillByCategory() As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("SELECT * FROM tblcategories", conn)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
+        End Try
+    End Function
+
     'Public Shared Function Count() As Integer
     '    Try
     '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance

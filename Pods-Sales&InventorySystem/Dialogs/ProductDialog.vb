@@ -3,6 +3,7 @@
 Public Class ProductDialog
     Private ReadOnly _data As Dictionary(Of String, String)
     Private ReadOnly _subject As IObservablePanel
+    Private Exp As Integer = Nothing
     Public Sub New(Optional data As Dictionary(Of String, String) = Nothing,
                    Optional subject As IObservablePanel = Nothing)
         InitializeComponent()
@@ -11,6 +12,12 @@ Public Class ProductDialog
     End Sub
     Private Sub ProductDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
+            Dim ct As DataTable = BaseCategory.FillByCategory
+            CategoryComboBox.DataSource = ct.DefaultView
+            CategoryComboBox.DisplayMember = "category"
+            CategoryComboBox.SelectedItem = "id"
+
+
             Dim sc As DataTable = BaseProduct.FillBySubCategory
             SubCategoryComboBox.DataSource = sc.DefaultView
             SubCategoryComboBox.DisplayMember = "subcategory"
@@ -33,8 +40,15 @@ Public Class ProductDialog
                 DosageFormComboBox.SelectedIndex = -1
             End If
 
+            Exp = 0
+            ManufacturerTextBox.Enabled = False
+            StrengthTextBox.Enabled = False
+            DoseComboBox.Enabled = False
+            DosageFormComboBox.Enabled = False
+
             If _data IsNot Nothing Then
                 SubCategoryComboBox.Text = _data.Item("subcategory_id")
+                DeleteProductButton.Visible = False
                 AddProductButton.Text = "Update"
 
                 BarcodeTextBox.Text = _data.Item("barcode")
@@ -49,11 +63,28 @@ Public Class ProductDialog
                     DosageFormComboBox.Text = If(row("dosage_form") Is DBNull.Value, String.Empty, row("dosage_form").ToString())
                     StrengthTextBox.Text = If(row("strength") Is DBNull.Value, String.Empty, row("strength").ToString())
                     ManufacturerTextBox.Text = If(row("manufacturer") Is DBNull.Value, String.Empty, row("manufacturer").ToString())
+                    'MsgBox(BaseProduct.DoseName(If(row("dose") Is DBNull.Value, String.Empty, row("dose").ToString())))
                     DoseComboBox.Text = BaseProduct.DoseName(If(row("dose") Is DBNull.Value, String.Empty, row("dose").ToString()))
                 End If
+
+                If BaseDelivery.EnableExp(_data.Item("id")) = 1 Then
+                    CheckBox.Checked = True
+                    ManufacturerTextBox.Enabled = True
+                    StrengthTextBox.Enabled = True
+                    DoseComboBox.Enabled = True
+                    DosageFormComboBox.Enabled = True
+                End If
             Else
-                'DeleteProductButton.Visible = False
+                If ct.Rows.Count > 0 Then
+                    CategoryComboBox.SelectedIndex = -1
+                End If
+
+                If sc.Rows.Count > 0 Then
+                    SubCategoryComboBox.SelectedIndex = -1
+                End If
+                'DeleteProductButton.Visible = False    
             End If
+
         Catch ex As Exception
 
         End Try
@@ -61,10 +92,18 @@ Public Class ProductDialog
 
     Private Sub AddProductButton_Click(sender As Object, e As EventArgs) Handles AddProductButton.Click
         Try
-            Dim controls As Object() = {SubCategoryComboBox, ProductNameTextBox, StockLevelTextBox}
-            Dim types As DataInput() = {DataInput.STRING_STRING, DataInput.STRING_PRODUCTNAME, DataInput.STRING_INTEGER}
+            Dim controls As Object() = {SubCategoryComboBox, ProductNameTextBox, StockLevelTextBox, ManufacturerTextBox, StrengthTextBox, DosageFormComboBox, DoseComboBox}
+            Dim types As DataInput() = {DataInput.STRING_STRING, DataInput.STRING_PRODUCTNAME, DataInput.STRING_INTEGER, DataInput.STRING_STRING, DataInput.STRING_DECIMAL, DataInput.STRING_STRING, DataInput.STRING_STRING}
             Dim result As New List(Of Object())
             For i = 0 To controls.Count - 1
+                If Not CheckBox.Checked Then
+                    If controls(i) Is ManufacturerTextBox OrElse
+                        controls(i) Is StrengthTextBox OrElse
+                        controls(i) Is DoseComboBox OrElse
+                        controls(i) Is DosageFormComboBox Then
+                        Continue For
+                    End If
+                End If
                 result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
                 Dim validationResult = TryCast(result(i), Object())
                 If validationResult IsNot Nothing AndAlso validationResult.Length > 0 Then
@@ -83,8 +122,20 @@ Public Class ProductDialog
                     {"barcode", If(String.IsNullOrEmpty(BarcodeTextBox.Text), "", BarcodeTextBox.Text)},
                     {"product_name", result(1)(1)},
                     {"description", If(String.IsNullOrEmpty(DescriptionTextBox.Text), "", DescriptionTextBox.Text)},
-                    {"critical_level", result(2)(1)}
+                    {"critical_level", result(2)(1)},
+                    {"expiration", Exp},
+                    {"dosage_form", DosageFormComboBox.Text},
+                    {"strength", StrengthTextBox.Text},
+                    {"dose", DoseComboBox.Text},
+                    {"manufacturer", ManufacturerTextBox.Text}
                 }
+
+                If Not CheckBox.Checked Then
+                    data("dosage_form") = ""
+                    data("strength") = ""
+                    data("dose") = ""
+                    data("manufacturer") = ""
+                End If
 
                 Dim baseCommand As BaseProduct '(data) 'With {.Items = item}
                 'baseCommand = New BaseProduct(data) With {.Items = item}
@@ -137,5 +188,29 @@ Public Class ProductDialog
         invoker?.Execute()
         _subject.NotifyObserver()
         Me.Close()
+    End Sub
+
+    Private Sub Guna2CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox.CheckedChanged
+        If CheckBox.Checked Then
+            Exp = 1
+            ManufacturerTextBox.Enabled = True
+            StrengthTextBox.Enabled = True
+            DoseComboBox.Enabled = True
+            DosageFormComboBox.Enabled = True
+        Else
+            Exp = 0
+            ManufacturerTextBox.Enabled = False
+            StrengthTextBox.Enabled = False
+            DoseComboBox.Enabled = False
+            DosageFormComboBox.Enabled = False
+        End If
+    End Sub
+
+    Private Sub CategoryComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CategoryComboBox.SelectionChangeCommitted
+        'Dim ct As DataTable = BaseCategory.FillByCategory
+        'CategoryComboBox.DataSource = ct.DefaultView
+        'CategoryComboBox.DisplayMember = "category"
+        'CategoryComboBox.SelectedItem = "id"
+        'MsgBox(CategoryComboBox.SelectedItem("id"))
     End Sub
 End Class

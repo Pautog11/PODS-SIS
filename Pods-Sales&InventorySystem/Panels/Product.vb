@@ -17,7 +17,7 @@
         ProductsDataGridView.DataSource = _dataTable
         ProductsDataGridView.Columns.Item("ID").Visible = False
         ProductsDataGridView.Columns.Item("SKU").Visible = False
-        ProductsDataGridView.Columns.Item("DESCRIPTION").Visible = False
+        'ProductsDataGridView.Columns.Item("DESCRIPTION").Visible = False
         ProductsDataGridView.Columns.Item("BARCODE").Visible = False
         ProductsDataGridView.Columns.Item("CRITICAL LEVEL").Visible = False
     End Sub
@@ -34,9 +34,9 @@
                 {"id", If(String.IsNullOrEmpty(row.Cells(0).Value.ToString()), 0, row.Cells(0).Value.ToString())},
                 {"subcategory_id", BaseProduct.ScalarSubcategoryId(row.Cells(2).Value.ToString())},
                 {"sku", If(String.IsNullOrEmpty(row.Cells(3).Value.ToString()), 0, row.Cells(3).Value.ToString())},
-                {"barcode", row.Cells(4).Value.ToString()},
+                {"barcode", If(String.IsNullOrEmpty(row.Cells(4).Value.ToString()), "", row.Cells(4).Value.ToString())},
                 {"product_name", If(String.IsNullOrEmpty(row.Cells(5).Value.ToString()), 0, row.Cells(5).Value.ToString())},
-                {"description", row.Cells(6).Value.ToString()},
+                {"description", If(String.IsNullOrEmpty(row.Cells(6).Value.ToString()), "", row.Cells(6).Value.ToString())},
                 {"stock_level", If(String.IsNullOrEmpty(row.Cells(7).Value.ToString()), 0, row.Cells(7).Value.ToString())}
             }
             'If BaseProduct.ChangeDialog(data.Item("id")) = 1 Then
@@ -53,7 +53,6 @@
         _dataTable = BaseProduct.Search(ProductSearchTextBox.Text)
         ProductsDataGridView.DataSource = _dataTable
     End Sub
-
     'Private Sub ModalImageButton_Click(sender As Object, e As EventArgs) Handles ModalImageButton.Click
     '    Dim modal As New Dialog1()
     '    modal.StartPosition = FormStartPosition.Manual

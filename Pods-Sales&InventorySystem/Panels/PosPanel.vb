@@ -23,6 +23,8 @@
         Reference_number.Text = Helpers.GenInvoiceNumber(InvoiceType.Transaction)
         Datepurchased.Text = DateAndTime.Now.ToString("F")
 
+        TransactionDataGridView.Columns.Item("ID").Visible = False
+
         Dim dt As DataTable = BaseTransaction.FetchDiscounts
         DiscountComboBox.DataSource = dt.DefaultView
         DiscountComboBox.DisplayMember = "des"

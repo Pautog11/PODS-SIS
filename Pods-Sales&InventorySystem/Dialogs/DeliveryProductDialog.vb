@@ -70,7 +70,6 @@ Public Class DeliveryProductDialog
             Dim result As New List(Of Object())
             For i = 0 To controls.Count - 1
                 If controls(i) Is BatchTextBox AndAlso tite = 0 Then
-                    'Will skip the batch textbox if not needed
                     Continue For
                 End If
                 result.Add(InputValidation.ValidateInputString(controls(i), types(i)))

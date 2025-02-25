@@ -48,7 +48,7 @@ Public Class AccountDialog
 
                 'For Visibility
                 'UsernameTextBox.Enabled = False
-                'DeleteAccountButton.Visible = False
+                DeleteAccountButton.Visible = False
                 PasswordTextBox.Visible = False
                 PasswordLabel.Visible = False
                 Label3.Visible = False
