@@ -112,38 +112,38 @@ Public Class BaseDelivery
         End Try
     End Function
 
-    Public Shared Function FillPulloutProduct(delivery_id As Integer) As DataTable
-        Try
-            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT tbldeliveries_items.id, tbldeliveries_items.delivery_id, tblproducts.id AS pid, tblproducts.product_name AS name, tblproduct_notif.exd, tblproducts.cost AS cost,
-			                            SUM(
-				                            CASE
-					                            WHEN tbldeliveries_items.quantity = tblproduct_notif.quantity THEN tbldeliveries_items.quantity
-					                            WHEN tbldeliveries_items.quantity > tblproduct_notif.quantity THEN tblproduct_notif.quantity 
-												WHEN tbldeliveries_items.quantity <= tblproducts.quantity THEN tbldeliveries_items.quantity
-												else 0
-				                            END
-			                            ) AS quantity
-		                            FROM 
-			                            tbldeliveries_items
-		                            LEFT JOIN 
-			                            tblproduct_notif ON tbldeliveries_items.id = tblproduct_notif.product_info_id
-		                            JOIN 
-			                            tblproducts ON tbldeliveries_items.product_id = tblproducts.id
-		                            WHERE 
-			                            tbldeliveries_items.delivery_id = @delivery_id
-										GROUP BY tbldeliveries_items.id, tbldeliveries_items.delivery_id, tblproducts.id, tblproducts.product_name, tblproduct_notif.exd, tblproducts.cost", conn) 'Add and to fetch the product grater than 0
-            cmd.Parameters.AddWithValue("@delivery_id", delivery_id)
-            Dim dTable As New DataTable
-            Dim adapter As New SqlDataAdapter(cmd)
-            adapter.Fill(dTable)
-            Return dTable
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return New DataTable
-        End Try
-    End Function
+    'Public Shared Function FillPulloutProduct(delivery_id As Integer) As DataTable
+    '    Try
+    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+    '        Dim cmd As SqlCommand
+    '        cmd = New SqlCommand("SELECT tbldeliveries_items.id, tbldeliveries_items.delivery_id, tblproducts.id AS pid, tblproducts.product_name AS name, tblproduct_notif.exd, tblproducts.cost AS cost,
+    '                           SUM(
+    '                            CASE
+    '	                            WHEN tbldeliveries_items.quantity = tblproduct_notif.quantity THEN tbldeliveries_items.quantity
+    '	                            WHEN tbldeliveries_items.quantity > tblproduct_notif.quantity THEN tblproduct_notif.quantity 
+    '								WHEN tbldeliveries_items.quantity <= tblproducts.quantity THEN tbldeliveries_items.quantity
+    '								else 0
+    '                            END
+    '                           ) AS quantity
+    '                          FROM 
+    '                           tbldeliveries_items
+    '                          LEFT JOIN 
+    '                           tblproduct_notif ON tbldeliveries_items.id = tblproduct_notif.product_info_id
+    '                          JOIN 
+    '                           tblproducts ON tbldeliveries_items.product_id = tblproducts.id
+    '                          WHERE 
+    '                           tbldeliveries_items.delivery_id = @delivery_id
+    '						GROUP BY tbldeliveries_items.id, tbldeliveries_items.delivery_id, tblproducts.id, tblproducts.product_name, tblproduct_notif.exd, tblproducts.cost", conn) 'Add and to fetch the product grater than 0
+    '        cmd.Parameters.AddWithValue("@delivery_id", delivery_id)
+    '        Dim dTable As New DataTable
+    '        Dim adapter As New SqlDataAdapter(cmd)
+    '        adapter.Fill(dTable)
+    '        Return dTable
+    '    Catch ex As Exception
+    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+    '        Return New DataTable
+    '    End Try
+    'End Function
 
     Public Shared Function Fillpulloutproducts(delivery_id As Integer) As DataTable
         Try
@@ -219,7 +219,6 @@ Public Class BaseDelivery
             Dim cmd As SqlCommand
             cmd = New SqlCommand("SELECT top 1 p.id AS id, 
                                                subcategory_id, 
-                                               sku, 
                                                product_name, 
                                                ISNULL(cost_price, 0) AS cost_price, 
                                                ISNULL(price, 0) AS price 

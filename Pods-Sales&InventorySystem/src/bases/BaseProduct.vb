@@ -45,7 +45,7 @@ Public Class BaseProduct
             _sqlCommand = New SqlCommand("UPDATE tblproducts SET subcategory_id = @subcategory_id, barcode = @barcode, product_name = @product_name, description = @description, critical_level = @critical_level WHERE id = @id", _sqlConnection)
             _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
             _sqlCommand.Parameters.AddWithValue("@subcategory_id", _data.Item("subcategory_id"))
-            _sqlCommand.Parameters.AddWithValue("@barcode", _data.Item("barcode"))
+            _sqlCommand.Parameters.AddWithValue("@barcode", If(String.IsNullOrEmpty(_data.Item("barcode")), DBNull.Value, _data.Item("barcode")))
             _sqlCommand.Parameters.AddWithValue("@product_name", _data.Item("product_name"))
             _sqlCommand.Parameters.AddWithValue("@description", If(String.IsNullOrEmpty(_data.Item("description")), DBNull.Value, _data.Item("description"))) '_data.Item("description"))
             _sqlCommand.Parameters.AddWithValue("@critical_level", _data.Item("critical_level"))
@@ -95,7 +95,7 @@ Public Class BaseProduct
         Try
             _sqlCommand = New SqlCommand("INSERT INTO tblproducts (subcategory_id, barcode, product_name, description, critical_level) VALUES (@subcategory_id, @barcode, @product_name, @description, @critical_level); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
             _sqlCommand.Parameters.AddWithValue("@subcategory_id", _data.Item("subcategory_id"))
-            _sqlCommand.Parameters.AddWithValue("@barcode", _data.Item("barcode"))
+            _sqlCommand.Parameters.AddWithValue("@barcode", If(String.IsNullOrEmpty(_data.Item("barcode")), DBNull.Value, _data.Item("barcode")))
             _sqlCommand.Parameters.AddWithValue("@product_name", _data.Item("product_name"))
             _sqlCommand.Parameters.AddWithValue("@description", If(String.IsNullOrEmpty(_data.Item("description")), DBNull.Value, _data.Item("description"))) '_data.Item("description"))
             _sqlCommand.Parameters.AddWithValue("@critical_level", _data.Item("critical_level"))
@@ -175,11 +175,30 @@ Public Class BaseProduct
         End Try
     End Function
 
-    Public Shared Function Exists(data As String) As Integer
+    Public Shared Function Exists(product_name As String, barcode As Object) As Integer
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblproducts WHERE lower(product_name) = @data", conn)
-            cmd.Parameters.AddWithValue("@data", data.Trim.ToLower)
+            Dim cmd As New SqlCommand("WITH freak AS (
+                                        SELECT * 
+                                        FROM tblproducts 
+                                        WHERE product_name = @product_name)
+                                        SELECT CASE 
+                                               WHEN EXISTS (
+                                                   SELECT 1 
+                                                   FROM freak 
+                                                   WHERE LOWER(product_name) = LOWER(@product_name)
+                                                     AND (barcode = @barcode OR (barcode IS NULL AND @barcode IS NULL))
+                                               )
+                                               THEN 1
+                                               ELSE 0 
+                                           END AS result;", conn)
+            cmd.Parameters.AddWithValue("@product_name", product_name.Trim.ToLower)
+            'cmd.Parameters.AddWithValue("@barcode", If(String.IsNullOrEmpty(barcode), DBNull.Value, barcode))
+            If barcode Is Nothing OrElse String.IsNullOrEmpty(barcode.ToString()) Then
+                cmd.Parameters.AddWithValue("@barcode", DBNull.Value)
+            Else
+                cmd.Parameters.AddWithValue("@barcode", barcode)
+            End If
 
             Return cmd.ExecuteScalar()
         Catch ex As Exception
@@ -201,18 +220,32 @@ Public Class BaseProduct
         End Try
     End Function
 
-    'Public Shared Function SubcategoryName(id As String) As String
-    '    Try
-    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-    '        Dim cmd As New SqlCommand("SELECT subcategory FROM tblsubcategories WHERE id = @id", conn)
-    '        cmd.Parameters.AddWithValue("@id", id)
+    Public Shared Function BarcodeExist(barcode As String) As String
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblproducts WHERE barcode = @barcode", conn)
+            cmd.Parameters.AddWithValue("@barcode", barcode)
 
-    '        Return cmd.ExecuteScalar()
-    '    Catch ex As Exception
-    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-    '        Return 0
-    '    End Try
-    'End Function
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
+
+    Public Shared Function IdBarcodeExist(id As Integer, barcode As String) As String
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblproducts WHERE id = @id and barcode = @barcode", conn)
+            cmd.Parameters.AddWithValue("@id", id)
+            cmd.Parameters.AddWithValue("@barcode", barcode)
+
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
 
     Public Shared Function Search(query As String) As pods.viewtblproductsDataTable 'pods.tblaccountsDataTable
         Try
@@ -305,31 +338,31 @@ Public Class BaseProduct
         End Try
     End Function
 
-    Public Shared Function Disableexd(id As Integer) As Integer
-        Try
-            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As New SqlCommand("select count(*) from tblproducts a join tblproduct_info b on a.id = b.product_id where a.id = @id", conn)
-            cmd.Parameters.AddWithValue("@id", id)
+    'Public Shared Function Disableexd(id As Integer) As Integer
+    '    Try
+    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+    '        Dim cmd As New SqlCommand("select count(*) from tblproducts a join tblproduct_info b on a.id = b.product_id where a.id = @id", conn)
+    '        cmd.Parameters.AddWithValue("@id", id)
 
-            Return cmd.ExecuteScalar()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return 0
-        End Try
-    End Function
+    '        Return cmd.ExecuteScalar()
+    '    Catch ex As Exception
+    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+    '        Return 0
+    '    End Try
+    'End Function
 
-    Public Shared Function BarcodeExists(barcode As String) As Integer
-        Try
-            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As New SqlCommand("select count(*) from tblproducts where barcode = @barcode", conn)
-            cmd.Parameters.AddWithValue("@barcode", barcode)
+    'Public Shared Function BarcodeExists(barcode As String) As Integer
+    '    Try
+    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+    '        Dim cmd As New SqlCommand("select count(*) from tblproducts where barcode = @barcode", conn)
+    '        cmd.Parameters.AddWithValue("@barcode", barcode)
 
-            Return cmd.ExecuteScalar()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return 0
-        End Try
-    End Function
+    '        Return cmd.ExecuteScalar()
+    '    Catch ex As Exception
+    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+    '        Return 0
+    '    End Try
+    'End Function
 
     'Public Shared Function SearchDilog(query As String) As pods.viewtblproductsearchDataTable 'pods.tblaccountsDataTable
     '    Try
@@ -386,6 +419,19 @@ Public Class BaseProduct
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As New SqlCommand("SELECT dasage FROM tbldosage WHERE id = @id", conn)
             cmd.Parameters.AddWithValue("@id", id)
+
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
+
+    Public Shared Function CheckProductname(name As String) As String
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblproducts WHERE LOWER(product_name) = @product_name", conn)
+            cmd.Parameters.AddWithValue("@product_name", name.Trim.ToLower)
 
             Return cmd.ExecuteScalar()
         Catch ex As Exception

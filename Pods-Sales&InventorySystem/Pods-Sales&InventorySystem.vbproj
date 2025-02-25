@@ -238,12 +238,6 @@
     <Compile Include="Dialogs\PasswordDialog.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\PricingDialog.Designer.vb">
-      <DependentUpon>PricingDialog.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\PricingDialog.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Dialogs\ProductDialog.Designer.vb">
       <DependentUpon>ProductDialog.vb</DependentUpon>
     </Compile>
@@ -645,9 +639,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\PasswordDialog.resx">
       <DependentUpon>PasswordDialog.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\PricingDialog.resx">
-      <DependentUpon>PricingDialog.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ProductDialog.resx">
       <DependentUpon>ProductDialog.vb</DependentUpon>

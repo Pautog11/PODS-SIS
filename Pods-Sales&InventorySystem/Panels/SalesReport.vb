@@ -29,10 +29,8 @@ Public Class SalesReport
     Private Sub PrintButton_Click(sender As Object, e As EventArgs) Handles PrintButton.Click
         Try
             PrintButton.Enabled = False
-
             Dim startDate As DateTime = DateFrom.Value.ToString("yyyy-MM-dd")
             Dim endDate As DateTime = DateTo.Value.ToString("yyyy-MM-dd")
-
             Using dialog As New SalesReportViewer(startDate, endDate)
                 dialog.ShowDialog()
             End Using
@@ -50,7 +48,6 @@ Public Class SalesReport
     Private Sub DateTo_ValueChanged(sender As Object, e As EventArgs) Handles DateTo.ValueChanged
         If triggers = True Then
             FetchFuckingData()
-            'MsgBox(DateTo.Value.ToString("yyyy-MM-dd"))
         End If
     End Sub
     Private Sub DateTo_Enter(sender As Object, e As EventArgs) Handles DateTo.Enter

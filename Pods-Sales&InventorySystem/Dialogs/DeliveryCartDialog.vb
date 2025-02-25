@@ -162,12 +162,12 @@ Public Class DeliveryCartDialog
                     Dim selectedRows As DataGridViewSelectedRowCollection = DeliveryDataGridView.SelectedRows
                     Dim row As DataGridViewRow = selectedRows(0)
                     Dim data As New Dictionary(Of String, String) From {
-                        {"id", row.Cells(0).Value.ToString()},
-                        {"name", row.Cells(1).Value.ToString()},
-                        {"date", row.Cells(2).Value.ToString()},
-                        {"batch_number", row.Cells(3).Value.ToString()},
-                        {"selling_price", row.Cells(4).Value.ToString()},
-                        {"cost_price", row.Cells(5).Value.ToString()}
+                        {"id", If(row.Cells(0).Value?.ToString(), "0")},
+                        {"name", If(row.Cells(1).Value?.ToString(), "")},
+                        {"date", If(row.Cells(2).Value?.ToString(), "")},
+                        {"batch_number", If(row.Cells(3).Value?.ToString(), "")},
+                        {"selling_price", If(row.Cells(4).Value?.ToString(), "0")},
+                        {"cost_price", If(row.Cells(5).Value?.ToString(), "0")}
                     }
                     Dim dialog As New DeliveryProductDialog(data:=data, parent:=Me)
                     dialog.ShowDialog()

@@ -147,12 +147,12 @@ Represents the strongly named DataTable class.
 Represents the strongly named DataTable class.
 </summary>
 </member>
-<member name="T:Pods_Sales_InventorySystem.pods.viewtbltransactionsDataTable">
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblrevenueDataTable">
 <summary>
 Represents the strongly named DataTable class.
 </summary>
 </member>
-<member name="T:Pods_Sales_InventorySystem.pods.viewtblrevenueDataTable">
+<member name="T:Pods_Sales_InventorySystem.pods.viewtbltransactionsDataTable">
 <summary>
 Represents the strongly named DataTable class.
 </summary>
@@ -232,12 +232,12 @@ Represents strongly named DataRow class.
 Represents strongly named DataRow class.
 </summary>
 </member>
-<member name="T:Pods_Sales_InventorySystem.pods.viewtbltransactionsRow">
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblrevenueRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
 </member>
-<member name="T:Pods_Sales_InventorySystem.pods.viewtblrevenueRow">
+<member name="T:Pods_Sales_InventorySystem.pods.viewtbltransactionsRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
@@ -317,12 +317,12 @@ Row event argument class
 Row event argument class
 </summary>
 </member>
-<member name="T:Pods_Sales_InventorySystem.pods.viewtbltransactionsRowChangeEvent">
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblrevenueRowChangeEvent">
 <summary>
 Row event argument class
 </summary>
 </member>
-<member name="T:Pods_Sales_InventorySystem.pods.viewtblrevenueRowChangeEvent">
+<member name="T:Pods_Sales_InventorySystem.pods.viewtbltransactionsRowChangeEvent">
 <summary>
 Row event argument class
 </summary>
@@ -402,12 +402,12 @@ Represents the connection and commands used to retrieve and save data.
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member>
-<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.viewtbltransactionsTableAdapter">
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.viewtblrevenueTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member>
-<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.viewtblrevenueTableAdapter">
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.viewtbltransactionsTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>

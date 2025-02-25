@@ -14,7 +14,7 @@
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Observer Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
-
+        DiscountComboBox.Enabled = False
         _timer.Interval = 1000
         _timer.Start()
     End Sub
@@ -45,6 +45,7 @@
     Public Sub UpdateVisualData()
         Try
             TransactionDataGridView.DataSource = _itemSource?.DefaultView
+            DiscountComboBox.Enabled = True
             Dim subtotal As Decimal = 0D
             For i As Integer = 0 To TransactionDataGridView.Rows.Count - 1
                 Dim total As Object = TransactionDataGridView.Rows(i).Cells("TOTAL").Value
@@ -114,8 +115,7 @@
             Dim data As New Dictionary(Of String, String) From {
                 {"id", If(_data?.Item("id"), String.Empty)},
                 {"transaction_number", Reference_number.Text},
-                {"subtotal", If(String.IsNullOrEmpty(SubtotalTextBox.Text), "0", SubtotalTextBox.Text)},
-                {"vatable", If(String.IsNullOrEmpty(VatableTextBox.Text), "0", VatableTextBox.Text)},
+                {"subtotal", If(String.IsNullOrEmpty(SubtotalTextBox.Text), "0", SubtotalTextBox.Text)}, '{"vatable", If(String.IsNullOrEmpty(VatableTextBox.Text), "0", VatableTextBox.Text)},
                 {"vat", If(String.IsNullOrEmpty(VatTextBox.Text), "0", VatTextBox.Text)},
                 {"discount", If(String.IsNullOrEmpty(DiscountComboBox.SelectedValue), "0", DiscountComboBox.SelectedValue)},
                 {"total", If(String.IsNullOrEmpty(TotalTextBox.Text), "0", TotalTextBox.Text)},
@@ -157,6 +157,47 @@
     End Sub
 
     Private Sub DiscountComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles DiscountComboBox.SelectionChangeCommitted
-        'MsgBox(DiscountComboBox.SelectedValue)
+        Try
+            Dim Subtotal As Decimal
+            If Not String.IsNullOrEmpty(SubtotalTextBox.Text) AndAlso Decimal.TryParse(SubtotalTextBox.Text, Subtotal) Then
+                Dim discountPercentage As Decimal
+                If Decimal.TryParse(DiscountComboBox.SelectedItem("discount"), discountPercentage) Then
+                    Dim discount As Decimal = Subtotal * (discountPercentage / 100)
+                    Dim total As Decimal = Subtotal - discount
+                    TotalTextBox.Text = total.ToString("F2")
+                    Dim cash As Decimal
+                    If Decimal.TryParse(CashTextBox.Text, cash) AndAlso cash >= total Then
+                        ChangeTextBox.Text = (cash - total).ToString("C2") ' Format as currency
+                    Else
+                        ChangeTextBox.Text = "Insufficient funds"
+                    End If
+                Else
+                    MessageBox.Show("Please select a valid discount percentage.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                End If
+            Else
+                MessageBox.Show("Please enter a valid subtotal.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub CashTextBox_TextChanged(sender As Object, e As EventArgs) Handles CashTextBox.TextChanged
+        Try
+            Dim total As Decimal
+            Dim cash As Decimal
+            If Not String.IsNullOrWhiteSpace(TotalTextBox.Text) AndAlso Decimal.TryParse(TotalTextBox.Text, total) AndAlso
+           Not String.IsNullOrWhiteSpace(CashTextBox.Text) AndAlso Decimal.TryParse(CashTextBox.Text, cash) Then
+                If cash >= total Then
+                    ChangeTextBox.Text = (cash - total).ToString("C2") ' Format as currency
+                Else
+                    ChangeTextBox.Text = "Insufficient funds"
+                End If
+            Else
+                ChangeTextBox.Text = ""
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 End Class

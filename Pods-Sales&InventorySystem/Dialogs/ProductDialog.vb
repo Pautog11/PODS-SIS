@@ -61,12 +61,8 @@ Public Class ProductDialog
 
     Private Sub AddProductButton_Click(sender As Object, e As EventArgs) Handles AddProductButton.Click
         Try
-            Dim controls As Object() = {
-                  SubCategoryComboBox, BarcodeTextBox, ProductNameTextBox, StockLevelTextBox, DosageFormComboBox, StrengthTextBox, DoseComboBox, ManufacturerTextBox
-            }
-            Dim types As DataInput() = {
-                 DataInput.STRING_STRING, DataInput.STRING_INTEGER, DataInput.STRING_NAME, DataInput.STRING_INTEGER, DataInput.STRING_STRING, DataInput.STRING_INTEGER, DataInput.STRING_STRING, DataInput.STRING_NAME
-            }
+            Dim controls As Object() = {SubCategoryComboBox, ProductNameTextBox, StockLevelTextBox}
+            Dim types As DataInput() = {DataInput.STRING_STRING, DataInput.STRING_PRODUCTNAME, DataInput.STRING_INTEGER}
             Dim result As New List(Of Object())
             For i = 0 To controls.Count - 1
                 result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
@@ -84,26 +80,46 @@ Public Class ProductDialog
                 Dim data As New Dictionary(Of String, String) From {
                     {"id", _data?.Item("id")},
                     {"subcategory_id", SubCategoryComboBox.SelectedItem("id")},
-                    {"barcode", result(1)(1)},
-                    {"product_name", result(2)(1)},
+                    {"barcode", If(String.IsNullOrEmpty(BarcodeTextBox.Text), "", BarcodeTextBox.Text)},
+                    {"product_name", result(1)(1)},
                     {"description", If(String.IsNullOrEmpty(DescriptionTextBox.Text), "", DescriptionTextBox.Text)},
-                    {"critical_level", result(3)(1)}
+                    {"critical_level", result(2)(1)}
                 }
 
                 Dim baseCommand As BaseProduct '(data) 'With {.Items = item}
                 'baseCommand = New BaseProduct(data) With {.Items = item}
                 baseCommand = New BaseProduct(data)
                 Dim invoker As ICommandInvoker = Nothing
-                If BaseProduct.Exists(result(2)(1)) = 0 AndAlso BaseProduct.BarcodeExists(result(1)(1)) = 0 AndAlso _data Is Nothing Then
+                If BaseProduct.Exists(result(1)(1), If(String.IsNullOrEmpty(BarcodeTextBox.Text), "", BarcodeTextBox.Text)) = 0 AndAlso BaseProduct.BarcodeExist(BarcodeTextBox.Text) = 0 AndAlso _data Is Nothing Then
                     invoker = New AddCommand(baseCommand)
                     invoker?.Execute()
                     _subject.NotifyObserver()
                     Me.Close()
                 ElseIf _data IsNot Nothing Then
-                    invoker = New UpdateCommand(baseCommand)
-                    invoker?.Execute()
-                    _subject.NotifyObserver()
-                    Me.Close()
+                    If BaseProduct.IdBarcodeExist(_data.Item("id"), BarcodeTextBox.Text) = 1 Then
+                        invoker = New UpdateCommand(baseCommand)
+                        invoker?.Execute()
+                        _subject.NotifyObserver()
+                        Me.Close()
+                    End If
+                    If BaseProduct.Exists(result(1)(1), If(String.IsNullOrEmpty(BarcodeTextBox.Text), "", BarcodeTextBox.Text)) = 0 Then
+                        If Not String.IsNullOrEmpty(BarcodeTextBox.Text) Then
+                            If BaseProduct.BarcodeExist(BarcodeTextBox.Text) = 0 Then
+                                invoker = New UpdateCommand(baseCommand)
+                                invoker?.Execute()
+                                _subject.NotifyObserver()
+                                Me.Close()
+                            Else
+                                MessageBox.Show("Barcode is exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                                Exit Sub
+                            End If
+                        Else
+                            invoker = New UpdateCommand(baseCommand)
+                            invoker?.Execute()
+                            _subject.NotifyObserver()
+                            Me.Close()
+                        End If
+                    End If
                 Else
                     MessageBox.Show("Product exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 End If

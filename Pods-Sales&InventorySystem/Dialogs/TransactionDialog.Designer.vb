@@ -22,9 +22,9 @@ Partial Class TransactionDialog
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TransactionDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.product = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -33,6 +33,12 @@ Partial Class TransactionDialog
         Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CASH = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.DateLabel = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Reference_number = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.Guna2HtmlLabel3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.DiscountComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -48,19 +54,13 @@ Partial Class TransactionDialog
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.ReturnButton = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.DateLabel = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Guna2HtmlLabel3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.Reference_number = New Guna.UI2.WinForms.Guna2HtmlLabel()
         CType(Me.TransactionDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2Panel2.SuspendLayout()
+        Me.Panel2.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
-        Me.Panel2.SuspendLayout()
-        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'TransactionDataGridView
@@ -69,25 +69,25 @@ Partial Class TransactionDialog
         Me.TransactionDataGridView.AllowUserToDeleteRows = False
         Me.TransactionDataGridView.AllowUserToResizeColumns = False
         Me.TransactionDataGridView.AllowUserToResizeRows = False
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
-        Me.TransactionDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.TransactionDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle7.BackColor = System.Drawing.Color.White
+        Me.TransactionDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.TransactionDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle8
         Me.TransactionDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.product, Me.price, Me.quantity, Me.total, Me.CASH})
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.TransactionDataGridView.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle9.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.TransactionDataGridView.DefaultCellStyle = DataGridViewCellStyle9
         Me.TransactionDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TransactionDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TransactionDataGridView.Location = New System.Drawing.Point(0, 0)
@@ -179,6 +179,75 @@ Partial Class TransactionDialog
         Me.Guna2Panel2.Size = New System.Drawing.Size(350, 490)
         Me.Guna2Panel2.TabIndex = 13
         '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.Guna2HtmlLabel1)
+        Me.Panel2.Controls.Add(Me.DateLabel)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel2.Location = New System.Drawing.Point(0, 28)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(350, 28)
+        Me.Panel2.TabIndex = 60
+        '
+        'Guna2HtmlLabel1
+        '
+        Me.Guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2HtmlLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2HtmlLabel1.IsContextMenuEnabled = False
+        Me.Guna2HtmlLabel1.IsSelectionEnabled = False
+        Me.Guna2HtmlLabel1.Location = New System.Drawing.Point(10, 5)
+        Me.Guna2HtmlLabel1.Name = "Guna2HtmlLabel1"
+        Me.Guna2HtmlLabel1.Size = New System.Drawing.Size(73, 17)
+        Me.Guna2HtmlLabel1.TabIndex = 62
+        Me.Guna2HtmlLabel1.Text = "Reference:"
+        '
+        'DateLabel
+        '
+        Me.DateLabel.BackColor = System.Drawing.Color.Transparent
+        Me.DateLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateLabel.IsContextMenuEnabled = False
+        Me.DateLabel.IsSelectionEnabled = False
+        Me.DateLabel.Location = New System.Drawing.Point(89, 5)
+        Me.DateLabel.Name = "DateLabel"
+        Me.DateLabel.Size = New System.Drawing.Size(104, 17)
+        Me.DateLabel.TabIndex = 61
+        Me.DateLabel.Text = "Guna2HtmlLabel1"
+        '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.Reference_number)
+        Me.Panel1.Controls.Add(Me.Guna2HtmlLabel3)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(350, 28)
+        Me.Panel1.TabIndex = 59
+        '
+        'Reference_number
+        '
+        Me.Reference_number.BackColor = System.Drawing.Color.Transparent
+        Me.Reference_number.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Reference_number.IsContextMenuEnabled = False
+        Me.Reference_number.IsSelectionEnabled = False
+        Me.Reference_number.Location = New System.Drawing.Point(57, 5)
+        Me.Reference_number.Name = "Reference_number"
+        Me.Reference_number.Size = New System.Drawing.Size(104, 17)
+        Me.Reference_number.TabIndex = 63
+        Me.Reference_number.Text = "Guna2HtmlLabel1"
+        '
+        'Guna2HtmlLabel3
+        '
+        Me.Guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2HtmlLabel3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2HtmlLabel3.IsContextMenuEnabled = False
+        Me.Guna2HtmlLabel3.IsSelectionEnabled = False
+        Me.Guna2HtmlLabel3.Location = New System.Drawing.Point(11, 5)
+        Me.Guna2HtmlLabel3.Name = "Guna2HtmlLabel3"
+        Me.Guna2HtmlLabel3.Size = New System.Drawing.Size(37, 17)
+        Me.Guna2HtmlLabel3.TabIndex = 63
+        Me.Guna2HtmlLabel3.Text = "Date:"
+        '
         'DiscountComboBox
         '
         Me.DiscountComboBox.BackColor = System.Drawing.Color.Transparent
@@ -252,6 +321,7 @@ Partial Class TransactionDialog
         Me.VatableTextBox.Name = "VatableTextBox"
         Me.VatableTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.VatableTextBox.PlaceholderText = ""
+        Me.VatableTextBox.ReadOnly = True
         Me.VatableTextBox.SelectedText = ""
         Me.VatableTextBox.ShortcutsEnabled = False
         Me.VatableTextBox.Size = New System.Drawing.Size(213, 36)
@@ -284,6 +354,7 @@ Partial Class TransactionDialog
         Me.TotalTextBox.Name = "TotalTextBox"
         Me.TotalTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.TotalTextBox.PlaceholderText = ""
+        Me.TotalTextBox.ReadOnly = True
         Me.TotalTextBox.SelectedText = ""
         Me.TotalTextBox.ShortcutsEnabled = False
         Me.TotalTextBox.Size = New System.Drawing.Size(213, 36)
@@ -306,6 +377,7 @@ Partial Class TransactionDialog
         Me.VatTextBox.Name = "VatTextBox"
         Me.VatTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.VatTextBox.PlaceholderText = ""
+        Me.VatTextBox.ReadOnly = True
         Me.VatTextBox.SelectedText = ""
         Me.VatTextBox.ShortcutsEnabled = False
         Me.VatTextBox.Size = New System.Drawing.Size(213, 36)
@@ -328,6 +400,7 @@ Partial Class TransactionDialog
         Me.SubtotalTextBox.Name = "SubtotalTextBox"
         Me.SubtotalTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.SubtotalTextBox.PlaceholderText = ""
+        Me.SubtotalTextBox.ReadOnly = True
         Me.SubtotalTextBox.SelectedText = ""
         Me.SubtotalTextBox.ShortcutsEnabled = False
         Me.SubtotalTextBox.Size = New System.Drawing.Size(213, 36)
@@ -412,75 +485,6 @@ Partial Class TransactionDialog
         Me.Guna2Panel1.Size = New System.Drawing.Size(778, 600)
         Me.Guna2Panel1.TabIndex = 22
         '
-        'Panel2
-        '
-        Me.Panel2.Controls.Add(Me.Guna2HtmlLabel1)
-        Me.Panel2.Controls.Add(Me.DateLabel)
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel2.Location = New System.Drawing.Point(0, 28)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(350, 28)
-        Me.Panel2.TabIndex = 60
-        '
-        'Guna2HtmlLabel1
-        '
-        Me.Guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2HtmlLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2HtmlLabel1.IsContextMenuEnabled = False
-        Me.Guna2HtmlLabel1.IsSelectionEnabled = False
-        Me.Guna2HtmlLabel1.Location = New System.Drawing.Point(10, 5)
-        Me.Guna2HtmlLabel1.Name = "Guna2HtmlLabel1"
-        Me.Guna2HtmlLabel1.Size = New System.Drawing.Size(73, 17)
-        Me.Guna2HtmlLabel1.TabIndex = 62
-        Me.Guna2HtmlLabel1.Text = "Reference:"
-        '
-        'DateLabel
-        '
-        Me.DateLabel.BackColor = System.Drawing.Color.Transparent
-        Me.DateLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateLabel.IsContextMenuEnabled = False
-        Me.DateLabel.IsSelectionEnabled = False
-        Me.DateLabel.Location = New System.Drawing.Point(89, 5)
-        Me.DateLabel.Name = "DateLabel"
-        Me.DateLabel.Size = New System.Drawing.Size(104, 17)
-        Me.DateLabel.TabIndex = 61
-        Me.DateLabel.Text = "Guna2HtmlLabel1"
-        '
-        'Panel1
-        '
-        Me.Panel1.Controls.Add(Me.Reference_number)
-        Me.Panel1.Controls.Add(Me.Guna2HtmlLabel3)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(350, 28)
-        Me.Panel1.TabIndex = 59
-        '
-        'Guna2HtmlLabel3
-        '
-        Me.Guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2HtmlLabel3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2HtmlLabel3.IsContextMenuEnabled = False
-        Me.Guna2HtmlLabel3.IsSelectionEnabled = False
-        Me.Guna2HtmlLabel3.Location = New System.Drawing.Point(11, 5)
-        Me.Guna2HtmlLabel3.Name = "Guna2HtmlLabel3"
-        Me.Guna2HtmlLabel3.Size = New System.Drawing.Size(37, 17)
-        Me.Guna2HtmlLabel3.TabIndex = 63
-        Me.Guna2HtmlLabel3.Text = "Date:"
-        '
-        'Reference_number
-        '
-        Me.Reference_number.BackColor = System.Drawing.Color.Transparent
-        Me.Reference_number.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Reference_number.IsContextMenuEnabled = False
-        Me.Reference_number.IsSelectionEnabled = False
-        Me.Reference_number.Location = New System.Drawing.Point(57, 5)
-        Me.Reference_number.Name = "Reference_number"
-        Me.Reference_number.Size = New System.Drawing.Size(104, 17)
-        Me.Reference_number.TabIndex = 63
-        Me.Reference_number.Text = "Guna2HtmlLabel1"
-        '
         'TransactionDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -497,13 +501,13 @@ Partial Class TransactionDialog
         CType(Me.TransactionDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Guna2Panel2.ResumeLayout(False)
         Me.Guna2Panel2.PerformLayout()
-        Me.TableLayoutPanel1.ResumeLayout(False)
-        Me.FlowLayoutPanel1.ResumeLayout(False)
-        Me.Guna2Panel1.ResumeLayout(False)
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.FlowLayoutPanel1.ResumeLayout(False)
+        Me.Guna2Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub

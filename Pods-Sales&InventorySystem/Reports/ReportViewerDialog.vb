@@ -36,7 +36,8 @@ Public Class ReportViewerDialog
                                             t.total,
                                             t.date,
                                             CONCAT(u.first_name, ' ', u.last_name) AS name,
-                                            t.cash, (t.cash - t.total) change, t.vatable
+                                            t.cash, (t.cash - t.total) change, 
+                                            t.vatable
                                           FROM tbltransactions t
                                           JOIN tblaccounts u ON t.account_id = u.id
                                           WHERE t.transaction_number = @transaction_number", con)

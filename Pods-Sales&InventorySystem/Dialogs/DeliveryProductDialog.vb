@@ -26,8 +26,8 @@ Public Class DeliveryProductDialog
                 BatchTextBox.Text = _data.Item("batch_number")
                 AddDeliveryButton.Text = "Update"
                 BarcodeTextBox.Enabled = False
-                If tite = 1 Then
-                    DateTimePicker.Enabled = True
+                If _data.Item("date") <> "" Then
+                    DateTimePicker.Value = _data.Item("date")
                 Else
                     DateTimePicker.Enabled = False
                 End If
@@ -49,7 +49,6 @@ Public Class DeliveryProductDialog
             ProductTextBox.AutoCompleteSource = AutoCompleteSource.CustomSource
             ProductTextBox.AutoCompleteCustomSource = BaseProduct.PopulateAutoCompleteList()
 
-
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -57,6 +56,11 @@ Public Class DeliveryProductDialog
 
     Private Sub AddDeliveryButton_Click(sender As Object, e As EventArgs) Handles AddDeliveryButton.Click
         Try
+            If BaseProduct.CheckProductname(ProductTextBox.Text) = 0 Then
+                MessageBox.Show("No product found!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Clear()
+                Exit Sub
+            End If
             Dim controls As Object() = {
                 ProductTextBox, SellingTextBox, CostTextBox, QuantityTextBox, BatchTextBox
             }
@@ -65,8 +69,11 @@ Public Class DeliveryProductDialog
             }
             Dim result As New List(Of Object())
             For i = 0 To controls.Count - 1
+                If controls(i) Is BatchTextBox AndAlso tite = 0 Then
+                    'Will skip the batch textbox if not needed
+                    Continue For
+                End If
                 result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
-                'When validation is triggered it will not proceed to next line
                 Dim validationResult = TryCast(result(i), Object())
                 If validationResult IsNot Nothing AndAlso validationResult.Length > 0 Then
                     If Not validationResult(0) = True Then
@@ -110,7 +117,7 @@ Public Class DeliveryProductDialog
                     _parent.DeliveryDataGridView.Rows.Add({If(String.IsNullOrEmpty(id), 0, id),
                                                           If(String.IsNullOrEmpty(ProductTextBox.Text), 0, ProductTextBox.Text),
                                                           If(DateTimePicker.Enabled AndAlso Not String.IsNullOrEmpty(exd.ToString()) AndAlso exd.ToString() <> "", exd.ToString("yyyy-MM-dd"), ""),
-                                                          If(String.IsNullOrEmpty(BatchTextBox.Text), 0, BatchTextBox.Text),
+                                                          If(String.IsNullOrEmpty(BatchTextBox.Text), "", BatchTextBox.Text),
                                                           If(String.IsNullOrEmpty(SellingTextBox.Text), 0, SellingTextBox.Text),
                                                           If(String.IsNullOrEmpty(CostTextBox.Text), 0, CostTextBox.Text),
                                                           If(String.IsNullOrEmpty(QuantityTextBox.Text), 0, QuantityTextBox.Text),

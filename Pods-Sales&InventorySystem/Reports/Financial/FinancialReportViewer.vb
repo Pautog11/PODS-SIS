@@ -57,30 +57,48 @@ Public Class FinancialReportViewer
                 '                                  th.transaction_number, 
                 '                                  CONCAT(ac.first_name, ' ', ac.last_name), 
                 '                                  th.date", con)
-                Dim cmd As New SqlCommand("WITH
-                                            Panuway AS (
-                                                SELECT transaction_id AS id, price,
-		                                        product_id
-                                                FROM tbltransaction_items 
-                                                --WHERE transaction_id = @id
-                                            ),
-                                            Dipota AS (
-                                                SELECT transaction_id AS id, cost , quantity
-                                                FROM getrev 
-                                                --WHERE transaction_id = @id and quantity !=0
-                                            ),
-	                                        Magic as (
-		                                        SELECT a.id, product_id, price, a.cost, a.quantity, sum(price * a.quantity) as total, sum(a.cost * a.quantity) as kapital
-		                                        FROM Dipota a
-		                                        JOIN Panuway b ON a.id = b.id
-		                                        group by a.id, product_id, price, a.cost, a.quantity
-	                                        ),
-	                                        Tite as (
-	                                        Select id, product_id, price, cost, quantity, total, kapital, sum(total - kapital) as tubo from Magic
-	                                        group by id, product_id, price, cost, quantity, total, kapital
-	                                        )
-                                        select b.id, b.transaction_number, sum(a.total) as total, b.date, b.account_id, sum(a.tubo) as Revenue from Tite a left join tbltransactions b on a.id = b.id
-                                        group by b.id, b.transaction_number, b.date, b.account_id", con)
+                'Dim cmd As New SqlCommand("WITH
+                '                            Panuway AS (
+                '                                SELECT transaction_id AS id, price,
+                '                          product_id
+                '                                FROM tbltransaction_items 
+                '                                --WHERE transaction_id = @id
+                '                            ),
+                '                            Dipota AS (
+                '                                SELECT transaction_id AS id, cost , quantity
+                '                                FROM getrev 
+                '                                --WHERE transaction_id = @id and quantity !=0
+                '                            ),
+                '                         Magic as (
+                '                          SELECT a.id, product_id, price, a.cost, a.quantity, sum(price * a.quantity) as total, sum(a.cost * a.quantity) as kapital
+                '                          FROM Dipota a
+                '                          JOIN Panuway b ON a.id = b.id
+                '                          group by a.id, product_id, price, a.cost, a.quantity
+                '                         ),
+                '                         Tite as (
+                '                         Select id, product_id, price, cost, quantity, total, kapital, sum(total - kapital) as tubo from Magic
+                '                         group by id, product_id, price, cost, quantity, total, kapital
+                '                         )
+                '                        select b.id, b.transaction_number, sum(a.total) as total, b.date, b.account_id, sum(a.tubo) as Revenue from Tite a left join tbltransactions b on a.id = b.id
+                '                        group by b.id, b.transaction_number, b.date, b.account_id", con)
+
+
+                Dim cmd As New SqlCommand("select id, NAME as cashier, [TRANSACTION NUMBER] as transaction_number, CAPITAL, REVENUE, TOTAL, date
+                                            from viewtblrevenue
+
+                                            union all
+
+                                            select a.id, 
+                                                   b.first_name as cashier, -- Assuming you want one value per id (adjust as needed)
+                                                   c.transaction_number, 
+	                                               NULL as CAPITAL,
+	                                               NULL as REVENUE,
+                                                   -1 * a.total, 
+                                                   a.date
+                                            from tblreturns a
+                                            join tblaccounts b on a.account_id = b.id
+                                            join tbltransactions c on a.transaction_id = c.id
+                                            order by transaction_number, total desc, date", con)
                 'cmd.Parameters.AddWithValue("@startDate", startDate)
                 'cmd.Parameters.AddWithValue("@endDate", endDate)
 

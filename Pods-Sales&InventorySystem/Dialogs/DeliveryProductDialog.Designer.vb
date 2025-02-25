@@ -187,7 +187,7 @@ Partial Class DeliveryProductDialog
         Me.DateTimePicker.FillColor = System.Drawing.Color.White
         Me.DateTimePicker.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
-        Me.DateTimePicker.Location = New System.Drawing.Point(29, 354)
+        Me.DateTimePicker.Location = New System.Drawing.Point(29, 349)
         Me.DateTimePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
         Me.DateTimePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
         Me.DateTimePicker.Name = "DateTimePicker"

@@ -1,7 +1,7 @@
 ﻿Imports System.Windows.Forms
 
 Public Class SubCategoryDialog
-    Private ReadOnly _tableAdapter As New podsTableAdapters.viewtblsubcategoriesTableAdapter
+    Private ReadOnly _tableAdapter As New podsTableAdapters.viewtblcategoriesTableAdapter
     Private ReadOnly _data As Dictionary(Of String, String)
     Private ReadOnly _subject As IObservablePanel
 
@@ -14,7 +14,7 @@ Public Class SubCategoryDialog
 
     Private Sub SubCategoryDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            Dim subcategory_data As pods.viewtblsubcategoriesDataTable = _tableAdapter.GetData()
+            Dim subcategory_data As pods.viewtblcategoriesDataTable = _tableAdapter.GetData()
             CategoryComboBox.DataSource = subcategory_data
             CategoryComboBox.DisplayMember = "CATEGORY"
             CategoryComboBox.ValueMember = "ID"
@@ -67,7 +67,7 @@ Public Class SubCategoryDialog
                 Dim invoker As ICommandInvoker = Nothing
                 If BaseSubCategory.CategoryAndSubcategoryExists(CategoryComboBox.SelectedItem("id"), result(1)(1)) = 0 AndAlso _data Is Nothing Then 'BaseSubCategory.Exists(result(0)(1)) = 0 AndAlso
                     invoker = New AddCommand(baseCommand)
-                ElseIf _data IsNot Nothing AndAlso BaseSubCategory.CategoryAndSubcategoryExists(CategoryComboBox.SelectedItem("id"), result(0)(1)) = 0 Then
+                ElseIf _data IsNot Nothing AndAlso BaseSubCategory.CategoryAndSubcategoryExists(CategoryComboBox.SelectedItem("id"), result(1)(1)) = 0 Then
                     invoker = New UpdateCommand(baseCommand)
                 Else
                     MessageBox.Show("Subcategory exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)

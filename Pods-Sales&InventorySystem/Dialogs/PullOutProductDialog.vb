@@ -17,7 +17,7 @@ Public Class PullOutProductDialog
     Private Sub PullOutProductDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             If _data IsNot Nothing Then
-                dt = BaseDelivery.FillPulloutProduct(_data.Item("id"))
+                'dt = BaseDelivery.FillPulloutProduct(_data.Item("id"))
                 ProductComboBox.DataSource = dt.DefaultView
                 ProductComboBox.DisplayMember = "name"
                 VoidButton.Visible = False
@@ -27,7 +27,7 @@ Public Class PullOutProductDialog
                 'MsgBox(_data2.Item("did"))
 
 
-                dt = BaseDelivery.FillPulloutProduct(_data2.Item("did"))
+                'dt = BaseDelivery.FillPulloutProduct(_data2.Item("did"))
                 ProductComboBox.DataSource = dt.DefaultView
                 ProductComboBox.DisplayMember = "name"
                 StocksTextBox.Text = dt.Rows(0)("quantity").ToString

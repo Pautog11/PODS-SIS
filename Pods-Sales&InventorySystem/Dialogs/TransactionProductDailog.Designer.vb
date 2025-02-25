@@ -80,6 +80,7 @@ Partial Class TransactionProductDailog
         Me.PriceTextBox.Name = "PriceTextBox"
         Me.PriceTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.PriceTextBox.PlaceholderText = "0.00"
+        Me.PriceTextBox.ReadOnly = True
         Me.PriceTextBox.SelectedText = ""
         Me.PriceTextBox.ShortcutsEnabled = False
         Me.PriceTextBox.Size = New System.Drawing.Size(255, 36)
@@ -122,6 +123,7 @@ Partial Class TransactionProductDailog
         Me.StocksTextBox.Name = "StocksTextBox"
         Me.StocksTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.StocksTextBox.PlaceholderText = "0"
+        Me.StocksTextBox.ReadOnly = True
         Me.StocksTextBox.SelectedText = ""
         Me.StocksTextBox.ShortcutsEnabled = False
         Me.StocksTextBox.Size = New System.Drawing.Size(255, 36)
@@ -178,6 +180,7 @@ Partial Class TransactionProductDailog
         Me.ProductNameTextBox.Name = "ProductNameTextBox"
         Me.ProductNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ProductNameTextBox.PlaceholderText = "Ex. (Biogesic)"
+        Me.ProductNameTextBox.ReadOnly = True
         Me.ProductNameTextBox.SelectedText = ""
         Me.ProductNameTextBox.ShortcutsEnabled = False
         Me.ProductNameTextBox.Size = New System.Drawing.Size(255, 36)

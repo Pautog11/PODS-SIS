@@ -77,6 +77,28 @@ Public Class InputValidation
                     MessageBox.Show("Invalid name.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
 
+            Case DataInput.STRING_PRODUCTNAME
+                If stringInput.Count > 1 Then
+                    Dim nameString As String() = stringInput.Split(" "c)
+                    Dim allowedCharsRegex As New Regex("^[A-Za-z0-9,.'&-]+$")
+
+                    For i = 0 To nameString.Count - 1
+                        If Not allowedCharsRegex.IsMatch(nameString(i)) Then
+                            MessageBox.Show("Invalid characters detected.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                            Return {False}
+                        End If
+                        If nameString(i).Any(Function(c) Char.IsLetter(c)) Then
+                            Dim charArr As Char() = nameString(i).ToArray()
+                            charArr(0) = Char.ToUpper(charArr(0))
+                            nameString(i) = String.Join("", charArr)
+                        End If
+                    Next
+                    Return {True, String.Join(" ", nameString)}
+                Else
+                    MessageBox.Show("Invalid name.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
+
+
             Case DataInput.STRING_PASSWORD
                 'if Regex.IsMatch(stringInput, "^(?=.*[0-9])(?= .*[@#$%^&+=]).{8,}$") Then
                 Return {True, stringInput}
@@ -203,4 +225,5 @@ Public Enum DataInput
     STRING_PNAME
     STRING_TEL
     STRING_DECIMAL
+    STRING_PRODUCTNAME
 End Enum

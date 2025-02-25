@@ -224,6 +224,7 @@ Partial Class PosPanel
         Me.SubtotalTextBox.Name = "SubtotalTextBox"
         Me.SubtotalTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.SubtotalTextBox.PlaceholderText = ""
+        Me.SubtotalTextBox.ReadOnly = True
         Me.SubtotalTextBox.SelectedText = ""
         Me.SubtotalTextBox.ShortcutsEnabled = False
         Me.SubtotalTextBox.Size = New System.Drawing.Size(226, 36)
@@ -256,6 +257,7 @@ Partial Class PosPanel
         Me.VatTextBox.Name = "VatTextBox"
         Me.VatTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.VatTextBox.PlaceholderText = ""
+        Me.VatTextBox.ReadOnly = True
         Me.VatTextBox.SelectedText = ""
         Me.VatTextBox.ShortcutsEnabled = False
         Me.VatTextBox.Size = New System.Drawing.Size(226, 36)
@@ -288,6 +290,7 @@ Partial Class PosPanel
         Me.TotalTextBox.Name = "TotalTextBox"
         Me.TotalTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.TotalTextBox.PlaceholderText = ""
+        Me.TotalTextBox.ReadOnly = True
         Me.TotalTextBox.SelectedText = ""
         Me.TotalTextBox.ShortcutsEnabled = False
         Me.TotalTextBox.Size = New System.Drawing.Size(226, 36)
@@ -353,6 +356,7 @@ Partial Class PosPanel
         Me.ChangeTextBox.Name = "ChangeTextBox"
         Me.ChangeTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ChangeTextBox.PlaceholderText = ""
+        Me.ChangeTextBox.ReadOnly = True
         Me.ChangeTextBox.SelectedText = ""
         Me.ChangeTextBox.ShortcutsEnabled = False
         Me.ChangeTextBox.Size = New System.Drawing.Size(226, 36)
@@ -375,6 +379,7 @@ Partial Class PosPanel
         Me.VatableTextBox.Name = "VatableTextBox"
         Me.VatableTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.VatableTextBox.PlaceholderText = ""
+        Me.VatableTextBox.ReadOnly = True
         Me.VatableTextBox.SelectedText = ""
         Me.VatableTextBox.ShortcutsEnabled = False
         Me.VatableTextBox.Size = New System.Drawing.Size(226, 36)

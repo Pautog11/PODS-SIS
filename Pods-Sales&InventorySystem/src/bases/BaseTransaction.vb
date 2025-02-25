@@ -29,12 +29,11 @@ Public Class BaseTransaction
     Public Sub Add() Implements ICommandPanel.Add
         Dim transaction As SqlTransaction = SqlConnectionPods.GetInstance.BeginTransaction()
         Try
-            _sqlCommand = New SqlCommand("INSERT INTO tbltransactions (account_id, transaction_number, subtotal, vatable,  vat, discount, total, date, cash) 
-                                          VALUES (@account_id, @transaction_number, @subtotal, @vatable, @vat, @discount, @total, @date, @cash); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
+            _sqlCommand = New SqlCommand("INSERT INTO tbltransactions (account_id, transaction_number, subtotal,  vat, discount, total, date, cash) 
+                                          VALUES (@account_id, @transaction_number, @subtotal, @vat, @discount, @total, @date, @cash); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
             _sqlCommand.Parameters.AddWithValue("@account_id", My.Settings.myId)
             _sqlCommand.Parameters.AddWithValue("@transaction_number", _data.Item("transaction_number"))
-            _sqlCommand.Parameters.AddWithValue("@subtotal", _data.Item("subtotal"))
-            _sqlCommand.Parameters.AddWithValue("@vatable", _data.Item("vatable"))
+            _sqlCommand.Parameters.AddWithValue("@subtotal", _data.Item("subtotal")) '_sqlCommand.Parameters.AddWithValue("@vatable", _data.Item("vatable"))
             _sqlCommand.Parameters.AddWithValue("@vat", _data.Item("vat"))
             _sqlCommand.Parameters.AddWithValue("@discount", _data.Item("discount"))
             _sqlCommand.Parameters.AddWithValue("@total", _data.Item("total"))

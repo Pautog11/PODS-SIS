@@ -4,17 +4,17 @@ Imports System.Windows.Forms
 Public Class ReturnCartDialog
     Private ReadOnly _subject As IObservablePanel
     Private ReadOnly _data As Dictionary(Of String, String)
-    Private ReadOnly _dat2 As Dictionary(Of String, String)
+    Private ReadOnly _data2 As Dictionary(Of String, String)
     Public _itemSource As DataTable
     Private _parent As TransactionDialog = Nothing
     Public Sub New(Optional data As Dictionary(Of String, String) = Nothing,
-                   Optional dat2 As Dictionary(Of String, String) = Nothing,
+                   Optional data2 As Dictionary(Of String, String) = Nothing,
                    Optional subject As IObservablePanel = Nothing,
                    Optional parent As TransactionDialog = Nothing)
         InitializeComponent()
         _subject = subject
         _data = data
-        _dat2 = dat2
+        _data2 = data2
         _parent = parent
     End Sub
 
@@ -27,10 +27,10 @@ Public Class ReturnCartDialog
                 TransactionTextBox.Enabled = False
                 'Guna2Button1.Enabled = False
                 'Guna2Button2.Enabled = False
-
-            ElseIf _dat2 IsNot Nothing Then
-                TransactionTextBox.Text = _dat2.Item("ref")
-                RetuenDatePicker.Value = _dat2.Item("date")
+                AddInventoryButton.Visible = False
+            ElseIf _data2 IsNot Nothing Then
+                TransactionTextBox.Text = _data2.Item("ref")
+                RetuenDatePicker.Value = _data2.Item("date")
                 'TotalPrice.Text = _dat2.Item("price")
 
                 TransactionTextBox.Enabled = False
@@ -74,18 +74,15 @@ Public Class ReturnCartDialog
 
                 For Each row As DataGridViewRow In ReturnDataGridView.Rows
                     Dim item As New Dictionary(Of String, String) From {
-                        {"id", row.Cells(0).Value},
+                        {"id", If(String.IsNullOrEmpty(row.Cells(0).Value?.ToString()), 0, row.Cells(0).Value?.ToString())},
                         {"price", If(String.IsNullOrEmpty(row.Cells(2).Value?.ToString()), 0, row.Cells(2).Value?.ToString())},
                         {"quantity", If(String.IsNullOrEmpty(row.Cells(3).Value?.ToString()), 0, row.Cells(3).Value?.ToString())}
                     }
                     items.Add(item)
                 Next
 
-                Dim baseCommand As New BaseReturn(data) With {
-                    .Items = items
-                }
+                Dim baseCommand As New BaseReturn(data) With {.Items = items}
                 Dim invoker As ICommandInvoker = Nothing
-
                 invoker = New AddCommand(baseCommand)
 
                 invoker?.Execute()

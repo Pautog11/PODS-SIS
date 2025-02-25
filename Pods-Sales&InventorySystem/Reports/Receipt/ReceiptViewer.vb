@@ -129,7 +129,7 @@ Public Class ReceiptViewer
 											p.product_name AS product, 
 											ti.quantity, 
 											ti.price AS price, 
-											t.vatable,
+											SUM(total - vat) AS vatable,
 											SUM(ti.quantity * price) AS product_total,
                                             t.cash,
                                             SUM(t.cash - t.total) AS CHANGE
@@ -149,7 +149,6 @@ Public Class ReceiptViewer
 											p.product_name, 
 											ti.quantity, 
 											ti.price, 
-											t.vatable,
                                             t.cash", con)
                 cmd.Parameters.AddWithValue("@transaction_number", transactionNumber)
 

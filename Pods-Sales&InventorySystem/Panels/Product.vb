@@ -34,7 +34,7 @@
                 {"id", If(String.IsNullOrEmpty(row.Cells(0).Value.ToString()), 0, row.Cells(0).Value.ToString())},
                 {"subcategory_id", BaseProduct.ScalarSubcategoryId(row.Cells(2).Value.ToString())},
                 {"sku", If(String.IsNullOrEmpty(row.Cells(3).Value.ToString()), 0, row.Cells(3).Value.ToString())},
-                {"barcode", If(String.IsNullOrEmpty(row.Cells(4).Value.ToString()), 0, row.Cells(4).Value.ToString())},
+                {"barcode", row.Cells(4).Value.ToString()},
                 {"product_name", If(String.IsNullOrEmpty(row.Cells(5).Value.ToString()), 0, row.Cells(5).Value.ToString())},
                 {"description", row.Cells(6).Value.ToString()},
                 {"stock_level", If(String.IsNullOrEmpty(row.Cells(7).Value.ToString()), 0, row.Cells(7).Value.ToString())}
@@ -61,11 +61,11 @@
     '    modal.ShowDialog(Dashboard) ' Pass the parent form as argument
     'End Sub
 
-    Private Sub PrintProductButton_Click(sender As Object, e As EventArgs) 
-        'Using dialog = ProductVIewer
-        '    dialog.ShowDialog()
-        'End Using
-    End Sub
+    'Private Sub PrintProductButton_Click(sender As Object, e As EventArgs) 
+    '    'Using dialog = ProductVIewer
+    '    '    dialog.ShowDialog()
+    '    'End Using
+    'End Sub
 
     'Private Sub ProductsDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles MyBasesDataGridView.CellContentClick
 

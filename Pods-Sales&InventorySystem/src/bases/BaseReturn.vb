@@ -111,13 +111,11 @@ Public Class BaseReturn
         End Try
     End Function
 
-
     Public Shared Function SelectAllReturnById(id As Integer) As DataTable
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT a.id, 
-                                         tblreturn_id, 
+            cmd = New SqlCommand("SELECT a.id,
                                          product_name, 
                                          price, 
                                          quantity,

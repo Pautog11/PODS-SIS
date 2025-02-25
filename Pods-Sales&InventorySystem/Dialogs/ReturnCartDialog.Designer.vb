@@ -37,13 +37,14 @@ Partial Class ReturnCartDialog
         Me.AccountHeaderLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.ReturnDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.product = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.price = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.quantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.AddInventoryButton = New Guna.UI2.WinForms.Guna2Button()
         Me.FlowLayoutPanel2.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.AccountHeaderLayoutPanel.SuspendLayout()
@@ -56,6 +57,7 @@ Partial Class ReturnCartDialog
         'FlowLayoutPanel2
         '
         Me.FlowLayoutPanel2.Controls.Add(Me.SaveButton)
+        Me.FlowLayoutPanel2.Controls.Add(Me.AddInventoryButton)
         Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
         Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 452)
@@ -252,6 +254,36 @@ Partial Class ReturnCartDialog
         Me.ReturnDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ReturnDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         '
+        'ID
+        '
+        Me.ID.HeaderText = "ID"
+        Me.ID.Name = "ID"
+        Me.ID.ReadOnly = True
+        '
+        'product
+        '
+        Me.product.HeaderText = "PRODUCT"
+        Me.product.Name = "product"
+        Me.product.ReadOnly = True
+        '
+        'price
+        '
+        Me.price.HeaderText = "PRICE"
+        Me.price.Name = "price"
+        Me.price.ReadOnly = True
+        '
+        'quantity
+        '
+        Me.quantity.HeaderText = "QUANTITY"
+        Me.quantity.Name = "quantity"
+        Me.quantity.ReadOnly = True
+        '
+        'total
+        '
+        Me.total.HeaderText = "TOTAL"
+        Me.total.Name = "total"
+        Me.total.ReadOnly = True
+        '
         'TableLayoutPanel1
         '
         Me.TableLayoutPanel1.ColumnCount = 1
@@ -283,35 +315,24 @@ Partial Class ReturnCartDialog
         Me.Guna2Panel1.Size = New System.Drawing.Size(746, 44)
         Me.Guna2Panel1.TabIndex = 6
         '
-        'ID
+        'AddInventoryButton
         '
-        Me.ID.HeaderText = "ID"
-        Me.ID.Name = "ID"
-        Me.ID.ReadOnly = True
-        '
-        'product
-        '
-        Me.product.HeaderText = "PRODUCT"
-        Me.product.Name = "product"
-        Me.product.ReadOnly = True
-        '
-        'price
-        '
-        Me.price.HeaderText = "PRICE"
-        Me.price.Name = "price"
-        Me.price.ReadOnly = True
-        '
-        'quantity
-        '
-        Me.quantity.HeaderText = "QUANTITY"
-        Me.quantity.Name = "quantity"
-        Me.quantity.ReadOnly = True
-        '
-        'total
-        '
-        Me.total.HeaderText = "TOTAL"
-        Me.total.Name = "total"
-        Me.total.ReadOnly = True
+        Me.AddInventoryButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.AddInventoryButton.BackColor = System.Drawing.Color.Transparent
+        Me.AddInventoryButton.BorderRadius = 15
+        Me.AddInventoryButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.AddInventoryButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.AddInventoryButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.AddInventoryButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.AddInventoryButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.AddInventoryButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.AddInventoryButton.ForeColor = System.Drawing.Color.White
+        Me.AddInventoryButton.Location = New System.Drawing.Point(443, 7)
+        Me.AddInventoryButton.Margin = New System.Windows.Forms.Padding(3, 7, 3, 3)
+        Me.AddInventoryButton.Name = "AddInventoryButton"
+        Me.AddInventoryButton.Size = New System.Drawing.Size(150, 35)
+        Me.AddInventoryButton.TabIndex = 7
+        Me.AddInventoryButton.Text = "BACK TO INVENTORY"
         '
         'ReturnCartDialog
         '
@@ -357,4 +378,5 @@ Partial Class ReturnCartDialog
     Friend WithEvents price As DataGridViewTextBoxColumn
     Friend WithEvents quantity As DataGridViewTextBoxColumn
     Friend WithEvents total As DataGridViewTextBoxColumn
+    Friend WithEvents AddInventoryButton As Guna.UI2.WinForms.Guna2Button
 End Class

@@ -24,10 +24,10 @@ Public Class TransactionDialog
                 SubtotalTextBox.Text = _data.Item("subtotal")
                 VatTextBox.Text = _data.Item("vat")
                 DiscountComboBox.Text = _data.Item("discount")
-                'TotalTextBox.Text = _data.Item("total")
+                TotalTextBox.Text = _data.Item("total")
                 DateLabel.Text = _data.Item("date")
                 'CashTextBox.Text = _data.Item("cash")
-                VatableTextBox.Text = _data.Item("vatable")
+                VatableTextBox.Text = (_data.Item("total") - _data.Item("vat"))
                 'MsgBox(_data("id"))
                 'Populate items 
                 TransactionDataGridView.Rows.Clear()
@@ -67,10 +67,10 @@ Public Class TransactionDialog
                 ReturnButton.Visible = False
             End If
             'TransactionDataGridView.Columns.Item("ID").Visible = False
-            SubtotalTextBox.Enabled = False
-            VatTextBox.Enabled = False
-            TotalTextBox.Enabled = False
-            VatableTextBox.Enabled = False
+            'SubtotalTextBox.Enabled = False
+            'VatTextBox.Enabled = False
+            'TotalTextBox.Enabled = False
+            'VatableTextBox.Enabled = False
             'ChangeTextBox.Enabled = False
         Catch ex As Exception
             MessageBox.Show(ex.Message)
@@ -108,10 +108,10 @@ Public Class TransactionDialog
     '    End Try
     'End Sub
 
-    Private Sub AddItemTransactionButton_Click(sender As Object, e As EventArgs)
-        'Dim dialog As New TransactionProductDailog(parent:=Me)
-        'dialog.ShowDialog()
-    End Sub
+    'Private Sub AddItemTransactionButton_Click(sender As Object, e As EventArgs)
+    '    'Dim dialog As New TransactionProductDailog(parent:=Me)
+    '    'dialog.ShowDialog()
+    'End Sub
     'Private Sub AddTransactionButton_Click(sender As Object, e As EventArgs)
     '    Try
     '        If TransactionDataGridView.Rows.Count > 0 Then

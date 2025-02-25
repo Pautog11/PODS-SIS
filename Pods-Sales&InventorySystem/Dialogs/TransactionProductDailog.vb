@@ -56,9 +56,9 @@ Public Class TransactionProductDailog
 
             'CategoryComboBox.DataSource = _tableAdapter.GetData
             'CategoryComboBox.DisplayMember = "CATEGORY"
-            ProductNameTextBox.Enabled = False
-            PriceTextBox.Enabled = False
-            StocksTextBox.Enabled = False
+            'ProductNameTextBox.Enabled = False
+            'PriceTextBox.Enabled = False
+            'StocksTextBox.Enabled = False
 
             'If _data IsNot Nothing Then
             '    PriceTextBox.Text = _data.Item("product_price")

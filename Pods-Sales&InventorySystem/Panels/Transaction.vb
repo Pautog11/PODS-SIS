@@ -19,7 +19,6 @@
         TransactionDataGridView.Columns.Item("ID").Visible = False
         TransactionDataGridView.Columns.Item("VAT").Visible = False
         TransactionDataGridView.Columns.Item("CASH").Visible = False
-        TransactionDataGridView.Columns.Item("VATABLE").Visible = False
         TransactionDataGridView.Columns.Item("DISCOUNT").Visible = False
         TransactionDataGridView.Columns.Item("SUBTOTAL").Visible = False
     End Sub
@@ -37,11 +36,11 @@
                 {"id", If(String.IsNullOrEmpty(row.Cells(0).Value.ToString()), "0", row.Cells(0).Value.ToString())},
                 {"transaction_number", If(String.IsNullOrEmpty(row.Cells(2).Value.ToString()), "0", row.Cells(2).Value.ToString())},
                 {"subtotal", If(String.IsNullOrEmpty(row.Cells(3).Value.ToString()), "0", row.Cells(3).Value.ToString())},
-                {"vatable", If(String.IsNullOrEmpty(row.Cells(4).Value.ToString()), "0", row.Cells(4).Value.ToString())},
-                {"vat", If(String.IsNullOrEmpty(row.Cells(5).Value.ToString()), "0", row.Cells(5).Value.ToString())},
-                {"discount", If(String.IsNullOrEmpty(row.Cells(6).Value.ToString()), "0", row.Cells(6).Value.ToString())},
-                {"date", If(String.IsNullOrEmpty(row.Cells(8).Value.ToString()), "0", row.Cells(8).Value.ToString())},
-                {"cash", If(String.IsNullOrEmpty(row.Cells(9).Value.ToString()), "0", row.Cells(9).Value.ToString())}
+                {"vat", If(String.IsNullOrEmpty(row.Cells(4).Value.ToString()), "0", row.Cells(4).Value.ToString())},
+                {"discount", If(String.IsNullOrEmpty(row.Cells(5).Value.ToString()), "0", row.Cells(5).Value.ToString())},
+                {"total", If(String.IsNullOrEmpty(row.Cells(6).Value.ToString()), "0", row.Cells(6).Value.ToString())},
+                {"date", If(String.IsNullOrEmpty(row.Cells(7).Value.ToString()), "0", row.Cells(7).Value.ToString())},
+                {"cash", If(String.IsNullOrEmpty(row.Cells(8).Value.ToString()), "0", row.Cells(8).Value.ToString())}
             }
             Dim Dialog As New TransactionDialog(data:=data, subject:=_subject)
             Dialog.ShowDialog()

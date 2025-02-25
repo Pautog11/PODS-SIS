@@ -67,7 +67,8 @@ Public Class Dashboard
 
     Private Sub DashboardTabControl_Click(sender As Object, e As EventArgs) Handles DashboardTabControl.Click
         If DashboardTabControl.SelectedTab Is DashboardTabControl.TabPages("pos") Then
-            NotifyObserver()
+            'NotifyObserver()
+            MsgBox("pos")
         End If
     End Sub
 End Class
