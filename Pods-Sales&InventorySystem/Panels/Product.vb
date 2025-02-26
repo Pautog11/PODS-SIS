@@ -16,8 +16,7 @@
         _tableAapter.Fill(_dataTable)
         ProductsDataGridView.DataSource = _dataTable
         ProductsDataGridView.Columns.Item("ID").Visible = False
-        ProductsDataGridView.Columns.Item("SKU").Visible = False
-        'ProductsDataGridView.Columns.Item("DESCRIPTION").Visible = False
+        ProductsDataGridView.Columns.Item("ID SUBCAT").Visible = False
         ProductsDataGridView.Columns.Item("BARCODE").Visible = False
         ProductsDataGridView.Columns.Item("CRITICAL LEVEL").Visible = False
     End Sub
@@ -27,26 +26,24 @@
     End Sub
 
     Private Sub ProductsDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles ProductsDataGridView.CellClick
-        If ProductsDataGridView.SelectedRows.Count > 0 Then
-            Dim selectedRows As DataGridViewSelectedRowCollection = ProductsDataGridView.SelectedRows
-            Dim row As DataGridViewRow = selectedRows(0)
-            Dim data As New Dictionary(Of String, String) From {
-                {"id", If(String.IsNullOrEmpty(row.Cells(0).Value.ToString()), 0, row.Cells(0).Value.ToString())},
-                {"subcategory_id", BaseProduct.ScalarSubcategoryId(row.Cells(2).Value.ToString())},
-                {"sku", If(String.IsNullOrEmpty(row.Cells(3).Value.ToString()), 0, row.Cells(3).Value.ToString())},
-                {"barcode", If(String.IsNullOrEmpty(row.Cells(4).Value.ToString()), "", row.Cells(4).Value.ToString())},
-                {"product_name", If(String.IsNullOrEmpty(row.Cells(5).Value.ToString()), 0, row.Cells(5).Value.ToString())},
-                {"description", If(String.IsNullOrEmpty(row.Cells(6).Value.ToString()), "", row.Cells(6).Value.ToString())},
-                {"stock_level", If(String.IsNullOrEmpty(row.Cells(7).Value.ToString()), 0, row.Cells(7).Value.ToString())}
-            }
-            'If BaseProduct.ChangeDialog(data.Item("id")) = 1 Then
-            Dim Dialog As New ProductDialog(data:=data, subject:=_subject)
+        Try
+            If ProductsDataGridView.SelectedRows.Count > 0 Then
+                Dim row As DataGridViewRow = ProductsDataGridView.SelectedRows(0)
+                Dim data As New Dictionary(Of String, String) From {
+                    {"id", If(String.IsNullOrEmpty(row.Cells(0).Value.ToString()), 0, row.Cells(0).Value.ToString())},
+                    {"category_id", If(String.IsNullOrEmpty(row.Cells(2).Value.ToString()), 0, row.Cells(2).Value.ToString())}, 'BaseProduct.ScalarCategoryId(row.Cells(2).Value.ToString())},
+                    {"subcategory_id", If(String.IsNullOrEmpty(row.Cells(1).Value.ToString()), "", row.Cells(1).Value.ToString())},
+                    {"barcode", If(String.IsNullOrEmpty(row.Cells(4).Value.ToString()), "", row.Cells(4).Value.ToString())},
+                    {"product_name", If(String.IsNullOrEmpty(row.Cells(5).Value.ToString()), "", row.Cells(5).Value.ToString())},
+                    {"description", If(String.IsNullOrEmpty(row.Cells(6).Value.ToString()), "", row.Cells(6).Value.ToString())},
+                    {"stock_level", If(String.IsNullOrEmpty(row.Cells(7).Value.ToString()), 0, row.Cells(7).Value.ToString())}
+                }
+                Dim Dialog As New ProductDialog(data:=data, subject:=_subject)
                 Dialog.ShowDialog()
-            'Else
-            '    Dim Dialog As New NonMedicalDialog(data:=data, subject:=_subject)
-            '    Dialog.ShowDialog()
-            'End If
-        End If
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 
     Private Sub ProductSearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles ProductSearchTextBox.TextChanged

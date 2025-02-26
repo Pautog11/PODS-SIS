@@ -155,11 +155,33 @@ Public Class BaseProduct
         End Try
 
     End Sub
-    Public Shared Function FillBySubCategory() As DataTable
+    Public Shared Function FillBySubCategory(subcategory_id As Integer) As DataTable
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT * FROM tblsubcategories", conn)
+            cmd = New SqlCommand("WITH 
+	                                Top_table as (select id, category_id, subcategory FROM tblsubcategories WHERE id = @subcategory_id),
+	                                Others AS (SELECT * FROM tblsubcategories WHERE category_id = (SELECT category_id FROM Top_table))
+	                                SELECT * FROM  tblsubcategories WHERE id = @subcategory_id
+	                                UNION ALL 
+	                                SELECT * FROM Others WHERE id <> @subcategory_id", conn)
+            cmd.Parameters.AddWithValue("@subcategory_id", subcategory_id)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
+        End Try
+    End Function
+
+    Public Shared Function Filltite(category_id As Integer) As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("SELECT * FROM tblsubcategories WHERE category_id = @category_id", conn)
+            cmd.Parameters.AddWithValue("@category_id", category_id)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
             adapter.Fill(dTable)
@@ -202,11 +224,25 @@ Public Class BaseProduct
         End Try
     End Function
 
-    Public Shared Function ScalarSubcategoryId(subcategory As String) As Integer
+    'mali kasi merong same subcategory but iba ang mother cat
+    'Public Shared Function ScalarSubcategoryId(subcategory As String) As Integer
+    '    Try
+    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+    '        Dim cmd As New SqlCommand("SELECT id FROM tblsubcategories WHERE subcategory = @subcategory", conn)
+    '        cmd.Parameters.AddWithValue("@subcategory", subcategory)
+
+    '        Return cmd.ExecuteScalar()
+    '    Catch ex As Exception
+    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+    '        Return 0
+    '    End Try
+    'End Function
+
+    Public Shared Function ScalarCategoryId(category As String) As Integer
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As New SqlCommand("SELECT id FROM tblsubcategories WHERE subcategory = @subcategory", conn)
-            cmd.Parameters.AddWithValue("@subcategory", subcategory)
+            Dim cmd As New SqlCommand("SELECT id FROM tblcategories WHERE category = @category", conn)
+            cmd.Parameters.AddWithValue("@category", category)
 
             Return cmd.ExecuteScalar()
         Catch ex As Exception
@@ -409,18 +445,18 @@ Public Class BaseProduct
     '    End Try
     'End Function
 
-    Public Shared Function DoseName(dasage As String) As String
-        Try
-            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As New SqlCommand("SELECT id FROM tbldosage WHERE LOWER(dasage) = @dasage", conn)
-            cmd.Parameters.AddWithValue("@dasage", dasage.Trim.ToLower)
+    'Public Shared Function DoseName(dasage As String) As String
+    '    Try
+    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+    '        Dim cmd As New SqlCommand("SELECT id FROM tbldosage WHERE LOWER(dasage) = @dasage", conn)
+    '        cmd.Parameters.AddWithValue("@dasage", dasage.Trim.ToLower)
 
-            Return cmd.ExecuteScalar()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return 0
-        End Try
-    End Function
+    '        Return cmd.ExecuteScalar()
+    '    Catch ex As Exception
+    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+    '        Return 0
+    '    End Try
+    'End Function
 
     Public Shared Function CheckProductname(name As String) As String
         Try

@@ -17,11 +17,10 @@ Public Class ProductDialog
             CategoryComboBox.DisplayMember = "category"
             CategoryComboBox.SelectedItem = "id"
 
-
-            Dim sc As DataTable = BaseProduct.FillBySubCategory
-            SubCategoryComboBox.DataSource = sc.DefaultView
-            SubCategoryComboBox.DisplayMember = "subcategory"
-            SubCategoryComboBox.SelectedItem = "id"
+            'Dim sc As DataTable = BaseProduct.FillBySubCategory(_data.Item("subcategory_id"))
+            'SubCategoryComboBox.DataSource = sc.DefaultView
+            'SubCategoryComboBox.DisplayMember = "subcategory"
+            'SubCategoryComboBox.SelectedItem = "id"
 
             Dim dt As DataTable = BaseDosage.FetchDosage
             DoseComboBox.DataSource = dt.DefaultView
@@ -47,7 +46,16 @@ Public Class ProductDialog
             DosageFormComboBox.Enabled = False
 
             If _data IsNot Nothing Then
+                'MsgBox(_data.Item("category_id"))
+
+                CategoryComboBox.Text = _data.Item("category_id")
+
+                Dim sc As DataTable = BaseProduct.FillBySubCategory(_data.Item("subcategory_id"))
+                SubCategoryComboBox.DataSource = sc.DefaultView
+                SubCategoryComboBox.DisplayMember = "subcategory"
+                SubCategoryComboBox.SelectedItem = "id"
                 SubCategoryComboBox.Text = _data.Item("subcategory_id")
+
                 DeleteProductButton.Visible = False
                 AddProductButton.Text = "Update"
 
@@ -63,8 +71,7 @@ Public Class ProductDialog
                     DosageFormComboBox.Text = If(row("dosage_form") Is DBNull.Value, String.Empty, row("dosage_form").ToString())
                     StrengthTextBox.Text = If(row("strength") Is DBNull.Value, String.Empty, row("strength").ToString())
                     ManufacturerTextBox.Text = If(row("manufacturer") Is DBNull.Value, String.Empty, row("manufacturer").ToString())
-                    'MsgBox(BaseProduct.DoseName(If(row("dose") Is DBNull.Value, String.Empty, row("dose").ToString())))
-                    DoseComboBox.Text = BaseProduct.DoseName(If(row("dose") Is DBNull.Value, String.Empty, row("dose").ToString()))
+                    DoseComboBox.Text = If(row("dose") Is DBNull.Value, String.Empty, row("dose").ToString())
                 End If
 
                 If BaseDelivery.EnableExp(_data.Item("id")) = 1 Then
@@ -74,19 +81,21 @@ Public Class ProductDialog
                     DoseComboBox.Enabled = True
                     DosageFormComboBox.Enabled = True
                 End If
-            Else
-                If ct.Rows.Count > 0 Then
-                    CategoryComboBox.SelectedIndex = -1
-                End If
 
-                If sc.Rows.Count > 0 Then
-                    SubCategoryComboBox.SelectedIndex = -1
-                End If
+                DeleteProductButton.Visible = False
+            Else
+                'If ct.Rows.Count > 0 Then
+                '    CategoryComboBox.SelectedIndex = -1
+                'End If
+
+                'If sc.Rows.Count > 0 Then
+                '    SubCategoryComboBox.SelectedIndex = -1
+                'End If
                 'DeleteProductButton.Visible = False    
             End If
 
         Catch ex As Exception
-
+            MsgBox(ex.Message)
         End Try
     End Sub
 
@@ -212,5 +221,13 @@ Public Class ProductDialog
         'CategoryComboBox.DisplayMember = "category"
         'CategoryComboBox.SelectedItem = "id"
         'MsgBox(CategoryComboBox.SelectedItem("id"))
+        'MsgBox(CategoryComboBox.SelectedItem("id"))
+        Dim dt As DataTable = BaseProduct.Filltite(CategoryComboBox.SelectedItem("id"))
+        SubCategoryComboBox.DataSource = dt.DefaultView
+        SubCategoryComboBox.DisplayMember = "subcategory"
+        SubCategoryComboBox.SelectedItem = "id"
+        If dt.Rows.Count > 0 Then
+            SubCategoryComboBox.SelectedIndex = -1
+        End If
     End Sub
 End Class

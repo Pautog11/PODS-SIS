@@ -39,6 +39,8 @@ Public Class DeliveryCartDialog
                 TransactionDeliveryTextBox.Text = _data("delivery_number")
 
                 'DeliveryDataGridView.Rows.Clear()
+
+
                 Dim DeliveryItems As DataTable = BaseDelivery.SelectAllDeliveryItems(_data("id"))
                 For Each row As DataRow In DeliveryItems.Rows
                     Dim data As New List(Of Object)()
@@ -52,9 +54,11 @@ Public Class DeliveryCartDialog
                     DeliveryDataGridView.Rows.Add(data.ToArray())
                 Next
                 'DataGridView1.DataSource = DeliveryItems.ToString
+                DeliveryDataGridView.Columns.Item("ID").Visible = False
             Else
                 PulloutButton.Visible = False
                 DatePicker.MaxDate = DateTime.Now
+                DeliveryDataGridView.Columns.Item("ID").Visible = False
             End If
         Catch ex As Exception
 

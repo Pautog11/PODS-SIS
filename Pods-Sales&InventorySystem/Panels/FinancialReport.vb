@@ -86,6 +86,7 @@ Public Class FinancialReport
         'End Try
         _tableAapter.Fill(_dataTable)
         FinancialReportsDataGridView.DataSource = _dataTable
+        FinancialReportsDataGridView.Columns.Item("ID").Visible = False
         'FinancialReportsDataGridView.Columns.Item("ID").Visible = False
     End Sub
 

@@ -22,6 +22,7 @@ Public Class SalesReport
         Try
             Dim fuckme As DataTable = BaseReports.Getsales
             SalesReportsDataGridView.DataSource = fuckme.DefaultView
+            SalesReportsDataGridView.Columns.Item("ID").Visible = False
         Catch ex As Exception
 
         End Try

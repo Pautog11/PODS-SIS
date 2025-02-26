@@ -85,9 +85,35 @@
     'End Sub
 
     Private Sub SearchTextbox_KeyDown(sender As Object, e As KeyEventArgs) Handles SearchTextbox.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            MsgBox(SearchTextbox.Text)
-        End If
+        Try
+            If e.KeyCode = Keys.Enter Then
+                Dim res As New List(Of Object()) From {InputValidation.ValidateInputString(SearchTextbox, DataInput.STRING_STRING)}
+                If Not res.Any(Function(item As Object()) Not item(0)) Then
+                    Dim dt As DataTable = BaseTransaction.Sales(SearchTextbox.Text)
+
+                    If dt.Rows.Count > 0 Then
+                        MessageBox.Show("product found!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    Else
+                        MessageBox.Show("No product found!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    End If
+                    'If BarcodeTextBox.Text.Length <= 13 AndAlso dt.Rows.Count > 0 Then
+                    '    ID = If(String.IsNullOrEmpty(dt.Rows(0).Item("idngprod").ToString()), 0, dt.Rows(0).Item("idngprod").ToString())
+                    '    ProductNameTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("product_name").ToString()), 0, dt.Rows(0).Item("product_name").ToString())
+                    '    StocksTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("quantity").ToString()), 0, dt.Rows(0).Item("quantity").ToString())
+                    '    PriceTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("price").ToString()), 0, dt.Rows(0).Item("price").ToString())
+                    '    e.Handled = True
+                    'Else
+                    '    Clear()
+                    '    MessageBox.Show("No, product found!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    'End If
+                Else
+                    Clear()
+                    MessageBox.Show("No product found!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                End If
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 
     Private Sub AddTransactionButton_Click(sender As Object, e As EventArgs) Handles AddTransactionButton.Click

@@ -36,6 +36,8 @@ Public Class CashierReport
             'Dim adapter As New SqlDataAdapter(cmd)
             'adapter.Fill(dTable)
             'CashierReportsDataGridView.DataSource = dTable
+
+            'CashierReportsDataGridView.Columns.Item("ID").Visible = False
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End Try
