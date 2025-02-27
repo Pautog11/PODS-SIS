@@ -40,7 +40,7 @@
         End Using
     End Sub
 
-    Private Sub timer_Tick(sender As Object, e As EventArgs) Handles _timer.Tick
+    Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles _timer.Tick
         Datepurchased.Text = DateAndTime.Now.ToString("F")
     End Sub
 
@@ -76,38 +76,29 @@
         End Try
     End Sub
 
-    'Private Sub PopulateAutoCompleteList()
-    '    Dim accountsTable As pods.viewtblproductsDataTable = _tableAapter.GetData()
-    '    autocompleteList.Clear()
-    '    For Each row As pods.viewtblproductsRow In accountsTable
-    '        autocompleteList.Add(row.PRODUCT)
-    '    Next
-    'End Sub
-
     Private Sub SearchTextbox_KeyDown(sender As Object, e As KeyEventArgs) Handles SearchTextbox.KeyDown
         Try
             If e.KeyCode = Keys.Enter Then
                 Dim res As New List(Of Object()) From {InputValidation.ValidateInputString(SearchTextbox, DataInput.STRING_STRING)}
                 If Not res.Any(Function(item As Object()) Not item(0)) Then
-                    Dim dt As DataTable = BaseTransaction.Sales(SearchTextbox.Text)
-
+                    Dim dt As DataTable = BaseTransaction.FetchByName(SearchTextbox.Text)
                     If dt.Rows.Count > 0 Then
-                        MessageBox.Show("product found!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        Dim data As New Dictionary(Of String, String) From {
+                            {"id", If(String.IsNullOrEmpty(dt.Rows(0).Item("idngprod").ToString()), 0, dt.Rows(0).Item("idngprod").ToString())},
+                            {"product_name", If(String.IsNullOrEmpty(dt.Rows(0).Item("product_name").ToString()), 0, dt.Rows(0).Item("product_name").ToString())},
+                            {"price", If(String.IsNullOrEmpty(dt.Rows(0).Item("price").ToString()), 0, dt.Rows(0).Item("price").ToString())},
+                            {"stocks", If(String.IsNullOrEmpty(dt.Rows(0).Item("quantity").ToString()), 0, dt.Rows(0).Item("quantity").ToString())}
+                        }
+                        'MsgBox(If(String.IsNullOrEmpty(dt.Rows(0).Item("idngprod").ToString()), 0, dt.Rows(0).Item("idngprod").ToString()))
+                        SearchTextbox.Text = ""
+                        Dim dialog As New TransactionProductDailog(dat2:=data, parent:=Me)
+                        dialog.ShowDialog()
                     Else
+                        SearchTextbox.Text = ""
                         MessageBox.Show("No product found!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                     End If
-                    'If BarcodeTextBox.Text.Length <= 13 AndAlso dt.Rows.Count > 0 Then
-                    '    ID = If(String.IsNullOrEmpty(dt.Rows(0).Item("idngprod").ToString()), 0, dt.Rows(0).Item("idngprod").ToString())
-                    '    ProductNameTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("product_name").ToString()), 0, dt.Rows(0).Item("product_name").ToString())
-                    '    StocksTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("quantity").ToString()), 0, dt.Rows(0).Item("quantity").ToString())
-                    '    PriceTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("price").ToString()), 0, dt.Rows(0).Item("price").ToString())
-                    '    e.Handled = True
-                    'Else
-                    '    Clear()
-                    '    MessageBox.Show("No, product found!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    'End If
                 Else
-                    Clear()
+                    SearchTextbox.Text = ""
                     MessageBox.Show("No product found!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 End If
             End If
@@ -182,6 +173,7 @@
         TotalTextBox.Text = ""
         CashTextBox.Text = ""
         ChangeTextBox.Text = ""
+
     End Sub
 
     Private Sub DiscountComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles DiscountComboBox.SelectionChangeCommitted
@@ -226,6 +218,52 @@
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub TransactionDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles TransactionDataGridView.CellClick
+        Try
+            If TransactionDataGridView.Rows.Count > 0 Then
+                'If _data Is Nothing Then
+                'Dim selectedRows As DataGridViewSelectedRowCollection = TransactionDataGridView.SelectedRows
+                'Dim row As DataGridViewRow = selectedRows(0)
+                Dim row As DataGridViewRow = TransactionDataGridView.SelectedRows(0)
+                Dim dt As DataTable = BaseTransaction.FetchByID(If(row.Cells(0).Value?.ToString(), ""))
+                If dt.Rows.Count > 0 Then
+                    Dim data As New Dictionary(Of String, String) From {
+                        {"id", If(String.IsNullOrEmpty(dt.Rows(0).Item("idngprod").ToString()), 0, dt.Rows(0).Item("idngprod").ToString())},
+                        {"product_name", If(String.IsNullOrEmpty(dt.Rows(0).Item("product_name").ToString()), 0, dt.Rows(0).Item("product_name").ToString())},
+                        {"price", If(String.IsNullOrEmpty(dt.Rows(0).Item("price").ToString()), 0, dt.Rows(0).Item("price").ToString())},
+                        {"stocks", If(String.IsNullOrEmpty(dt.Rows(0).Item("quantity").ToString()), 0, dt.Rows(0).Item("quantity").ToString())}
+                    }
+                    Dim dialog As New TransactionProductDailog(data:=data, parent:=Me)
+                    dialog.ShowDialog()
+                End If
+                'Dim data As New Dictionary(Of String, String) From {
+                '    {"id", If(row.Cells(0).Value?.ToString(), "0")},
+                '    {"product_name", If(row.Cells(1).Value?.ToString(), "")},
+                '    {"price", If(row.Cells(2).Value?.ToString(), "")},
+                '    {"quantity", If(row.Cells(3).Value?.ToString(), "")},
+                '    {"total", If(row.Cells(4).Value?.ToString(), "0")}
+                '}
+
+                'If dt.Rows.Count > 0 Then
+                '    Dim data As New Dictionary(Of String, String) From {
+                '            {"id", If(String.IsNullOrEmpty(dt.Rows(0).Item("idngprod").ToString()), 0, dt.Rows(0).Item("idngprod").ToString())},
+                '            {"product_name", If(String.IsNullOrEmpty(dt.Rows(0).Item("product_name").ToString()), 0, dt.Rows(0).Item("product_name").ToString())},
+                '            {"price", If(String.IsNullOrEmpty(dt.Rows(0).Item("price").ToString()), 0, dt.Rows(0).Item("price").ToString())},
+                '            {"stocks", If(String.IsNullOrEmpty(dt.Rows(0).Item("quantity").ToString()), 0, dt.Rows(0).Item("quantity").ToString())}
+                '        }
+                '    SearchTextbox.Text = ""
+                '    Dim dialog As New TransactionProductDailog(data:=data, parent:=Me)
+                '    dialog.ShowDialog()
+                'Else
+
+                'Dim dialog As New TransactionProductDailog(data:=data, parent:=Me)
+                'dialog.ShowDialog()
+            End If
+        Catch ex As Exception
+
         End Try
     End Sub
 End Class

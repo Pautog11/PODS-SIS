@@ -366,6 +366,7 @@ Partial Class DeliveryCartDialog
         Me.ID.HeaderText = "ID"
         Me.ID.Name = "ID"
         Me.ID.ReadOnly = True
+        Me.ID.Visible = False
         '
         'product
         '
@@ -414,6 +415,7 @@ Partial Class DeliveryCartDialog
         Me.target.HeaderText = "TARGET"
         Me.target.Name = "target"
         Me.target.ReadOnly = True
+        Me.target.Visible = False
         '
         'DeliveryCartDialog
         '

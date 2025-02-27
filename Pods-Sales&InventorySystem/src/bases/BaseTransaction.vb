@@ -129,11 +129,11 @@ Public Class BaseTransaction
     End Function
 
     ''' <summary>
-    ''' Searching items query for sales
+    ''' fetch data by barcode
     ''' </summary>
     ''' <param name="barcode"></param>
     ''' <returns></returns>
-    Public Shared Function Sales(barcode As String) As DataTable
+    Public Shared Function FetchByBarcode(barcode As String) As DataTable
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
@@ -166,6 +166,102 @@ Public Class BaseTransaction
                                     WHERE a.barcode = @barcode
                                     ORDER BY idngprod DESC;", conn)
             cmd.Parameters.AddWithValue("@barcode", barcode)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
+        End Try
+    End Function
+
+    ''' <summary>
+    ''' To fetch product by name
+    ''' </summary>
+    ''' <param name="name"></param>
+    ''' <returns></returns>
+    Public Shared Function FetchByName(name As String) As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("WITH 
+                                        LatestPrice AS (
+                                            SELECT 
+                                                b.product_id AS idngprod,
+                                                b.price,
+                                                ROW_NUMBER() OVER (PARTITION BY b.product_id ORDER BY b.id DESC) AS row_num
+                                            FROM tbldeliveries_items b
+                                            LEFT JOIN tblproducts a ON a.id = b.product_id
+                                            WHERE a.product_name = LOWER(@name)
+                                        ),
+                                        TotalQuantity AS (
+                                            SELECT 
+                                                b.product_id AS idngprod,
+                                                SUM(b.inventory_quantity) AS total_quantity
+                                            FROM tbldeliveries_items b
+                                            WHERE b.product_id IN (SELECT id FROM tblproducts WHERE product_name = LOWER(@name))
+                                            GROUP BY b.product_id
+                                        )
+                                    SELECT 
+                                        a.id AS idngprod,
+                                        a.product_name,
+                                        lp.price AS price,
+                                        tq.total_quantity AS quantity
+                                    FROM tblproducts a
+                                    LEFT JOIN LatestPrice lp ON lp.idngprod = a.id AND lp.row_num = 1
+                                    LEFT JOIN TotalQuantity tq ON tq.idngprod = a.id
+                                    WHERE a.product_name = LOWER(@name)
+                                    ORDER BY idngprod DESC;", conn)
+            cmd.Parameters.AddWithValue("@name", name.Trim.ToLower)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
+        End Try
+    End Function
+
+    ''' <summary>
+    ''' Fetch product by id
+    ''' </summary>
+    ''' <param name="id"></param>
+    ''' <returns></returns>
+    Public Shared Function FetchByID(id As Integer) As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("WITH 
+                                        LatestPrice AS (
+                                            SELECT 
+                                                b.product_id AS idngprod,
+                                                b.price,
+                                                ROW_NUMBER() OVER (PARTITION BY b.product_id ORDER BY b.id DESC) AS row_num
+                                            FROM tbldeliveries_items b
+                                            LEFT JOIN tblproducts a ON a.id = b.product_id
+                                            WHERE a.id = @id
+                                        ),
+                                        TotalQuantity AS (
+                                            SELECT 
+                                                b.product_id AS idngprod,
+                                                SUM(b.inventory_quantity) AS total_quantity
+                                            FROM tbldeliveries_items b
+                                            WHERE b.product_id IN (SELECT id FROM tblproducts WHERE id = @id)
+                                            GROUP BY b.product_id
+                                        )
+                                    SELECT 
+                                        a.id AS idngprod,
+                                        a.product_name,
+                                        lp.price AS price,
+                                        tq.total_quantity AS quantity
+                                    FROM tblproducts a
+                                    LEFT JOIN LatestPrice lp ON lp.idngprod = a.id AND lp.row_num = 1
+                                    LEFT JOIN TotalQuantity tq ON tq.idngprod = a.id
+                                    WHERE a.id = @id
+                                    ORDER BY idngprod DESC;", conn)
+            cmd.Parameters.AddWithValue("@id", id)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
             adapter.Fill(dTable)

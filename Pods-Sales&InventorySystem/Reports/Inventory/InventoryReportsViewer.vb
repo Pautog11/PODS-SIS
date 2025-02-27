@@ -17,19 +17,17 @@ Public Class InventoryReportsViewer
             Dim dset As New DataSet
             Using con As New SqlConnection(My.Settings.podsdbConnectionString)
                 con.Open()
-                Dim cmd As New SqlCommand("SELECT a.sku AS SKU, 
-                                                  a.barcode AS BARCODE, 
+                Dim cmd As New SqlCommand("SELECT a.barcode AS BARCODE, 
                                                   a.product_name AS PRODUCT, 
                                                   b.price AS PRICE, 
                                                   b.cost_price AS 'COST PRICE', 
                                                   SUM(b.inventory_quantity) AS QUANTITY
                                             FROM tblproducts a
                                             JOIN tbldeliveries_items b on a.id = b.product_id
-											GROUP BY  a.sku,
-											      a.barcode, 
-                                                  a.product_name, 
-                                                  b.price, 
-                                                  b.cost_price", con)
+											GROUP BY a.barcode, 
+                                                     a.product_name, 
+                                                     b.price, 
+                                                     b.cost_price", con)
                 Dim adapter As New SqlDataAdapter(cmd)
                 adapter.Fill(dset, "DT_Inventory")
                 Return dset

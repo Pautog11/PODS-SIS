@@ -218,7 +218,7 @@ Public Class DeliveryProductDialog
         SellingTextBox.Text = ""
         QuantityTextBox.Text = ""
     End Sub
-    Public Sub txite()
+    Public Sub Txite()
         tite = BaseDelivery.EnableExp(id)
         If tite = 1 Then
             DateTimePicker.Enabled = True

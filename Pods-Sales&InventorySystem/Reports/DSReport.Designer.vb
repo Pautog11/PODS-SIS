@@ -3734,8 +3734,6 @@ Partial Public Class DSReport
     Partial Public Class DT_InventoryDataTable
         Inherits Global.System.Data.TypedTableBase(Of DT_InventoryRow)
         
-        Private columnSKU As Global.System.Data.DataColumn
-        
         Private columnBARCODE As Global.System.Data.DataColumn
         
         Private columnPRODUCT As Global.System.Data.DataColumn
@@ -3780,14 +3778,6 @@ Partial Public Class DSReport
             MyBase.New(info, context)
             Me.InitVars
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property SKUColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnSKU
-            End Get
-        End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -3866,9 +3856,9 @@ Partial Public Class DSReport
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddDT_InventoryRow(ByVal SKU As String, ByVal BARCODE As String, ByVal PRODUCT As String, ByVal PRICE As Decimal, ByVal COST_PRICE As Decimal, ByVal QUANTITY As Integer) As DT_InventoryRow
+        Public Overloads Function AddDT_InventoryRow(ByVal BARCODE As String, ByVal PRODUCT As String, ByVal PRICE As Decimal, ByVal COST_PRICE As Decimal, ByVal QUANTITY As Integer) As DT_InventoryRow
             Dim rowDT_InventoryRow As DT_InventoryRow = CType(Me.NewRow,DT_InventoryRow)
-            Dim columnValuesArray() As Object = New Object() {SKU, BARCODE, PRODUCT, PRICE, COST_PRICE, QUANTITY}
+            Dim columnValuesArray() As Object = New Object() {BARCODE, PRODUCT, PRICE, COST_PRICE, QUANTITY}
             rowDT_InventoryRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowDT_InventoryRow)
             Return rowDT_InventoryRow
@@ -3891,7 +3881,6 @@ Partial Public Class DSReport
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnSKU = MyBase.Columns("SKU")
             Me.columnBARCODE = MyBase.Columns("BARCODE")
             Me.columnPRODUCT = MyBase.Columns("PRODUCT")
             Me.columnPRICE = MyBase.Columns("PRICE")
@@ -3902,8 +3891,6 @@ Partial Public Class DSReport
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnSKU = New Global.System.Data.DataColumn("SKU", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnSKU)
             Me.columnBARCODE = New Global.System.Data.DataColumn("BARCODE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnBARCODE)
             Me.columnPRODUCT = New Global.System.Data.DataColumn("PRODUCT", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -3914,7 +3901,6 @@ Partial Public Class DSReport
             MyBase.Columns.Add(Me.columnCOST_PRICE)
             Me.columnQUANTITY = New Global.System.Data.DataColumn("QUANTITY", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnQUANTITY)
-            Me.columnSKU.MaxLength = 50
             Me.columnBARCODE.MaxLength = 2147483647
             Me.columnPRODUCT.AllowDBNull = false
             Me.columnPRODUCT.MaxLength = 50
@@ -6146,21 +6132,6 @@ Partial Public Class DSReport
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property SKU() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDT_Inventory.SKUColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'SKU' in table 'DT_Inventory' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDT_Inventory.SKUColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property BARCODE() As String
             Get
                 Try 
@@ -6221,18 +6192,6 @@ Partial Public Class DSReport
                 Me(Me.tableDT_Inventory.QUANTITYColumn) = value
             End Set
         End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsSKUNull() As Boolean
-            Return Me.IsNull(Me.tableDT_Inventory.SKUColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetSKUNull()
-            Me(Me.tableDT_Inventory.SKUColumn) = Global.System.Convert.DBNull
-        End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
