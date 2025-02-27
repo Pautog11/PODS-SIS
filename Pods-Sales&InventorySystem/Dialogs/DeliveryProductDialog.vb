@@ -7,6 +7,7 @@ Public Class DeliveryProductDialog
     Private ReadOnly _data As Dictionary(Of String, String) = Nothing
     Dim id As Integer = Nothing
     Dim tite As Integer = Nothing
+    Dim num As Integer = 1
 
     Public Sub New(Optional parent As DeliveryCartDialog = Nothing,
                    Optional data As Dictionary(Of String, String) = Nothing)
@@ -30,20 +31,18 @@ Public Class DeliveryProductDialog
                     DateTimePicker.Value = _data.Item("date")
                 Else
                     DateTimePicker.Enabled = False
+                    BatchTextBox.Enabled = False
                 End If
             Else
                 VoidButton.Visible = False
+
+                If _parent.DeliveryDataGridView.Rows.Count > 0 Then
+                    num = _parent.DeliveryDataGridView.Rows.Cast(Of DataGridViewRow)().Max(Function(row) Convert.ToInt32(row.Cells("target").Value)) + 1
+                Else
+                    num = 1
+                End If
             End If
             DateTimePicker.MinDate = DateTime.Today.AddMonths(6)
-            'SkuComboBox1.Enabled = False
-            'ProductTextBox.Enabled = False
-            'CostTextBox.Enabled = False
-            'txtPrays.Enabled = False
-
-            'ProductTextBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend
-            'ProductTextBox.AutoCompleteSource = AutoCompleteSource.CustomSource
-            'PopulateAutoCompleteList()
-            'ProductTextBox.AutoCompleteCustomSource = autocompleteList
 
             ProductTextBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend
             ProductTextBox.AutoCompleteSource = AutoCompleteSource.CustomSource
@@ -61,12 +60,8 @@ Public Class DeliveryProductDialog
                 Clear()
                 Exit Sub
             End If
-            Dim controls As Object() = {
-                ProductTextBox, SellingTextBox, CostTextBox, QuantityTextBox, BatchTextBox
-            }
-            Dim types As DataInput() = {
-                 DataInput.STRING_STRING, DataInput.STRING_DECIMAL, DataInput.STRING_DECIMAL, DataInput.STRING_INTEGER, DataInput.STRING_INTEGER
-            }
+            Dim controls As Object() = {ProductTextBox, SellingTextBox, CostTextBox, QuantityTextBox, BatchTextBox}
+            Dim types As DataInput() = {DataInput.STRING_STRING, DataInput.STRING_DECIMAL, DataInput.STRING_DECIMAL, DataInput.STRING_INTEGER, DataInput.STRING_INTEGER}
             Dim result As New List(Of Object())
             For i = 0 To controls.Count - 1
                 If controls(i) Is BatchTextBox AndAlso tite = 0 Then
@@ -83,7 +78,7 @@ Public Class DeliveryProductDialog
                 End If
             Next
             If Not (BaseDelivery.Pricing(result(1)(1), id) = 0) Then
-                MessageBox.Show("Lugi ka angkol", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("You cannot set a price ", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Exit Sub
             End If
 
@@ -95,16 +90,36 @@ Public Class DeliveryProductDialog
                 Dim is_existing As Boolean = False
                 Dim exd As Date = DateTimePicker.Value.Date
 
+                Dim sellingprice As Decimal
+                Dim costprice As Decimal
+                If Decimal.TryParse(SellingTextBox.Text, sellingprice) Then
+
+                End If
+
+                If Decimal.TryParse(CostTextBox.Text, costprice) Then
+
+                End If
+
                 For Each item As DataGridViewRow In _parent.DeliveryDataGridView.Rows
+                    'If Not item.IsNewRow Then
+                    If CInt(item.Cells("id").Value) = id Then
+                        If item.Cells("price").Value.ToString() <> sellingprice.ToString("F2") OrElse item.Cells("cost_price").Value.ToString() <> costprice.ToString("F2") Then
+                            MessageBox.Show("You cannot set a different price for the same product!.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                            Exit Sub
+                        End If
+                    End If
+                    'End If
+
+
                     If item.Cells("product").Value.ToString() = ProductTextBox.Text AndAlso item.Cells("expiry_date").Value = exd.ToString("yyyy-MM-dd") AndAlso item.Cells("batch_number").Value = BatchTextBox.Text Then
                         If DateTimePicker.Enabled = True Then
                             item.Cells("expiry_date").Value = exd.ToString("yyyy-MM-dd")
+                            item.Cells("batch_number").Value = BatchTextBox.Text
                         Else
+                            item.Cells("batch_number").Value = ""
                             item.Cells("expiry_date").Value = ""
                         End If
-                        'item.Cells("price").Value = SellingTextBox.Text
-                        'item.Cells("cost_price").Value = CostTextBox.Text
-                        item.Cells("batch_number").Value = BatchTextBox.Text
+
                         item.Cells("quantity").Value = CInt(QuantityTextBox.Text)
                         item.Cells("total").Value = Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text)
                         is_existing = True
@@ -116,23 +131,26 @@ Public Class DeliveryProductDialog
                     _parent.DeliveryDataGridView.Rows.Add({If(String.IsNullOrEmpty(id), 0, id),
                                                           If(String.IsNullOrEmpty(ProductTextBox.Text), 0, ProductTextBox.Text),
                                                           If(DateTimePicker.Enabled AndAlso Not String.IsNullOrEmpty(exd.ToString()) AndAlso exd.ToString() <> "", exd.ToString("yyyy-MM-dd"), ""),
-                                                          If(String.IsNullOrEmpty(BatchTextBox.Text), "", BatchTextBox.Text),
-                                                          If(String.IsNullOrEmpty(SellingTextBox.Text), 0, SellingTextBox.Text),
-                                                          If(String.IsNullOrEmpty(CostTextBox.Text), 0, CostTextBox.Text),
+                                                          If(DateTimePicker.Enabled AndAlso Not String.IsNullOrEmpty(BatchTextBox.Text) AndAlso exd.ToString() <> "", BatchTextBox.Text, ""),
+                                                          If(String.IsNullOrEmpty(sellingprice.ToString("F2")), 0, sellingprice.ToString("F2")),
+                                                          If(String.IsNullOrEmpty(costprice.ToString("F2")), 0, costprice.ToString("F2")),
                                                           If(String.IsNullOrEmpty(QuantityTextBox.Text), 0, QuantityTextBox.Text),
-                                                          CDec(CostTextBox.Text) * CDec(QuantityTextBox.Text)
+                                                          CDec(CostTextBox.Text) * CDec(QuantityTextBox.Text),
+                                                          num
                                                           })
+                    num += 1
                 End If
 
-
-                For Each item As DataGridViewRow In _parent.DeliveryDataGridView.Rows
-                    If Not item.IsNewRow Then
-                        If CInt(item.Cells("id").Value) = id Then
-                            item.Cells("price").Value = SellingTextBox.Text
-                            item.Cells("cost_price").Value = CostTextBox.Text
-                        End If
-                    End If
-                Next
+                'For Each item As DataGridViewRow In _parent.DeliveryDataGridView.Rows
+                '    If Not item.IsNewRow Then
+                '        If CInt(item.Cells("id").Value) = id Then
+                '            If item.Cells("price").Value.ToString() <> SellingTextBox.Text OrElse item.Cells("cost_price").Value.ToString() <> CostTextBox.Text Then
+                '                MessageBox.Show("You cannot set a different price for the same product!.")
+                '                Exit Sub
+                '            End If
+                '        End If
+                '    End If
+                'Next
 
                 _parent.UpdateVisualData()
                 Me.Close()
@@ -144,27 +162,6 @@ Public Class DeliveryProductDialog
             MsgBox(ex.Message)
         End Try
     End Sub
-
-    'Private Sub CategoryComboBox_DropDownClosed(sender As Object, e As EventArgs)
-    '    If CategoryComboBox.SelectedIndex >= 0 Then
-    '        Dim dt As DataTable = BaseSubCategory.FetchSubCategory(CategoryComboBox.SelectedItem("ID"))
-    '        SubcategoryComboBox.DataSource = dt.DefaultView
-    '        SubcategoryComboBox.DisplayMember = "subcategory"
-    '        SubcategoryComboBox.ValueMember = "id"
-    '    End If
-    '    SubcategoryComboBox.Enabled = True
-    '    Clear()
-    'End Sub
-    'Private Sub SubcategoryComboBox_DropDownClosed(sender As Object, e As EventArgs)
-    '    If SubcategoryComboBox.SelectedIndex >= 0 Then
-    '        Dim dt As DataTable = BaseProduct.FetchProductBySubcategory(SubcategoryComboBox.SelectedItem("ID"))
-    '        ProductComboBox.DataSource = dt.DefaultView
-    '        ProductComboBox.DisplayMember = "product_name"
-    '        ProductComboBox.ValueMember = "id"
-    '    End If
-    '    Clear()
-    '    ProductComboBox.Enabled = True
-    'End Sub
 
     Private Sub BarcodeTextBox_KeyDown(sender As Object, e As KeyEventArgs) Handles BarcodeTextBox.KeyDown
         Try
@@ -198,28 +195,10 @@ Public Class DeliveryProductDialog
         End Try
     End Sub
 
-    'Private Sub ChangeButton_Click(sender As Object, e As EventArgs)
-    '    Try
-    '        If ProductTextBox.Text = "" Then
-    '            MessageBox.Show("No, product selected!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
-    '        ElseIf ProductTextBox.Text IsNot Nothing Then
-    '            Dim potangina As New Dictionary(Of String, String) From {
-    '                {"id", id},
-    '                {"price", If(String.IsNullOrEmpty(SellingTextBox.Text), 0, SellingTextBox.Text)},
-    '                {"cost", If(String.IsNullOrEmpty(CostTextBox.Text), 0, CostTextBox.Text)}
-    '            }
-    '            Dim dialog As New PricingDialog(data:=potangina, parent:=Me)
-    '            dialog.ShowDialog()
-    '        End If
-    '    Catch ex As Exception
-
-    '    End Try
-    'End Sub
-
     Private Sub VoidButton_Click(sender As Object, e As EventArgs) Handles VoidButton.Click
         Try
             For Each row As DataGridViewRow In _parent.DeliveryDataGridView.Rows
-                If row.Cells("ID").Value.ToString() = _data.Item("id").ToString() Then
+                If row.Cells("target").Value.ToString() = _data.Item("target").ToString() Then
                     _parent.DeliveryDataGridView.Rows.Remove(row)
                     Exit For
                 End If
@@ -227,8 +206,9 @@ Public Class DeliveryProductDialog
             _parent.UpdateVisualData()
             Me.Close()
         Catch ex As Exception
-
+            MsgBox(ex.Message)
         End Try
+        'MsgBox(_data.Item("id").ToString())
     End Sub
 
     Public Sub Clear()
@@ -242,7 +222,9 @@ Public Class DeliveryProductDialog
         tite = BaseDelivery.EnableExp(id)
         If tite = 1 Then
             DateTimePicker.Enabled = True
+            BatchTextBox.Enabled = True
         Else
+            BatchTextBox.Enabled = False
             DateTimePicker.Enabled = False
         End If
     End Sub

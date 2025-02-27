@@ -46,8 +46,7 @@ Public Class ProductDialog
             DosageFormComboBox.Enabled = False
 
             If _data IsNot Nothing Then
-                'MsgBox(_data.Item("category_id"))
-
+                AddProductButton.Text = "Update"
                 CategoryComboBox.Text = _data.Item("category_id")
 
                 Dim sc As DataTable = BaseProduct.FillBySubCategory(_data.Item("subcategory_id"))
@@ -55,9 +54,6 @@ Public Class ProductDialog
                 SubCategoryComboBox.DisplayMember = "subcategory"
                 SubCategoryComboBox.SelectedItem = "id"
                 SubCategoryComboBox.Text = _data.Item("subcategory_id")
-
-                DeleteProductButton.Visible = False
-                AddProductButton.Text = "Update"
 
                 BarcodeTextBox.Text = _data.Item("barcode")
                 ProductNameTextBox.Text = _data.Item("product_name")
@@ -82,16 +78,16 @@ Public Class ProductDialog
                     DosageFormComboBox.Enabled = True
                 End If
 
-                DeleteProductButton.Visible = False
+                'DeleteProductButton.Visible = False
             Else
-                'If ct.Rows.Count > 0 Then
-                '    CategoryComboBox.SelectedIndex = -1
-                'End If
+                If ct.Rows.Count > 0 Then
+                    CategoryComboBox.SelectedIndex = -1
+                End If
 
                 'If sc.Rows.Count > 0 Then
                 '    SubCategoryComboBox.SelectedIndex = -1
                 'End If
-                'DeleteProductButton.Visible = False    
+                DeleteProductButton.Visible = False
             End If
 
         Catch ex As Exception
@@ -101,8 +97,8 @@ Public Class ProductDialog
 
     Private Sub AddProductButton_Click(sender As Object, e As EventArgs) Handles AddProductButton.Click
         Try
-            Dim controls As Object() = {SubCategoryComboBox, ProductNameTextBox, StockLevelTextBox, ManufacturerTextBox, StrengthTextBox, DosageFormComboBox, DoseComboBox}
-            Dim types As DataInput() = {DataInput.STRING_STRING, DataInput.STRING_PRODUCTNAME, DataInput.STRING_INTEGER, DataInput.STRING_STRING, DataInput.STRING_DECIMAL, DataInput.STRING_STRING, DataInput.STRING_STRING}
+            Dim controls As Object() = {CategoryComboBox, SubCategoryComboBox, ProductNameTextBox, StockLevelTextBox, ManufacturerTextBox, StrengthTextBox, DosageFormComboBox, DoseComboBox}
+            Dim types As DataInput() = {DataInput.STRING_STRING, DataInput.STRING_STRING, DataInput.STRING_PRODUCTNAME, DataInput.STRING_INTEGER, DataInput.STRING_STRING, DataInput.STRING_DECIMAL, DataInput.STRING_STRING, DataInput.STRING_STRING}
             Dim result As New List(Of Object())
             For i = 0 To controls.Count - 1
                 If Not CheckBox.Checked Then
@@ -129,9 +125,9 @@ Public Class ProductDialog
                     {"id", _data?.Item("id")},
                     {"subcategory_id", SubCategoryComboBox.SelectedItem("id")},
                     {"barcode", If(String.IsNullOrEmpty(BarcodeTextBox.Text), "", BarcodeTextBox.Text)},
-                    {"product_name", result(1)(1)},
+                    {"product_name", result(2)(1)},
                     {"description", If(String.IsNullOrEmpty(DescriptionTextBox.Text), "", DescriptionTextBox.Text)},
-                    {"critical_level", result(2)(1)},
+                    {"critical_level", result(3)(1)},
                     {"expiration", Exp},
                     {"dosage_form", DosageFormComboBox.Text},
                     {"strength", StrengthTextBox.Text},
@@ -146,11 +142,10 @@ Public Class ProductDialog
                     data("manufacturer") = ""
                 End If
 
-                Dim baseCommand As BaseProduct '(data) 'With {.Items = item}
-                'baseCommand = New BaseProduct(data) With {.Items = item}
+                Dim baseCommand As BaseProduct
                 baseCommand = New BaseProduct(data)
                 Dim invoker As ICommandInvoker = Nothing
-                If BaseProduct.Exists(result(1)(1), If(String.IsNullOrEmpty(BarcodeTextBox.Text), "", BarcodeTextBox.Text)) = 0 AndAlso BaseProduct.BarcodeExist(BarcodeTextBox.Text) = 0 AndAlso _data Is Nothing Then
+                If BaseProduct.Exists(result(2)(1), If(String.IsNullOrEmpty(BarcodeTextBox.Text), "", BarcodeTextBox.Text)) = 0 AndAlso BaseProduct.BarcodeExist(BarcodeTextBox.Text) = 0 AndAlso _data Is Nothing Then
                     invoker = New AddCommand(baseCommand)
                     invoker?.Execute()
                     _subject.NotifyObserver()
@@ -216,12 +211,6 @@ Public Class ProductDialog
     End Sub
 
     Private Sub CategoryComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CategoryComboBox.SelectionChangeCommitted
-        'Dim ct As DataTable = BaseCategory.FillByCategory
-        'CategoryComboBox.DataSource = ct.DefaultView
-        'CategoryComboBox.DisplayMember = "category"
-        'CategoryComboBox.SelectedItem = "id"
-        'MsgBox(CategoryComboBox.SelectedItem("id"))
-        'MsgBox(CategoryComboBox.SelectedItem("id"))
         Dim dt As DataTable = BaseProduct.Filltite(CategoryComboBox.SelectedItem("id"))
         SubCategoryComboBox.DataSource = dt.DefaultView
         SubCategoryComboBox.DisplayMember = "subcategory"

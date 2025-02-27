@@ -35,6 +35,7 @@ Partial Class DeliveryCartDialog
         Me.TransactionDeliveryTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2HtmlLabel2 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.DatePicker = New Guna.UI2.WinForms.Guna2DateTimePicker()
         Me.Guna2HtmlLabel3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.TotalPrice = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
@@ -50,7 +51,7 @@ Partial Class DeliveryCartDialog
         Me.cost_price = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.quantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DatePicker = New Guna.UI2.WinForms.Guna2DateTimePicker()
+        Me.target = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.AccountHeaderLayoutPanel.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -208,6 +209,21 @@ Partial Class DeliveryCartDialog
         Me.Guna2Panel1.Size = New System.Drawing.Size(961, 44)
         Me.Guna2Panel1.TabIndex = 6
         '
+        'DatePicker
+        '
+        Me.DatePicker.BorderRadius = 15
+        Me.DatePicker.Checked = True
+        Me.DatePicker.FillColor = System.Drawing.Color.White
+        Me.DatePicker.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.DatePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
+        Me.DatePicker.Location = New System.Drawing.Point(754, 4)
+        Me.DatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.DatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.DatePicker.Name = "DatePicker"
+        Me.DatePicker.Size = New System.Drawing.Size(200, 36)
+        Me.DatePicker.TabIndex = 5
+        Me.DatePicker.Value = New Date(2025, 2, 21, 14, 59, 33, 737)
+        '
         'Guna2HtmlLabel3
         '
         Me.Guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent
@@ -303,7 +319,7 @@ Partial Class DeliveryCartDialog
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DeliveryDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.DeliveryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.product, Me.expiry_date, Me.batch_number, Me.price, Me.cost_price, Me.quantity, Me.total})
+        Me.DeliveryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.product, Me.expiry_date, Me.batch_number, Me.price, Me.cost_price, Me.quantity, Me.total, Me.target})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -393,20 +409,11 @@ Partial Class DeliveryCartDialog
         Me.total.Name = "total"
         Me.total.ReadOnly = True
         '
-        'DatePicker
+        'target
         '
-        Me.DatePicker.BorderRadius = 15
-        Me.DatePicker.Checked = True
-        Me.DatePicker.FillColor = System.Drawing.Color.White
-        Me.DatePicker.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.DatePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
-        Me.DatePicker.Location = New System.Drawing.Point(754, 4)
-        Me.DatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
-        Me.DatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
-        Me.DatePicker.Name = "DatePicker"
-        Me.DatePicker.Size = New System.Drawing.Size(200, 36)
-        Me.DatePicker.TabIndex = 5
-        Me.DatePicker.Value = New Date(2025, 2, 21, 14, 59, 33, 737)
+        Me.target.HeaderText = "TARGET"
+        Me.target.Name = "target"
+        Me.target.ReadOnly = True
         '
         'DeliveryCartDialog
         '
@@ -452,6 +459,7 @@ Partial Class DeliveryCartDialog
     Friend WithEvents PulloutButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2HtmlLabel3 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents DeliveryDataGridView As Guna.UI2.WinForms.Guna2DataGridView
+    Friend WithEvents DatePicker As Guna.UI2.WinForms.Guna2DateTimePicker
     Friend WithEvents ID As DataGridViewTextBoxColumn
     Friend WithEvents product As DataGridViewTextBoxColumn
     Friend WithEvents expiry_date As DataGridViewTextBoxColumn
@@ -460,5 +468,5 @@ Partial Class DeliveryCartDialog
     Friend WithEvents cost_price As DataGridViewTextBoxColumn
     Friend WithEvents quantity As DataGridViewTextBoxColumn
     Friend WithEvents total As DataGridViewTextBoxColumn
-    Friend WithEvents DatePicker As Guna.UI2.WinForms.Guna2DateTimePicker
+    Friend WithEvents target As DataGridViewTextBoxColumn
 End Class

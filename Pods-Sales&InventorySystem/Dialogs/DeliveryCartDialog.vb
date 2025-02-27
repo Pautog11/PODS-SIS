@@ -38,9 +38,7 @@ Public Class DeliveryCartDialog
                 TransactionDeliveryTextBox.Enabled = False
                 TransactionDeliveryTextBox.Text = _data("delivery_number")
 
-                'DeliveryDataGridView.Rows.Clear()
-
-
+                DeliveryDataGridView.Rows.Clear()
                 Dim DeliveryItems As DataTable = BaseDelivery.SelectAllDeliveryItems(_data("id"))
                 For Each row As DataRow In DeliveryItems.Rows
                     Dim data As New List(Of Object)()
@@ -54,14 +52,14 @@ Public Class DeliveryCartDialog
                     DeliveryDataGridView.Rows.Add(data.ToArray())
                 Next
                 'DataGridView1.DataSource = DeliveryItems.ToString
-                DeliveryDataGridView.Columns.Item("ID").Visible = False
+                'DeliveryDataGridView.Columns.Item("ID").Visible = False
             Else
                 PulloutButton.Visible = False
                 DatePicker.MaxDate = DateTime.Now
-                DeliveryDataGridView.Columns.Item("ID").Visible = False
+                'DeliveryDataGridView.Columns.Item("ID").Visible = False
             End If
         Catch ex As Exception
-
+            MsgBox(ex.Message)
         End Try
     End Sub
 
@@ -73,7 +71,9 @@ Public Class DeliveryCartDialog
                 total += DeliveryDataGridView.Rows(i).Cells("TOTAL").Value
             Next
             TotalPrice.Text = total
-            'grandtotal.Text = total
+
+            'DeliveryDataGridView.Rows(0).Cells("target").Value = "Jane Doe"
+
         Catch ex As Exception
 
         End Try
@@ -171,7 +171,8 @@ Public Class DeliveryCartDialog
                         {"date", If(row.Cells(2).Value?.ToString(), "")},
                         {"batch_number", If(row.Cells(3).Value?.ToString(), "")},
                         {"selling_price", If(row.Cells(4).Value?.ToString(), "0")},
-                        {"cost_price", If(row.Cells(5).Value?.ToString(), "0")}
+                        {"cost_price", If(row.Cells(5).Value?.ToString(), "0")},
+                        {"target", If(row.Cells(8).Value?.ToString(), "0")}
                     }
                     Dim dialog As New DeliveryProductDialog(data:=data, parent:=Me)
                     dialog.ShowDialog()

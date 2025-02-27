@@ -1,82 +1,46 @@
-﻿Imports System.Data.SqlClient
-
-Public Class Form1
-    Dim connectionString As String = My.Settings.podsdbConnectionString
-    Dim query As String = "select * from tblproducts"
-    Dim autocompleteList As New AutoCompleteStringCollection()
-
+﻿Public Class Form1
+    'Dim num As Integer = 1
+    Dim number As Decimal
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Guna2TextBox2.AutoCompleteMode = AutoCompleteMode.SuggestAppend
-        Guna2TextBox2.AutoCompleteSource = AutoCompleteSource.CustomSource
-
-        PopulateAutoCompleteList()
-
-        Guna2TextBox2.AutoCompleteCustomSource = autocompleteList
     End Sub
+    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
+        'MsgBox(num)
+        'num += 1
+        'If Decimal.TryParse(Guna2TextBox1.Text, number) Then
+        '    ' If parsing is successful, show the number in the message box with 2 decimal places
+        '    MsgBox(number.ToString("F2"))
+        'Else
+        '    ' If parsing fails, show an error message
+        '    MsgBox("Failed to parse input. Please enter a valid decimal number.")
+        'End If
 
-
-    Private Sub PopulateAutoCompleteList()
-        Using conn As New SqlConnection(connectionString)
-            Using cmd As New SqlCommand(query, conn)
-                conn.Open()
-
-                Using reader As SqlDataReader = cmd.ExecuteReader()
-                    While reader.Read()
-                        autocompleteList.Add(reader("product_name").ToString())
-                    End While
-                End Using
-            End Using
-        End Using
-    End Sub
-
-    Private Sub Guna2TextBox2_KeyDown(sender As Object, e As KeyEventArgs) Handles Guna2TextBox2.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            'If Guna2TextBox2.Text.Length > 0 AndAlso Not autocompleteList.Contains(Guna2TextBox2.Text) Then
-            '    MsgBox(Guna2TextBox2.Text)
-            'End If
-
-            MsgBox(Guna2TextBox2.Text)
+        If Decimal.TryParse(Guna2TextBox1.Text, number) Then
+            ' If parsing is successful, show the number in the message box with commas and 2 decimal places
+            MsgBox(number.ToString("#,0.00"))
+        Else
+            ' If parsing fails, show an error message
+            MsgBox("Failed to parse input. Please enter a valid decimal number.")
         End If
-
-        Guna2TextBox2.Clear()
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        'Dim a As Integer = 184
-        'Using dialog As New ReceiptViewer(transactionNumber:=a)
-        '    dialog.ShowDialog()
-        'End Using
-        Try
-            Dim conn As SqlConnection = SqlConnectionPods.GetInstance()
-            Dim cmd As New SqlCommand("DECLARE @tite VARCHAR(50)
-                                    SET @tite = 'papapqqqpa'
-                                    print('The value of tite is: %s'+ @tite);", conn)
+    'Private Sub Guna2TextBox1_TextChanged(sender As Object, e As EventArgs) Handles Guna2TextBox1.TextChanged
+    '    ' Temporarily disable the TextChanged event to prevent an infinite loop
+    '    RemoveHandler Guna2TextBox1.TextChanged, AddressOf Guna2TextBox1_TextChanged
 
-            ' Execute the command
-            Throw New Exception(cmd.ExecuteNonQuery)
-
-        Catch ex As SqlException
-            ' Capture and show the message from the SQL Server error
-            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-        End Try
-
-    End Sub
-
-    '' This function will be triggered when the user types something into the ComboBox
-    'Private Sub ComboBox1_TextChanged(sender As Object, e As EventArgs) Handles ComboBox1.TextChanged
-    '    ' Check if the user has typed something not in the autocomplete list
-    '    If ComboBox1.Text.Length > 0 AndAlso Not autocompleteList.Contains(ComboBox1.Text) Then
-    '        ' Trigger the append function (e.g., user is typing a new item)
-    '        TriggerAppendFunction(ComboBox1.Text)
+    '    ' Attempt to parse the text from Guna2TextBox1 into the 'number' variable
+    '    Dim number As Decimal
+    '    If Decimal.TryParse(Guna2TextBox1.Text, number) Then
+    '        ' If parsing is successful, format the number with commas and 2 decimal places
+    '        Guna2TextBox1.Text = number.ToString("#,0.00")
+    '        ' Move the cursor to the end of the text after formatting
+    '        Guna2TextBox1.SelectionStart = Guna2TextBox1.Text.Length
+    '    Else
+    '        ' If parsing fails, show an error message or handle it as needed
+    '        ' Optionally, you can display an error message or reset the text box
+    '        ' Guna2TextBox1.Text = "Invalid input"
     '    End If
-    'End Sub
 
-    '' Define the function that will be triggered when an append action occurs
-    'Private Sub TriggerAppendFunction(newProduct As String)
-    '    ' Check if the text in ComboBox1 is found in the autocomplete list (this means it's a valid selection)
-    '    If autocompleteList.Contains(newProduct) Then
-    '        MessageBox.Show("Item appended: " & newProduct)
-    '        ' Your custom logic to handle the append action (e.g., insert the new product into the database)
-    '    End If
+    '    ' Re-enable the TextChanged event
+    '    AddHandler Guna2TextBox1.TextChanged, AddressOf Guna2TextBox1_TextChanged
     'End Sub
 End Class
