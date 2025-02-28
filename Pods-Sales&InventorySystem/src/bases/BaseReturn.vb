@@ -54,33 +54,6 @@ Public Class BaseReturn
                 End If
             Next
 
-            ''will minus the grandtotal of transaction
-            '_sqlCommand.Parameters.Clear()
-            '_sqlCommand = New SqlCommand("UPDATE tbltransactions SET total = total - @total where id = @id;", _sqlConnection, transaction)
-            '_sqlCommand.Parameters.AddWithValue("@total", _data.Item("total"))
-            '_sqlCommand.Parameters.AddWithValue("@id", _data.Item("transaction_id"))
-            'If _sqlCommand.ExecuteNonQuery <= 0 Then
-            '    Throw New Exception("Failed to update return to transactions!")
-            'End If
-
-            ''To insert return items to tbltransaction_items
-            'For Each item In _item
-            '    If item IsNot Nothing AndAlso item.Count > 0 Then
-            '        ' Insert into tbldeliveries_items
-            '        _sqlCommand.Parameters.Clear()
-            '        _sqlCommand = New SqlCommand("INSERT INTO tbltransaction_items (transaction_id, product_id, price, quantity, total) VALUES (@transaction_id, @product_id, @price, @quantity, @total); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
-            '        _sqlCommand.Parameters.AddWithValue("@transaction_id", _data.Item("transaction_id"))
-            '        _sqlCommand.Parameters.AddWithValue("@product_id", item("pid"))
-            '        _sqlCommand.Parameters.AddWithValue("@price", item("price"))
-            '        _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity") * -1)
-            '        _sqlCommand.Parameters.AddWithValue("@total", item("total") * -1)
-            '        If _sqlCommand.ExecuteNonQuery <= 0 Then
-            '            Throw New Exception("Failed to add return items!")
-            '        End If
-            '    End If
-            'Next
-
-
             transaction.Commit()
             MessageBox.Show("Return has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Catch ex As Exception
@@ -111,6 +84,11 @@ Public Class BaseReturn
         End Try
     End Function
 
+    ''' <summary>
+    ''' fetch to see all returned items by retuned id
+    ''' </summary>
+    ''' <param name="id"></param>
+    ''' <returns></returns>
     Public Shared Function SelectAllReturnById(id As Integer) As DataTable
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
@@ -129,6 +107,28 @@ Public Class BaseReturn
                                            price, 
                                            quantity", conn)
             cmd.Parameters.AddWithValue("@transaction_id", id)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
+        End Try
+    End Function
+
+    ''' <summary>
+    ''' Fetch all items to bring back to inventory
+    ''' </summary>
+    ''' <param name="id"></param>
+    ''' <returns></returns>
+    Public Shared Function SelectAllReturnedByID(id As Integer) As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("SELECT a.id, b.id as product_id, product_name, quantity_remaining FROM tblreturn_items a
+                                  JOIN tblproducts b ON a.product_id = b.id WHERE a.id = @id", conn)
+            cmd.Parameters.AddWithValue("@id", id)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
             adapter.Fill(dTable)

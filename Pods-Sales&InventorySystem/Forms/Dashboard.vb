@@ -47,7 +47,7 @@ Public Class Dashboard
     End Sub
 
     Private Sub LogoutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogoutToolStripMenuItem.Click
-        BaseAccountLog.Logout(My.Settings.myId, "Logout")
+        'BaseAccountLog.Logout(My.Settings.myId, "Logout")
         Me.Close()
         Login.Show()
     End Sub

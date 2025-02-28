@@ -65,6 +65,9 @@
   <PropertyGroup>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>pods.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BCrypt.Net-Next, Version=4.0.3.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
       <HintPath>..\packages\BCrypt.Net-Next.4.0.3\lib\net472\BCrypt.Net-Next.dll</HintPath>
@@ -184,6 +187,18 @@
     <Compile Include="Dialogs\DeliveryCartDialog.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Dialogs\PullOutCartDialog.Designer.vb">
+      <DependentUpon>PullOutCartDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\PullOutCartDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\ReturnInventoryDialog.Designer.vb">
+      <DependentUpon>ReturnInventoryDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ReturnInventoryDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
     </Compile>
@@ -292,12 +307,6 @@
     <Compile Include="Dialogs\TransactionDialog.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\UpdateExpiry.Designer.vb">
-      <DependentUpon>UpdateExpiry.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\UpdateExpiry.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Dialogs\VatDialog.Designer.vb">
       <DependentUpon>VatDialog.vb</DependentUpon>
     </Compile>
@@ -342,18 +351,6 @@
       <DependentUpon>Account.vb</DependentUpon>
     </Compile>
     <Compile Include="Panels\Account.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Panels\AccountLog.Designer.vb">
-      <DependentUpon>AccountLog.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Panels\AccountLog.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Panels\Activity.Designer.vb">
-      <DependentUpon>Activity.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Panels\Activity.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Panels\AuditTrail.Designer.vb">
@@ -613,6 +610,12 @@
     <EmbeddedResource Include="Dialogs\DeliveryCartDialog.resx">
       <DependentUpon>DeliveryCartDialog.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\PullOutCartDialog.resx">
+      <DependentUpon>PullOutCartDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\ReturnInventoryDialog.resx">
+      <DependentUpon>ReturnInventoryDialog.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
@@ -667,9 +670,6 @@
     <EmbeddedResource Include="Dialogs\TransactionDialog.resx">
       <DependentUpon>TransactionDialog.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\UpdateExpiry.resx">
-      <DependentUpon>UpdateExpiry.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\VatDialog.resx">
       <DependentUpon>VatDialog.vb</DependentUpon>
     </EmbeddedResource>
@@ -690,12 +690,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\Account.resx">
       <DependentUpon>Account.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Panels\AccountLog.resx">
-      <DependentUpon>AccountLog.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Panels\Activity.resx">
-      <DependentUpon>Activity.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\AuditTrail.resx">
       <DependentUpon>AuditTrail.vb</DependentUpon>
@@ -884,6 +878,7 @@
     <None Include="Resources\printer.png" />
     <None Include="Resources\icons8-search-50.png" />
     <None Include="Resources\icons8-refresh-50.png" />
+    <Content Include="pods.ico" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

@@ -20,7 +20,7 @@ Public Class LoginModule
                     My.Settings.myId = _dataSet.Rows(0).Item("id").ToString
                     My.Settings.roleId = _dataSet.Rows(0).Item("role_id").ToString
                     My.Settings.Save()
-                    BaseAccountLog.Login(My.Settings.myId, "Login")
+                    'BaseAccountLog.Login(My.Settings.myId, "Login")
                     BaseAuditTrail.AuditLogin(My.Settings.myId, "Login")
                     Return {True}
                 Else

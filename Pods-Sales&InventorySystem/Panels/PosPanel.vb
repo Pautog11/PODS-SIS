@@ -207,7 +207,7 @@
             Dim total As Decimal
             Dim cash As Decimal
             If Not String.IsNullOrWhiteSpace(TotalTextBox.Text) AndAlso Decimal.TryParse(TotalTextBox.Text, total) AndAlso
-           Not String.IsNullOrWhiteSpace(CashTextBox.Text) AndAlso Decimal.TryParse(CashTextBox.Text, cash) Then
+            Not String.IsNullOrWhiteSpace(CashTextBox.Text) AndAlso Decimal.TryParse(CashTextBox.Text, cash) Then
                 If cash >= total Then
                     ChangeTextBox.Text = (cash - total).ToString("C2") ' Format as currency
                 Else

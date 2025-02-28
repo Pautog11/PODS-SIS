@@ -8,9 +8,8 @@
   <Shapes>
     <Shape ID="DesignTable:viewtblcategories" ZOrder="14" X="519" Y="16" Height="134" Width="247" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
     <Shape ID="DesignTable:viewtblsubcategories" ZOrder="7" X="542" Y="165" Height="153" Width="267" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
-    <Shape ID="DesignTable:viewtblaccounts" ZOrder="17" X="14" Y="20" Height="229" Width="238" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="178" />
-    <Shape ID="DesignTable:viewtblsuppliers" ZOrder="16" X="272" Y="17" Height="210" Width="239" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="159" />
-    <Shape ID="DesignTable:viewtblaccount_logs" ZOrder="15" X="267" Y="244" Height="172" Width="262" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
+    <Shape ID="DesignTable:viewtblaccounts" ZOrder="16" X="14" Y="20" Height="229" Width="238" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="178" />
+    <Shape ID="DesignTable:viewtblsuppliers" ZOrder="15" X="272" Y="17" Height="210" Width="239" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="159" />
     <Shape ID="DesignTable:viewtblvat" ZOrder="13" X="823" Y="251" Height="115" Width="205" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
     <Shape ID="DesignTable:viewtbldeliverypullouts" ZOrder="2" X="549" Y="493" Height="172" Width="281" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
     <Shape ID="DesignTable:viewtblreturns" ZOrder="12" X="831" Y="397" Height="191" Width="229" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />

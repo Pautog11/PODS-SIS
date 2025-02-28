@@ -37,4 +37,9 @@
 
         End Try
     End Sub
+
+    Private Sub AddProductButton_Click(sender As Object, e As EventArgs) Handles AddProductButton.Click
+        Dim dialog As New PullOutCartDialog
+        dialog.ShowDialog()
+    End Sub
 End Class

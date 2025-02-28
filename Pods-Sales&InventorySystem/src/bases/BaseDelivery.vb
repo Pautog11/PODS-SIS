@@ -51,7 +51,13 @@ Public Class BaseDelivery
                     _sqlCommand.Parameters.AddWithValue("@cost_price", item("cost_price"))
                     _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
                     _sqlCommand.Parameters.AddWithValue("@inventory_quantity", item("quantity"))
-                    _sqlCommand.Parameters.AddWithValue("@batch_number", item("batch_number"))
+                    '_sqlCommand.Parameters.AddWithValue("@batch_number", item("batch_number"))
+                    If String.IsNullOrEmpty(item("batch_number").ToString()) Then
+                        _sqlCommand.Parameters.AddWithValue("@batch_number", DBNull.Value)
+                    Else
+                        _sqlCommand.Parameters.AddWithValue("@batch_number", item("batch_number"))
+                    End If
+
                     If String.IsNullOrEmpty(item("expiration_date").ToString()) Then
                         _sqlCommand.Parameters.AddWithValue("@expiration_date", DBNull.Value)
                     Else

@@ -92,11 +92,6 @@ Represents the strongly named DataTable class.
 Represents the strongly named DataTable class.
 </summary>
 </member>
-<member name="T:Pods_Sales_InventorySystem.pods.viewtblaccount_logsDataTable">
-<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member>
 <member name="T:Pods_Sales_InventorySystem.pods.viewtblvatDataTable">
 <summary>
 Represents the strongly named DataTable class.
@@ -173,11 +168,6 @@ Represents strongly named DataRow class.
 </summary>
 </member>
 <member name="T:Pods_Sales_InventorySystem.pods.viewtblsuppliersRow">
-<summary>
-Represents strongly named DataRow class.
-</summary>
-</member>
-<member name="T:Pods_Sales_InventorySystem.pods.viewtblaccount_logsRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
@@ -262,11 +252,6 @@ Row event argument class
 Row event argument class
 </summary>
 </member>
-<member name="T:Pods_Sales_InventorySystem.pods.viewtblaccount_logsRowChangeEvent">
-<summary>
-Row event argument class
-</summary>
-</member>
 <member name="T:Pods_Sales_InventorySystem.pods.viewtblvatRowChangeEvent">
 <summary>
 Row event argument class
@@ -343,11 +328,6 @@ Represents the connection and commands used to retrieve and save data.
 </summary>
 </member>
 <member name="T:Pods_Sales_InventorySystem.podsTableAdapters.viewtblsuppliersTableAdapter">
-<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member>
-<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.viewtblaccount_logsTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
@@ -626,6 +606,20 @@ Row event argument class
  Price check shoild not lower than from the current price
  </summary>
  <param name="price"></param>
+ <param name="id"></param>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseReturn.SelectAllReturnById(System.Int32)">
+ <summary>
+ fetch to see all returned items by retuned id
+ </summary>
+ <param name="id"></param>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseReturn.SelectAllReturnedByID(System.Int32)">
+ <summary>
+ Fetch all items to bring back to inventory
+ </summary>
  <param name="id"></param>
  <returns></returns>
 </member>

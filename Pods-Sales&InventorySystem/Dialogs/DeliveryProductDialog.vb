@@ -61,7 +61,7 @@ Public Class DeliveryProductDialog
                 Exit Sub
             End If
             Dim controls As Object() = {ProductTextBox, SellingTextBox, CostTextBox, QuantityTextBox, BatchTextBox}
-            Dim types As DataInput() = {DataInput.STRING_STRING, DataInput.STRING_DECIMAL, DataInput.STRING_DECIMAL, DataInput.STRING_INTEGER, DataInput.STRING_INTEGER}
+            Dim types As DataInput() = {DataInput.STRING_STRING, DataInput.STRING_DECIMAL, DataInput.STRING_DECIMAL, DataInput.STRING_INTEGER, DataInput.STRING_STRING}
             Dim result As New List(Of Object())
             For i = 0 To controls.Count - 1
                 If controls(i) Is BatchTextBox AndAlso tite = 0 Then
