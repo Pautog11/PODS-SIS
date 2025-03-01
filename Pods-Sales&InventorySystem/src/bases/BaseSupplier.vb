@@ -25,7 +25,7 @@ Public Class BaseSupplier
 
     Public Sub Update() Implements ICommandPanel.Update
         Try
-            _sqlCommand = New SqlCommand("UPDATE tblsuppliers SET company_name = @company_name, company_contact_number = @company_contact_number, company_address = @company_address, first_name = @first_name, last_name = @last_name, phone_number = @phone_number WHERE id = @id", _sqlConnection)
+            _sqlCommand = New SqlCommand("UPDATE tblsuppliers SET company_name = @company_name, company_contact_number = @company_contact_number, company_address = @company_address, first_name = @first_name, last_name = @last_name, phone_number = @phone_number, allow_refund = @allow_refund WHERE id = @id", _sqlConnection)
             _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
             _sqlCommand.Parameters.AddWithValue("@company_name", _data.Item("company_name"))
             _sqlCommand.Parameters.AddWithValue("@company_contact_number", _data.Item("company_contact_number"))
@@ -33,6 +33,7 @@ Public Class BaseSupplier
             _sqlCommand.Parameters.AddWithValue("@first_name", _data.Item("first_name"))
             _sqlCommand.Parameters.AddWithValue("@last_name", _data.Item("last_name"))
             _sqlCommand.Parameters.AddWithValue("@phone_number", _data.Item("phone_number"))
+            _sqlCommand.Parameters.AddWithValue("@allow_refund", _data.Item("allow_refund"))
             If _sqlCommand.ExecuteNonQuery() <= 0 Then
                 MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
@@ -45,13 +46,14 @@ Public Class BaseSupplier
 
     Public Sub Add() Implements ICommandPanel.Add
         Try
-            _sqlCommand = New SqlCommand("INSERT INTO tblsuppliers (company_name, company_contact_number, company_address, first_name, last_name, phone_number) VALUES (@company_name, @company_contact_number, @company_address, @first_name, @last_name, @phone_number)", _sqlConnection)
+            _sqlCommand = New SqlCommand("INSERT INTO tblsuppliers (company_name, company_contact_number, company_address, first_name, last_name, phone_number, allow_refund) VALUES (@company_name, @company_contact_number, @company_address, @first_name, @last_name, @phone_number, @allow_refund)", _sqlConnection)
             _sqlCommand.Parameters.AddWithValue("@company_name", _data.Item("company_name"))
             _sqlCommand.Parameters.AddWithValue("@company_contact_number", _data.Item("company_contact_number"))
             _sqlCommand.Parameters.AddWithValue("@company_address", _data.Item("company_address"))
             _sqlCommand.Parameters.AddWithValue("@first_name", _data.Item("first_name"))
             _sqlCommand.Parameters.AddWithValue("@last_name", _data.Item("last_name"))
             _sqlCommand.Parameters.AddWithValue("@phone_number", _data.Item("phone_number"))
+            _sqlCommand.Parameters.AddWithValue("@allow_refund", _data.Item("allow_refund"))
             If _sqlCommand.ExecuteNonQuery() <= 0 Then
                 MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
@@ -102,6 +104,19 @@ Public Class BaseSupplier
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return New pods.viewtblsuppliersDataTable
+        End Try
+    End Function
+
+    Public Shared Function AllowsRefund(id As Integer) As Integer
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT allow_refund FROM tblsuppliers WHERE id = @id", conn)
+            cmd.Parameters.AddWithValue("@id", id)
+
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
         End Try
     End Function
 End Class

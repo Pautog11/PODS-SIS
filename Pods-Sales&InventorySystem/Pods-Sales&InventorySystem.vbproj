@@ -437,6 +437,12 @@
     <Compile Include="Panels\Reports.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Panels\ReturnCode.Designer.vb">
+      <DependentUpon>ReturnCode.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\ReturnCode.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Panels\Returns.Designer.vb">
       <DependentUpon>Returns.vb</DependentUpon>
     </Compile>
@@ -732,6 +738,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\Reports.resx">
       <DependentUpon>Reports.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\ReturnCode.resx">
+      <DependentUpon>ReturnCode.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\Returns.resx">
       <DependentUpon>Returns.vb</DependentUpon>

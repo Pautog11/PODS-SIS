@@ -3,6 +3,7 @@
 Public Class SupplierDialog
     Private ReadOnly _data As Dictionary(Of String, String)
     Private ReadOnly _subject As IObservablePanel
+    Private Allow As Integer = 0
     Public Sub New(Optional data As Dictionary(Of String, String) = Nothing,
                    Optional subject As IObservablePanel = Nothing)
         InitializeComponent()
@@ -14,13 +15,19 @@ Public Class SupplierDialog
         Try
             If _data IsNot Nothing Then
                 AddSupplierButton.Text = "Update"
-
                 CompanyNameTextBox.Text = _data("company_name")
                 CPTextBox.Text = _data("company_contact_number")
                 CompanyAddressTextBox.Text = _data("company_address")
                 FirstnameTextBox.Text = _data("first_name")
                 LastnameTextBox.Text = _data("last_name")
                 PhoneNumberTextBox.Text = _data("phone_number")
+
+                If BaseSupplier.AllowsRefund(_data.Item("id")) = 1 Then
+                    CheckBox.Checked = True
+                Else
+                    CheckBox.Checked = False
+                End If
+
                 DeleteSupplierButton.Visible = False
             Else
                 DeleteSupplierButton.Visible = False
@@ -59,7 +66,8 @@ Public Class SupplierDialog
                     {"company_address", result(2)(1)},
                     {"first_name", result(3)(1)},
                     {"last_name", result(4)(1)},
-                    {"phone_number", result(5)(1)}
+                    {"phone_number", result(5)(1)},
+                    {"allow_refund", Allow}
                 }
                 Dim baseCommand As New BaseSupplier(data)
                 Dim invoker As ICommandInvoker = Nothing
@@ -88,5 +96,13 @@ Public Class SupplierDialog
         invoker?.Execute()
         _subject.NotifyObserver()
         Me.Close()
+    End Sub
+
+    Private Sub CheckBox_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox.CheckedChanged
+        If CheckBox.Checked Then
+            Allow = 1
+        Else
+            Allow = 0
+        End If
     End Sub
 End Class

@@ -37,6 +37,15 @@ Public Class DeliveryCartDialog
                 DatePicker.Value = _data("date")
                 TransactionDeliveryTextBox.Enabled = False
                 TransactionDeliveryTextBox.Text = _data("delivery_number")
+                'MsgBox(SupplierNameComboBox.SelectedItem("ID"))
+                If BaseSupplier.AllowsRefund(SupplierNameComboBox.SelectedItem("ID")) = 0 Then
+                    PulloutButton.Enabled = False
+                Else
+                    PulloutButton.Enabled = True
+                End If
+
+                'Dim pp As Integer = BaseSupplier.AllowsRefund(SupplierNameComboBox.SelectedItem("ID"))
+                'MsgBox(pp)
 
                 DeliveryDataGridView.Rows.Clear()
                 Dim DeliveryItems As DataTable = BaseDelivery.SelectAllDeliveryItems(_data("id"))
@@ -151,12 +160,12 @@ Public Class DeliveryCartDialog
     End Sub
 
     Private Sub PulloutButton_Click(sender As Object, e As EventArgs) Handles PulloutButton.Click
-        Try
-            Dim dialog As New DeliveryPulloutCart(data:=_data, subject:=_subject, parent:=Me)
-            dialog.ShowDialog()
-        Catch ex As Exception
+        'Try
+        '    Dim dialog As New DeliveryPulloutCart(data:=_data, subject:=_subject, parent:=Me)
+        '    dialog.ShowDialog()
+        'Catch ex As Exception
 
-        End Try
+        'End Try
     End Sub
 
     Private Sub DeliveryDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DeliveryDataGridView.CellClick

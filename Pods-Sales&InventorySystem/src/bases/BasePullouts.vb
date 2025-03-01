@@ -118,4 +118,26 @@ Public Class BasePullouts
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End Try
     End Sub
+
+    ''' <summary>
+    ''' Fetch all product by delivery id
+    ''' </summary>
+    ''' <param name="id"></param>
+    ''' <returns></returns>
+    Public Shared Function SelectAllProductByDeliveryId(id As Integer) As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("SELECT b.id, product_name, cost_price, inventory_quantity, ISNULL(expiration_date, NULL) AS expiration FROM tbldeliveries_items a
+                                  JOIN tblproducts b ON a.product_id = b.id WHERE delivery_id = @id", conn)
+            cmd.Parameters.AddWithValue("@id", id)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
+        End Try
+    End Function
 End Class

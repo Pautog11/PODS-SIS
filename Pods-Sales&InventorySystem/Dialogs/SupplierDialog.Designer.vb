@@ -39,6 +39,7 @@ Partial Class SupplierDialog
         Me.FooterLayoutPanel = New System.Windows.Forms.FlowLayoutPanel()
         Me.DeleteSupplierButton = New Guna.UI2.WinForms.Guna2Button()
         Me.AddSupplierButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.CheckBox = New Guna.UI2.WinForms.Guna2CheckBox()
         Me.Guna2Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.FooterLayoutPanel.SuspendLayout()
@@ -166,6 +167,7 @@ Partial Class SupplierDialog
         '
         'Guna2Panel1
         '
+        Me.Guna2Panel1.Controls.Add(Me.CheckBox)
         Me.Guna2Panel1.Controls.Add(Me.CPTextBox)
         Me.Guna2Panel1.Controls.Add(Me.Label6)
         Me.Guna2Panel1.Controls.Add(Me.Label5)
@@ -182,7 +184,7 @@ Partial Class SupplierDialog
         Me.Guna2Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Size = New System.Drawing.Size(518, 199)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(518, 235)
         Me.Guna2Panel1.TabIndex = 7
         '
         'CPTextBox
@@ -275,7 +277,7 @@ Partial Class SupplierDialog
         Me.TableLayoutPanel1.RowCount = 2
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(518, 254)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(518, 290)
         Me.TableLayoutPanel1.TabIndex = 8
         '
         'FooterLayoutPanel
@@ -284,7 +286,7 @@ Partial Class SupplierDialog
         Me.FooterLayoutPanel.Controls.Add(Me.AddSupplierButton)
         Me.FooterLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FooterLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
-        Me.FooterLayoutPanel.Location = New System.Drawing.Point(0, 199)
+        Me.FooterLayoutPanel.Location = New System.Drawing.Point(0, 235)
         Me.FooterLayoutPanel.Margin = New System.Windows.Forms.Padding(0)
         Me.FooterLayoutPanel.Name = "FooterLayoutPanel"
         Me.FooterLayoutPanel.Size = New System.Drawing.Size(518, 55)
@@ -328,11 +330,28 @@ Partial Class SupplierDialog
         Me.AddSupplierButton.TabIndex = 5
         Me.AddSupplierButton.Text = "Add"
         '
+        'CheckBox
+        '
+        Me.CheckBox.AutoSize = True
+        Me.CheckBox.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CheckBox.CheckedState.BorderRadius = 0
+        Me.CheckBox.CheckedState.BorderThickness = 0
+        Me.CheckBox.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CheckBox.Location = New System.Drawing.Point(26, 200)
+        Me.CheckBox.Name = "CheckBox"
+        Me.CheckBox.Size = New System.Drawing.Size(194, 17)
+        Me.CheckBox.TabIndex = 32
+        Me.CheckBox.Text = "Supplier approves a refund request."
+        Me.CheckBox.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        Me.CheckBox.UncheckedState.BorderRadius = 0
+        Me.CheckBox.UncheckedState.BorderThickness = 0
+        Me.CheckBox.UncheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        '
         'SupplierDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(518, 254)
+        Me.ClientSize = New System.Drawing.Size(518, 290)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
@@ -366,4 +385,5 @@ Partial Class SupplierDialog
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents CPTextBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents CheckBox As Guna.UI2.WinForms.Guna2CheckBox
 End Class

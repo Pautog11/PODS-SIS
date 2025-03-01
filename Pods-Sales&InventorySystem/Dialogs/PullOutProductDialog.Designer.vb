@@ -69,7 +69,7 @@ Partial Class PullOutProductDialog
         Me.StocksTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.StocksTextBox.ForeColor = System.Drawing.Color.Black
         Me.StocksTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.StocksTextBox.Location = New System.Drawing.Point(63, 197)
+        Me.StocksTextBox.Location = New System.Drawing.Point(63, 151)
         Me.StocksTextBox.MaxLength = 4
         Me.StocksTextBox.Name = "StocksTextBox"
         Me.StocksTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -93,7 +93,7 @@ Partial Class PullOutProductDialog
         Me.QuantityTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.QuantityTextBox.ForeColor = System.Drawing.Color.Black
         Me.QuantityTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.QuantityTextBox.Location = New System.Drawing.Point(63, 252)
+        Me.QuantityTextBox.Location = New System.Drawing.Point(63, 206)
         Me.QuantityTextBox.MaxLength = 4
         Me.QuantityTextBox.Name = "QuantityTextBox"
         Me.QuantityTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -115,7 +115,7 @@ Partial Class PullOutProductDialog
         Me.PullOutProductSaveButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.PullOutProductSaveButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.PullOutProductSaveButton.ForeColor = System.Drawing.Color.White
-        Me.PullOutProductSaveButton.Location = New System.Drawing.Point(165, 8)
+        Me.PullOutProductSaveButton.Location = New System.Drawing.Point(184, 8)
         Me.PullOutProductSaveButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.PullOutProductSaveButton.Name = "PullOutProductSaveButton"
         Me.PullOutProductSaveButton.Size = New System.Drawing.Size(150, 35)
@@ -136,7 +136,7 @@ Partial Class PullOutProductDialog
         Me.ExdTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.ExdTextBox.ForeColor = System.Drawing.Color.Black
         Me.ExdTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ExdTextBox.Location = New System.Drawing.Point(63, 85)
+        Me.ExdTextBox.Location = New System.Drawing.Point(63, 261)
         Me.ExdTextBox.MaxLength = 4
         Me.ExdTextBox.Name = "ExdTextBox"
         Me.ExdTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -160,7 +160,7 @@ Partial Class PullOutProductDialog
         Me.CostTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.CostTextBox.ForeColor = System.Drawing.Color.Black
         Me.CostTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CostTextBox.Location = New System.Drawing.Point(63, 140)
+        Me.CostTextBox.Location = New System.Drawing.Point(63, 94)
         Me.CostTextBox.MaxLength = 4
         Me.CostTextBox.Name = "CostTextBox"
         Me.CostTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -182,7 +182,7 @@ Partial Class PullOutProductDialog
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(46, 69)
+        Me.Label1.Location = New System.Drawing.Point(46, 245)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(79, 13)
         Me.Label1.TabIndex = 21
@@ -191,7 +191,7 @@ Partial Class PullOutProductDialog
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(46, 124)
+        Me.Label3.Location = New System.Drawing.Point(46, 78)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(28, 13)
         Me.Label3.TabIndex = 22
@@ -200,7 +200,7 @@ Partial Class PullOutProductDialog
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(46, 179)
+        Me.Label4.Location = New System.Drawing.Point(46, 133)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(40, 13)
         Me.Label4.TabIndex = 23
@@ -209,7 +209,7 @@ Partial Class PullOutProductDialog
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(46, 236)
+        Me.Label5.Location = New System.Drawing.Point(46, 190)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(46, 13)
         Me.Label5.TabIndex = 24
@@ -221,9 +221,9 @@ Partial Class PullOutProductDialog
         Me.FlowLayoutPanel1.Controls.Add(Me.VoidButton)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 302)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 387)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(318, 55)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(337, 55)
         Me.FlowLayoutPanel1.TabIndex = 26
         '
         'VoidButton
@@ -238,7 +238,7 @@ Partial Class PullOutProductDialog
         Me.VoidButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.VoidButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.VoidButton.ForeColor = System.Drawing.Color.White
-        Me.VoidButton.Location = New System.Drawing.Point(9, 8)
+        Me.VoidButton.Location = New System.Drawing.Point(28, 8)
         Me.VoidButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.VoidButton.Name = "VoidButton"
         Me.VoidButton.Size = New System.Drawing.Size(150, 35)
@@ -249,7 +249,7 @@ Partial Class PullOutProductDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(318, 357)
+        Me.ClientSize = New System.Drawing.Size(337, 442)
         Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
