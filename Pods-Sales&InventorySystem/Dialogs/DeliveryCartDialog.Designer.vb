@@ -41,7 +41,7 @@ Partial Class DeliveryCartDialog
         Me.Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
         Me.SaveButton = New Guna.UI2.WinForms.Guna2Button()
-        Me.PulloutButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.EditButton = New Guna.UI2.WinForms.Guna2Button()
         Me.DeliveryDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.product = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -52,6 +52,7 @@ Partial Class DeliveryCartDialog
         Me.quantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.target = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EDIT = New System.Windows.Forms.DataGridViewImageColumn()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.AccountHeaderLayoutPanel.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -121,7 +122,7 @@ Partial Class DeliveryCartDialog
         Me.SupplierNameComboBox.ItemHeight = 30
         Me.SupplierNameComboBox.Location = New System.Drawing.Point(92, 5)
         Me.SupplierNameComboBox.Name = "SupplierNameComboBox"
-        Me.SupplierNameComboBox.Size = New System.Drawing.Size(178, 36)
+        Me.SupplierNameComboBox.Size = New System.Drawing.Size(157, 36)
         Me.SupplierNameComboBox.TabIndex = 1
         '
         'SuppliersLabel
@@ -256,7 +257,7 @@ Partial Class DeliveryCartDialog
         'FlowLayoutPanel2
         '
         Me.FlowLayoutPanel2.Controls.Add(Me.SaveButton)
-        Me.FlowLayoutPanel2.Controls.Add(Me.PulloutButton)
+        Me.FlowLayoutPanel2.Controls.Add(Me.EditButton)
         Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
         Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 492)
@@ -284,24 +285,24 @@ Partial Class DeliveryCartDialog
         Me.SaveButton.TabIndex = 6
         Me.SaveButton.Text = "Save"
         '
-        'PulloutButton
+        'EditButton
         '
-        Me.PulloutButton.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.PulloutButton.BackColor = System.Drawing.Color.Transparent
-        Me.PulloutButton.BorderRadius = 15
-        Me.PulloutButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.PulloutButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.PulloutButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.PulloutButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.PulloutButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.PulloutButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.PulloutButton.ForeColor = System.Drawing.Color.White
-        Me.PulloutButton.Location = New System.Drawing.Point(658, 7)
-        Me.PulloutButton.Margin = New System.Windows.Forms.Padding(3, 7, 3, 3)
-        Me.PulloutButton.Name = "PulloutButton"
-        Me.PulloutButton.Size = New System.Drawing.Size(150, 35)
-        Me.PulloutButton.TabIndex = 7
-        Me.PulloutButton.Text = "Pull out"
+        Me.EditButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.EditButton.BackColor = System.Drawing.Color.Transparent
+        Me.EditButton.BorderRadius = 15
+        Me.EditButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.EditButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.EditButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.EditButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.EditButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.EditButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.EditButton.ForeColor = System.Drawing.Color.White
+        Me.EditButton.Location = New System.Drawing.Point(658, 7)
+        Me.EditButton.Margin = New System.Windows.Forms.Padding(3, 7, 3, 3)
+        Me.EditButton.Name = "EditButton"
+        Me.EditButton.Size = New System.Drawing.Size(150, 35)
+        Me.EditButton.TabIndex = 7
+        Me.EditButton.Text = "Edit"
         '
         'DeliveryDataGridView
         '
@@ -319,7 +320,7 @@ Partial Class DeliveryCartDialog
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DeliveryDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.DeliveryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.product, Me.expiry_date, Me.batch_number, Me.price, Me.cost_price, Me.quantity, Me.total, Me.target})
+        Me.DeliveryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.product, Me.expiry_date, Me.batch_number, Me.price, Me.cost_price, Me.quantity, Me.total, Me.target, Me.EDIT})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -366,7 +367,6 @@ Partial Class DeliveryCartDialog
         Me.ID.HeaderText = "ID"
         Me.ID.Name = "ID"
         Me.ID.ReadOnly = True
-        Me.ID.Visible = False
         '
         'product
         '
@@ -415,7 +415,15 @@ Partial Class DeliveryCartDialog
         Me.target.HeaderText = "TARGET"
         Me.target.Name = "target"
         Me.target.ReadOnly = True
-        Me.target.Visible = False
+        '
+        'EDIT
+        '
+        Me.EDIT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.EDIT.HeaderText = ""
+        Me.EDIT.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.edit
+        Me.EDIT.Name = "EDIT"
+        Me.EDIT.ReadOnly = True
+        Me.EDIT.Width = 5
         '
         'DeliveryCartDialog
         '
@@ -458,10 +466,10 @@ Partial Class DeliveryCartDialog
     Friend WithEvents Guna2HtmlLabel2 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents FlowLayoutPanel2 As FlowLayoutPanel
     Friend WithEvents SaveButton As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents PulloutButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2HtmlLabel3 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents DeliveryDataGridView As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents DatePicker As Guna.UI2.WinForms.Guna2DateTimePicker
+    Friend WithEvents EditButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents ID As DataGridViewTextBoxColumn
     Friend WithEvents product As DataGridViewTextBoxColumn
     Friend WithEvents expiry_date As DataGridViewTextBoxColumn
@@ -471,4 +479,5 @@ Partial Class DeliveryCartDialog
     Friend WithEvents quantity As DataGridViewTextBoxColumn
     Friend WithEvents total As DataGridViewTextBoxColumn
     Friend WithEvents target As DataGridViewTextBoxColumn
+    Friend WithEvents EDIT As DataGridViewImageColumn
 End Class

@@ -204,7 +204,7 @@ Public Class FinancialReport
                 dialog.ShowDialog()
             End Using
         Catch ex As Exception
-            MessageBox.Show($"Error Print report: {ex.Message}", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
             PrintButton.Enabled = True
         End Try

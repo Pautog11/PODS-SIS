@@ -187,6 +187,12 @@
     <Compile Include="Dialogs\DeliveryCartDialog.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Dialogs\EditDeliveryDialog.Designer.vb">
+      <DependentUpon>EditDeliveryDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\EditDeliveryDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Dialogs\PullOutCartDialog.Designer.vb">
       <DependentUpon>PullOutCartDialog.vb</DependentUpon>
     </Compile>
@@ -616,6 +622,9 @@
     <EmbeddedResource Include="Dialogs\DeliveryCartDialog.resx">
       <DependentUpon>DeliveryCartDialog.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\EditDeliveryDialog.resx">
+      <DependentUpon>EditDeliveryDialog.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\PullOutCartDialog.resx">
       <DependentUpon>PullOutCartDialog.vb</DependentUpon>
     </EmbeddedResource>
@@ -888,6 +897,9 @@
     <None Include="Resources\icons8-search-50.png" />
     <None Include="Resources\icons8-refresh-50.png" />
     <Content Include="pods.ico" />
+    <None Include="Resources\icons8-edit-48.png" />
+    <None Include="Resources\icons8-edit-24.png" />
+    <None Include="Resources\icons8-edit-24 %281%29.png" />
     <Content Include="SqlServerTypes\Loader.cs" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">

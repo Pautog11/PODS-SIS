@@ -25,14 +25,6 @@ Partial Class PullOutCartDialog
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Me.target = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.quantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cost_price = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.price = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.batch_number = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.expiry_date = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.product = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SaveButton = New Guna.UI2.WinForms.Guna2Button()
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
         Me.DatePicker = New Guna.UI2.WinForms.Guna2DateTimePicker()
@@ -41,14 +33,22 @@ Partial Class PullOutCartDialog
         Me.Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.AddProduct = New Guna.UI2.WinForms.Guna2Button()
         Me.SupplierNameComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.SuppliersLabel = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.AccountHeaderLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.DeliveryDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.product = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.atp_number = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.expiry_date = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.batch_number = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.cost_price = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.quantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.AddProduct = New Guna.UI2.WinForms.Guna2Button()
+        Me.target = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FlowLayoutPanel2.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
@@ -57,56 +57,6 @@ Partial Class PullOutCartDialog
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.DeliveryDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'target
-        '
-        Me.target.HeaderText = "TARGET"
-        Me.target.Name = "target"
-        Me.target.ReadOnly = True
-        Me.target.Visible = False
-        '
-        'quantity
-        '
-        Me.quantity.HeaderText = "QUANTITY"
-        Me.quantity.Name = "quantity"
-        Me.quantity.ReadOnly = True
-        '
-        'cost_price
-        '
-        Me.cost_price.HeaderText = "COST PRICE"
-        Me.cost_price.Name = "cost_price"
-        Me.cost_price.ReadOnly = True
-        '
-        'price
-        '
-        Me.price.HeaderText = "SELLING PRICE"
-        Me.price.Name = "price"
-        Me.price.ReadOnly = True
-        '
-        'batch_number
-        '
-        Me.batch_number.HeaderText = "BATCH NUMBER"
-        Me.batch_number.Name = "batch_number"
-        Me.batch_number.ReadOnly = True
-        '
-        'expiry_date
-        '
-        Me.expiry_date.HeaderText = "EXPIRATION DATE"
-        Me.expiry_date.Name = "expiry_date"
-        Me.expiry_date.ReadOnly = True
-        '
-        'product
-        '
-        Me.product.HeaderText = "PRODUCT"
-        Me.product.Name = "product"
-        Me.product.ReadOnly = True
-        '
-        'ID
-        '
-        Me.ID.HeaderText = "ID"
-        Me.ID.Name = "ID"
-        Me.ID.ReadOnly = True
-        Me.ID.Visible = False
         '
         'SaveButton
         '
@@ -205,6 +155,25 @@ Partial Class PullOutCartDialog
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(618, 44)
         Me.FlowLayoutPanel1.TabIndex = 4
         '
+        'AddProduct
+        '
+        Me.AddProduct.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.AddProduct.BackColor = System.Drawing.Color.Transparent
+        Me.AddProduct.BorderRadius = 15
+        Me.AddProduct.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.AddProduct.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.AddProduct.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.AddProduct.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.AddProduct.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.AddProduct.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.AddProduct.ForeColor = System.Drawing.Color.White
+        Me.AddProduct.Location = New System.Drawing.Point(465, 7)
+        Me.AddProduct.Margin = New System.Windows.Forms.Padding(3, 7, 3, 3)
+        Me.AddProduct.Name = "AddProduct"
+        Me.AddProduct.Size = New System.Drawing.Size(150, 35)
+        Me.AddProduct.TabIndex = 7
+        Me.AddProduct.Text = "Add"
+        '
         'SupplierNameComboBox
         '
         Me.SupplierNameComboBox.BackColor = System.Drawing.Color.Transparent
@@ -293,7 +262,7 @@ Partial Class PullOutCartDialog
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DeliveryDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.DeliveryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.product, Me.expiry_date, Me.batch_number, Me.price, Me.cost_price, Me.quantity, Me.total, Me.target})
+        Me.DeliveryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.product, Me.atp_number, Me.expiry_date, Me.batch_number, Me.cost_price, Me.quantity, Me.total, Me.target})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -335,30 +304,61 @@ Partial Class PullOutCartDialog
         Me.DeliveryDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DeliveryDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         '
+        'ID
+        '
+        Me.ID.HeaderText = "ID"
+        Me.ID.Name = "ID"
+        Me.ID.ReadOnly = True
+        Me.ID.Visible = False
+        '
+        'product
+        '
+        Me.product.HeaderText = "PRODUCT"
+        Me.product.Name = "product"
+        Me.product.ReadOnly = True
+        '
+        'atp_number
+        '
+        Me.atp_number.HeaderText = "ATP NUMBER"
+        Me.atp_number.Name = "atp_number"
+        Me.atp_number.ReadOnly = True
+        '
+        'expiry_date
+        '
+        Me.expiry_date.HeaderText = "EXPIRATION DATE"
+        Me.expiry_date.Name = "expiry_date"
+        Me.expiry_date.ReadOnly = True
+        '
+        'batch_number
+        '
+        Me.batch_number.HeaderText = "BATCH NUMBER"
+        Me.batch_number.Name = "batch_number"
+        Me.batch_number.ReadOnly = True
+        '
+        'cost_price
+        '
+        Me.cost_price.HeaderText = "COST PRICE"
+        Me.cost_price.Name = "cost_price"
+        Me.cost_price.ReadOnly = True
+        '
+        'quantity
+        '
+        Me.quantity.HeaderText = "QUANTITY"
+        Me.quantity.Name = "quantity"
+        Me.quantity.ReadOnly = True
+        '
         'total
         '
         Me.total.HeaderText = "TOTAL"
         Me.total.Name = "total"
         Me.total.ReadOnly = True
         '
-        'AddProduct
+        'target
         '
-        Me.AddProduct.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.AddProduct.BackColor = System.Drawing.Color.Transparent
-        Me.AddProduct.BorderRadius = 15
-        Me.AddProduct.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.AddProduct.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.AddProduct.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.AddProduct.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.AddProduct.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.AddProduct.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.AddProduct.ForeColor = System.Drawing.Color.White
-        Me.AddProduct.Location = New System.Drawing.Point(465, 7)
-        Me.AddProduct.Margin = New System.Windows.Forms.Padding(3, 7, 3, 3)
-        Me.AddProduct.Name = "AddProduct"
-        Me.AddProduct.Size = New System.Drawing.Size(150, 35)
-        Me.AddProduct.TabIndex = 7
-        Me.AddProduct.Text = "Add"
+        Me.target.HeaderText = "TARGET"
+        Me.target.Name = "target"
+        Me.target.ReadOnly = True
+        Me.target.Visible = False
         '
         'PullOutCartDialog
         '
@@ -385,15 +385,6 @@ Partial Class PullOutCartDialog
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents target As DataGridViewTextBoxColumn
-    Friend WithEvents quantity As DataGridViewTextBoxColumn
-    Friend WithEvents cost_price As DataGridViewTextBoxColumn
-    Friend WithEvents price As DataGridViewTextBoxColumn
-    Friend WithEvents batch_number As DataGridViewTextBoxColumn
-    Friend WithEvents expiry_date As DataGridViewTextBoxColumn
-    Friend WithEvents product As DataGridViewTextBoxColumn
-    Friend WithEvents ID As DataGridViewTextBoxColumn
     Friend WithEvents SaveButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents FlowLayoutPanel2 As FlowLayoutPanel
     Friend WithEvents DatePicker As Guna.UI2.WinForms.Guna2DateTimePicker
@@ -408,6 +399,14 @@ Partial Class PullOutCartDialog
     Friend WithEvents AccountHeaderLayoutPanel As TableLayoutPanel
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents DeliveryDataGridView As Guna.UI2.WinForms.Guna2DataGridView
-    Friend WithEvents total As DataGridViewTextBoxColumn
     Friend WithEvents AddProduct As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents ID As DataGridViewTextBoxColumn
+    Friend WithEvents product As DataGridViewTextBoxColumn
+    Friend WithEvents atp_number As DataGridViewTextBoxColumn
+    Friend WithEvents expiry_date As DataGridViewTextBoxColumn
+    Friend WithEvents batch_number As DataGridViewTextBoxColumn
+    Friend WithEvents cost_price As DataGridViewTextBoxColumn
+    Friend WithEvents quantity As DataGridViewTextBoxColumn
+    Friend WithEvents total As DataGridViewTextBoxColumn
+    Friend WithEvents target As DataGridViewTextBoxColumn
 End Class

@@ -96,54 +96,6 @@ Public Class BaseProduct
                 Throw New Exception("Failed to add product!")
             End If
 
-            'If _item.Item("dosage") = "" And _item.Item("strength") = "" And _item.Item("manufacturer") = "" Then
-            '    _item = Nothing
-            'End If
-
-            'If String.IsNullOrEmpty(_item.Item("dosage_form")) AndAlso String.IsNullOrEmpty(_item.Item("strength")) AndAlso String.IsNullOrEmpty(_item.Item("manufacturer")) Then _item = Nothing
-
-            'If _item IsNot Nothing Then
-            '    Dim productid As Integer = Convert.ToInt32(_sqlCommand.ExecuteScalar())
-            '    _sqlCommand.Parameters.Clear()
-            '    _sqlCommand = New SqlCommand("INSERT INTO tblproduct_info (product_id, dosage_form, strength, manufacturer) VALUES (@product_id, @dosage_form, @strength, @manufacturer)", _sqlConnection, transaction)
-            '    _sqlCommand.Parameters.AddWithValue("@product_id", productid)
-            '    _sqlCommand.Parameters.AddWithValue("@dosage_form", _item.Item("dosage")) '_item.Item("dosage"))
-            '    _sqlCommand.Parameters.AddWithValue("@strength", _item.Item("strength"))
-            '    _sqlCommand.Parameters.AddWithValue("@manufacturer", _item.Item("manufacturer"))
-            'End If
-
-            'If _item IsNot Nothing Then
-            '    ' Ensure the dictionary contains the necessary keys before accessing them
-            '    If _item.ContainsKey("dosage") AndAlso _item.ContainsKey("strength") AndAlso _item.ContainsKey("manufacturer") Then
-            '        ' Execute the SQL query and get the product ID
-            '        'Dim productid As Integer = Convert.ToInt32(_sqlCommand.ExecuteScalar())
-            '        _sqlCommand.Parameters.Clear()
-
-            '        ' Prepare the SQL command for insertion
-            '        _sqlCommand = New SqlCommand("INSERT INTO tblproduct_info (product_id, dosage_form, strength, dose, manufacturer) VALUES (@product_id, @dosage_form, @strength, @dose, @manufacturer)", _sqlConnection, transaction)
-
-            '        ' Add the parameters with appropriate values from the dictionary
-            '        _sqlCommand.Parameters.AddWithValue("@product_id", productid)
-            '        _sqlCommand.Parameters.AddWithValue("@dosage_form", _item("dosage")) ' Using the dictionary's Item method
-            '        _sqlCommand.Parameters.AddWithValue("@strength", _item("strength"))
-            '        _sqlCommand.Parameters.AddWithValue("@dose", _item("dose"))
-            '        _sqlCommand.Parameters.AddWithValue("@manufacturer", _item("manufacturer"))
-            '        If _sqlCommand.ExecuteNonQuery() <= 0 Then
-            '            Throw New Exception("Failed to add delivery items!")
-            '        End If
-            '        'Else
-            '        '    ' Handle the case where some expected keys are missing in the dictionary
-            '        '    Throw New Exception("The dictionary is missing required keys: dosage, strength, or manufacturer.")
-            '    End If
-
-            'End If
-
-            'If _sqlCommand.ExecuteNonQuery() <= 0 Then
-            '    'Throw New Exception("Failed to add delivery items!")
-            '    Throw New Exception("An error occured!")
-            'End If
-
-
             MessageBox.Show("Product has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
             transaction.Commit()
             'Dim pname As String = _data("product_name").ToString()
@@ -224,20 +176,6 @@ Public Class BaseProduct
         End Try
     End Function
 
-    'mali kasi merong same subcategory but iba ang mother cat
-    'Public Shared Function ScalarSubcategoryId(subcategory As String) As Integer
-    '    Try
-    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-    '        Dim cmd As New SqlCommand("SELECT id FROM tblsubcategories WHERE subcategory = @subcategory", conn)
-    '        cmd.Parameters.AddWithValue("@subcategory", subcategory)
-
-    '        Return cmd.ExecuteScalar()
-    '    Catch ex As Exception
-    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-    '        Return 0
-    '    End Try
-    'End Function
-
     Public Shared Function ScalarCategoryId(category As String) As Integer
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
@@ -296,48 +234,6 @@ Public Class BaseProduct
         End Try
     End Function
 
-    'Public Shared Function ProductInfo(id As String) As DataTable
-    '    Try
-    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-    '        Dim cmd As New SqlCommand("SELECT BARCODE, QUANTITY, PRICE, COST FROM viewtblproducts WHERE id = @id", conn)
-    '        cmd.Parameters.AddWithValue("@id", id)
-    '        Dim dTable As New DataTable
-    '        Dim adapter As New SqlDataAdapter(cmd)
-    '        adapter.Fill(dTable)
-    '        Return dTable
-    '    Catch ex As Exception
-    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-    '        Return New DataTable
-    '    End Try
-    'End Function
-
-    'Public Shared Function FetchProductBySubcategory(subcategory_id As String) As DataTable
-    '    Try
-    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-    '        Dim cmd As New SqlCommand("SELECT id, product_name FROM tblproducts WHERE subcategory_id = @subcategory_id", conn)
-    '        cmd.Parameters.AddWithValue("subcategory_id", subcategory_id)
-    '        Dim dTable As New DataTable
-    '        Dim adapter As New SqlDataAdapter(cmd)
-    '        adapter.Fill(dTable)
-    '        Return dTable
-    '    Catch ex As Exception
-    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-    '        Return New DataTable
-    '    End Try
-    'End Function
-    'Public Shared Function ScalarProductId(product_name As String) As Integer
-    '    Try
-    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-    '        Dim cmd As New SqlCommand("SELECT id FROM tblproducts WHERE product_name = @product_name", conn)
-    '        cmd.Parameters.AddWithValue("@product_name", product_name)
-
-    '        Return cmd.ExecuteScalar()
-    '    Catch ex As Exception
-    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-    '        Return 0
-    '    End Try
-    'End Function
-
     Public Shared Function Fillproductinfo(product_id As String) As DataTable
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
@@ -369,95 +265,6 @@ Public Class BaseProduct
         End Try
     End Function
 
-    'Public Shared Function Disableexd(id As Integer) As Integer
-    '    Try
-    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-    '        Dim cmd As New SqlCommand("select count(*) from tblproducts a join tblproduct_info b on a.id = b.product_id where a.id = @id", conn)
-    '        cmd.Parameters.AddWithValue("@id", id)
-
-    '        Return cmd.ExecuteScalar()
-    '    Catch ex As Exception
-    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-    '        Return 0
-    '    End Try
-    'End Function
-
-    'Public Shared Function BarcodeExists(barcode As String) As Integer
-    '    Try
-    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-    '        Dim cmd As New SqlCommand("select count(*) from tblproducts where barcode = @barcode", conn)
-    '        cmd.Parameters.AddWithValue("@barcode", barcode)
-
-    '        Return cmd.ExecuteScalar()
-    '    Catch ex As Exception
-    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-    '        Return 0
-    '    End Try
-    'End Function
-
-    'Public Shared Function SearchDilog(query As String) As pods.viewtblproductsearchDataTable 'pods.tblaccountsDataTable
-    '    Try
-    '        Dim conn As New SqlConnection(My.Settings.podsdbConnectionString)
-    '        Dim cmd As New SqlCommand("SELECT * FROM viewtblproductsearch WHERE id <> 1 AND NAME LIKE CONCAT('%', @query, '%')", conn)
-    '        cmd.Parameters.AddWithValue("@query", query)
-    '        Dim dTable As New pods.viewtblproductsearchDataTable
-    '        Dim adapter As New SqlDataAdapter(cmd)
-    '        adapter.Fill(dTable)
-    '        Return dTable
-    '    Catch ex As Exception
-    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-    '        Return New pods.viewtblproductsearchDataTable
-    '    End Try
-    'End Function
-
-    'Public Shared Function ChangeDialog(id As Integer) As Integer
-    '    Try
-    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-    '        Dim cmd As New SqlCommand("SELECT 
-    '                                    CASE 
-    '                                        WHEN EXISTS (
-    '                                            SELECT 1 
-    '                                            FROM tblproduct_info t2 
-    '                                            WHERE t2.product_id = t1.id
-    '                                        ) THEN 1 
-    '                                        ELSE 0 
-    '                                    END AS id_exists
-    '                                FROM tblproducts t1 where t1.id = @id", conn)
-    '        cmd.Parameters.AddWithValue("@id", id)
-    '        Return cmd.ExecuteScalar()
-    '    Catch ex As Exception
-    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-    '        Return 0
-    '    End Try
-    'End Function
-
-    'Public Shared Function FetchDosage() As DataTable
-    '    Try
-    '        Dim conn As New SqlConnection(My.Settings.podsdbConnectionString)
-    '        Dim cmd As New SqlCommand("SELECT * FROM tbldosage", conn)
-    '        Dim dTable As New DataTable
-    '        Dim adapter As New SqlDataAdapter(cmd)
-    '        adapter.Fill(dTable)
-    '        Return dTable
-    '    Catch ex As Exception
-    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-    '        Return New DataTable
-    '    End Try
-    'End Function
-
-    'Public Shared Function DoseName(dasage As String) As String
-    '    Try
-    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-    '        Dim cmd As New SqlCommand("SELECT id FROM tbldosage WHERE LOWER(dasage) = @dasage", conn)
-    '        cmd.Parameters.AddWithValue("@dasage", dasage.Trim.ToLower)
-
-    '        Return cmd.ExecuteScalar()
-    '    Catch ex As Exception
-    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-    '        Return 0
-    '    End Try
-    'End Function
-
     Public Shared Function CheckProductname(name As String) As String
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
@@ -471,31 +278,16 @@ Public Class BaseProduct
         End Try
     End Function
 
-    'Private Shared Function SearchProduct() As AutoCompleteStringCollection
-    '    'Using conn As New SqlConnection(connectionString)
-    '    '    Using cmd As New SqlCommand(query, conn)
-    '    '        conn.Open()
+    Public Shared Function Getname(id As Integer) As String
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT product_name FROM tblproducts WHERE id = @id", conn)
+            cmd.Parameters.AddWithValue("@id", id)
 
-    '    '        Using reader As SqlDataReader = cmd.ExecuteReader()
-    '    '            While reader.Read()
-    '    '                autocompleteList.Add(reader("product_name").ToString())
-    '    '            End While
-    '    '        End Using
-    '    '    End Using
-    '    'End Using
-
-    '    Try
-    '        'Dim autocompleteList As New AutoCompleteStringCollection()
-    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-    '        Dim cmd As New SqlCommand("SELECT product_name FROM tblproducts", conn)
-    '        Dim reader As SqlDataReader = cmd.ExecuteReader
-    '        While reader.Read
-    '            autocompleteList.Add(reader("product_name").ToString())
-    '        End While
-    '        Return autocompleteList.Count
-    '    Catch ex As Exception
-    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-    '        Return 0
-    '    End Try
-    'End Function
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
 End Class

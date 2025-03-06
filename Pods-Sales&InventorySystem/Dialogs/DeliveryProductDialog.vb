@@ -73,17 +73,15 @@ Public Class DeliveryProductDialog
                     If Not validationResult(0) = True Then
                         Exit Sub
                     End If
-                Else
-                    Throw New Exception
                 End If
             Next
             If Not (BaseDelivery.Pricing(result(1)(1), id) = 0) Then
-                MessageBox.Show("You cannot set a price ", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("You cannot set a price lower than the price in your previous inventory.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Exit Sub
             End If
 
             If Val(CostTextBox.Text) >= Val(SellingTextBox.Text) Then
-                MessageBox.Show("It should not be less than the cost price.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("The price cannot be less than or equal to the cost price.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Exit Sub
             End If
             If Not result.Any(Function(item As Object()) Not item(0)) Then
@@ -92,11 +90,7 @@ Public Class DeliveryProductDialog
 
                 Dim sellingprice As Decimal
                 Dim costprice As Decimal
-                If Decimal.TryParse(SellingTextBox.Text, sellingprice) Then
-
-                End If
-
-                If Decimal.TryParse(CostTextBox.Text, costprice) Then
+                If Decimal.TryParse(SellingTextBox.Text, sellingprice) AndAlso Decimal.TryParse(CostTextBox.Text, costprice) Then
 
                 End If
 
@@ -183,13 +177,7 @@ Public Class DeliveryProductDialog
                     Clear()
                 End If
             End If
-            txite()
-            'tite = BaseDelivery.EnableExp(id)
-            'If tite = 1 Then
-            '    DateTimePicker.Enabled = True
-            'Else
-            '    DateTimePicker.Enabled = False
-            'End If
+            Txite()
         Catch ex As Exception
 
         End Try
@@ -231,20 +219,19 @@ Public Class DeliveryProductDialog
     Private Sub ProductTextBox_TextChanged(sender As Object, e As KeyEventArgs) Handles ProductTextBox.KeyDown
         Try
             If e.KeyCode = Keys.Enter Then
-                'MsgBox(ProductTextBox.Text)
                 Dim dt As DataTable = BaseDelivery.NameFetching(ProductTextBox.Text)
                 If BarcodeTextBox.Text.Length <= 13 AndAlso dt.Rows.Count > 0 Then
                     id = If(String.IsNullOrEmpty(dt.Rows(0).Item("id").ToString()), 0, dt.Rows(0).Item("id").ToString())
                     ProductTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("product_name").ToString()), 0, dt.Rows(0).Item("product_name"))
                     SellingTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("price").ToString()), 0, dt.Rows(0).Item("price").ToString())
                     CostTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("cost_price").ToString()), 0, dt.Rows(0).Item("cost_price").ToString())
-                    ' e.Handled = True
+                    e.Handled = True
                 Else
                     MessageBox.Show("No product found!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Clear()
                 End If
             End If
-            txite()
+            Txite()
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try

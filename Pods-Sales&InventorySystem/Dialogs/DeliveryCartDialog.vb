@@ -7,6 +7,7 @@ Public Class DeliveryCartDialog
     Private ReadOnly _subject As IObservablePanel
     Public _itemSource As DataTable
     Private ReadOnly _data As Dictionary(Of String, String)
+    Dim button As Integer = 0
 
     Public Sub New(Optional subject As IObservablePanel = Nothing,
                    Optional data As Dictionary(Of String, String) = Nothing)
@@ -37,15 +38,6 @@ Public Class DeliveryCartDialog
                 DatePicker.Value = _data("date")
                 TransactionDeliveryTextBox.Enabled = False
                 TransactionDeliveryTextBox.Text = _data("delivery_number")
-                'MsgBox(SupplierNameComboBox.SelectedItem("ID"))
-                If BaseSupplier.AllowsRefund(SupplierNameComboBox.SelectedItem("ID")) = 0 Then
-                    PulloutButton.Enabled = False
-                Else
-                    PulloutButton.Enabled = True
-                End If
-
-                'Dim pp As Integer = BaseSupplier.AllowsRefund(SupplierNameComboBox.SelectedItem("ID"))
-                'MsgBox(pp)
 
                 DeliveryDataGridView.Rows.Clear()
                 Dim DeliveryItems As DataTable = BaseDelivery.SelectAllDeliveryItems(_data("id"))
@@ -60,13 +52,12 @@ Public Class DeliveryCartDialog
                     Next
                     DeliveryDataGridView.Rows.Add(data.ToArray())
                 Next
-                'DataGridView1.DataSource = DeliveryItems.ToString
-                'DeliveryDataGridView.Columns.Item("ID").Visible = False
+
             Else
-                PulloutButton.Visible = False
                 DatePicker.MaxDate = DateTime.Now
-                'DeliveryDataGridView.Columns.Item("ID").Visible = False
             End If
+            DeliveryDataGridView.Columns.Item("EDIT").Visible = False
+
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -80,8 +71,6 @@ Public Class DeliveryCartDialog
                 total += DeliveryDataGridView.Rows(i).Cells("TOTAL").Value
             Next
             TotalPrice.Text = total
-
-            'DeliveryDataGridView.Rows(0).Cells("target").Value = "Jane Doe"
 
         Catch ex As Exception
 
@@ -115,7 +104,7 @@ Public Class DeliveryCartDialog
                     Throw New Exception
                 End If
             Next
-            'MsgBox(result(1)(1))
+
             If DeliveryDataGridView.Rows.Count > 0 AndAlso Not result.Any(Function(item As Object()) Not item(0)) Then
                 Dim items As New List(Of Dictionary(Of String, String))()
                 Dim baseCommand As ICommandPanel
@@ -129,7 +118,6 @@ Public Class DeliveryCartDialog
                 }
 
                 For Each row As DataGridViewRow In DeliveryDataGridView.Rows
-
                     Dim item As New Dictionary(Of String, String) From {
                         {"product_id", row.Cells(0).Value}, '{"exd", exdValue},
                         {"price", If(row.Cells(4).Value?.ToString(), "0")},
@@ -155,25 +143,15 @@ Public Class DeliveryCartDialog
                 MessageBox.Show("Please select product first.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
         Catch ex As Exception
-            MsgBox(ex.Message)
+            'MsgBox(ex.Message)
         End Try
-    End Sub
-
-    Private Sub PulloutButton_Click(sender As Object, e As EventArgs) Handles PulloutButton.Click
-        'Try
-        '    Dim dialog As New DeliveryPulloutCart(data:=_data, subject:=_subject, parent:=Me)
-        '    dialog.ShowDialog()
-        'Catch ex As Exception
-
-        'End Try
     End Sub
 
     Private Sub DeliveryDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DeliveryDataGridView.CellClick
         Try
             If DeliveryDataGridView.Rows.Count > 0 Then
                 If _data Is Nothing Then
-                    Dim selectedRows As DataGridViewSelectedRowCollection = DeliveryDataGridView.SelectedRows
-                    Dim row As DataGridViewRow = selectedRows(0)
+                    Dim row As DataGridViewRow = DeliveryDataGridView.SelectedRows(0)
                     Dim data As New Dictionary(Of String, String) From {
                         {"id", If(row.Cells(0).Value?.ToString(), "0")},
                         {"name", If(row.Cells(1).Value?.ToString(), "")},
@@ -186,6 +164,97 @@ Public Class DeliveryCartDialog
                     Dim dialog As New DeliveryProductDialog(data:=data, parent:=Me)
                     dialog.ShowDialog()
                 End If
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub DeliveryDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DeliveryDataGridView.CellContentClick
+        Dim fuckme As String = DeliveryDataGridView.Columns(e.ColumnIndex).Name
+        If fuckme = "EDIT" Then
+            Dim row As DataGridViewRow = DeliveryDataGridView.SelectedRows(0)
+            Dim data As New Dictionary(Of String, String) From {
+                {"id", If(row.Cells(0).Value?.ToString(), "0")},
+                {"name", If(row.Cells(1).Value?.ToString(), "")},
+                {"date", If(row.Cells(2).Value?.ToString(), "")},
+                {"batch_number", If(row.Cells(3).Value?.ToString(), "")},
+                {"selling_price", If(row.Cells(4).Value?.ToString(), "0")},
+                {"cost_price", If(row.Cells(5).Value?.ToString(), "0")},
+                {"quantity", If(row.Cells(6).Value?.ToString(), "0")},
+                {"target", If(row.Cells(8).Value?.ToString(), "0")}
+            }
+            Dim dialog As New EditDeliveryDialog(parent:=Me, data:=data)
+            dialog.ShowDialog()
+        End If
+    End Sub
+
+    Private Sub EditButton_Click(sender As Object, e As EventArgs) Handles EditButton.Click
+        Try
+            If button = 1 Then
+                Dim controls As Object() = {SupplierNameComboBox, TransactionDeliveryTextBox}
+
+                Dim types As DataInput() = {DataInput.STRING_NAME, DataInput.STRING_STRING}
+
+                Dim result As New List(Of Object())
+                For i = 0 To controls.Count - 1
+                    result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
+                    Dim validationResult = TryCast(result(i), Object())
+                    If validationResult IsNot Nothing AndAlso validationResult.Length > 0 Then
+                        If Not validationResult(0) = True Then
+                            Exit Sub
+                        End If
+                    Else
+                        Throw New Exception
+                    End If
+                Next
+
+                If DeliveryDataGridView.Rows.Count > 0 AndAlso Not result.Any(Function(item As Object()) Not item(0)) Then
+                    Dim items As New List(Of Dictionary(Of String, String))()
+                    Dim baseCommand As ICommandPanel
+                    Dim invoker As ICommandInvoker
+                    Dim data As New Dictionary(Of String, String) From {
+                        {"id", If(_data.Item("id"), String.Empty)},
+                        {"delivery_number", result(1)(1)},
+                        {"supplier_id", If(DirectCast(SupplierNameComboBox.SelectedItem, DataRowView)("id"), String.Empty)},
+                        {"total", If(String.IsNullOrEmpty(TotalPrice.Text) OrElse TotalPrice.Text = "", 0, TotalPrice.Text)},
+                        {"date", DatePicker.Value.ToString("MMM dd yyyy")}
+                    }
+
+                    For Each row As DataGridViewRow In DeliveryDataGridView.Rows
+                        Dim item As New Dictionary(Of String, String) From {
+                            {"id", row.Cells(0).Value},
+                            {"delivery_id", _data.Item("id")},
+                            {"product_id", If(row.Cells(8).Value?.ToString(), "0")},
+                            {"price", If(row.Cells(4).Value?.ToString(), "0")},
+                            {"cost_price", If(row.Cells(5).Value?.ToString(), "0")},
+                            {"quantity", If(row.Cells(6).Value?.ToString(), "0")},
+                            {"batch_number", If(row.Cells(3).Value?.ToString(), "0")},
+                            {"expiration_date", If(row.Cells(2).Value?.ToString(), "0")}
+                        }
+                        items.Add(item)
+                    Next
+
+                    baseCommand = New BaseDelivery(data) With {.Items = items}
+
+                    If BaseDelivery.Exists(result(1)(1)) = 0 Then
+                        invoker = New UpdateCommand(baseCommand)
+                        invoker?.Execute()
+                        _subject.NotifyObserver()
+                        Me.Close()
+                    Else
+                        MessageBox.Show("Transaction reference is already exist!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    End If
+                Else
+                    MessageBox.Show("Please select product first.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                End If
+            Else
+                EditButton.Text = "Save"
+                DeliveryDataGridView.Columns.Item("EDIT").Visible = True
+                DatePicker.Enabled = True
+                SupplierNameComboBox.Enabled = True
+                TransactionDeliveryTextBox.Enabled = True
+                button = 1
             End If
         Catch ex As Exception
 

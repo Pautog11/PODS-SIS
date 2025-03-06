@@ -14,18 +14,21 @@ Public Class TransactionDialog
 
     Private Sub TransactionDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            Dim dt As DataTable = BaseTransaction.FetchDiscounts
-            DiscountComboBox.DataSource = dt.DefaultView
-            DiscountComboBox.DisplayMember = "des"
-            DiscountComboBox.ValueMember = "discount"
+            'Dim dt As DataTable = BaseTransaction.FetchDiscounts
+            'DiscountComboBox.DataSource = dt.DefaultView
+            'DiscountComboBox.DisplayMember = "des"
+            'DiscountComboBox.ValueMember = "discount"
 
             If _data IsNot Nothing Then
                 Reference_number.Text = _data.Item("transaction_number")
                 SubtotalTextBox.Text = _data.Item("subtotal")
                 VatTextBox.Text = _data.Item("vat")
-                DiscountComboBox.Text = _data.Item("discount")
+                DiscountComboBox.ValueMember = _data.Item("discount").ToString
                 TotalTextBox.Text = _data.Item("total")
                 DateLabel.Text = _data.Item("date")
+                Guna2TextBox1.Text = _data.Item("discount").ToString
+
+                'MsgBox(_data.Item("discount"))
                 'CashTextBox.Text = _data.Item("cash")
                 VatableTextBox.Text = (_data.Item("total") - _data.Item("vat"))
                 'MsgBox(_data("id"))

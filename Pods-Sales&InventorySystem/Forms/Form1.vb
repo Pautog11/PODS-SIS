@@ -1,46 +1,78 @@
-﻿Public Class Form1
-    'Dim num As Integer = 1
-    Dim number As Decimal
+﻿Imports System.Drawing
+Imports System.Windows.Forms
+Public Class Form1
+    Private ReadOnly _tableAapter As New podsTableAdapters.viewtblaccountsTableAdapter
+    Private _dataTable As New pods.viewtblaccountsDataTable
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-    End Sub
-    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
-        'MsgBox(num)
-        'num += 1
-        'If Decimal.TryParse(Guna2TextBox1.Text, number) Then
-        '    ' If parsing is successful, show the number in the message box with 2 decimal places
-        '    MsgBox(number.ToString("F2"))
-        'Else
-        '    ' If parsing fails, show an error message
-        '    MsgBox("Failed to parse input. Please enter a valid decimal number.")
+        ' Fill the DataTable
+        _tableAapter.Fill(_dataTable)
+
+        ' Set the DataSource for the DataGridView
+        AccountsDataGridView.DataSource = _dataTable
+
+        ' Ensure the button column is added only once
+        'If AccountsDataGridView.Columns("ActionButton") Is Nothing Then
+        '    ' Create a button column
+        '    Dim buttonColumn As New DataGridViewButtonColumn()
+        '    buttonColumn.Name = "ActionButton"
+        '    buttonColumn.HeaderText = "Action"
+        '    buttonColumn.Text = "Add"
+        '    buttonColumn.UseColumnTextForButtonValue = True
+
+        '    ' Add the button column to the DataGridView
+        '    AccountsDataGridView.Columns.Add(buttonColumn)
         'End If
 
-        If Decimal.TryParse(Guna2TextBox1.Text, number) Then
-            ' If parsing is successful, show the number in the message box with commas and 2 decimal places
-            MsgBox(number.ToString("#,0.00"))
-        Else
-            ' If parsing fails, show an error message
-            MsgBox("Failed to parse input. Please enter a valid decimal number.")
+        If AccountsDataGridView.Columns("ActionButton") Is Nothing Then
+            ' Create an image column
+            Dim imgColumn As New DataGridViewImageColumn()
+            imgColumn.Name = "ActionButton"
+            imgColumn.HeaderText = "Action"
+            imgColumn.Image = My.Resources.edit 'Image.FromFile("C:\path\to\your\icon.png") ' Change to your icon path
+
+            ' Add the image column to the DataGridView
+            AccountsDataGridView.Columns.Add(imgColumn)
+        End If
+
+        ' Enable custom rendering for the button
+        'AddHandler AccountsDataGridView.CellPainting, AddressOf AccountsDataGridView_CellPainting
+    End Sub
+
+    'Private Sub AccountsDataGridView_CellPainting(sender As Object, e As DataGridViewCellPaintingEventArgs)
+    '    If e.ColumnIndex >= 0 AndAlso e.RowIndex >= 0 AndAlso
+    '       TypeOf DirectCast(sender, DataGridView).Columns(e.ColumnIndex) Is DataGridViewButtonColumn Then
+
+    '        ' Prevent default painting
+    '        e.Handled = True
+
+    '        ' Fill cell background
+    '        e.Graphics.FillRectangle(New SolidBrush(Color.White), e.CellBounds)
+
+    '        ' Create a rounded rectangle for the button
+    '        Dim buttonRect As New Rectangle(e.CellBounds.X + 5, e.CellBounds.Y + 5, e.CellBounds.Width - 10, e.CellBounds.Height - 10)
+    '        Dim buttonPath As Drawing2D.GraphicsPath = New Drawing2D.GraphicsPath()
+    '        Dim cornerRadius As Integer = 15 ' Adjust for rounded effect
+    '        buttonPath.AddArc(buttonRect.X, buttonRect.Y, cornerRadius, cornerRadius, 180, 90)
+    '        buttonPath.AddArc(buttonRect.Right - cornerRadius, buttonRect.Y, cornerRadius, cornerRadius, 270, 90)
+    '        buttonPath.AddArc(buttonRect.Right - cornerRadius, buttonRect.Bottom - cornerRadius, cornerRadius, cornerRadius, 0, 90)
+    '        buttonPath.AddArc(buttonRect.X, buttonRect.Bottom - cornerRadius, cornerRadius, cornerRadius, 90, 90)
+    '        buttonPath.CloseFigure()
+
+    '        ' Draw button background
+    '        e.Graphics.FillPath(New SolidBrush(Color.FromArgb(0, 79, 119)), buttonPath) ' Dark Blue
+
+    '        ' Draw button text
+    '        Dim textColor As Color = Color.White
+    '        Dim textFormat As New StringFormat() With {.Alignment = StringAlignment.Center, .LineAlignment = StringAlignment.Center}
+    '        e.Graphics.DrawString("Add", e.CellStyle.Font, New SolidBrush(textColor), buttonRect, textFormat)
+    '    End If
+    'End Sub
+
+    ' Event handler for button click
+    Private Sub AccountsDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles AccountsDataGridView.CellContentClick
+        If e.RowIndex >= 0 AndAlso e.ColumnIndex = AccountsDataGridView.Columns("ActionButton").Index Then
+            MessageBox.Show("Button clicked in row " & e.RowIndex)
         End If
     End Sub
 
-    'Private Sub Guna2TextBox1_TextChanged(sender As Object, e As EventArgs) Handles Guna2TextBox1.TextChanged
-    '    ' Temporarily disable the TextChanged event to prevent an infinite loop
-    '    RemoveHandler Guna2TextBox1.TextChanged, AddressOf Guna2TextBox1_TextChanged
-
-    '    ' Attempt to parse the text from Guna2TextBox1 into the 'number' variable
-    '    Dim number As Decimal
-    '    If Decimal.TryParse(Guna2TextBox1.Text, number) Then
-    '        ' If parsing is successful, format the number with commas and 2 decimal places
-    '        Guna2TextBox1.Text = number.ToString("#,0.00")
-    '        ' Move the cursor to the end of the text after formatting
-    '        Guna2TextBox1.SelectionStart = Guna2TextBox1.Text.Length
-    '    Else
-    '        ' If parsing fails, show an error message or handle it as needed
-    '        ' Optionally, you can display an error message or reset the text box
-    '        ' Guna2TextBox1.Text = "Invalid input"
-    '    End If
-
-    '    ' Re-enable the TextChanged event
-    '    AddHandler Guna2TextBox1.TextChanged, AddressOf Guna2TextBox1_TextChanged
-    'End Sub
 End Class

@@ -22,6 +22,11 @@ Pods-Sales&InventorySystem
   resource lookups using this strongly typed resource class.
 </summary>
 </member>
+<member name="P:Pods_Sales_InventorySystem.My.Resources.Resources.edit">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Pods_Sales_InventorySystem.My.Resources.Resources.icon_menu">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -137,11 +142,6 @@ Represents the strongly named DataTable class.
 Represents the strongly named DataTable class.
 </summary>
 </member>
-<member name="T:Pods_Sales_InventorySystem.pods.viewtblrevenueDataTable">
-<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member>
 <member name="T:Pods_Sales_InventorySystem.pods.viewtbltransactionsDataTable">
 <summary>
 Represents the strongly named DataTable class.
@@ -153,6 +153,11 @@ Represents the strongly named DataTable class.
 </summary>
 </member>
 <member name="T:Pods_Sales_InventorySystem.pods.viewtblrrcDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblrevenueDataTable">
 <summary>
 Represents the strongly named DataTable class.
 </summary>
@@ -222,11 +227,6 @@ Represents strongly named DataRow class.
 Represents strongly named DataRow class.
 </summary>
 </member>
-<member name="T:Pods_Sales_InventorySystem.pods.viewtblrevenueRow">
-<summary>
-Represents strongly named DataRow class.
-</summary>
-</member>
 <member name="T:Pods_Sales_InventorySystem.pods.viewtbltransactionsRow">
 <summary>
 Represents strongly named DataRow class.
@@ -238,6 +238,11 @@ Represents strongly named DataRow class.
 </summary>
 </member>
 <member name="T:Pods_Sales_InventorySystem.pods.viewtblrrcRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblrevenueRow">
 <summary>
 Represents strongly named DataRow class.
 </summary>
@@ -307,11 +312,6 @@ Row event argument class
 Row event argument class
 </summary>
 </member>
-<member name="T:Pods_Sales_InventorySystem.pods.viewtblrevenueRowChangeEvent">
-<summary>
-Row event argument class
-</summary>
-</member>
 <member name="T:Pods_Sales_InventorySystem.pods.viewtbltransactionsRowChangeEvent">
 <summary>
 Row event argument class
@@ -323,6 +323,11 @@ Row event argument class
 </summary>
 </member>
 <member name="T:Pods_Sales_InventorySystem.pods.viewtblrrcRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblrevenueRowChangeEvent">
 <summary>
 Row event argument class
 </summary>
@@ -392,11 +397,6 @@ Represents the connection and commands used to retrieve and save data.
 Represents the connection and commands used to retrieve and save data.
 </summary>
 </member>
-<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.viewtblrevenueTableAdapter">
-<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member>
 <member name="T:Pods_Sales_InventorySystem.podsTableAdapters.viewtbltransactionsTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
@@ -408,6 +408,11 @@ Represents the connection and commands used to retrieve and save data.
 </summary>
 </member>
 <member name="T:Pods_Sales_InventorySystem.podsTableAdapters.viewtblrrcTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.viewtblrevenueTableAdapter">
 <summary>
 Represents the connection and commands used to retrieve and save data.
 </summary>
@@ -606,6 +611,13 @@ Row event argument class
 <summary>
 Row event argument class
 </summary>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseDelivery.EnableExp(System.Int32)">
+ <summary>
+ To identify the product if expiration date is needed
+ </summary>
+ <param name="id"></param>
+ <returns></returns>
 </member>
 <member name="M:Pods_Sales_InventorySystem.BaseDelivery.BarcodeFetching(System.String)">
  <summary>

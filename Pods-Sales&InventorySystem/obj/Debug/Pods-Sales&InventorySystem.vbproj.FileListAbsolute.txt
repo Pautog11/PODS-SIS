@@ -1161,3 +1161,4 @@ C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sa
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.ReturnInventoryDialog.resources
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.PullOutCartDialog.resources
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.ReturnCode.resources
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.EditDeliveryDialog.resources
