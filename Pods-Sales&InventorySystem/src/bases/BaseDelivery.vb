@@ -34,14 +34,74 @@ Public Class BaseDelivery
             _sqlCommand.Parameters.AddWithValue("@supplier_id", _data.Item("supplier_id"))
             _sqlCommand.Parameters.AddWithValue("@total", _data.Item("total"))
             _sqlCommand.Parameters.AddWithValue("@date", _data.Item("date"))
-            _sqlCommand.ExecuteNonQuery()
+            If _sqlCommand.ExecuteNonQuery() <= 0 Then
+                MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+
+            'For Each item In _item
+            '    If item IsNot Nothing AndAlso item.Count > 0 Then
+            '        _sqlCommand.Parameters.Clear()
+            '        _sqlCommand = New SqlCommand("UPDATE tbldeliveries_items SET delivery_id = @delivery_id, product_id = @product_id, price = @price, cost_price = @cost_price, quantity = @quantity, inventory_quantity = @inventory_quantity, batch_number = @batch_number, expiration_date = @expiration_date WHERE id = @id", _sqlConnection, transaction)
+            '        _sqlCommand.Parameters.AddWithValue("@id", item("id"))
+            '        _sqlCommand.Parameters.AddWithValue("@delivery_id", item("delivery_id"))
+            '        _sqlCommand.Parameters.AddWithValue("@product_id", item("product_id"))
+            '        _sqlCommand.Parameters.AddWithValue("@price", item("price"))
+            '        _sqlCommand.Parameters.AddWithValue("@cost_price", item("cost_price"))
+            '        _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
+            '        _sqlCommand.Parameters.AddWithValue("@inventory_quantity", item("quantity"))
+            '        If String.IsNullOrEmpty(item("batch_number").ToString()) Then
+            '            _sqlCommand.Parameters.AddWithValue("@batch_number", DBNull.Value)
+            '        Else
+            '            _sqlCommand.Parameters.AddWithValue("@batch_number", item("batch_number"))
+            '        End If
+
+            '        If String.IsNullOrEmpty(item("expiration_date").ToString()) Then
+            '            _sqlCommand.Parameters.AddWithValue("@expiration_date", DBNull.Value)
+            '        Else
+            '            _sqlCommand.Parameters.AddWithValue("@expiration_date", item("expiration_date"))
+            '        End If
+
+            '        If _sqlCommand.ExecuteNonQuery() <= 0 Then
+            '            MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            '        End If
+            '    End If
+            'Next
+
+
+            '===================================
 
             For Each item In _item
                 If item IsNot Nothing AndAlso item.Count > 0 Then
                     _sqlCommand.Parameters.Clear()
-                    _sqlCommand = New SqlCommand("UPDATE tbldeliveries_items SET delivery_id = @delivery_id, product_id = @product_id, price = @price, cost_price = @cost_price, quantity = @quantity, inventory_quantity = @inventory_quantity, batch_number = @batch_number, expiration_date = @expiration_date WHERE id = @id", _sqlConnection, transaction)
-                    _sqlCommand.Parameters.AddWithValue("@id", item("id"))
-                    _sqlCommand.Parameters.AddWithValue("@delivery_id", item("delivery_id"))
+                    '_sqlCommand = New SqlCommand("UPDATE tbldeliveries_items SET delivery_id = @delivery_id, 
+                    '                                                             product_id = @product_id, 
+                    '                                                             price = @price, 
+                    '                                                             cost_price = @cost_price, 
+                    '                                                             quantity = @quantity, 
+                    '                                                             inventory_quantity = @inventory_quantity, 
+                    '                                                             batch_number = @batch_number, 
+                    '                                                             expiration_date = @expiration_date 
+                    '                                                        WHERE id = @id", _sqlConnection, transaction)
+
+                    _sqlCommand = New SqlCommand("WITH 
+                                                 Total_deducted AS (
+                                                     SELECT SUM(quantity) AS bought 
+                                                     FROM getrev 
+                                                     WHERE delivery_id = @id AND product_id = @product_id)
+
+                                                 UPDATE a SET product_id = @product_id, 
+                                                              price = @price, 
+                                                              cost_price = @cost_price, 
+                                                              a.quantity = @quantity, 
+			                                                  a.inventory_quantity = @quantity - COALESCE(b.bought, 0),
+                                                              batch_number = @batch_number, 
+                                                              expiration_date = @expiration_date 
+                                                 FROM tbldeliveries_items a
+                                                 LEFT JOIN Total_deducted b ON 1 = 1
+                                                 WHERE a.delivery_id = @id AND a.id = @id2;", _sqlConnection, transaction)
+
+                    _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
+                    _sqlCommand.Parameters.AddWithValue("@id2", item("id"))
                     _sqlCommand.Parameters.AddWithValue("@product_id", item("product_id"))
                     _sqlCommand.Parameters.AddWithValue("@price", item("price"))
                     _sqlCommand.Parameters.AddWithValue("@cost_price", item("cost_price"))
@@ -64,6 +124,13 @@ Public Class BaseDelivery
                     End If
                 End If
             Next
+
+
+
+
+
+
+
 
             transaction.Commit()
             MessageBox.Show("Delivery has been updated successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)

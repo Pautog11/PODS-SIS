@@ -461,6 +461,12 @@
     <Compile Include="Panels\SalesReport.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Panels\UserControl1.Designer.vb">
+      <DependentUpon>UserControl1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\UserControl1.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Panels\Withdrawal.Designer.vb">
       <DependentUpon>Withdrawal.vb</DependentUpon>
     </Compile>
@@ -756,6 +762,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\SalesReport.resx">
       <DependentUpon>SalesReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\UserControl1.resx">
+      <DependentUpon>UserControl1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\Withdrawal.resx">
       <DependentUpon>Withdrawal.vb</DependentUpon>

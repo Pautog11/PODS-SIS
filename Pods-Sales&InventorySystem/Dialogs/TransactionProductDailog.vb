@@ -8,6 +8,7 @@ Public Class TransactionProductDailog
     Private ReadOnly _subject As IObservablePanel
     Private ReadOnly _parent As PosPanel = Nothing
     Dim id As Integer = Nothing
+    Dim cost As Decimal = Nothing
     Public Sub New(Optional subject As IObservablePanel = Nothing,
                    Optional parent As PosPanel = Nothing,
                    Optional data As Dictionary(Of String, String) = Nothing,',
@@ -37,22 +38,12 @@ Public Class TransactionProductDailog
                 ProductNameTextBox.Text = _dat2.Item("product_name")
                 PriceTextBox.Text = _dat2.Item("price")
                 StocksTextBox.Text = _dat2.Item("stocks")
+                cost = _dat2.Item("cost")
 
                 VoidButton.Visible = False
                 Exit Sub
             End If
 
-            'CategoryComboBox.DataSource = _tableAdapter.GetData
-            'CategoryComboBox.DisplayMember = "CATEGORY"
-            'ProductNameTextBox.Enabled = False
-            'PriceTextBox.Enabled = False
-            'StocksTextBox.Enabled = False
-
-            'If _data IsNot Nothing Then
-            '    PriceTextBox.Text = _data.Item("product_price")
-
-
-            'End If
             VoidButton.Visible = False
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -88,15 +79,8 @@ Public Class TransactionProductDailog
                                 item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)
                                 item.Cells("TOTAL").Value = Decimal.Parse(PriceTextBox.Text) * CInt(QuantityTextBox.Text)
                                 is_existing = True
-                                Exit For
-                                'Else
-                                '    item.Cells("PRODUCT").Value = ProductNameTextBox.Text
-                                '    item.Cells("PRICE").Value = Decimal.Parse(PriceTextBox.Text)
-                                '    item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)
-                                '    item.Cells("TOTAL").Value = Decimal.Parse(PriceTextBox.Text) * CInt(QuantityTextBox.Text)
-                                '    is_existing = True
-                                '    Exit For
-                            End If
+                            Exit For
+                        End If
                         'End If
                     End If
                 Next
@@ -107,7 +91,8 @@ Public Class TransactionProductDailog
                                                         If(String.IsNullOrEmpty(ProductNameTextBox.Text), 0, ProductNameTextBox.Text),
                                                         If(String.IsNullOrEmpty(PriceTextBox.Text), 0, PriceTextBox.Text),
                                                         If(String.IsNullOrEmpty(QuantityTextBox.Text), 0, QuantityTextBox.Text),
-                                                        CDec(PriceTextBox.Text) * CDec(QuantityTextBox.Text)
+                                                        CDec(PriceTextBox.Text) * CDec(QuantityTextBox.Text),
+                                                        If(String.IsNullOrEmpty(CDec(QuantityTextBox.Text) * CDec(cost)), 0, CDec(QuantityTextBox.Text) * CDec(cost))
                                                         })
                     Else
                         MessageBox.Show("Insufficient stocks!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -134,6 +119,7 @@ Public Class TransactionProductDailog
                         ProductNameTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("product_name").ToString()), 0, dt.Rows(0).Item("product_name").ToString())
                         StocksTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("quantity").ToString()), 0, dt.Rows(0).Item("quantity").ToString())
                         PriceTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("price").ToString()), 0, dt.Rows(0).Item("price").ToString())
+                        cost = If(String.IsNullOrEmpty(dt.Rows(0).Item("cost").ToString()), 0, dt.Rows(0).Item("cost").ToString())
                         e.Handled = True
                     Else
                         Clear()

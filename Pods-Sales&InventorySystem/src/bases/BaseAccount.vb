@@ -70,7 +70,7 @@ Public Class BaseAccount
     Public Shared Function ScalarAccount() As Integer
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblaccounts", conn)
+            Dim cmd As New SqlCommand("SELECT COALESCE(COUNT(*), 0) FROM tblaccounts", conn)
             Return cmd.ExecuteScalar()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -80,7 +80,6 @@ Public Class BaseAccount
 
     Public Shared Function ScalarRoleName(rolename As String) As Integer
         Try
-
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As New SqlCommand("SELECT id FROM tblroles WHERE role = @role", conn)
             cmd.Parameters.AddWithValue("@role", rolename)
@@ -156,7 +155,6 @@ Public Class BaseAccount
 
     Public Shared Function ScalarStatusName(status As String) As Integer
         Try
-
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As New SqlCommand("SELECT id FROM tblaccount_status WHERE status = @status", conn)
             cmd.Parameters.AddWithValue("@status", status)

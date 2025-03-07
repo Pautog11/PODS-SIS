@@ -5966,7 +5966,7 @@ Partial Public Class pods
     Partial Public Class viewtblrevenueDataTable
         Inherits Global.System.Data.TypedTableBase(Of viewtblrevenueRow)
         
-        Private columnid As Global.System.Data.DataColumn
+        Private columnID As Global.System.Data.DataColumn
         
         Private columnNAME As Global.System.Data.DataColumn
         
@@ -5983,8 +5983,6 @@ Partial Public Class pods
         Private columnDISCOUNTED_TOTAL As Global.System.Data.DataColumn
         
         Private columnDISCOUNTED_REV As Global.System.Data.DataColumn
-        
-        Private columnACC_ID As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -6023,9 +6021,9 @@ Partial Public Class pods
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property idColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property IDColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnid
+                Return Me.columnID
             End Get
         End Property
         
@@ -6094,14 +6092,6 @@ Partial Public Class pods
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property ACC_IDColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnACC_ID
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -6138,9 +6128,9 @@ Partial Public Class pods
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddviewtblrevenueRow(ByVal id As Integer, ByVal NAME As String, ByVal TRANSACTION_NUMBER As String, ByVal CAPITAL As Decimal, ByVal REVENUE As Decimal, ByVal TOTAL As Decimal, ByVal _DATE As Date, ByVal DISCOUNTED_TOTAL As Decimal, ByVal DISCOUNTED_REV As Decimal, ByVal ACC_ID As Integer) As viewtblrevenueRow
+        Public Overloads Function AddviewtblrevenueRow(ByVal ID As Integer, ByVal NAME As String, ByVal TRANSACTION_NUMBER As String, ByVal CAPITAL As Decimal, ByVal REVENUE As Decimal, ByVal TOTAL As Decimal, ByVal _DATE As Date, ByVal DISCOUNTED_TOTAL As Decimal, ByVal DISCOUNTED_REV As Decimal) As viewtblrevenueRow
             Dim rowviewtblrevenueRow As viewtblrevenueRow = CType(Me.NewRow,viewtblrevenueRow)
-            Dim columnValuesArray() As Object = New Object() {id, NAME, TRANSACTION_NUMBER, CAPITAL, REVENUE, TOTAL, _DATE, DISCOUNTED_TOTAL, DISCOUNTED_REV, ACC_ID}
+            Dim columnValuesArray() As Object = New Object() {ID, NAME, TRANSACTION_NUMBER, CAPITAL, REVENUE, TOTAL, _DATE, DISCOUNTED_TOTAL, DISCOUNTED_REV}
             rowviewtblrevenueRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowviewtblrevenueRow)
             Return rowviewtblrevenueRow
@@ -6163,7 +6153,7 @@ Partial Public Class pods
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnid = MyBase.Columns("id")
+            Me.columnID = MyBase.Columns("ID")
             Me.columnNAME = MyBase.Columns("NAME")
             Me.columnTRANSACTION_NUMBER = MyBase.Columns("TRANSACTION NUMBER")
             Me.columnCAPITAL = MyBase.Columns("CAPITAL")
@@ -6172,14 +6162,13 @@ Partial Public Class pods
             Me.columnDATE = MyBase.Columns("DATE")
             Me.columnDISCOUNTED_TOTAL = MyBase.Columns("DISCOUNTED_TOTAL")
             Me.columnDISCOUNTED_REV = MyBase.Columns("DISCOUNTED_REV")
-            Me.columnACC_ID = MyBase.Columns("ACC_ID")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnid = New Global.System.Data.DataColumn("id", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnid)
+            Me.columnID = New Global.System.Data.DataColumn("ID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnID)
             Me.columnNAME = New Global.System.Data.DataColumn("NAME", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNAME)
             Me.columnTRANSACTION_NUMBER = New Global.System.Data.DataColumn("TRANSACTION NUMBER", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -6199,10 +6188,8 @@ Partial Public Class pods
             MyBase.Columns.Add(Me.columnDISCOUNTED_TOTAL)
             Me.columnDISCOUNTED_REV = New Global.System.Data.DataColumn("DISCOUNTED_REV", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnDISCOUNTED_REV)
-            Me.columnACC_ID = New Global.System.Data.DataColumn("ACC_ID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnACC_ID)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid}, false))
-            Me.columnid.Unique = true
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, false))
+            Me.columnID.Unique = true
             Me.columnNAME.MaxLength = 101
             Me.columnTRANSACTION_NUMBER.MaxLength = 2147483647
             Me.columnDISCOUNTED_REV.ReadOnly = true
@@ -8037,16 +8024,16 @@ Partial Public Class pods
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property id() As Integer
+        Public Property ID() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tableviewtblrevenue.idColumn),Integer)
+                    Return CType(Me(Me.tableviewtblrevenue.IDColumn),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'id' in table 'viewtblrevenue' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ID' in table 'viewtblrevenue' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableviewtblrevenue.idColumn) = value
+                Me(Me.tableviewtblrevenue.IDColumn) = value
             End Set
         End Property
         
@@ -8172,29 +8159,14 @@ Partial Public Class pods
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property ACC_ID() As Integer
-            Get
-                Try 
-                    Return CType(Me(Me.tableviewtblrevenue.ACC_IDColumn),Integer)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'ACC_ID' in table 'viewtblrevenue' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableviewtblrevenue.ACC_IDColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsidNull() As Boolean
-            Return Me.IsNull(Me.tableviewtblrevenue.idColumn)
+        Public Function IsIDNull() As Boolean
+            Return Me.IsNull(Me.tableviewtblrevenue.IDColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetidNull()
-            Me(Me.tableviewtblrevenue.idColumn) = Global.System.Convert.DBNull
+        Public Sub SetIDNull()
+            Me(Me.tableviewtblrevenue.IDColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -8291,18 +8263,6 @@ Partial Public Class pods
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetDISCOUNTED_REVNull()
             Me(Me.tableviewtblrevenue.DISCOUNTED_REVColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsACC_IDNull() As Boolean
-            Return Me.IsNull(Me.tableviewtblrevenue.ACC_IDColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetACC_IDNull()
-            Me(Me.tableviewtblrevenue.ACC_IDColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -11886,7 +11846,7 @@ Namespace podsTableAdapters
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "viewtblrevenue"
-            tableMapping.ColumnMappings.Add("id", "id")
+            tableMapping.ColumnMappings.Add("ID", "ID")
             tableMapping.ColumnMappings.Add("NAME", "NAME")
             tableMapping.ColumnMappings.Add("TRANSACTION NUMBER", "TRANSACTION NUMBER")
             tableMapping.ColumnMappings.Add("CAPITAL", "CAPITAL")
@@ -11895,7 +11855,6 @@ Namespace podsTableAdapters
             tableMapping.ColumnMappings.Add("DATE", "DATE")
             tableMapping.ColumnMappings.Add("DISCOUNTED_TOTAL", "DISCOUNTED_TOTAL")
             tableMapping.ColumnMappings.Add("DISCOUNTED_REV", "DISCOUNTED_REV")
-            tableMapping.ColumnMappings.Add("ACC_ID", "ACC_ID")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -11912,8 +11871,8 @@ Namespace podsTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT id, NAME, [TRANSACTION NUMBER], CAPITAL, REVENUE, TOTAL, DATE, DISCOUNTED_"& _ 
-                "TOTAL, DISCOUNTED_REV, ACC_ID FROM dbo.viewtblrevenue"
+            Me._commandCollection(0).CommandText = "SELECT ID, NAME, [TRANSACTION NUMBER], CAPITAL, REVENUE, TOTAL, DATE, DISCOUNTED_"& _ 
+                "TOTAL, DISCOUNTED_REV FROM dbo.viewtblrevenue"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         

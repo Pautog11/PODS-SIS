@@ -142,10 +142,11 @@ Public Class BaseTransaction
                                             SELECT 
                                                 b.product_id AS idngprod,
                                                 b.price,
+												b.cost_price,
                                                 ROW_NUMBER() OVER (PARTITION BY b.product_id ORDER BY b.id DESC) AS row_num
                                             FROM tbldeliveries_items b
                                             LEFT JOIN tblproducts a ON a.id = b.product_id
-                                            WHERE a.barcode = @barcode
+                                            WHERE a.barcode = @barcode and b.inventory_quantity != 0
                                         ),
                                         TotalQuantity AS (
                                             SELECT 
@@ -159,7 +160,8 @@ Public Class BaseTransaction
                                         a.id AS idngprod,
                                         a.product_name,
                                         lp.price AS price,
-                                        tq.total_quantity AS quantity
+                                        tq.total_quantity AS quantity,
+										lp.cost_price AS cost
                                     FROM tblproducts a
                                     LEFT JOIN LatestPrice lp ON lp.idngprod = a.id AND lp.row_num = 1
                                     LEFT JOIN TotalQuantity tq ON tq.idngprod = a.id
@@ -190,10 +192,11 @@ Public Class BaseTransaction
                                             SELECT 
                                                 b.product_id AS idngprod,
                                                 b.price,
+												b.cost_price as cost,
                                                 ROW_NUMBER() OVER (PARTITION BY b.product_id ORDER BY b.id DESC) AS row_num
                                             FROM tbldeliveries_items b
                                             LEFT JOIN tblproducts a ON a.id = b.product_id
-                                            WHERE a.product_name = LOWER(@name)
+                                            WHERE a.product_name = LOWER(@name) AND b.inventory_quantity != 0
                                         ),
                                         TotalQuantity AS (
                                             SELECT 
@@ -207,7 +210,8 @@ Public Class BaseTransaction
                                         a.id AS idngprod,
                                         a.product_name,
                                         lp.price AS price,
-                                        tq.total_quantity AS quantity
+                                        tq.total_quantity AS quantity,
+										lp.cost
                                     FROM tblproducts a
                                     LEFT JOIN LatestPrice lp ON lp.idngprod = a.id AND lp.row_num = 1
                                     LEFT JOIN TotalQuantity tq ON tq.idngprod = a.id
@@ -377,6 +381,32 @@ Public Class BaseTransaction
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As New SqlCommand("select quantity from tblproducts where id = @id;", conn)
             cmd.Parameters.AddWithValue("@id", id)
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
+
+    Public Shared Function ScalarSales() As Decimal
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT COALESCE(SUM(total), 0) AS total_sum
+                                       FROM tbltransactions
+                                       WHERE CAST(date AS DATE) = CAST(GETDATE() AS DATE);", conn)
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
+
+    Public Shared Function ScalarTransaction() As Integer
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT COALESCE(COUNT(*), 0) AS sale
+                                       FROM tbltransactions
+                                       WHERE CAST(date AS DATE) = CAST(GETDATE() AS DATE);", conn)
             Return cmd.ExecuteScalar()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)

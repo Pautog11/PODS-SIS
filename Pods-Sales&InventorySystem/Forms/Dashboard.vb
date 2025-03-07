@@ -12,7 +12,7 @@ Public Class Dashboard
     End Sub
 
     Private Sub Dashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        'NotificationDataGridView.Rows.Add("Hello")
     End Sub
 
     Public Sub RegisterObserver(o As IObserverPanel) Implements IObservablePanel.RegisterObserver
@@ -26,14 +26,18 @@ Public Class Dashboard
     End Sub
 
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
-        Accounts.Text = BaseAccount.ScalarAccount
-        'Sales.Text = BaseTransaction.ScalarTransaction
+        Try
+            Accounts.Text = BaseAccount.ScalarAccount
+            Sales.Text = BaseTransaction.ScalarSales
+            Label3.Text = BaseTransaction.ScalarTransaction
+        Catch ex As Exception
+
+        End Try
 
         'Dim expiry As DataTable = BaseNotifications.Expiry
         'Dim critical As DataTable = BaseNotifications.CriticalLevel
 
-        ' Clear the existing rows in the DataGridView
-        NotificationDataGridView.Rows.Clear()
+        'NotificationDataGridView.Rows.Clear()
     End Sub
 
     Private Sub Guna2Button1_Click(sender As Object, e As EventArgs)

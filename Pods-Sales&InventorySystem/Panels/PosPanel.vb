@@ -5,7 +5,7 @@
     Dim WithEvents _timer As New Timer()
     Private ReadOnly _data As Dictionary(Of String, String)
     Private ReadOnly _tableAapter As New podsTableAdapters.viewtblproductsTableAdapter
-    'Dim autocompleteList As New AutoCompleteStringCollection()
+    Dim Totalcost As Decimal = Nothing
     Private Sub PosPanel_Load(sender As Object, e As EventArgs) Handles Me.Load
         Try
             _subject = Application.OpenForms.OfType(Of Dashboard).FirstOrDefault
@@ -48,6 +48,7 @@
         Try
             TransactionDataGridView.DataSource = _itemSource?.DefaultView
             DiscountComboBox.Enabled = True
+            'For subtotal
             Dim subtotal As Decimal = 0D
             For i As Integer = 0 To TransactionDataGridView.Rows.Count - 1
                 Dim total As Object = TransactionDataGridView.Rows(i).Cells("TOTAL").Value
@@ -61,8 +62,23 @@
             SubtotalTextBox.Text = subtotal.ToString("F2")
             TotalTextBox.Text = subtotal.ToString("F2")
 
+            'For cost
+            Dim cost As Decimal = 0D
+            For Each row As DataGridViewRow In TransactionDataGridView.Rows
+                Dim total As Object = row.Cells("COST").Value
+                If total IsNot Nothing Then
+                    Dim add As Decimal
+                    If Decimal.TryParse(total.ToString(), add) Then
+                        cost += add  ' Add the parsed value to cost
+                    End If
+                End If
+            Next
+            Guna2HtmlLabel3.Text = cost.ToString("F2")
+            Totalcost = cost.ToString("F2")
+
             'For Vat
             Dim vat As Decimal = BaseTransaction.ScalarVat / 100
+
             'Dim subtotal As Decimal
             If Decimal.TryParse(SubtotalTextBox.Text, subtotal) Then
                 Dim vatAmount As Decimal = subtotal * vat / (1 + vat)
@@ -87,9 +103,9 @@
                             {"id", If(String.IsNullOrEmpty(dt.Rows(0).Item("idngprod").ToString()), 0, dt.Rows(0).Item("idngprod").ToString())},
                             {"product_name", If(String.IsNullOrEmpty(dt.Rows(0).Item("product_name").ToString()), 0, dt.Rows(0).Item("product_name").ToString())},
                             {"price", If(String.IsNullOrEmpty(dt.Rows(0).Item("price").ToString()), 0, dt.Rows(0).Item("price").ToString())},
-                            {"stocks", If(String.IsNullOrEmpty(dt.Rows(0).Item("quantity").ToString()), 0, dt.Rows(0).Item("quantity").ToString())}
+                            {"stocks", If(String.IsNullOrEmpty(dt.Rows(0).Item("quantity").ToString()), 0, dt.Rows(0).Item("quantity").ToString())},
+                            {"cost", If(String.IsNullOrEmpty(dt.Rows(0).Item("cost").ToString()), 0, dt.Rows(0).Item("cost").ToString())}
                         }
-                        'MsgBox(If(String.IsNullOrEmpty(dt.Rows(0).Item("idngprod").ToString()), 0, dt.Rows(0).Item("idngprod").ToString()))
                         SearchTextbox.Text = ""
                         Dim dialog As New TransactionProductDailog(dat2:=data, parent:=Me)
                         dialog.ShowDialog()
@@ -127,6 +143,11 @@
                 Exit Sub
             End If
 
+            If Val(Totalcost) > Val(TotalTextBox.Text) Then
+                MessageBox.Show("Invalid discount", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Exit Sub
+            End If
+
             Dim items As New List(Of Dictionary(Of String, String))()
             Dim baseCommand As ICommandPanel
             Dim invoker As ICommandInvoker
@@ -158,7 +179,7 @@
             invoker?.Execute()
             Clear()
             _subject.NotifyObserver()
-
+            DiscountComboBox.Enabled = False
         Catch ex As Exception
             MessageBox.Show($"An error occurred: {ex.Message}", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
@@ -173,7 +194,8 @@
         TotalTextBox.Text = ""
         CashTextBox.Text = ""
         ChangeTextBox.Text = ""
-
+        Totalcost = 0
+        Guna2HtmlLabel3.Text = ""
     End Sub
 
     Private Sub DiscountComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles DiscountComboBox.SelectionChangeCommitted

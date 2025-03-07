@@ -23,10 +23,9 @@ Public Class TransactionDialog
                 Reference_number.Text = _data.Item("transaction_number")
                 SubtotalTextBox.Text = _data.Item("subtotal")
                 VatTextBox.Text = _data.Item("vat")
-                DiscountComboBox.ValueMember = _data.Item("discount").ToString
+                DiscountTextBox.Text = _data.Item("discount") & "%"
                 TotalTextBox.Text = _data.Item("total")
                 DateLabel.Text = _data.Item("date")
-                Guna2TextBox1.Text = _data.Item("discount").ToString
 
                 'MsgBox(_data.Item("discount"))
                 'CashTextBox.Text = _data.Item("cash")
@@ -46,7 +45,7 @@ Public Class TransactionDialog
                 'AddItemTransactionButton.Visible = False
                 'SearchItemButton.Visible = False
                 'CashTextBox.Enabled = False
-                DiscountComboBox.Enabled = False
+                ' DiscountComboBox.Enabled = False
                 'MsgBox(_data.Item("id"))
                 Dim productDate As Date
 

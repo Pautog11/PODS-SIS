@@ -33,13 +33,13 @@ Partial Class TransactionDialog
         Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CASH = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.DiscountTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.DateLabel = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Reference_number = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Guna2HtmlLabel3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.DiscountComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -54,7 +54,6 @@ Partial Class TransactionDialog
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.ReturnButton = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.Guna2TextBox1 = New Guna.UI2.WinForms.Guna2TextBox()
         CType(Me.TransactionDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2Panel2.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -161,10 +160,9 @@ Partial Class TransactionDialog
         '
         'Guna2Panel2
         '
-        Me.Guna2Panel2.Controls.Add(Me.Guna2TextBox1)
+        Me.Guna2Panel2.Controls.Add(Me.DiscountTextBox)
         Me.Guna2Panel2.Controls.Add(Me.Panel2)
         Me.Guna2Panel2.Controls.Add(Me.Panel1)
-        Me.Guna2Panel2.Controls.Add(Me.DiscountComboBox)
         Me.Guna2Panel2.Controls.Add(Me.Label6)
         Me.Guna2Panel2.Controls.Add(Me.Label10)
         Me.Guna2Panel2.Controls.Add(Me.Label4)
@@ -180,6 +178,29 @@ Partial Class TransactionDialog
         Me.Guna2Panel2.Name = "Guna2Panel2"
         Me.Guna2Panel2.Size = New System.Drawing.Size(350, 490)
         Me.Guna2Panel2.TabIndex = 13
+        '
+        'DiscountTextBox
+        '
+        Me.DiscountTextBox.BorderRadius = 15
+        Me.DiscountTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.DiscountTextBox.DefaultText = ""
+        Me.DiscountTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.DiscountTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.DiscountTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.DiscountTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.DiscountTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DiscountTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.DiscountTextBox.ForeColor = System.Drawing.Color.Black
+        Me.DiscountTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DiscountTextBox.Location = New System.Drawing.Point(112, 204)
+        Me.DiscountTextBox.Name = "DiscountTextBox"
+        Me.DiscountTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.DiscountTextBox.PlaceholderText = ""
+        Me.DiscountTextBox.ReadOnly = True
+        Me.DiscountTextBox.SelectedText = ""
+        Me.DiscountTextBox.ShortcutsEnabled = False
+        Me.DiscountTextBox.Size = New System.Drawing.Size(213, 36)
+        Me.DiscountTextBox.TabIndex = 61
         '
         'Panel2
         '
@@ -249,22 +270,6 @@ Partial Class TransactionDialog
         Me.Guna2HtmlLabel3.Size = New System.Drawing.Size(37, 17)
         Me.Guna2HtmlLabel3.TabIndex = 63
         Me.Guna2HtmlLabel3.Text = "Date:"
-        '
-        'DiscountComboBox
-        '
-        Me.DiscountComboBox.BackColor = System.Drawing.Color.Transparent
-        Me.DiscountComboBox.BorderRadius = 15
-        Me.DiscountComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.DiscountComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.DiscountComboBox.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DiscountComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DiscountComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.DiscountComboBox.ForeColor = System.Drawing.Color.Black
-        Me.DiscountComboBox.ItemHeight = 30
-        Me.DiscountComboBox.Location = New System.Drawing.Point(112, 204)
-        Me.DiscountComboBox.Name = "DiscountComboBox"
-        Me.DiscountComboBox.Size = New System.Drawing.Size(213, 36)
-        Me.DiscountComboBox.TabIndex = 40
         '
         'Label6
         '
@@ -487,29 +492,6 @@ Partial Class TransactionDialog
         Me.Guna2Panel1.Size = New System.Drawing.Size(778, 600)
         Me.Guna2Panel1.TabIndex = 22
         '
-        'Guna2TextBox1
-        '
-        Me.Guna2TextBox1.BorderRadius = 15
-        Me.Guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.Guna2TextBox1.DefaultText = ""
-        Me.Guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.Guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.Guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Guna2TextBox1.ForeColor = System.Drawing.Color.Black
-        Me.Guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox1.Location = New System.Drawing.Point(57, 333)
-        Me.Guna2TextBox1.Name = "Guna2TextBox1"
-        Me.Guna2TextBox1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.Guna2TextBox1.PlaceholderText = ""
-        Me.Guna2TextBox1.ReadOnly = True
-        Me.Guna2TextBox1.SelectedText = ""
-        Me.Guna2TextBox1.ShortcutsEnabled = False
-        Me.Guna2TextBox1.Size = New System.Drawing.Size(213, 36)
-        Me.Guna2TextBox1.TabIndex = 61
-        '
         'TransactionDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -546,7 +528,6 @@ Partial Class TransactionDialog
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Guna2ImageButton2 As Guna.UI2.WinForms.Guna2ImageButton
     Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents DiscountComboBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents Label6 As Label
     Friend WithEvents Label10 As Label
     Friend WithEvents Label4 As Label
@@ -565,5 +546,5 @@ Partial Class TransactionDialog
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Reference_number As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Guna2HtmlLabel3 As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents Guna2TextBox1 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents DiscountTextBox As Guna.UI2.WinForms.Guna2TextBox
 End Class
