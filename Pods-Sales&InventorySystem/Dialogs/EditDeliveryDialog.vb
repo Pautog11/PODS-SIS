@@ -1,4 +1,5 @@
-﻿Imports System.Windows.Forms
+﻿Imports System.Data.SqlClient
+Imports System.Windows.Forms
 
 Public Class EditDeliveryDialog
     Private ReadOnly _parent As DeliveryCartDialog = Nothing
@@ -28,6 +29,9 @@ Public Class EditDeliveryDialog
                     DateTimePicker.Enabled = False
                     BatchTextBox.Enabled = False
                 End If
+                AddProductButton.Visible = False
+            Else
+                UpdateDeliveryButton.Visible = False
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -98,5 +102,17 @@ Public Class EditDeliveryDialog
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+    End Sub
+
+    Private Sub AddProductButton_Click(sender As Object, e As EventArgs) Handles AddProductButton.Click
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("insert into tbldeliveries_items (delivery_id, product_id, price, cost_price, quantity, inventory_quantity, batch_number, expiration_date) 
+                                        values ('1331', '1235', '8', '5', '1', '1', '2525', '1999-04-07')", conn)
+            cmd.ExecuteNonQuery()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End Try
+        _parent.UpdateDataGridview()
     End Sub
 End Class

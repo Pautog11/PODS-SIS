@@ -54,7 +54,6 @@ Public Class BaseTransaction
             For Each item In _item
                 _sqlCommand.Parameters.Clear()
                 _sqlCommand = New SqlCommand("INSERT INTO tbltransaction_items (transaction_id, product_id, price, quantity) VALUES (@transaction_id, @product_id, @price, @quantity)", _sqlConnection, transaction)
-                _sqlCommand.Parameters.Clear()
                 _sqlCommand.Parameters.AddWithValue("@transaction_id", TransactionID)
                 _sqlCommand.Parameters.AddWithValue("@product_id", item("product_id"))
                 _sqlCommand.Parameters.AddWithValue("@price", item("price"))
@@ -76,16 +75,6 @@ Public Class BaseTransaction
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End Try
     End Sub
-    'Public Shared Function ScalarTransaction() As Integer
-    '    Try
-    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-    '        Dim cmd As New SqlCommand("SELECT CASE WHEN SUM(total) IS NULL THEN 0 ELSE SUM(total) END FROM tbltransactions;", conn)
-    '        Return cmd.ExecuteScalar()
-    '    Catch ex As Exception
-    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-    '        Return 0
-    '    End Try
-    'End Function
 
     ''' <summary>
     ''' Fetch vat

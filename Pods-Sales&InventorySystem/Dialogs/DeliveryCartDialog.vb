@@ -8,6 +8,7 @@ Public Class DeliveryCartDialog
     Public _itemSource As DataTable
     Private ReadOnly _data As Dictionary(Of String, String)
     Dim button As Integer = 0
+    Dim panel As EditDeliveryDialog = Nothing
 
     Public Sub New(Optional subject As IObservablePanel = Nothing,
                    Optional data As Dictionary(Of String, String) = Nothing)
@@ -27,6 +28,10 @@ Public Class DeliveryCartDialog
                 SupplierNameComboBox.SelectedIndex = -1
             End If
 
+            If My.Settings.roleId = 2 OrElse My.Settings.roleId = 3 Then
+                EditButton.Visible = False
+            End If
+
             If _data IsNot Nothing Then
                 AddProductButton.Visible = False
                 SaveButton.Visible = False
@@ -34,13 +39,13 @@ Public Class DeliveryCartDialog
                 DatePicker.Enabled = False
 
                 SupplierNameComboBox.Text = _data.Item("supplier_id")
-                TotalPrice.Text = _data("total")
-                DatePicker.Value = _data("date")
+                TotalPrice.Text = _data.Item("total")
+                DatePicker.Value = _data.Item("date")
                 TransactionDeliveryTextBox.Enabled = False
-                TransactionDeliveryTextBox.Text = _data("delivery_number")
+                TransactionDeliveryTextBox.Text = _data.Item("delivery_number")
 
                 DeliveryDataGridView.Rows.Clear()
-                Dim DeliveryItems As DataTable = BaseDelivery.SelectAllDeliveryItems(_data("id"))
+                Dim DeliveryItems As DataTable = BaseDelivery.SelectAllDeliveryItems(_data.Item("id"))
                 For Each row As DataRow In DeliveryItems.Rows
                     Dim data As New List(Of Object)()
                     For Each column As DataColumn In DeliveryItems.Columns
@@ -54,12 +59,12 @@ Public Class DeliveryCartDialog
                 Next
 
             Else
+                EditButton.Visible = False
                 DatePicker.MaxDate = DateTime.Now
             End If
+            AddItemButton.Visible = False
             DeliveryDataGridView.Columns.Item("EDIT").Visible = False
-
-        Catch ex As Exception
-            MsgBox(ex.Message)
+        Catch ex As Exception 'MsgBox(ex.Message)
         End Try
     End Sub
 
@@ -71,9 +76,7 @@ Public Class DeliveryCartDialog
                 total += DeliveryDataGridView.Rows(i).Cells("TOTAL").Value
             Next
             TotalPrice.Text = total
-
         Catch ex As Exception
-
         End Try
     End Sub
 
@@ -82,7 +85,6 @@ Public Class DeliveryCartDialog
             Dim dialog As New DeliveryProductDialog(parent:=Me)
             dialog.ShowDialog()
         Catch ex As Exception
-
         End Try
     End Sub
 
@@ -119,10 +121,10 @@ Public Class DeliveryCartDialog
 
                 For Each row As DataGridViewRow In DeliveryDataGridView.Rows
                     Dim item As New Dictionary(Of String, String) From {
-                        {"product_id", row.Cells(0).Value}, '{"exd", exdValue},
+                        {"product_id", row.Cells(0).Value},
                         {"price", If(row.Cells(4).Value?.ToString(), "0")},
                         {"cost_price", If(row.Cells(5).Value?.ToString(), "0")},
-                        {"quantity", If(row.Cells(6).Value?.ToString(), "0")}, '{"inventory_quantity", If(row.Cells(5).Value?.ToString(), "0")},
+                        {"quantity", If(row.Cells(6).Value?.ToString(), "0")},
                         {"batch_number", If(row.Cells(3).Value?.ToString(), "0")},
                         {"expiration_date", If(row.Cells(2).Value?.ToString(), "0")}
                     }
@@ -171,29 +173,32 @@ Public Class DeliveryCartDialog
     End Sub
 
     Private Sub DeliveryDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DeliveryDataGridView.CellContentClick
-        Dim fuckme As String = DeliveryDataGridView.Columns(e.ColumnIndex).Name
-        If fuckme = "EDIT" Then
-            Dim row As DataGridViewRow = DeliveryDataGridView.SelectedRows(0)
-            Dim data As New Dictionary(Of String, String) From {
-                {"id", If(row.Cells(0).Value?.ToString(), "0")},
-                {"name", If(row.Cells(1).Value?.ToString(), "")},
-                {"date", If(row.Cells(2).Value?.ToString(), "")},
-                {"batch_number", If(row.Cells(3).Value?.ToString(), "")},
-                {"selling_price", If(row.Cells(4).Value?.ToString(), "0")},
-                {"cost_price", If(row.Cells(5).Value?.ToString(), "0")},
-                {"quantity", If(row.Cells(6).Value?.ToString(), "0")},
-                {"target", If(row.Cells(8).Value?.ToString(), "0")}
-            }
-            Dim dialog As New EditDeliveryDialog(parent:=Me, data:=data)
-            dialog.ShowDialog()
-        End If
+        Try
+            Dim fuckme As String = DeliveryDataGridView.Columns(e.ColumnIndex).Name
+            If fuckme = "EDIT" Then
+                Dim row As DataGridViewRow = DeliveryDataGridView.SelectedRows(0)
+                Dim data As New Dictionary(Of String, String) From {
+                    {"id", If(row.Cells(0).Value?.ToString(), "0")},
+                    {"name", If(row.Cells(1).Value?.ToString(), "")},
+                    {"date", If(row.Cells(2).Value?.ToString(), "")},
+                    {"batch_number", If(row.Cells(3).Value?.ToString(), "")},
+                    {"selling_price", If(row.Cells(4).Value?.ToString(), "0")},
+                    {"cost_price", If(row.Cells(5).Value?.ToString(), "0")},
+                    {"quantity", If(row.Cells(6).Value?.ToString(), "0")},
+                    {"target", If(row.Cells(8).Value?.ToString(), "0")}
+                }
+                Dim dialog As New EditDeliveryDialog(parent:=Me, data:=data)
+                dialog.ShowDialog()
+            End If
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub EditButton_Click(sender As Object, e As EventArgs) Handles EditButton.Click
         Try
             If button = 1 Then
                 Dim controls As Object() = {SupplierNameComboBox, TransactionDeliveryTextBox}
-
                 Dim types As DataInput() = {DataInput.STRING_NAME, DataInput.STRING_STRING}
 
                 Dim result As New List(Of Object())
@@ -237,25 +242,64 @@ Public Class DeliveryCartDialog
 
                     baseCommand = New BaseDelivery(data) With {.Items = items}
 
-                    If BaseDelivery.Exists(result(1)(1)) = 0 Then
+                    If BaseDelivery.Exists(result(1)(1)) = 1 Then
+                        If BaseDelivery.IdExist(_data.Item("id"), result(1)(1)) = 1 Then
+                            invoker = New UpdateCommand(baseCommand)
+                            invoker?.Execute()
+                            _subject.NotifyObserver()
+                            Me.Close()
+                        Else
+                            MessageBox.Show("Transaction reference is already exist!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        End If
+                    Else
                         invoker = New UpdateCommand(baseCommand)
                         invoker?.Execute()
                         _subject.NotifyObserver()
                         Me.Close()
-                    Else
-                        MessageBox.Show("Transaction reference is already exist!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                     End If
                 Else
                     MessageBox.Show("Please select product first.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 End If
             Else
                 EditButton.Text = "Save"
+                AddItemButton.Visible = True
                 DeliveryDataGridView.Columns.Item("EDIT").Visible = True
                 DatePicker.Enabled = True
                 SupplierNameComboBox.Enabled = True
                 TransactionDeliveryTextBox.Enabled = True
                 button = 1
             End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub AddItemButton_Click(sender As Object, e As EventArgs) Handles AddItemButton.Click
+        Try
+            Dim dialog As New EditDeliveryDialog(parent:=Me)
+            panel = dialog
+            dialog.ShowDialog()
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Public Sub UpdateDataGridview()
+        Try
+            DeliveryDataGridView.Rows.Clear()
+            Dim DeliveryItems As DataTable = BaseDelivery.SelectAllDeliveryItems(_data.Item("id"))
+            For Each row As DataRow In DeliveryItems.Rows
+                Dim data As New List(Of Object)()
+                For Each column As DataColumn In DeliveryItems.Columns
+                    If row(column) IsNot DBNull.Value AndAlso TypeOf row(column) Is DateTime Then
+                        data.Add(CType(row(column), DateTime).ToString("yyyy-MM-dd"))
+                    Else
+                        data.Add(row(column))
+                    End If
+                Next
+                DeliveryDataGridView.Rows.Add(data.ToArray())
+            Next
+            panel.Close()
         Catch ex As Exception
 
         End Try

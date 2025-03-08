@@ -612,6 +612,21 @@ Row event argument class
 Row event argument class
 </summary>
 </member>
+<member name="M:Pods_Sales_InventorySystem.BaseDelivery.Exists(System.String)">
+ <summary>
+ Check if delivery number is already exist
+ </summary>
+ <param name="delivery_number"></param>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseDelivery.IdExist(System.Int32,System.String)">
+ <summary>
+ Check if the id and delvery number is exist
+ </summary>
+ <param name="id"></param>
+ <param name="delivery_number"></param>
+ <returns></returns>
+</member>
 <member name="M:Pods_Sales_InventorySystem.BaseDelivery.EnableExp(System.Int32)">
  <summary>
  To identify the product if expiration date is needed

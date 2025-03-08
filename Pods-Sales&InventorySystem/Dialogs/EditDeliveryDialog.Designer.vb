@@ -42,6 +42,7 @@ Partial Class EditDeliveryDialog
         Me.QuantityTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.CostTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.BarcodeTextBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.AddProductButton = New Guna.UI2.WinForms.Guna2Button()
         Me.AccountDialogLayoutPanel.SuspendLayout()
         Me.FlowLayoutPanel2.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
@@ -67,6 +68,7 @@ Partial Class EditDeliveryDialog
         '
         Me.FlowLayoutPanel2.BackColor = System.Drawing.SystemColors.ControlLight
         Me.FlowLayoutPanel2.Controls.Add(Me.UpdateDeliveryButton)
+        Me.FlowLayoutPanel2.Controls.Add(Me.AddProductButton)
         Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
         Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 413)
@@ -358,6 +360,25 @@ Partial Class EditDeliveryDialog
         Me.BarcodeTextBox.Size = New System.Drawing.Size(270, 36)
         Me.BarcodeTextBox.TabIndex = 2
         '
+        'AddProductButton
+        '
+        Me.AddProductButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.AddProductButton.BackColor = System.Drawing.Color.Transparent
+        Me.AddProductButton.BorderRadius = 15
+        Me.AddProductButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.AddProductButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.AddProductButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.AddProductButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.AddProductButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.AddProductButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.AddProductButton.ForeColor = System.Drawing.Color.White
+        Me.AddProductButton.Location = New System.Drawing.Point(61, 8)
+        Me.AddProductButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
+        Me.AddProductButton.Name = "AddProductButton"
+        Me.AddProductButton.Size = New System.Drawing.Size(128, 37)
+        Me.AddProductButton.TabIndex = 4
+        Me.AddProductButton.Text = "Add"
+        '
         'EditDeliveryDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -399,4 +420,5 @@ Partial Class EditDeliveryDialog
     Friend WithEvents QuantityTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents CostTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents BarcodeTextBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents AddProductButton As Guna.UI2.WinForms.Guna2Button
 End Class

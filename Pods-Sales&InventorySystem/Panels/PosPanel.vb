@@ -133,7 +133,7 @@
             Dim result As New List(Of Object)() From {InputValidation.ValidateInputString(CashTextBox, DataInput.STRING_DECIMAL)}
             'If Not result.Any(Function(item As Object()) Not item(1)) Then
             If Not result.Any(Function(item) DirectCast(item, Object())(0) = True) Then
-                MessageBox.Show("Enter a valid amount.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                'MessageBox.Show("Enter a valid amount.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 CashTextBox.Text = ""
                 Exit Sub
             End If
@@ -181,7 +181,7 @@
             _subject.NotifyObserver()
             DiscountComboBox.Enabled = False
         Catch ex As Exception
-            MessageBox.Show($"An error occurred: {ex.Message}", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 

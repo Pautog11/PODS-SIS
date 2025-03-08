@@ -199,7 +199,8 @@ Public Class BaseDelivery
                                          a.price, 
                                          a.cost_price, 
                                          a.quantity, 
-                                         a.cost_price * a.quantity as total
+                                         a.cost_price * a.quantity as total,
+                                         a.product_id
                                         FROM tbldeliveries_items a
                                         JOIN tblproducts ON a.product_id = tblproducts.id 
                                         WHERE a.delivery_id = @delivery_id", conn)
@@ -214,10 +215,35 @@ Public Class BaseDelivery
         End Try
     End Function
 
+    ''' <summary>
+    ''' Check if delivery number is already exist
+    ''' </summary>
+    ''' <param name="delivery_number"></param>
+    ''' <returns></returns>
     Public Shared Function Exists(delivery_number As String) As Integer
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tbldeliveries WHERE lower(delivery_number) = @delivery_number", conn)
+            cmd.Parameters.AddWithValue("@delivery_number", delivery_number.Trim.ToLower)
+
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
+
+    ''' <summary>
+    ''' Check if the id and delvery number is exist
+    ''' </summary>
+    ''' <param name="id"></param>
+    ''' <param name="delivery_number"></param>
+    ''' <returns></returns>
+    Public Shared Function IdExist(id As Integer, delivery_number As String) As Integer
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tbldeliveries WHERE id = @id AND LOWER(delivery_number) = @delivery_number", conn)
+            cmd.Parameters.AddWithValue("@id", id)
             cmd.Parameters.AddWithValue("@delivery_number", delivery_number.Trim.ToLower)
 
             Return cmd.ExecuteScalar()

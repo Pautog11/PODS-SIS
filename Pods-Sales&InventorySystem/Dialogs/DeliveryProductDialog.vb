@@ -18,7 +18,6 @@ Public Class DeliveryProductDialog
 
     Private Sub DeliveryProductDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            'DateTimePicker.Enabled = False
             If _data IsNot Nothing Then
                 id = _data.Item("id")
                 ProductTextBox.Text = _data.Item("name")
@@ -102,10 +101,9 @@ Public Class DeliveryProductDialog
                             Exit Sub
                         End If
                     End If
-                    'End If
-
 
                     If item.Cells("product").Value.ToString() = ProductTextBox.Text AndAlso item.Cells("expiry_date").Value = exd.ToString("yyyy-MM-dd") AndAlso item.Cells("batch_number").Value = BatchTextBox.Text Then
+
                         If DateTimePicker.Enabled = True Then
                             item.Cells("expiry_date").Value = exd.ToString("yyyy-MM-dd")
                             item.Cells("batch_number").Value = BatchTextBox.Text
@@ -118,6 +116,11 @@ Public Class DeliveryProductDialog
                         item.Cells("total").Value = Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text)
                         is_existing = True
                         Exit For
+                        'MsgBox(_data.Item("target").ToString())
+                        'If item.Cells("target").Value.ToString() = _data.Item("target").ToString() Then
+                        '    _parent.DeliveryDataGridView.Rows.Remove(item)
+                        'End If
+                        'Exit For
                     End If
                 Next
 

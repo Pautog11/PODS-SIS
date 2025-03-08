@@ -156,6 +156,7 @@ Public Class ProductDialog
                         invoker?.Execute()
                         _subject.NotifyObserver()
                         Me.Close()
+                        Exit Sub
                     End If
                     If BaseProduct.Exists(result(1)(1), If(String.IsNullOrEmpty(BarcodeTextBox.Text), "", BarcodeTextBox.Text)) = 0 Then
                         If Not String.IsNullOrEmpty(BarcodeTextBox.Text) Then
@@ -164,6 +165,7 @@ Public Class ProductDialog
                                 invoker?.Execute()
                                 _subject.NotifyObserver()
                                 Me.Close()
+                                Exit Sub
                             Else
                                 MessageBox.Show("Barcode is exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                                 Exit Sub
@@ -173,6 +175,7 @@ Public Class ProductDialog
                             invoker?.Execute()
                             _subject.NotifyObserver()
                             Me.Close()
+                            Exit Sub
                         End If
                     End If
                 Else
