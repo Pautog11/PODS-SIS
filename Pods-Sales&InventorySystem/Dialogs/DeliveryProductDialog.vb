@@ -26,6 +26,9 @@ Public Class DeliveryProductDialog
                 BatchTextBox.Text = _data.Item("batch_number")
                 AddDeliveryButton.Text = "Update"
                 BarcodeTextBox.Enabled = False
+
+                'MsgBox(_data.Item("target"))
+
                 If _data.Item("date") <> "" Then
                     DateTimePicker.Value = _data.Item("date")
                 Else
@@ -94,16 +97,14 @@ Public Class DeliveryProductDialog
                 End If
 
                 For Each item As DataGridViewRow In _parent.DeliveryDataGridView.Rows
-                    'If Not item.IsNewRow Then
                     If CInt(item.Cells("id").Value) = id Then
                         If item.Cells("price").Value.ToString() <> sellingprice.ToString("F2") OrElse item.Cells("cost_price").Value.ToString() <> costprice.ToString("F2") Then
-                            MessageBox.Show("You cannot set a different price for the same product!.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                            MessageBox.Show("You cannot set a different price for the same product!.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                             Exit Sub
                         End If
                     End If
 
                     If item.Cells("product").Value.ToString() = ProductTextBox.Text AndAlso item.Cells("expiry_date").Value = exd.ToString("yyyy-MM-dd") AndAlso item.Cells("batch_number").Value = BatchTextBox.Text Then
-
                         If DateTimePicker.Enabled = True Then
                             item.Cells("expiry_date").Value = exd.ToString("yyyy-MM-dd")
                             item.Cells("batch_number").Value = BatchTextBox.Text
@@ -112,15 +113,29 @@ Public Class DeliveryProductDialog
                             item.Cells("expiry_date").Value = ""
                         End If
 
-                        item.Cells("quantity").Value = CInt(QuantityTextBox.Text)
+                        Dim a As Integer = CInt(QuantityTextBox.Text) + item.Cells("quantity").Value
+                        item.Cells("quantity").Value = a
+
                         item.Cells("total").Value = Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text)
+
+
+
+                        AddHandler AddDeliveryButton.Click, AddressOf VoidButton_Click
+                        '_parent.DeliveryDataGridView.Rows.Remove(item = _data.Item("target").ToString())
+
+
+                        'Dim targetValue As String = _data.Item("target").ToString()
+
+                        'If item.Cells("target").Value.ToString() = targetValue Then
+
+                        '    _parent.DeliveryDataGridView.Rows.Remove(item)
+                        '    'Exit For
+
+                        'End If
+
+
                         is_existing = True
                         Exit For
-                        'MsgBox(_data.Item("target").ToString())
-                        'If item.Cells("target").Value.ToString() = _data.Item("target").ToString() Then
-                        '    _parent.DeliveryDataGridView.Rows.Remove(item)
-                        'End If
-                        'Exit For
                     End If
                 Next
 
@@ -138,17 +153,6 @@ Public Class DeliveryProductDialog
                     num += 1
                 End If
 
-                'For Each item As DataGridViewRow In _parent.DeliveryDataGridView.Rows
-                '    If Not item.IsNewRow Then
-                '        If CInt(item.Cells("id").Value) = id Then
-                '            If item.Cells("price").Value.ToString() <> SellingTextBox.Text OrElse item.Cells("cost_price").Value.ToString() <> CostTextBox.Text Then
-                '                MessageBox.Show("You cannot set a different price for the same product!.")
-                '                Exit Sub
-                '            End If
-                '        End If
-                '    End If
-                'Next
-
                 _parent.UpdateVisualData()
                 Me.Close()
             Else
@@ -158,6 +162,12 @@ Public Class DeliveryProductDialog
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+        'Dim event fuck As EventHandler
+        'Dim isHandlerAdded As Boolean = False
+        'If Not isHandlerAdded = True Then
+        '    AddHandler AddDeliveryButton.Click, AddressOf VoidButton_Click
+        '    isHandlerAdded = True ' Set flag to true so handler is not added again
+        'End If
     End Sub
 
     Private Sub BarcodeTextBox_KeyDown(sender As Object, e As KeyEventArgs) Handles BarcodeTextBox.KeyDown
@@ -187,19 +197,19 @@ Public Class DeliveryProductDialog
     End Sub
 
     Private Sub VoidButton_Click(sender As Object, e As EventArgs) Handles VoidButton.Click
-        Try
-            For Each row As DataGridViewRow In _parent.DeliveryDataGridView.Rows
-                If row.Cells("target").Value.ToString() = _data.Item("target").ToString() Then
-                    _parent.DeliveryDataGridView.Rows.Remove(row)
-                    Exit For
-                End If
-            Next
-            _parent.UpdateVisualData()
-            Me.Close()
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-        'MsgBox(_data.Item("id").ToString())
+        'Try
+        '    For Each row As DataGridViewRow In _parent.DeliveryDataGridView.Rows
+        '        If row.Cells("target").Value.ToString() = _data.Item("target").ToString() Then
+        '            _parent.DeliveryDataGridView.Rows.Remove(row)
+        '            Exit For
+        '        End If
+        '    Next
+        '    _parent.UpdateVisualData()
+        '    Me.Close()
+        'Catch ex As Exception
+        '    MsgBox(ex.Message)
+        'End Try
+        MsgBox("dd")
     End Sub
 
     Public Sub Clear()

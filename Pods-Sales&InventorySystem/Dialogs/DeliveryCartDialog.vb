@@ -174,8 +174,8 @@ Public Class DeliveryCartDialog
 
     Private Sub DeliveryDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DeliveryDataGridView.CellContentClick
         Try
-            Dim fuckme As String = DeliveryDataGridView.Columns(e.ColumnIndex).Name
-            If fuckme = "EDIT" Then
+            Dim fuck As String = DeliveryDataGridView.Columns(e.ColumnIndex).Name
+            If fuck = "EDIT" Then
                 Dim row As DataGridViewRow = DeliveryDataGridView.SelectedRows(0)
                 Dim data As New Dictionary(Of String, String) From {
                     {"id", If(row.Cells(0).Value?.ToString(), "0")},
@@ -185,7 +185,8 @@ Public Class DeliveryCartDialog
                     {"selling_price", If(row.Cells(4).Value?.ToString(), "0")},
                     {"cost_price", If(row.Cells(5).Value?.ToString(), "0")},
                     {"quantity", If(row.Cells(6).Value?.ToString(), "0")},
-                    {"target", If(row.Cells(8).Value?.ToString(), "0")}
+                    {"target", If(row.Cells(8).Value?.ToString(), "0")},
+                    {"transaction_id", _data.Item("id")}
                 }
                 Dim dialog As New EditDeliveryDialog(parent:=Me, data:=data)
                 dialog.ShowDialog()
@@ -276,7 +277,7 @@ Public Class DeliveryCartDialog
 
     Private Sub AddItemButton_Click(sender As Object, e As EventArgs) Handles AddItemButton.Click
         Try
-            Dim dialog As New EditDeliveryDialog(parent:=Me)
+            Dim dialog As New EditDeliveryDialog(parent:=Me, data2:=_data)
             panel = dialog
             dialog.ShowDialog()
         Catch ex As Exception
