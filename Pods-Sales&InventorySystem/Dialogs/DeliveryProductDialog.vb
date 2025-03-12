@@ -27,8 +27,6 @@ Public Class DeliveryProductDialog
                 AddDeliveryButton.Text = "Update"
                 BarcodeTextBox.Enabled = False
 
-                'MsgBox(_data.Item("target"))
-
                 If _data.Item("date") <> "" Then
                     DateTimePicker.Value = _data.Item("date")
                 Else
@@ -113,31 +111,59 @@ Public Class DeliveryProductDialog
                             item.Cells("expiry_date").Value = ""
                         End If
 
-                        Dim a As Integer = CInt(QuantityTextBox.Text) + item.Cells("quantity").Value
-                        item.Cells("quantity").Value = a
+                        If _data IsNot Nothing Then
+                            'update
+                            If item.Cells("target").Value = _data.Item("target") Then
+                                'update selected row, no adding quantity
+                                item.Cells("quantity").Value = QuantityTextBox.Text
+                                item.Cells("total").Value = Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text)
+                            Else
+                                'When changes occur, it will check first if there is the same item in the delivery cart, and if it is true, it will add the quantity.
+                                Dim quantity As Integer = CInt(QuantityTextBox.Text) + item.Cells("quantity").Value
+                                item.Cells("quantity").Value = quantity
+                                item.Cells("total").Value = Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text)
 
-                        item.Cells("total").Value = Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text)
-
-
-
-                        AddHandler AddDeliveryButton.Click, AddressOf VoidButton_Click
-                        '_parent.DeliveryDataGridView.Rows.Remove(item = _data.Item("target").ToString())
-
-
-                        'Dim targetValue As String = _data.Item("target").ToString()
-
-                        'If item.Cells("target").Value.ToString() = targetValue Then
-
-                        '    _parent.DeliveryDataGridView.Rows.Remove(item)
-                        '    'Exit For
-
-                        'End If
-
+                            End If
+                        Else
+                            'if existing
+                            Dim quantity As Integer = CInt(QuantityTextBox.Text) + item.Cells("quantity").Value
+                            item.Cells("quantity").Value = quantity
+                            item.Cells("total").Value = Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text)
+                        End If
 
                         is_existing = True
                         Exit For
                     End If
                 Next
+
+                If is_existing = True Then
+                    If _data IsNot Nothing Then
+                        For Each row As DataGridViewRow In _parent.DeliveryDataGridView.Rows
+
+                            ''If _data.Item("target") Is Nothing OrElse IsDBNull(_data.Item("target")) Then
+                            'If row.Cells("target").Value.ToString() = _data.Item("target").ToString() Then
+                            '    _parent.DeliveryDataGridView.Rows.Remove(row)
+                            '    Exit For
+                            'End If
+                            'End If
+
+                            'If _data.Item("target") Is Nothing OrElse IsDBNull(_data.Item("target")) Then
+                            '    If row.Cells("target").Value.ToString() = _data.Item("target").ToString() Then
+                            '        _parent.DeliveryDataGridView.Rows.Remove(row)
+                            '        Exit For
+                            '    End If
+                            'End If
+                            If Not row.Cells("target").Value = _data.Item("target") Then
+                                If Object.Equals(row.Cells("target").Value, _data.Item("target")) Then
+                                    _parent.DeliveryDataGridView.Rows.Remove(row)
+                                    Exit For
+                                End If
+                            End If
+
+
+                        Next
+                    End If
+                End If
 
                 If Not is_existing Then
                     _parent.DeliveryDataGridView.Rows.Add({If(String.IsNullOrEmpty(id), 0, id),
@@ -162,12 +188,6 @@ Public Class DeliveryProductDialog
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-        'Dim event fuck As EventHandler
-        'Dim isHandlerAdded As Boolean = False
-        'If Not isHandlerAdded = True Then
-        '    AddHandler AddDeliveryButton.Click, AddressOf VoidButton_Click
-        '    isHandlerAdded = True ' Set flag to true so handler is not added again
-        'End If
     End Sub
 
     Private Sub BarcodeTextBox_KeyDown(sender As Object, e As KeyEventArgs) Handles BarcodeTextBox.KeyDown
@@ -197,19 +217,18 @@ Public Class DeliveryProductDialog
     End Sub
 
     Private Sub VoidButton_Click(sender As Object, e As EventArgs) Handles VoidButton.Click
-        'Try
-        '    For Each row As DataGridViewRow In _parent.DeliveryDataGridView.Rows
-        '        If row.Cells("target").Value.ToString() = _data.Item("target").ToString() Then
-        '            _parent.DeliveryDataGridView.Rows.Remove(row)
-        '            Exit For
-        '        End If
-        '    Next
-        '    _parent.UpdateVisualData()
-        '    Me.Close()
-        'Catch ex As Exception
-        '    MsgBox(ex.Message)
-        'End Try
-        MsgBox("dd")
+        Try
+            For Each row As DataGridViewRow In _parent.DeliveryDataGridView.Rows
+                If row.Cells("target").Value.ToString() = _data.Item("target").ToString() Then
+                    _parent.DeliveryDataGridView.Rows.Remove(row)
+                    Exit For
+                End If
+            Next
+            _parent.UpdateVisualData()
+            Me.Close()
+        Catch ex As Exception
+            'MsgBox(ex.Message)
+        End Try
     End Sub
 
     Public Sub Clear()
@@ -219,6 +238,7 @@ Public Class DeliveryProductDialog
         SellingTextBox.Text = ""
         QuantityTextBox.Text = ""
     End Sub
+
     Public Sub Txite()
         tite = BaseDelivery.EnableExp(id)
         If tite = 1 Then
@@ -229,6 +249,7 @@ Public Class DeliveryProductDialog
             DateTimePicker.Enabled = False
         End If
     End Sub
+
     Private Sub ProductTextBox_TextChanged(sender As Object, e As KeyEventArgs) Handles ProductTextBox.KeyDown
         Try
             If e.KeyCode = Keys.Enter Then
