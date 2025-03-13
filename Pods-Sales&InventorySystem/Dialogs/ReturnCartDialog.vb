@@ -27,7 +27,7 @@ Public Class ReturnCartDialog
                 TransactionTextBox.Enabled = False
                 'Guna2Button1.Enabled = False
                 'Guna2Button2.Enabled = False
-                AddInventoryButton.Visible = False
+                'AddInventoryButton.Visible = False
             ElseIf _data2 IsNot Nothing Then
                 TransactionTextBox.Text = _data2.Item("ref")
                 RetuenDatePicker.Value = _data2.Item("date")
@@ -97,7 +97,7 @@ Public Class ReturnCartDialog
         End Try
     End Sub
 
-    Private Sub AddInventoryButton_Click(sender As Object, e As EventArgs) Handles AddInventoryButton.Click
+    Private Sub AddInventoryButton_Click(sender As Object, e As EventArgs)
         Try
             Dim data As String = If(ReturnDataGridView.SelectedRows.Count > 0, ReturnDataGridView.SelectedRows(0).Cells(0).Value.ToString(), Nothing)
             If data IsNot Nothing Then
@@ -107,5 +107,9 @@ Public Class ReturnCartDialog
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+    End Sub
+
+    Private Sub ReturnDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles ReturnDataGridView.CellClick
+        MsgBox("helloS")
     End Sub
 End Class

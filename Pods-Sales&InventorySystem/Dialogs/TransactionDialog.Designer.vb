@@ -287,9 +287,9 @@ Partial Class TransactionDialog
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.Location = New System.Drawing.Point(9, 215)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(93, 15)
+        Me.Label10.Size = New System.Drawing.Size(77, 15)
         Me.Label10.TabIndex = 36
-        Me.Label10.Text = "DISCOUNT %"
+        Me.Label10.Text = "DISCOUNT"
         '
         'Label4
         '

@@ -205,12 +205,6 @@
     <Compile Include="Dialogs\ReturnInventoryDialog.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Form1.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Panels\PosPanel.Designer.vb">
       <DependentUpon>PosPanel.vb</DependentUpon>
     </Compile>
@@ -461,12 +455,6 @@
     <Compile Include="Panels\SalesReport.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Panels\UserControl1.Designer.vb">
-      <DependentUpon>UserControl1.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Panels\UserControl1.vb">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="Panels\Withdrawal.Designer.vb">
       <DependentUpon>Withdrawal.vb</DependentUpon>
     </Compile>
@@ -637,9 +625,6 @@
     <EmbeddedResource Include="Dialogs\ReturnInventoryDialog.resx">
       <DependentUpon>ReturnInventoryDialog.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Panels\PosPanel.resx">
       <DependentUpon>PosPanel.vb</DependentUpon>
     </EmbeddedResource>
@@ -762,9 +747,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\SalesReport.resx">
       <DependentUpon>SalesReport.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Panels\UserControl1.resx">
-      <DependentUpon>UserControl1.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\Withdrawal.resx">
       <DependentUpon>Withdrawal.vb</DependentUpon>

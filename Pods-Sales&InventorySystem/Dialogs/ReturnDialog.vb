@@ -3,7 +3,7 @@
 Public Class ReturnDialog
     Private ReadOnly _data As Dictionary(Of String, String)
     Dim dt As DataTable = Nothing
-    'Dim pid As Decimal = Nothing
+    Dim num As Integer = 1
     Private ReadOnly _parent As ReturnCartDialog = Nothing
     Public Sub New(Optional data As Dictionary(Of String, String) = Nothing,
                    Optional parent As ReturnCartDialog = Nothing)
@@ -25,9 +25,16 @@ Public Class ReturnDialog
 
                 CostTextBox.Enabled = False
                 StocksTextBox.Enabled = False
+
+                If _parent.ReturnDataGridView.Rows.Count > 0 Then
+                    num = _parent.ReturnDataGridView.Rows.Cast(Of DataGridViewRow)().Max(Function(row) Convert.ToInt32(row.Cells("target").Value)) + 1
+                Else
+                    num = 1
+                End If
+
             End If
         Catch ex As Exception
-
+            MsgBox(ex.Message)
         End Try
     End Sub
 
@@ -37,8 +44,6 @@ Public Class ReturnDialog
                 Dim selectedRow As DataRowView = DirectCast(ProductComboBox.SelectedItem, DataRowView)
                 CostTextBox.Text = selectedRow("price").ToString()
                 StocksTextBox.Text = selectedRow("quantity").ToString()
-                'pid = selectedRow("pid").ToString()
-
             End If
         Catch ex As Exception
 
@@ -86,8 +91,10 @@ Public Class ReturnDialog
                                                      If(String.IsNullOrEmpty(ProductComboBox.Text), 0, ProductComboBox.Text),
                                                      If(String.IsNullOrEmpty(CostTextBox.Text), 0, CostTextBox.Text),
                                                      If(String.IsNullOrEmpty(QuantityTextBox.Text), 0, QuantityTextBox.Text),
-                                                     CDec(CostTextBox.Text) * CDec(QuantityTextBox.Text)
+                                                     CDec(CostTextBox.Text) * CDec(QuantityTextBox.Text),
+                                                     num
                                                      })
+                    num += 1
                     'Else
                     '    MessageBox.Show("Insufficient stocks!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                     'End If

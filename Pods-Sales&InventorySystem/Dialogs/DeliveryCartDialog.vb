@@ -87,14 +87,6 @@ Public Class DeliveryCartDialog
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-
-        'Try
-        '    Dim dialog As New AboutBox()
-        '    dialog.ShowDialog()
-        'Catch ex As Exception
-        '    MsgBox(ex.Message)
-        'End Try
-
     End Sub
 
     Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click
@@ -154,7 +146,7 @@ Public Class DeliveryCartDialog
                 MessageBox.Show("Please select product first.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
         Catch ex As Exception
-            'MsgBox(ex.Message)
+
         End Try
     End Sub
 

@@ -317,7 +317,7 @@ Public Class DeliveryProductDialog
                 Txite()
             End If
         Catch ex As Exception
-            'MsgBox(ex.Message)
+
         End Try
     End Sub
 End Class
