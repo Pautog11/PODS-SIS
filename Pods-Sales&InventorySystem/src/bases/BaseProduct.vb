@@ -4,20 +4,10 @@ Public Class BaseProduct
     Implements ICommandPanel
 
     Private ReadOnly _data As Dictionary(Of String, String)
-    'Private _item As Dictionary(Of String, String)
 
     Public Sub New(data As Dictionary(Of String, String))
         _data = data
     End Sub
-
-    'Public Property Items() As Dictionary(Of String, String)
-    '    Set(value As Dictionary(Of String, String))
-    '        _item = value
-    '    End Set
-    '    Get
-    '        Return _item
-    '    End Get
-    'End Property
 
     Public Sub Delete() Implements ICommandPanel.Delete
         Try
