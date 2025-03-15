@@ -2,13 +2,17 @@
 
 Public Class ReturnDialog
     Private ReadOnly _data As Dictionary(Of String, String)
+    Private ReadOnly _data2 As Dictionary(Of String, String)
     Dim dt As DataTable = Nothing
     Dim num As Integer = 1
+    Dim target As Integer = Nothing
     Private ReadOnly _parent As ReturnCartDialog = Nothing
     Public Sub New(Optional data As Dictionary(Of String, String) = Nothing,
+                   Optional data2 As Dictionary(Of String, String) = Nothing,
                    Optional parent As ReturnCartDialog = Nothing)
         InitializeComponent()
         _data = data
+        _data2 = data2
         _parent = parent
     End Sub
 
@@ -23,15 +27,28 @@ Public Class ReturnDialog
                     ProductComboBox.SelectedIndex = -1
                 End If
 
-                CostTextBox.Enabled = False
-                StocksTextBox.Enabled = False
-
                 If _parent.ReturnDataGridView.Rows.Count > 0 Then
                     num = _parent.ReturnDataGridView.Rows.Cast(Of DataGridViewRow)().Max(Function(row) Convert.ToInt32(row.Cells("target").Value)) + 1
                 Else
                     num = 1
                 End If
 
+                CostTextBox.ReadOnly = True
+                StocksTextBox.ReadOnly = True
+                RemoveButton.Visible = False
+
+            ElseIf _data2 IsNot Nothing Then
+                Dim dt As DataTable = BaseReturn.SelectProductReturnedByTrasaction(_data2.Item("reference"), _data2.Item("id"))
+                ProductComboBox.DataSource = dt.DefaultView
+                ProductComboBox.DisplayMember = "product_name"
+                If dt.Rows.Count > 0 Then
+                    StocksTextBox.Text = dt.Rows(0)("quantity").ToString()
+                    CostTextBox.Text = dt.Rows(0)("price").ToString()
+                End If
+                target = _data2.Item("target")
+
+                ProductComboBox.Enabled = False
+                SaveButton.Text = "Update"
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -86,8 +103,7 @@ Public Class ReturnDialog
                     End If
                 Next
                 If Not is_existing Then
-                    'If CInt(StocksTextBox.Text) >= QuantityTextBox.Text Then
-                    _parent.ReturnDataGridView.Rows.Add({If(String.IsNullOrEmpty(ProductComboBox.SelectedItem("ID")), 0, ProductComboBox.SelectedItem("ID")), 'If(String.IsNullOrEmpty(pid), 0, pid),
+                    _parent.ReturnDataGridView.Rows.Add({If(String.IsNullOrEmpty(ProductComboBox.SelectedItem("ID")), 0, ProductComboBox.SelectedItem("ID")),
                                                      If(String.IsNullOrEmpty(ProductComboBox.Text), 0, ProductComboBox.Text),
                                                      If(String.IsNullOrEmpty(CostTextBox.Text), 0, CostTextBox.Text),
                                                      If(String.IsNullOrEmpty(QuantityTextBox.Text), 0, QuantityTextBox.Text),
@@ -95,15 +111,27 @@ Public Class ReturnDialog
                                                      num
                                                      })
                     num += 1
-                    'Else
-                    '    MessageBox.Show("Insufficient stocks!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                    'End If
                 End If
                 _parent.UpdateVisualData()
                 Me.Close()
             Else
                 MessageBox.Show("Invalid quantity!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub RemoveButton_Click(sender As Object, e As EventArgs) Handles RemoveButton.Click
+        Try
+            For Each row As DataGridViewRow In _parent.ReturnDataGridView.Rows
+                If row.Cells("target").Value.ToString() = target Then
+                    _parent.ReturnDataGridView.Rows.Remove(row)
+                    Exit For
+                End If
+            Next
+            _parent.UpdateVisualData()
+            Me.Close()
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try

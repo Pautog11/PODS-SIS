@@ -616,6 +616,9 @@
     <EmbeddedResource Include="Dialogs\DeliveryCartDialog.resx">
       <DependentUpon>DeliveryCartDialog.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\DosageFormDialog.dje.resx">
+      <DependentUpon>DosageFormDialog.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\EditDeliveryDialog.resx">
       <DependentUpon>EditDeliveryDialog.vb</DependentUpon>
     </EmbeddedResource>

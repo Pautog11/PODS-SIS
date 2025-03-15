@@ -69,7 +69,7 @@ Public Class BaseReturn
             cmd = New SqlCommand("SELECT b.id, 
                                          b.product_name as name, 
                                          a.price, 
-                                         a.quantity 
+                                         a.quantity
                                   FROM tbltransaction_items a
                                   JOIN tblproducts b ON b.id = a.product_id
                                   WHERE transaction_id = @transaction_id", conn)
@@ -129,6 +129,32 @@ Public Class BaseReturn
             cmd = New SqlCommand("SELECT a.id, b.id as product_id, product_name, quantity_remaining FROM tblreturn_items a
                                   JOIN tblproducts b ON a.product_id = b.id WHERE a.id = @id", conn)
             cmd.Parameters.AddWithValue("@id", id)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
+        End Try
+    End Function
+
+    ''' <summary>
+    ''' To select the returned product
+    ''' </summary>
+    ''' <param name="transaction_number"></param>
+    ''' <param name="product_id"></param>
+    ''' <returns></returns>
+    Public Shared Function SelectProductReturnedByTrasaction(transaction_number As String, product_id As Integer) As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("SELECT product_id, product_name, price, quantity FROM tbltransactions a 
+                                  JOIN tbltransaction_items b ON a.id = b.transaction_id 
+                                  JOIN tblproducts c ON b.product_id = c.id
+                                  WHERE transaction_number = @transaction_number AND product_id = @product_id", conn)
+            cmd.Parameters.AddWithValue("@transaction_number", transaction_number)
+            cmd.Parameters.AddWithValue("@product_id", product_id)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
             adapter.Fill(dTable)

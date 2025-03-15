@@ -22,7 +22,7 @@ Public Class ReturnCartDialog
         Try
             If _data IsNot Nothing Then
                 TransactionTextBox.Text = _data.Item("ref")
-                RetuenDatePicker.Value = _data.Item("date")
+                ReturnDatePicker.Value = _data.Item("date")
 
                 TransactionTextBox.Enabled = False
                 'Guna2Button1.Enabled = False
@@ -30,14 +30,14 @@ Public Class ReturnCartDialog
                 'AddInventoryButton.Visible = False
             ElseIf _data2 IsNot Nothing Then
                 TransactionTextBox.Text = _data2.Item("ref")
-                RetuenDatePicker.Value = _data2.Item("date")
+                ReturnDatePicker.Value = _data2.Item("date")
                 'TotalPrice.Text = _dat2.Item("price")
 
                 TransactionTextBox.Enabled = False
                 SaveButton.Visible = False
             End If
             TransactionTextBox.Enabled = False
-            RetuenDatePicker.Enabled = False
+            ReturnDatePicker.Enabled = False
             UpdateVisualData()
         Catch ex As Exception
 
@@ -97,19 +97,26 @@ Public Class ReturnCartDialog
         End Try
     End Sub
 
-    Private Sub AddInventoryButton_Click(sender As Object, e As EventArgs)
+    Private Sub ReturnDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles ReturnDataGridView.CellClick
         Try
-            Dim data As String = If(ReturnDataGridView.SelectedRows.Count > 0, ReturnDataGridView.SelectedRows(0).Cells(0).Value.ToString(), Nothing)
-            If data IsNot Nothing Then
-                Dim dialog As New ReturnInventoryDialog(id:=data)
-                dialog.ShowDialog()
+            If _data IsNot Nothing Then
+                If ReturnDataGridView.Rows.Count > 0 Then
+                    Dim row As DataGridViewRow = ReturnDataGridView.SelectedRows(0)
+                    Dim data As New Dictionary(Of String, String) From {
+                        {"id", If(row.Cells(0).Value?.ToString(), "0")},
+                        {"product", If(row.Cells(1).Value?.ToString(), "")},
+                        {"price", If(row.Cells(2).Value?.ToString(), "")},
+                        {"quantity", If(row.Cells(3).Value?.ToString(), "")},
+                        {"total", If(row.Cells(4).Value?.ToString(), "0")},
+                        {"target", If(row.Cells(5).Value?.ToString(), "0")},
+                        {"reference", If(_data.Item("ref"), "0")}
+                    }
+                    Dim dialog As New ReturnDialog(data2:=data, parent:=Me)
+                    dialog.ShowDialog()
+                End If
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-    End Sub
-
-    Private Sub ReturnDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles ReturnDataGridView.CellClick
-        MsgBox("helloS")
     End Sub
 End Class

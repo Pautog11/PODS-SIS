@@ -91,6 +91,11 @@ Public Class BaseTransaction
         End Try
     End Function
 
+    ''' <summary>
+    ''' To get all items by trasanction id
+    ''' </summary>
+    ''' <param name="transaction_id"></param>
+    ''' <returns></returns>
     Public Shared Function SelectAllTransactedItems(transaction_id As Integer) As DataTable
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
@@ -265,6 +270,10 @@ Public Class BaseTransaction
         End Try
     End Function
 
+    ''' <summary>
+    ''' To fetch discounts
+    ''' </summary>
+    ''' <returns></returns>
     Public Shared Function FetchDiscounts() As DataTable
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
@@ -353,10 +362,15 @@ Public Class BaseTransaction
     '    End Try
     'End Function
 
+    ''' <summary>
+    ''' Check if there is retrun for specific transaction
+    ''' </summary>
+    ''' <param name="id"></param>
+    ''' <returns></returns>
     Public Shared Function Returnbutton(id As Integer) As Integer
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As New SqlCommand("select count(*) from tbltransactions a join tblreturns b on a.id = b.transaction_id where a.id = @id;", conn)
+            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tbltransactions a JOIN tblreturns b ON a.id = b.transaction_id WHERE a.id = @id;", conn)
             cmd.Parameters.AddWithValue("@id", id)
             Return cmd.ExecuteScalar()
         Catch ex As Exception
@@ -365,10 +379,15 @@ Public Class BaseTransaction
         End Try
     End Function
 
+    ''' <summary>
+    ''' Get the stocks
+    ''' </summary>
+    ''' <param name="id"></param>
+    ''' <returns></returns>
     Public Shared Function ScalarStocks(id As Integer) As Integer
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As New SqlCommand("select quantity from tblproducts where id = @id;", conn)
+            Dim cmd As New SqlCommand("SELECT quantity FROM tblproducts WHERE id = @id;", conn)
             cmd.Parameters.AddWithValue("@id", id)
             Return cmd.ExecuteScalar()
         Catch ex As Exception
@@ -377,6 +396,10 @@ Public Class BaseTransaction
         End Try
     End Function
 
+    ''' <summary>
+    ''' get the sales for the day
+    ''' </summary>
+    ''' <returns></returns>
     Public Shared Function ScalarSales() As Decimal
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
@@ -390,6 +413,10 @@ Public Class BaseTransaction
         End Try
     End Function
 
+    ''' <summary>
+    ''' Get the transactions for the day
+    ''' </summary>
+    ''' <returns></returns>
     Public Shared Function ScalarTransaction() As Integer
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
@@ -400,6 +427,28 @@ Public Class BaseTransaction
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return 0
+        End Try
+    End Function
+
+    ''' <summary>
+    ''' Search query
+    ''' </summary>
+    ''' <param name="query"></param>
+    ''' <returns></returns>
+    Public Shared Function Search(query As String) As pods.viewtbltransactionsDataTable
+        Try
+            Dim conn As New SqlConnection(My.Settings.podsdbConnectionString)
+            Dim cmd As New SqlCommand("SELECT * FROM viewtbltransactions 
+                                       WHERE id <> 1 AND (PROCESS_BY LIKE CONCAT('%', @query, '%') 
+                                       OR [REFERENCE NUMBER] LIKE CONCAT('%', @query, '%'))", conn)  'OR CAST([DATE] AS DATE) = CAST(@query AS DATE)
+            cmd.Parameters.AddWithValue("@query", query)
+            Dim dTable As New pods.viewtbltransactionsDataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New pods.viewtbltransactionsDataTable
         End Try
     End Function
 End Class

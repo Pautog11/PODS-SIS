@@ -475,7 +475,8 @@ Partial Class TransactionDialog
         Me.ReturnButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.ReturnButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.ReturnButton.ForeColor = System.Drawing.Color.White
-        Me.ReturnButton.Location = New System.Drawing.Point(197, 10)
+        Me.ReturnButton.Location = New System.Drawing.Point(195, 10)
+        Me.ReturnButton.Margin = New System.Windows.Forms.Padding(3, 3, 5, 3)
         Me.ReturnButton.Name = "ReturnButton"
         Me.ReturnButton.Size = New System.Drawing.Size(150, 35)
         Me.ReturnButton.TabIndex = 8

@@ -32,7 +32,7 @@ Partial Class DosageDialog
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(46, 94)
+        Me.Label2.Location = New System.Drawing.Point(24, 84)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(108, 13)
         Me.Label2.TabIndex = 7
@@ -41,7 +41,7 @@ Partial Class DosageDialog
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(46, 30)
+        Me.Label1.Location = New System.Drawing.Point(24, 20)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(32, 13)
         Me.Label1.TabIndex = 6
@@ -61,14 +61,14 @@ Partial Class DosageDialog
         Me.DescriptionTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DescriptionTextBox.ForeColor = System.Drawing.Color.Black
         Me.DescriptionTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DescriptionTextBox.Location = New System.Drawing.Point(76, 110)
+        Me.DescriptionTextBox.Location = New System.Drawing.Point(27, 100)
         Me.DescriptionTextBox.MaxLength = 50
         Me.DescriptionTextBox.Name = "DescriptionTextBox"
         Me.DescriptionTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.DescriptionTextBox.PlaceholderText = ""
         Me.DescriptionTextBox.SelectedText = ""
         Me.DescriptionTextBox.ShortcutsEnabled = False
-        Me.DescriptionTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.DescriptionTextBox.Size = New System.Drawing.Size(227, 36)
         Me.DescriptionTextBox.TabIndex = 5
         '
         'DoseTextBox
@@ -85,14 +85,14 @@ Partial Class DosageDialog
         Me.DoseTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DoseTextBox.ForeColor = System.Drawing.Color.Black
         Me.DoseTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DoseTextBox.Location = New System.Drawing.Point(76, 46)
+        Me.DoseTextBox.Location = New System.Drawing.Point(27, 36)
         Me.DoseTextBox.MaxLength = 25
         Me.DoseTextBox.Name = "DoseTextBox"
         Me.DoseTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.DoseTextBox.PlaceholderText = "Ex. ml"
         Me.DoseTextBox.SelectedText = ""
         Me.DoseTextBox.ShortcutsEnabled = False
-        Me.DoseTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.DoseTextBox.Size = New System.Drawing.Size(227, 36)
         Me.DoseTextBox.TabIndex = 4
         '
         'AddDosageButton
@@ -107,7 +107,7 @@ Partial Class DosageDialog
         Me.AddDosageButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AddDosageButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddDosageButton.ForeColor = System.Drawing.Color.White
-        Me.AddDosageButton.Location = New System.Drawing.Point(207, 177)
+        Me.AddDosageButton.Location = New System.Drawing.Point(143, 158)
         Me.AddDosageButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.AddDosageButton.Name = "AddDosageButton"
         Me.AddDosageButton.Size = New System.Drawing.Size(128, 37)
@@ -118,7 +118,7 @@ Partial Class DosageDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(347, 226)
+        Me.ClientSize = New System.Drawing.Size(283, 207)
         Me.Controls.Add(Me.AddDosageButton)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -130,7 +130,7 @@ Partial Class DosageDialog
         Me.Name = "DosageDialog"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "Dose Mesurement"
+        Me.Text = "Dose Dialog"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

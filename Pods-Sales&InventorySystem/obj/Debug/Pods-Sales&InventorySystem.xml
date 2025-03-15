@@ -691,10 +691,25 @@ Row event argument class
  <param name="id"></param>
  <returns></returns>
 </member>
+<member name="M:Pods_Sales_InventorySystem.BaseReturn.SelectProductReturnedByTrasaction(System.String,System.Int32)">
+ <summary>
+ To select the returned product
+ </summary>
+ <param name="transaction_number"></param>
+ <param name="product_id"></param>
+ <returns></returns>
+</member>
 <member name="M:Pods_Sales_InventorySystem.BaseTransaction.ScalarVat">
  <summary>
  Fetch vat
  </summary>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseTransaction.SelectAllTransactedItems(System.Int32)">
+ <summary>
+ To get all items by trasanction id
+ </summary>
+ <param name="transaction_id"></param>
  <returns></returns>
 </member>
 <member name="M:Pods_Sales_InventorySystem.BaseTransaction.FetchByBarcode(System.String)">
@@ -716,6 +731,45 @@ Row event argument class
  Fetch product by id
  </summary>
  <param name="id"></param>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseTransaction.FetchDiscounts">
+ <summary>
+ To fetch discounts
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseTransaction.Returnbutton(System.Int32)">
+ <summary>
+ Check if there is retrun for specific transaction
+ </summary>
+ <param name="id"></param>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseTransaction.ScalarStocks(System.Int32)">
+ <summary>
+ Get the stocks
+ </summary>
+ <param name="id"></param>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseTransaction.ScalarSales">
+ <summary>
+ get the sales for the day
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseTransaction.ScalarTransaction">
+ <summary>
+ Get the transactions for the day
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseTransaction.Search(System.String)">
+ <summary>
+ Search query
+ </summary>
+ <param name="query"></param>
  <returns></returns>
 </member>
 <member name="M:Pods_Sales_InventorySystem.InputValidation.ValidateInputString(System.Object,Pods_Sales_InventorySystem.DataInput)">

@@ -27,11 +27,6 @@
         End Try
     End Sub
 
-    'Private Sub AddDeliveryButton_Click(sender As Object, e As EventArgs)
-    '    Dim dialog As New TransactionDialog(subject:=_subject)
-    '    dialog.ShowDialog()
-    'End Sub
-
     Private Sub TransactionDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles TransactionDataGridView.CellClick
         If TransactionDataGridView.SelectedRows.Count > 0 Then
             Dim selectedRows As DataGridViewSelectedRowCollection = TransactionDataGridView.SelectedRows
@@ -49,5 +44,10 @@
             Dim Dialog As New TransactionDialog(data:=data, subject:=_subject)
             Dialog.ShowDialog()
         End If
+    End Sub
+
+    Private Sub DeliverySearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles DeliverySearchTextBox.TextChanged
+        _dataTable = BaseTransaction.Search(DeliverySearchTextBox.Text)
+        TransactionDataGridView.DataSource = _dataTable
     End Sub
 End Class
