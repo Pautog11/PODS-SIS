@@ -70,4 +70,24 @@ Public Class BaseDosageForm
             Return New DataTable
         End Try
     End Function
+
+    ''' <summary>
+    ''' Search query
+    ''' </summary>
+    ''' <param name="query"></param>
+    ''' <returns></returns>
+    Public Shared Function Search(query As String) As pods.viewtbldosageformDataTable
+        Try
+            Dim conn As New SqlConnection(My.Settings.podsdbConnectionString)
+            Dim cmd As New SqlCommand("SELECT * FROM viewtbldosageform WHERE id <> 1 AND [DOSAGE FORM] LIKE CONCAT('%', @query, '%')", conn)
+            cmd.Parameters.AddWithValue("@query", query)
+            Dim dTable As New pods.viewtbldosageformDataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New pods.viewtbldosageformDataTable
+        End Try
+    End Function
 End Class

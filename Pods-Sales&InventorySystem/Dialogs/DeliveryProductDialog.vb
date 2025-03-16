@@ -110,11 +110,19 @@ Public Class DeliveryProductDialog
                 For Each item As DataGridViewRow In _parent.DeliveryDataGridView.Rows
                     If CInt(item.Cells("id").Value) = id Then
                         If item.Cells("price").Value.ToString() <> sellingprice.ToString("F2") OrElse item.Cells("cost_price").Value.ToString() <> costprice.ToString("F2") Then
-                            MessageBox.Show("You cannot set a different price for the same product!.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            Exit Sub
+
+                            If AddDeliveryButton.Text = "Update" Then
+                                MsgBox("update")
+                                Exit For
+                            Else
+                                MessageBox.Show("You cannot set a different price for the same product!.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                Exit Sub
+                            End If
                         End If
                     End If
+                Next
 
+                For Each item As DataGridViewRow In _parent.DeliveryDataGridView.Rows
                     If DateTimePicker.Enabled = True Then
                         If item.Cells("product").Value.ToString() = ProductTextBox.Text AndAlso item.Cells("expiry_date").Value = exd.ToString("yyyy-MM-dd") AndAlso item.Cells("batch_number").Value = BatchTextBox.Text Then
                             If DateTimePicker.Enabled = True Then
@@ -126,11 +134,15 @@ Public Class DeliveryProductDialog
                                 'update
                                 If item.Cells("target").Value = _data.Item("target") Then
                                     'update selected row, no adding quantity
+                                    item.Cells("price").Value = SellingTextBox.Text
+                                    item.Cells("cost_price").Value = CostTextBox.Text
                                     item.Cells("quantity").Value = QuantityTextBox.Text
                                     item.Cells("total").Value = Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text)
                                 Else
                                     'When changes occur, it will check first if there is the same item in the delivery cart, and if it is true, it will add the quantity.
                                     Dim quantity As Integer = CInt(QuantityTextBox.Text) + item.Cells("quantity").Value
+                                    item.Cells("price").Value = SellingTextBox.Text
+                                    item.Cells("cost_price").Value = CostTextBox.Text
                                     item.Cells("quantity").Value = quantity
                                     item.Cells("total").Value = Decimal.Parse(CostTextBox.Text) * CInt(quantity)
 
@@ -139,6 +151,8 @@ Public Class DeliveryProductDialog
                             Else
                                 'if exist
                                 Dim quantity As Integer = CInt(QuantityTextBox.Text) + item.Cells("quantity").Value
+                                item.Cells("price").Value = SellingTextBox.Text
+                                item.Cells("cost_price").Value = CostTextBox.Text
                                 item.Cells("quantity").Value = quantity
                                 item.Cells("total").Value = Decimal.Parse(CostTextBox.Text) * CInt(quantity)
                             End If
@@ -152,9 +166,13 @@ Public Class DeliveryProductDialog
 
                             If _data Is Nothing Then
                                 Dim quantity As Integer = CInt(QuantityTextBox.Text) + item.Cells("quantity").Value
+                                item.Cells("price").Value = SellingTextBox.Text
+                                item.Cells("cost_price").Value = CostTextBox.Text
                                 item.Cells("quantity").Value = quantity
                                 item.Cells("total").Value = Decimal.Parse(CostTextBox.Text) * CInt(quantity)
                             Else
+                                item.Cells("price").Value = SellingTextBox.Text
+                                item.Cells("cost_price").Value = CostTextBox.Text
                                 item.Cells("quantity").Value = QuantityTextBox.Text
                                 item.Cells("total").Value = Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text)
                             End If
@@ -162,41 +180,6 @@ Public Class DeliveryProductDialog
                             Exit For
                         End If
                     End If
-
-                    '===============================================================================================================
-                    'If item.Cells("product").Value.ToString() = ProductTextBox.Text AndAlso item.Cells("expiry_date").Value = exd.ToString("yyyy-MM-dd") AndAlso item.Cells("batch_number").Value = BatchTextBox.Text Then
-                    '    If DateTimePicker.Enabled = True Then
-                    '        item.Cells("expiry_date").Value = exd.ToString("yyyy-MM-dd")
-                    '        item.Cells("batch_number").Value = BatchTextBox.Text
-                    '        'Else
-                    '        '    item.Cells("batch_number").Value = ""
-                    '        '    item.Cells("expiry_date").Value = ""
-                    '    End If
-
-                    '    If _data IsNot Nothing Then
-                    '        'update
-                    '        If item.Cells("target").Value = _data.Item("target") Then
-                    '            'update selected row, no adding quantity
-                    '            item.Cells("quantity").Value = QuantityTextBox.Text
-                    '            item.Cells("total").Value = Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text)
-                    '        Else
-                    '            'When changes occur, it will check first if there is the same item in the delivery cart, and if it is true, it will add the quantity.
-                    '            Dim quantity As Integer = CInt(QuantityTextBox.Text) + item.Cells("quantity").Value
-                    '            item.Cells("quantity").Value = quantity
-                    '            item.Cells("total").Value = Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text)
-
-                    '            swicth = 1
-                    '        End If
-                    '    Else
-                    '        'if existing
-                    '        Dim quantity As Integer = CInt(QuantityTextBox.Text) + item.Cells("quantity").Value
-                    '        item.Cells("quantity").Value = quantity
-                    '        item.Cells("total").Value = Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text)
-                    '    End If
-
-                    '    is_existing = True
-                    '    Exit For
-                    'End If
                 Next
 
                 If is_existing = True Then

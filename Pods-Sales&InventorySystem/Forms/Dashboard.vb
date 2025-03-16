@@ -12,7 +12,7 @@ Public Class Dashboard
     End Sub
 
     Private Sub Dashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'NotificationDataGridView.Rows.Add("Hello")
+        NotificationDataGridView.Rows.Add("Hello")
     End Sub
 
     Public Sub RegisterObserver(o As IObserverPanel) Implements IObservablePanel.RegisterObserver

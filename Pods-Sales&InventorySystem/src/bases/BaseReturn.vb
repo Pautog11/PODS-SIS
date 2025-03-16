@@ -42,11 +42,12 @@ Public Class BaseReturn
                 If item IsNot Nothing AndAlso item.Count > 0 Then
                     ' Insert into tbldeliveries_items
                     _sqlCommand.Parameters.Clear()
-                    _sqlCommand = New SqlCommand("INSERT INTO tblreturn_items (tblreturn_id, product_id, price, quantity) VALUES (@tblreturn_id, @product_id, @price, @quantity); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
+                    _sqlCommand = New SqlCommand("INSERT INTO tblreturn_items (tblreturn_id, product_id, price, quantity, remaining_quantity) VALUES (@tblreturn_id, @product_id, @price, @quantity, @remaining_quantity); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
                     _sqlCommand.Parameters.AddWithValue("@tblreturn_id", deliveryId)
                     _sqlCommand.Parameters.AddWithValue("@product_id", item("id"))
                     _sqlCommand.Parameters.AddWithValue("@price", item("price"))
                     _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
+                    _sqlCommand.Parameters.AddWithValue("@remaining_quantity", item("quantity"))
 
                     If _sqlCommand.ExecuteNonQuery <= 0 Then
                         Throw New Exception("Failed to add return items!")
@@ -155,6 +156,32 @@ Public Class BaseReturn
                                   WHERE transaction_number = @transaction_number AND product_id = @product_id", conn)
             cmd.Parameters.AddWithValue("@transaction_number", transaction_number)
             cmd.Parameters.AddWithValue("@product_id", product_id)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
+        End Try
+    End Function
+
+    ''' <summary>
+    ''' Fetch the product returned
+    ''' </summary>
+    ''' <param name="id"></param>
+    ''' <returns></returns>
+    Public Shared Function SelectProductReturned(id As Integer) As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("SELECT c.id, product_name, b.price, remaining_quantity, batch_number, expiration_date FROM tblreturns a
+                                  JOIN tblreturn_items b ON a.id = b.tblreturn_id
+                                  JOIN tblproducts c ON b.product_id = c.id
+                                  JOIN getrev d ON a.transaction_id = d.transaction_id
+                                  JOIN tbldeliveries_items e ON d.delivery_id = e.delivery_id
+                                  WHERE b.id = @id", conn)
+            cmd.Parameters.AddWithValue("@id", id)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
             adapter.Fill(dTable)

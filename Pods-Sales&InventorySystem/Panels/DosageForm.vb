@@ -41,4 +41,9 @@
 
         End Try
     End Sub
+
+    Private Sub DosageFormSearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles DosageFormSearchTextBox.TextChanged
+        _dataTable = BaseDosageForm.Search(DosageFormSearchTextBox.Text)
+        DosageFormDataGridView.DataSource = _dataTable
+    End Sub
 End Class

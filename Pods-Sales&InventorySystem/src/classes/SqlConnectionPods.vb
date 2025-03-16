@@ -1,7 +1,7 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class SqlConnectionPods
-    Private Shared ReadOnly _sqlConnection As New SqlConnection("Data Source=.;Initial Catalog=podsdb;User ID=admin;Password=admin;")
+    Private Shared ReadOnly _sqlConnection As New SqlConnection(My.Settings.con) '"Data Source=.;Initial Catalog=podsdb;User ID=admin;Password=admin;")
     ''' <summary>
     ''' Connection string for all operation
     ''' </summary>
@@ -19,7 +19,7 @@ Public Class SqlConnectionPods
             End If
             Return _sqlConnection
         Catch ex As Exception
-            MsgBox(ex.Message)
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return Nothing
         End Try
     End Function

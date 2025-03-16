@@ -25,6 +25,7 @@ Public Class ReturnCartDialog
                 ReturnDatePicker.Value = _data.Item("date")
 
                 TransactionTextBox.Enabled = False
+                BackInventoryButton.Visible = False
                 'Guna2Button1.Enabled = False
                 'Guna2Button2.Enabled = False
                 'AddInventoryButton.Visible = False
@@ -111,12 +112,29 @@ Public Class ReturnCartDialog
                         {"target", If(row.Cells(5).Value?.ToString(), "0")},
                         {"reference", If(_data.Item("ref"), "0")}
                     }
-                    Dim dialog As New ReturnDialog(data2:=data, parent:=Me)
-                    dialog.ShowDialog()
+                    Using dialog As New ReturnDialog(data2:=data, parent:=Me)
+                        dialog.ShowDialog()
+                    End Using
+                End If
+            End If
+
+            If _data2 IsNot Nothing Then
+                If ReturnDataGridView.Rows.Count > 0 Then
+                    Dim row As DataGridViewRow = ReturnDataGridView.SelectedRows(0)
+                    Dim data As New Dictionary(Of String, String) From {
+                        {"id", If(row.Cells(0).Value?.ToString(), "0")}
+                    }
+                    Using dialog As New ReturnProductDialog(parent:=Me, data:=data)
+                        dialog.ShowDialog()
+                    End Using
                 End If
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
+    End Sub
+
+    Private Sub BackInventoryButton_Click(sender As Object, e As EventArgs) Handles BackInventoryButton.Click
+
     End Sub
 End Class

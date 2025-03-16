@@ -20,6 +20,7 @@ Public Class ReturnDialog
         Try
             If _data IsNot Nothing Then
                 dt = BaseReturn.SelectTransactionbyTransaction_id(_data.Item("delivery_id"))
+                ProductComboBox.DropDownHeight = 5 * ProductComboBox.ItemHeight
                 ProductComboBox.DataSource = dt.DefaultView
                 ProductComboBox.DisplayMember = "name"
 
@@ -39,6 +40,7 @@ Public Class ReturnDialog
 
             ElseIf _data2 IsNot Nothing Then
                 Dim dt As DataTable = BaseReturn.SelectProductReturnedByTrasaction(_data2.Item("reference"), _data2.Item("id"))
+                ProductComboBox.DropDownHeight = 5 * ProductComboBox.ItemHeight
                 ProductComboBox.DataSource = dt.DefaultView
                 ProductComboBox.DisplayMember = "product_name"
                 If dt.Rows.Count > 0 Then
@@ -116,6 +118,7 @@ Public Class ReturnDialog
                 Me.Close()
             Else
                 MessageBox.Show("Invalid quantity!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                QuantityTextBox.Text = ""
             End If
         Catch ex As Exception
             MsgBox(ex.Message)

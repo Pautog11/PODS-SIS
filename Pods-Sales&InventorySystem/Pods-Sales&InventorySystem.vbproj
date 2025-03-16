@@ -205,6 +205,12 @@
     <Compile Include="Dialogs\ReturnInventoryDialog.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Dialogs\ReturnProductDialog.Designer.vb">
+      <DependentUpon>ReturnProductDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ReturnProductDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Panels\PosPanel.Designer.vb">
       <DependentUpon>PosPanel.vb</DependentUpon>
     </Compile>
@@ -627,6 +633,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ReturnInventoryDialog.resx">
       <DependentUpon>ReturnInventoryDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\ReturnProductDialog.resx">
+      <DependentUpon>ReturnProductDialog.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\PosPanel.resx">
       <DependentUpon>PosPanel.vb</DependentUpon>

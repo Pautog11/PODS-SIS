@@ -70,4 +70,24 @@ Public Class BaseDosage
             Return 0
         End Try
     End Function
+
+    ''' <summary>
+    ''' Search query
+    ''' </summary>
+    ''' <param name="query"></param>
+    ''' <returns></returns>
+    Public Shared Function Search(query As String) As pods.viewtbldosageDataTable
+        Try
+            Dim conn As New SqlConnection(My.Settings.podsdbConnectionString)
+            Dim cmd As New SqlCommand("SELECT * FROM viewtbldosage WHERE id <> 1 AND DOSAGE LIKE CONCAT('%', @query, '%')", conn)
+            cmd.Parameters.AddWithValue("@query", query)
+            Dim dTable As New pods.viewtbldosageDataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New pods.viewtbldosageDataTable
+        End Try
+    End Function
 End Class
