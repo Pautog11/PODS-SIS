@@ -37,6 +37,7 @@ Public Class DeliveryCartDialog
                 SaveButton.Visible = False
                 SupplierNameComboBox.Enabled = False
                 DatePicker.Enabled = False
+                AddDeductionButton.Visible = False
 
                 SupplierNameComboBox.Text = _data.Item("supplier_id")
                 TotalPrice.Text = _data.Item("total")
@@ -162,6 +163,7 @@ Public Class DeliveryCartDialog
                         {"batch_number", If(row.Cells(3).Value?.ToString(), "")},
                         {"selling_price", If(row.Cells(4).Value?.ToString(), "0")},
                         {"cost_price", If(row.Cells(5).Value?.ToString(), "0")},
+                        {"quantity", If(row.Cells(6).Value?.ToString(), "0")},
                         {"target", If(row.Cells(8).Value?.ToString(), "0")}
                     }
                     Dim dialog As New DeliveryProductDialog(data:=data, parent:=Me)

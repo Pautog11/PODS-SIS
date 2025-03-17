@@ -67,13 +67,22 @@ Public Class BaseReturn
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT b.id, 
-                                         b.product_name as name, 
-                                         a.price, 
-                                         a.quantity
-                                  FROM tbltransaction_items a
-                                  JOIN tblproducts b ON b.id = a.product_id
-                                  WHERE transaction_id = @transaction_id", conn)
+            'cmd = New SqlCommand("SELECT b.id, 
+            '                             b.product_name as name, 
+            '                             a.price, 
+            '                             a.quantity
+            '                      FROM tbltransaction_items a
+            '                      JOIN tblproducts b ON b.id = a.product_id
+            '                      WHERE transaction_id = @transaction_id", conn)
+
+            cmd = New SqlCommand("SELECT c.id,
+                                         product_name AS name, 
+                                         (price - ((price / subtotal) * (subtotal * (discount/100)))) AS price, 
+                                         quantity 
+                                  FROM tbltransactions a
+                                  JOIN tbltransaction_items b ON a.id = b.transaction_id 
+                                  JOIN tblproducts c ON b.product_id = c.id
+                                  WHERE a.id = @transaction_id", conn)
             cmd.Parameters.AddWithValue("@transaction_id", transaction_id)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
@@ -150,7 +159,11 @@ Public Class BaseReturn
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT product_id, product_name, price, quantity FROM tbltransactions a 
+            'cmd = New SqlCommand("SELECT product_id, product_name, price, quantity FROM tbltransactions a 
+            '                      JOIN tbltransaction_items b ON a.id = b.transaction_id 
+            '                      JOIN tblproducts c ON b.product_id = c.id
+            '                      WHERE transaction_number = @transaction_number AND product_id = @product_id", conn)
+            cmd = New SqlCommand("SELECT product_id, product_name, (price - ((price / subtotal) * (subtotal * (discount/100)))) AS price, quantity FROM tbltransactions a 
                                   JOIN tbltransaction_items b ON a.id = b.transaction_id 
                                   JOIN tblproducts c ON b.product_id = c.id
                                   WHERE transaction_number = @transaction_number AND product_id = @product_id", conn)
@@ -175,12 +188,20 @@ Public Class BaseReturn
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT c.id, product_name, b.price, remaining_quantity, batch_number, expiration_date FROM tblreturns a
+            cmd = New SqlCommand("SELECT c.id, 
+                                         product_name, 
+                                         b.price, 
+                                         remaining_quantity, 
+                                         batch_number, 
+                                         FORMAT(expiration_date, 'MMM dd yyyy') AS expiration_date, 
+                                         d.delivery_id 
+                                  FROM tblreturns a
                                   JOIN tblreturn_items b ON a.id = b.tblreturn_id
                                   JOIN tblproducts c ON b.product_id = c.id
                                   JOIN getrev d ON a.transaction_id = d.transaction_id
-                                  JOIN tbldeliveries_items e ON d.delivery_id = e.delivery_id
-                                  WHERE b.id = @id", conn)
+                                  JOIN tbldeliveries_items e ON d.delivery_id = e.delivery_id AND c.id = e.product_id
+                                  WHERE b.id = @id
+								  GROUP BY c.id, product_name, b.price, remaining_quantity, batch_number, expiration_date, d.delivery_id", conn)
             cmd.Parameters.AddWithValue("@id", id)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
@@ -189,6 +210,66 @@ Public Class BaseReturn
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return New DataTable
+        End Try
+    End Function
+
+    ''' <summary>
+    ''' To add items on item deliveries
+    ''' </summary>
+    ''' <param name="_data"></param>
+    ''' <returns></returns>
+    Public Shared Function Update_deliveries(_data)
+        Dim transaction As SqlTransaction = SqlConnectionPods.GetInstance.BeginTransaction()
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("UPDATE tbldeliveries_items SET inventory_quantity = inventory_quantity + @inventory_quantity 
+                                  WHERE delivery_id = @delivery_id AND 
+                                        product_id = @product_id AND 
+                                        batch_number = @batch_number AND 
+                                        expiration_date = @expiration_date", conn, transaction)
+            cmd.Parameters.AddWithValue("@inventory_quantity", _data.item("inventory_quantity"))
+            cmd.Parameters.AddWithValue("@delivery_id", _data.item("delivery_id"))
+            cmd.Parameters.AddWithValue("@product_id", _data.item("product_id"))
+            cmd.Parameters.AddWithValue("@batch_number", _data.item("batch_number"))
+            cmd.Parameters.AddWithValue("@expiration_date", _data.item("expiration_date"))
+
+            'If String.IsNullOrEmpty(_data.item("batch_number").ToString()) Then
+            '    cmd.Parameters.AddWithValue("@batch_number", DBNull.Value)
+            'Else
+            '    cmd.Parameters.AddWithValue("@batch_number", _data.item("batch_number"))
+            'End If
+
+            'If String.IsNullOrEmpty(_data.item("expiration_date").ToString()) Then
+            '    cmd.Parameters.AddWithValue("@expiration_date", DBNull.Value)
+            'Else
+            '    cmd.Parameters.AddWithValue("@expiration_date", _data.item("expiration_date"))
+            'End If
+
+            If cmd.ExecuteNonQuery() <= 0 Then
+                MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+
+
+
+
+
+
+            cmd.Parameters.Clear()
+            cmd = New SqlCommand("UPDATE tblreturn_items SET remaining_quantity = remaining_quantity - @remaining_quantity WHERE id = @id", conn, transaction)
+            cmd.Parameters.AddWithValue("@remaining_quantity", _data.item("inventory_quantity"))
+            cmd.Parameters.AddWithValue("@id", _data.item("id"))
+
+            If cmd.ExecuteNonQuery() <= 0 Then
+                MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+
+            transaction.Commit()
+            Return Nothing
+        Catch ex As Exception
+            transaction.Rollback()
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return Nothing
         End Try
     End Function
 End Class

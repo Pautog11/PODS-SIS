@@ -10,7 +10,7 @@ Public Class Server
                 ServerTextBox, UsernameTextBox, PasswordTextBox
             }
             Dim types As DataInput() = {
-                DataInput.STRING_STRING, DataInput.STRING_NAME, DataInput.STRING_NAME
+                DataInput.STRING_STRING, DataInput.STRING_STRING, DataInput.STRING_STRING
             }
             Dim result As New List(Of Object())
             For i = 0 To controls.Count - 1
@@ -32,7 +32,9 @@ Public Class Server
             'DatabaseComboBox.DisplayMember = "name"
             MessageBox.Show("Test connection success!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Error")
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            UsernameTextBox.Text = ""
+            PasswordTextBox.Text = ""
         End Try
     End Sub
 

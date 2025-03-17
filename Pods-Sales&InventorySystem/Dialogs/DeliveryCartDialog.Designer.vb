@@ -22,9 +22,9 @@ Partial Class DeliveryCartDialog
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle23 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.AccountHeaderLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -39,10 +39,6 @@ Partial Class DeliveryCartDialog
         Me.Guna2HtmlLabel3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.TotalPrice = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.SaveButton = New Guna.UI2.WinForms.Guna2Button()
-        Me.EditButton = New Guna.UI2.WinForms.Guna2Button()
-        Me.AddItemButton = New Guna.UI2.WinForms.Guna2Button()
         Me.DeliveryDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.product = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -55,16 +51,20 @@ Partial Class DeliveryCartDialog
         Me.target = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EDIT = New System.Windows.Forms.DataGridViewImageColumn()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.SaveButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.EditButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.AddItemButton = New Guna.UI2.WinForms.Guna2Button()
         Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
+        Me.AddDeductionButton = New Guna.UI2.WinForms.Guna2Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.AccountHeaderLayoutPanel.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
-        Me.FlowLayoutPanel2.SuspendLayout()
         CType(Me.DeliveryDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel2.SuspendLayout()
+        Me.FlowLayoutPanel2.SuspendLayout()
         Me.FlowLayoutPanel3.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -263,101 +263,31 @@ Partial Class DeliveryCartDialog
         Me.Guna2HtmlLabel1.TabIndex = 1
         Me.Guna2HtmlLabel1.Text = "Subtotal"
         '
-        'FlowLayoutPanel2
-        '
-        Me.FlowLayoutPanel2.Controls.Add(Me.SaveButton)
-        Me.FlowLayoutPanel2.Controls.Add(Me.EditButton)
-        Me.FlowLayoutPanel2.Controls.Add(Me.AddItemButton)
-        Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.FlowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
-        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(386, 0)
-        Me.FlowLayoutPanel2.Margin = New System.Windows.Forms.Padding(0)
-        Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(581, 50)
-        Me.FlowLayoutPanel2.TabIndex = 7
-        '
-        'SaveButton
-        '
-        Me.SaveButton.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.SaveButton.BackColor = System.Drawing.Color.Transparent
-        Me.SaveButton.BorderRadius = 15
-        Me.SaveButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.SaveButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.SaveButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.SaveButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.SaveButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.SaveButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.SaveButton.ForeColor = System.Drawing.Color.White
-        Me.SaveButton.Location = New System.Drawing.Point(421, 7)
-        Me.SaveButton.Margin = New System.Windows.Forms.Padding(3, 7, 10, 3)
-        Me.SaveButton.Name = "SaveButton"
-        Me.SaveButton.Size = New System.Drawing.Size(150, 35)
-        Me.SaveButton.TabIndex = 6
-        Me.SaveButton.Text = "Save"
-        '
-        'EditButton
-        '
-        Me.EditButton.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.EditButton.BackColor = System.Drawing.Color.Transparent
-        Me.EditButton.BorderRadius = 15
-        Me.EditButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.EditButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.EditButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.EditButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.EditButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.EditButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.EditButton.ForeColor = System.Drawing.Color.White
-        Me.EditButton.Location = New System.Drawing.Point(265, 7)
-        Me.EditButton.Margin = New System.Windows.Forms.Padding(3, 7, 3, 3)
-        Me.EditButton.Name = "EditButton"
-        Me.EditButton.Size = New System.Drawing.Size(150, 35)
-        Me.EditButton.TabIndex = 7
-        Me.EditButton.Text = "Edit"
-        '
-        'AddItemButton
-        '
-        Me.AddItemButton.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.AddItemButton.BackColor = System.Drawing.Color.Transparent
-        Me.AddItemButton.BorderRadius = 15
-        Me.AddItemButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.AddItemButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.AddItemButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.AddItemButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.AddItemButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.AddItemButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.AddItemButton.ForeColor = System.Drawing.Color.White
-        Me.AddItemButton.Location = New System.Drawing.Point(109, 7)
-        Me.AddItemButton.Margin = New System.Windows.Forms.Padding(3, 7, 3, 3)
-        Me.AddItemButton.Name = "AddItemButton"
-        Me.AddItemButton.Size = New System.Drawing.Size(150, 35)
-        Me.AddItemButton.TabIndex = 8
-        Me.AddItemButton.Text = "Add"
-        '
         'DeliveryDataGridView
         '
         Me.DeliveryDataGridView.AllowUserToAddRows = False
         Me.DeliveryDataGridView.AllowUserToDeleteRows = False
         Me.DeliveryDataGridView.AllowUserToResizeColumns = False
         Me.DeliveryDataGridView.AllowUserToResizeRows = False
-        DataGridViewCellStyle22.BackColor = System.Drawing.Color.White
-        Me.DeliveryDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle22
-        DataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle23.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle23.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DeliveryDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle23
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
+        Me.DeliveryDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DeliveryDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.DeliveryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.product, Me.expiry_date, Me.batch_number, Me.price, Me.cost_price, Me.quantity, Me.total, Me.target, Me.EDIT})
-        DataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle24.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle24.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle24.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DeliveryDataGridView.DefaultCellStyle = DataGridViewCellStyle24
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DeliveryDataGridView.DefaultCellStyle = DataGridViewCellStyle6
         Me.DeliveryDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DeliveryDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DeliveryDataGridView.Location = New System.Drawing.Point(0, 100)
@@ -470,9 +400,79 @@ Partial Class DeliveryCartDialog
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(967, 50)
         Me.TableLayoutPanel2.TabIndex = 7
         '
+        'FlowLayoutPanel2
+        '
+        Me.FlowLayoutPanel2.Controls.Add(Me.SaveButton)
+        Me.FlowLayoutPanel2.Controls.Add(Me.EditButton)
+        Me.FlowLayoutPanel2.Controls.Add(Me.AddItemButton)
+        Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FlowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
+        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(386, 0)
+        Me.FlowLayoutPanel2.Margin = New System.Windows.Forms.Padding(0)
+        Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(581, 50)
+        Me.FlowLayoutPanel2.TabIndex = 7
+        '
+        'SaveButton
+        '
+        Me.SaveButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.SaveButton.BackColor = System.Drawing.Color.Transparent
+        Me.SaveButton.BorderRadius = 15
+        Me.SaveButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.SaveButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.SaveButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.SaveButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.SaveButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.SaveButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.SaveButton.ForeColor = System.Drawing.Color.White
+        Me.SaveButton.Location = New System.Drawing.Point(421, 7)
+        Me.SaveButton.Margin = New System.Windows.Forms.Padding(3, 7, 10, 3)
+        Me.SaveButton.Name = "SaveButton"
+        Me.SaveButton.Size = New System.Drawing.Size(150, 35)
+        Me.SaveButton.TabIndex = 6
+        Me.SaveButton.Text = "Save"
+        '
+        'EditButton
+        '
+        Me.EditButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.EditButton.BackColor = System.Drawing.Color.Transparent
+        Me.EditButton.BorderRadius = 15
+        Me.EditButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.EditButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.EditButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.EditButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.EditButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.EditButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.EditButton.ForeColor = System.Drawing.Color.White
+        Me.EditButton.Location = New System.Drawing.Point(265, 7)
+        Me.EditButton.Margin = New System.Windows.Forms.Padding(3, 7, 3, 3)
+        Me.EditButton.Name = "EditButton"
+        Me.EditButton.Size = New System.Drawing.Size(150, 35)
+        Me.EditButton.TabIndex = 7
+        Me.EditButton.Text = "Edit"
+        '
+        'AddItemButton
+        '
+        Me.AddItemButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.AddItemButton.BackColor = System.Drawing.Color.Transparent
+        Me.AddItemButton.BorderRadius = 15
+        Me.AddItemButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.AddItemButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.AddItemButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.AddItemButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.AddItemButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.AddItemButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.AddItemButton.ForeColor = System.Drawing.Color.White
+        Me.AddItemButton.Location = New System.Drawing.Point(109, 7)
+        Me.AddItemButton.Margin = New System.Windows.Forms.Padding(3, 7, 3, 3)
+        Me.AddItemButton.Name = "AddItemButton"
+        Me.AddItemButton.Size = New System.Drawing.Size(150, 35)
+        Me.AddItemButton.TabIndex = 8
+        Me.AddItemButton.Text = "Add"
+        '
         'FlowLayoutPanel3
         '
-        Me.FlowLayoutPanel3.Controls.Add(Me.Guna2Button1)
+        Me.FlowLayoutPanel3.Controls.Add(Me.AddDeductionButton)
         Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel3.Location = New System.Drawing.Point(0, 0)
         Me.FlowLayoutPanel3.Margin = New System.Windows.Forms.Padding(0)
@@ -480,24 +480,24 @@ Partial Class DeliveryCartDialog
         Me.FlowLayoutPanel3.Size = New System.Drawing.Size(386, 50)
         Me.FlowLayoutPanel3.TabIndex = 8
         '
-        'Guna2Button1
+        'AddDeductionButton
         '
-        Me.Guna2Button1.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.Guna2Button1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Button1.BorderRadius = 15
-        Me.Guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.Guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.Guna2Button1.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.Guna2Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Guna2Button1.ForeColor = System.Drawing.Color.White
-        Me.Guna2Button1.Location = New System.Drawing.Point(10, 7)
-        Me.Guna2Button1.Margin = New System.Windows.Forms.Padding(10, 7, 3, 3)
-        Me.Guna2Button1.Name = "Guna2Button1"
-        Me.Guna2Button1.Size = New System.Drawing.Size(150, 35)
-        Me.Guna2Button1.TabIndex = 9
-        Me.Guna2Button1.Text = "Add Deductions"
+        Me.AddDeductionButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.AddDeductionButton.BackColor = System.Drawing.Color.Transparent
+        Me.AddDeductionButton.BorderRadius = 15
+        Me.AddDeductionButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.AddDeductionButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.AddDeductionButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.AddDeductionButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.AddDeductionButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.AddDeductionButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.AddDeductionButton.ForeColor = System.Drawing.Color.White
+        Me.AddDeductionButton.Location = New System.Drawing.Point(10, 7)
+        Me.AddDeductionButton.Margin = New System.Windows.Forms.Padding(10, 7, 3, 3)
+        Me.AddDeductionButton.Name = "AddDeductionButton"
+        Me.AddDeductionButton.Size = New System.Drawing.Size(150, 35)
+        Me.AddDeductionButton.TabIndex = 9
+        Me.AddDeductionButton.Text = "Add Deductions"
         '
         'DeliveryCartDialog
         '
@@ -520,9 +520,9 @@ Partial Class DeliveryCartDialog
         Me.FlowLayoutPanel1.PerformLayout()
         Me.Guna2Panel1.ResumeLayout(False)
         Me.Guna2Panel1.PerformLayout()
-        Me.FlowLayoutPanel2.ResumeLayout(False)
         CType(Me.DeliveryDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel2.ResumeLayout(False)
+        Me.FlowLayoutPanel2.ResumeLayout(False)
         Me.FlowLayoutPanel3.ResumeLayout(False)
         Me.ResumeLayout(False)
 
@@ -559,5 +559,5 @@ Partial Class DeliveryCartDialog
     Friend WithEvents AddItemButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents FlowLayoutPanel3 As FlowLayoutPanel
-    Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents AddDeductionButton As Guna.UI2.WinForms.Guna2Button
 End Class

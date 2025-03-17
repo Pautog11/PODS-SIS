@@ -31,7 +31,7 @@
                   {"total", row.Cells(4).Value.ToString},
                   {"date", row.Cells(5).Value.ToString}
                 }
-                Dim dialog As New ReturnCartDialog(data2:=data)
+                Dim dialog As New ReturnCartDialog(data2:=data, subject:=_subject)
                 dialog.AddReturnButton.Visible = False
 
                 dialog.ReturnDataGridView.Rows.Clear()

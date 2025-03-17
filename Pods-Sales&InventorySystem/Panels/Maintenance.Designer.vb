@@ -95,10 +95,10 @@ Partial Class Maintenance
         '
         Me.Accounts.BackColor = System.Drawing.Color.White
         Me.Accounts.Controls.Add(Me.Account1)
-        Me.Accounts.Location = New System.Drawing.Point(4, 44)
+        Me.Accounts.Location = New System.Drawing.Point(4, 84)
         Me.Accounts.Margin = New System.Windows.Forms.Padding(0)
         Me.Accounts.Name = "Accounts"
-        Me.Accounts.Size = New System.Drawing.Size(1626, 660)
+        Me.Accounts.Size = New System.Drawing.Size(1286, 670)
         Me.Accounts.TabIndex = 12
         Me.Accounts.Text = "Accounts"
         '
@@ -107,7 +107,7 @@ Partial Class Maintenance
         Me.Categories.Controls.Add(Me.Category1)
         Me.Categories.Location = New System.Drawing.Point(4, 44)
         Me.Categories.Name = "Categories"
-        Me.Categories.Size = New System.Drawing.Size(1626, 660)
+        Me.Categories.Size = New System.Drawing.Size(1286, 710)
         Me.Categories.TabIndex = 7
         Me.Categories.Text = "Categories"
         Me.Categories.UseVisualStyleBackColor = True
@@ -117,7 +117,7 @@ Partial Class Maintenance
         Me.SubCategory.Controls.Add(Me.SubCategory1)
         Me.SubCategory.Location = New System.Drawing.Point(4, 44)
         Me.SubCategory.Name = "SubCategory"
-        Me.SubCategory.Size = New System.Drawing.Size(1626, 660)
+        Me.SubCategory.Size = New System.Drawing.Size(1286, 710)
         Me.SubCategory.TabIndex = 3
         Me.SubCategory.Text = "Subcategories"
         Me.SubCategory.UseVisualStyleBackColor = True
@@ -127,7 +127,7 @@ Partial Class Maintenance
         Me.Suppliers.Controls.Add(Me.Supplier1)
         Me.Suppliers.Location = New System.Drawing.Point(4, 44)
         Me.Suppliers.Name = "Suppliers"
-        Me.Suppliers.Size = New System.Drawing.Size(1626, 660)
+        Me.Suppliers.Size = New System.Drawing.Size(1286, 710)
         Me.Suppliers.TabIndex = 4
         Me.Suppliers.Text = "Suppliers"
         Me.Suppliers.UseVisualStyleBackColor = True
@@ -137,7 +137,7 @@ Partial Class Maintenance
         Me.Vat.Controls.Add(Me.Vat1)
         Me.Vat.Location = New System.Drawing.Point(4, 44)
         Me.Vat.Name = "Vat"
-        Me.Vat.Size = New System.Drawing.Size(1626, 660)
+        Me.Vat.Size = New System.Drawing.Size(1286, 710)
         Me.Vat.TabIndex = 8
         Me.Vat.Text = "Vat"
         Me.Vat.UseVisualStyleBackColor = True
@@ -147,7 +147,7 @@ Partial Class Maintenance
         Me.Discounts.Controls.Add(Me.Discount1)
         Me.Discounts.Location = New System.Drawing.Point(4, 44)
         Me.Discounts.Name = "Discounts"
-        Me.Discounts.Size = New System.Drawing.Size(1626, 660)
+        Me.Discounts.Size = New System.Drawing.Size(1286, 710)
         Me.Discounts.TabIndex = 9
         Me.Discounts.Text = "Discounts"
         Me.Discounts.UseVisualStyleBackColor = True
@@ -158,7 +158,7 @@ Partial Class Maintenance
         Me.Dosage.Location = New System.Drawing.Point(4, 44)
         Me.Dosage.Margin = New System.Windows.Forms.Padding(0)
         Me.Dosage.Name = "Dosage"
-        Me.Dosage.Size = New System.Drawing.Size(1626, 660)
+        Me.Dosage.Size = New System.Drawing.Size(1286, 710)
         Me.Dosage.TabIndex = 10
         Me.Dosage.Text = "Dosage"
         Me.Dosage.UseVisualStyleBackColor = True
@@ -166,9 +166,9 @@ Partial Class Maintenance
         'Dosage_Form
         '
         Me.Dosage_Form.Controls.Add(Me.DosageForm1)
-        Me.Dosage_Form.Location = New System.Drawing.Point(4, 44)
+        Me.Dosage_Form.Location = New System.Drawing.Point(4, 84)
         Me.Dosage_Form.Name = "Dosage_Form"
-        Me.Dosage_Form.Size = New System.Drawing.Size(1626, 660)
+        Me.Dosage_Form.Size = New System.Drawing.Size(1286, 670)
         Me.Dosage_Form.TabIndex = 11
         Me.Dosage_Form.Text = "Dosage Form"
         Me.Dosage_Form.UseVisualStyleBackColor = True
@@ -190,7 +190,7 @@ Partial Class Maintenance
         Me.Account1.Location = New System.Drawing.Point(0, 0)
         Me.Account1.Margin = New System.Windows.Forms.Padding(0)
         Me.Account1.Name = "Account1"
-        Me.Account1.Size = New System.Drawing.Size(1626, 660)
+        Me.Account1.Size = New System.Drawing.Size(1286, 670)
         Me.Account1.TabIndex = 0
         '
         'Category1
@@ -199,7 +199,7 @@ Partial Class Maintenance
         Me.Category1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Category1.Location = New System.Drawing.Point(0, 0)
         Me.Category1.Name = "Category1"
-        Me.Category1.Size = New System.Drawing.Size(1626, 660)
+        Me.Category1.Size = New System.Drawing.Size(1286, 710)
         Me.Category1.TabIndex = 0
         '
         'SubCategory1
@@ -209,7 +209,7 @@ Partial Class Maintenance
         Me.SubCategory1.Location = New System.Drawing.Point(0, 0)
         Me.SubCategory1.Margin = New System.Windows.Forms.Padding(0)
         Me.SubCategory1.Name = "SubCategory1"
-        Me.SubCategory1.Size = New System.Drawing.Size(1626, 660)
+        Me.SubCategory1.Size = New System.Drawing.Size(1286, 710)
         Me.SubCategory1.TabIndex = 0
         '
         'Supplier1
@@ -219,7 +219,7 @@ Partial Class Maintenance
         Me.Supplier1.Location = New System.Drawing.Point(0, 0)
         Me.Supplier1.Margin = New System.Windows.Forms.Padding(0)
         Me.Supplier1.Name = "Supplier1"
-        Me.Supplier1.Size = New System.Drawing.Size(1626, 660)
+        Me.Supplier1.Size = New System.Drawing.Size(1286, 710)
         Me.Supplier1.TabIndex = 0
         '
         'Vat1
@@ -228,7 +228,7 @@ Partial Class Maintenance
         Me.Vat1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Vat1.Location = New System.Drawing.Point(0, 0)
         Me.Vat1.Name = "Vat1"
-        Me.Vat1.Size = New System.Drawing.Size(1626, 660)
+        Me.Vat1.Size = New System.Drawing.Size(1286, 710)
         Me.Vat1.TabIndex = 0
         '
         'Discount1
@@ -237,7 +237,7 @@ Partial Class Maintenance
         Me.Discount1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Discount1.Location = New System.Drawing.Point(0, 0)
         Me.Discount1.Name = "Discount1"
-        Me.Discount1.Size = New System.Drawing.Size(1626, 660)
+        Me.Discount1.Size = New System.Drawing.Size(1286, 710)
         Me.Discount1.TabIndex = 0
         '
         'Dosage1
@@ -247,7 +247,7 @@ Partial Class Maintenance
         Me.Dosage1.Location = New System.Drawing.Point(0, 0)
         Me.Dosage1.Margin = New System.Windows.Forms.Padding(0)
         Me.Dosage1.Name = "Dosage1"
-        Me.Dosage1.Size = New System.Drawing.Size(1626, 660)
+        Me.Dosage1.Size = New System.Drawing.Size(1286, 710)
         Me.Dosage1.TabIndex = 0
         '
         'DosageForm1
@@ -256,7 +256,7 @@ Partial Class Maintenance
         Me.DosageForm1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DosageForm1.Location = New System.Drawing.Point(0, 0)
         Me.DosageForm1.Name = "DosageForm1"
-        Me.DosageForm1.Size = New System.Drawing.Size(1626, 660)
+        Me.DosageForm1.Size = New System.Drawing.Size(1286, 670)
         Me.DosageForm1.TabIndex = 0
         '
         'ReturnCode1

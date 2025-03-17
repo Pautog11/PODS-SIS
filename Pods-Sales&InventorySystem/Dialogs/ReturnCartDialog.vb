@@ -25,7 +25,7 @@ Public Class ReturnCartDialog
                 ReturnDatePicker.Value = _data.Item("date")
 
                 TransactionTextBox.Enabled = False
-                BackInventoryButton.Visible = False
+                'BackInventoryButton.Visible = False
                 'Guna2Button1.Enabled = False
                 'Guna2Button2.Enabled = False
                 'AddInventoryButton.Visible = False
@@ -124,7 +124,7 @@ Public Class ReturnCartDialog
                     Dim data As New Dictionary(Of String, String) From {
                         {"id", If(row.Cells(0).Value?.ToString(), "0")}
                     }
-                    Using dialog As New ReturnProductDialog(parent:=Me, data:=data)
+                    Using dialog As New ReturnProductDialog(parent:=Me, data:=data, subject:=_subject)
                         dialog.ShowDialog()
                     End Using
                 End If
@@ -132,9 +132,5 @@ Public Class ReturnCartDialog
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-    End Sub
-
-    Private Sub BackInventoryButton_Click(sender As Object, e As EventArgs) Handles BackInventoryButton.Click
-
     End Sub
 End Class
