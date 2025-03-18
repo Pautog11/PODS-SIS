@@ -23,19 +23,14 @@ Public Class ReturnCartDialog
             If _data IsNot Nothing Then
                 TransactionTextBox.Text = _data.Item("ref")
                 ReturnDatePicker.Value = _data.Item("date")
-
                 TransactionTextBox.Enabled = False
-                'BackInventoryButton.Visible = False
-                'Guna2Button1.Enabled = False
-                'Guna2Button2.Enabled = False
-                'AddInventoryButton.Visible = False
+
             ElseIf _data2 IsNot Nothing Then
                 TransactionTextBox.Text = _data2.Item("ref")
                 ReturnDatePicker.Value = _data2.Item("date")
-                'TotalPrice.Text = _dat2.Item("price")
-
                 TransactionTextBox.Enabled = False
                 SaveButton.Visible = False
+
             End If
             TransactionTextBox.Enabled = False
             ReturnDatePicker.Enabled = False
@@ -43,7 +38,6 @@ Public Class ReturnCartDialog
         Catch ex As Exception
 
         End Try
-        'MsgBox(_data.Item("delivery_id"))
     End Sub
     Private Sub AddReturnButton_Click(sender As Object, e As EventArgs) Handles AddReturnButton.Click
         Dim dialog As New ReturnDialog(data:=_data, parent:=Me)
@@ -76,8 +70,8 @@ Public Class ReturnCartDialog
                 For Each row As DataGridViewRow In ReturnDataGridView.Rows
                     Dim item As New Dictionary(Of String, String) From {
                         {"id", If(String.IsNullOrEmpty(row.Cells(0).Value?.ToString()), 0, row.Cells(0).Value?.ToString())},
-                        {"price", If(String.IsNullOrEmpty(row.Cells(2).Value?.ToString()), 0, row.Cells(2).Value?.ToString())},
-                        {"quantity", If(String.IsNullOrEmpty(row.Cells(3).Value?.ToString()), 0, row.Cells(3).Value?.ToString())}
+                        {"price", If(String.IsNullOrEmpty(row.Cells(3).Value?.ToString()), 0, row.Cells(3).Value?.ToString())},
+                        {"quantity", If(String.IsNullOrEmpty(row.Cells(4).Value?.ToString()), 0, row.Cells(4).Value?.ToString())}
                     }
                     items.Add(item)
                 Next

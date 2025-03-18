@@ -5,6 +5,7 @@ Public Class ReturnDialog
     Private ReadOnly _data2 As Dictionary(Of String, String)
     Dim dt As DataTable = Nothing
     Dim num As Integer = 1
+    Dim orig_price As Decimal = Nothing
     Dim target As Integer = Nothing
     Private ReadOnly _parent As ReturnCartDialog = Nothing
     Public Sub New(Optional data As Dictionary(Of String, String) = Nothing,
@@ -61,11 +62,12 @@ Public Class ReturnDialog
         Try
             If ProductComboBox.SelectedIndex >= 0 Then
                 Dim selectedRow As DataRowView = DirectCast(ProductComboBox.SelectedItem, DataRowView)
+                orig_price = selectedRow("orignal_price").ToString()
                 CostTextBox.Text = selectedRow("price").ToString()
                 StocksTextBox.Text = selectedRow("quantity").ToString()
             End If
         Catch ex As Exception
-
+            MsgBox(ex.Message)
         End Try
     End Sub
 
@@ -97,9 +99,10 @@ Public Class ReturnDialog
             If Not result.Any(Function(item As Object()) Not item(0)) Then
                 For Each item As DataGridViewRow In _parent.ReturnDataGridView.Rows
                     If item.Cells("PRODUCT").Value.ToString() = ProductComboBox.Text Then
-                        item.Cells("PRICE").Value = Decimal.Parse(CostTextBox.Text)
+                        item.Cells("ORIGINAL PRICE").Value = Decimal.Parse(orig_price).ToString("F2")
+                        item.Cells("PRICE").Value = Decimal.Parse(CostTextBox.Text).ToString("F2")
                         item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)
-                        item.Cells("TOTAL").Value = Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text)
+                        item.Cells("TOTAL").Value = Decimal.Parse(CDec(CostTextBox.Text) * CInt(QuantityTextBox.Text)).ToString("F2")
                         is_existing = True
                         Exit For
                     End If
@@ -107,9 +110,10 @@ Public Class ReturnDialog
                 If Not is_existing Then
                     _parent.ReturnDataGridView.Rows.Add({If(String.IsNullOrEmpty(ProductComboBox.SelectedItem("ID")), 0, ProductComboBox.SelectedItem("ID")),
                                                      If(String.IsNullOrEmpty(ProductComboBox.Text), 0, ProductComboBox.Text),
-                                                     If(String.IsNullOrEmpty(CostTextBox.Text), 0, CostTextBox.Text),
+                                                     If(String.IsNullOrEmpty(Decimal.Parse(orig_price).ToString("F2")), 0, Decimal.Parse(orig_price).ToString("F2")),
+                                                     If(String.IsNullOrEmpty(Decimal.Parse(CostTextBox.Text).ToString("F2")), 0, Decimal.Parse(CostTextBox.Text).ToString("F2")),
                                                      If(String.IsNullOrEmpty(QuantityTextBox.Text), 0, QuantityTextBox.Text),
-                                                     CDec(CostTextBox.Text) * CDec(QuantityTextBox.Text),
+                                                     Decimal.Parse(CDec(CostTextBox.Text) * CInt(QuantityTextBox.Text)).ToString("F2"),
                                                      num
                                                      })
                     num += 1

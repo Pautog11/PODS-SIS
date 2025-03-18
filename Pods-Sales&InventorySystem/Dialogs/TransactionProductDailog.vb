@@ -11,9 +11,8 @@ Public Class TransactionProductDailog
     Dim cost As Decimal = Nothing
     Public Sub New(Optional subject As IObservablePanel = Nothing,
                    Optional parent As PosPanel = Nothing,
-                   Optional data As Dictionary(Of String, String) = Nothing,',
-                   Optional dat2 As Dictionary(Of String, String) = Nothing) ',
-        'Optional dat2 As Dictionary(Of String, String) = Nothing)
+                   Optional data As Dictionary(Of String, String) = Nothing,
+                   Optional dat2 As Dictionary(Of String, String) = Nothing)
         InitializeComponent()
         _parent = parent
         _subject = subject
@@ -72,16 +71,14 @@ Public Class TransactionProductDailog
             If Not result.Any(Function(item As Object()) Not item(0)) Then
                 For Each item As DataGridViewRow In _parent.TransactionDataGridView.Rows
                     If CInt(StocksTextBox.Text) >= QuantityTextBox.Text Then
-                        'If _data IsNot Nothing Then
                         If item.Cells("ID").Value.ToString() = id Then
-                                item.Cells("PRODUCT").Value = ProductNameTextBox.Text
-                                item.Cells("PRICE").Value = Decimal.Parse(PriceTextBox.Text)
-                                item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)
-                                item.Cells("TOTAL").Value = Decimal.Parse(PriceTextBox.Text) * CInt(QuantityTextBox.Text)
-                                is_existing = True
+                            item.Cells("PRODUCT").Value = ProductNameTextBox.Text
+                            item.Cells("PRICE").Value = Decimal.Parse(PriceTextBox.Text)
+                            item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)
+                            item.Cells("TOTAL").Value = Decimal.Parse(PriceTextBox.Text) * CInt(QuantityTextBox.Text)
+                            is_existing = True
                             Exit For
                         End If
-                        'End If
                     End If
                 Next
 

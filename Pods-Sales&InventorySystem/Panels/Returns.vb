@@ -44,7 +44,6 @@
                     dialog.ReturnDataGridView.Rows.Add(rowData.ToArray())
                 Next
 
-
                 dialog.ShowDialog()
             End If
         Catch ex As Exception

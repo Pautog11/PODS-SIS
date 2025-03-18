@@ -1,9 +1,7 @@
-﻿Imports System.Windows.Forms.DataVisualization.Charting
-
-Public Class Dashboard
+﻿Public Class Dashboard
     Implements IObservablePanel, IObserverPanel
     Private ReadOnly _observables As New List(Of IObserverPanel)
-    Private WithEvents UpdateTimer As New Timer()
+    'Private WithEvents UpdateTimer As New Timer()
     Public Sub New()
         ' This call is required by the designer.
         InitializeComponent()
@@ -12,7 +10,7 @@ Public Class Dashboard
     End Sub
 
     Private Sub Dashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        NotificationDataGridView.Rows.Add("Hello")
+        'NotificationDataGridView.Rows.Add("Hello")
     End Sub
 
     Public Sub RegisterObserver(o As IObserverPanel) Implements IObservablePanel.RegisterObserver
@@ -30,14 +28,20 @@ Public Class Dashboard
             Accounts.Text = BaseAccount.ScalarAccount
             Sales.Text = BaseTransaction.ScalarSales
             Label3.Text = BaseTransaction.ScalarTransaction
+
+            NotificationDataGridView.Rows.Clear()
+            Dim dt As DataTable = BaseNotifications.CriticalLevel()
+            If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
+                For Each row As DataRow In dt.Rows
+                    NotificationDataGridView.Rows.Add(row(0))
+                Next
+            End If
+
+            NotificationDataGridView.Rows.Add("Holla")
+
         Catch ex As Exception
 
         End Try
-
-        'Dim expiry As DataTable = BaseNotifications.Expiry
-        'Dim critical As DataTable = BaseNotifications.CriticalLevel
-
-        'NotificationDataGridView.Rows.Clear()
     End Sub
 
     Private Sub Guna2Button1_Click(sender As Object, e As EventArgs)
@@ -66,10 +70,10 @@ Public Class Dashboard
         NotifyObserver()
     End Sub
 
-    Private Sub DashboardTabControl_Click(sender As Object, e As EventArgs) Handles DashboardTabControl.Click
-        If DashboardTabControl.SelectedTab Is DashboardTabControl.TabPages("pos") Then
-            'NotifyObserver()
-            'MsgBox("pos")
-        End If
-    End Sub
+    'Private Sub DashboardTabControl_Click(sender As Object, e As EventArgs) Handles DashboardTabControl.Click
+    '    If DashboardTabControl.SelectedTab Is DashboardTabControl.TabPages("pos") Then
+    '        'NotifyObserver()
+    '        'MsgBox("pos")
+    '    End If
+    'End Sub
 End Class

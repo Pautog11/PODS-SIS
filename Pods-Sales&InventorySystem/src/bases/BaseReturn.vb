@@ -75,14 +75,27 @@ Public Class BaseReturn
             '                      JOIN tblproducts b ON b.id = a.product_id
             '                      WHERE transaction_id = @transaction_id", conn)
 
-            cmd = New SqlCommand("SELECT c.id,
-                                         product_name AS name, 
-                                         (price - ((price / subtotal) * (subtotal * (discount/100)))) AS price, 
-                                         quantity 
-                                  FROM tbltransactions a
-                                  JOIN tbltransaction_items b ON a.id = b.transaction_id 
-                                  JOIN tblproducts c ON b.product_id = c.id
-                                  WHERE a.id = @transaction_id", conn)
+            ' cmd = New SqlCommand("SELECT c.id,
+            '                              product_name AS name, 
+            'price AS 'orignal_price',
+            '                              (price - ((price / subtotal) * (subtotal * (discount/100)))) AS price, 
+            '                              quantity 
+            '                       FROM tbltransactions a
+            '                       JOIN tbltransaction_items b ON a.id = b.transaction_id 
+            '                       JOIN tblproducts c ON b.product_id = c.id
+            '                       WHERE a.id = @transaction_id", conn)
+            cmd = New SqlCommand("WITH
+	                                price AS (SELECT TOP 1 product_id, price FROM tbldeliveries_items GROUP BY product_id, price ORDER BY price DESC)
+								    SELECT c.id,
+                                            product_name AS name, 
+									        d.price as 'orignal_price',
+                                            (b.price - ((b.price / subtotal) * (subtotal * (discount/100)))) AS price, 
+                                            quantity as quantity
+                                    FROM tbltransactions a
+                                    JOIN tbltransaction_items b ON a.id = b.transaction_id
+                                    JOIN tblproducts c ON b.product_id = c.id
+							        JOIN price d ON d.product_id = c.id
+                                    WHERE a.id = @transaction_id", conn)
             cmd.Parameters.AddWithValue("@transaction_id", transaction_id)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
@@ -103,19 +116,38 @@ Public Class BaseReturn
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT a.id,
-                                         product_name, 
-                                         price, 
-                                         quantity,
-										 SUM(price * quantity) as total
+            '  cmd = New SqlCommand("SELECT a.id,
+            '                               product_name, 
+            '                               price, 
+            '                               quantity,
+            '                        SUM(price * quantity) as total
+            '                        FROM tblreturn_items a
+            '                        JOIN tblproducts b on b.id = a.product_id
+            '                        WHERE tblreturn_id = @transaction_id
+            '                        GROUP BY a.id, 
+            '                                 tblreturn_id, 
+            '                                 b.product_name, 
+            '                                 price, 
+            '                                 quantity", conn)
+            cmd = New SqlCommand("WITH
+	                                price AS (SELECT TOP 1 product_id, price FROM tbldeliveries_items GROUP BY product_id, price ORDER BY price DESC)
+	                                SELECT a.id, 
+                                         product_name,
+										 c.price as 'orig_price',
+                                         a.price, 
+                                         a.quantity,
+										 (a.quantity * a.price) as total
                                   FROM tblreturn_items a
                                   JOIN tblproducts b on b.id = a.product_id
+								  JOIN price c ON c.product_id = b.id
                                   WHERE tblreturn_id = @transaction_id
-								  GROUP BY a.id, 
+								  GROUP BY a.id,
+										   b.id,
+										   c.price,
                                            tblreturn_id, 
                                            b.product_name, 
-                                           price, 
-                                           quantity", conn)
+                                           a.price, 
+                                           a.quantity", conn)
             cmd.Parameters.AddWithValue("@transaction_id", id)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
@@ -188,20 +220,43 @@ Public Class BaseReturn
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT c.id, 
-                                         product_name, 
-                                         b.price, 
-                                         remaining_quantity, 
-                                         batch_number, 
-                                         FORMAT(expiration_date, 'MMM dd yyyy') AS expiration_date, 
-                                         d.delivery_id 
-                                  FROM tblreturns a
-                                  JOIN tblreturn_items b ON a.id = b.tblreturn_id
-                                  JOIN tblproducts c ON b.product_id = c.id
-                                  JOIN getrev d ON a.transaction_id = d.transaction_id
-                                  JOIN tbldeliveries_items e ON d.delivery_id = e.delivery_id AND c.id = e.product_id
-                                  WHERE b.id = @id
-								  GROUP BY c.id, product_name, b.price, remaining_quantity, batch_number, expiration_date, d.delivery_id", conn)
+            '  cmd = New SqlCommand("SELECT c.id, 
+            '                               product_name, 
+            '                               b.price, 
+            '                               remaining_quantity, 
+            '                               batch_number, 
+            '                               FORMAT(expiration_date, 'MMM dd yyyy') AS expiration_date, 
+            '                               d.delivery_id 
+            '                        FROM tblreturns a
+            '                        JOIN tblreturn_items b ON a.id = b.tblreturn_id
+            '                        JOIN tblproducts c ON b.product_id = c.id
+            '                        JOIN getrev d ON a.transaction_id = d.transaction_id
+            '                        JOIN tbldeliveries_items e ON d.delivery_id = e.delivery_id AND c.id = e.product_id
+            '                        WHERE b.id = @id
+            'GROUP BY c.id, product_name, b.price, remaining_quantity, batch_number, expiration_date, d.delivery_id", conn)
+            cmd = New SqlCommand("WITH
+	                                price AS (SELECT TOP 1 product_id, price FROM tbldeliveries_items GROUP BY product_id, price ORDER BY price DESC)
+	                                SELECT c.id, 
+                                           product_name, 
+                                           f.price, 
+										   remaining_quantity, 
+										   batch_number, 
+							               FORMAT(expiration_date, 'yyyy-MM-dd') AS expiration_date, 
+										   d.delivery_id 
+									 FROM tblreturns a
+                                     JOIN tblreturn_items b ON a.id = b.tblreturn_id
+									 JOIN tblproducts c ON b.product_id = c.id
+									 JOIN price f ON f.product_id = c.id
+									 JOIN getrev d ON a.transaction_id = d.transaction_id
+									 JOIN tbldeliveries_items e ON d.delivery_id = e.delivery_id AND c.id = e.product_id
+									 WHERE b.id = @id
+									 GROUP BY c.id, 
+                                              product_name, 
+                                              f.price, 
+                                              remaining_quantity, 
+                                              batch_number, 
+                                              expiration_date, 
+                                              d.delivery_id", conn)
             cmd.Parameters.AddWithValue("@id", id)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
