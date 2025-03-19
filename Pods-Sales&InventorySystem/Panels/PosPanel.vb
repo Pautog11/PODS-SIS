@@ -143,7 +143,7 @@
                 Exit Sub
             End If
 
-            If Val(Totalcost) > Val(TotalTextBox.Text) Then
+            If Val(Totalcost) >= Val(TotalTextBox.Text) Then
                 MessageBox.Show("Invalid discount", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Exit Sub
             End If

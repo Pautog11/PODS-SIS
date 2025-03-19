@@ -21,7 +21,7 @@ Public Class DeliveryCartDialog
         Try
             Dim supplier_data As viewtblsuppliersDataTable = _tableAdapter.GetData()
             SupplierNameComboBox.DataSource = supplier_data
-            SupplierNameComboBox.DisplayMember = "NAME"
+            SupplierNameComboBox.DisplayMember = "COMPANY"
             SupplierNameComboBox.ValueMember = "ID"
 
             If supplier_data.Rows.Count > 0 Then
@@ -307,5 +307,9 @@ Public Class DeliveryCartDialog
         Catch ex As Exception
 
         End Try
+    End Sub
+
+    Private Sub AddDeductionButton_Click(sender As Object, e As EventArgs) Handles AddDeductionButton.Click
+
     End Sub
 End Class
