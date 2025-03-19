@@ -27,6 +27,7 @@ Partial Class PosPanel
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Guna2HtmlLabel3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Reference_number = New Guna.UI2.WinForms.Guna2HtmlLabel()
@@ -55,16 +56,15 @@ Partial Class PosPanel
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Guna2Panel3 = New Guna.UI2.WinForms.Guna2Panel()
         Me.TransactionDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.Guna2GradientPanel1 = New Guna.UI2.WinForms.Guna2GradientPanel()
-        Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(Me.components)
-        Me.Guna2HtmlLabel3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.product = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.price = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.quantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cost = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Guna2GradientPanel1 = New Guna.UI2.WinForms.Guna2GradientPanel()
+        Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(Me.components)
         Me.Guna2Panel2.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -103,6 +103,18 @@ Partial Class PosPanel
         Me.Guna2Panel2.Name = "Guna2Panel2"
         Me.Guna2Panel2.Size = New System.Drawing.Size(350, 558)
         Me.Guna2Panel2.TabIndex = 22
+        '
+        'Guna2HtmlLabel3
+        '
+        Me.Guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2HtmlLabel3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2HtmlLabel3.IsContextMenuEnabled = False
+        Me.Guna2HtmlLabel3.IsSelectionEnabled = False
+        Me.Guna2HtmlLabel3.Location = New System.Drawing.Point(57, 423)
+        Me.Guna2HtmlLabel3.Name = "Guna2HtmlLabel3"
+        Me.Guna2HtmlLabel3.Size = New System.Drawing.Size(104, 17)
+        Me.Guna2HtmlLabel3.TabIndex = 64
+        Me.Guna2HtmlLabel3.Text = "Guna2HtmlLabel1"
         '
         'Panel2
         '
@@ -430,7 +442,7 @@ Partial Class PosPanel
         Me.AddTransactionButton.Name = "AddTransactionButton"
         Me.AddTransactionButton.Size = New System.Drawing.Size(150, 35)
         Me.AddTransactionButton.TabIndex = 7
-        Me.AddTransactionButton.Text = "Proceed"
+        Me.AddTransactionButton.Text = "Pay"
         '
         'SearchTextbox
         '
@@ -580,48 +592,6 @@ Partial Class PosPanel
         Me.TransactionDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TransactionDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         '
-        'Guna2GradientPanel1
-        '
-        Me.Guna2GradientPanel1.BorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2GradientPanel1.BorderThickness = 1
-        Me.Guna2GradientPanel1.Controls.Add(Me.AddTransactionButton)
-        Me.Guna2GradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Guna2GradientPanel1.Location = New System.Drawing.Point(659, 613)
-        Me.Guna2GradientPanel1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Guna2GradientPanel1.Name = "Guna2GradientPanel1"
-        Me.Guna2GradientPanel1.Size = New System.Drawing.Size(350, 55)
-        Me.Guna2GradientPanel1.TabIndex = 23
-        '
-        'Guna2Panel4
-        '
-        Me.Guna2Panel4.BorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2Panel4.BorderThickness = 1
-        Me.Guna2Panel4.Controls.Add(Me.Guna2ImageButton2)
-        Me.Guna2Panel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Guna2Panel4.Location = New System.Drawing.Point(659, 0)
-        Me.Guna2Panel4.Margin = New System.Windows.Forms.Padding(0)
-        Me.Guna2Panel4.Name = "Guna2Panel4"
-        Me.Guna2Panel4.Size = New System.Drawing.Size(350, 55)
-        Me.Guna2Panel4.TabIndex = 24
-        '
-        'Guna2BorderlessForm1
-        '
-        Me.Guna2BorderlessForm1.ContainerControl = Me
-        Me.Guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6R
-        Me.Guna2BorderlessForm1.TransparentWhileDrag = True
-        '
-        'Guna2HtmlLabel3
-        '
-        Me.Guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2HtmlLabel3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2HtmlLabel3.IsContextMenuEnabled = False
-        Me.Guna2HtmlLabel3.IsSelectionEnabled = False
-        Me.Guna2HtmlLabel3.Location = New System.Drawing.Point(57, 423)
-        Me.Guna2HtmlLabel3.Name = "Guna2HtmlLabel3"
-        Me.Guna2HtmlLabel3.Size = New System.Drawing.Size(104, 17)
-        Me.Guna2HtmlLabel3.TabIndex = 64
-        Me.Guna2HtmlLabel3.Text = "Guna2HtmlLabel1"
-        '
         'ID
         '
         Me.ID.HeaderText = "ID"
@@ -658,6 +628,36 @@ Partial Class PosPanel
         Me.cost.Name = "cost"
         Me.cost.ReadOnly = True
         Me.cost.Visible = False
+        '
+        'Guna2GradientPanel1
+        '
+        Me.Guna2GradientPanel1.BorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2GradientPanel1.BorderThickness = 1
+        Me.Guna2GradientPanel1.Controls.Add(Me.AddTransactionButton)
+        Me.Guna2GradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Guna2GradientPanel1.Location = New System.Drawing.Point(659, 613)
+        Me.Guna2GradientPanel1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Guna2GradientPanel1.Name = "Guna2GradientPanel1"
+        Me.Guna2GradientPanel1.Size = New System.Drawing.Size(350, 55)
+        Me.Guna2GradientPanel1.TabIndex = 23
+        '
+        'Guna2Panel4
+        '
+        Me.Guna2Panel4.BorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Panel4.BorderThickness = 1
+        Me.Guna2Panel4.Controls.Add(Me.Guna2ImageButton2)
+        Me.Guna2Panel4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Guna2Panel4.Location = New System.Drawing.Point(659, 0)
+        Me.Guna2Panel4.Margin = New System.Windows.Forms.Padding(0)
+        Me.Guna2Panel4.Name = "Guna2Panel4"
+        Me.Guna2Panel4.Size = New System.Drawing.Size(350, 55)
+        Me.Guna2Panel4.TabIndex = 24
+        '
+        'Guna2BorderlessForm1
+        '
+        Me.Guna2BorderlessForm1.ContainerControl = Me
+        Me.Guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6R
+        Me.Guna2BorderlessForm1.TransparentWhileDrag = True
         '
         'PosPanel
         '

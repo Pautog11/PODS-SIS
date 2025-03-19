@@ -167,9 +167,9 @@ Partial Class ReturnDialog
         Me.Label3.AutoSize = True
         Me.Label3.Location = New System.Drawing.Point(29, 127)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(70, 13)
+        Me.Label3.Size = New System.Drawing.Size(68, 13)
         Me.Label3.TabIndex = 25
-        Me.Label3.Text = "Sold Quantity"
+        Me.Label3.Text = "Sold quantity"
         '
         'Label4
         '

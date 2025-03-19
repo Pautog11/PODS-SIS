@@ -18,14 +18,6 @@ Public Class AccountDialog
             RoleComboBox.DataSource = roles
             RoleComboBox.DisplayMember = "role"
             RoleComboBox.ValueMember = "id"
-            'If roles.Rows.Count > 0 Then
-            '    Dim row As DataRow = roles.NewRow()
-            '    row("role") = ""
-            '    row("id") = DBNull.Value
-            '    roles.Rows.InsertAt(row, 0)
-
-            '    RoleComboBox.SelectedIndex = 0
-            'End If
 
             'For Status
             StatusComboBox.DataSource = BaseAccount.FillByStatus()

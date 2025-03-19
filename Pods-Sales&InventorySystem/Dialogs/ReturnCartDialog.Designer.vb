@@ -313,6 +313,7 @@ Partial Class ReturnCartDialog
         Me.ID.HeaderText = "ID"
         Me.ID.Name = "ID"
         Me.ID.ReadOnly = True
+        Me.ID.Visible = False
         '
         'product
         '
@@ -349,6 +350,7 @@ Partial Class ReturnCartDialog
         Me.target.HeaderText = "TARGET"
         Me.target.Name = "target"
         Me.target.ReadOnly = True
+        Me.target.Visible = False
         '
         'ReturnCartDialog
         '

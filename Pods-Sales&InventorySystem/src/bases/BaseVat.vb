@@ -9,11 +9,10 @@ Public Class BaseVat
     End Sub
 
     Public Sub Delete() Implements ICommandPanel.Delete
-        Throw New NotImplementedException()
+        'Throw New NotImplementedException()
     End Sub
 
     Public Sub Update() Implements ICommandPanel.Update
-        'Throw New NotImplementedException()
         Try
             _sqlCommand = New SqlCommand("UPDATE tblvat SET vat = @vat WHERE id = @id", _sqlConnection)
             _sqlCommand.Parameters.AddWithValue("@vat", _data.Item("vat"))
@@ -29,6 +28,6 @@ Public Class BaseVat
     End Sub
 
     Public Sub Add() Implements ICommandPanel.Add
-        Throw New NotImplementedException()
+        'Throw New NotImplementedException()
     End Sub
 End Class

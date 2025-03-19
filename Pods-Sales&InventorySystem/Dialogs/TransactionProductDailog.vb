@@ -111,7 +111,7 @@ Public Class TransactionProductDailog
                 Dim res As New List(Of Object()) From {InputValidation.ValidateInputString(BarcodeTextBox, DataInput.STRING_INTEGER)}
                 If Not res.Any(Function(item As Object()) Not item(0)) Then
                     Dim dt As DataTable = BaseTransaction.FetchByBarcode(BarcodeTextBox.Text)
-                    If BarcodeTextBox.Text.Length <= 13 AndAlso dt.Rows.Count > 0 Then
+                    If BarcodeTextBox.Text AndAlso dt.Rows.Count > 0 Then
                         id = If(String.IsNullOrEmpty(dt.Rows(0).Item("idngprod").ToString()), 0, dt.Rows(0).Item("idngprod").ToString())
                         ProductNameTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("product_name").ToString()), 0, dt.Rows(0).Item("product_name").ToString())
                         StocksTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("quantity").ToString()), 0, dt.Rows(0).Item("quantity").ToString())
@@ -121,10 +121,12 @@ Public Class TransactionProductDailog
                     Else
                         Clear()
                         MessageBox.Show("No, product found!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        Exit Sub
                     End If
                 Else
                     Clear()
                     MessageBox.Show("Barcode not valid!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    Exit Sub
                 End If
             End If
         Catch ex As Exception

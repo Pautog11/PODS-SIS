@@ -3,27 +3,58 @@ Imports System.Windows.Forms
 
 Public Class PullOutProductDialog
     Private Sub PullOutProductDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'Dim dt As DataTable = BaseSupplier.Fetchsupplier()
+
+
+
+
+
+
         Dim conn As New SqlConnection(My.Settings.podsdbConnectionString)
-        Dim cmd As New SqlCommand("select b.id, delivery_number, product_id, batch_number, cost_price, inventory_quantity, sum(cost_price * inventory_quantity) as total, expiration_date, supplier_id, 'Inventory' as 'from'
-                                    from tbldeliveries a
-                                    join tbldeliveries_items b on a.id = b.delivery_id
-                                    join tblproducts c on b.product_id = c.id
-                                    group by b.id, delivery_number, product_id, batch_number, cost_price, inventory_quantity, expiration_date, supplier_id
+        Dim cmd As New SqlCommand("select * from (
+	                                select b.id, 
+		                                   delivery_number, 
+		                                   product_name, 
+		                                   batch_number, 
+		                                   cost_price, 
+		                                   inventory_quantity, 
+		                                   sum(cost_price * inventory_quantity) as total, 
+		                                   expiration_date, 
+		                                   supplier_id, 
+		                                   'Inventory' as 'from'
+	                                from tbldeliveries a
+	                                join tbldeliveries_items b on a.id = b.delivery_id
+	                                join tblproducts c on b.product_id = c.id
+	                                where b.inventory_quantity != 0
+	                                group by b.id, delivery_number, product_name, batch_number, cost_price, inventory_quantity, expiration_date, supplier_id
 
-                                    union all 
+	                                union all 
 
-                                    select b.id, delivery_number, f.product_id, batch_number, cost_price, remaining_quantity, sum(cost_price * remaining_quantity) as total, expiration_date, supplier_id, 'Return' as 'from'
-                                    from tblreturns a
-                                    join tblreturn_items b on a.id = b.tblreturn_id
-                                    join tbltransactions c on a.transaction_id = c.id
-                                    join getrev d on c.id = d.transaction_id
-                                    join tbldeliveries e on d.delivery_id = e.id
-                                    join tbldeliveries_items f on e.id = f.delivery_id
-                                    group by b.id, delivery_number, f.product_id, batch_number, cost_price, remaining_quantity, expiration_date, supplier_id", conn)
+	                                select b.id, 
+		                                   delivery_number, 
+		                                   product_name, 
+		                                   batch_number, 
+		                                   cost_price, 
+		                                   remaining_quantity, 
+		                                   sum(cost_price * remaining_quantity) as total, 
+		                                   expiration_date, 
+		                                   supplier_id, 
+		                                   'Return' as 'from'
+	                                from tblreturns a
+	                                join tblreturn_items b on a.id = b.tblreturn_id
+	                                join tblproducts g on b.product_id = g.id
+	                                join tbltransactions c on a.transaction_id = c.id
+	                                join getrev d on c.id = d.transaction_id
+	                                join tbldeliveries e on d.delivery_id = e.id
+	                                join tbldeliveries_items f on e.id = f.delivery_id
+	                                WHERE b.remaining_quantity != 0
+	                                group by b.id, delivery_number, product_name, batch_number, cost_price, remaining_quantity, expiration_date, supplier_id
+                                ) AS combined_results
+                                where supplier_id = 27", conn)
         Dim dTable As New DataTable
         Dim adapter As New SqlDataAdapter(cmd)
         adapter.Fill(dTable)
-        Guna2DataGridView1.DataSource = dTable.DefaultView
+        AccountsDataGridView.DataSource = dTable.DefaultView
     End Sub
     'Private ReadOnly _data As Dictionary(Of String, String)
     'Private ReadOnly _data2 As Dictionary(Of String, String)

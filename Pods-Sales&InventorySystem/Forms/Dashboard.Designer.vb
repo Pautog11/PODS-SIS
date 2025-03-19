@@ -22,7 +22,6 @@ Partial Class Dashboard
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -77,8 +76,6 @@ Partial Class Dashboard
         Me.Guna2ContextMenuStrip1 = New Guna.UI2.WinForms.Guna2ContextMenuStrip()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DSReport = New Pods_Sales_InventorySystem.DSReport()
-        Me.DTTransactionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DashboardTableLayoutPanel.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.DashboardPanel.SuspendLayout()
@@ -105,8 +102,6 @@ Partial Class Dashboard
         Me.Reports.SuspendLayout()
         Me.Activity.SuspendLayout()
         Me.Guna2ContextMenuStrip1.SuspendLayout()
-        CType(Me.DSReport, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DTTransactionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'DashboardTableLayoutPanel
@@ -794,16 +789,6 @@ Partial Class Dashboard
         Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
         Me.LogoutToolStripMenuItem.Text = "Logout"
         '
-        'DSReport
-        '
-        Me.DSReport.DataSetName = "DSReport"
-        Me.DSReport.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'DTTransactionBindingSource
-        '
-        Me.DTTransactionBindingSource.DataMember = "DT_Transaction"
-        Me.DTTransactionBindingSource.DataSource = Me.DSReport
-        '
         'Dashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -844,8 +829,6 @@ Partial Class Dashboard
         Me.Reports.ResumeLayout(False)
         Me.Activity.ResumeLayout(False)
         Me.Guna2ContextMenuStrip1.ResumeLayout(False)
-        CType(Me.DSReport, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DTTransactionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -883,8 +866,6 @@ Partial Class Dashboard
     Friend WithEvents Transaction1 As Transaction
     Friend WithEvents ReturnAndPullout1 As ReturnAndPullout
     Friend WithEvents Guna2ImageButton1 As Guna.UI2.WinForms.Guna2ImageButton
-    Friend WithEvents DSReport As DSReport
-    Friend WithEvents DTTransactionBindingSource As BindingSource
     Friend WithEvents Reports1 As Reports
     Friend WithEvents Deliveries As TabPage
     Friend WithEvents Delivery1 As Delivery

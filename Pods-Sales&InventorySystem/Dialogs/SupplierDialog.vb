@@ -18,9 +18,9 @@ Public Class SupplierDialog
                 CompanyNameTextBox.Text = _data("company_name")
                 CPTextBox.Text = _data("company_contact_number")
                 CompanyAddressTextBox.Text = _data("company_address")
-                FirstnameTextBox.Text = _data("first_name")
-                LastnameTextBox.Text = _data("last_name")
-                PhoneNumberTextBox.Text = _data("phone_number")
+                'FirstnameTextBox.Text = _data("first_name")
+                'LastnameTextBox.Text = _data("last_name")
+                'PhoneNumberTextBox.Text = _data("phone_number")
 
                 If BaseSupplier.AllowsRefund(_data.Item("id")) = 1 Then
                     CheckBox.Checked = True
@@ -40,10 +40,10 @@ Public Class SupplierDialog
     Private Sub AddSupplierButton_Click(sender As Object, e As EventArgs) Handles AddSupplierButton.Click
         Try
             Dim controls As Object() = {
-                CompanyNameTextBox, CPTextBox, CompanyAddressTextBox, FirstnameTextBox, LastnameTextBox, PhoneNumberTextBox
+                CompanyNameTextBox, CPTextBox, CompanyAddressTextBox
             }
             Dim types As DataInput() = {
-                DataInput.STRING_NAME, DataInput.STRING_TEL, DataInput.STRING_STRING, DataInput.STRING_PNAME, DataInput.STRING_PNAME, DataInput.STRING_PHONE
+                DataInput.STRING_NAME, DataInput.STRING_TEL, DataInput.STRING_STRING
             }
             Dim result As New List(Of Object())
             For i = 0 To controls.Count - 1
@@ -64,14 +64,11 @@ Public Class SupplierDialog
                     {"company_name", result(0)(1)},
                     {"company_contact_number", result(1)(1)},
                     {"company_address", result(2)(1)},
-                    {"first_name", result(3)(1)},
-                    {"last_name", result(4)(1)},
-                    {"phone_number", result(5)(1)},
                     {"allow_refund", Allow}
                 }
                 Dim baseCommand As New BaseSupplier(data)
                 Dim invoker As ICommandInvoker = Nothing
-                If BaseSupplier.Exists(result(3)(1), result(4)(1)) = 0 AndAlso _data Is Nothing Then          'BaseAccount.Exists(result(4)(1)) = 0 AndAlso
+                If BaseSupplier.Exists(result(0)(1)) = 0 AndAlso _data Is Nothing Then          'BaseAccount.Exists(result(4)(1)) = 0 AndAlso
                     invoker = New AddCommand(baseCommand)
                 ElseIf _data IsNot Nothing Then
                     invoker = New UpdateCommand(baseCommand)

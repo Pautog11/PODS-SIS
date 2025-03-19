@@ -23,15 +23,9 @@ Partial Class SupplierDialog
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.CompanyNameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.FirstnameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.CompanyAddressTextBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.LastnameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.PhoneNumberTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.CheckBox = New Guna.UI2.WinForms.Guna2CheckBox()
         Me.CPTextBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -39,7 +33,7 @@ Partial Class SupplierDialog
         Me.FooterLayoutPanel = New System.Windows.Forms.FlowLayoutPanel()
         Me.DeleteSupplierButton = New Guna.UI2.WinForms.Guna2Button()
         Me.AddSupplierButton = New Guna.UI2.WinForms.Guna2Button()
-        Me.CheckBox = New Guna.UI2.WinForms.Guna2CheckBox()
+        Me.CompanyAddressTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.FooterLayoutPanel.SuspendLayout()
@@ -66,126 +60,41 @@ Partial Class SupplierDialog
         Me.CompanyNameTextBox.PlaceholderText = "Ex. Unilab"
         Me.CompanyNameTextBox.SelectedText = ""
         Me.CompanyNameTextBox.ShortcutsEnabled = False
-        Me.CompanyNameTextBox.Size = New System.Drawing.Size(221, 36)
+        Me.CompanyNameTextBox.Size = New System.Drawing.Size(311, 36)
         Me.CompanyNameTextBox.TabIndex = 0
-        '
-        'FirstnameTextBox
-        '
-        Me.FirstnameTextBox.BorderColor = System.Drawing.Color.Gray
-        Me.FirstnameTextBox.BorderRadius = 10
-        Me.FirstnameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.FirstnameTextBox.DefaultText = ""
-        Me.FirstnameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.FirstnameTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.FirstnameTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.FirstnameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.FirstnameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.FirstnameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.FirstnameTextBox.ForeColor = System.Drawing.Color.Black
-        Me.FirstnameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.FirstnameTextBox.Location = New System.Drawing.Point(278, 37)
-        Me.FirstnameTextBox.MaxLength = 20
-        Me.FirstnameTextBox.Name = "FirstnameTextBox"
-        Me.FirstnameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.FirstnameTextBox.PlaceholderText = "Ex. (Juan)"
-        Me.FirstnameTextBox.SelectedText = ""
-        Me.FirstnameTextBox.ShortcutsEnabled = False
-        Me.FirstnameTextBox.Size = New System.Drawing.Size(216, 36)
-        Me.FirstnameTextBox.TabIndex = 3
-        '
-        'CompanyAddressTextBox
-        '
-        Me.CompanyAddressTextBox.BorderColor = System.Drawing.Color.Gray
-        Me.CompanyAddressTextBox.BorderRadius = 10
-        Me.CompanyAddressTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.CompanyAddressTextBox.DefaultText = ""
-        Me.CompanyAddressTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.CompanyAddressTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.CompanyAddressTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.CompanyAddressTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.CompanyAddressTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CompanyAddressTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.CompanyAddressTextBox.ForeColor = System.Drawing.Color.Black
-        Me.CompanyAddressTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CompanyAddressTextBox.Location = New System.Drawing.Point(24, 147)
-        Me.CompanyAddressTextBox.MaxLength = 100
-        Me.CompanyAddressTextBox.Name = "CompanyAddressTextBox"
-        Me.CompanyAddressTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.CompanyAddressTextBox.PlaceholderText = "Ex. Taguig"
-        Me.CompanyAddressTextBox.SelectedText = ""
-        Me.CompanyAddressTextBox.ShortcutsEnabled = False
-        Me.CompanyAddressTextBox.Size = New System.Drawing.Size(221, 36)
-        Me.CompanyAddressTextBox.TabIndex = 2
-        '
-        'LastnameTextBox
-        '
-        Me.LastnameTextBox.BorderColor = System.Drawing.Color.Gray
-        Me.LastnameTextBox.BorderRadius = 10
-        Me.LastnameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.LastnameTextBox.DefaultText = ""
-        Me.LastnameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.LastnameTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.LastnameTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.LastnameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.LastnameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.LastnameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.LastnameTextBox.ForeColor = System.Drawing.Color.Black
-        Me.LastnameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.LastnameTextBox.Location = New System.Drawing.Point(278, 92)
-        Me.LastnameTextBox.MaxLength = 20
-        Me.LastnameTextBox.Name = "LastnameTextBox"
-        Me.LastnameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.LastnameTextBox.PlaceholderText = "Ex. (Dela Cruz)"
-        Me.LastnameTextBox.SelectedText = ""
-        Me.LastnameTextBox.ShortcutsEnabled = False
-        Me.LastnameTextBox.Size = New System.Drawing.Size(216, 36)
-        Me.LastnameTextBox.TabIndex = 4
-        '
-        'PhoneNumberTextBox
-        '
-        Me.PhoneNumberTextBox.BorderColor = System.Drawing.Color.Gray
-        Me.PhoneNumberTextBox.BorderRadius = 10
-        Me.PhoneNumberTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.PhoneNumberTextBox.DefaultText = ""
-        Me.PhoneNumberTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.PhoneNumberTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.PhoneNumberTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.PhoneNumberTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.PhoneNumberTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.PhoneNumberTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.PhoneNumberTextBox.ForeColor = System.Drawing.Color.Black
-        Me.PhoneNumberTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.PhoneNumberTextBox.Location = New System.Drawing.Point(278, 147)
-        Me.PhoneNumberTextBox.MaxLength = 13
-        Me.PhoneNumberTextBox.Name = "PhoneNumberTextBox"
-        Me.PhoneNumberTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.PhoneNumberTextBox.PlaceholderText = "Ex. (09123456789)"
-        Me.PhoneNumberTextBox.SelectedText = ""
-        Me.PhoneNumberTextBox.ShortcutsEnabled = False
-        Me.PhoneNumberTextBox.Size = New System.Drawing.Size(216, 36)
-        Me.PhoneNumberTextBox.TabIndex = 5
         '
         'Guna2Panel1
         '
+        Me.Guna2Panel1.Controls.Add(Me.CompanyAddressTextBox)
         Me.Guna2Panel1.Controls.Add(Me.CheckBox)
         Me.Guna2Panel1.Controls.Add(Me.CPTextBox)
-        Me.Guna2Panel1.Controls.Add(Me.Label6)
-        Me.Guna2Panel1.Controls.Add(Me.Label5)
-        Me.Guna2Panel1.Controls.Add(Me.Label4)
         Me.Guna2Panel1.Controls.Add(Me.Label3)
         Me.Guna2Panel1.Controls.Add(Me.Label1)
         Me.Guna2Panel1.Controls.Add(Me.Label2)
         Me.Guna2Panel1.Controls.Add(Me.CompanyNameTextBox)
-        Me.Guna2Panel1.Controls.Add(Me.PhoneNumberTextBox)
-        Me.Guna2Panel1.Controls.Add(Me.LastnameTextBox)
-        Me.Guna2Panel1.Controls.Add(Me.CompanyAddressTextBox)
-        Me.Guna2Panel1.Controls.Add(Me.FirstnameTextBox)
         Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Guna2Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Size = New System.Drawing.Size(518, 235)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(362, 262)
         Me.Guna2Panel1.TabIndex = 7
+        '
+        'CheckBox
+        '
+        Me.CheckBox.AutoSize = True
+        Me.CheckBox.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CheckBox.CheckedState.BorderRadius = 0
+        Me.CheckBox.CheckedState.BorderThickness = 0
+        Me.CheckBox.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CheckBox.Location = New System.Drawing.Point(24, 226)
+        Me.CheckBox.Name = "CheckBox"
+        Me.CheckBox.Size = New System.Drawing.Size(194, 17)
+        Me.CheckBox.TabIndex = 32
+        Me.CheckBox.Text = "Supplier approves a refund request."
+        Me.CheckBox.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        Me.CheckBox.UncheckedState.BorderRadius = 0
+        Me.CheckBox.UncheckedState.BorderThickness = 0
+        Me.CheckBox.UncheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
         '
         'CPTextBox
         '
@@ -208,35 +117,8 @@ Partial Class SupplierDialog
         Me.CPTextBox.PlaceholderText = "Ex. +012-345-6789"
         Me.CPTextBox.SelectedText = ""
         Me.CPTextBox.ShortcutsEnabled = False
-        Me.CPTextBox.Size = New System.Drawing.Size(221, 36)
+        Me.CPTextBox.Size = New System.Drawing.Size(311, 36)
         Me.CPTextBox.TabIndex = 24
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(275, 131)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(78, 13)
-        Me.Label6.TabIndex = 23
-        Me.Label6.Text = "Phone Number"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(275, 76)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(58, 13)
-        Me.Label5.TabIndex = 22
-        Me.Label5.Text = "Last Name"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(275, 21)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(57, 13)
-        Me.Label4.TabIndex = 21
-        Me.Label4.Text = "First Name"
         '
         'Label3
         '
@@ -277,7 +159,7 @@ Partial Class SupplierDialog
         Me.TableLayoutPanel1.RowCount = 2
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(518, 290)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(362, 317)
         Me.TableLayoutPanel1.TabIndex = 8
         '
         'FooterLayoutPanel
@@ -286,10 +168,10 @@ Partial Class SupplierDialog
         Me.FooterLayoutPanel.Controls.Add(Me.AddSupplierButton)
         Me.FooterLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FooterLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
-        Me.FooterLayoutPanel.Location = New System.Drawing.Point(0, 235)
+        Me.FooterLayoutPanel.Location = New System.Drawing.Point(0, 262)
         Me.FooterLayoutPanel.Margin = New System.Windows.Forms.Padding(0)
         Me.FooterLayoutPanel.Name = "FooterLayoutPanel"
-        Me.FooterLayoutPanel.Size = New System.Drawing.Size(518, 55)
+        Me.FooterLayoutPanel.Size = New System.Drawing.Size(362, 55)
         Me.FooterLayoutPanel.TabIndex = 8
         '
         'DeleteSupplierButton
@@ -304,7 +186,7 @@ Partial Class SupplierDialog
         Me.DeleteSupplierButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(18, Byte), Integer), CType(CType(31, Byte), Integer))
         Me.DeleteSupplierButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DeleteSupplierButton.ForeColor = System.Drawing.Color.White
-        Me.DeleteSupplierButton.Location = New System.Drawing.Point(387, 9)
+        Me.DeleteSupplierButton.Location = New System.Drawing.Point(231, 9)
         Me.DeleteSupplierButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.DeleteSupplierButton.Name = "DeleteSupplierButton"
         Me.DeleteSupplierButton.Size = New System.Drawing.Size(128, 35)
@@ -323,35 +205,43 @@ Partial Class SupplierDialog
         Me.AddSupplierButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AddSupplierButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddSupplierButton.ForeColor = System.Drawing.Color.White
-        Me.AddSupplierButton.Location = New System.Drawing.Point(253, 8)
+        Me.AddSupplierButton.Location = New System.Drawing.Point(97, 8)
         Me.AddSupplierButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
         Me.AddSupplierButton.Name = "AddSupplierButton"
         Me.AddSupplierButton.Size = New System.Drawing.Size(128, 37)
         Me.AddSupplierButton.TabIndex = 5
         Me.AddSupplierButton.Text = "Add"
         '
-        'CheckBox
+        'CompanyAddressTextBox
         '
-        Me.CheckBox.AutoSize = True
-        Me.CheckBox.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CheckBox.CheckedState.BorderRadius = 0
-        Me.CheckBox.CheckedState.BorderThickness = 0
-        Me.CheckBox.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CheckBox.Location = New System.Drawing.Point(26, 200)
-        Me.CheckBox.Name = "CheckBox"
-        Me.CheckBox.Size = New System.Drawing.Size(194, 17)
-        Me.CheckBox.TabIndex = 32
-        Me.CheckBox.Text = "Supplier approves a refund request."
-        Me.CheckBox.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
-        Me.CheckBox.UncheckedState.BorderRadius = 0
-        Me.CheckBox.UncheckedState.BorderThickness = 0
-        Me.CheckBox.UncheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        Me.CompanyAddressTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.CompanyAddressTextBox.BorderRadius = 10
+        Me.CompanyAddressTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.CompanyAddressTextBox.DefaultText = ""
+        Me.CompanyAddressTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.CompanyAddressTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.CompanyAddressTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.CompanyAddressTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.CompanyAddressTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CompanyAddressTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.CompanyAddressTextBox.ForeColor = System.Drawing.Color.Black
+        Me.CompanyAddressTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CompanyAddressTextBox.Location = New System.Drawing.Point(24, 147)
+        Me.CompanyAddressTextBox.MaxLength = 150
+        Me.CompanyAddressTextBox.Multiline = True
+        Me.CompanyAddressTextBox.Name = "CompanyAddressTextBox"
+        Me.CompanyAddressTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.CompanyAddressTextBox.PlaceholderText = ""
+        Me.CompanyAddressTextBox.SelectedText = ""
+        Me.CompanyAddressTextBox.ShortcutsEnabled = False
+        Me.CompanyAddressTextBox.Size = New System.Drawing.Size(311, 64)
+        Me.CompanyAddressTextBox.TabIndex = 33
         '
         'SupplierDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(518, 290)
+        Me.ClientSize = New System.Drawing.Size(362, 317)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
@@ -369,21 +259,15 @@ Partial Class SupplierDialog
     End Sub
 
     Friend WithEvents CompanyNameTextBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents FirstnameTextBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents CompanyAddressTextBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents LastnameTextBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents PhoneNumberTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents FooterLayoutPanel As FlowLayoutPanel
     Friend WithEvents DeleteSupplierButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents AddSupplierButton As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Label5 As Label
-    Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents CPTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents CheckBox As Guna.UI2.WinForms.Guna2CheckBox
+    Friend WithEvents CompanyAddressTextBox As Guna.UI2.WinForms.Guna2TextBox
 End Class

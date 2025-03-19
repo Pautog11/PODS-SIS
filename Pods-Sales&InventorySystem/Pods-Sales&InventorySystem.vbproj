@@ -212,6 +212,12 @@
     <Compile Include="Dialogs\ReturnProductDialog.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Dialogs\VendorDialog.Designer.vb">
+      <DependentUpon>VendorDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\VendorDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
     </Compile>
@@ -468,6 +474,12 @@
     <Compile Include="Panels\SalesReport.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Panels\Vendor.Designer.vb">
+      <DependentUpon>Vendor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Vendor.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Panels\Withdrawal.Designer.vb">
       <DependentUpon>Withdrawal.vb</DependentUpon>
     </Compile>
@@ -603,6 +615,7 @@
     <Compile Include="src\bases\BaseSupplier.vb" />
     <Compile Include="src\bases\BaseTransaction.vb" />
     <Compile Include="src\bases\BaseVat.vb" />
+    <Compile Include="src\bases\BaseVendor.vb" />
     <Compile Include="src\classes\InputValidation.vb" />
     <Compile Include="src\classes\LoginModule.vb" />
     <Compile Include="src\classes\SqlBaseConnetion.vb" />
@@ -643,6 +656,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ReturnProductDialog.resx">
       <DependentUpon>ReturnProductDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\VendorDialog.resx">
+      <DependentUpon>VendorDialog.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
@@ -769,6 +785,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\SalesReport.resx">
       <DependentUpon>SalesReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\Vendor.resx">
+      <DependentUpon>Vendor.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\Withdrawal.resx">
       <DependentUpon>Withdrawal.vb</DependentUpon>

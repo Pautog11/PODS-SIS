@@ -1,5 +1,4 @@
 ﻿Imports System.Data.SqlClient
-
 Public Class BaseAccount
     Inherits SqlBaseConnection
     Implements ICommandPanel
@@ -22,7 +21,6 @@ Public Class BaseAccount
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End Try
-        'MessageBox.Show("successsss", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
     End Sub
 
     Public Sub Update() Implements ICommandPanel.Update
