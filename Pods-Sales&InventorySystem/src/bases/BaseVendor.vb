@@ -63,4 +63,20 @@ Public Class BaseVendor
             Return 0
         End Try
     End Function
+
+    Public Shared Function GetVendorBySupplierId(supplier_id As Integer) As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("SELECT id, CONCAT(first_name, ' ', last_name) AS 'name' FROM tblvendor WHERE supplier_id = @supplier_id", conn)
+            cmd.Parameters.AddWithValue("@supplier_id", supplier_id)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
+        End Try
+    End Function
 End Class

@@ -38,12 +38,18 @@ Public Class DeliveryCartDialog
                 SupplierNameComboBox.Enabled = False
                 DatePicker.Enabled = False
                 AddDeductionButton.Visible = False
+                VendorComboBox.Enabled = False
+                TransactionDeliveryTextBox.Enabled = False
 
                 SupplierNameComboBox.Text = _data.Item("supplier_id")
                 TotalPrice.Text = _data.Item("total")
                 DatePicker.Value = _data.Item("date")
-                TransactionDeliveryTextBox.Enabled = False
                 TransactionDeliveryTextBox.Text = _data.Item("delivery_number")
+
+                Dim dt As DataTable = BaseVendor.GetVendorBySupplierId(SupplierNameComboBox.SelectedItem("id"))
+                VendorComboBox.DataSource = dt.DefaultView
+                VendorComboBox.DisplayMember = "name"
+                VendorComboBox.SelectedItem = "id"
 
                 DeliveryDataGridView.Rows.Clear()
                 Dim DeliveryItems As DataTable = BaseDelivery.SelectAllDeliveryItems(_data.Item("id"))
@@ -92,9 +98,9 @@ Public Class DeliveryCartDialog
 
     Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click
         Try
-            Dim controls As Object() = {SupplierNameComboBox, TransactionDeliveryTextBox}
+            Dim controls As Object() = {SupplierNameComboBox, VendorComboBox, TransactionDeliveryTextBox}
 
-            Dim types As DataInput() = {DataInput.STRING_NAME, DataInput.STRING_STRING}
+            Dim types As DataInput() = {DataInput.STRING_STRING, DataInput.STRING_STRING, DataInput.STRING_STRING}
 
             Dim result As New List(Of Object())
             For i = 0 To controls.Count - 1
@@ -117,6 +123,7 @@ Public Class DeliveryCartDialog
                     {"id", If(_data?.Item("id"), String.Empty)},
                     {"delivery_number", result(1)(1)},
                     {"supplier_id", If(DirectCast(SupplierNameComboBox.SelectedItem, DataRowView)("id"), String.Empty)},
+                    {"vendor_id", If(DirectCast(VendorComboBox.SelectedItem, DataRowView)("id"), String.Empty)},
                     {"total", If(String.IsNullOrEmpty(TotalPrice.Text) OrElse TotalPrice.Text = "", 0, TotalPrice.Text)},
                     {"date", DatePicker.Value.ToString("MMM dd yyyy")}
                 }
@@ -226,6 +233,7 @@ Public Class DeliveryCartDialog
                         {"id", If(_data.Item("id"), String.Empty)},
                         {"delivery_number", result(1)(1)},
                         {"supplier_id", If(DirectCast(SupplierNameComboBox.SelectedItem, DataRowView)("id"), String.Empty)},
+                        {"vendor_id", If(DirectCast(VendorComboBox.SelectedItem, DataRowView)("id"), String.Empty)},
                         {"total", If(String.IsNullOrEmpty(TotalPrice.Text) OrElse TotalPrice.Text = "", 0, TotalPrice.Text)},
                         {"date", DatePicker.Value.ToString("MMM dd yyyy")}
                     }
@@ -271,6 +279,7 @@ Public Class DeliveryCartDialog
                 DatePicker.Enabled = True
                 SupplierNameComboBox.Enabled = True
                 TransactionDeliveryTextBox.Enabled = True
+                VendorComboBox.Enabled = True
                 button = 1
             End If
         Catch ex As Exception
@@ -309,7 +318,17 @@ Public Class DeliveryCartDialog
         End Try
     End Sub
 
-    Private Sub AddDeductionButton_Click(sender As Object, e As EventArgs) Handles AddDeductionButton.Click
+    Private Sub SupplierNameComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles SupplierNameComboBox.SelectionChangeCommitted
+        Try
+            Dim dt As DataTable = BaseVendor.GetVendorBySupplierId(SupplierNameComboBox.SelectedItem("id"))
+            VendorComboBox.DataSource = dt.DefaultView
+            VendorComboBox.DisplayMember = "name"
+            VendorComboBox.SelectedItem = "id"
+            If dt.Rows.Count > 0 Then
+                VendorComboBox.SelectedIndex = -1
+            End If
+        Catch ex As Exception
 
+        End Try
     End Sub
 End Class

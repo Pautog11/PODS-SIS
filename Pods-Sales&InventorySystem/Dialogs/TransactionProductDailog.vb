@@ -39,6 +39,7 @@ Public Class TransactionProductDailog
                 StocksTextBox.Text = _dat2.Item("stocks")
                 cost = _dat2.Item("cost")
 
+                BarcodeTextBox.Enabled = False
                 VoidButton.Visible = False
                 Exit Sub
             End If

@@ -246,9 +246,6 @@
     Private Sub TransactionDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles TransactionDataGridView.CellClick
         Try
             If TransactionDataGridView.Rows.Count > 0 Then
-                'If _data Is Nothing Then
-                'Dim selectedRows As DataGridViewSelectedRowCollection = TransactionDataGridView.SelectedRows
-                'Dim row As DataGridViewRow = selectedRows(0)
                 Dim row As DataGridViewRow = TransactionDataGridView.SelectedRows(0)
                 Dim dt As DataTable = BaseTransaction.FetchByID(If(row.Cells(0).Value?.ToString(), ""))
                 If dt.Rows.Count > 0 Then
@@ -261,28 +258,6 @@
                     Dim dialog As New TransactionProductDailog(data:=data, parent:=Me)
                     dialog.ShowDialog()
                 End If
-                'Dim data As New Dictionary(Of String, String) From {
-                '    {"id", If(row.Cells(0).Value?.ToString(), "0")},
-                '    {"product_name", If(row.Cells(1).Value?.ToString(), "")},
-                '    {"price", If(row.Cells(2).Value?.ToString(), "")},
-                '    {"quantity", If(row.Cells(3).Value?.ToString(), "")},
-                '    {"total", If(row.Cells(4).Value?.ToString(), "0")}
-                '}
-
-                'If dt.Rows.Count > 0 Then
-                '    Dim data As New Dictionary(Of String, String) From {
-                '            {"id", If(String.IsNullOrEmpty(dt.Rows(0).Item("idngprod").ToString()), 0, dt.Rows(0).Item("idngprod").ToString())},
-                '            {"product_name", If(String.IsNullOrEmpty(dt.Rows(0).Item("product_name").ToString()), 0, dt.Rows(0).Item("product_name").ToString())},
-                '            {"price", If(String.IsNullOrEmpty(dt.Rows(0).Item("price").ToString()), 0, dt.Rows(0).Item("price").ToString())},
-                '            {"stocks", If(String.IsNullOrEmpty(dt.Rows(0).Item("quantity").ToString()), 0, dt.Rows(0).Item("quantity").ToString())}
-                '        }
-                '    SearchTextbox.Text = ""
-                '    Dim dialog As New TransactionProductDailog(data:=data, parent:=Me)
-                '    dialog.ShowDialog()
-                'Else
-
-                'Dim dialog As New TransactionProductDailog(data:=data, parent:=Me)
-                'dialog.ShowDialog()
             End If
         Catch ex As Exception
 

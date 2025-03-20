@@ -27,11 +27,12 @@ Public Class BaseDelivery
         Dim transaction As SqlTransaction = SqlConnectionPods.GetInstance.BeginTransaction()
         Try
             ' Prepare and execute the main delivery insertion
-            _sqlCommand = New SqlCommand("UPDATE tbldeliveries SET delivery_number = @delivery_number, account_id = @account_id, supplier_id = @supplier_id, total = @total, date = @date WHERE id = @id;", _sqlConnection, transaction)
+            _sqlCommand = New SqlCommand("UPDATE tbldeliveries SET delivery_number = @delivery_number, account_id = @account_id, supplier_id = @supplier_id, vendor_id = @vendor_id, total = @total, date = @date WHERE id = @id;", _sqlConnection, transaction)
             _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
             _sqlCommand.Parameters.AddWithValue("@delivery_number", _data.Item("delivery_number"))
             _sqlCommand.Parameters.AddWithValue("@account_id", My.Settings.myId)
             _sqlCommand.Parameters.AddWithValue("@supplier_id", _data.Item("supplier_id"))
+            _sqlCommand.Parameters.AddWithValue("@vendor_id", _data.Item("vendor_id"))
             _sqlCommand.Parameters.AddWithValue("@total", _data.Item("total"))
             _sqlCommand.Parameters.AddWithValue("@date", _data.Item("date"))
             If _sqlCommand.ExecuteNonQuery() <= 0 Then
@@ -94,10 +95,11 @@ Public Class BaseDelivery
     Public Sub Add() Implements ICommandPanel.Add
         Dim transaction As SqlTransaction = SqlConnectionPods.GetInstance.BeginTransaction()
         Try
-            _sqlCommand = New SqlCommand("INSERT INTO tbldeliveries (delivery_number, account_id, supplier_id, total, date) VALUES (@delivery_number, @account_id, @supplier_id, @total, @date); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
+            _sqlCommand = New SqlCommand("INSERT INTO tbldeliveries (delivery_number, account_id, supplier_id, vendor_id, total, date) VALUES (@delivery_number, @account_id, @supplier_id, @vendor_id, @total, @date); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
             _sqlCommand.Parameters.AddWithValue("@delivery_number", _data.Item("delivery_number"))
             _sqlCommand.Parameters.AddWithValue("@account_id", My.Settings.myId)
             _sqlCommand.Parameters.AddWithValue("@supplier_id", _data.Item("supplier_id"))
+            _sqlCommand.Parameters.AddWithValue("@vendor_id", _data.Item("vendor_id"))
             _sqlCommand.Parameters.AddWithValue("@total", _data.Item("total"))
             _sqlCommand.Parameters.AddWithValue("@date", _data.Item("date"))
 

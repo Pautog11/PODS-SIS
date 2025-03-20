@@ -22,14 +22,12 @@ Partial Class Product
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Product))
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.ProductHeaderLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.ProductSearchTextBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.ModalImageButton = New Guna.UI2.WinForms.Guna2ImageButton()
         Me.AddProductButton = New Guna.UI2.WinForms.Guna2Button()
         Me.ProductTableLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.ProductsDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
@@ -59,7 +57,6 @@ Partial Class Product
         'FlowLayoutPanel1
         '
         Me.FlowLayoutPanel1.Controls.Add(Me.ProductSearchTextBox)
-        Me.FlowLayoutPanel1.Controls.Add(Me.ModalImageButton)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
@@ -91,23 +88,6 @@ Partial Class Product
         Me.ProductSearchTextBox.Size = New System.Drawing.Size(200, 36)
         Me.ProductSearchTextBox.TabIndex = 3
         '
-        'ModalImageButton
-        '
-        Me.ModalImageButton.CheckedState.ImageSize = New System.Drawing.Size(64, 64)
-        Me.ModalImageButton.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ModalImageButton.HoverState.ImageSize = New System.Drawing.Size(30, 30)
-        Me.ModalImageButton.Image = CType(resources.GetObject("ModalImageButton.Image"), System.Drawing.Image)
-        Me.ModalImageButton.ImageOffset = New System.Drawing.Point(0, 0)
-        Me.ModalImageButton.ImageRotate = 0!
-        Me.ModalImageButton.ImageSize = New System.Drawing.Size(30, 30)
-        Me.ModalImageButton.Location = New System.Drawing.Point(206, 0)
-        Me.ModalImageButton.Margin = New System.Windows.Forms.Padding(0)
-        Me.ModalImageButton.Name = "ModalImageButton"
-        Me.ModalImageButton.PressedState.ImageSize = New System.Drawing.Size(30, 30)
-        Me.ModalImageButton.Size = New System.Drawing.Size(40, 42)
-        Me.ModalImageButton.TabIndex = 5
-        Me.ModalImageButton.Visible = False
-        '
         'AddProductButton
         '
         Me.AddProductButton.Anchor = System.Windows.Forms.AnchorStyles.Right
@@ -130,8 +110,8 @@ Partial Class Product
         '
         Me.ProductTableLayoutPanel.ColumnCount = 1
         Me.ProductTableLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.ProductTableLayoutPanel.Controls.Add(Me.ProductHeaderLayoutPanel, 0, 0)
         Me.ProductTableLayoutPanel.Controls.Add(Me.ProductsDataGridView, 0, 1)
+        Me.ProductTableLayoutPanel.Controls.Add(Me.ProductHeaderLayoutPanel, 0, 0)
         Me.ProductTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ProductTableLayoutPanel.Location = New System.Drawing.Point(0, 0)
         Me.ProductTableLayoutPanel.Name = "ProductTableLayoutPanel"
@@ -150,6 +130,7 @@ Partial Class Product
         Me.ProductsDataGridView.AllowUserToResizeRows = False
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
         Me.ProductsDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.ProductsDataGridView.BackgroundColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -167,7 +148,7 @@ Partial Class Product
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.ProductsDataGridView.DefaultCellStyle = DataGridViewCellStyle3
         Me.ProductsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ProductsDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.ProductsDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ProductsDataGridView.Location = New System.Drawing.Point(0, 50)
         Me.ProductsDataGridView.Margin = New System.Windows.Forms.Padding(0)
         Me.ProductsDataGridView.MultiSelect = False
@@ -182,8 +163,8 @@ Partial Class Product
         Me.ProductsDataGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty
         Me.ProductsDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty
         Me.ProductsDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty
-        Me.ProductsDataGridView.ThemeStyle.BackColor = System.Drawing.Color.White
-        Me.ProductsDataGridView.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.ProductsDataGridView.ThemeStyle.BackColor = System.Drawing.SystemColors.Window
+        Me.ProductsDataGridView.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ProductsDataGridView.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ProductsDataGridView.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
         Me.ProductsDataGridView.ThemeStyle.HeaderStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -219,5 +200,4 @@ Partial Class Product
     Friend WithEvents ProductTableLayoutPanel As TableLayoutPanel
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents ProductsDataGridView As Guna.UI2.WinForms.Guna2DataGridView
-    Friend WithEvents ModalImageButton As Guna.UI2.WinForms.Guna2ImageButton
 End Class
