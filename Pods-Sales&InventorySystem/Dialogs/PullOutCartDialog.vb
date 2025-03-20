@@ -20,18 +20,42 @@ Public Class PullOutCartDialog
                 Exit Sub
             End If
 
-            Dim dialog As New PullOutProductDialog
-            dialog.ShowDialog()
+            If VendorComboBox.Text = "" Then
+                MessageBox.Show("Please select a vendor first!.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                VendorComboBox.BorderColor = Color.Red
+                Exit Sub
+            End If
 
+            Dim data As New Dictionary(Of String, String) From {
+                {"id", SupplierNameComboBox.SelectedItem("ID")}
+            }
+            Dim dialog As New PullOutProductDialog(data:=data)
+            dialog.ShowDialog()
         Catch ex As Exception
 
         End Try
     End Sub
 
     Private Sub SupplierNameComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles SupplierNameComboBox.SelectionChangeCommitted
-        SupplierNameComboBox.BorderColor = Color.Gray
-        'MsgBox("hellp")
-        'SupplierNameComboBox.SelectedItem("ID")
-        MsgBox(SupplierNameComboBox.SelectedItem("ID"))
+        Try
+            SupplierNameComboBox.BorderColor = Color.Gray
+            'MsgBox("hellp")
+            'SupplierNameComboBox.SelectedItem("ID")
+            'MsgBox(SupplierNameComboBox.SelectedItem("ID"))
+
+            Dim dt As DataTable = BaseVendor.GetVendorBySupplierId(SupplierNameComboBox.SelectedItem("ID"))
+            VendorComboBox.DataSource = dt.DefaultView
+            VendorComboBox.DisplayMember = "name"
+            VendorComboBox.SelectedItem = "id"
+            If dt.Rows.Count > 0 Then
+                VendorComboBox.SelectedIndex = -1
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub Guna2Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Guna2Panel1.Paint
+
     End Sub
 End Class

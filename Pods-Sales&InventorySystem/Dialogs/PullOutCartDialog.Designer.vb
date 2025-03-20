@@ -26,7 +26,6 @@ Partial Class PullOutCartDialog
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.SaveButton = New Guna.UI2.WinForms.Guna2Button()
-        Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
         Me.DatePicker = New Guna.UI2.WinForms.Guna2DateTimePicker()
         Me.Guna2HtmlLabel3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.TotalPrice = New Guna.UI2.WinForms.Guna2HtmlLabel()
@@ -37,6 +36,8 @@ Partial Class PullOutCartDialog
         Me.SupplierNameComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.SuppliersLabel = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.VendorComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.Guna2HtmlLabel2 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.AccountHeaderLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.DeliveryDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
@@ -49,13 +50,20 @@ Partial Class PullOutCartDialog
         Me.quantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.target = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FlowLayoutPanel2.SuspendLayout()
+        Me.Guna2HtmlLabel4 = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.ExdTextBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Guna2Panel1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.AccountHeaderLayoutPanel.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.DeliveryDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TableLayoutPanel2.SuspendLayout()
+        Me.Panel2.SuspendLayout()
+        Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'SaveButton
@@ -70,23 +78,12 @@ Partial Class PullOutCartDialog
         Me.SaveButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.SaveButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.SaveButton.ForeColor = System.Drawing.Color.White
-        Me.SaveButton.Location = New System.Drawing.Point(827, 7)
+        Me.SaveButton.Location = New System.Drawing.Point(827, 551)
         Me.SaveButton.Margin = New System.Windows.Forms.Padding(3, 7, 3, 3)
         Me.SaveButton.Name = "SaveButton"
         Me.SaveButton.Size = New System.Drawing.Size(150, 35)
         Me.SaveButton.TabIndex = 6
         Me.SaveButton.Text = "Save"
-        '
-        'FlowLayoutPanel2
-        '
-        Me.FlowLayoutPanel2.Controls.Add(Me.SaveButton)
-        Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.FlowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
-        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 542)
-        Me.FlowLayoutPanel2.Margin = New System.Windows.Forms.Padding(0)
-        Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(980, 50)
-        Me.FlowLayoutPanel2.TabIndex = 7
         '
         'DatePicker
         '
@@ -95,7 +92,7 @@ Partial Class PullOutCartDialog
         Me.DatePicker.FillColor = System.Drawing.Color.White
         Me.DatePicker.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DatePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
-        Me.DatePicker.Location = New System.Drawing.Point(767, 5)
+        Me.DatePicker.Location = New System.Drawing.Point(765, 5)
         Me.DatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
         Me.DatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
         Me.DatePicker.Name = "DatePicker"
@@ -106,7 +103,7 @@ Partial Class PullOutCartDialog
         'Guna2HtmlLabel3
         '
         Me.Guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2HtmlLabel3.Location = New System.Drawing.Point(727, 15)
+        Me.Guna2HtmlLabel3.Location = New System.Drawing.Point(733, 14)
         Me.Guna2HtmlLabel3.Name = "Guna2HtmlLabel3"
         Me.Guna2HtmlLabel3.Size = New System.Drawing.Size(26, 15)
         Me.Guna2HtmlLabel3.TabIndex = 4
@@ -117,20 +114,20 @@ Partial Class PullOutCartDialog
         Me.TotalPrice.BackColor = System.Drawing.Color.Transparent
         Me.TotalPrice.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TotalPrice.ForeColor = System.Drawing.Color.Red
-        Me.TotalPrice.Location = New System.Drawing.Point(65, 14)
+        Me.TotalPrice.Location = New System.Drawing.Point(58, 14)
         Me.TotalPrice.Name = "TotalPrice"
-        Me.TotalPrice.Size = New System.Drawing.Size(10, 15)
+        Me.TotalPrice.Size = New System.Drawing.Size(28, 15)
         Me.TotalPrice.TabIndex = 2
-        Me.TotalPrice.Text = "0"
+        Me.TotalPrice.Text = "0.00"
         '
         'Guna2HtmlLabel1
         '
         Me.Guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent
         Me.Guna2HtmlLabel1.Location = New System.Drawing.Point(15, 14)
         Me.Guna2HtmlLabel1.Name = "Guna2HtmlLabel1"
-        Me.Guna2HtmlLabel1.Size = New System.Drawing.Size(42, 15)
+        Me.Guna2HtmlLabel1.Size = New System.Drawing.Size(27, 15)
         Me.Guna2HtmlLabel1.TabIndex = 1
-        Me.Guna2HtmlLabel1.Text = "Subtotal"
+        Me.Guna2HtmlLabel1.Text = "Total"
         '
         'Guna2Panel1
         '
@@ -149,10 +146,10 @@ Partial Class PullOutCartDialog
         Me.FlowLayoutPanel1.Controls.Add(Me.AddProduct)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(356, 0)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(681, 0)
         Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(618, 44)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(293, 44)
         Me.FlowLayoutPanel1.TabIndex = 4
         '
         'AddProduct
@@ -167,7 +164,7 @@ Partial Class PullOutCartDialog
         Me.AddProduct.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AddProduct.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddProduct.ForeColor = System.Drawing.Color.White
-        Me.AddProduct.Location = New System.Drawing.Point(465, 7)
+        Me.AddProduct.Location = New System.Drawing.Point(140, 7)
         Me.AddProduct.Margin = New System.Windows.Forms.Padding(3, 7, 3, 3)
         Me.AddProduct.Name = "AddProduct"
         Me.AddProduct.Size = New System.Drawing.Size(150, 35)
@@ -177,7 +174,7 @@ Partial Class PullOutCartDialog
         'SupplierNameComboBox
         '
         Me.SupplierNameComboBox.BackColor = System.Drawing.Color.Transparent
-        Me.SupplierNameComboBox.BorderRadius = 5
+        Me.SupplierNameComboBox.BorderRadius = 10
         Me.SupplierNameComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.SupplierNameComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.SupplierNameComboBox.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
@@ -185,7 +182,7 @@ Partial Class PullOutCartDialog
         Me.SupplierNameComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.SupplierNameComboBox.ForeColor = System.Drawing.Color.Black
         Me.SupplierNameComboBox.ItemHeight = 30
-        Me.SupplierNameComboBox.Location = New System.Drawing.Point(92, 5)
+        Me.SupplierNameComboBox.Location = New System.Drawing.Point(106, 4)
         Me.SupplierNameComboBox.Name = "SupplierNameComboBox"
         Me.SupplierNameComboBox.Size = New System.Drawing.Size(178, 36)
         Me.SupplierNameComboBox.TabIndex = 1
@@ -193,7 +190,7 @@ Partial Class PullOutCartDialog
         'SuppliersLabel
         '
         Me.SuppliersLabel.BackColor = System.Drawing.Color.Transparent
-        Me.SuppliersLabel.Location = New System.Drawing.Point(9, 15)
+        Me.SuppliersLabel.Location = New System.Drawing.Point(15, 16)
         Me.SuppliersLabel.Name = "SuppliersLabel"
         Me.SuppliersLabel.Size = New System.Drawing.Size(77, 15)
         Me.SuppliersLabel.TabIndex = 0
@@ -201,28 +198,52 @@ Partial Class PullOutCartDialog
         '
         'Panel1
         '
-        Me.Panel1.Controls.Add(Me.SupplierNameComboBox)
-        Me.Panel1.Controls.Add(Me.SuppliersLabel)
+        Me.Panel1.Controls.Add(Me.VendorComboBox)
+        Me.Panel1.Controls.Add(Me.Guna2HtmlLabel2)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(356, 44)
+        Me.Panel1.Size = New System.Drawing.Size(681, 44)
         Me.Panel1.TabIndex = 3
+        '
+        'VendorComboBox
+        '
+        Me.VendorComboBox.BackColor = System.Drawing.Color.Transparent
+        Me.VendorComboBox.BorderRadius = 10
+        Me.VendorComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.VendorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.VendorComboBox.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.VendorComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.VendorComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.VendorComboBox.ForeColor = System.Drawing.Color.Black
+        Me.VendorComboBox.ItemHeight = 30
+        Me.VendorComboBox.Location = New System.Drawing.Point(106, 4)
+        Me.VendorComboBox.Name = "VendorComboBox"
+        Me.VendorComboBox.Size = New System.Drawing.Size(178, 36)
+        Me.VendorComboBox.TabIndex = 3
+        '
+        'Guna2HtmlLabel2
+        '
+        Me.Guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2HtmlLabel2.Location = New System.Drawing.Point(15, 15)
+        Me.Guna2HtmlLabel2.Name = "Guna2HtmlLabel2"
+        Me.Guna2HtmlLabel2.Size = New System.Drawing.Size(79, 15)
+        Me.Guna2HtmlLabel2.TabIndex = 2
+        Me.Guna2HtmlLabel2.Text = "Venodors Name"
         '
         'AccountHeaderLayoutPanel
         '
         Me.AccountHeaderLayoutPanel.ColumnCount = 2
-        Me.AccountHeaderLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.60856!))
-        Me.AccountHeaderLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.39144!))
+        Me.AccountHeaderLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.0!))
+        Me.AccountHeaderLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
         Me.AccountHeaderLayoutPanel.Controls.Add(Me.Panel1, 0, 0)
         Me.AccountHeaderLayoutPanel.Controls.Add(Me.FlowLayoutPanel1, 1, 0)
         Me.AccountHeaderLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.AccountHeaderLayoutPanel.Location = New System.Drawing.Point(3, 53)
+        Me.AccountHeaderLayoutPanel.Location = New System.Drawing.Point(3, 103)
         Me.AccountHeaderLayoutPanel.Name = "AccountHeaderLayoutPanel"
         Me.AccountHeaderLayoutPanel.RowCount = 1
         Me.AccountHeaderLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.AccountHeaderLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44.0!))
         Me.AccountHeaderLayoutPanel.Size = New System.Drawing.Size(974, 44)
         Me.AccountHeaderLayoutPanel.TabIndex = 0
         '
@@ -230,19 +251,20 @@ Partial Class PullOutCartDialog
         '
         Me.TableLayoutPanel1.ColumnCount = 1
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel1.Controls.Add(Me.AccountHeaderLayoutPanel, 0, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.DeliveryDataGridView, 0, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.SaveButton, 0, 4)
         Me.TableLayoutPanel1.Controls.Add(Me.Guna2Panel1, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.FlowLayoutPanel2, 0, 3)
-        Me.TableLayoutPanel1.Controls.Add(Me.DeliveryDataGridView, 0, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.AccountHeaderLayoutPanel, 0, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel2, 0, 1)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 4
+        Me.TableLayoutPanel1.RowCount = 5
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(980, 592)
         Me.TableLayoutPanel1.TabIndex = 3
         '
@@ -273,14 +295,14 @@ Partial Class PullOutCartDialog
         Me.DeliveryDataGridView.DefaultCellStyle = DataGridViewCellStyle3
         Me.DeliveryDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DeliveryDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DeliveryDataGridView.Location = New System.Drawing.Point(0, 100)
+        Me.DeliveryDataGridView.Location = New System.Drawing.Point(0, 150)
         Me.DeliveryDataGridView.Margin = New System.Windows.Forms.Padding(0)
         Me.DeliveryDataGridView.MultiSelect = False
         Me.DeliveryDataGridView.Name = "DeliveryDataGridView"
         Me.DeliveryDataGridView.ReadOnly = True
         Me.DeliveryDataGridView.RowHeadersVisible = False
         Me.DeliveryDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.DeliveryDataGridView.Size = New System.Drawing.Size(980, 442)
+        Me.DeliveryDataGridView.Size = New System.Drawing.Size(980, 392)
         Me.DeliveryDataGridView.TabIndex = 4
         Me.DeliveryDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.DeliveryDataGridView.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -360,6 +382,76 @@ Partial Class PullOutCartDialog
         Me.target.ReadOnly = True
         Me.target.Visible = False
         '
+        'Guna2HtmlLabel4
+        '
+        Me.Guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2HtmlLabel4.Location = New System.Drawing.Point(165, 16)
+        Me.Guna2HtmlLabel4.Name = "Guna2HtmlLabel4"
+        Me.Guna2HtmlLabel4.Size = New System.Drawing.Size(99, 15)
+        Me.Guna2HtmlLabel4.TabIndex = 6
+        Me.Guna2HtmlLabel4.Text = "Transaction Number"
+        '
+        'ExdTextBox
+        '
+        Me.ExdTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.ExdTextBox.BorderRadius = 10
+        Me.ExdTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.ExdTextBox.DefaultText = ""
+        Me.ExdTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.ExdTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.ExdTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.ExdTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.ExdTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ExdTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.ExdTextBox.ForeColor = System.Drawing.Color.Black
+        Me.ExdTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ExdTextBox.Location = New System.Drawing.Point(278, 5)
+        Me.ExdTextBox.MaxLength = 4
+        Me.ExdTextBox.Name = "ExdTextBox"
+        Me.ExdTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.ExdTextBox.PlaceholderText = ""
+        Me.ExdTextBox.SelectedText = ""
+        Me.ExdTextBox.ShortcutsEnabled = False
+        Me.ExdTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.ExdTextBox.TabIndex = 19
+        '
+        'TableLayoutPanel2
+        '
+        Me.TableLayoutPanel2.ColumnCount = 2
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.Controls.Add(Me.Panel2, 0, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.Panel3, 1, 0)
+        Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 53)
+        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+        Me.TableLayoutPanel2.RowCount = 1
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(974, 44)
+        Me.TableLayoutPanel2.TabIndex = 8
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.SuppliersLabel)
+        Me.Panel2.Controls.Add(Me.SupplierNameComboBox)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel2.Location = New System.Drawing.Point(0, 0)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(0)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(487, 44)
+        Me.Panel2.TabIndex = 0
+        '
+        'Panel3
+        '
+        Me.Panel3.Controls.Add(Me.ExdTextBox)
+        Me.Panel3.Controls.Add(Me.Guna2HtmlLabel4)
+        Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel3.Location = New System.Drawing.Point(487, 0)
+        Me.Panel3.Margin = New System.Windows.Forms.Padding(0)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(487, 44)
+        Me.Panel3.TabIndex = 1
+        '
         'PullOutCartDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -373,7 +465,6 @@ Partial Class PullOutCartDialog
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "PullOutCartDialog"
-        Me.FlowLayoutPanel2.ResumeLayout(False)
         Me.Guna2Panel1.ResumeLayout(False)
         Me.Guna2Panel1.PerformLayout()
         Me.FlowLayoutPanel1.ResumeLayout(False)
@@ -382,11 +473,15 @@ Partial Class PullOutCartDialog
         Me.AccountHeaderLayoutPanel.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
         CType(Me.DeliveryDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TableLayoutPanel2.ResumeLayout(False)
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
     Friend WithEvents SaveButton As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents FlowLayoutPanel2 As FlowLayoutPanel
     Friend WithEvents DatePicker As Guna.UI2.WinForms.Guna2DateTimePicker
     Friend WithEvents Guna2HtmlLabel3 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents TotalPrice As Guna.UI2.WinForms.Guna2HtmlLabel
@@ -409,4 +504,11 @@ Partial Class PullOutCartDialog
     Friend WithEvents quantity As DataGridViewTextBoxColumn
     Friend WithEvents total As DataGridViewTextBoxColumn
     Friend WithEvents target As DataGridViewTextBoxColumn
+    Friend WithEvents VendorComboBox As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents Guna2HtmlLabel2 As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents Guna2HtmlLabel4 As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents ExdTextBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents Panel3 As Panel
 End Class
