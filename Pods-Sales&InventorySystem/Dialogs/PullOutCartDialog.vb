@@ -39,9 +39,6 @@ Public Class PullOutCartDialog
     Private Sub SupplierNameComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles SupplierNameComboBox.SelectionChangeCommitted
         Try
             SupplierNameComboBox.BorderColor = Color.Gray
-            'MsgBox("hellp")
-            'SupplierNameComboBox.SelectedItem("ID")
-            'MsgBox(SupplierNameComboBox.SelectedItem("ID"))
 
             Dim dt As DataTable = BaseVendor.GetVendorBySupplierId(SupplierNameComboBox.SelectedItem("ID"))
             VendorComboBox.DataSource = dt.DefaultView
@@ -53,9 +50,5 @@ Public Class PullOutCartDialog
         Catch ex As Exception
 
         End Try
-    End Sub
-
-    Private Sub Guna2Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Guna2Panel1.Paint
-
     End Sub
 End Class

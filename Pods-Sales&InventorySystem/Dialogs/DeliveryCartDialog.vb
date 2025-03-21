@@ -71,7 +71,8 @@ Public Class DeliveryCartDialog
             End If
             AddItemButton.Visible = False
             DeliveryDataGridView.Columns.Item("EDIT").Visible = False
-        Catch ex As Exception 'MsgBox(ex.Message)
+        Catch ex As Exception
+
         End Try
     End Sub
 
@@ -142,7 +143,7 @@ Public Class DeliveryCartDialog
 
                 baseCommand = New BaseDelivery(data) With {.Items = items}
 
-                If BaseDelivery.Exists(result(1)(1)) = 0 Then
+                If BaseDelivery.Exists(result(2)(1)) = 0 Then
                     invoker = New AddCommand(baseCommand)
                     invoker?.Execute()
                     _subject.NotifyObserver()

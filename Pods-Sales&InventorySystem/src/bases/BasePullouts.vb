@@ -144,7 +144,7 @@ Public Class BasePullouts
 
 	                                UNION ALL 
 
-	                                select b.id, 
+	                                SELECT b.id, 
 		                                   delivery_number, 
 		                                   product_name, 
 		                                   batch_number, 

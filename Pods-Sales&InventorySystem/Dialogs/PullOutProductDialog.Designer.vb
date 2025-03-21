@@ -22,10 +22,9 @@ Partial Class PullOutProductDialog
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Me.ProductComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
+        Dim DataGridViewCellStyle28 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle29 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle30 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.StocksTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.QuantityTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.PullOutProductSaveButton = New Guna.UI2.WinForms.Guna2Button()
@@ -37,34 +36,22 @@ Partial Class PullOutProductDialog
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.VoidButton = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2TextBox1 = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.Guna2ComboBox1 = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Guna2TextBox2 = New Guna.UI2.WinForms.Guna2TextBox()
         Me.PulloutDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.SearchTextBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Guna2TextBox3 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Guna2TextBox4 = New Guna.UI2.WinForms.Guna2TextBox()
         Me.FlowLayoutPanel1.SuspendLayout()
         CType(Me.PulloutDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TableLayoutPanel1.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'ProductComboBox
-        '
-        Me.ProductComboBox.BackColor = System.Drawing.Color.Transparent
-        Me.ProductComboBox.BorderColor = System.Drawing.Color.Gray
-        Me.ProductComboBox.BorderRadius = 10
-        Me.ProductComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.ProductComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ProductComboBox.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ProductComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ProductComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.ProductComboBox.ForeColor = System.Drawing.Color.Black
-        Me.ProductComboBox.ItemHeight = 30
-        Me.ProductComboBox.Location = New System.Drawing.Point(63, 30)
-        Me.ProductComboBox.Name = "ProductComboBox"
-        Me.ProductComboBox.Size = New System.Drawing.Size(200, 36)
-        Me.ProductComboBox.TabIndex = 6
         '
         'StocksTextBox
         '
@@ -80,14 +67,14 @@ Partial Class PullOutProductDialog
         Me.StocksTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.StocksTextBox.ForeColor = System.Drawing.Color.Black
         Me.StocksTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.StocksTextBox.Location = New System.Drawing.Point(318, 88)
+        Me.StocksTextBox.Location = New System.Drawing.Point(248, 27)
         Me.StocksTextBox.MaxLength = 4
         Me.StocksTextBox.Name = "StocksTextBox"
         Me.StocksTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.StocksTextBox.PlaceholderText = "0"
         Me.StocksTextBox.SelectedText = ""
         Me.StocksTextBox.ShortcutsEnabled = False
-        Me.StocksTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.StocksTextBox.Size = New System.Drawing.Size(203, 36)
         Me.StocksTextBox.TabIndex = 13
         '
         'QuantityTextBox
@@ -104,14 +91,14 @@ Partial Class PullOutProductDialog
         Me.QuantityTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.QuantityTextBox.ForeColor = System.Drawing.Color.Black
         Me.QuantityTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.QuantityTextBox.Location = New System.Drawing.Point(324, 144)
+        Me.QuantityTextBox.Location = New System.Drawing.Point(482, 82)
         Me.QuantityTextBox.MaxLength = 4
         Me.QuantityTextBox.Name = "QuantityTextBox"
         Me.QuantityTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.QuantityTextBox.PlaceholderText = "0"
         Me.QuantityTextBox.SelectedText = ""
         Me.QuantityTextBox.ShortcutsEnabled = False
-        Me.QuantityTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.QuantityTextBox.Size = New System.Drawing.Size(205, 36)
         Me.QuantityTextBox.TabIndex = 15
         '
         'PullOutProductSaveButton
@@ -126,8 +113,7 @@ Partial Class PullOutProductDialog
         Me.PullOutProductSaveButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.PullOutProductSaveButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.PullOutProductSaveButton.ForeColor = System.Drawing.Color.White
-        Me.PullOutProductSaveButton.Location = New System.Drawing.Point(661, 8)
-        Me.PullOutProductSaveButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
+        Me.PullOutProductSaveButton.Location = New System.Drawing.Point(559, 3)
         Me.PullOutProductSaveButton.Name = "PullOutProductSaveButton"
         Me.PullOutProductSaveButton.Size = New System.Drawing.Size(150, 35)
         Me.PullOutProductSaveButton.TabIndex = 16
@@ -147,14 +133,14 @@ Partial Class PullOutProductDialog
         Me.ExdTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.ExdTextBox.ForeColor = System.Drawing.Color.Black
         Me.ExdTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ExdTextBox.Location = New System.Drawing.Point(320, 196)
+        Me.ExdTextBox.Location = New System.Drawing.Point(248, 82)
         Me.ExdTextBox.MaxLength = 4
         Me.ExdTextBox.Name = "ExdTextBox"
         Me.ExdTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ExdTextBox.PlaceholderText = ""
         Me.ExdTextBox.SelectedText = ""
         Me.ExdTextBox.ShortcutsEnabled = False
-        Me.ExdTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.ExdTextBox.Size = New System.Drawing.Size(203, 36)
         Me.ExdTextBox.TabIndex = 18
         '
         'CostTextBox
@@ -171,20 +157,20 @@ Partial Class PullOutProductDialog
         Me.CostTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.CostTextBox.ForeColor = System.Drawing.Color.Black
         Me.CostTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CostTextBox.Location = New System.Drawing.Point(349, 46)
+        Me.CostTextBox.Location = New System.Drawing.Point(248, 137)
         Me.CostTextBox.MaxLength = 4
         Me.CostTextBox.Name = "CostTextBox"
         Me.CostTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CostTextBox.PlaceholderText = "0.00"
         Me.CostTextBox.SelectedText = ""
         Me.CostTextBox.ShortcutsEnabled = False
-        Me.CostTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.CostTextBox.Size = New System.Drawing.Size(203, 36)
         Me.CostTextBox.TabIndex = 19
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(46, 14)
+        Me.Label2.Location = New System.Drawing.Point(18, 11)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(44, 13)
         Me.Label2.TabIndex = 20
@@ -193,7 +179,7 @@ Partial Class PullOutProductDialog
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(303, 180)
+        Me.Label1.Location = New System.Drawing.Point(249, 66)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(79, 13)
         Me.Label1.TabIndex = 21
@@ -202,7 +188,7 @@ Partial Class PullOutProductDialog
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(332, 30)
+        Me.Label3.Location = New System.Drawing.Point(249, 121)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(28, 13)
         Me.Label3.TabIndex = 22
@@ -211,7 +197,7 @@ Partial Class PullOutProductDialog
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(301, 70)
+        Me.Label4.Location = New System.Drawing.Point(479, 11)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(40, 13)
         Me.Label4.TabIndex = 23
@@ -220,7 +206,7 @@ Partial Class PullOutProductDialog
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(307, 128)
+        Me.Label5.Location = New System.Drawing.Point(479, 66)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(46, 13)
         Me.Label5.TabIndex = 24
@@ -229,32 +215,12 @@ Partial Class PullOutProductDialog
         'FlowLayoutPanel1
         '
         Me.FlowLayoutPanel1.Controls.Add(Me.PullOutProductSaveButton)
-        Me.FlowLayoutPanel1.Controls.Add(Me.VoidButton)
-        Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 594)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(3, 455)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(814, 55)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(712, 44)
         Me.FlowLayoutPanel1.TabIndex = 26
-        '
-        'VoidButton
-        '
-        Me.VoidButton.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.VoidButton.BackColor = System.Drawing.Color.Transparent
-        Me.VoidButton.BorderRadius = 15
-        Me.VoidButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.VoidButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.VoidButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.VoidButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.VoidButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.VoidButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.VoidButton.ForeColor = System.Drawing.Color.White
-        Me.VoidButton.Location = New System.Drawing.Point(505, 8)
-        Me.VoidButton.Margin = New System.Windows.Forms.Padding(3, 8, 3, 3)
-        Me.VoidButton.Name = "VoidButton"
-        Me.VoidButton.Size = New System.Drawing.Size(150, 35)
-        Me.VoidButton.TabIndex = 27
-        Me.VoidButton.Text = "Remove"
         '
         'Guna2TextBox1
         '
@@ -270,46 +236,29 @@ Partial Class PullOutProductDialog
         Me.Guna2TextBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.Guna2TextBox1.ForeColor = System.Drawing.Color.Black
         Me.Guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox1.Location = New System.Drawing.Point(65, 96)
+        Me.Guna2TextBox1.Location = New System.Drawing.Point(17, 82)
         Me.Guna2TextBox1.MaxLength = 4
         Me.Guna2TextBox1.Name = "Guna2TextBox1"
         Me.Guna2TextBox1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.Guna2TextBox1.PlaceholderText = ""
         Me.Guna2TextBox1.SelectedText = ""
         Me.Guna2TextBox1.ShortcutsEnabled = False
-        Me.Guna2TextBox1.Size = New System.Drawing.Size(200, 36)
+        Me.Guna2TextBox1.Size = New System.Drawing.Size(199, 36)
         Me.Guna2TextBox1.TabIndex = 27
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(62, 69)
+        Me.Label6.Location = New System.Drawing.Point(18, 66)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(68, 13)
         Me.Label6.TabIndex = 28
         Me.Label6.Text = "ATP Number"
         '
-        'Guna2ComboBox1
-        '
-        Me.Guna2ComboBox1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2ComboBox1.BorderColor = System.Drawing.Color.Gray
-        Me.Guna2ComboBox1.BorderRadius = 10
-        Me.Guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.Guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.Guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2ComboBox1.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.Guna2ComboBox1.ForeColor = System.Drawing.Color.Black
-        Me.Guna2ComboBox1.ItemHeight = 30
-        Me.Guna2ComboBox1.Location = New System.Drawing.Point(69, 151)
-        Me.Guna2ComboBox1.Name = "Guna2ComboBox1"
-        Me.Guna2ComboBox1.Size = New System.Drawing.Size(200, 36)
-        Me.Guna2ComboBox1.TabIndex = 29
-        '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(66, 135)
+        Me.Label7.Location = New System.Drawing.Point(249, 11)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(24, 13)
         Me.Label7.TabIndex = 30
@@ -318,7 +267,7 @@ Partial Class PullOutProductDialog
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(50, 190)
+        Me.Label8.Location = New System.Drawing.Point(18, 121)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(75, 13)
         Me.Label8.TabIndex = 32
@@ -338,14 +287,14 @@ Partial Class PullOutProductDialog
         Me.Guna2TextBox2.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.Guna2TextBox2.ForeColor = System.Drawing.Color.Black
         Me.Guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox2.Location = New System.Drawing.Point(63, 206)
-        Me.Guna2TextBox2.MaxLength = 4
+        Me.Guna2TextBox2.Location = New System.Drawing.Point(17, 137)
+        Me.Guna2TextBox2.MaxLength = 50
         Me.Guna2TextBox2.Name = "Guna2TextBox2"
         Me.Guna2TextBox2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.Guna2TextBox2.PlaceholderText = ""
         Me.Guna2TextBox2.SelectedText = ""
         Me.Guna2TextBox2.ShortcutsEnabled = False
-        Me.Guna2TextBox2.Size = New System.Drawing.Size(200, 36)
+        Me.Guna2TextBox2.Size = New System.Drawing.Size(199, 36)
         Me.Guna2TextBox2.TabIndex = 31
         '
         'PulloutDataGridView
@@ -354,33 +303,34 @@ Partial Class PullOutProductDialog
         Me.PulloutDataGridView.AllowUserToDeleteRows = False
         Me.PulloutDataGridView.AllowUserToResizeColumns = False
         Me.PulloutDataGridView.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
-        Me.PulloutDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.PulloutDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.PulloutDataGridView.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle28.BackColor = System.Drawing.Color.White
+        Me.PulloutDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle28
+        DataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle29.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle29.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle29.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle29.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle29.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.PulloutDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle29
+        DataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle30.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle30.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle30.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle30.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle30.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.PulloutDataGridView.DefaultCellStyle = DataGridViewCellStyle30
+        Me.PulloutDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PulloutDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.PulloutDataGridView.Location = New System.Drawing.Point(8, 254)
+        Me.PulloutDataGridView.Location = New System.Drawing.Point(0, 50)
         Me.PulloutDataGridView.Margin = New System.Windows.Forms.Padding(0)
         Me.PulloutDataGridView.MultiSelect = False
         Me.PulloutDataGridView.Name = "PulloutDataGridView"
         Me.PulloutDataGridView.ReadOnly = True
         Me.PulloutDataGridView.RowHeadersVisible = False
         Me.PulloutDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
-        Me.PulloutDataGridView.Size = New System.Drawing.Size(797, 319)
+        Me.PulloutDataGridView.Size = New System.Drawing.Size(718, 201)
         Me.PulloutDataGridView.TabIndex = 33
         Me.PulloutDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White
         Me.PulloutDataGridView.ThemeStyle.AlternatingRowsStyle.Font = Nothing
@@ -404,29 +354,130 @@ Partial Class PullOutProductDialog
         Me.PulloutDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.PulloutDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.ColumnCount = 1
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.SearchTextBox, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.PulloutDataGridView, 0, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.Panel1, 0, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.FlowLayoutPanel1, 0, 3)
+        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 4
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(718, 502)
+        Me.TableLayoutPanel1.TabIndex = 34
+        '
+        'SearchTextBox
+        '
+        Me.SearchTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.SearchTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.SearchTextBox.BorderRadius = 15
+        Me.SearchTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.SearchTextBox.DefaultText = ""
+        Me.SearchTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.SearchTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.SearchTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.SearchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.SearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.SearchTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.SearchTextBox.ForeColor = System.Drawing.Color.Black
+        Me.SearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.SearchTextBox.Location = New System.Drawing.Point(10, 7)
+        Me.SearchTextBox.Margin = New System.Windows.Forms.Padding(10, 3, 3, 3)
+        Me.SearchTextBox.Name = "SearchTextBox"
+        Me.SearchTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.SearchTextBox.PlaceholderText = "Search"
+        Me.SearchTextBox.SelectedText = ""
+        Me.SearchTextBox.ShortcutsEnabled = False
+        Me.SearchTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.SearchTextBox.TabIndex = 36
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.Color.Transparent
+        Me.Panel1.Controls.Add(Me.Guna2TextBox4)
+        Me.Panel1.Controls.Add(Me.Guna2TextBox3)
+        Me.Panel1.Controls.Add(Me.Label2)
+        Me.Panel1.Controls.Add(Me.StocksTextBox)
+        Me.Panel1.Controls.Add(Me.Label8)
+        Me.Panel1.Controls.Add(Me.QuantityTextBox)
+        Me.Panel1.Controls.Add(Me.Guna2TextBox2)
+        Me.Panel1.Controls.Add(Me.ExdTextBox)
+        Me.Panel1.Controls.Add(Me.Label7)
+        Me.Panel1.Controls.Add(Me.CostTextBox)
+        Me.Panel1.Controls.Add(Me.Label1)
+        Me.Panel1.Controls.Add(Me.Label6)
+        Me.Panel1.Controls.Add(Me.Label3)
+        Me.Panel1.Controls.Add(Me.Guna2TextBox1)
+        Me.Panel1.Controls.Add(Me.Label4)
+        Me.Panel1.Controls.Add(Me.Label5)
+        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel1.Location = New System.Drawing.Point(0, 251)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(718, 201)
+        Me.Panel1.TabIndex = 35
+        '
+        'Guna2TextBox3
+        '
+        Me.Guna2TextBox3.BorderColor = System.Drawing.Color.Gray
+        Me.Guna2TextBox3.BorderRadius = 10
+        Me.Guna2TextBox3.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.Guna2TextBox3.DefaultText = ""
+        Me.Guna2TextBox3.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.Guna2TextBox3.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.Guna2TextBox3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox3.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox3.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox3.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.Guna2TextBox3.ForeColor = System.Drawing.Color.Black
+        Me.Guna2TextBox3.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox3.Location = New System.Drawing.Point(482, 27)
+        Me.Guna2TextBox3.MaxLength = 4
+        Me.Guna2TextBox3.Name = "Guna2TextBox3"
+        Me.Guna2TextBox3.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.Guna2TextBox3.PlaceholderText = ""
+        Me.Guna2TextBox3.SelectedText = ""
+        Me.Guna2TextBox3.ShortcutsEnabled = False
+        Me.Guna2TextBox3.Size = New System.Drawing.Size(205, 36)
+        Me.Guna2TextBox3.TabIndex = 33
+        '
+        'Guna2TextBox4
+        '
+        Me.Guna2TextBox4.BorderColor = System.Drawing.Color.Gray
+        Me.Guna2TextBox4.BorderRadius = 10
+        Me.Guna2TextBox4.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.Guna2TextBox4.DefaultText = ""
+        Me.Guna2TextBox4.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.Guna2TextBox4.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.Guna2TextBox4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox4.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox4.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox4.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.Guna2TextBox4.ForeColor = System.Drawing.Color.Black
+        Me.Guna2TextBox4.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox4.Location = New System.Drawing.Point(17, 27)
+        Me.Guna2TextBox4.MaxLength = 4
+        Me.Guna2TextBox4.Name = "Guna2TextBox4"
+        Me.Guna2TextBox4.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.Guna2TextBox4.PlaceholderText = ""
+        Me.Guna2TextBox4.SelectedText = ""
+        Me.Guna2TextBox4.ShortcutsEnabled = False
+        Me.Guna2TextBox4.Size = New System.Drawing.Size(199, 36)
+        Me.Guna2TextBox4.TabIndex = 34
+        '
         'PullOutProductDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(814, 649)
-        Me.Controls.Add(Me.PulloutDataGridView)
-        Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.Guna2TextBox2)
-        Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.Guna2ComboBox1)
-        Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.Guna2TextBox1)
-        Me.Controls.Add(Me.FlowLayoutPanel1)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.CostTextBox)
-        Me.Controls.Add(Me.ExdTextBox)
-        Me.Controls.Add(Me.QuantityTextBox)
-        Me.Controls.Add(Me.StocksTextBox)
-        Me.Controls.Add(Me.ProductComboBox)
+        Me.ClientSize = New System.Drawing.Size(718, 502)
+        Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
         Me.MinimizeBox = False
@@ -436,12 +487,12 @@ Partial Class PullOutProductDialog
         Me.Text = "PullOutProductDialog"
         Me.FlowLayoutPanel1.ResumeLayout(False)
         CType(Me.PulloutDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents ProductComboBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents StocksTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents QuantityTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents PullOutProductSaveButton As Guna.UI2.WinForms.Guna2Button
@@ -453,12 +504,15 @@ Partial Class PullOutProductDialog
     Friend WithEvents Label4 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
-    Friend WithEvents VoidButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2TextBox1 As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label6 As Label
-    Friend WithEvents Guna2ComboBox1 As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents Label7 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents Guna2TextBox2 As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents PulloutDataGridView As Guna.UI2.WinForms.Guna2DataGridView
+    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents Guna2TextBox3 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents SearchTextBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Guna2TextBox4 As Guna.UI2.WinForms.Guna2TextBox
 End Class

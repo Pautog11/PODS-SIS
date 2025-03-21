@@ -39,8 +39,9 @@ Partial Class AccountDialog
         Me.LastnameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.PhonenumberLabel = New System.Windows.Forms.Label()
         Me.Phone_numberTextBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.AddressLabel = New System.Windows.Forms.Label()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.AddressLabel = New System.Windows.Forms.Label()
+        Me.AddressTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.UsernameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.PasswordLabel = New System.Windows.Forms.Label()
@@ -48,7 +49,6 @@ Partial Class AccountDialog
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Password2TextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2CheckBox1 = New Guna.UI2.WinForms.Guna2CheckBox()
-        Me.AddressTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.FlowLayoutPanel2.SuspendLayout()
         Me.AccountDialogLayoutPanel.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
@@ -322,15 +322,6 @@ Partial Class AccountDialog
         Me.Phone_numberTextBox.Size = New System.Drawing.Size(206, 36)
         Me.Phone_numberTextBox.TabIndex = 25
         '
-        'AddressLabel
-        '
-        Me.AddressLabel.AutoSize = True
-        Me.AddressLabel.Location = New System.Drawing.Point(3, 0)
-        Me.AddressLabel.Name = "AddressLabel"
-        Me.AddressLabel.Size = New System.Drawing.Size(45, 13)
-        Me.AddressLabel.TabIndex = 44
-        Me.AddressLabel.Text = "Address"
-        '
         'FlowLayoutPanel1
         '
         Me.FlowLayoutPanel1.Controls.Add(Me.AddressLabel)
@@ -346,6 +337,40 @@ Partial Class AccountDialog
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(219, 294)
         Me.FlowLayoutPanel1.TabIndex = 24
+        '
+        'AddressLabel
+        '
+        Me.AddressLabel.AutoSize = True
+        Me.AddressLabel.Location = New System.Drawing.Point(3, 0)
+        Me.AddressLabel.Name = "AddressLabel"
+        Me.AddressLabel.Size = New System.Drawing.Size(45, 13)
+        Me.AddressLabel.TabIndex = 44
+        Me.AddressLabel.Text = "Address"
+        '
+        'AddressTextBox
+        '
+        Me.AddressTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.AddressTextBox.BorderRadius = 10
+        Me.AddressTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.AddressTextBox.DefaultText = ""
+        Me.AddressTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.AddressTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.AddressTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.AddressTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.AddressTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.AddressTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.AddressTextBox.ForeColor = System.Drawing.Color.Black
+        Me.AddressTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.AddressTextBox.Location = New System.Drawing.Point(3, 16)
+        Me.AddressTextBox.MaxLength = 150
+        Me.AddressTextBox.Multiline = True
+        Me.AddressTextBox.Name = "AddressTextBox"
+        Me.AddressTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.AddressTextBox.PlaceholderText = ""
+        Me.AddressTextBox.SelectedText = ""
+        Me.AddressTextBox.ShortcutsEnabled = False
+        Me.AddressTextBox.Size = New System.Drawing.Size(206, 64)
+        Me.AddressTextBox.TabIndex = 26
         '
         'Label1
         '
@@ -461,31 +486,6 @@ Partial Class AccountDialog
         Me.Guna2CheckBox1.UncheckedState.BorderThickness = 0
         Me.Guna2CheckBox1.UncheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
         '
-        'AddressTextBox
-        '
-        Me.AddressTextBox.BorderColor = System.Drawing.Color.Gray
-        Me.AddressTextBox.BorderRadius = 10
-        Me.AddressTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.AddressTextBox.DefaultText = ""
-        Me.AddressTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.AddressTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.AddressTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.AddressTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.AddressTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.AddressTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.AddressTextBox.ForeColor = System.Drawing.Color.Black
-        Me.AddressTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.AddressTextBox.Location = New System.Drawing.Point(3, 16)
-        Me.AddressTextBox.MaxLength = 150
-        Me.AddressTextBox.Multiline = True
-        Me.AddressTextBox.Name = "AddressTextBox"
-        Me.AddressTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.AddressTextBox.PlaceholderText = ""
-        Me.AddressTextBox.SelectedText = ""
-        Me.AddressTextBox.ShortcutsEnabled = False
-        Me.AddressTextBox.Size = New System.Drawing.Size(206, 64)
-        Me.AddressTextBox.TabIndex = 26
-        '
         'AccountDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -497,7 +497,7 @@ Partial Class AccountDialog
         Me.MinimizeBox = False
         Me.Name = "AccountDialog"
         Me.ShowInTaskbar = False
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Account Dialog"
         Me.FlowLayoutPanel2.ResumeLayout(False)
         Me.AccountDialogLayoutPanel.ResumeLayout(False)
