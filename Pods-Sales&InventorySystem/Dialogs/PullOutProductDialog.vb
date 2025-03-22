@@ -3,11 +3,15 @@ Imports System.Windows.Forms
 
 Public Class PullOutProductDialog
     Private ReadOnly _data As Dictionary(Of String, String)
-    Private ReadOnly _parent As DeliveryPulloutCart = Nothing
+    Private ReadOnly _parent As PullOutCartDialog = Nothing
     Dim dt As DataTable = Nothing
+    'Dim id As Integer = Nothing
+    'Dim tran_id As Integer = Nothing
+    'Dim pid As Integer = Nothing
+    'Dim inventory_location As String = Nothing
 
     Public Sub New(Optional data As Dictionary(Of String, String) = Nothing,
-                   Optional parent As DeliveryPulloutCart = Nothing)
+                   Optional parent As PullOutCartDialog = Nothing)
         InitializeComponent()
         _data = data
         _parent = parent
@@ -25,9 +29,12 @@ Public Class PullOutProductDialog
                 dt = BasePullouts.AllProduct(_data("id"))
                 If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
                     PulloutDataGridView.DataSource = dt.DefaultView
+
+                    'PulloutDataGridView.Columns.Item("ID").Visible = False
+                    'PulloutDataGridView.Columns.Item("TRAN_ID").Visible = False
+                    'PulloutDataGridView.Columns.Item("PID").Visible = False
+                    'PulloutDataGridView.Columns.Item("SUPPLIER").Visible = False
                 End If
-                'PulloutDataGridView.Columns.Item("ID").Visible = False
-                'PulloutDataGridView.Columns.Item("SUPPLIER").Visible = False
             End If
         Catch ex As Exception
             MessageBox.Show("Error loading products: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -45,11 +52,15 @@ Public Class PullOutProductDialog
         Try
             If PulloutDataGridView.Rows.Count > 0 AndAlso PulloutDataGridView.SelectedRows.Count > 0 Then
                 Dim row As DataGridViewRow = PulloutDataGridView.SelectedRows(0)
-                ProductTextBox.Text = row.Cells(3).Value?.ToString()
-                BatchNumberTextBox.Text = row.Cells(4).Value?.ToString()
-                CostTextBox.Text = row.Cells(5).Value?.ToString()
-                StocksTextBox.Text = row.Cells(6).Value?.ToString()
-                ExpiryDateTextBox.Text = row.Cells(8).Value?.ToString()
+                _data.Item("id") = row.Cells(0).Value?.ToString()
+                _data.Item("tran_id") = row.Cells(1).Value?.ToString()
+                _data.Item("inventory_location") = row.Cells(2).Value?.ToString()
+                _data.Item("pid") = row.Cells(4).Value?.ToString()
+                ProductTextBox.Text = row.Cells(5).Value?.ToString()
+                BatchNumberTextBox.Text = row.Cells(6).Value?.ToString()
+                ExpiryDateTextBox.Text = row.Cells(7).Value?.ToString()
+                CostTextBox.Text = row.Cells(8).Value?.ToString()
+                StocksTextBox.Text = row.Cells(9).Value?.ToString()
             End If
         Catch ex As Exception
             MessageBox.Show("Error selecting product: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -67,5 +78,79 @@ Public Class PullOutProductDialog
         Catch ex As Exception
             MessageBox.Show("Error filtering products: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
+    End Sub
+
+    Private Sub PullOutProductSaveButton_Click(sender As Object, e As EventArgs) Handles PullOutProductSaveButton.Click
+        Try
+            'If ProductNameTextBox.Text = "" AndAlso StocksTextBox.Text = "" Then
+            '    MessageBox.Show("No product selected!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            '    Exit Sub
+            'End If
+
+            Dim result As New List(Of Object()) From {InputValidation.ValidateInputString(QuantityTextBox, DataInput.STRING_INTEGER)}
+            Dim validationResult = TryCast(result(0), Object())
+            If validationResult IsNot Nothing AndAlso validationResult.Length > 0 Then
+                If Not validationResult(0) = True Then
+                    Exit Sub
+                End If
+            Else
+                Throw New Exception
+            End If
+
+            Dim is_existing As Boolean = False
+
+            If Not result.Any(Function(item As Object()) Not item(0)) Then
+                For Each item As DataGridViewRow In _parent.DeliveryPulloutDataGridView.Rows
+                    'If CInt(StocksTextBox.Text) >= QuantityTextBox.Text Then
+                    'If item.Cells("id").Value.ToString() = id Then
+                    item.Cells("id").Value = _data.Item("id")
+                    item.Cells("tran_id").Value = _data.Item("tran_id")
+                    item.Cells("pid").Value = _data.Item("pid")
+                    item.Cells("product").Value = ProductTextBox.Text
+                    item.Cells("atp_number").Value = AtpTextBox.Text
+                    item.Cells("expiry_date").Value = ExpiryDateTextBox.Text
+                    item.Cells("batch_number").Value = BatchNumberTextBox.Text
+                    item.Cells("cost_price").Value = Decimal.Parse(CostTextBox.Text).ToString("F2")
+                    item.Cells("quantity").Value = CInt(QuantityTextBox.Text)
+                    item.Cells("total").Value = Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text)
+                    item.Cells("from").Value = _data.Item("inventory_location")
+                    item.Cells("target").Value = 12
+                    is_existing = True
+                    Exit For
+                    'End If
+                    'End If
+                Next
+
+                If Not is_existing Then
+                    'If CInt(If(String.IsNullOrEmpty(StocksTextBox.Text), 0, StocksTextBox.Text)) >= QuantityTextBox.Text Then
+                    _parent.DeliveryPulloutDataGridView.Rows.Add({_data.Item("id"),
+                                                                 _data.Item("tran_id"),
+                                                                 _data.Item("pid"),
+                                                                 ProductTextBox.Text,
+                                                                 AtpTextBox.Text,
+                                                                 ExpiryDateTextBox.Text,
+                                                                 BatchNumberTextBox.Text,
+                                                                 Decimal.Parse(CostTextBox.Text).ToString("F2"),
+                                                                 CInt(QuantityTextBox.Text),
+                                                                 Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text),
+                                                                 _data.Item("inventory_location"),
+                                                                 12
+                                                                 })
+                    'Else
+                    '    MessageBox.Show("Insufficient stocks!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    'End If
+                End If
+                '_parent.UpdateVisualData()
+                Me.Close()
+            Else
+                MessageBox.Show("Invalid quantity!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub RemoveButton_Click(sender As Object, e As EventArgs) Handles RemoveButton.Click
+
     End Sub
 End Class

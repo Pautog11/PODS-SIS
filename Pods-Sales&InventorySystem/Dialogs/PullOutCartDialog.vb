@@ -29,7 +29,7 @@ Public Class PullOutCartDialog
             Dim data As New Dictionary(Of String, String) From {
                 {"id", SupplierNameComboBox.SelectedItem("ID")}
             }
-            Dim dialog As New PullOutProductDialog(data:=data)
+            Dim dialog As New PullOutProductDialog(data:=data, parent:=Me)
             dialog.ShowDialog()
         Catch ex As Exception
 
@@ -46,6 +46,28 @@ Public Class PullOutCartDialog
             VendorComboBox.SelectedItem = "id"
             If dt.Rows.Count > 0 Then
                 VendorComboBox.SelectedIndex = -1
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub DeliveryPulloutDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DeliveryPulloutDataGridView.CellClick
+        Try
+            If DeliveryPulloutDataGridView.Rows.Count > 0 Then
+                Dim row As DataGridViewRow = DeliveryPulloutDataGridView.SelectedRows(0)
+                Dim data As New Dictionary(Of String, String) From {
+                    {"id", If(row.Cells(0).Value?.ToString(), "0")},
+                    {"name", If(row.Cells(1).Value?.ToString(), "")},
+                    {"date", If(row.Cells(2).Value?.ToString(), "")},
+                    {"batch_number", If(row.Cells(3).Value?.ToString(), "")},
+                    {"selling_price", If(row.Cells(4).Value?.ToString(), "0")},
+                    {"cost_price", If(row.Cells(5).Value?.ToString(), "0")},
+                    {"quantity", If(row.Cells(6).Value?.ToString(), "0")},
+                    {"target", If(row.Cells(8).Value?.ToString(), "0")}
+                }
+                Dim dialog As New PullOutProductDialog(data:=data, parent:=Me)
+                dialog.ShowDialog()
             End If
         Catch ex As Exception
 

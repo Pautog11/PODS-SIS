@@ -136,7 +136,7 @@ Public Class DeliveryProductDialog
                                     'update selected row, no adding quantity
                                     item.Cells("price").Value = Decimal.Parse(SellingTextBox.Text).ToString("F2")
                                     item.Cells("cost_price").Value = Decimal.Parse(CostTextBox.Text).ToString("F2")
-                                    item.Cells("quantity").Value = QuantityTextBox.Text
+                                    item.Cells("quantity").Value = CInt(QuantityTextBox.Text)
                                     item.Cells("total").Value = Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text)
                                 Else
                                     'When changes occur, it will check first if there is the same item in the delivery cart, and if it is true, it will add the quantity.
@@ -173,7 +173,7 @@ Public Class DeliveryProductDialog
                             Else
                                 item.Cells("price").Value = Decimal.Parse(SellingTextBox.Text).ToString("F2")
                                 item.Cells("cost_price").Value = Decimal.Parse(CostTextBox.Text).ToString("F2")
-                                item.Cells("quantity").Value = QuantityTextBox.Text
+                                item.Cells("quantity").Value = CInt(QuantityTextBox.Text)
                                 item.Cells("total").Value = Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text)
                             End If
                             is_existing = True

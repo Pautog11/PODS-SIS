@@ -37,6 +37,9 @@ Partial Class Maintenance
         Me.Dosage = New System.Windows.Forms.TabPage()
         Me.Dosage_Form = New System.Windows.Forms.TabPage()
         Me.Return_Code = New System.Windows.Forms.TabPage()
+        Me.Guna2TabControl1 = New Guna.UI2.WinForms.Guna2TabControl()
+        Me.customer_return_code = New System.Windows.Forms.TabPage()
+        Me.supplier_return_code = New System.Windows.Forms.TabPage()
         Me.Account1 = New Pods_Sales_InventorySystem.Account()
         Me.Category1 = New Pods_Sales_InventorySystem.Category()
         Me.SubCategory1 = New Pods_Sales_InventorySystem.SubCategory()
@@ -47,6 +50,7 @@ Partial Class Maintenance
         Me.Dosage1 = New Pods_Sales_InventorySystem.Dosage()
         Me.DosageForm1 = New Pods_Sales_InventorySystem.DosageForm()
         Me.ReturnCode1 = New Pods_Sales_InventorySystem.ReturnCode()
+        Me.CustomerReturnCode1 = New Pods_Sales_InventorySystem.CustomerReturnCode()
         Me.MaintenaceTabControl.SuspendLayout()
         Me.Accounts.SuspendLayout()
         Me.Categories.SuspendLayout()
@@ -62,6 +66,9 @@ Partial Class Maintenance
         Me.Dosage.SuspendLayout()
         Me.Dosage_Form.SuspendLayout()
         Me.Return_Code.SuspendLayout()
+        Me.Guna2TabControl1.SuspendLayout()
+        Me.customer_return_code.SuspendLayout()
+        Me.supplier_return_code.SuspendLayout()
         Me.SuspendLayout()
         '
         'MaintenaceTabControl
@@ -199,7 +206,7 @@ Partial Class Maintenance
         Me.SupplierTabControl.Margin = New System.Windows.Forms.Padding(0)
         Me.SupplierTabControl.Name = "SupplierTabControl"
         Me.SupplierTabControl.SelectedIndex = 0
-        Me.SupplierTabControl.Size = New System.Drawing.Size(1284, 668)
+        Me.SupplierTabControl.Size = New System.Drawing.Size(1284, 708)
         Me.SupplierTabControl.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty
         Me.SupplierTabControl.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(70, Byte), Integer))
         Me.SupplierTabControl.TabButtonHoverState.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!)
@@ -226,7 +233,7 @@ Partial Class Maintenance
         Me.Company.Location = New System.Drawing.Point(4, 44)
         Me.Company.Margin = New System.Windows.Forms.Padding(0)
         Me.Company.Name = "Company"
-        Me.Company.Size = New System.Drawing.Size(1276, 620)
+        Me.Company.Size = New System.Drawing.Size(1276, 660)
         Me.Company.TabIndex = 6
         Me.Company.Text = "Company"
         Me.Company.UseVisualStyleBackColor = True
@@ -238,7 +245,7 @@ Partial Class Maintenance
         Me.Vendor.Location = New System.Drawing.Point(4, 44)
         Me.Vendor.Margin = New System.Windows.Forms.Padding(0)
         Me.Vendor.Name = "Vendor"
-        Me.Vendor.Size = New System.Drawing.Size(1276, 620)
+        Me.Vendor.Size = New System.Drawing.Size(1276, 660)
         Me.Vendor.TabIndex = 7
         Me.Vendor.Text = "Vendor"
         Me.Vendor.UseVisualStyleBackColor = True
@@ -286,13 +293,69 @@ Partial Class Maintenance
         '
         'Return_Code
         '
-        Me.Return_Code.Controls.Add(Me.ReturnCode1)
+        Me.Return_Code.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Return_Code.Controls.Add(Me.Guna2TabControl1)
         Me.Return_Code.Location = New System.Drawing.Point(4, 84)
+        Me.Return_Code.Margin = New System.Windows.Forms.Padding(0)
         Me.Return_Code.Name = "Return_Code"
         Me.Return_Code.Size = New System.Drawing.Size(1286, 670)
         Me.Return_Code.TabIndex = 13
         Me.Return_Code.Text = "Return Code"
         Me.Return_Code.UseVisualStyleBackColor = True
+        '
+        'Guna2TabControl1
+        '
+        Me.Guna2TabControl1.Controls.Add(Me.customer_return_code)
+        Me.Guna2TabControl1.Controls.Add(Me.supplier_return_code)
+        Me.Guna2TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Guna2TabControl1.ItemSize = New System.Drawing.Size(180, 40)
+        Me.Guna2TabControl1.Location = New System.Drawing.Point(0, 0)
+        Me.Guna2TabControl1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Guna2TabControl1.Name = "Guna2TabControl1"
+        Me.Guna2TabControl1.SelectedIndex = 0
+        Me.Guna2TabControl1.Size = New System.Drawing.Size(1284, 668)
+        Me.Guna2TabControl1.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty
+        Me.Guna2TabControl1.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.Guna2TabControl1.TabButtonHoverState.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!)
+        Me.Guna2TabControl1.TabButtonHoverState.ForeColor = System.Drawing.Color.White
+        Me.Guna2TabControl1.TabButtonHoverState.InnerColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(52, Byte), Integer), CType(CType(70, Byte), Integer))
+        Me.Guna2TabControl1.TabButtonIdleState.BorderColor = System.Drawing.Color.Empty
+        Me.Guna2TabControl1.TabButtonIdleState.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.Guna2TabControl1.TabButtonIdleState.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!)
+        Me.Guna2TabControl1.TabButtonIdleState.ForeColor = System.Drawing.Color.White
+        Me.Guna2TabControl1.TabButtonIdleState.InnerColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.Guna2TabControl1.TabButtonSelectedState.BorderColor = System.Drawing.Color.Empty
+        Me.Guna2TabControl1.TabButtonSelectedState.FillColor = System.Drawing.Color.White
+        Me.Guna2TabControl1.TabButtonSelectedState.Font = New System.Drawing.Font("Segoe UI Semibold", 10.0!)
+        Me.Guna2TabControl1.TabButtonSelectedState.ForeColor = System.Drawing.Color.Black
+        Me.Guna2TabControl1.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(CType(CType(181, Byte), Integer), CType(CType(136, Byte), Integer), CType(CType(52, Byte), Integer))
+        Me.Guna2TabControl1.TabButtonSize = New System.Drawing.Size(180, 40)
+        Me.Guna2TabControl1.TabIndex = 2
+        Me.Guna2TabControl1.TabMenuBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.Guna2TabControl1.TabMenuOrientation = Guna.UI2.WinForms.TabMenuOrientation.HorizontalTop
+        '
+        'customer_return_code
+        '
+        Me.customer_return_code.Controls.Add(Me.CustomerReturnCode1)
+        Me.customer_return_code.Location = New System.Drawing.Point(4, 44)
+        Me.customer_return_code.Margin = New System.Windows.Forms.Padding(0)
+        Me.customer_return_code.Name = "customer_return_code"
+        Me.customer_return_code.Size = New System.Drawing.Size(1276, 620)
+        Me.customer_return_code.TabIndex = 6
+        Me.customer_return_code.Text = "Customer Return Code"
+        Me.customer_return_code.UseVisualStyleBackColor = True
+        '
+        'supplier_return_code
+        '
+        Me.supplier_return_code.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.supplier_return_code.Controls.Add(Me.ReturnCode1)
+        Me.supplier_return_code.Location = New System.Drawing.Point(4, 44)
+        Me.supplier_return_code.Margin = New System.Windows.Forms.Padding(0)
+        Me.supplier_return_code.Name = "supplier_return_code"
+        Me.supplier_return_code.Size = New System.Drawing.Size(1276, 620)
+        Me.supplier_return_code.TabIndex = 7
+        Me.supplier_return_code.Text = "Supplier Return Code"
+        Me.supplier_return_code.UseVisualStyleBackColor = True
         '
         'Account1
         '
@@ -321,7 +384,7 @@ Partial Class Maintenance
         Me.SubCategory1.Location = New System.Drawing.Point(0, 0)
         Me.SubCategory1.Margin = New System.Windows.Forms.Padding(0)
         Me.SubCategory1.Name = "SubCategory1"
-        Me.SubCategory1.Size = New System.Drawing.Size(1276, 620)
+        Me.SubCategory1.Size = New System.Drawing.Size(1276, 660)
         Me.SubCategory1.TabIndex = 0
         '
         'Supplier1
@@ -331,7 +394,7 @@ Partial Class Maintenance
         Me.Supplier1.Location = New System.Drawing.Point(0, 0)
         Me.Supplier1.Margin = New System.Windows.Forms.Padding(0)
         Me.Supplier1.Name = "Supplier1"
-        Me.Supplier1.Size = New System.Drawing.Size(1276, 620)
+        Me.Supplier1.Size = New System.Drawing.Size(1276, 660)
         Me.Supplier1.TabIndex = 0
         '
         'Vendor1
@@ -340,7 +403,7 @@ Partial Class Maintenance
         Me.Vendor1.Location = New System.Drawing.Point(0, 0)
         Me.Vendor1.Margin = New System.Windows.Forms.Padding(0)
         Me.Vendor1.Name = "Vendor1"
-        Me.Vendor1.Size = New System.Drawing.Size(1274, 618)
+        Me.Vendor1.Size = New System.Drawing.Size(1274, 658)
         Me.Vendor1.TabIndex = 0
         '
         'Vat1
@@ -382,13 +445,20 @@ Partial Class Maintenance
         '
         'ReturnCode1
         '
-        Me.ReturnCode1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ReturnCode1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ReturnCode1.Location = New System.Drawing.Point(0, 0)
-        Me.ReturnCode1.Margin = New System.Windows.Forms.Padding(0)
         Me.ReturnCode1.Name = "ReturnCode1"
-        Me.ReturnCode1.Size = New System.Drawing.Size(1286, 670)
+        Me.ReturnCode1.Size = New System.Drawing.Size(1274, 618)
         Me.ReturnCode1.TabIndex = 0
+        '
+        'CustomerReturnCode1
+        '
+        Me.CustomerReturnCode1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.CustomerReturnCode1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CustomerReturnCode1.Location = New System.Drawing.Point(0, 0)
+        Me.CustomerReturnCode1.Name = "CustomerReturnCode1"
+        Me.CustomerReturnCode1.Size = New System.Drawing.Size(1276, 620)
+        Me.CustomerReturnCode1.TabIndex = 0
         '
         'Maintenance
         '
@@ -412,6 +482,9 @@ Partial Class Maintenance
         Me.Dosage.ResumeLayout(False)
         Me.Dosage_Form.ResumeLayout(False)
         Me.Return_Code.ResumeLayout(False)
+        Me.Guna2TabControl1.ResumeLayout(False)
+        Me.customer_return_code.ResumeLayout(False)
+        Me.supplier_return_code.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -430,7 +503,6 @@ Partial Class Maintenance
     Friend WithEvents Accounts As TabPage
     Friend WithEvents Account1 As Account
     Friend WithEvents Return_Code As TabPage
-    Friend WithEvents ReturnCode1 As ReturnCode
     Friend WithEvents ReturnandPulloutTabControl As Guna.UI2.WinForms.Guna2TabControl
     Friend WithEvents Category As TabPage
     Friend WithEvents Subcategory As TabPage
@@ -441,4 +513,9 @@ Partial Class Maintenance
     Friend WithEvents Vendor As TabPage
     Friend WithEvents Supplier1 As Supplier
     Friend WithEvents Vendor1 As Vendor
+    Friend WithEvents Guna2TabControl1 As Guna.UI2.WinForms.Guna2TabControl
+    Friend WithEvents customer_return_code As TabPage
+    Friend WithEvents supplier_return_code As TabPage
+    Friend WithEvents ReturnCode1 As ReturnCode
+    Friend WithEvents CustomerReturnCode1 As CustomerReturnCode
 End Class

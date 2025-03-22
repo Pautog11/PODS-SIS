@@ -44,9 +44,10 @@ Partial Class PullOutProductDialog
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.SearchTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.RrcComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.ProductTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.StocksTextBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.RrcComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.RemoveButton = New Guna.UI2.WinForms.Guna2Button()
         Me.FlowLayoutPanel1.SuspendLayout()
         CType(Me.PulloutDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -114,6 +115,7 @@ Partial Class PullOutProductDialog
         Me.ExpiryDateTextBox.Name = "ExpiryDateTextBox"
         Me.ExpiryDateTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ExpiryDateTextBox.PlaceholderText = ""
+        Me.ExpiryDateTextBox.ReadOnly = True
         Me.ExpiryDateTextBox.SelectedText = ""
         Me.ExpiryDateTextBox.ShortcutsEnabled = False
         Me.ExpiryDateTextBox.Size = New System.Drawing.Size(203, 36)
@@ -138,6 +140,7 @@ Partial Class PullOutProductDialog
         Me.CostTextBox.Name = "CostTextBox"
         Me.CostTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CostTextBox.PlaceholderText = "0.00"
+        Me.CostTextBox.ReadOnly = True
         Me.CostTextBox.SelectedText = ""
         Me.CostTextBox.ShortcutsEnabled = False
         Me.CostTextBox.Size = New System.Drawing.Size(203, 36)
@@ -191,6 +194,7 @@ Partial Class PullOutProductDialog
         'FlowLayoutPanel1
         '
         Me.FlowLayoutPanel1.Controls.Add(Me.PullOutProductSaveButton)
+        Me.FlowLayoutPanel1.Controls.Add(Me.RemoveButton)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(3, 455)
@@ -268,6 +272,7 @@ Partial Class PullOutProductDialog
         Me.BatchNumberTextBox.Name = "BatchNumberTextBox"
         Me.BatchNumberTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.BatchNumberTextBox.PlaceholderText = ""
+        Me.BatchNumberTextBox.ReadOnly = True
         Me.BatchNumberTextBox.SelectedText = ""
         Me.BatchNumberTextBox.ShortcutsEnabled = False
         Me.BatchNumberTextBox.Size = New System.Drawing.Size(199, 36)
@@ -400,6 +405,23 @@ Partial Class PullOutProductDialog
         Me.Panel1.Size = New System.Drawing.Size(718, 201)
         Me.Panel1.TabIndex = 35
         '
+        'RrcComboBox
+        '
+        Me.RrcComboBox.BackColor = System.Drawing.Color.Transparent
+        Me.RrcComboBox.BorderColor = System.Drawing.Color.Gray
+        Me.RrcComboBox.BorderRadius = 10
+        Me.RrcComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.RrcComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.RrcComboBox.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.RrcComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.RrcComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.RrcComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
+        Me.RrcComboBox.ItemHeight = 30
+        Me.RrcComboBox.Location = New System.Drawing.Point(248, 27)
+        Me.RrcComboBox.Name = "RrcComboBox"
+        Me.RrcComboBox.Size = New System.Drawing.Size(203, 36)
+        Me.RrcComboBox.TabIndex = 35
+        '
         'ProductTextBox
         '
         Me.ProductTextBox.BorderColor = System.Drawing.Color.Gray
@@ -419,6 +441,7 @@ Partial Class PullOutProductDialog
         Me.ProductTextBox.Name = "ProductTextBox"
         Me.ProductTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ProductTextBox.PlaceholderText = ""
+        Me.ProductTextBox.ReadOnly = True
         Me.ProductTextBox.SelectedText = ""
         Me.ProductTextBox.ShortcutsEnabled = False
         Me.ProductTextBox.Size = New System.Drawing.Size(199, 36)
@@ -443,27 +466,29 @@ Partial Class PullOutProductDialog
         Me.StocksTextBox.Name = "StocksTextBox"
         Me.StocksTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.StocksTextBox.PlaceholderText = ""
+        Me.StocksTextBox.ReadOnly = True
         Me.StocksTextBox.SelectedText = ""
         Me.StocksTextBox.ShortcutsEnabled = False
         Me.StocksTextBox.Size = New System.Drawing.Size(205, 36)
         Me.StocksTextBox.TabIndex = 33
         '
-        'RrcComboBox
+        'RemoveButton
         '
-        Me.RrcComboBox.BackColor = System.Drawing.Color.Transparent
-        Me.RrcComboBox.BorderColor = System.Drawing.Color.Gray
-        Me.RrcComboBox.BorderRadius = 10
-        Me.RrcComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.RrcComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.RrcComboBox.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.RrcComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.RrcComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.RrcComboBox.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
-        Me.RrcComboBox.ItemHeight = 30
-        Me.RrcComboBox.Location = New System.Drawing.Point(248, 27)
-        Me.RrcComboBox.Name = "RrcComboBox"
-        Me.RrcComboBox.Size = New System.Drawing.Size(203, 36)
-        Me.RrcComboBox.TabIndex = 35
+        Me.RemoveButton.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.RemoveButton.BackColor = System.Drawing.Color.Transparent
+        Me.RemoveButton.BorderRadius = 15
+        Me.RemoveButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.RemoveButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.RemoveButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.RemoveButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.RemoveButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.RemoveButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.RemoveButton.ForeColor = System.Drawing.Color.White
+        Me.RemoveButton.Location = New System.Drawing.Point(403, 3)
+        Me.RemoveButton.Name = "RemoveButton"
+        Me.RemoveButton.Size = New System.Drawing.Size(150, 35)
+        Me.RemoveButton.TabIndex = 17
+        Me.RemoveButton.Text = "Remove"
         '
         'PullOutProductDialog
         '
@@ -508,4 +533,5 @@ Partial Class PullOutProductDialog
     Friend WithEvents SearchTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents ProductTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents RrcComboBox As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents RemoveButton As Guna.UI2.WinForms.Guna2Button
 End Class

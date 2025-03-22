@@ -122,7 +122,7 @@ Public Class DeliveryCartDialog
                 Dim invoker As ICommandInvoker
                 Dim data As New Dictionary(Of String, String) From {
                     {"id", If(_data?.Item("id"), String.Empty)},
-                    {"delivery_number", result(1)(1)},
+                    {"delivery_number", result(2)(1)},
                     {"supplier_id", If(DirectCast(SupplierNameComboBox.SelectedItem, DataRowView)("id"), String.Empty)},
                     {"vendor_id", If(DirectCast(VendorComboBox.SelectedItem, DataRowView)("id"), String.Empty)},
                     {"total", If(String.IsNullOrEmpty(TotalPrice.Text) OrElse TotalPrice.Text = "", 0, TotalPrice.Text)},
@@ -263,6 +263,7 @@ Public Class DeliveryCartDialog
                             Me.Close()
                         Else
                             MessageBox.Show("Transaction reference is already exist!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                            TransactionDeliveryTextBox.Text = ""
                         End If
                     Else
                         invoker = New UpdateCommand(baseCommand)

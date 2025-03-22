@@ -103,46 +103,72 @@ Public Class BasePullouts
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT * FROM (
-	                                SELECT b.id AS ID, 
-										   'Inventory' AS 'FROM',
-		                                   delivery_number AS 'TRANSACTION', 
-		                                   product_name AS 'NAME', 
-		                                   batch_number AS 'BATCH NUMBER', 
-		                                   cost_price AS PRICE, 
-		                                   inventory_quantity AS QUANTITY, 
-		                                   sum(cost_price * inventory_quantity) AS TOTAL, 
-		                                   expiration_date AS 'EXPIRATION DATE', 
-		                                   supplier_id AS SUPPLIER
-	                                FROM tbldeliveries a
-	                                JOIN tbldeliveries_items b ON a.id = b.delivery_id
-	                                JOIN tblproducts c ON b.product_id = c.id
-	                                WHERE b.inventory_quantity != 0
-	                                GROUP BY b.id, delivery_number, product_name, batch_number, cost_price, inventory_quantity, expiration_date, supplier_id
+            cmd = New SqlCommand("WITH 
+	                                tite as (
+		                                SELECT * FROM (
+                                                        SELECT b.id AS ID,
+															   a.id AS TRAN_ID,
+                                                               'Inventory' AS 'FROM',
+		                                                       delivery_number AS 'TRANSACTION', 
+										                       c.id AS PID,
+		                                                       product_name AS 'NAME', 
+		                                                       batch_number AS 'BATCH NUMBER', 
+		                                                       cost_price AS PRICE, 
+		                                                       inventory_quantity AS QUANTITY,
+		                                                       FORMAT(expiration_date, 'yyyy-MM-dd') AS 'EXPIRATION DATE',
+		                                                       supplier_id AS SUPPLIER
+	                                                     FROM tbldeliveries a
+                                                         JOIN tbldeliveries_items b ON a.id = b.delivery_id
+	                                                     JOIN tblproducts c ON b.product_id = c.id
+	                                                     WHERE b.inventory_quantity != 0
+	                                                     GROUP BY b.id, a.id, delivery_number, c.id, product_name, batch_number, cost_price, inventory_quantity, expiration_date, supplier_id
 
-	                                UNION ALL 
+	                                                     UNION ALL 
 
-	                                SELECT b.id AS ID,
-									       'Return' AS 'FROM',
-		                                   delivery_number AS 'TRANSACTION', 
-		                                   product_name AS 'NAME', 
-		                                   batch_number AS 'BATCH NUMBER', 
-		                                   cost_price AS PRICE, 
-		                                   remaining_quantity AS QUANTITY, 
-		                                   sum(cost_price * remaining_quantity) as TOTAL, 
-		                                   expiration_date AS 'EXPIRATION DATE', 
-		                                   supplier_id AS SUPPLIER
-	                                FROM tblreturns a
-	                                JOIN tblreturn_items b ON a.id = b.tblreturn_id
-	                                JOIN tblproducts g ON b.product_id = g.id
-	                                JOIN tbltransactions c ON a.transaction_id = c.id
-	                                JOIN getrev d ON c.id = d.transaction_id
-	                                JOIN tbldeliveries e ON d.delivery_id = e.id
-	                                JOIN tbldeliveries_items f ON e.id = f.delivery_id
-	                                WHERE b.remaining_quantity != 0
-	                                GROUP BY b.id, delivery_number, product_name, batch_number, cost_price, remaining_quantity, expiration_date, supplier_id
-                                ) AS combined_results
-                                WHERE SUPPLIER = @supplier_id", conn)
+	                                                     SELECT b.id AS ID,
+																e.id AS TRAN_ID,
+									                            'Returned' AS 'FROM',
+		                                                        delivery_number AS 'TRANSACTION', 
+										                        g.id AS PID,
+		                                                        product_name AS 'NAME', 
+		                                                        batch_number AS 'BATCH NUMBER', 
+		                                                        cost_price AS PRICE, 
+		                                                        remaining_quantity AS QUANTITY, 
+		                                                        FORMAT(expiration_date, 'yyyy-MM-dd') AS 'EXPIRATION DATE', 
+		                                                        supplier_id AS SUPPLIER
+	                                                     FROM tblreturns a
+	                                                     JOIN tblreturn_items b ON a.id = b.tblreturn_id
+	                                                     JOIN tblproducts g ON b.product_id = g.id
+	                                                     JOIN tbltransactions c ON a.transaction_id = c.id
+	                                                     JOIN getrev d ON c.id = d.transaction_id
+	                                                     JOIN tbldeliveries e ON d.delivery_id = e.id
+	                                                     JOIN tbldeliveries_items f ON e.id = f.delivery_id
+	                                                     WHERE b.remaining_quantity != 0
+	                                                     GROUP BY b.id, 
+																  e.id,
+                                                                  delivery_number, 
+                                                                  g.id, product_name, 
+                                                                  batch_number, 
+                                                                  cost_price, 
+                                                                  remaining_quantity, 
+                                                                  expiration_date, 
+                                                                  supplier_id
+
+                                                        ) AS combined_results
+                                                        WHERE SUPPLIER = @supplier_id),
+
+	                                                    price as (
+		                                                    SELECT t1.product_id, t1.cost_price
+		                                                    FROM tbldeliveries_items t1
+		                                                    JOIN (
+			                                                    SELECT product_id, MAX(id) AS latest_id
+			                                                    FROM tbldeliveries_items
+			                                                    GROUP BY product_id
+		                                                    ) t2 ON t1.product_id = t2.product_id AND t1.id = t2.latest_id
+	                                                    )
+
+	                                                    SELECT a.ID, TRAN_ID, [FROM], [TRANSACTION], PID, NAME, [BATCH NUMBER], [EXPIRATION DATE], cost_price AS PRICE, QUANTITY, (cost_price * QUANTITY) AS TOTAL, SUPPLIER FROM tite a 
+	                                                    JOIN price b ON a.PID = b.product_id", conn)
             cmd.Parameters.AddWithValue("@supplier_id", supplier_id)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)

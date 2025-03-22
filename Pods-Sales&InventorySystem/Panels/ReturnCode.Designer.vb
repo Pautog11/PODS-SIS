@@ -26,7 +26,7 @@ Partial Class ReturnCode
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.AccountHeaderLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
-        Me.AddAccountButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.AddButton = New Guna.UI2.WinForms.Guna2Button()
         Me.AccountSearchTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.RrcDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
@@ -40,7 +40,7 @@ Partial Class ReturnCode
         Me.AccountHeaderLayoutPanel.ColumnCount = 2
         Me.AccountHeaderLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.AccountHeaderLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.AccountHeaderLayoutPanel.Controls.Add(Me.AddAccountButton, 1, 0)
+        Me.AccountHeaderLayoutPanel.Controls.Add(Me.AddButton, 1, 0)
         Me.AccountHeaderLayoutPanel.Controls.Add(Me.AccountSearchTextBox, 0, 0)
         Me.AccountHeaderLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AccountHeaderLayoutPanel.Location = New System.Drawing.Point(3, 3)
@@ -51,23 +51,23 @@ Partial Class ReturnCode
         Me.AccountHeaderLayoutPanel.Size = New System.Drawing.Size(1126, 44)
         Me.AccountHeaderLayoutPanel.TabIndex = 0
         '
-        'AddAccountButton
+        'AddButton
         '
-        Me.AddAccountButton.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.AddAccountButton.BackColor = System.Drawing.Color.Transparent
-        Me.AddAccountButton.BorderRadius = 15
-        Me.AddAccountButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.AddAccountButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.AddAccountButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.AddAccountButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.AddAccountButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.AddAccountButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.AddAccountButton.ForeColor = System.Drawing.Color.White
-        Me.AddAccountButton.Location = New System.Drawing.Point(973, 4)
-        Me.AddAccountButton.Name = "AddAccountButton"
-        Me.AddAccountButton.Size = New System.Drawing.Size(150, 35)
-        Me.AddAccountButton.TabIndex = 2
-        Me.AddAccountButton.Text = "Add"
+        Me.AddButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.AddButton.BackColor = System.Drawing.Color.Transparent
+        Me.AddButton.BorderRadius = 15
+        Me.AddButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.AddButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.AddButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.AddButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.AddButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.AddButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.AddButton.ForeColor = System.Drawing.Color.White
+        Me.AddButton.Location = New System.Drawing.Point(973, 4)
+        Me.AddButton.Name = "AddButton"
+        Me.AddButton.Size = New System.Drawing.Size(150, 35)
+        Me.AddButton.TabIndex = 2
+        Me.AddButton.Text = "Add"
         '
         'AccountSearchTextBox
         '
@@ -181,7 +181,7 @@ Partial Class ReturnCode
     End Sub
 
     Friend WithEvents AccountHeaderLayoutPanel As TableLayoutPanel
-    Friend WithEvents AddAccountButton As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents AddButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents AccountSearchTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents RrcDataGridView As Guna.UI2.WinForms.Guna2DataGridView
