@@ -94,28 +94,6 @@ Public Class BasePullouts
         End Try
     End Sub
 
-    '''' <summary>
-    '''' Fetch all product by delivery id
-    '''' </summary>
-    '''' <param name="id"></param>
-    '''' <returns></returns>
-    'Public Shared Function SelectAllProductByDeliveryId(id As Integer) As DataTable
-    '    Try
-    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-    '        Dim cmd As SqlCommand
-    '        cmd = New SqlCommand("SELECT b.id, product_name, cost_price, inventory_quantity, ISNULL(expiration_date, NULL) AS expiration FROM tbldeliveries_items a
-    '                              JOIN tblproducts b ON a.product_id = b.id WHERE delivery_id = @id", conn)
-    '        cmd.Parameters.AddWithValue("@id", id)
-    '        Dim dTable As New DataTable
-    '        Dim adapter As New SqlDataAdapter(cmd)
-    '        adapter.Fill(dTable)
-    '        Return dTable
-    '    Catch ex As Exception
-    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-    '        Return New DataTable
-    '    End Try
-    'End Function
-
     ''' <summary>
     ''' Select all product by supplier
     ''' </summary>
@@ -126,16 +104,16 @@ Public Class BasePullouts
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
             cmd = New SqlCommand("SELECT * FROM (
-	                                SELECT b.id, 
-		                                   delivery_number, 
-		                                   product_name, 
-		                                   batch_number, 
-		                                   cost_price, 
-		                                   inventory_quantity, 
-		                                   sum(cost_price * inventory_quantity) AS total, 
-		                                   expiration_date, 
-		                                   supplier_id, 
-		                                   'Inventory' AS 'from'
+	                                SELECT b.id AS ID, 
+										   'Inventory' AS 'FROM',
+		                                   delivery_number AS 'TRANSACTION', 
+		                                   product_name AS 'NAME', 
+		                                   batch_number AS 'BATCH NUMBER', 
+		                                   cost_price AS PRICE, 
+		                                   inventory_quantity AS QUANTITY, 
+		                                   sum(cost_price * inventory_quantity) AS TOTAL, 
+		                                   expiration_date AS 'EXPIRATION DATE', 
+		                                   supplier_id AS SUPPLIER
 	                                FROM tbldeliveries a
 	                                JOIN tbldeliveries_items b ON a.id = b.delivery_id
 	                                JOIN tblproducts c ON b.product_id = c.id
@@ -144,16 +122,16 @@ Public Class BasePullouts
 
 	                                UNION ALL 
 
-	                                SELECT b.id, 
-		                                   delivery_number, 
-		                                   product_name, 
-		                                   batch_number, 
-		                                   cost_price, 
-		                                   remaining_quantity, 
-		                                   sum(cost_price * remaining_quantity) as total, 
-		                                   expiration_date, 
-		                                   supplier_id, 
-		                                   'Return' AS 'from'
+	                                SELECT b.id AS ID,
+									       'Return' AS 'FROM',
+		                                   delivery_number AS 'TRANSACTION', 
+		                                   product_name AS 'NAME', 
+		                                   batch_number AS 'BATCH NUMBER', 
+		                                   cost_price AS PRICE, 
+		                                   remaining_quantity AS QUANTITY, 
+		                                   sum(cost_price * remaining_quantity) as TOTAL, 
+		                                   expiration_date AS 'EXPIRATION DATE', 
+		                                   supplier_id AS SUPPLIER
 	                                FROM tblreturns a
 	                                JOIN tblreturn_items b ON a.id = b.tblreturn_id
 	                                JOIN tblproducts g ON b.product_id = g.id
@@ -164,8 +142,27 @@ Public Class BasePullouts
 	                                WHERE b.remaining_quantity != 0
 	                                GROUP BY b.id, delivery_number, product_name, batch_number, cost_price, remaining_quantity, expiration_date, supplier_id
                                 ) AS combined_results
-                                WHERE supplier_id = @supplier_id", conn)
+                                WHERE SUPPLIER = @supplier_id", conn)
             cmd.Parameters.AddWithValue("@supplier_id", supplier_id)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
+        End Try
+    End Function
+
+    ''' <summary>
+    ''' To fetch all return reason code
+    ''' </summary>
+    ''' <returns></returns>
+    Public Shared Function Rrc() As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("SELECT id, CONCAT(code, ' ', '(', description, ')') AS code FROM tblrrc", conn)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
             adapter.Fill(dTable)

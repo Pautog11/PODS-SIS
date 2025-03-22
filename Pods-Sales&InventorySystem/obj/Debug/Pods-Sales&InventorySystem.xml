@@ -726,6 +726,12 @@ Row event argument class
  <param name="supplier_id"></param>
  <returns></returns>
 </member>
+<member name="M:Pods_Sales_InventorySystem.BasePullouts.Rrc">
+ <summary>
+ To fetch all return reason code
+ </summary>
+ <returns></returns>
+</member>
 <member name="M:Pods_Sales_InventorySystem.BaseReturn.SelectAllReturnById(System.Int32)">
  <summary>
  fetch to see all returned items by retuned id
