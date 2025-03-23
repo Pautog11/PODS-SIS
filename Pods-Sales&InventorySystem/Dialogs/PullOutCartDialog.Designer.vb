@@ -41,11 +41,6 @@ Partial Class PullOutCartDialog
         Me.AccountHeaderLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.DeliveryPulloutDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.ReferennceTextBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Guna2HtmlLabel4 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tran_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.pid = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -54,11 +49,17 @@ Partial Class PullOutCartDialog
         Me.atp_number = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.expiry_date = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.batch_number = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.rrc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cost_price = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.quantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.from = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.target = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.ReferennceTextBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Guna2HtmlLabel4 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Guna2Panel1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -288,7 +289,7 @@ Partial Class PullOutCartDialog
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DeliveryPulloutDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.DeliveryPulloutDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.tran_id, Me.pid, Me.delivery_reference, Me.product, Me.atp_number, Me.expiry_date, Me.batch_number, Me.cost_price, Me.quantity, Me.total, Me.from, Me.target})
+        Me.DeliveryPulloutDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.tran_id, Me.pid, Me.delivery_reference, Me.product, Me.atp_number, Me.expiry_date, Me.batch_number, Me.rrc, Me.cost_price, Me.quantity, Me.total, Me.from, Me.target})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -329,6 +330,90 @@ Partial Class PullOutCartDialog
         Me.DeliveryPulloutDataGridView.ThemeStyle.RowsStyle.Height = 22
         Me.DeliveryPulloutDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DeliveryPulloutDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        '
+        'id
+        '
+        Me.id.HeaderText = "ID"
+        Me.id.Name = "id"
+        Me.id.ReadOnly = True
+        '
+        'tran_id
+        '
+        Me.tran_id.HeaderText = "TRANSACTION ID"
+        Me.tran_id.Name = "tran_id"
+        Me.tran_id.ReadOnly = True
+        '
+        'pid
+        '
+        Me.pid.HeaderText = "PID"
+        Me.pid.Name = "pid"
+        Me.pid.ReadOnly = True
+        '
+        'delivery_reference
+        '
+        Me.delivery_reference.HeaderText = "DELIVERY REFERENCE"
+        Me.delivery_reference.Name = "delivery_reference"
+        Me.delivery_reference.ReadOnly = True
+        '
+        'product
+        '
+        Me.product.HeaderText = "PRODUCT"
+        Me.product.Name = "product"
+        Me.product.ReadOnly = True
+        '
+        'atp_number
+        '
+        Me.atp_number.HeaderText = "ATP NUMBER"
+        Me.atp_number.Name = "atp_number"
+        Me.atp_number.ReadOnly = True
+        '
+        'expiry_date
+        '
+        Me.expiry_date.HeaderText = "EXPIRATION DATE"
+        Me.expiry_date.Name = "expiry_date"
+        Me.expiry_date.ReadOnly = True
+        '
+        'batch_number
+        '
+        Me.batch_number.HeaderText = "BATCH NUMBER"
+        Me.batch_number.Name = "batch_number"
+        Me.batch_number.ReadOnly = True
+        '
+        'rrc
+        '
+        Me.rrc.HeaderText = "RRC"
+        Me.rrc.Name = "rrc"
+        Me.rrc.ReadOnly = True
+        '
+        'cost_price
+        '
+        Me.cost_price.HeaderText = "COST PRICE"
+        Me.cost_price.Name = "cost_price"
+        Me.cost_price.ReadOnly = True
+        '
+        'quantity
+        '
+        Me.quantity.HeaderText = "QUANTITY"
+        Me.quantity.Name = "quantity"
+        Me.quantity.ReadOnly = True
+        '
+        'total
+        '
+        Me.total.HeaderText = "TOTAL"
+        Me.total.Name = "total"
+        Me.total.ReadOnly = True
+        '
+        'from
+        '
+        Me.from.HeaderText = "FROM"
+        Me.from.Name = "from"
+        Me.from.ReadOnly = True
+        '
+        'target
+        '
+        Me.target.HeaderText = "TARGET"
+        Me.target.Name = "target"
+        Me.target.ReadOnly = True
         '
         'TableLayoutPanel2
         '
@@ -382,7 +467,7 @@ Partial Class PullOutCartDialog
         Me.ReferennceTextBox.ForeColor = System.Drawing.Color.Black
         Me.ReferennceTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ReferennceTextBox.Location = New System.Drawing.Point(278, 5)
-        Me.ReferennceTextBox.MaxLength = 4
+        Me.ReferennceTextBox.MaxLength = 20
         Me.ReferennceTextBox.Name = "ReferennceTextBox"
         Me.ReferennceTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ReferennceTextBox.PlaceholderText = ""
@@ -399,84 +484,6 @@ Partial Class PullOutCartDialog
         Me.Guna2HtmlLabel4.Size = New System.Drawing.Size(93, 15)
         Me.Guna2HtmlLabel4.TabIndex = 6
         Me.Guna2HtmlLabel4.Text = "Reference Number"
-        '
-        'id
-        '
-        Me.id.HeaderText = "ID"
-        Me.id.Name = "id"
-        Me.id.ReadOnly = True
-        '
-        'tran_id
-        '
-        Me.tran_id.HeaderText = "TRANSACTION ID"
-        Me.tran_id.Name = "tran_id"
-        Me.tran_id.ReadOnly = True
-        '
-        'pid
-        '
-        Me.pid.HeaderText = "PID"
-        Me.pid.Name = "pid"
-        Me.pid.ReadOnly = True
-        '
-        'delivery_reference
-        '
-        Me.delivery_reference.HeaderText = "DELIVERY REFERENCE"
-        Me.delivery_reference.Name = "delivery_reference"
-        Me.delivery_reference.ReadOnly = True
-        '
-        'product
-        '
-        Me.product.HeaderText = "PRODUCT"
-        Me.product.Name = "product"
-        Me.product.ReadOnly = True
-        '
-        'atp_number
-        '
-        Me.atp_number.HeaderText = "ATP NUMBER"
-        Me.atp_number.Name = "atp_number"
-        Me.atp_number.ReadOnly = True
-        '
-        'expiry_date
-        '
-        Me.expiry_date.HeaderText = "EXPIRATION DATE"
-        Me.expiry_date.Name = "expiry_date"
-        Me.expiry_date.ReadOnly = True
-        '
-        'batch_number
-        '
-        Me.batch_number.HeaderText = "BATCH NUMBER"
-        Me.batch_number.Name = "batch_number"
-        Me.batch_number.ReadOnly = True
-        '
-        'cost_price
-        '
-        Me.cost_price.HeaderText = "COST PRICE"
-        Me.cost_price.Name = "cost_price"
-        Me.cost_price.ReadOnly = True
-        '
-        'quantity
-        '
-        Me.quantity.HeaderText = "QUANTITY"
-        Me.quantity.Name = "quantity"
-        Me.quantity.ReadOnly = True
-        '
-        'total
-        '
-        Me.total.HeaderText = "TOTAL"
-        Me.total.Name = "total"
-        Me.total.ReadOnly = True
-        '
-        'from
-        '
-        Me.from.HeaderText = "FROM"
-        Me.from.Name = "from"
-        Me.from.ReadOnly = True
-        '
-        'target
-        '
-        Me.target.HeaderText = "TARGET"
-        Me.target.Name = "target"
-        Me.target.ReadOnly = True
         '
         'PullOutCartDialog
         '
@@ -536,6 +543,7 @@ Partial Class PullOutCartDialog
     Friend WithEvents atp_number As DataGridViewTextBoxColumn
     Friend WithEvents expiry_date As DataGridViewTextBoxColumn
     Friend WithEvents batch_number As DataGridViewTextBoxColumn
+    Friend WithEvents rrc As DataGridViewTextBoxColumn
     Friend WithEvents cost_price As DataGridViewTextBoxColumn
     Friend WithEvents quantity As DataGridViewTextBoxColumn
     Friend WithEvents total As DataGridViewTextBoxColumn

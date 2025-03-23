@@ -183,6 +183,12 @@
     <Compile Include="Dialogs\AccountDialog.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Dialogs\CustomerReturnCodeDialog.Designer.vb">
+      <DependentUpon>CustomerReturnCodeDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\CustomerReturnCodeDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Dialogs\DeliveryCartDialog.Designer.vb">
       <DependentUpon>DeliveryCartDialog.vb</DependentUpon>
     </Compile>
@@ -211,6 +217,12 @@
       <DependentUpon>ReturnProductDialog.vb</DependentUpon>
     </Compile>
     <Compile Include="Dialogs\ReturnProductDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialogs\SupplierReturnCodeDialog.Designer.vb">
+      <DependentUpon>SupplierReturnCodeDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\SupplierReturnCodeDialog.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dialogs\VendorDialog.Designer.vb">
@@ -609,6 +621,7 @@
     <Compile Include="src\bases\BaseAccountLog.vb" />
     <Compile Include="src\bases\BaseAuditTrail.vb" />
     <Compile Include="src\bases\BaseCategory.vb" />
+    <Compile Include="src\bases\BaseCustomerReturnCode.vb" />
     <Compile Include="src\bases\BaseDelivery.vb" />
     <Compile Include="src\bases\BaseDiscount.vb" />
     <Compile Include="src\bases\BaseDosage.vb" />
@@ -623,6 +636,7 @@
     <Compile Include="src\bases\BaseTransaction.vb" />
     <Compile Include="src\bases\BaseVat.vb" />
     <Compile Include="src\bases\BaseVendor.vb" />
+    <Compile Include="src\bases\BaseSupplierReturnCode.vb" />
     <Compile Include="src\classes\InputValidation.vb" />
     <Compile Include="src\classes\LoginModule.vb" />
     <Compile Include="src\classes\SqlBaseConnetion.vb" />
@@ -646,6 +660,9 @@
     <EmbeddedResource Include="Dialogs\AccountDialog.resx">
       <DependentUpon>AccountDialog.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\CustomerReturnCodeDialog.resx">
+      <DependentUpon>CustomerReturnCodeDialog.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\DeliveryCartDialog.resx">
       <DependentUpon>DeliveryCartDialog.vb</DependentUpon>
     </EmbeddedResource>
@@ -663,6 +680,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\ReturnProductDialog.resx">
       <DependentUpon>ReturnProductDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\SupplierReturnCodeDialog.resx">
+      <DependentUpon>SupplierReturnCodeDialog.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\VendorDialog.resx">
       <DependentUpon>VendorDialog.vb</DependentUpon>

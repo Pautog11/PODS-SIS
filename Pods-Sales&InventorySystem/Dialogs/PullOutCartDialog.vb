@@ -1,7 +1,14 @@
 ﻿Imports System.Windows.Forms
 
 Public Class PullOutCartDialog
+    Private _subject As IObservablePanel
     Public _itemSource As DataTable
+
+    Public Sub New(Optional subject As IObservablePanel = Nothing)
+        InitializeComponent()
+        _subject = subject
+    End Sub
+
     Private Sub PullOutCartDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim dt As DataTable = BaseSupplier.Fetchsupplier_allow_refund()
         SupplierNameComboBox.DataSource = dt
@@ -61,15 +68,17 @@ Public Class PullOutCartDialog
                     {"id", If(row.Cells(0).Value?.ToString(), "0")},
                     {"tran_id", If(row.Cells(1).Value?.ToString(), "")},
                     {"pid", If(row.Cells(2).Value?.ToString(), "")},
-                    {"name", If(row.Cells(3).Value?.ToString(), "")},
-                    {"atp_number", If(row.Cells(4).Value?.ToString(), "0")},
-                    {"expiry_date", If(row.Cells(5).Value?.ToString(), "0")},
-                    {"batch_number", If(row.Cells(6).Value?.ToString(), "0")},
-                    {"cost", If(row.Cells(7).Value?.ToString(), "0")},
-                    {"quantity", If(row.Cells(8).Value?.ToString(), "0")},
-                    {"total", If(row.Cells(9).Value?.ToString(), "0")},
-                    {"from", If(row.Cells(10).Value?.ToString(), "0")},
-                    {"target", If(row.Cells(11).Value?.ToString(), "0")}
+                    {"delivery_reference", If(row.Cells(3).Value?.ToString(), "")},
+                    {"name", If(row.Cells(4).Value?.ToString(), "")},
+                    {"atp_number", If(row.Cells(5).Value?.ToString(), "0")},
+                    {"expiry_date", If(row.Cells(6).Value?.ToString(), "")},
+                    {"batch_number", If(row.Cells(7).Value?.ToString(), "")},
+                    {"rrc", If(row.Cells(8).Value?.ToString(), "")},
+                    {"cost", If(row.Cells(9).Value?.ToString(), "0")},
+                    {"quantity", If(row.Cells(10).Value?.ToString(), "0")},
+                    {"total", If(row.Cells(11).Value?.ToString(), "0")},
+                    {"from", If(row.Cells(12).Value?.ToString(), "0")},
+                    {"target", If(row.Cells(13).Value?.ToString(), "0")}
                 }
                 Dim dialog As New PullOutProductDialog(data2:=data, parent:=Me)
                 dialog.ShowDialog()
@@ -114,40 +123,35 @@ Public Class PullOutCartDialog
                 Dim items As New List(Of Dictionary(Of String, String))()
                 Dim baseCommand As ICommandPanel
                 Dim invoker As ICommandInvoker
-                Dim data As New Dictionary(Of String, String) From {}
-                '    {"id", 1},
-                '    {"delivery_number", result(2)(1)},
-                '    {"supplier_id", If(DirectCast(SupplierNameComboBox.SelectedItem, DataRowView)("id"), String.Empty)},
-                '    {"vendor_id", If(DirectCast(VendorComboBox.SelectedItem, DataRowView)("id"), String.Empty)},
-                '    {"total", If(String.IsNullOrEmpty(TotalPrice.Text) OrElse TotalPrice.Text = "", 0, TotalPrice.Text)},
-                '    {"date", DatePicker.Value.ToString("MMM dd yyyy")}
-                '}
+                Dim data As New Dictionary(Of String, String) From {
+                    {"reference_number", ReferennceTextBox.Text},
+                    {"supplier_id", If(DirectCast(SupplierNameComboBox.SelectedItem, DataRowView)("id"), String.Empty)},
+                    {"vendor_id", If(DirectCast(VendorComboBox.SelectedItem, DataRowView)("id"), String.Empty)},
+                    {"total", If(String.IsNullOrEmpty(TotalPrice.Text), 0, TotalPrice.Text)},
+                    {"date", DatePicker.Value.ToString("MMM dd yyyy")}
+                }
 
                 For Each row As DataGridViewRow In DeliveryPulloutDataGridView.Rows
                     Dim item As New Dictionary(Of String, String) From {
-                        {"from", If(row.Cells(10).Value?.ToString(), "")}
+                        {"id", row.Cells(0).Value},
+                        {"product_id", row.Cells(2).Value},
+                        {"atp", If(row.Cells(5).Value?.ToString(), "0")},
+                        {"expiration_date", If(row.Cells(6).Value?.ToString(), "0")},
+                        {"batch_number", If(row.Cells(7).Value?.ToString(), "0")},
+                        {"rrc_id", BasePullouts.SupplierIdRrc(If(row.Cells(8).Value?.ToString(), ""))},
+                        {"price", If(row.Cells(9).Value?.ToString(), "0")},
+                        {"quantity", If(row.Cells(10).Value?.ToString(), "0")},
+                        {"from", If(row.Cells(12).Value?.ToString(), "")}
                     }
-
-
-                    '                    {"product_id", row.Cells(0).Value},
-                    '{"price", If(row.Cells(4).Value?.ToString(), "0")},
-                    '{"cost_price", If(row.Cells(5).Value?.ToString(), "0")},
-                    '{"quantity", If(row.Cells(6).Value?.ToString(), "0")},
-                    '{"batch_number", If(row.Cells(3).Value?.ToString(), "0")},
-                    '{"expiration_date", If(row.Cells(2).Value?.ToString(), "0")},
                     items.Add(item)
                 Next
 
                 baseCommand = New BasePullouts(data) With {.Items = items}
 
-                'If _data IsNot Nothing Then
                 invoker = New AddCommand(baseCommand)
                 invoker?.Execute()
-                '_subject.NotifyObserver()
-                'Me.Close()
-                'Else
-                '    MessageBox.Show("Transaction reference is already exist!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                'End If
+                _subject.NotifyObserver()
+                Me.Close()
             Else
                 MessageBox.Show("Please select product first.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If

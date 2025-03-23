@@ -7,10 +7,6 @@ Public Class PullOutProductDialog
     Private ReadOnly _parent As PullOutCartDialog = Nothing
     Dim dt As DataTable = Nothing
     Dim num As Integer = 1
-    'Dim id As Integer = Nothing
-    'Dim tran_id As Integer = Nothing
-    'Dim pid As Integer = Nothing
-    'Dim inventory_location As String = Nothing
 
     Public Sub New(Optional data As Dictionary(Of String, String) = Nothing,
                    Optional data2 As Dictionary(Of String, String) = Nothing,
@@ -25,7 +21,7 @@ Public Class PullOutProductDialog
         Try
             Dim rrc As DataTable = BasePullouts.Rrc()
             RrcComboBox.DataSource = rrc
-            RrcComboBox.DisplayMember = "code"
+            RrcComboBox.DisplayMember = "codedes"
             RrcComboBox.ValueMember = "id"
 
 
@@ -65,10 +61,10 @@ Public Class PullOutProductDialog
                 PullOutProductSaveButton.Text = "Update"
             End If
 
-            'PulloutDataGridView.Columns.Item("ID").Visible = False
-            'PulloutDataGridView.Columns.Item("TRAN_ID").Visible = False
-            'PulloutDataGridView.Columns.Item("PID").Visible = False
-            'PulloutDataGridView.Columns.Item("SUPPLIER").Visible = False
+            PulloutDataGridView.Columns.Item("ID").Visible = False
+            PulloutDataGridView.Columns.Item("TRAN_ID").Visible = False
+            PulloutDataGridView.Columns.Item("PID").Visible = False
+            PulloutDataGridView.Columns.Item("SUPPLIER").Visible = False
 
         Catch ex As Exception
             MessageBox.Show("Error loading products: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -139,6 +135,7 @@ Public Class PullOutProductDialog
                         item.Cells("atp_number").Value = AtpTextBox.Text
                         item.Cells("expiry_date").Value = ExpiryDateTextBox.Text
                         item.Cells("batch_number").Value = BatchNumberTextBox.Text
+                        item.Cells("rrc").Value = RrcComboBox.SelectedItem("code")
                         item.Cells("cost_price").Value = Decimal.Parse(CostTextBox.Text).ToString("F2")
                         item.Cells("quantity").Value = CInt(QuantityTextBox.Text)
                         item.Cells("total").Value = Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text)
@@ -163,6 +160,7 @@ Public Class PullOutProductDialog
                                                                  AtpTextBox.Text,
                                                                  ExpiryDateTextBox.Text,
                                                                  BatchNumberTextBox.Text,
+                                                                 RrcComboBox.SelectedItem("code"),
                                                                  Decimal.Parse(CostTextBox.Text).ToString("F2"),
                                                                  CInt(QuantityTextBox.Text),
                                                                  Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text),

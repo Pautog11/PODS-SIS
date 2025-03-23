@@ -27,20 +27,66 @@ Public Class BasePullouts
     End Sub
 
     Public Sub Add() Implements ICommandPanel.Add
-        'Dim transaction As SqlTransaction = SqlConnectionPods.GetInstance.BeginTransaction()
+        Dim transaction As SqlTransaction = SqlConnectionPods.GetInstance.BeginTransaction()
         Try
+            _sqlCommand = New SqlCommand("INSERT INTO tbldeliverypullouts(account_id, supplier_id, vendor_id, reference_number, total, date) VALUES (@account_id, @supplier_id, @vendor_id, @reference_number, @total, @date); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
+            _sqlCommand.Parameters.AddWithValue("@account_id", My.Settings.myId)
+            _sqlCommand.Parameters.AddWithValue("@supplier_id", _data.Item("supplier_id"))
+            _sqlCommand.Parameters.AddWithValue("@vendor_id", _data.Item("vendor_id"))
+            _sqlCommand.Parameters.AddWithValue("@reference_number", _data.Item("reference_number"))
+            _sqlCommand.Parameters.AddWithValue("@total", _data.Item("total"))
+            _sqlCommand.Parameters.AddWithValue("@date", _data.Item("date"))
+
+            Dim deliveryId As Integer = Convert.ToInt32(_sqlCommand.ExecuteScalar())
+
+            For Each item In _item
+                If item IsNot Nothing AndAlso item.Count > 0 Then
+                    _sqlCommand.Parameters.Clear()
+                    _sqlCommand = New SqlCommand("INSERT INTO tbldeliverypullout_items(deliverypullout_id, delivery_id, product_id, atp, expiration_date, batch_number, rrc_id, price, quantity) VALUES (@deliverypullout_id, @delivery_id, @product_id, @atp, @expiration_date, @batch_number, @rrc_id, @price, @quantity)", _sqlConnection, transaction)
+                    _sqlCommand.Parameters.AddWithValue("@deliverypullout_id", deliveryId)
+                    _sqlCommand.Parameters.AddWithValue("@delivery_id", item("product_id"))
+                    _sqlCommand.Parameters.AddWithValue("@product_id", item("product_id"))
+                    _sqlCommand.Parameters.AddWithValue("@atp", item("atp"))
+                    _sqlCommand.Parameters.AddWithValue("@expiration_date", item("expiration_date"))
+                    _sqlCommand.Parameters.AddWithValue("@batch_number", item("batch_number"))
+                    _sqlCommand.Parameters.AddWithValue("@rrc_id", item("rrc_id"))
+                    _sqlCommand.Parameters.AddWithValue("@price", item("price"))
+                    _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
+
+                    If _sqlCommand.ExecuteNonQuery() <= 0 Then
+                        MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    End If
+                End If
+            Next
+
+
             For Each item In _item
                 If item("from") = "Inventory" Then
-                    MsgBox("inventory")
+                    _sqlCommand.Parameters.Clear()
+                    _sqlCommand = New SqlCommand("UPDATE tbldeliveries_items SET inventory_quantity = inventory_quantity - @inventory_quantity WHERE id = @id", _sqlConnection, transaction)
+                    _sqlCommand.Parameters.AddWithValue("@id", item("id"))
+                    _sqlCommand.Parameters.AddWithValue("@inventory_quantity", item("quantity"))
+
+                    If _sqlCommand.ExecuteNonQuery() <= 0 Then
+                        MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    End If
                 End If
 
                 If item("from") = "Returned" Then
-                    MsgBox("returned")
+                    _sqlCommand.Parameters.Clear()
+                    _sqlCommand = New SqlCommand("UPDATE tblreturn_items SET remaining_quantity = remaining_quantity - @remaining_quantity WHERE id = @id", _sqlConnection, transaction)
+                    _sqlCommand.Parameters.AddWithValue("@id", item("id"))
+                    _sqlCommand.Parameters.AddWithValue("@remaining_quantity", item("quantity"))
+
+                    If _sqlCommand.ExecuteNonQuery() <= 0 Then
+                        MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    End If
                 End If
             Next
-            ' transaction.Commit()
+            transaction.Commit()
+            MessageBox.Show("Pullout has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Catch ex As Exception
-            'transaction.Rollback()
+            transaction.Rollback()
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End Try
     End Sub
@@ -139,7 +185,7 @@ Public Class BasePullouts
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT id, CONCAT(code, ' ', '(', description, ')') AS code FROM tblrrc", conn)
+            cmd = New SqlCommand("SELECT id, CONCAT(code, ' ', '(', description, ')') AS codedes, code AS code FROM tblrrc", conn)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
             adapter.Fill(dTable)
@@ -147,6 +193,22 @@ Public Class BasePullouts
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return New DataTable
+        End Try
+    End Function
+
+    ''' <summary>
+    ''' To get id the return reason code
+    ''' </summary>
+    ''' <returns></returns>
+    Public Shared Function SupplierIdRrc(code As String) As Integer
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT id FROM tblrrc WHERE LOWER(code) = @code", conn)
+            cmd.Parameters.AddWithValue("@code", code.Trim.ToLower)
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
         End Try
     End Function
 End Class
