@@ -22,9 +22,9 @@ Partial Class PullOutCartDialog
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.SaveButton = New Guna.UI2.WinForms.Guna2Button()
         Me.DatePicker = New Guna.UI2.WinForms.Guna2DateTimePicker()
         Me.Guna2HtmlLabel3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
@@ -44,11 +44,12 @@ Partial Class PullOutCartDialog
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.ExdTextBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.ReferennceTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2HtmlLabel4 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.tran_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.pid = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.delivery_reference = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.product = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.atp_number = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.expiry_date = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -277,25 +278,25 @@ Partial Class PullOutCartDialog
         Me.DeliveryPulloutDataGridView.AllowUserToDeleteRows = False
         Me.DeliveryPulloutDataGridView.AllowUserToResizeColumns = False
         Me.DeliveryPulloutDataGridView.AllowUserToResizeRows = False
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.White
-        Me.DeliveryPulloutDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle7
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DeliveryPulloutDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle8
-        Me.DeliveryPulloutDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.tran_id, Me.pid, Me.product, Me.atp_number, Me.expiry_date, Me.batch_number, Me.cost_price, Me.quantity, Me.total, Me.from, Me.target})
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle9.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DeliveryPulloutDataGridView.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
+        Me.DeliveryPulloutDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DeliveryPulloutDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.DeliveryPulloutDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.tran_id, Me.pid, Me.delivery_reference, Me.product, Me.atp_number, Me.expiry_date, Me.batch_number, Me.cost_price, Me.quantity, Me.total, Me.from, Me.target})
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DeliveryPulloutDataGridView.DefaultCellStyle = DataGridViewCellStyle3
         Me.DeliveryPulloutDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DeliveryPulloutDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DeliveryPulloutDataGridView.Location = New System.Drawing.Point(0, 150)
@@ -357,7 +358,7 @@ Partial Class PullOutCartDialog
         '
         'Panel3
         '
-        Me.Panel3.Controls.Add(Me.ExdTextBox)
+        Me.Panel3.Controls.Add(Me.ReferennceTextBox)
         Me.Panel3.Controls.Add(Me.Guna2HtmlLabel4)
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel3.Location = New System.Drawing.Point(487, 0)
@@ -366,29 +367,29 @@ Partial Class PullOutCartDialog
         Me.Panel3.Size = New System.Drawing.Size(487, 44)
         Me.Panel3.TabIndex = 1
         '
-        'ExdTextBox
+        'ReferennceTextBox
         '
-        Me.ExdTextBox.BorderColor = System.Drawing.Color.Gray
-        Me.ExdTextBox.BorderRadius = 10
-        Me.ExdTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.ExdTextBox.DefaultText = ""
-        Me.ExdTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.ExdTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.ExdTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.ExdTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.ExdTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ExdTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.ExdTextBox.ForeColor = System.Drawing.Color.Black
-        Me.ExdTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ExdTextBox.Location = New System.Drawing.Point(278, 5)
-        Me.ExdTextBox.MaxLength = 4
-        Me.ExdTextBox.Name = "ExdTextBox"
-        Me.ExdTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.ExdTextBox.PlaceholderText = ""
-        Me.ExdTextBox.SelectedText = ""
-        Me.ExdTextBox.ShortcutsEnabled = False
-        Me.ExdTextBox.Size = New System.Drawing.Size(200, 36)
-        Me.ExdTextBox.TabIndex = 19
+        Me.ReferennceTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.ReferennceTextBox.BorderRadius = 10
+        Me.ReferennceTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.ReferennceTextBox.DefaultText = ""
+        Me.ReferennceTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.ReferennceTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.ReferennceTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.ReferennceTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.ReferennceTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ReferennceTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.ReferennceTextBox.ForeColor = System.Drawing.Color.Black
+        Me.ReferennceTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ReferennceTextBox.Location = New System.Drawing.Point(278, 5)
+        Me.ReferennceTextBox.MaxLength = 4
+        Me.ReferennceTextBox.Name = "ReferennceTextBox"
+        Me.ReferennceTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.ReferennceTextBox.PlaceholderText = ""
+        Me.ReferennceTextBox.SelectedText = ""
+        Me.ReferennceTextBox.ShortcutsEnabled = False
+        Me.ReferennceTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.ReferennceTextBox.TabIndex = 19
         '
         'Guna2HtmlLabel4
         '
@@ -416,6 +417,12 @@ Partial Class PullOutCartDialog
         Me.pid.HeaderText = "PID"
         Me.pid.Name = "pid"
         Me.pid.ReadOnly = True
+        '
+        'delivery_reference
+        '
+        Me.delivery_reference.HeaderText = "DELIVERY REFERENCE"
+        Me.delivery_reference.Name = "delivery_reference"
+        Me.delivery_reference.ReadOnly = True
         '
         'product
         '
@@ -517,13 +524,14 @@ Partial Class PullOutCartDialog
     Friend WithEvents VendorComboBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents Guna2HtmlLabel2 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Guna2HtmlLabel4 As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents ExdTextBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents ReferennceTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Panel3 As Panel
     Friend WithEvents id As DataGridViewTextBoxColumn
     Friend WithEvents tran_id As DataGridViewTextBoxColumn
     Friend WithEvents pid As DataGridViewTextBoxColumn
+    Friend WithEvents delivery_reference As DataGridViewTextBoxColumn
     Friend WithEvents product As DataGridViewTextBoxColumn
     Friend WithEvents atp_number As DataGridViewTextBoxColumn
     Friend WithEvents expiry_date As DataGridViewTextBoxColumn

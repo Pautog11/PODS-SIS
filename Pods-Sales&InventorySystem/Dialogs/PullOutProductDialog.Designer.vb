@@ -22,9 +22,9 @@ Partial Class PullOutProductDialog
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.QuantityTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.PullOutProductSaveButton = New Guna.UI2.WinForms.Guna2Button()
         Me.ExpiryDateTextBox = New Guna.UI2.WinForms.Guna2TextBox()
@@ -35,6 +35,7 @@ Partial Class PullOutProductDialog
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.RemoveButton = New Guna.UI2.WinForms.Guna2Button()
         Me.AtpTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -47,7 +48,6 @@ Partial Class PullOutProductDialog
         Me.RrcComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.ProductTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.StocksTextBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.RemoveButton = New Guna.UI2.WinForms.Guna2Button()
         Me.FlowLayoutPanel1.SuspendLayout()
         CType(Me.PulloutDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -202,6 +202,24 @@ Partial Class PullOutProductDialog
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(712, 44)
         Me.FlowLayoutPanel1.TabIndex = 26
         '
+        'RemoveButton
+        '
+        Me.RemoveButton.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.RemoveButton.BackColor = System.Drawing.Color.Transparent
+        Me.RemoveButton.BorderRadius = 15
+        Me.RemoveButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.RemoveButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.RemoveButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.RemoveButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.RemoveButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.RemoveButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.RemoveButton.ForeColor = System.Drawing.Color.White
+        Me.RemoveButton.Location = New System.Drawing.Point(403, 3)
+        Me.RemoveButton.Name = "RemoveButton"
+        Me.RemoveButton.Size = New System.Drawing.Size(150, 35)
+        Me.RemoveButton.TabIndex = 17
+        Me.RemoveButton.Text = "Remove"
+        '
         'AtpTextBox
         '
         Me.AtpTextBox.BorderColor = System.Drawing.Color.Gray
@@ -217,7 +235,7 @@ Partial Class PullOutProductDialog
         Me.AtpTextBox.ForeColor = System.Drawing.Color.Black
         Me.AtpTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.AtpTextBox.Location = New System.Drawing.Point(17, 82)
-        Me.AtpTextBox.MaxLength = 4
+        Me.AtpTextBox.MaxLength = 20
         Me.AtpTextBox.Name = "AtpTextBox"
         Me.AtpTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.AtpTextBox.PlaceholderText = ""
@@ -284,24 +302,24 @@ Partial Class PullOutProductDialog
         Me.PulloutDataGridView.AllowUserToDeleteRows = False
         Me.PulloutDataGridView.AllowUserToResizeColumns = False
         Me.PulloutDataGridView.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
-        Me.PulloutDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.PulloutDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.PulloutDataGridView.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
+        Me.PulloutDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.PulloutDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.PulloutDataGridView.DefaultCellStyle = DataGridViewCellStyle6
         Me.PulloutDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PulloutDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.PulloutDataGridView.Location = New System.Drawing.Point(0, 50)
@@ -371,6 +389,7 @@ Partial Class PullOutProductDialog
         Me.SearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.SearchTextBox.Location = New System.Drawing.Point(10, 7)
         Me.SearchTextBox.Margin = New System.Windows.Forms.Padding(10, 3, 3, 3)
+        Me.SearchTextBox.MaxLength = 20
         Me.SearchTextBox.Name = "SearchTextBox"
         Me.SearchTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.SearchTextBox.PlaceholderText = "Search"
@@ -471,24 +490,6 @@ Partial Class PullOutProductDialog
         Me.StocksTextBox.ShortcutsEnabled = False
         Me.StocksTextBox.Size = New System.Drawing.Size(205, 36)
         Me.StocksTextBox.TabIndex = 33
-        '
-        'RemoveButton
-        '
-        Me.RemoveButton.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.RemoveButton.BackColor = System.Drawing.Color.Transparent
-        Me.RemoveButton.BorderRadius = 15
-        Me.RemoveButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.RemoveButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.RemoveButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.RemoveButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.RemoveButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.RemoveButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.RemoveButton.ForeColor = System.Drawing.Color.White
-        Me.RemoveButton.Location = New System.Drawing.Point(403, 3)
-        Me.RemoveButton.Name = "RemoveButton"
-        Me.RemoveButton.Size = New System.Drawing.Size(150, 35)
-        Me.RemoveButton.TabIndex = 17
-        Me.RemoveButton.Text = "Remove"
         '
         'PullOutProductDialog
         '
