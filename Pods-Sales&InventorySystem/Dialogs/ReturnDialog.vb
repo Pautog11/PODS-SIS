@@ -5,7 +5,7 @@ Public Class ReturnDialog
     Private ReadOnly _data2 As Dictionary(Of String, String)
     Dim dt As DataTable = Nothing
     Dim num As Integer = 1
-    Dim orig_price As Decimal = Nothing
+    'Dim orig_price As Decimal = Nothing
     Dim target As Integer = Nothing
     Private ReadOnly _parent As ReturnCartDialog = Nothing
     Public Sub New(Optional data As Dictionary(Of String, String) = Nothing,
@@ -19,7 +19,17 @@ Public Class ReturnDialog
 
     Private Sub ReturnDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
+            Dim rrc As DataTable = BaseReturn.ReturnCode
+            RrcComboBox.DataSource = rrc
+            RrcComboBox.DisplayMember = "code"
+            RrcComboBox.ValueMember = "id"
+
             If _data IsNot Nothing Then
+
+                If rrc.Rows.Count > 0 Then
+                    RrcComboBox.SelectedIndex = -1
+                End If
+
                 dt = BaseReturn.SelectTransactionbyTransaction_id(_data.Item("delivery_id"))
                 ProductComboBox.DropDownHeight = 5 * ProductComboBox.ItemHeight
                 ProductComboBox.DataSource = dt.DefaultView
@@ -48,6 +58,12 @@ Public Class ReturnDialog
                     StocksTextBox.Text = dt.Rows(0)("quantity").ToString()
                     CostTextBox.Text = dt.Rows(0)("price").ToString()
                 End If
+
+                'MsgBox(_data2.Item("rrc"))
+                'RrcComboBox.Text = BaseReturn.FecthRrcId(_data2.Item("rrc"))
+
+
+                RrcComboBox.Text = "4"
                 target = _data2.Item("target")
 
                 ProductComboBox.Enabled = False
@@ -62,7 +78,7 @@ Public Class ReturnDialog
         Try
             If ProductComboBox.SelectedIndex >= 0 Then
                 Dim selectedRow As DataRowView = DirectCast(ProductComboBox.SelectedItem, DataRowView)
-                orig_price = selectedRow("orignal_price").ToString()
+                'orig_price = selectedRow("orignal_price").ToString()
                 CostTextBox.Text = selectedRow("price").ToString()
                 StocksTextBox.Text = selectedRow("quantity").ToString()
             End If
@@ -73,8 +89,8 @@ Public Class ReturnDialog
 
     Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click
         Try
-            Dim controls As Object() = {ProductComboBox, QuantityTextBox}
-            Dim types As DataInput() = {DataInput.STRING_STRING, DataInput.STRING_INTEGER}
+            Dim controls As Object() = {ProductComboBox, RrcComboBox, QuantityTextBox}
+            Dim types As DataInput() = {DataInput.STRING_STRING, DataInput.STRING_STRING, DataInput.STRING_INTEGER}
 
             Dim result As New List(Of Object())
             For i = 0 To controls.Count - 1
@@ -99,7 +115,7 @@ Public Class ReturnDialog
             If Not result.Any(Function(item As Object()) Not item(0)) Then
                 For Each item As DataGridViewRow In _parent.ReturnDataGridView.Rows
                     If item.Cells("PRODUCT").Value.ToString() = ProductComboBox.Text Then
-                        item.Cells("ORIGINAL PRICE").Value = Decimal.Parse(orig_price).ToString("F2")
+                        item.Cells("RRC").Value = RrcComboBox.SelectedItem("code")
                         item.Cells("PRICE").Value = Decimal.Parse(CostTextBox.Text).ToString("F2")
                         item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)
                         item.Cells("TOTAL").Value = Decimal.Parse(CDec(CostTextBox.Text) * CInt(QuantityTextBox.Text)).ToString("F2")
@@ -110,7 +126,7 @@ Public Class ReturnDialog
                 If Not is_existing Then
                     _parent.ReturnDataGridView.Rows.Add({If(String.IsNullOrEmpty(ProductComboBox.SelectedItem("ID")), 0, ProductComboBox.SelectedItem("ID")),
                                                      If(String.IsNullOrEmpty(ProductComboBox.Text), 0, ProductComboBox.Text),
-                                                     If(String.IsNullOrEmpty(Decimal.Parse(orig_price).ToString("F2")), 0, Decimal.Parse(orig_price).ToString("F2")),
+                                                     If(String.IsNullOrEmpty(RrcComboBox.SelectedItem("code")), "", RrcComboBox.SelectedItem("code")),
                                                      If(String.IsNullOrEmpty(Decimal.Parse(CostTextBox.Text).ToString("F2")), 0, Decimal.Parse(CostTextBox.Text).ToString("F2")),
                                                      If(String.IsNullOrEmpty(QuantityTextBox.Text), 0, QuantityTextBox.Text),
                                                      Decimal.Parse(CDec(CostTextBox.Text) * CInt(QuantityTextBox.Text)).ToString("F2"),

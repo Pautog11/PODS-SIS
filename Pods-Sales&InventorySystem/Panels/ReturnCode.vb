@@ -17,7 +17,7 @@
         Try
             _tableAapter.Fill(_dataTable)
             RrcDataGridView.DataSource = _dataTable
-            'RrcDataGridView.Columns.Item("ID").Visible = False
+            RrcDataGridView.Columns.Item("ID").Visible = False
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try

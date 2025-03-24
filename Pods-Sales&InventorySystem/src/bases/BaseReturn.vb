@@ -42,9 +42,10 @@ Public Class BaseReturn
                 If item IsNot Nothing AndAlso item.Count > 0 Then
                     ' Insert into tbldeliveries_items
                     _sqlCommand.Parameters.Clear()
-                    _sqlCommand = New SqlCommand("INSERT INTO tblreturn_items (tblreturn_id, product_id, price, quantity, remaining_quantity) VALUES (@tblreturn_id, @product_id, @price, @quantity, @remaining_quantity); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
+                    _sqlCommand = New SqlCommand("INSERT INTO tblreturn_items (tblreturn_id, product_id, rrc, price, quantity, remaining_quantity) VALUES (@tblreturn_id, @product_id, @rrc, @price, @quantity, @remaining_quantity); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
                     _sqlCommand.Parameters.AddWithValue("@tblreturn_id", deliveryId)
                     _sqlCommand.Parameters.AddWithValue("@product_id", item("id"))
+                    _sqlCommand.Parameters.AddWithValue("@rrc", item("rrc"))
                     _sqlCommand.Parameters.AddWithValue("@price", item("price"))
                     _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
                     _sqlCommand.Parameters.AddWithValue("@remaining_quantity", item("quantity"))
@@ -84,17 +85,13 @@ Public Class BaseReturn
             '                       JOIN tbltransaction_items b ON a.id = b.transaction_id 
             '                       JOIN tblproducts c ON b.product_id = c.id
             '                       WHERE a.id = @transaction_id", conn)
-            cmd = New SqlCommand("WITH
-	                                price AS (SELECT TOP 1 product_id, price FROM tbldeliveries_items GROUP BY product_id, price ORDER BY price DESC)
-								    SELECT c.id,
+            cmd = New SqlCommand("SELECT c.id,
                                             product_name AS name, 
-									        d.price as 'orignal_price',
                                             (b.price - ((b.price / subtotal) * (subtotal * (discount/100)))) AS price, 
                                             quantity as quantity
                                     FROM tbltransactions a
                                     JOIN tbltransaction_items b ON a.id = b.transaction_id
                                     JOIN tblproducts c ON b.product_id = c.id
-							        JOIN price d ON d.product_id = c.id
                                     WHERE a.id = @transaction_id", conn)
             cmd.Parameters.AddWithValue("@transaction_id", transaction_id)
             Dim dTable As New DataTable
@@ -116,34 +113,16 @@ Public Class BaseReturn
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            '  cmd = New SqlCommand("SELECT a.id,
-            '                               product_name, 
-            '                               price, 
-            '                               quantity,
-            '                        SUM(price * quantity) as total
-            '                        FROM tblreturn_items a
-            '                        JOIN tblproducts b on b.id = a.product_id
-            '                        WHERE tblreturn_id = @transaction_id
-            '                        GROUP BY a.id, 
-            '                                 tblreturn_id, 
-            '                                 b.product_name, 
-            '                                 price, 
-            '                                 quantity", conn)
-            cmd = New SqlCommand("WITH
-	                                price AS (SELECT TOP 1 product_id, price FROM tbldeliveries_items GROUP BY product_id, price ORDER BY price DESC)
-	                                SELECT a.id, 
+            cmd = New SqlCommand("SELECT a.id, 
                                          product_name,
-										 c.price as 'orig_price',
                                          a.price, 
                                          a.quantity,
 										 (a.quantity * a.price) as total
                                   FROM tblreturn_items a
                                   JOIN tblproducts b on b.id = a.product_id
-								  JOIN price c ON c.product_id = b.id
                                   WHERE tblreturn_id = @transaction_id
 								  GROUP BY a.id,
 										   b.id,
-										   c.price,
                                            tblreturn_id, 
                                            b.product_name, 
                                            a.price, 
@@ -289,26 +268,9 @@ Public Class BaseReturn
             cmd.Parameters.AddWithValue("@batch_number", _data.item("batch_number"))
             cmd.Parameters.AddWithValue("@expiration_date", _data.item("expiration_date"))
 
-            'If String.IsNullOrEmpty(_data.item("batch_number").ToString()) Then
-            '    cmd.Parameters.AddWithValue("@batch_number", DBNull.Value)
-            'Else
-            '    cmd.Parameters.AddWithValue("@batch_number", _data.item("batch_number"))
-            'End If
-
-            'If String.IsNullOrEmpty(_data.item("expiration_date").ToString()) Then
-            '    cmd.Parameters.AddWithValue("@expiration_date", DBNull.Value)
-            'Else
-            '    cmd.Parameters.AddWithValue("@expiration_date", _data.item("expiration_date"))
-            'End If
-
             If cmd.ExecuteNonQuery() <= 0 Then
                 MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
-
-
-
-
-
 
             cmd.Parameters.Clear()
             cmd = New SqlCommand("UPDATE tblreturn_items SET remaining_quantity = remaining_quantity - @remaining_quantity WHERE id = @id", conn, transaction)
@@ -325,6 +287,35 @@ Public Class BaseReturn
             transaction.Rollback()
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return Nothing
+        End Try
+    End Function
+
+
+    Public Shared Function ReturnCode() As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("SELECT id, code AS code, CONCAT(code, ' ', '(', description, ')') AS codedes from tblcustomer_rrc", conn)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
+        End Try
+    End Function
+
+    Public Shared Function FecthRrcId(code As String) As String
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("select id from tblcustomer_rrc where LOWER(code) = @code", conn)
+            cmd.Parameters.AddWithValue("@code", code.Trim.ToLower)
+
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
         End Try
     End Function
 End Class

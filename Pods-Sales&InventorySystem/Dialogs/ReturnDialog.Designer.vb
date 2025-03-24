@@ -33,6 +33,8 @@ Partial Class ReturnDialog
         Me.Label4 = New System.Windows.Forms.Label()
         Me.RemoveButton = New Guna.UI2.WinForms.Guna2Button()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.RrcComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -64,7 +66,7 @@ Partial Class ReturnDialog
         Me.SaveButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.SaveButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.SaveButton.ForeColor = System.Drawing.Color.White
-        Me.SaveButton.Location = New System.Drawing.Point(172, 7)
+        Me.SaveButton.Location = New System.Drawing.Point(176, 7)
         Me.SaveButton.Margin = New System.Windows.Forms.Padding(3, 7, 3, 3)
         Me.SaveButton.Name = "SaveButton"
         Me.SaveButton.Size = New System.Drawing.Size(150, 35)
@@ -85,7 +87,7 @@ Partial Class ReturnDialog
         Me.CostTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.CostTextBox.ForeColor = System.Drawing.Color.Black
         Me.CostTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CostTextBox.Location = New System.Drawing.Point(32, 88)
+        Me.CostTextBox.Location = New System.Drawing.Point(32, 143)
         Me.CostTextBox.MaxLength = 4
         Me.CostTextBox.Name = "CostTextBox"
         Me.CostTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -109,7 +111,7 @@ Partial Class ReturnDialog
         Me.QuantityTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.QuantityTextBox.ForeColor = System.Drawing.Color.Black
         Me.QuantityTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.QuantityTextBox.Location = New System.Drawing.Point(32, 198)
+        Me.QuantityTextBox.Location = New System.Drawing.Point(32, 253)
         Me.QuantityTextBox.MaxLength = 4
         Me.QuantityTextBox.Name = "QuantityTextBox"
         Me.QuantityTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -133,7 +135,7 @@ Partial Class ReturnDialog
         Me.StocksTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.StocksTextBox.ForeColor = System.Drawing.Color.Black
         Me.StocksTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.StocksTextBox.Location = New System.Drawing.Point(32, 143)
+        Me.StocksTextBox.Location = New System.Drawing.Point(32, 198)
         Me.StocksTextBox.MaxLength = 4
         Me.StocksTextBox.Name = "StocksTextBox"
         Me.StocksTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -156,7 +158,7 @@ Partial Class ReturnDialog
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(29, 72)
+        Me.Label1.Location = New System.Drawing.Point(29, 127)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(31, 13)
         Me.Label1.TabIndex = 24
@@ -165,7 +167,7 @@ Partial Class ReturnDialog
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(29, 127)
+        Me.Label3.Location = New System.Drawing.Point(29, 182)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(68, 13)
         Me.Label3.TabIndex = 25
@@ -174,7 +176,7 @@ Partial Class ReturnDialog
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(29, 182)
+        Me.Label4.Location = New System.Drawing.Point(29, 237)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(46, 13)
         Me.Label4.TabIndex = 26
@@ -192,7 +194,7 @@ Partial Class ReturnDialog
         Me.RemoveButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.RemoveButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.RemoveButton.ForeColor = System.Drawing.Color.White
-        Me.RemoveButton.Location = New System.Drawing.Point(16, 7)
+        Me.RemoveButton.Location = New System.Drawing.Point(20, 7)
         Me.RemoveButton.Margin = New System.Windows.Forms.Padding(3, 7, 3, 3)
         Me.RemoveButton.Name = "RemoveButton"
         Me.RemoveButton.Size = New System.Drawing.Size(150, 35)
@@ -205,16 +207,43 @@ Partial Class ReturnDialog
         Me.FlowLayoutPanel1.Controls.Add(Me.RemoveButton)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 254)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 314)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(325, 51)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(329, 51)
         Me.FlowLayoutPanel1.TabIndex = 28
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(29, 73)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(24, 13)
+        Me.Label5.TabIndex = 30
+        Me.Label5.Text = "Rrc"
+        '
+        'RrcComboBox
+        '
+        Me.RrcComboBox.BackColor = System.Drawing.Color.Transparent
+        Me.RrcComboBox.BorderRadius = 10
+        Me.RrcComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.RrcComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.RrcComboBox.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.RrcComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.RrcComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.RrcComboBox.ForeColor = System.Drawing.Color.Black
+        Me.RrcComboBox.ItemHeight = 30
+        Me.RrcComboBox.Location = New System.Drawing.Point(32, 88)
+        Me.RrcComboBox.Name = "RrcComboBox"
+        Me.RrcComboBox.Size = New System.Drawing.Size(262, 36)
+        Me.RrcComboBox.TabIndex = 29
         '
         'ReturnDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(325, 305)
+        Me.ClientSize = New System.Drawing.Size(329, 365)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.RrcComboBox)
         Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
@@ -248,4 +277,6 @@ Partial Class ReturnDialog
     Friend WithEvents Label4 As Label
     Friend WithEvents RemoveButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
+    Friend WithEvents Label5 As Label
+    Friend WithEvents RrcComboBox As Guna.UI2.WinForms.Guna2ComboBox
 End Class

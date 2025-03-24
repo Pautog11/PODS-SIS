@@ -16,7 +16,7 @@
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
         _tableAapter.Fill(_dataTable)
         CustomerRrcDataGridView.DataSource = _dataTable
-        'RrcDataGridView.Columns.Item("ID").Visible = False
+        CustomerRrcDataGridView.Columns.Item("ID").Visible = False
     End Sub
 
     Private Sub AddButton_Click(sender As Object, e As EventArgs) Handles AddButton.Click

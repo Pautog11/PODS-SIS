@@ -22,9 +22,9 @@ Partial Class ReturnCartDialog
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
         Me.SaveButton = New Guna.UI2.WinForms.Guna2Button()
         Me.TotalPrice = New Guna.UI2.WinForms.Guna2HtmlLabel()
@@ -42,7 +42,7 @@ Partial Class ReturnCartDialog
         Me.ReturnDatePicker = New Guna.UI2.WinForms.Guna2DateTimePicker()
         Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.product = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.original_price = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.rrc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.price = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.quantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -93,9 +93,9 @@ Partial Class ReturnCartDialog
         Me.TotalPrice.ForeColor = System.Drawing.Color.Red
         Me.TotalPrice.Location = New System.Drawing.Point(55, 14)
         Me.TotalPrice.Name = "TotalPrice"
-        Me.TotalPrice.Size = New System.Drawing.Size(10, 15)
+        Me.TotalPrice.Size = New System.Drawing.Size(28, 15)
         Me.TotalPrice.TabIndex = 2
-        Me.TotalPrice.Text = "0"
+        Me.TotalPrice.Text = "0.00"
         '
         'Guna2HtmlLabel1
         '
@@ -200,25 +200,25 @@ Partial Class ReturnCartDialog
         Me.ReturnDataGridView.AllowUserToDeleteRows = False
         Me.ReturnDataGridView.AllowUserToResizeColumns = False
         Me.ReturnDataGridView.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
-        Me.ReturnDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.ReturnDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.ReturnDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.product, Me.original_price, Me.price, Me.quantity, Me.total, Me.target})
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.ReturnDataGridView.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
+        Me.ReturnDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.ReturnDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        Me.ReturnDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.product, Me.rrc, Me.price, Me.quantity, Me.total, Me.target})
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.ReturnDataGridView.DefaultCellStyle = DataGridViewCellStyle6
         Me.ReturnDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ReturnDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ReturnDataGridView.Location = New System.Drawing.Point(0, 100)
@@ -313,7 +313,6 @@ Partial Class ReturnCartDialog
         Me.ID.HeaderText = "ID"
         Me.ID.Name = "ID"
         Me.ID.ReadOnly = True
-        Me.ID.Visible = False
         '
         'product
         '
@@ -321,11 +320,11 @@ Partial Class ReturnCartDialog
         Me.product.Name = "product"
         Me.product.ReadOnly = True
         '
-        'original_price
+        'rrc
         '
-        Me.original_price.HeaderText = "ORIGINAL PRICE"
-        Me.original_price.Name = "original_price"
-        Me.original_price.ReadOnly = True
+        Me.rrc.HeaderText = "RRC"
+        Me.rrc.Name = "rrc"
+        Me.rrc.ReadOnly = True
         '
         'price
         '
@@ -350,7 +349,6 @@ Partial Class ReturnCartDialog
         Me.target.HeaderText = "TARGET"
         Me.target.Name = "target"
         Me.target.ReadOnly = True
-        Me.target.Visible = False
         '
         'ReturnCartDialog
         '
@@ -394,7 +392,7 @@ Partial Class ReturnCartDialog
     Friend WithEvents ReturnDatePicker As Guna.UI2.WinForms.Guna2DateTimePicker
     Friend WithEvents ID As DataGridViewTextBoxColumn
     Friend WithEvents product As DataGridViewTextBoxColumn
-    Friend WithEvents original_price As DataGridViewTextBoxColumn
+    Friend WithEvents rrc As DataGridViewTextBoxColumn
     Friend WithEvents price As DataGridViewTextBoxColumn
     Friend WithEvents quantity As DataGridViewTextBoxColumn
     Friend WithEvents total As DataGridViewTextBoxColumn
