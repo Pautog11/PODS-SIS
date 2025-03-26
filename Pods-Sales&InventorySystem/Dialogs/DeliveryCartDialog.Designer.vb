@@ -22,9 +22,9 @@ Partial Class DeliveryCartDialog
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.AccountHeaderLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -48,6 +48,15 @@ Partial Class DeliveryCartDialog
         Me.TotalPrice = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.DeliveryDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.VendorComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.Guna2HtmlLabel4 = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.AddDeductionButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
+        Me.Guna2TextBox1 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Guna2HtmlLabel5 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.product = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.expiry_date = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -58,15 +67,6 @@ Partial Class DeliveryCartDialog
         Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.target = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EDIT = New System.Windows.Forms.DataGridViewImageColumn()
-        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.VendorComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.Guna2HtmlLabel4 = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.AddDeductionButton = New Guna.UI2.WinForms.Guna2Button()
-        Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
-        Me.Guna2TextBox1 = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Guna2HtmlLabel5 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.AccountHeaderLayoutPanel.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -104,8 +104,8 @@ Partial Class DeliveryCartDialog
         'AccountHeaderLayoutPanel
         '
         Me.AccountHeaderLayoutPanel.ColumnCount = 2
-        Me.AccountHeaderLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.AccountHeaderLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.AccountHeaderLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
+        Me.AccountHeaderLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.0!))
         Me.AccountHeaderLayoutPanel.Controls.Add(Me.Panel1, 0, 0)
         Me.AccountHeaderLayoutPanel.Controls.Add(Me.FlowLayoutPanel1, 1, 0)
         Me.AccountHeaderLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
@@ -124,7 +124,7 @@ Partial Class DeliveryCartDialog
         Me.Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Panel1.Margin = New System.Windows.Forms.Padding(0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(480, 44)
+        Me.Panel1.Size = New System.Drawing.Size(288, 44)
         Me.Panel1.TabIndex = 3
         '
         'SupplierNameComboBox
@@ -155,14 +155,15 @@ Partial Class DeliveryCartDialog
         'FlowLayoutPanel1
         '
         Me.FlowLayoutPanel1.Controls.Add(Me.AddProductButton)
+        Me.FlowLayoutPanel1.Controls.Add(Me.AddItemButton)
         Me.FlowLayoutPanel1.Controls.Add(Me.TransactionDeliveryTextBox)
         Me.FlowLayoutPanel1.Controls.Add(Me.Guna2HtmlLabel2)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(480, 0)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(288, 0)
         Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(481, 44)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(673, 44)
         Me.FlowLayoutPanel1.TabIndex = 4
         '
         'AddProductButton
@@ -177,7 +178,7 @@ Partial Class DeliveryCartDialog
         Me.AddProductButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AddProductButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddProductButton.ForeColor = System.Drawing.Color.White
-        Me.AddProductButton.Location = New System.Drawing.Point(328, 3)
+        Me.AddProductButton.Location = New System.Drawing.Point(520, 3)
         Me.AddProductButton.Name = "AddProductButton"
         Me.AddProductButton.Size = New System.Drawing.Size(150, 35)
         Me.AddProductButton.TabIndex = 2
@@ -196,7 +197,7 @@ Partial Class DeliveryCartDialog
         Me.TransactionDeliveryTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.TransactionDeliveryTextBox.ForeColor = System.Drawing.Color.Black
         Me.TransactionDeliveryTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.TransactionDeliveryTextBox.Location = New System.Drawing.Point(144, 3)
+        Me.TransactionDeliveryTextBox.Location = New System.Drawing.Point(180, 3)
         Me.TransactionDeliveryTextBox.Margin = New System.Windows.Forms.Padding(3, 3, 15, 3)
         Me.TransactionDeliveryTextBox.MaxLength = 50
         Me.TransactionDeliveryTextBox.Name = "TransactionDeliveryTextBox"
@@ -211,7 +212,7 @@ Partial Class DeliveryCartDialog
         '
         Me.Guna2HtmlLabel2.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.Guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2HtmlLabel2.Location = New System.Drawing.Point(44, 13)
+        Me.Guna2HtmlLabel2.Location = New System.Drawing.Point(80, 13)
         Me.Guna2HtmlLabel2.Name = "Guna2HtmlLabel2"
         Me.Guna2HtmlLabel2.Size = New System.Drawing.Size(94, 15)
         Me.Guna2HtmlLabel2.TabIndex = 5
@@ -221,7 +222,6 @@ Partial Class DeliveryCartDialog
         '
         Me.FlowLayoutPanel2.Controls.Add(Me.SaveButton)
         Me.FlowLayoutPanel2.Controls.Add(Me.EditButton)
-        Me.FlowLayoutPanel2.Controls.Add(Me.AddItemButton)
         Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
         Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 492)
@@ -280,8 +280,7 @@ Partial Class DeliveryCartDialog
         Me.AddItemButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AddItemButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddItemButton.ForeColor = System.Drawing.Color.White
-        Me.AddItemButton.Location = New System.Drawing.Point(495, 7)
-        Me.AddItemButton.Margin = New System.Windows.Forms.Padding(3, 7, 3, 3)
+        Me.AddItemButton.Location = New System.Drawing.Point(364, 3)
         Me.AddItemButton.Name = "AddItemButton"
         Me.AddItemButton.Size = New System.Drawing.Size(150, 35)
         Me.AddItemButton.TabIndex = 8
@@ -395,25 +394,25 @@ Partial Class DeliveryCartDialog
         Me.DeliveryDataGridView.AllowUserToDeleteRows = False
         Me.DeliveryDataGridView.AllowUserToResizeColumns = False
         Me.DeliveryDataGridView.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
-        Me.DeliveryDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DeliveryDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
+        Me.DeliveryDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DeliveryDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
         Me.DeliveryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.product, Me.expiry_date, Me.batch_number, Me.price, Me.cost_price, Me.quantity, Me.total, Me.target, Me.EDIT})
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DeliveryDataGridView.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DeliveryDataGridView.DefaultCellStyle = DataGridViewCellStyle6
         Me.DeliveryDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DeliveryDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DeliveryDataGridView.Location = New System.Drawing.Point(0, 150)
@@ -446,71 +445,6 @@ Partial Class DeliveryCartDialog
         Me.DeliveryDataGridView.ThemeStyle.RowsStyle.Height = 22
         Me.DeliveryDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DeliveryDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        '
-        'ID
-        '
-        Me.ID.HeaderText = "ID"
-        Me.ID.Name = "ID"
-        Me.ID.ReadOnly = True
-        Me.ID.Visible = False
-        '
-        'product
-        '
-        Me.product.HeaderText = "PRODUCT"
-        Me.product.Name = "product"
-        Me.product.ReadOnly = True
-        '
-        'expiry_date
-        '
-        Me.expiry_date.HeaderText = "EXPIRATION DATE"
-        Me.expiry_date.Name = "expiry_date"
-        Me.expiry_date.ReadOnly = True
-        '
-        'batch_number
-        '
-        Me.batch_number.HeaderText = "BATCH NUMBER"
-        Me.batch_number.Name = "batch_number"
-        Me.batch_number.ReadOnly = True
-        '
-        'price
-        '
-        Me.price.HeaderText = "SELLING PRICE"
-        Me.price.Name = "price"
-        Me.price.ReadOnly = True
-        '
-        'cost_price
-        '
-        Me.cost_price.HeaderText = "COST PRICE"
-        Me.cost_price.Name = "cost_price"
-        Me.cost_price.ReadOnly = True
-        '
-        'quantity
-        '
-        Me.quantity.HeaderText = "QUANTITY"
-        Me.quantity.Name = "quantity"
-        Me.quantity.ReadOnly = True
-        '
-        'total
-        '
-        Me.total.HeaderText = "TOTAL"
-        Me.total.Name = "total"
-        Me.total.ReadOnly = True
-        '
-        'target
-        '
-        Me.target.HeaderText = "TARGET"
-        Me.target.Name = "target"
-        Me.target.ReadOnly = True
-        Me.target.Visible = False
-        '
-        'EDIT
-        '
-        Me.EDIT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
-        Me.EDIT.HeaderText = ""
-        Me.EDIT.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.edit
-        Me.EDIT.Name = "EDIT"
-        Me.EDIT.ReadOnly = True
-        Me.EDIT.Width = 5
         '
         'TableLayoutPanel3
         '
@@ -648,6 +582,69 @@ Partial Class DeliveryCartDialog
         Me.Guna2HtmlLabel5.TabIndex = 10
         Me.Guna2HtmlLabel5.Text = "Total returned"
         '
+        'ID
+        '
+        Me.ID.HeaderText = "ID"
+        Me.ID.Name = "ID"
+        Me.ID.ReadOnly = True
+        '
+        'product
+        '
+        Me.product.HeaderText = "PRODUCT"
+        Me.product.Name = "product"
+        Me.product.ReadOnly = True
+        '
+        'expiry_date
+        '
+        Me.expiry_date.HeaderText = "EXPIRATION DATE"
+        Me.expiry_date.Name = "expiry_date"
+        Me.expiry_date.ReadOnly = True
+        '
+        'batch_number
+        '
+        Me.batch_number.HeaderText = "BATCH NUMBER"
+        Me.batch_number.Name = "batch_number"
+        Me.batch_number.ReadOnly = True
+        '
+        'price
+        '
+        Me.price.HeaderText = "SELLING PRICE"
+        Me.price.Name = "price"
+        Me.price.ReadOnly = True
+        '
+        'cost_price
+        '
+        Me.cost_price.HeaderText = "COST PRICE"
+        Me.cost_price.Name = "cost_price"
+        Me.cost_price.ReadOnly = True
+        '
+        'quantity
+        '
+        Me.quantity.HeaderText = "QUANTITY"
+        Me.quantity.Name = "quantity"
+        Me.quantity.ReadOnly = True
+        '
+        'total
+        '
+        Me.total.HeaderText = "TOTAL"
+        Me.total.Name = "total"
+        Me.total.ReadOnly = True
+        '
+        'target
+        '
+        Me.target.HeaderText = "TARGET"
+        Me.target.Name = "target"
+        Me.target.ReadOnly = True
+        '
+        'EDIT
+        '
+        Me.EDIT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
+        Me.EDIT.HeaderText = ""
+        Me.EDIT.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.edit
+        Me.EDIT.Name = "EDIT"
+        Me.EDIT.ReadOnly = True
+        Me.EDIT.Width = 5
+        '
         'DeliveryCartDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -700,16 +697,6 @@ Partial Class DeliveryCartDialog
     Friend WithEvents EditButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents AddItemButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents AddDeductionButton As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents ID As DataGridViewTextBoxColumn
-    Friend WithEvents product As DataGridViewTextBoxColumn
-    Friend WithEvents expiry_date As DataGridViewTextBoxColumn
-    Friend WithEvents batch_number As DataGridViewTextBoxColumn
-    Friend WithEvents price As DataGridViewTextBoxColumn
-    Friend WithEvents cost_price As DataGridViewTextBoxColumn
-    Friend WithEvents quantity As DataGridViewTextBoxColumn
-    Friend WithEvents total As DataGridViewTextBoxColumn
-    Friend WithEvents target As DataGridViewTextBoxColumn
-    Friend WithEvents EDIT As DataGridViewImageColumn
     Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents VendorComboBox As Guna.UI2.WinForms.Guna2ComboBox
@@ -722,4 +709,14 @@ Partial Class DeliveryCartDialog
     Friend WithEvents Guna2HtmlLabel9 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Guna2HtmlLabel6 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Guna2HtmlLabel7 As Guna.UI2.WinForms.Guna2HtmlLabel
+    Friend WithEvents ID As DataGridViewTextBoxColumn
+    Friend WithEvents product As DataGridViewTextBoxColumn
+    Friend WithEvents expiry_date As DataGridViewTextBoxColumn
+    Friend WithEvents batch_number As DataGridViewTextBoxColumn
+    Friend WithEvents price As DataGridViewTextBoxColumn
+    Friend WithEvents cost_price As DataGridViewTextBoxColumn
+    Friend WithEvents quantity As DataGridViewTextBoxColumn
+    Friend WithEvents total As DataGridViewTextBoxColumn
+    Friend WithEvents target As DataGridViewTextBoxColumn
+    Friend WithEvents EDIT As DataGridViewImageColumn
 End Class

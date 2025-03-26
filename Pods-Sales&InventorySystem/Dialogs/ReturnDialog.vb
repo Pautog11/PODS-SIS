@@ -5,7 +5,6 @@ Public Class ReturnDialog
     Private ReadOnly _data2 As Dictionary(Of String, String)
     Dim dt As DataTable = Nothing
     Dim num As Integer = 1
-    'Dim orig_price As Decimal = Nothing
     Dim target As Integer = Nothing
     Private ReadOnly _parent As ReturnCartDialog = Nothing
     Public Sub New(Optional data As Dictionary(Of String, String) = Nothing,
@@ -19,12 +18,12 @@ Public Class ReturnDialog
 
     Private Sub ReturnDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            Dim rrc As DataTable = BaseReturn.ReturnCode
-            RrcComboBox.DataSource = rrc
-            RrcComboBox.DisplayMember = "code"
-            RrcComboBox.ValueMember = "id"
 
             If _data IsNot Nothing Then
+                Dim rrc As DataTable = BaseReturn.ReturnCode
+                RrcComboBox.DataSource = rrc
+                RrcComboBox.DisplayMember = "codedes"
+                RrcComboBox.ValueMember = "id"
 
                 If rrc.Rows.Count > 0 Then
                     RrcComboBox.SelectedIndex = -1
@@ -60,10 +59,14 @@ Public Class ReturnDialog
                 End If
 
                 'MsgBox(_data2.Item("rrc"))
-                'RrcComboBox.Text = BaseReturn.FecthRrcId(_data2.Item("rrc"))
+
+                Dim fuck As DataTable = BaseReturn.Fetchrrc(_data2.Item("rrc"))
+                If fuck.Rows.Count > 0 Then
+                    RrcComboBox.DataSource = fuck.DefaultView
+                    RrcComboBox.DisplayMember = "codedes"
+                End If
 
 
-                RrcComboBox.Text = "4"
                 target = _data2.Item("target")
 
                 ProductComboBox.Enabled = False

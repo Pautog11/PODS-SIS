@@ -1,16 +1,14 @@
 ﻿Public Class Dashboard
     Implements IObservablePanel, IObserverPanel
     Private ReadOnly _observables As New List(Of IObserverPanel)
-    'Private WithEvents UpdateTimer As New Timer()
     Public Sub New()
-        ' This call is required by the designer.
         InitializeComponent()
         RegisterObserver(Me)
         NotifyObserver()
     End Sub
 
     Private Sub Dashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'NotificationDataGridView.Rows.Add("Hello")
+
     End Sub
 
     Public Sub RegisterObserver(o As IObserverPanel) Implements IObservablePanel.RegisterObserver
@@ -37,7 +35,12 @@
                 Next
             End If
 
-            NotificationDataGridView.Rows.Add("Holla")
+            Dim exp As DataTable = BaseNotifications.Expiry()
+            If exp IsNot Nothing AndAlso exp.Rows.Count > 0 Then
+                For Each row As DataRow In exp.Rows
+                    NotificationDataGridView.Rows.Add(row(0))
+                Next
+            End If
 
         Catch ex As Exception
 

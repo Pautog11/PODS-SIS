@@ -26,7 +26,6 @@ Public Class BaseDelivery
     Public Sub Update() Implements ICommandPanel.Update
         Dim transaction As SqlTransaction = SqlConnectionPods.GetInstance.BeginTransaction()
         Try
-            ' Prepare and execute the main delivery insertion
             _sqlCommand = New SqlCommand("UPDATE tbldeliveries SET delivery_number = @delivery_number, account_id = @account_id, supplier_id = @supplier_id, vendor_id = @vendor_id, total = @total, date = @date WHERE id = @id;", _sqlConnection, transaction)
             _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
             _sqlCommand.Parameters.AddWithValue("@delivery_number", _data.Item("delivery_number"))
@@ -40,24 +39,51 @@ Public Class BaseDelivery
             End If
 
             For Each item In _item
+
                 If item IsNot Nothing AndAlso item.Count > 0 Then
                     _sqlCommand.Parameters.Clear()
-                    _sqlCommand = New SqlCommand("WITH 
-                                                 Total_deducted AS (
-                                                     SELECT SUM(quantity) AS bought 
-                                                     FROM getrev 
-                                                     WHERE delivery_id = @id AND product_id = @product_id)
 
-                                                 UPDATE a SET product_id = @product_id, 
-                                                              price = @price, 
-                                                              cost_price = @cost_price, 
-                                                              a.quantity = @quantity, 
-			                                                  a.inventory_quantity = @quantity - COALESCE(b.bought, 0),
-                                                              batch_number = @batch_number, 
-                                                              expiration_date = @expiration_date 
-                                                 FROM tbldeliveries_items a
-                                                 LEFT JOIN Total_deducted b ON 1 = 1
-                                                 WHERE a.delivery_id = @id AND a.id = @id2;", _sqlConnection, transaction)
+
+
+                    If item("new") = "" Then
+                        _sqlCommand = New SqlCommand("INSERT INTO tbldeliveries_items (delivery_id, product_id, price, cost_price, quantity, inventory_quantity, batch_number, expiration_date) 
+                                                      VALUES (@id, @id2, @price, @cost_price, @quantity, @inventory_quantity, @batch_number, @expiration_date)", _sqlConnection, transaction)
+
+                    Else
+                        _sqlCommand = New SqlCommand("WITH 
+                                                         Total_deducted AS (
+                                                             SELECT SUM(quantity) AS bought 
+                                                             FROM getrev 
+                                                             WHERE delivery_id = @id AND product_id = @product_id)
+
+                                                         UPDATE a SET product_id = @product_id, 
+                                                                      price = @price, 
+                                                                      cost_price = @cost_price, 
+                                                                      a.quantity = @quantity, 
+                                                                      a.inventory_quantity = @quantity - COALESCE(b.bought, 0),
+                                                                      batch_number = @batch_number, 
+                                                                      expiration_date = @expiration_date 
+                                                         FROM tbldeliveries_items a
+                                                         LEFT JOIN Total_deducted b ON 1 = 1
+                                                         WHERE a.delivery_id = @id AND a.id = @id2;", _sqlConnection, transaction)
+                    End If
+
+                    '_sqlCommand = New SqlCommand("WITH 
+                    '                             Total_deducted AS (
+                    '                                 SELECT SUM(quantity) AS bought 
+                    '                                 FROM getrev 
+                    '                                 WHERE delivery_id = @id AND product_id = @product_id)
+
+                    '                             UPDATE a SET product_id = @product_id, 
+                    '                                          price = @price, 
+                    '                                          cost_price = @cost_price, 
+                    '                                          a.quantity = @quantity, 
+                    '                                          a.inventory_quantity = @quantity - COALESCE(b.bought, 0),
+                    '                                          batch_number = @batch_number, 
+                    '                                          expiration_date = @expiration_date 
+                    '                             FROM tbldeliveries_items a
+                    '                             LEFT JOIN Total_deducted b ON 1 = 1
+                    '                             WHERE a.delivery_id = @id AND a.id = @id2;", _sqlConnection, transaction)
 
                     _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
                     _sqlCommand.Parameters.AddWithValue("@id2", item("id"))
@@ -66,6 +92,7 @@ Public Class BaseDelivery
                     _sqlCommand.Parameters.AddWithValue("@cost_price", item("cost_price"))
                     _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
                     _sqlCommand.Parameters.AddWithValue("@inventory_quantity", item("quantity"))
+
                     If String.IsNullOrEmpty(item("batch_number").ToString()) Then
                         _sqlCommand.Parameters.AddWithValue("@batch_number", DBNull.Value)
                     Else
@@ -82,6 +109,9 @@ Public Class BaseDelivery
                         MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                     End If
                 End If
+
+
+
             Next
 
             transaction.Commit()
@@ -321,43 +351,43 @@ Public Class BaseDelivery
         End Try
     End Function
 
-    ''' <summary>
-    ''' To add items on item deliveries
-    ''' </summary>
-    ''' <param name="_data"></param>
-    ''' <returns></returns>
-    Public Shared Function Insert_Items(_data)
-        Try
-            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As SqlCommand
-            cmd = New SqlCommand("INSERT INTO tbldeliveries_items (delivery_id, product_id, price, cost_price, quantity, inventory_quantity, batch_number, expiration_date) 
-                                  VALUES (@delivery_id, @product_id, @price, @cost_price, @quantity, @quantity, @batch_number, @expiration_date)", conn)
-            cmd.Parameters.AddWithValue("@delivery_id", _data.item("delivery_id"))
-            cmd.Parameters.AddWithValue("@product_id", _data.item("product_id"))
-            cmd.Parameters.AddWithValue("@price", _data.item("price"))
-            cmd.Parameters.AddWithValue("@cost_price", _data.item("cost_price"))
-            cmd.Parameters.AddWithValue("@quantity", _data.item("quantity"))
-            If String.IsNullOrEmpty(_data.item("batch_number").ToString()) Then
-                cmd.Parameters.AddWithValue("@batch_number", DBNull.Value)
-            Else
-                cmd.Parameters.AddWithValue("@batch_number", _data.item("batch_number"))
-            End If
+    '''' <summary>
+    '''' To add items on item deliveries
+    '''' </summary>
+    '''' <param name="_data"></param>
+    '''' <returns></returns>
+    'Public Shared Function Insert_Items(_data)
+    '    Try
+    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+    '        Dim cmd As SqlCommand
+    '        cmd = New SqlCommand("INSERT INTO tbldeliveries_items (delivery_id, product_id, price, cost_price, quantity, inventory_quantity, batch_number, expiration_date) 
+    '                              VALUES (@delivery_id, @product_id, @price, @cost_price, @quantity, @quantity, @batch_number, @expiration_date)", conn)
+    '        cmd.Parameters.AddWithValue("@delivery_id", _data.item("delivery_id"))
+    '        cmd.Parameters.AddWithValue("@product_id", _data.item("product_id"))
+    '        cmd.Parameters.AddWithValue("@price", _data.item("price"))
+    '        cmd.Parameters.AddWithValue("@cost_price", _data.item("cost_price"))
+    '        cmd.Parameters.AddWithValue("@quantity", _data.item("quantity"))
+    '        If String.IsNullOrEmpty(_data.item("batch_number").ToString()) Then
+    '            cmd.Parameters.AddWithValue("@batch_number", DBNull.Value)
+    '        Else
+    '            cmd.Parameters.AddWithValue("@batch_number", _data.item("batch_number"))
+    '        End If
 
-            If String.IsNullOrEmpty(_data.item("expiration_date").ToString()) Then
-                cmd.Parameters.AddWithValue("@expiration_date", DBNull.Value)
-            Else
-                cmd.Parameters.AddWithValue("@expiration_date", _data.item("expiration_date"))
-            End If
+    '        If String.IsNullOrEmpty(_data.item("expiration_date").ToString()) Then
+    '            cmd.Parameters.AddWithValue("@expiration_date", DBNull.Value)
+    '        Else
+    '            cmd.Parameters.AddWithValue("@expiration_date", _data.item("expiration_date"))
+    '        End If
 
-            If cmd.ExecuteNonQuery() <= 0 Then
-                MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            End If
-            Return Nothing
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return Nothing
-        End Try
-    End Function
+    '        If cmd.ExecuteNonQuery() <= 0 Then
+    '            MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+    '        End If
+    '        Return Nothing
+    '    Catch ex As Exception
+    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+    '        Return Nothing
+    '    End Try
+    'End Function
 
     Public Shared Function Count_bought_quantity(delivery_id As Integer, product_id As Integer) As String
         Try

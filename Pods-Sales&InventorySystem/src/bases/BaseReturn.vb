@@ -115,14 +115,17 @@ Public Class BaseReturn
             Dim cmd As SqlCommand
             cmd = New SqlCommand("SELECT a.id, 
                                          product_name,
+										 code,
                                          a.price, 
                                          a.quantity,
 										 (a.quantity * a.price) as total
                                   FROM tblreturn_items a
                                   JOIN tblproducts b on b.id = a.product_id
+								  JOIN tblcustomer_rrc c on a.rrc = c.id
                                   WHERE tblreturn_id = @transaction_id
 								  GROUP BY a.id,
 										   b.id,
+										   code,
                                            tblreturn_id, 
                                            b.product_name, 
                                            a.price, 
@@ -199,22 +202,13 @@ Public Class BaseReturn
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            '  cmd = New SqlCommand("SELECT c.id, 
-            '                               product_name, 
-            '                               b.price, 
-            '                               remaining_quantity, 
-            '                               batch_number, 
-            '                               FORMAT(expiration_date, 'MMM dd yyyy') AS expiration_date, 
-            '                               d.delivery_id 
-            '                        FROM tblreturns a
-            '                        JOIN tblreturn_items b ON a.id = b.tblreturn_id
-            '                        JOIN tblproducts c ON b.product_id = c.id
-            '                        JOIN getrev d ON a.transaction_id = d.transaction_id
-            '                        JOIN tbldeliveries_items e ON d.delivery_id = e.delivery_id AND c.id = e.product_id
-            '                        WHERE b.id = @id
-            'GROUP BY c.id, product_name, b.price, remaining_quantity, batch_number, expiration_date, d.delivery_id", conn)
             cmd = New SqlCommand("WITH
-	                                price AS (SELECT TOP 1 product_id, price FROM tbldeliveries_items GROUP BY product_id, price ORDER BY price DESC)
+									product_id as 
+										(SELECT product_id FROM tblreturn_items WHERE id = @id),
+	                                price AS 
+										(SELECT TOP 1 id, product_id, price FROM tbldeliveries_items 
+										 WHERE product_id = (SELECT * FROM product_id) ORDER BY id DESC)
+
 	                                SELECT c.id, 
                                            product_name, 
                                            f.price, 
@@ -227,7 +221,7 @@ Public Class BaseReturn
 									 JOIN tblproducts c ON b.product_id = c.id
 									 JOIN price f ON f.product_id = c.id
 									 JOIN getrev d ON a.transaction_id = d.transaction_id
-									 JOIN tbldeliveries_items e ON d.delivery_id = e.delivery_id AND c.id = e.product_id
+									 JOIN tbldeliveries_items e ON d.delivery_id = e.delivery_id
 									 WHERE b.id = @id
 									 GROUP BY c.id, 
                                               product_name, 
@@ -237,6 +231,7 @@ Public Class BaseReturn
                                               expiration_date, 
                                               d.delivery_id", conn)
             cmd.Parameters.AddWithValue("@id", id)
+            MsgBox(id)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
             adapter.Fill(dTable)
@@ -316,6 +311,24 @@ Public Class BaseReturn
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return 0
+        End Try
+    End Function
+
+    Public Shared Function Fetchrrc(id As Integer) As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("SELECT id, code AS code, CONCAT(code, ' ', '(', description, ')') AS codedes from tblcustomer_rrc WHERE id = @id
+                                  UNION ALL
+                                  SELECT id, code AS code, CONCAT(code, ' ', '(', description, ')') AS codedes from tblcustomer_rrc WHERE id != @id", conn)
+            cmd.Parameters.AddWithValue("@id", id)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
         End Try
     End Function
 End Class

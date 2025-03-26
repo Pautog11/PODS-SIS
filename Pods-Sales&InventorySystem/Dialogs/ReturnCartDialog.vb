@@ -36,7 +36,7 @@ Public Class ReturnCartDialog
             ReturnDatePicker.Enabled = False
             UpdateVisualData()
         Catch ex As Exception
-
+            MsgBox(ex.Message)
         End Try
     End Sub
     Private Sub AddReturnButton_Click(sender As Object, e As EventArgs) Handles AddReturnButton.Click
@@ -46,13 +46,13 @@ Public Class ReturnCartDialog
     Public Sub UpdateVisualData()
         Try
             ReturnDataGridView.DataSource = _itemSource?.DefaultView
-            Dim total As Decimal = 0
+            Dim total As Decimal = 0D
             For i = 0 To ReturnDataGridView?.Rows.Count - 1
                 total += ReturnDataGridView.Rows(i).Cells("TOTAL").Value
             Next
-            TotalPrice.Text = total
+            TotalPrice.Text = total.ToString("F2")
         Catch ex As Exception
-
+            MsgBox(ex.Message)
         End Try
     End Sub
 
@@ -95,25 +95,6 @@ Public Class ReturnCartDialog
 
     Private Sub ReturnDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles ReturnDataGridView.CellClick
         Try
-            If _data IsNot Nothing Then
-                If ReturnDataGridView.Rows.Count > 0 Then
-                    Dim row As DataGridViewRow = ReturnDataGridView.SelectedRows(0)
-                    Dim data As New Dictionary(Of String, String) From {
-                        {"id", If(row.Cells(0).Value?.ToString(), "0")},
-                        {"product", If(row.Cells(1).Value?.ToString(), "")},
-                        {"rrc", If(row.Cells(2).Value?.ToString(), "")},
-                        {"price", If(row.Cells(3).Value?.ToString(), "")},
-                        {"quantity", If(row.Cells(4).Value?.ToString(), "")},
-                        {"total", If(row.Cells(5).Value?.ToString(), "0")},
-                        {"target", If(row.Cells(6).Value?.ToString(), "0")},
-                        {"reference", If(_data.Item("ref"), "0")}
-                    }
-                    Using dialog As New ReturnDialog(data2:=data, parent:=Me)
-                        dialog.ShowDialog()
-                    End Using
-                End If
-            End If
-
             If _data2 IsNot Nothing Then
                 If ReturnDataGridView.Rows.Count > 0 Then
                     Dim row As DataGridViewRow = ReturnDataGridView.SelectedRows(0)
@@ -121,6 +102,26 @@ Public Class ReturnCartDialog
                         {"id", If(row.Cells(0).Value?.ToString(), "0")}
                     }
                     Using dialog As New ReturnProductDialog(parent:=Me, data:=data, subject:=_subject)
+                        dialog.ShowDialog()
+                    End Using
+                End If
+            End If
+
+
+            If _data IsNot Nothing Then
+                If ReturnDataGridView.Rows.Count > 0 Then
+                    Dim row As DataGridViewRow = ReturnDataGridView.SelectedRows(0)
+                    Dim data As New Dictionary(Of String, String) From {
+                        {"id", If(row.Cells(0).Value?.ToString(), "0")},
+                        {"product", If(row.Cells(1).Value?.ToString(), "")},
+                        {"rrc", BaseReturn.FecthRrcId(If(row.Cells(2).Value?.ToString(), ""))},
+                        {"price", If(row.Cells(3).Value?.ToString(), "")},
+                        {"quantity", If(row.Cells(4).Value?.ToString(), "")},
+                        {"total", If(row.Cells(5).Value?.ToString(), "0")},
+                        {"target", If(row.Cells(6).Value?.ToString(), "0")},
+                        {"reference", If(_data.Item("ref"), "0")}
+                    }
+                    Using dialog As New ReturnDialog(data2:=data, parent:=Me)
                         dialog.ShowDialog()
                     End Using
                 End If

@@ -121,69 +121,71 @@ Public Class EditDeliveryDialog
 
     Private Sub AddProductButton_Click(sender As Object, e As EventArgs) Handles AddProductButton.Click
         Try
-            Dim check As Integer = 0
-            If id = 0 Then
-                MessageBox.Show("No product selected!.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Exit Sub
-            End If
+            Dim controls As Object() = {
+                ProductTextBox, SellingTextBox, CostTextBox, QuantityTextBox, BatchTextBox
+            }
+            Dim types As DataInput() = {
+                DataInput.STRING_NAME, DataInput.STRING_DECIMAL, DataInput.STRING_DECIMAL, DataInput.STRING_INTEGER, DataInput.STRING_STRING
+            }
 
-            For Each row As DataGridViewRow In _parent.DeliveryDataGridView.Rows
-                If row.Cells("target").Value.ToString() = id Then
-                    check = 1
-                    Exit For
-                Else
+            Dim result As New List(Of Object())
+            For i = 0 To controls.Count - 1
+                If controls(i) Is BatchTextBox AndAlso DateTimePicker.Enabled = False Then
                     Continue For
+                End If
+                result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
+                Dim validationResult = TryCast(result(i), Object())
+                If validationResult IsNot Nothing AndAlso validationResult.Length > 0 Then
+                    If Not validationResult(0) = True Then
+                        Exit Sub
+                    End If
+                Else
+                    Throw New Exception
                 End If
             Next
 
-            If check = 1 Then
-                MessageBox.Show("This product is already exist!.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Else
-                Dim controls As Object() = {
-                    ProductTextBox, SellingTextBox, CostTextBox, QuantityTextBox, BatchTextBox
-                }
-                Dim types As DataInput() = {
-                    DataInput.STRING_NAME, DataInput.STRING_DECIMAL, DataInput.STRING_DECIMAL, DataInput.STRING_INTEGER, DataInput.STRING_STRING
-                }
+            Dim is_existing As Boolean = False
+            Dim exd As Date = DateTimePicker.Value.Date
 
-                Dim result As New List(Of Object())
-                For i = 0 To controls.Count - 1
-                    If controls(i) Is BatchTextBox AndAlso DateTimePicker.Enabled = False Then
-                        'BatchTextBox.Text = ""
-                        Continue For
-                    End If
-                    result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
-                    Dim validationResult = TryCast(result(i), Object())
-                    If validationResult IsNot Nothing AndAlso validationResult.Length > 0 Then
-                        If Not validationResult(0) = True Then
-                            Exit Sub
-                        End If
-                    Else
-                        Throw New Exception
-                    End If
-                Next
-
-                Dim datevalue As String = Nothing
-                datevalue = DateTimePicker.Value.ToString("yyyy-MM-dd")
-
-                If DateTimePicker.Enabled = False Then
-                    datevalue = Nothing
-                    BatchTextBox.Text = ""
-                End If
-
-                Dim data As New Dictionary(Of String, String) From {
-                    {"delivery_id", _data2.Item("id")},
-                    {"product_id", id},
-                    {"price", result(1)(1)},
-                    {"cost_price", result(2)(1)},
-                    {"quantity", result(3)(1)},
-                    {"batch_number", If(String.IsNullOrEmpty(BatchTextBox.Text), "", BatchTextBox.Text)},
-                    {"expiration_date", If(String.IsNullOrEmpty(datevalue), "", datevalue)}
-                }
-                BaseDelivery.Insert_Items(data)
-                MessageBox.Show("Successfully added an item to this delivery!.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                _parent.UpdateDataGridview()
+            If Val(CostTextBox.Text) >= Val(SellingTextBox.Text) Then
+                MessageBox.Show("The price cannot be less than or equal to the cost price.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Exit Sub
             End If
+
+            For Each item As DataGridViewRow In _parent.DeliveryDataGridView.Rows
+                If CInt(item.Cells("id").Value) = id Then
+                    If item.Cells("price").Value.ToString() <> Decimal.Parse(SellingTextBox.Text).ToString("F2") OrElse item.Cells("cost_price").Value.ToString() <> Decimal.Parse(CostTextBox.Text).ToString("F2") Then
+                        MessageBox.Show("You cannot set a different price for the same product!.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        Exit Sub
+                    End If
+                End If
+            Next
+
+            For Each item As DataGridViewRow In _parent.DeliveryDataGridView.Rows
+                If item.Cells("product").Value.ToString() = ProductTextBox.Text AndAlso item.Cells("expiry_date").Value = exd.ToString("yyyy-MM-dd") AndAlso item.Cells("batch_number").Value = BatchTextBox.Text Then
+                    MessageBox.Show("This product is already exist!.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    is_existing = True
+                    Exit For
+                End If
+            Next
+
+            If Not is_existing Then
+                _parent.DeliveryDataGridView.Rows.Add({If(String.IsNullOrEmpty(id), 0, id),
+                                                      If(String.IsNullOrEmpty(ProductTextBox.Text), 0, ProductTextBox.Text),
+                                                      If(DateTimePicker.Enabled AndAlso Not String.IsNullOrEmpty(exd.ToString()) AndAlso exd.ToString() <> "", exd.ToString("yyyy-MM-dd"), ""),
+                                                      If(DateTimePicker.Enabled AndAlso Not String.IsNullOrEmpty(BatchTextBox.Text) AndAlso exd.ToString() <> "", BatchTextBox.Text, ""),
+                                                      If(String.IsNullOrEmpty(Decimal.Parse(SellingTextBox.Text).ToString("F2")), 0, Decimal.Parse(SellingTextBox.Text).ToString("F2")),
+                                                      If(String.IsNullOrEmpty(Decimal.Parse(CostTextBox.Text).ToString("F2")), 0, Decimal.Parse(CostTextBox.Text).ToString("F2")),
+                                                      If(String.IsNullOrEmpty(QuantityTextBox.Text), 0, QuantityTextBox.Text),
+                                                      CDec(CostTextBox.Text) * CDec(QuantityTextBox.Text)
+                                                      })
+
+
+                _parent.UpdateVisualData()
+                Me.Close()
+            End If
+
+
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try

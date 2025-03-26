@@ -19,10 +19,10 @@ Public Class BaseNotifications
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT concat('Your product ', b.product_name, ' will be expire on ', a.exd)
-                                    FROM tblproduct_notif a join tblproducts b on a.product_id = b.id 
-                                    WHERE exd >= DATEADD(MONTH, -1, CAST(GETDATE() AS DATE)) 
-                                      AND exd < DATEADD(MONTH, 1, CAST(GETDATE() AS DATE));", conn)
+            cmd = New SqlCommand("SELECT CONCAT(product_name, ' will be expire on ',expiration_date)
+                                  FROM tbldeliveries_items a 
+                                  JOIN tblproducts b ON a.product_id = b.id
+                                  WHERE expiration_date BETWEEN GETDATE() AND DATEADD(MONTH, 6, GETDATE());", conn)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
             adapter.Fill(dTable)

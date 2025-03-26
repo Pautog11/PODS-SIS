@@ -710,13 +710,6 @@ Row event argument class
  <param name="id"></param>
  <returns></returns>
 </member>
-<member name="M:Pods_Sales_InventorySystem.BaseDelivery.Insert_Items(System.Object)">
- <summary>
- To add items on item deliveries
- </summary>
- <param name="_data"></param>
- <returns></returns>
-</member>
 <member name="M:Pods_Sales_InventorySystem.BaseDosage.Search(System.String)">
  <summary>
  Search query
