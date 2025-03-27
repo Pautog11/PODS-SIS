@@ -102,11 +102,6 @@ Public Class DeliveryProductDialog
                 Dim is_existing As Boolean = False
                 Dim exd As Date = DateTimePicker.Value.Date
                 Dim swicth As Integer = 0
-                'Dim sellingprice As Decimal
-                'Dim costprice As Decimal
-
-                'If Decimal.TryParse(SellingTextBox.Text, sellingprice) AndAlso Decimal.TryParse(CostTextBox.Text, costprice) Then
-                'End If
 
                 For Each item As DataGridViewRow In _parent.DeliveryDataGridView.Rows
                     If CInt(item.Cells("id").Value) = id Then
@@ -203,7 +198,7 @@ Public Class DeliveryProductDialog
                                                           If(String.IsNullOrEmpty(Decimal.Parse(SellingTextBox.Text).ToString("F2")), 0, Decimal.Parse(SellingTextBox.Text).ToString("F2")),
                                                           If(String.IsNullOrEmpty(Decimal.Parse(CostTextBox.Text).ToString("F2")), 0, Decimal.Parse(CostTextBox.Text).ToString("F2")),
                                                           If(String.IsNullOrEmpty(QuantityTextBox.Text), 0, QuantityTextBox.Text),
-                                                          CDec(CostTextBox.Text) * CDec(QuantityTextBox.Text),
+                                                          CDec(CostTextBox.Text * QuantityTextBox.Text).ToString("F2"),
                                                           num
                                                           })
                     num += 1

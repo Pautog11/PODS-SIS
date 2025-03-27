@@ -320,10 +320,8 @@ Public Class BaseDelivery
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
             cmd = New SqlCommand("SELECT COUNT(*) 
-                                 FROM tbldeliveries_items 
-                                 WHERE cost_price >= @price 
-                                 AND inventory_quantity != 0 
-                                 AND product_id = @id", conn)
+                                  FROM tbldeliveries_items 
+                                  WHERE price > @price AND inventory_quantity != 0 AND product_id = @id", conn)
             cmd.Parameters.AddWithValue("@price", price)
             cmd.Parameters.AddWithValue("@id", id)
             Return cmd.ExecuteScalar()
@@ -338,12 +336,12 @@ Public Class BaseDelivery
     ''' </summary>
     ''' <param name="id"></param>
     ''' <returns></returns>
-    Public Shared Function Product_id(id As Integer) As String
+    Public Shared Function Product_id(product_name As String) As String
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT product_id FROM tbldeliveries_items WHERE id = @id", conn)
-            cmd.Parameters.AddWithValue("@id", id)
+            cmd = New SqlCommand("SELECT id FROM tblproducts WHERE product_name = @product_name", conn)
+            cmd.Parameters.AddWithValue("@product_name", product_name.Trim.ToLower())
             Return cmd.ExecuteScalar()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)

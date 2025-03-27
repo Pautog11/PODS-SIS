@@ -83,7 +83,7 @@ Public Class DeliveryCartDialog
             For i = 0 To DeliveryDataGridView?.Rows.Count - 1
                 total += DeliveryDataGridView.Rows(i).Cells("TOTAL").Value
             Next
-            TotalPrice.Text = total
+            TotalPrice.Text = total.ToString("F2")
         Catch ex As Exception
         End Try
     End Sub
@@ -203,7 +203,7 @@ Public Class DeliveryCartDialog
                 dialog.ShowDialog()
             End If
         Catch ex As Exception
-
+            MsgBox(ex.Message)
         End Try
     End Sub
 

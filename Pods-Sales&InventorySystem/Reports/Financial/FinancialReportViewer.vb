@@ -32,7 +32,7 @@ Public Class FinancialReportViewer
                 MessageBox.Show("One or more required tables are missing from the datasets.")
             End If
         Catch ex As Exception
-            MessageBox.Show($"Error loading report: {ex.Message}")
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End Try
     End Sub
     Private Function FinancialReportView(startDate As DateTime, endDate As DateTime) As DataSet
@@ -41,48 +41,6 @@ Public Class FinancialReportViewer
         Try
             Using con As New SqlConnection(My.Settings.podsdbConnectionString)
                 con.Open()
-                'Dim cmd As New SqlCommand("SELECT @startDate as start_date, @endDate as end_date, 
-                '                                  th.transaction_number,
-                '                                  CONCAT(ac.first_name, ' ', ac.last_name) AS cashier,
-                '                                  SUM((ti.price - di.cost_price) * ti.quantity) AS revenue,
-                '                                  SUM(ti.total) AS total,
-                '                                  th.date,
-                '                                  SUM(SUM((ti.price - di.cost_price) * ti.quantity)) OVER () AS total_revenue
-                '                                FROM tbldeliveries_items di
-                '                                JOIN tbltransaction_items ti ON di.id = ti.delivery_id
-                '                                JOIN tbltransactions th ON ti.transaction_id = th.id
-                '                                JOIN tblaccounts ac ON th.account_id = ac.id
-                '                                WHERE th.date BETWEEN @startDate AND @endDate 
-                '                                GROUP BY s
-                '                                  th.transaction_number, 
-                '                                  CONCAT(ac.first_name, ' ', ac.last_name), 
-                '                                  th.date", con)
-                'Dim cmd As New SqlCommand("WITH
-                '                            Panuway AS (
-                '                                SELECT transaction_id AS id, price,
-                '                          product_id
-                '                                FROM tbltransaction_items 
-                '                                --WHERE transaction_id = @id
-                '                            ),
-                '                            Dipota AS (
-                '                                SELECT transaction_id AS id, cost , quantity
-                '                                FROM getrev 
-                '                                --WHERE transaction_id = @id and quantity !=0
-                '                            ),
-                '                         Magic as (
-                '                          SELECT a.id, product_id, price, a.cost, a.quantity, sum(price * a.quantity) as total, sum(a.cost * a.quantity) as kapital
-                '                          FROM Dipota a
-                '                          JOIN Panuway b ON a.id = b.id
-                '                          group by a.id, product_id, price, a.cost, a.quantity
-                '                         ),
-                '                         Tite as (
-                '                         Select id, product_id, price, cost, quantity, total, kapital, sum(total - kapital) as tubo from Magic
-                '                         group by id, product_id, price, cost, quantity, total, kapital
-                '                         )
-                '                        select b.id, b.transaction_number, sum(a.total) as total, b.date, b.account_id, sum(a.tubo) as Revenue from Tite a left join tbltransactions b on a.id = b.id
-                '                        group by b.id, b.transaction_number, b.date, b.account_id", con)
-
-
                 Dim cmd As New SqlCommand("select id, NAME as cashier, [TRANSACTION NUMBER] as transaction_number, CAPITAL, REVENUE, TOTAL, date
                                             from viewtblrevenue
 
@@ -106,7 +64,7 @@ Public Class FinancialReportViewer
                 adapter.Fill(dset, "DT_FinancialReport")
             End Using
         Catch ex As Exception
-            MessageBox.Show($"Error loading financial report data: {ex.Message}")
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End Try
         Return dset
     End Function

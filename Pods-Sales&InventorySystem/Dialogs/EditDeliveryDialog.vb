@@ -19,9 +19,8 @@ Public Class EditDeliveryDialog
     Private Sub EditDeliveryDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             If _data IsNot Nothing Then
-                Dim pid As String = BaseDelivery.Product_id(_data.Item("id"))
+                Dim pid As String = BaseDelivery.Product_id(_data.Item("name"))
                 id = pid
-                'enable_exp = BaseDelivery.EnableExp(pid)
                 ProductTextBox.Text = BaseProduct.Getname(pid)
                 SellingTextBox.Text = _data.Item("selling_price")
                 CostTextBox.Text = _data.Item("cost_price")
@@ -33,7 +32,10 @@ Public Class EditDeliveryDialog
                     DateTimePicker.Enabled = False
                     BatchTextBox.Enabled = False
                 End If
+
                 AddProductButton.Visible = False
+                BarcodeTextBox.Enabled = False
+                ProductTextBox.ReadOnly = True
             Else
                 UpdateDeliveryButton.Visible = False
             End If
@@ -139,8 +141,6 @@ Public Class EditDeliveryDialog
                     If Not validationResult(0) = True Then
                         Exit Sub
                     End If
-                Else
-                    Throw New Exception
                 End If
             Next
 
@@ -162,10 +162,17 @@ Public Class EditDeliveryDialog
             Next
 
             For Each item As DataGridViewRow In _parent.DeliveryDataGridView.Rows
+                If DateTimePicker.Enabled = False Then
+                    If item.Cells("product").Value = ProductTextBox.Text Then
+                        MessageBox.Show("This product is already exist!.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        Exit Sub
+                    End If
+                End If
+
                 If item.Cells("product").Value.ToString() = ProductTextBox.Text AndAlso item.Cells("expiry_date").Value = exd.ToString("yyyy-MM-dd") AndAlso item.Cells("batch_number").Value = BatchTextBox.Text Then
                     MessageBox.Show("This product is already exist!.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     is_existing = True
-                    Exit For
+                    Exit Sub
                 End If
             Next
 
@@ -202,6 +209,7 @@ Public Class EditDeliveryDialog
                         ProductTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("product_name").ToString()), 0, dt.Rows(0).Item("product_name"))
                         SellingTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("price").ToString()), 0, dt.Rows(0).Item("price").ToString())
                         CostTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("cost_price").ToString()), 0, dt.Rows(0).Item("cost_price").ToString())
+                        ProductTextBox.ReadOnly = True
                         e.Handled = True
                     Else
                         MessageBox.Show("No product found!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
