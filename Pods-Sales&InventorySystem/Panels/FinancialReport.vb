@@ -10,6 +10,9 @@ Public Class FinancialReport
             _subject = Application.OpenForms.OfType(Of Dashboard).FirstOrDefault
             _subject?.RegisterObserver(Me)
             _subject?.NotifyObserver()
+
+            DateFrom.MaxDate = DateTo.Value
+            DateTo.MinDate = DateFrom.Value
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Observer Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
@@ -34,5 +37,19 @@ Public Class FinancialReport
         Finally
             PrintButton.Enabled = True
         End Try
+    End Sub
+
+    'Private Sub DateFrom_ValueChanged(sender As Object, e As EventArgs) Handles DateFrom.ValueChanged
+    '    MsgBox("fucjlkjslkajslkaj")
+    'End Sub
+
+    Private Sub DateFrom_TextChanged(sender As Object, e As EventArgs) Handles DateFrom.TextChanged
+        MsgBox("text changed")
+    End Sub
+
+    Private Sub DateFrom_KeyDown(sender As Object, e As KeyEventArgs) Handles DateFrom.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            MsgBox("text enter")
+        End If
     End Sub
 End Class

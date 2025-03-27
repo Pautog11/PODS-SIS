@@ -22,18 +22,18 @@ Partial Class FinancialReport
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.FinancialReportsDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.DateTo = New Guna.UI2.WinForms.Guna2DateTimePicker()
+        Me.DateFrom = New Guna.UI2.WinForms.Guna2DateTimePicker()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PrintButton = New Guna.UI2.WinForms.Guna2Button()
-        Me.DateFrom = New Guna.UI2.WinForms.Guna2DateTimePicker()
-        Me.DateTo = New Guna.UI2.WinForms.Guna2DateTimePicker()
         CType(Me.FinancialReportsDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
@@ -46,25 +46,25 @@ Partial Class FinancialReport
         Me.FinancialReportsDataGridView.AllowUserToDeleteRows = False
         Me.FinancialReportsDataGridView.AllowUserToResizeColumns = False
         Me.FinancialReportsDataGridView.AllowUserToResizeRows = False
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
-        Me.FinancialReportsDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
+        Me.FinancialReportsDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.FinancialReportsDataGridView.BackgroundColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.FinancialReportsDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.FinancialReportsDataGridView.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.FinancialReportsDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.FinancialReportsDataGridView.DefaultCellStyle = DataGridViewCellStyle3
         Me.FinancialReportsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FinancialReportsDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.FinancialReportsDataGridView.Location = New System.Drawing.Point(0, 50)
@@ -142,6 +142,38 @@ Partial Class FinancialReport
         Me.Guna2Panel1.Size = New System.Drawing.Size(997, 44)
         Me.Guna2Panel1.TabIndex = 4
         '
+        'DateTo
+        '
+        Me.DateTo.BackColor = System.Drawing.Color.Transparent
+        Me.DateTo.BorderRadius = 15
+        Me.DateTo.Checked = True
+        Me.DateTo.FillColor = System.Drawing.Color.White
+        Me.DateTo.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.DateTo.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
+        Me.DateTo.Location = New System.Drawing.Point(361, 4)
+        Me.DateTo.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.DateTo.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.DateTo.Name = "DateTo"
+        Me.DateTo.Size = New System.Drawing.Size(219, 36)
+        Me.DateTo.TabIndex = 8
+        Me.DateTo.Value = New Date(2025, 2, 19, 17, 54, 32, 401)
+        '
+        'DateFrom
+        '
+        Me.DateFrom.BackColor = System.Drawing.Color.Transparent
+        Me.DateFrom.BorderRadius = 15
+        Me.DateFrom.Checked = True
+        Me.DateFrom.FillColor = System.Drawing.Color.White
+        Me.DateFrom.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.DateFrom.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
+        Me.DateFrom.Location = New System.Drawing.Point(53, 3)
+        Me.DateFrom.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.DateFrom.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.DateFrom.Name = "DateFrom"
+        Me.DateFrom.Size = New System.Drawing.Size(219, 36)
+        Me.DateFrom.TabIndex = 7
+        Me.DateFrom.Value = New Date(2025, 2, 19, 17, 54, 32, 401)
+        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -179,38 +211,6 @@ Partial Class FinancialReport
         Me.PrintButton.Size = New System.Drawing.Size(144, 35)
         Me.PrintButton.TabIndex = 3
         Me.PrintButton.Text = "Print"
-        '
-        'DateFrom
-        '
-        Me.DateFrom.BackColor = System.Drawing.Color.Transparent
-        Me.DateFrom.BorderRadius = 15
-        Me.DateFrom.Checked = True
-        Me.DateFrom.FillColor = System.Drawing.Color.White
-        Me.DateFrom.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.DateFrom.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
-        Me.DateFrom.Location = New System.Drawing.Point(53, 3)
-        Me.DateFrom.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
-        Me.DateFrom.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
-        Me.DateFrom.Name = "DateFrom"
-        Me.DateFrom.Size = New System.Drawing.Size(219, 36)
-        Me.DateFrom.TabIndex = 7
-        Me.DateFrom.Value = New Date(2025, 2, 19, 17, 54, 32, 401)
-        '
-        'DateTo
-        '
-        Me.DateTo.BackColor = System.Drawing.Color.Transparent
-        Me.DateTo.BorderRadius = 15
-        Me.DateTo.Checked = True
-        Me.DateTo.FillColor = System.Drawing.Color.White
-        Me.DateTo.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.DateTo.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
-        Me.DateTo.Location = New System.Drawing.Point(361, 4)
-        Me.DateTo.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
-        Me.DateTo.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
-        Me.DateTo.Name = "DateTo"
-        Me.DateTo.Size = New System.Drawing.Size(219, 36)
-        Me.DateTo.TabIndex = 8
-        Me.DateTo.Value = New Date(2025, 2, 19, 17, 54, 32, 401)
         '
         'FinancialReport
         '

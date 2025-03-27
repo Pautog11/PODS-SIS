@@ -1,0 +1,945 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Pods-Sales&InventorySystem
+</name>
+</assembly>
+<members>
+<member name="T:Pods_Sales_InventorySystem.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:Pods_Sales_InventorySystem.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:Pods_Sales_InventorySystem.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="P:Pods_Sales_InventorySystem.My.Resources.Resources.edit">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Pods_Sales_InventorySystem.My.Resources.Resources.icon_menu">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Pods_Sales_InventorySystem.My.Resources.Resources.icon_pods">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Pods_Sales_InventorySystem.My.Resources.Resources.icon_setting">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Pods_Sales_InventorySystem.My.Resources.Resources.printer">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Pods_Sales_InventorySystem.My.Resources.Resources.refresh">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Pods_Sales_InventorySystem.My.Resources.Resources.sales">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Pods_Sales_InventorySystem.My.Resources.Resources.search">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Pods_Sales_InventorySystem.My.Resources.Resources.shopping_cart">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Pods_Sales_InventorySystem.My.Resources.Resources.user1">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblcategoriesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblsubcategoriesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblaccountsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblvatDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblreturnsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtbldosageDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtbldiscountsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtbldosageformDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblaudittrailDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblinventoryDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtbltransactionsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblproductsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblsuppliersDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblvendorDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtbldeliveriesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblcustomer_rrcDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtbldeliverypulloutsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblrrcDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblrevenueDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblcategoriesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblsubcategoriesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblaccountsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblvatRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblreturnsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtbldosageRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtbldiscountsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtbldosageformRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblaudittrailRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblinventoryRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtbltransactionsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblproductsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblsuppliersRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblvendorRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtbldeliveriesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblcustomer_rrcRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtbldeliverypulloutsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblrrcRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblrevenueRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblcategoriesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblsubcategoriesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblaccountsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblvatRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblreturnsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtbldosageRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtbldiscountsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtbldosageformRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblaudittrailRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblinventoryRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtbltransactionsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblproductsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblsuppliersRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblvendorRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtbldeliveriesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblcustomer_rrcRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtbldeliverypulloutsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblrrcRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.pods.viewtblrevenueRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.viewtblcategoriesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.viewtblsubcategoriesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.viewtblaccountsTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.viewtblvatTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.viewtblreturnsTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.viewtbldosageTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.viewtbldiscountsTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.viewtbldosageformTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.viewtblaudittrailTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.viewtblinventoryTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.viewtbltransactionsTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.viewtblproductsTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.viewtblsuppliersTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.viewtblvendorTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.viewtbldeliveriesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.viewtblcustomer_rrcTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.viewtbldeliverypulloutsTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.viewtblrrcTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.viewtblrevenueTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:Pods_Sales_InventorySystem.podsTableAdapters.TableAdapterManager.UpdateUpdatedRows(Pods_Sales_InventorySystem.pods,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:Pods_Sales_InventorySystem.podsTableAdapters.TableAdapterManager.UpdateInsertedRows(Pods_Sales_InventorySystem.pods,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:Pods_Sales_InventorySystem.podsTableAdapters.TableAdapterManager.UpdateDeletedRows(Pods_Sales_InventorySystem.pods,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:Pods_Sales_InventorySystem.podsTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:Pods_Sales_InventorySystem.podsTableAdapters.TableAdapterManager.UpdateAll(Pods_Sales_InventorySystem.pods)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.podsTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.DT_TransactionDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.DT_TransactionitemsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.DT_ProductsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.DT_ProdDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.DT_TransacDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.DT_SalesReportDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.DT_SalesViewDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.DT_CashiersReportDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.DT_FinancialReportDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.DT_InventoryDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.Dt_Financial_TotalDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.DT_TransactionRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.DT_TransactionitemsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.DT_ProductsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.DT_ProdRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.DT_TransacRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.DT_SalesReportRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.DT_SalesViewRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.DT_CashiersReportRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.DT_FinancialReportRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.DT_InventoryRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.Dt_Financial_TotalRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.DT_TransactionRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.DT_TransactionitemsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.DT_ProductsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.DT_ProdRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.DT_TransacRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.DT_SalesReportRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.DT_SalesViewRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.DT_CashiersReportRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.DT_FinancialReportRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.DT_InventoryRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Pods_Sales_InventorySystem.DSReport.Dt_Financial_TotalRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseCustomerReturnCode.Exists(System.String)">
+ <summary>
+ Check if existing
+ </summary>
+ <param name="code"></param>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseDelivery.Exists(System.String)">
+ <summary>
+ Check if delivery number is already exist
+ </summary>
+ <param name="delivery_number"></param>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseDelivery.IdExist(System.Int32,System.String)">
+ <summary>
+ Check if the id and delvery number is exist
+ </summary>
+ <param name="id"></param>
+ <param name="delivery_number"></param>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseDelivery.EnableExp(System.Int32)">
+ <summary>
+ To identify the product if expiration date is needed
+ </summary>
+ <param name="id"></param>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseDelivery.BarcodeFetching(System.String)">
+ <summary>
+ Searching items query for deliveries
+ </summary>
+ <param name="barcode"></param>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseDelivery.NameFetching(System.String)">
+ <summary>
+ Searching items by name
+ </summary>
+ <param name="name"></param>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseDelivery.Pricing(System.Decimal,System.Int32)">
+ <summary>
+ Price check shoild not lower than from the current price
+ </summary>
+ <param name="price"></param>
+ <param name="id"></param>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseDelivery.Product_id(System.String)">
+ <summary>
+ Get the id of product
+ </summary>
+ <param name="id"></param>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseDosage.Search(System.String)">
+ <summary>
+ Search query
+ </summary>
+ <param name="query"></param>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseDosageForm.Search(System.String)">
+ <summary>
+ Search query
+ </summary>
+ <param name="query"></param>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BasePullouts.AllProduct(System.Int32)">
+ <summary>
+ Select all product by supplier
+ </summary>
+ <param name="supplier_id"></param>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BasePullouts.Rrc">
+ <summary>
+ To fetch all return reason code
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BasePullouts.SupplierIdRrc(System.String)">
+ <summary>
+ To get id the return reason code
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseReturn.SelectAllReturnById(System.Int32)">
+ <summary>
+ fetch to see all returned items by retuned id
+ </summary>
+ <param name="id"></param>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseReturn.SelectAllReturnedByID(System.Int32)">
+ <summary>
+ Fetch all items to bring back to inventory
+ </summary>
+ <param name="id"></param>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseReturn.SelectProductReturnedByTrasaction(System.String,System.Int32)">
+ <summary>
+ To select the returned product
+ </summary>
+ <param name="transaction_number"></param>
+ <param name="product_id"></param>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseReturn.SelectProductReturned(System.Int32)">
+ <summary>
+ Fetch the product returned
+ </summary>
+ <param name="id"></param>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseReturn.Update_deliveries(System.Object)">
+ <summary>
+ To add items on item deliveries
+ </summary>
+ <param name="_data"></param>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseSupplier.Fetchsupplier_allow_refund">
+ <summary>
+ Fetch all supplier that allow refund
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseSupplier.FetchCompany">
+ <summary>
+ Fetch all company name
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseTransaction.ScalarVat">
+ <summary>
+ Fetch vat
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseTransaction.SelectAllTransactedItems(System.Int32)">
+ <summary>
+ To get all items by trasanction id
+ </summary>
+ <param name="transaction_id"></param>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseTransaction.FetchByBarcode(System.String)">
+ <summary>
+ fetch data by barcode
+ </summary>
+ <param name="barcode"></param>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseTransaction.FetchByName(System.String)">
+ <summary>
+ To fetch product by name
+ </summary>
+ <param name="name"></param>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseTransaction.FetchByID(System.Int32)">
+ <summary>
+ Fetch product by id
+ </summary>
+ <param name="id"></param>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseTransaction.FetchDiscounts">
+ <summary>
+ To fetch discounts
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseTransaction.Returnbutton(System.Int32)">
+ <summary>
+ Check if there is retrun for specific transaction
+ </summary>
+ <param name="id"></param>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseTransaction.ScalarStocks(System.Int32)">
+ <summary>
+ Get the stocks
+ </summary>
+ <param name="id"></param>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseTransaction.ScalarSales">
+ <summary>
+ get the sales for the day
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseTransaction.ScalarTransaction">
+ <summary>
+ Get the transactions for the day
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseTransaction.Search(System.String)">
+ <summary>
+ Search query
+ </summary>
+ <param name="query"></param>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BaseSupplierReturnCode.Exists(System.String)">
+ <summary>
+ Check if existing
+ </summary>
+ <param name="code"></param>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.InputValidation.ValidateInputString(System.Object,Pods_Sales_InventorySystem.DataInput)">
+ <summary>
+ Use to validate the control's text
+ </summary>
+ <param name="control">Control to be validated</param>
+ <param name="type">Type of string validation</param>
+ <returns></returns>
+</member>
+<member name="T:Pods_Sales_InventorySystem.SqlBaseConnection">
+ <summary>
+ A base class for the commands to inherit.
+ </summary>
+</member>
+<member name="M:Pods_Sales_InventorySystem.SqlConnectionPods.GetInstance">
+ <summary>
+ Connection string for all operation
+ </summary>
+ <returns>an open instance of the connection</returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.ICommandInvoker.Execute">
+ <summary>
+ Invokes the command passed to the command class.
+ </summary>
+</member>
+<member name="M:Pods_Sales_InventorySystem.ICommandPanel.Delete">
+ <summary>
+ Serves as a delete command to tables
+ </summary>
+</member>
+<member name="M:Pods_Sales_InventorySystem.ICommandPanel.Update">
+ <summary>
+ Serves as an update command to tables
+ </summary>
+</member>
+<member name="M:Pods_Sales_InventorySystem.ICommandPanel.Add">
+ <summary>
+ Serves as an add command to tables
+ </summary>
+</member>
+<member name="M:Pods_Sales_InventorySystem.IObservablePanel.RegisterObserver(Pods_Sales_InventorySystem.IObserverPanel)">
+ <summary>
+ Register the observer to the observable.
+ </summary>
+ <param name="o">An IObserverPanel to register in the observable.</param>
+</member>
+<member name="M:Pods_Sales_InventorySystem.IObservablePanel.NotifyObserver">
+ <summary>
+ Notifies all the observes that are listed in observable.
+ </summary>
+</member>
+<member name="M:Pods_Sales_InventorySystem.IObserverPanel.Update">
+ <summary>
+ Updates the data of the panel.
+ </summary>
+</member>
+</members>
+</doc>
