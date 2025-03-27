@@ -11,6 +11,9 @@ Public Class FinancialReport
             _subject?.RegisterObserver(Me)
             _subject?.NotifyObserver()
 
+            DateFrom.Value = DateTime.Now
+            DateTo.Value = DateTime.Now
+
             DateFrom.MaxDate = DateTo.Value
             DateTo.MinDate = DateFrom.Value
         Catch ex As Exception
