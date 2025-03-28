@@ -45,7 +45,7 @@ Public Class BaseDelivery
 
 
 
-                    If item("new") = "" Then
+                    If item("status") = "NEW" Then
                         _sqlCommand = New SqlCommand("INSERT INTO tbldeliveries_items (delivery_id, product_id, price, cost_price, quantity, inventory_quantity, batch_number, expiration_date) 
                                                       VALUES (@id, @id2, @price, @cost_price, @quantity, @inventory_quantity, @batch_number, @expiration_date)", _sqlConnection, transaction)
 
@@ -183,7 +183,8 @@ Public Class BaseDelivery
                                          a.cost_price, 
                                          a.quantity, 
                                          a.cost_price * a.quantity as total,
-                                         a.product_id
+                                         a.product_id,
+                                         'OLD'
                                         FROM tbldeliveries_items a
                                         JOIN tblproducts ON a.product_id = tblproducts.id 
                                         WHERE a.delivery_id = @delivery_id", conn)

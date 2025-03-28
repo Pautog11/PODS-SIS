@@ -44,4 +44,9 @@
 
         End Try
     End Sub
+
+    Private Sub SearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles SearchTextBox.TextChanged
+        _dataTable = BaseSupplierReturnCode.Search(SearchTextBox.Text)
+        RrcDataGridView.DataSource = _dataTable
+    End Sub
 End Class

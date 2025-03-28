@@ -457,6 +457,12 @@
     <Compile Include="Panels\Measurements.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Panels\Pricing.Designer.vb">
+      <DependentUpon>Pricing.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\Pricing.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Panels\Product.Designer.vb">
       <DependentUpon>Product.vb</DependentUpon>
     </Compile>
@@ -798,6 +804,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\Measurements.resx">
       <DependentUpon>Measurements.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\Pricing.resx">
+      <DependentUpon>Pricing.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\Product.resx">
       <DependentUpon>Product.vb</DependentUpon>

@@ -22,12 +22,12 @@ Partial Class ReturnCode
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.AccountHeaderLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.AddButton = New Guna.UI2.WinForms.Guna2Button()
-        Me.AccountSearchTextBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.SearchTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.RrcDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.AccountHeaderLayoutPanel.SuspendLayout()
@@ -41,7 +41,7 @@ Partial Class ReturnCode
         Me.AccountHeaderLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.AccountHeaderLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.AccountHeaderLayoutPanel.Controls.Add(Me.AddButton, 1, 0)
-        Me.AccountHeaderLayoutPanel.Controls.Add(Me.AccountSearchTextBox, 0, 0)
+        Me.AccountHeaderLayoutPanel.Controls.Add(Me.SearchTextBox, 0, 0)
         Me.AccountHeaderLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AccountHeaderLayoutPanel.Location = New System.Drawing.Point(3, 3)
         Me.AccountHeaderLayoutPanel.Name = "AccountHeaderLayoutPanel"
@@ -69,29 +69,29 @@ Partial Class ReturnCode
         Me.AddButton.TabIndex = 2
         Me.AddButton.Text = "Add"
         '
-        'AccountSearchTextBox
+        'SearchTextBox
         '
-        Me.AccountSearchTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.AccountSearchTextBox.BorderColor = System.Drawing.Color.Gray
-        Me.AccountSearchTextBox.BorderRadius = 15
-        Me.AccountSearchTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.AccountSearchTextBox.DefaultText = ""
-        Me.AccountSearchTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.AccountSearchTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.AccountSearchTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.AccountSearchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.AccountSearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.AccountSearchTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.AccountSearchTextBox.ForeColor = System.Drawing.Color.Black
-        Me.AccountSearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.AccountSearchTextBox.Location = New System.Drawing.Point(3, 4)
-        Me.AccountSearchTextBox.Name = "AccountSearchTextBox"
-        Me.AccountSearchTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.AccountSearchTextBox.PlaceholderText = "Search"
-        Me.AccountSearchTextBox.SelectedText = ""
-        Me.AccountSearchTextBox.ShortcutsEnabled = False
-        Me.AccountSearchTextBox.Size = New System.Drawing.Size(200, 36)
-        Me.AccountSearchTextBox.TabIndex = 3
+        Me.SearchTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.SearchTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.SearchTextBox.BorderRadius = 15
+        Me.SearchTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.SearchTextBox.DefaultText = ""
+        Me.SearchTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.SearchTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.SearchTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.SearchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.SearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.SearchTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.SearchTextBox.ForeColor = System.Drawing.Color.Black
+        Me.SearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.SearchTextBox.Location = New System.Drawing.Point(3, 4)
+        Me.SearchTextBox.Name = "SearchTextBox"
+        Me.SearchTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
+        Me.SearchTextBox.PlaceholderText = "Search"
+        Me.SearchTextBox.SelectedText = ""
+        Me.SearchTextBox.ShortcutsEnabled = False
+        Me.SearchTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.SearchTextBox.TabIndex = 3
         '
         'TableLayoutPanel1
         '
@@ -115,24 +115,24 @@ Partial Class ReturnCode
         Me.RrcDataGridView.AllowUserToDeleteRows = False
         Me.RrcDataGridView.AllowUserToResizeColumns = False
         Me.RrcDataGridView.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
-        Me.RrcDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.RrcDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.RrcDataGridView.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
+        Me.RrcDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.RrcDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.RrcDataGridView.DefaultCellStyle = DataGridViewCellStyle6
         Me.RrcDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.RrcDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.RrcDataGridView.Location = New System.Drawing.Point(0, 50)
@@ -182,7 +182,7 @@ Partial Class ReturnCode
 
     Friend WithEvents AccountHeaderLayoutPanel As TableLayoutPanel
     Friend WithEvents AddButton As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents AccountSearchTextBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents SearchTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents RrcDataGridView As Guna.UI2.WinForms.Guna2DataGridView
 End Class

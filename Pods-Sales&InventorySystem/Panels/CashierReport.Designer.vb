@@ -22,9 +22,9 @@ Partial Class CashierReport
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.CashierReportsDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
@@ -33,8 +33,8 @@ Partial Class CashierReport
         Me.FilteredData = New Guna.UI2.WinForms.Guna2Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.PrintButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.DatePicker = New Guna.UI2.WinForms.Guna2DateTimePicker()
         CType(Me.CashierReportsDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
@@ -47,25 +47,25 @@ Partial Class CashierReport
         Me.CashierReportsDataGridView.AllowUserToDeleteRows = False
         Me.CashierReportsDataGridView.AllowUserToResizeColumns = False
         Me.CashierReportsDataGridView.AllowUserToResizeRows = False
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
-        Me.CashierReportsDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
+        Me.CashierReportsDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.CashierReportsDataGridView.BackgroundColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.CashierReportsDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.CashierReportsDataGridView.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.CashierReportsDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.CashierReportsDataGridView.DefaultCellStyle = DataGridViewCellStyle3
         Me.CashierReportsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.CashierReportsDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CashierReportsDataGridView.Location = New System.Drawing.Point(0, 50)
@@ -132,11 +132,11 @@ Partial Class CashierReport
         '
         'Guna2Panel1
         '
+        Me.Guna2Panel1.Controls.Add(Me.DatePicker)
         Me.Guna2Panel1.Controls.Add(Me.CashierNameComboBox)
         Me.Guna2Panel1.Controls.Add(Me.FilteredData)
         Me.Guna2Panel1.Controls.Add(Me.Label2)
         Me.Guna2Panel1.Controls.Add(Me.Label1)
-        Me.Guna2Panel1.Controls.Add(Me.DateTimePicker1)
         Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Guna2Panel1.Location = New System.Drawing.Point(0, 0)
         Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
@@ -155,7 +155,7 @@ Partial Class CashierReport
         Me.CashierNameComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.CashierNameComboBox.ForeColor = System.Drawing.Color.Black
         Me.CashierNameComboBox.ItemHeight = 30
-        Me.CashierNameComboBox.Location = New System.Drawing.Point(324, 3)
+        Me.CashierNameComboBox.Location = New System.Drawing.Point(344, 4)
         Me.CashierNameComboBox.Name = "CashierNameComboBox"
         Me.CashierNameComboBox.Size = New System.Drawing.Size(193, 36)
         Me.CashierNameComboBox.TabIndex = 5
@@ -172,7 +172,7 @@ Partial Class CashierReport
         Me.FilteredData.FillColor = System.Drawing.Color.DarkGreen
         Me.FilteredData.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.FilteredData.ForeColor = System.Drawing.Color.White
-        Me.FilteredData.Location = New System.Drawing.Point(523, 3)
+        Me.FilteredData.Location = New System.Drawing.Point(543, 4)
         Me.FilteredData.Name = "FilteredData"
         Me.FilteredData.Size = New System.Drawing.Size(105, 35)
         Me.FilteredData.TabIndex = 4
@@ -182,7 +182,7 @@ Partial Class CashierReport
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(265, 15)
+        Me.Label2.Location = New System.Drawing.Point(285, 16)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(53, 15)
         Me.Label2.TabIndex = 3
@@ -197,14 +197,6 @@ Partial Class CashierReport
         Me.Label1.Size = New System.Drawing.Size(45, 15)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Date :"
-        '
-        'DateTimePicker1
-        '
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DateTimePicker1.Location = New System.Drawing.Point(69, 12)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(178, 20)
-        Me.DateTimePicker1.TabIndex = 0
         '
         'PrintButton
         '
@@ -223,6 +215,22 @@ Partial Class CashierReport
         Me.PrintButton.Size = New System.Drawing.Size(144, 35)
         Me.PrintButton.TabIndex = 3
         Me.PrintButton.Text = "Print"
+        '
+        'DatePicker
+        '
+        Me.DatePicker.BackColor = System.Drawing.Color.Transparent
+        Me.DatePicker.BorderRadius = 15
+        Me.DatePicker.Checked = True
+        Me.DatePicker.FillColor = System.Drawing.Color.White
+        Me.DatePicker.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.DatePicker.Format = System.Windows.Forms.DateTimePickerFormat.[Long]
+        Me.DatePicker.Location = New System.Drawing.Point(54, 4)
+        Me.DatePicker.MaxDate = New Date(9998, 12, 31, 0, 0, 0, 0)
+        Me.DatePicker.MinDate = New Date(1753, 1, 1, 0, 0, 0, 0)
+        Me.DatePicker.Name = "DatePicker"
+        Me.DatePicker.Size = New System.Drawing.Size(219, 36)
+        Me.DatePicker.TabIndex = 7
+        Me.DatePicker.Value = New Date(2025, 2, 19, 17, 54, 32, 401)
         '
         'CashierReport
         '
@@ -248,6 +256,6 @@ Partial Class CashierReport
     Friend WithEvents PrintButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents DateTimePicker1 As DateTimePicker
     Friend WithEvents CashierNameComboBox As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents DatePicker As Guna.UI2.WinForms.Guna2DateTimePicker
 End Class

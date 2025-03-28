@@ -32,12 +32,12 @@ Partial Class DeliveryCartDialog
         Me.SuppliersLabel = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.AddProductButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.AddItemButton = New Guna.UI2.WinForms.Guna2Button()
         Me.TransactionDeliveryTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2HtmlLabel2 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
         Me.SaveButton = New Guna.UI2.WinForms.Guna2Button()
         Me.EditButton = New Guna.UI2.WinForms.Guna2Button()
-        Me.AddItemButton = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Guna2HtmlLabel8 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Guna2HtmlLabel9 = New Guna.UI2.WinForms.Guna2HtmlLabel()
@@ -66,6 +66,7 @@ Partial Class DeliveryCartDialog
         Me.quantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.target = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.target2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EDIT = New System.Windows.Forms.DataGridViewImageColumn()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.AccountHeaderLayoutPanel.SuspendLayout()
@@ -184,6 +185,24 @@ Partial Class DeliveryCartDialog
         Me.AddProductButton.TabIndex = 2
         Me.AddProductButton.Text = "Add"
         '
+        'AddItemButton
+        '
+        Me.AddItemButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.AddItemButton.BackColor = System.Drawing.Color.Transparent
+        Me.AddItemButton.BorderRadius = 15
+        Me.AddItemButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.AddItemButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.AddItemButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.AddItemButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.AddItemButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.AddItemButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.AddItemButton.ForeColor = System.Drawing.Color.White
+        Me.AddItemButton.Location = New System.Drawing.Point(364, 3)
+        Me.AddItemButton.Name = "AddItemButton"
+        Me.AddItemButton.Size = New System.Drawing.Size(150, 35)
+        Me.AddItemButton.TabIndex = 8
+        Me.AddItemButton.Text = "Add"
+        '
         'TransactionDeliveryTextBox
         '
         Me.TransactionDeliveryTextBox.BorderRadius = 5
@@ -267,24 +286,6 @@ Partial Class DeliveryCartDialog
         Me.EditButton.Size = New System.Drawing.Size(150, 35)
         Me.EditButton.TabIndex = 7
         Me.EditButton.Text = "Edit"
-        '
-        'AddItemButton
-        '
-        Me.AddItemButton.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.AddItemButton.BackColor = System.Drawing.Color.Transparent
-        Me.AddItemButton.BorderRadius = 15
-        Me.AddItemButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.AddItemButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.AddItemButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.AddItemButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.AddItemButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.AddItemButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.AddItemButton.ForeColor = System.Drawing.Color.White
-        Me.AddItemButton.Location = New System.Drawing.Point(364, 3)
-        Me.AddItemButton.Name = "AddItemButton"
-        Me.AddItemButton.Size = New System.Drawing.Size(150, 35)
-        Me.AddItemButton.TabIndex = 8
-        Me.AddItemButton.Text = "Add"
         '
         'Guna2Panel1
         '
@@ -404,7 +405,7 @@ Partial Class DeliveryCartDialog
         DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White
         DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DeliveryDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
-        Me.DeliveryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.product, Me.expiry_date, Me.batch_number, Me.price, Me.cost_price, Me.quantity, Me.total, Me.target, Me.EDIT})
+        Me.DeliveryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.product, Me.expiry_date, Me.batch_number, Me.price, Me.cost_price, Me.quantity, Me.total, Me.target, Me.target2, Me.EDIT})
         DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
         DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -636,6 +637,12 @@ Partial Class DeliveryCartDialog
         Me.target.Name = "target"
         Me.target.ReadOnly = True
         '
+        'target2
+        '
+        Me.target2.HeaderText = "target2"
+        Me.target2.Name = "target2"
+        Me.target2.ReadOnly = True
+        '
         'EDIT
         '
         Me.EDIT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells
@@ -718,5 +725,6 @@ Partial Class DeliveryCartDialog
     Friend WithEvents quantity As DataGridViewTextBoxColumn
     Friend WithEvents total As DataGridViewTextBoxColumn
     Friend WithEvents target As DataGridViewTextBoxColumn
+    Friend WithEvents target2 As DataGridViewTextBoxColumn
     Friend WithEvents EDIT As DataGridViewImageColumn
 End Class

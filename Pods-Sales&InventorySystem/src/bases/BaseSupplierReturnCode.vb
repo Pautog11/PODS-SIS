@@ -63,4 +63,19 @@ Public Class BaseSupplierReturnCode
             Return 0
         End Try
     End Function
+
+    Public Shared Function Search(query As String) As pods.viewtblrrcDataTable
+        Try
+            Dim conn As New SqlConnection(My.Settings.podsdbConnectionString)
+            Dim cmd As New SqlCommand("SELECT * FROM viewtblrrc WHERE id <> 1 AND CODE LIKE CONCAT('%', @query, '%')", conn)
+            cmd.Parameters.AddWithValue("@query", query)
+            Dim dTable As New pods.viewtblrrcDataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New pods.viewtblrrcDataTable
+        End Try
+    End Function
 End Class

@@ -108,7 +108,12 @@ Public Class DeliveryProductDialog
                         If item.Cells("price").Value.ToString() <> Decimal.Parse(SellingTextBox.Text).ToString("F2") OrElse item.Cells("cost_price").Value.ToString() <> Decimal.Parse(CostTextBox.Text).ToString("F2") Then
                             If AddDeliveryButton.Text = "Update" Then
                                 'MsgBox("update")
-                                Exit For
+                                If item.Cells("price").Value.ToString() <> Decimal.Parse(SellingTextBox.Text).ToString("F2") OrElse item.Cells("cost_price").Value.ToString() <> Decimal.Parse(CostTextBox.Text).ToString("F2") Then
+                                    MessageBox.Show("You cannot set a different price for the same product!.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                    Exit Sub
+                                Else
+                                    Exit For
+                                End If
                             Else
                                 MessageBox.Show("You cannot set a different price for the same product!.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                                 Exit Sub

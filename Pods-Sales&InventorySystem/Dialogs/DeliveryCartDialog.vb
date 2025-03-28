@@ -249,7 +249,7 @@ Public Class DeliveryCartDialog
                             {"quantity", If(row.Cells(6).Value?.ToString(), "0")},
                             {"batch_number", If(row.Cells(3).Value?.ToString(), "0")},
                             {"expiration_date", If(row.Cells(2).Value?.ToString(), "0")},
-                            {"new", If(row.Cells(8).Value?.ToString(), "")}
+                            {"status", If(row.Cells(9).Value?.ToString(), "")}
                         }
                         items.Add(item)
                     Next
@@ -334,4 +334,5 @@ Public Class DeliveryCartDialog
 
         End Try
     End Sub
+
 End Class

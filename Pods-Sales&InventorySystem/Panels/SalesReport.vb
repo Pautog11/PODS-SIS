@@ -14,6 +14,9 @@ Public Class SalesReport
             MessageBox.Show(ex.Message, "Observer Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
 
+        DateFrom.Value = Date.Now
+        DateTo.Value = Date.Now
+
         DateFrom.MaxDate = Date.Now
         DateTo.MinDate = DateFrom.Value
     End Sub

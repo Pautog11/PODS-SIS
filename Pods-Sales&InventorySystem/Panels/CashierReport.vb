@@ -55,7 +55,7 @@ Public Class CashierReport
                                    FROM tbltransactions t
                                    JOIN tblaccounts a ON t.account_id = a.id
                                    WHERE CONVERT(DATE, t.date) = @startDate AND t.account_id = @cashierNameCmb", conn)
-            cmd.Parameters.AddWithValue("@startDate", DateTimePicker1.Value.ToString("yyyy-MM-dd"))
+            cmd.Parameters.AddWithValue("@startDate", DatePicker.Value.ToString("yyyy-MM-dd"))
             cmd.Parameters.AddWithValue("@cashierNameCmb", CashierNameComboBox.SelectedValue)
 
             Dim dTable As New DataTable
@@ -75,7 +75,7 @@ Public Class CashierReport
         Try
             PrintButton.Enabled = False
 
-            Dim selectedDate As DateTime = DateTimePicker1.Value.ToString("yyyy-MM-dd")
+            Dim selectedDate As DateTime = DatePicker.Value.ToString("yyyy-MM-dd")
             Dim cashierName As String = CashierNameComboBox.SelectedValue
 
             Using dialog As New CashierViewer(selectedDate, cashierName)

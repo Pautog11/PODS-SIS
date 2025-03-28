@@ -7,7 +7,7 @@ Public Class EditDeliveryDialog
     Private ReadOnly _data2 As Dictionary(Of String, String) = Nothing
     Dim id As Integer = Nothing
     Dim tite As Integer = Nothing
-    'Dim enable_exp As Integer = Nothing
+    Dim num As Integer = 1
     Public Sub New(Optional parent As DeliveryCartDialog = Nothing,
                    Optional data As Dictionary(Of String, String) = Nothing,
                    Optional data2 As Dictionary(Of String, String) = Nothing)
@@ -37,7 +37,19 @@ Public Class EditDeliveryDialog
                 BarcodeTextBox.Enabled = False
                 ProductTextBox.ReadOnly = True
             Else
+
+                If _parent.DeliveryDataGridView.Rows.Cast(Of DataGridViewRow)().Any(Function(row) Convert.ToString(row.Cells("target2").Value) = "NEW") Then
+                    If _parent.DeliveryDataGridView.Rows.Count > 0 Then
+                        num = _parent.DeliveryDataGridView.Rows.Cast(Of DataGridViewRow)() _
+                            .Where(Function(row) Convert.ToString(row.Cells("target2").Value) <> "OLD") _
+                            .Max(Function(row) Convert.ToInt32(row.Cells("target").Value)) + 1
+                    Else
+                        num = 1
+                    End If
+                End If
+
                 UpdateDeliveryButton.Visible = False
+
             End If
 
             ProductTextBox.AutoCompleteMode = AutoCompleteMode.SuggestAppend
@@ -88,23 +100,37 @@ Public Class EditDeliveryDialog
                 Exit Sub
             End If
 
+
+            For Each item As DataGridViewRow In _parent.DeliveryDataGridView.Rows
+                If CInt(item.Cells("target").Value) = id Then
+                    If item.Cells("price").Value.ToString() <> Decimal.Parse(SellingTextBox.Text).ToString("F2") OrElse item.Cells("cost_price").Value.ToString() <> Decimal.Parse(CostTextBox.Text).ToString("F2") Then
+                        If UpdateDeliveryButton.Text = "Update" Then
+                            If item.Cells("price").Value.ToString() <> Decimal.Parse(SellingTextBox.Text).ToString("F2") OrElse item.Cells("cost_price").Value.ToString() <> Decimal.Parse(CostTextBox.Text).ToString("F2") Then
+                                MessageBox.Show("You cannot set a different price for the same product!.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                Exit Sub
+                            Else
+                                Exit For
+                            End If
+                        Else
+                            MessageBox.Show("You cannot set a different price for the same product!.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Exit Sub
+                        End If
+                    End If
+                End If
+            Next
+
+
             If Not result.Any(Function(item As Object()) Not item(0)) Then
                 Dim is_existing As Boolean = False
                 Dim exd As Date = DateTimePicker.Value.Date
 
-                Dim sellingprice As Decimal
-                Dim costprice As Decimal
-
-                If Decimal.TryParse(SellingTextBox.Text, sellingprice) AndAlso Decimal.TryParse(CostTextBox.Text, costprice) Then
-                End If
-
                 For Each item As DataGridViewRow In _parent.DeliveryDataGridView.Rows
 
                     If item.Cells("id").Value.ToString() = _data.Item("id") Then
-                        item.Cells("price").Value = SellingTextBox.Text
-                        item.Cells("cost_price").Value = CostTextBox.Text
+                        item.Cells("price").Value = Decimal.Parse(SellingTextBox.Text).ToString("F2")
+                        item.Cells("cost_price").Value = Decimal.Parse(CostTextBox.Text).ToString("F2")
                         item.Cells("quantity").Value = CInt(QuantityTextBox.Text)
-                        item.Cells("total").Value = Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text)
+                        item.Cells("total").Value = Decimal.Parse(Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text)).ToString("F2")
                         item.Cells("target").Value = id
                         is_existing = True
                         Exit For
@@ -153,7 +179,7 @@ Public Class EditDeliveryDialog
             End If
 
             For Each item As DataGridViewRow In _parent.DeliveryDataGridView.Rows
-                If CInt(item.Cells("id").Value) = id Then
+                If CInt(item.Cells("target").Value) = id Then
                     If item.Cells("price").Value.ToString() <> Decimal.Parse(SellingTextBox.Text).ToString("F2") OrElse item.Cells("cost_price").Value.ToString() <> Decimal.Parse(CostTextBox.Text).ToString("F2") Then
                         MessageBox.Show("You cannot set a different price for the same product!.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         Exit Sub
@@ -184,10 +210,12 @@ Public Class EditDeliveryDialog
                                                       If(String.IsNullOrEmpty(Decimal.Parse(SellingTextBox.Text).ToString("F2")), 0, Decimal.Parse(SellingTextBox.Text).ToString("F2")),
                                                       If(String.IsNullOrEmpty(Decimal.Parse(CostTextBox.Text).ToString("F2")), 0, Decimal.Parse(CostTextBox.Text).ToString("F2")),
                                                       If(String.IsNullOrEmpty(QuantityTextBox.Text), 0, QuantityTextBox.Text),
-                                                      CDec(CostTextBox.Text) * CDec(QuantityTextBox.Text)
+                                                      CDec(CostTextBox.Text) * CDec(QuantityTextBox.Text),
+                                                      num,
+                                                      "NEW"
                                                       })
 
-
+                num += 1
                 _parent.UpdateVisualData()
                 Me.Close()
             End If
