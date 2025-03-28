@@ -122,7 +122,7 @@ Public Class BasePullouts
 
 	                                                     UNION ALL 
 
-	                                                     SELECT b.id AS ID,
+	                                                           SELECT b.id AS ID,
 																e.id AS TRAN_ID,
 									                            'Returned' AS 'FROM',
 		                                                        delivery_number AS 'TRANSACTION', 
@@ -136,10 +136,10 @@ Public Class BasePullouts
 	                                                     FROM tblreturns a
 	                                                     JOIN tblreturn_items b ON a.id = b.tblreturn_id
 	                                                     JOIN tblproducts g ON b.product_id = g.id
-	                                                     JOIN tbltransactions c ON a.transaction_id = c.id
-	                                                     JOIN getrev d ON c.id = d.transaction_id
+	                                                     JOIN getrev d ON d.transaction_id = a.transaction_id
 	                                                     JOIN tbldeliveries e ON d.delivery_id = e.id
-	                                                     JOIN tbldeliveries_items f ON e.id = f.delivery_id
+	                                                     JOIN tbldeliveries_items f ON e.id = f.delivery_id 
+														 AND d.delivery_items_id = f.id
 	                                                     WHERE b.remaining_quantity != 0
 	                                                     GROUP BY b.id, 
 																  e.id,
@@ -152,7 +152,7 @@ Public Class BasePullouts
                                                                   supplier_id
 
                                                         ) AS combined_results
-                                                        WHERE SUPPLIER = @supplier_id),
+                                                        WHERE SUPPLIER = 27),
 
 	                                                    price as (
 		                                                    SELECT t1.product_id, t1.cost_price
