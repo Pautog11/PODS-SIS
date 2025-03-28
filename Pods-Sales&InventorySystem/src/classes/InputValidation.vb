@@ -54,9 +54,8 @@ Public Class InputValidation
                         Next
                         Return {True, String.Join(" ", nameString)}
                     End If
-                    'Else
-                    '    MessageBox.Show("Invalid name.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
+
             Case DataInput.STRING_NAME
                 If stringInput.Count > 1 Then
                     Dim nameString As String() = stringInput.Split(" "c)
@@ -105,10 +104,6 @@ Public Class InputValidation
                 'End If
 
             Case DataInput.STRING_PHONE
-                'If Regex.IsMatch(start_trim_o, "^(\+639|09)\d{2}[-\s]?\d{3}[-\s]?\d{4}$") Then
-                '    Return {True, start_trim_o}
-                'End If
-
                 start_trim_o = start_trim_o.Trim()
                 If Regex.IsMatch(start_trim_o, "^(\+639|09)\d{2}[-\s]?\d{3}[-\s]?\d{4}$") Then
                     If start_trim_o.StartsWith("+63") Then
@@ -116,13 +111,9 @@ Public Class InputValidation
                     End If
                     start_trim_o = Regex.Replace(start_trim_o, "[-\s]", "")
                     Return {True, start_trim_o}
-                    'Else
-                    '    ' If the phone number does not match the expected pattern
-                    '    Return {False, "Invalid phone number"}
                 Else
                     MessageBox.Show("Invalid phone number.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
-
 
             Case DataInput.STRING_USERNAME
                 If Not Regex.IsMatch(stringInput, "[^\w]+") Then
@@ -130,18 +121,21 @@ Public Class InputValidation
                 Else
                     MessageBox.Show("Invalid username.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
+
             Case DataInput.STRING_INTEGER
                 If Regex.IsMatch(stringInput, "^\d+$") AndAlso Not stringInput = "0" Then
                     Return {True, stringInput}
                 Else
                     MessageBox.Show("Invalid number.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
+
             Case DataInput.STRING_PRICE
                 If Regex.IsMatch(stringInput, "^(\d+)?\.?(\d+)$") Then
                     Return {True, stringInput}
                 Else
                     MessageBox.Show("Invalid price.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
+
             Case DataInput.STRING_DATE
                 Dim dateValue As DateTime
                 If Regex.IsMatch(stringInput, "^\d{4}-(0?[1-9]|1[0-2])-(0?[1-9]|[12][0-9]|3[01])$") Then
@@ -176,17 +170,6 @@ Public Class InputValidation
                 End If
 
             Case DataInput.STRING_TEL
-                'If Regex.IsMatch(start_trim_o, "^(?:\+639|09)\d{2}[-\s]?\d{3}[-\s]?\d{4}$|^\d{4}[-\s]?\d{4}$") Then
-                '    start_trim_o = start_trim_o.Trim()
-                '    If start_trim_o.StartsWith("+63") Then
-                '        start_trim_o = "0" & start_trim_o.Substring(3)
-                '    End If
-                '    start_trim_o = Regex.Replace(start_trim_o, "[-\s]", "")
-                '    Return {True, start_trim_o}
-                'Else
-                '    MessageBox.Show("Invalid phone number.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                'End If
-
                 If Regex.IsMatch(start_trim_o, "^(?:\+639|09)\d{2}[-\s]?\d{3}[-\s]?\d{4}$|^\d{4}[-\s]?\d{4}$|^\d{2}[-\s]?\d{3}[-\s]?\d{4}$") Then
                     start_trim_o = start_trim_o.Trim()
                     If start_trim_o.StartsWith("+63") Then
@@ -198,8 +181,6 @@ Public Class InputValidation
                     MessageBox.Show("Invalid phone or telephone number.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
 
-
-
             Case DataInput.STRING_DECIMAL
                 If Regex.IsMatch(stringInput, "^\d+(\.\d{1,2})?$") Then
                     Return {True, stringInput}
@@ -207,6 +188,27 @@ Public Class InputValidation
                     MessageBox.Show("Please enter a valid decimal number.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Return {False, Nothing}
                 End If
+
+            Case DataInput.STRING_BATCH
+                If Not String.IsNullOrEmpty(stringInput) AndAlso Not String.IsNullOrWhiteSpace(stringInput) Then
+                    Dim pattern As String = "^(?!-)(?!.*--)[a-zA-Z0-9-]*(?<=\S)$"
+
+                    If System.Text.RegularExpressions.Regex.IsMatch(stringInput, pattern) Then
+                        If stringInput.Length > 1 Then
+                            Dim nameString As String() = stringInput.Split(" ")
+                            For i = 0 To nameString.Count - 1
+                                Dim charArr As Char() = nameString(i).ToArray()
+                                charArr(0) = CStr(charArr(0)).ToUpper
+                                nameString(i) = String.Join("", charArr)
+                            Next
+                            Return {True, String.Join(" ", nameString)}
+                        End If
+                    Else
+                        MessageBox.Show("Invalid characters detected.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        Return {False, Nothing}
+                    End If
+                End If
+
         End Select
         control.BorderColor = Color.Red
         Return {False, stringInput}
@@ -226,4 +228,5 @@ Public Enum DataInput
     STRING_TEL
     STRING_DECIMAL
     STRING_PRODUCTNAME
+    STRING_BATCH
 End Enum

@@ -197,6 +197,7 @@ Public Class DeliveryCartDialog
                     {"cost_price", If(row.Cells(5).Value?.ToString(), "0")},
                     {"quantity", If(row.Cells(6).Value?.ToString(), "0")},
                     {"target", If(row.Cells(8).Value?.ToString(), "0")},
+                    {"target2", If(row.Cells(9).Value?.ToString(), "0")},
                     {"transaction_id", _data.Item("id")}
                 }
                 Dim dialog As New EditDeliveryDialog(parent:=Me, data:=data)

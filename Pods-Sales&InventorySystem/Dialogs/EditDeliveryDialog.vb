@@ -26,6 +26,8 @@ Public Class EditDeliveryDialog
                 CostTextBox.Text = _data.Item("cost_price")
                 BatchTextBox.Text = _data.Item("batch_number")
                 QuantityTextBox.Text = _data.Item("quantity")
+                Txite()
+
                 If _data.Item("date") <> "" Then
                     DateTimePicker.Value = _data.Item("date")
                 Else
@@ -49,6 +51,7 @@ Public Class EditDeliveryDialog
                 End If
 
                 UpdateDeliveryButton.Visible = False
+                VoidButton.Visible = False
 
             End If
 
@@ -68,7 +71,7 @@ Public Class EditDeliveryDialog
                 Exit Sub
             End If
             Dim controls As Object() = {ProductTextBox, SellingTextBox, CostTextBox, QuantityTextBox, BatchTextBox}
-            Dim types As DataInput() = {DataInput.STRING_STRING, DataInput.STRING_DECIMAL, DataInput.STRING_DECIMAL, DataInput.STRING_INTEGER, DataInput.STRING_STRING}
+            Dim types As DataInput() = {DataInput.STRING_STRING, DataInput.STRING_DECIMAL, DataInput.STRING_DECIMAL, DataInput.STRING_INTEGER, DataInput.STRING_BATCH}
             Dim result As New List(Of Object())
             For i = 0 To controls.Count - 1
                 If controls(i) Is BatchTextBox AndAlso DateTimePicker.Enabled = False Then
@@ -291,5 +294,25 @@ Public Class EditDeliveryDialog
         CostTextBox.Text = ""
         SellingTextBox.Text = ""
         QuantityTextBox.Text = ""
+    End Sub
+
+    Private Sub VoidButton_Click(sender As Object, e As EventArgs) Handles VoidButton.Click
+        Try
+            For Each row As DataGridViewRow In _parent.DeliveryDataGridView.Rows
+                If _data.Item("target2") = "NEW" Then
+                    If row.Cells("target").Value.ToString() = _data.Item("target").ToString() Then
+                        _parent.DeliveryDataGridView.Rows.Remove(row)
+                        Exit For
+                    End If
+                Else
+                    MessageBox.Show("You can't remove this item!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Exit Sub
+                End If
+            Next
+            _parent.UpdateVisualData()
+            Me.Close()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 End Class

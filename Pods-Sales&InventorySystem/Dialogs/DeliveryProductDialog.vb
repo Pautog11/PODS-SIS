@@ -28,6 +28,7 @@ Public Class DeliveryProductDialog
                 QuantityTextBox.Text = _data.Item("quantity")
                 AddDeliveryButton.Text = "Update"
                 BarcodeTextBox.Enabled = False
+                Txite()
 
                 If _data.Item("date") <> "" Then
                     DateTimePicker.Value = _data.Item("date")
@@ -72,7 +73,7 @@ Public Class DeliveryProductDialog
             End If
 
             Dim controls As Object() = {ProductTextBox, SellingTextBox, CostTextBox, QuantityTextBox, BatchTextBox}
-            Dim types As DataInput() = {DataInput.STRING_STRING, DataInput.STRING_DECIMAL, DataInput.STRING_DECIMAL, DataInput.STRING_INTEGER, DataInput.STRING_STRING}
+            Dim types As DataInput() = {DataInput.STRING_STRING, DataInput.STRING_DECIMAL, DataInput.STRING_DECIMAL, DataInput.STRING_INTEGER, DataInput.STRING_BATCH}
             Dim result As New List(Of Object())
 
             For i = 0 To controls.Count - 1
@@ -101,7 +102,7 @@ Public Class DeliveryProductDialog
             If Not result.Any(Function(item As Object()) Not item(0)) Then
                 Dim is_existing As Boolean = False
                 Dim exd As Date = DateTimePicker.Value.Date
-                Dim swicth As Integer = 0
+                Dim switch As Integer = 0
 
                 For Each item As DataGridViewRow In _parent.DeliveryDataGridView.Rows
                     If CInt(item.Cells("id").Value) = id Then
@@ -146,7 +147,7 @@ Public Class DeliveryProductDialog
                                     item.Cells("quantity").Value = quantity
                                     item.Cells("total").Value = Decimal.Parse(CostTextBox.Text) * CInt(quantity)
 
-                                    swicth = 1
+                                    switch = 1
                                 End If
                             Else
                                 'if exist
@@ -184,7 +185,7 @@ Public Class DeliveryProductDialog
 
                 If is_existing = True Then
                     If _data IsNot Nothing Then
-                        If swicth = 1 Then
+                        If switch = 1 Then
                             For Each row As DataGridViewRow In _parent.DeliveryDataGridView.Rows
                                 If row.Cells("target").Value = _data.Item("target") Then
                                     _parent.DeliveryDataGridView.Rows.Remove(row)
