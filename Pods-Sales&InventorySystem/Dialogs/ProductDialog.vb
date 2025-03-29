@@ -156,7 +156,7 @@ Public Class ProductDialog
                         Exit Sub
                     End If
 
-                    If BaseProduct.Exists(result(2)(1), If(String.IsNullOrEmpty(BarcodeTextBox.Text), "", BarcodeTextBox.Text)) = 0 Then
+                    If BaseProduct.Exists(result(2)(1), If(String.IsNullOrEmpty(BarcodeTextBox.Text), "", BarcodeTextBox.Text)) = 1 Then
                         MessageBox.Show("Both Product name and Barcode are exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         Exit Sub
                     End If

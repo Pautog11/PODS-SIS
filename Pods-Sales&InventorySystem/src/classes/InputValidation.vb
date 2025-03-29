@@ -63,7 +63,8 @@ Public Class InputValidation
                     For i = 0 To nameString.Count - 1
                         If Not allowedCharsRegex.IsMatch(nameString(i)) Then
                             MessageBox.Show("Invalid characters detected.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                            Return {False}
+                            'Return {False}
+                            Exit Select
                         End If
                         If nameString(i).Any(Function(c) Char.IsLetter(c)) Then
                             Dim charArr As Char() = nameString(i).ToArray()
@@ -79,12 +80,13 @@ Public Class InputValidation
             Case DataInput.STRING_PRODUCTNAME
                 If stringInput.Count > 1 Then
                     Dim nameString As String() = stringInput.Split(" "c)
-                    Dim allowedCharsRegex As New Regex("^[A-Za-z0-9,.'&-]+$")
+                    'Dim allowedCharsRegex As New Regex("^[A-Za-z0-9,.'&-]+$")
+                    Dim allowedCharsRegex As New Regex("^[A-Za-z0-9,.'&()-]+$")
 
                     For i = 0 To nameString.Count - 1
                         If Not allowedCharsRegex.IsMatch(nameString(i)) Then
                             MessageBox.Show("Invalid characters detected.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                            Return {False}
+                            Exit Select
                         End If
                         If nameString(i).Any(Function(c) Char.IsLetter(c)) Then
                             Dim charArr As Char() = nameString(i).ToArray()
@@ -95,6 +97,7 @@ Public Class InputValidation
                     Return {True, String.Join(" ", nameString)}
                 Else
                     MessageBox.Show("Invalid name.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Exit Select
                 End If
 
 
@@ -113,6 +116,7 @@ Public Class InputValidation
                     Return {True, start_trim_o}
                 Else
                     MessageBox.Show("Invalid phone number.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Exit Select
                 End If
 
             Case DataInput.STRING_USERNAME
@@ -120,6 +124,7 @@ Public Class InputValidation
                     Return {True, stringInput}
                 Else
                     MessageBox.Show("Invalid username.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Exit Select
                 End If
 
             Case DataInput.STRING_INTEGER
@@ -127,6 +132,7 @@ Public Class InputValidation
                     Return {True, stringInput}
                 Else
                     MessageBox.Show("Invalid number.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Exit Select
                 End If
 
             Case DataInput.STRING_PRICE
@@ -134,6 +140,7 @@ Public Class InputValidation
                     Return {True, stringInput}
                 Else
                     MessageBox.Show("Invalid price.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Exit Select
                 End If
 
             Case DataInput.STRING_DATE
@@ -143,7 +150,8 @@ Public Class InputValidation
                         Return {True, stringInput}
                     Else
                         MsgBox("The date is not valid.")
-                        Return {False, "Invalid date."}
+                        'Return {False, "Invalid date."}
+                        Exit Select
                     End If
                 Else
                     MessageBox.Show("Invalid date format.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -156,7 +164,8 @@ Public Class InputValidation
                     For i = 0 To nameString.Count - 1
                         If Not regex.IsMatch(nameString(i)) Then
                             MessageBox.Show("Invalid characters detected.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                            Return {False}
+                            'Return {False}
+                            Exit Select
                         End If
                         If nameString(i).Any(Function(c) Char.IsLetter(c)) Then
                             Dim charArr As Char() = nameString(i).ToArray()
@@ -167,6 +176,7 @@ Public Class InputValidation
                     Return {True, String.Join(" ", nameString)}
                 Else
                     MessageBox.Show("Invalid name.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Exit Select
                 End If
 
             Case DataInput.STRING_TEL
@@ -179,6 +189,7 @@ Public Class InputValidation
                     Return {True, start_trim_o}
                 Else
                     MessageBox.Show("Invalid phone or telephone number.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Exit Select
                 End If
 
             Case DataInput.STRING_DECIMAL
@@ -186,7 +197,8 @@ Public Class InputValidation
                     Return {True, stringInput}
                 Else
                     MessageBox.Show("Please enter a valid decimal number.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    Return {False, Nothing}
+                    'Return {False, Nothing}
+                    Exit Select
                 End If
 
             Case DataInput.STRING_BATCH
@@ -205,7 +217,8 @@ Public Class InputValidation
                         End If
                     Else
                         MessageBox.Show("Invalid characters detected.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                        Return {False, Nothing}
+                        'Return {False, Nothing}
+                        Exit Select
                     End If
                 End If
 
