@@ -231,7 +231,6 @@ Public Class BaseReturn
                                               expiration_date, 
                                               d.delivery_id", conn)
             cmd.Parameters.AddWithValue("@id", id)
-            MsgBox(id)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
             adapter.Fill(dTable)
@@ -264,7 +263,11 @@ Public Class BaseReturn
             cmd.Parameters.AddWithValue("@expiration_date", _data.item("expiration_date"))
 
             If cmd.ExecuteNonQuery() <= 0 Then
+
+                ''errorr
                 MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                ' Throw New Exception
+
             End If
 
             cmd.Parameters.Clear()
@@ -273,6 +276,11 @@ Public Class BaseReturn
             cmd.Parameters.AddWithValue("@id", _data.item("id"))
 
             If cmd.ExecuteNonQuery() <= 0 Then
+
+
+
+
+                'error
                 MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
 

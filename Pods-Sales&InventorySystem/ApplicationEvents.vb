@@ -7,9 +7,9 @@
     ' NetworkAvailabilityChanged: Raised when the network connection is connected or disconnected.
     Partial Friend Class MyApplication
         Private Sub Application_Startup(sender As Object, e As EventArgs) Handles Me.Startup
-            'My.Settings.con = ""
-            'My.Settings.Save()
-            'MsgBox(My.Settings.con)
+            ''My.Settings.con = ""
+            ''My.Settings.Save()
+            ''MsgBox(My.Settings.con)
             If My.Settings.con = "" Then
                 Dim pota As New Server
                 pota.ShowDialog()

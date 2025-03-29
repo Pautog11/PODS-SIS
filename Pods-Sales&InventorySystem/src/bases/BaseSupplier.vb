@@ -151,4 +151,36 @@ Public Class BaseSupplier
             Return New DataTable
         End Try
     End Function
+
+    ''' <summary>
+    ''' to checkt the number if exists
+    ''' </summary>
+    ''' <param name="number"></param>
+    ''' <returns></returns>
+    Public Shared Function ContactNumberExists(number As String) As Integer
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblsuppliers WHERE company_contact_number = @number", conn)
+            cmd.Parameters.AddWithValue("@number", number)
+
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
+
+    Public Shared Function ContactNumberExistsWithId(id As Integer, number As String) As Integer
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT count(*) FROM tblsuppliers WHERE id = @id AND company_contact_number = @number", conn)
+            cmd.Parameters.AddWithValue("@id", id)
+            cmd.Parameters.AddWithValue("@number", number)
+
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
 End Class

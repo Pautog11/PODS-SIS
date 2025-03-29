@@ -15,9 +15,9 @@ Public Class SupplierDialog
         Try
             If _data IsNot Nothing Then
                 AddSupplierButton.Text = "Update"
-                CompanyNameTextBox.Text = _data("company_name")
-                CPTextBox.Text = _data("company_contact_number")
-                CompanyAddressTextBox.Text = _data("company_address")
+                CompanyNameTextBox.Text = _data.Item("company_name")
+                CPTextBox.Text = _data.Item("company_contact_number")
+                CompanyAddressTextBox.Text = _data.Item("company_address")
                 'FirstnameTextBox.Text = _data("first_name")
                 'LastnameTextBox.Text = _data("last_name")
                 'PhoneNumberTextBox.Text = _data("phone_number")
@@ -53,8 +53,8 @@ Public Class SupplierDialog
                     If Not validationResult(0) = True Then
                         Exit Sub
                     End If
-                Else
-                    Throw New Exception
+                    'Else
+                    '    Throw New Exception
                 End If
             Next
 
@@ -68,7 +68,17 @@ Public Class SupplierDialog
                 }
                 Dim baseCommand As New BaseSupplier(data)
                 Dim invoker As ICommandInvoker = Nothing
-                If BaseSupplier.Exists(result(0)(1)) = 0 AndAlso _data Is Nothing Then          'BaseAccount.Exists(result(4)(1)) = 0 AndAlso
+
+                If BaseSupplier.ContactNumberExists(result(1)(1)) = 1 Then
+                    If BaseSupplier.ContactNumberExistsWithId(_data.Item("id"), result(1)(1)) = 1 Then
+                        'Return
+                    Else
+                        MessageBox.Show("Phone number exist!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        Exit Sub
+                    End If
+                End If
+
+                If BaseSupplier.Exists(result(0)(1)) = 0 AndAlso _data Is Nothing Then
                     invoker = New AddCommand(baseCommand)
                 ElseIf _data IsNot Nothing Then
                     invoker = New UpdateCommand(baseCommand)

@@ -73,7 +73,7 @@
                     End If
                 End If
             Next
-            Guna2HtmlLabel3.Text = cost.ToString("F2")
+            'Guna2HtmlLabel3.Text = cost.ToString("F2")
             Totalcost = cost.ToString("F2")
 
             'For Vat
@@ -195,7 +195,7 @@
         CashTextBox.Text = ""
         ChangeTextBox.Text = ""
         Totalcost = 0
-        Guna2HtmlLabel3.Text = ""
+        'Guna2HtmlLabel3.Text = ""
     End Sub
 
     Private Sub DiscountComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles DiscountComboBox.SelectionChangeCommitted

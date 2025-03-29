@@ -89,7 +89,7 @@ Public Class ProductDialog
                 'End If
                 DeleteProductButton.Visible = False
             End If
-
+            DeleteProductButton.Visible = False
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try

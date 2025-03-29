@@ -12,8 +12,20 @@ Public Class Login
         Dim types As DataInput() = {DataInput.STRING_USERNAME, DataInput.STRING_PASSWORD}
 
         Dim vres As New List(Of Object())
+        'For i = 0 To controls.Count - 1
+        '    vres.Add(InputValidation.ValidateInputString(controls(i), types(i)))
+        'Next
+
         For i = 0 To controls.Count - 1
             vres.Add(InputValidation.ValidateInputString(controls(i), types(i)))
+            Dim validationResult = TryCast(vres(i), Object())
+            If validationResult IsNot Nothing AndAlso validationResult.Length > 0 Then
+                If Not validationResult(0) = True Then
+                    Exit Sub
+                End If
+                'Else
+                '    Throw New Exception
+            End If
         Next
 
         If Not vres.Any(Function(item As Object()) Not item(0)) Then

@@ -60,6 +60,16 @@ Public Class VendorDialog
                 }
                 Dim baseCommand As New BaseVendor(data)
                 Dim invoker As ICommandInvoker = Nothing
+
+                If BaseVendor.ContactNumberExists(result(3)(1)) = 1 Then
+                    If BaseVendor.ContactNumberExistsWithId(_data.Item("id"), result(3)(1)) = 1 Then
+                        'Return
+                    Else
+                        MessageBox.Show("Phone number exist!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        Exit Sub
+                    End If
+                End If
+
                 If BaseVendor.Exists(result(1)(1), result(2)(1)) = 0 AndAlso _data Is Nothing Then
                     invoker = New AddCommand(baseCommand)
                 ElseIf _data IsNot Nothing Then
@@ -78,8 +88,4 @@ Public Class VendorDialog
             MsgBox(ex.Message)
         End Try
     End Sub
-
-    'Private Sub CompanyComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CompanyComboBox.SelectionChangeCommitted
-    '    MsgBox(CompanyComboBox.SelectedItem("id"))
-    'End Sub
 End Class

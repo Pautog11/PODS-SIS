@@ -260,9 +260,9 @@ Partial Class ProductDialog
         Me.Label5.AutoSize = True
         Me.Label5.Location = New System.Drawing.Point(278, 75)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(60, 13)
+        Me.Label5.Size = New System.Drawing.Size(108, 13)
         Me.Label5.TabIndex = 20
-        Me.Label5.Text = "Description"
+        Me.Label5.Text = "Description (Optional)"
         '
         'Label4
         '

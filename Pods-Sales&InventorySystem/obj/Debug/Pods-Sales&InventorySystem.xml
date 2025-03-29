@@ -791,6 +791,13 @@ Row event argument class
  </summary>
  <returns></returns>
 </member>
+<member name="M:Pods_Sales_InventorySystem.BaseSupplier.ContactNumberExists(System.String)">
+ <summary>
+ to checkt the number if exists
+ </summary>
+ <param name="number"></param>
+ <returns></returns>
+</member>
 <member name="M:Pods_Sales_InventorySystem.BaseTransaction.ScalarVat">
  <summary>
  Fetch vat

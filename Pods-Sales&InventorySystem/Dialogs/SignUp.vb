@@ -18,10 +18,22 @@ Public Class SignUp
             }
 
             Dim result As New List(Of Object())
+            'For i = 0 To controls.Count - 1
+            '    result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
+            '    If Not CType(result(i), Object())(0) AndAlso Not String.IsNullOrEmpty(controls(i).Text) Then
+            '        Exit Sub
+            '    End If
+            'Next
+
             For i = 0 To controls.Count - 1
                 result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
-                If Not CType(result(i), Object())(0) AndAlso Not String.IsNullOrEmpty(controls(i).Text) Then
-                    Exit Sub
+                Dim validationResult = TryCast(result(i), Object())
+                If validationResult IsNot Nothing AndAlso validationResult.Length > 0 Then
+                    If Not validationResult(0) = True Then
+                        Exit Sub
+                    End If
+                    'Else
+                    '    Throw New Exception
                 End If
             Next
 
@@ -50,6 +62,8 @@ Public Class SignUp
                     End If
                 Else
                     MessageBox.Show("Password doesn't match.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    PasswordTextBox.Text = ""
+                    Guna2TextBox1.Text = ""
                 End If
             Else
                 MessageBox.Show("Please fill out all textboxes or provide all valid inputs.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
