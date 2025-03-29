@@ -22,8 +22,23 @@ Public Class VatDialog
 
     Private Sub UpdateButton_Click(sender As Object, e As EventArgs) Handles UpdateButton.Click
         Try
+            Dim vatValue As String = VatTextBox.Text.Trim()
+
+            Dim validVat As Boolean = False
+            If Integer.TryParse(vatValue, Nothing) Then
+                Dim vatInt As Integer = Convert.ToInt32(vatValue)
+                If vatInt >= 1 And vatInt <= 25 Then
+                    validVat = True
+                End If
+            End If
+
+            If Not validVat Then
+                MessageBox.Show("Please enter a VAT value between 1 and 25.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Exit Sub
+            End If
+
             Dim res As New List(Of Object()) From {InputValidation.ValidateInputString(VatTextBox, DataInput.STRING_INTEGER)}
-            'Exit Sub
+
             If Not res.Any(Function(item As Object()) Not item(0)) Then
                 Dim data As New Dictionary(Of String, String) From {
                     {"id", _data.Item("id")},
@@ -35,8 +50,6 @@ Public Class VatDialog
                 invoker?.Execute()
                 _subject.NotifyObserver()
                 Me.Close()
-                'Else
-                '    MessageBox.Show("Please input a valid vat.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
         Catch ex As Exception
 

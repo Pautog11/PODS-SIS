@@ -12,9 +12,6 @@ Public Class Login
         Dim types As DataInput() = {DataInput.STRING_USERNAME, DataInput.STRING_PASSWORD}
 
         Dim vres As New List(Of Object())
-        'For i = 0 To controls.Count - 1
-        '    vres.Add(InputValidation.ValidateInputString(controls(i), types(i)))
-        'Next
 
         For i = 0 To controls.Count - 1
             vres.Add(InputValidation.ValidateInputString(controls(i), types(i)))
@@ -23,8 +20,6 @@ Public Class Login
                 If Not validationResult(0) = True Then
                     Exit Sub
                 End If
-                'Else
-                '    Throw New Exception
             End If
         Next
 

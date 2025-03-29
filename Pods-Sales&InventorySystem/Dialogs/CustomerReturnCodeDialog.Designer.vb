@@ -106,7 +106,7 @@ Partial Class CustomerReturnCodeDialog
         Me.CodeTextBox.ForeColor = System.Drawing.Color.Black
         Me.CodeTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CodeTextBox.Location = New System.Drawing.Point(37, 36)
-        Me.CodeTextBox.MaxLength = 50
+        Me.CodeTextBox.MaxLength = 20
         Me.CodeTextBox.Name = "CodeTextBox"
         Me.CodeTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CodeTextBox.PlaceholderText = ""

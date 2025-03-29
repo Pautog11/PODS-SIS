@@ -12,7 +12,9 @@ Public Class DiscountDialog
     Private Sub DiscountDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             If _data IsNot Nothing Then
-                DiscountTextBox.Text = _data.Item("discount")
+                'MsgBox(_data.Item("id"))
+                Dim fuck As Integer = BaseDiscount.FetchDiscount(_data.Item("id"))
+                DiscountTextBox.Text = fuck.ToString '_data.Item("discount")
                 DescriptionTextBox.Text = _data.Item("description")
                 AddDiscountButton.Text = "Update"
             End If
@@ -32,11 +34,22 @@ Public Class DiscountDialog
                     {"description", DescriptionTextBox.Text}
                 }
 
+                Dim validVat As Boolean = False
+                If result(0)(1) >= 1 And result(0)(1) <= 25 Then
+                    validVat = True
+                End If
+
+                If Not validVat Then
+                    MessageBox.Show("Please enter a discount value between 1 and 25.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    DiscountTextBox.Text = ""
+                    Exit Sub
+                End If
+
                 Dim baseCommand As New BaseDiscount(data)
                 Dim invoker As ICommandInvoker = Nothing
                 If BaseDiscount.Exists(result(0)(1)) = 0 AndAlso _data Is Nothing Then
                     invoker = New AddCommand(baseCommand)
-                ElseIf _data IsNot Nothing AndAlso BaseDiscount.IdExists(_data?.Item("id"), result(0)(1)) = 1 Then
+                ElseIf _data IsNot Nothing AndAlso BaseDiscount.IdExists(_data?.Item("id"), result(0)(1)) = 0 Then
                     invoker = New UpdateCommand(baseCommand)
                 Else
                     MessageBox.Show("Discount exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)

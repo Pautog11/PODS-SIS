@@ -50,7 +50,7 @@ Partial Class VendorDialog
         Me.LastnameTextBox.ForeColor = System.Drawing.Color.Black
         Me.LastnameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.LastnameTextBox.Location = New System.Drawing.Point(28, 147)
-        Me.LastnameTextBox.MaxLength = 20
+        Me.LastnameTextBox.MaxLength = 50
         Me.LastnameTextBox.Name = "LastnameTextBox"
         Me.LastnameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.LastnameTextBox.PlaceholderText = "Ex. Dela Cruz"
@@ -92,7 +92,7 @@ Partial Class VendorDialog
         Me.FirstNameTextBox.ForeColor = System.Drawing.Color.Black
         Me.FirstNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.FirstNameTextBox.Location = New System.Drawing.Point(28, 92)
-        Me.FirstNameTextBox.MaxLength = 20
+        Me.FirstNameTextBox.MaxLength = 50
         Me.FirstNameTextBox.Name = "FirstNameTextBox"
         Me.FirstNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.FirstNameTextBox.PlaceholderText = "Ex. Juan"

@@ -70,4 +70,17 @@ Public Class BaseDiscount
             Return 0
         End Try
     End Function
+
+    Public Shared Function FetchDiscount(id As Integer) As Integer
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT discount FROM tbldiscounts WHERE id = @id", conn)
+            cmd.Parameters.AddWithValue("@id", id)
+
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
 End Class

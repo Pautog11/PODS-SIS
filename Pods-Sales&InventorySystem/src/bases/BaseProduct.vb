@@ -152,7 +152,6 @@ Public Class BaseProduct
                                                ELSE 0 
                                            END AS result;", conn)
             cmd.Parameters.AddWithValue("@product_name", product_name.Trim.ToLower)
-            'cmd.Parameters.AddWithValue("@barcode", If(String.IsNullOrEmpty(barcode), DBNull.Value, barcode))
             If barcode Is Nothing OrElse String.IsNullOrEmpty(barcode.ToString()) Then
                 cmd.Parameters.AddWithValue("@barcode", DBNull.Value)
             Else
@@ -166,18 +165,18 @@ Public Class BaseProduct
         End Try
     End Function
 
-    Public Shared Function ScalarCategoryId(category As String) As Integer
-        Try
-            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As New SqlCommand("SELECT id FROM tblcategories WHERE category = @category", conn)
-            cmd.Parameters.AddWithValue("@category", category)
+    'Public Shared Function ScalarCategoryId(category As String) As Integer
+    '    Try
+    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+    '        Dim cmd As New SqlCommand("SELECT id FROM tblcategories WHERE category = @category", conn)
+    '        cmd.Parameters.AddWithValue("@category", category)
 
-            Return cmd.ExecuteScalar()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return 0
-        End Try
-    End Function
+    '        Return cmd.ExecuteScalar()
+    '    Catch ex As Exception
+    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+    '        Return 0
+    '    End Try
+    'End Function
 
     Public Shared Function BarcodeExist(barcode As String) As String
         Try
@@ -273,6 +272,19 @@ Public Class BaseProduct
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As New SqlCommand("SELECT product_name FROM tblproducts WHERE id = @id", conn)
             cmd.Parameters.AddWithValue("@id", id)
+
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
+
+    Public Shared Function NameExist(name As String) As String
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT count(*) FROM tblproducts WHERE LOWER(product_name) = @name", conn)
+            cmd.Parameters.AddWithValue("@name", name.Trim.ToLower)
 
             Return cmd.ExecuteScalar()
         Catch ex As Exception

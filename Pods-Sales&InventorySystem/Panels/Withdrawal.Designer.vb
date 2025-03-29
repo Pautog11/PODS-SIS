@@ -27,6 +27,7 @@ Partial Class ReturnAndPullout
         Me.Returns1 = New Pods_Sales_InventorySystem.Returns()
         Me.PullOuts = New System.Windows.Forms.TabPage()
         Me.PullOuts1 = New Pods_Sales_InventorySystem.PullOuts()
+        Me.Disposal = New System.Windows.Forms.TabPage()
         Me.ReturnandPulloutTabControl.SuspendLayout()
         Me.Returns.SuspendLayout()
         Me.PullOuts.SuspendLayout()
@@ -34,8 +35,9 @@ Partial Class ReturnAndPullout
         '
         'ReturnandPulloutTabControl
         '
-        Me.ReturnandPulloutTabControl.Controls.Add(Me.Returns)
+        Me.ReturnandPulloutTabControl.Controls.Add(Me.Disposal)
         Me.ReturnandPulloutTabControl.Controls.Add(Me.PullOuts)
+        Me.ReturnandPulloutTabControl.Controls.Add(Me.Returns)
         Me.ReturnandPulloutTabControl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ReturnandPulloutTabControl.ItemSize = New System.Drawing.Size(180, 40)
         Me.ReturnandPulloutTabControl.Location = New System.Drawing.Point(0, 0)
@@ -105,6 +107,16 @@ Partial Class ReturnAndPullout
         Me.PullOuts1.Size = New System.Drawing.Size(1014, 532)
         Me.PullOuts1.TabIndex = 0
         '
+        'Disposal
+        '
+        Me.Disposal.Location = New System.Drawing.Point(4, 44)
+        Me.Disposal.Name = "Disposal"
+        Me.Disposal.Padding = New System.Windows.Forms.Padding(3)
+        Me.Disposal.Size = New System.Drawing.Size(1014, 532)
+        Me.Disposal.TabIndex = 8
+        Me.Disposal.Text = "Disposal"
+        Me.Disposal.UseVisualStyleBackColor = True
+        '
         'ReturnAndPullout
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -124,4 +136,5 @@ Partial Class ReturnAndPullout
     Friend WithEvents PullOuts As TabPage
     Friend WithEvents PullOuts1 As PullOuts
     Friend WithEvents Returns1 As Returns
+    Friend WithEvents Disposal As TabPage
 End Class

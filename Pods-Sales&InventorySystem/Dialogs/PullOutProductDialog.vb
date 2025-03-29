@@ -28,8 +28,9 @@ Public Class PullOutProductDialog
 
 
             If _data IsNot Nothing Then
-                dt = BasePullouts.AllProduct(_data("id"))
-                If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then
+                'MsgBox(_data.Item("id"))
+                dt = BasePullouts.AllProduct(_data.Item("id"))
+                If dt.Rows.Count > 0 Then
                     PulloutDataGridView.DataSource = dt.DefaultView
 
                     If _parent.DeliveryPulloutDataGridView.Rows.Count > 0 Then

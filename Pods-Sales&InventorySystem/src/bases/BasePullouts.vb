@@ -152,7 +152,7 @@ Public Class BasePullouts
                                                                   supplier_id
 
                                                         ) AS combined_results
-                                                        WHERE SUPPLIER = 27),
+                                                        WHERE SUPPLIER = @supplier_id),
 
 	                                                    price as (
 		                                                    SELECT t1.product_id, t1.cost_price

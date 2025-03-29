@@ -171,7 +171,7 @@ Partial Class CategoryDialog
         Me.CategoryNameTextBox.ForeColor = System.Drawing.Color.Black
         Me.CategoryNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CategoryNameTextBox.Location = New System.Drawing.Point(32, 37)
-        Me.CategoryNameTextBox.MaxLength = 100
+        Me.CategoryNameTextBox.MaxLength = 50
         Me.CategoryNameTextBox.Name = "CategoryNameTextBox"
         Me.CategoryNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CategoryNameTextBox.PlaceholderText = "Category Name"

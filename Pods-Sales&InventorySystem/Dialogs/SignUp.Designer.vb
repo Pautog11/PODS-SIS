@@ -55,6 +55,7 @@ Partial Class SignUp
         Me.FirstnameTextBox.ForeColor = System.Drawing.Color.Black
         Me.FirstnameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.FirstnameTextBox.Location = New System.Drawing.Point(12, 32)
+        Me.FirstnameTextBox.MaxLength = 50
         Me.FirstnameTextBox.Name = "FirstnameTextBox"
         Me.FirstnameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.FirstnameTextBox.PlaceholderText = "Juan"
@@ -78,6 +79,7 @@ Partial Class SignUp
         Me.LastnameTextBox.ForeColor = System.Drawing.Color.Black
         Me.LastnameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.LastnameTextBox.Location = New System.Drawing.Point(251, 35)
+        Me.LastnameTextBox.MaxLength = 50
         Me.LastnameTextBox.Name = "LastnameTextBox"
         Me.LastnameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.LastnameTextBox.PlaceholderText = "Dela Cruz"
@@ -125,6 +127,7 @@ Partial Class SignUp
         Me.UsernameTextBox.ForeColor = System.Drawing.Color.Black
         Me.UsernameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.UsernameTextBox.Location = New System.Drawing.Point(12, 146)
+        Me.UsernameTextBox.MaxLength = 50
         Me.UsernameTextBox.Name = "UsernameTextBox"
         Me.UsernameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.UsernameTextBox.PlaceholderText = "Juan"
@@ -148,6 +151,7 @@ Partial Class SignUp
         Me.PasswordTextBox.ForeColor = System.Drawing.Color.Black
         Me.PasswordTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.PasswordTextBox.Location = New System.Drawing.Point(12, 203)
+        Me.PasswordTextBox.MaxLength = 50
         Me.PasswordTextBox.Name = "PasswordTextBox"
         Me.PasswordTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.PasswordTextBox.PlaceholderText = ""
@@ -253,6 +257,7 @@ Partial Class SignUp
         Me.Guna2TextBox1.ForeColor = System.Drawing.Color.Black
         Me.Guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Guna2TextBox1.Location = New System.Drawing.Point(251, 203)
+        Me.Guna2TextBox1.MaxLength = 50
         Me.Guna2TextBox1.Name = "Guna2TextBox1"
         Me.Guna2TextBox1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.Guna2TextBox1.PlaceholderText = ""

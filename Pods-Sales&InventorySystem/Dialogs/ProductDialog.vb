@@ -145,11 +145,27 @@ Public Class ProductDialog
                 Dim baseCommand As BaseProduct
                 baseCommand = New BaseProduct(data)
                 Dim invoker As ICommandInvoker = Nothing
-                If BaseProduct.Exists(result(2)(1), If(String.IsNullOrEmpty(BarcodeTextBox.Text), "", BarcodeTextBox.Text)) = 0 AndAlso BaseProduct.BarcodeExist(BarcodeTextBox.Text) = 0 AndAlso _data Is Nothing Then
+                If _data Is Nothing Then
+                    If BaseProduct.BarcodeExist(BarcodeTextBox.Text) = 1 Then
+                        MessageBox.Show("Barcode exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        Exit Sub
+                    End If
+
+                    If BaseProduct.NameExist(result(2)(1)) = 1 Then
+                        MessageBox.Show("Product exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        Exit Sub
+                    End If
+
+                    If BaseProduct.Exists(result(2)(1), If(String.IsNullOrEmpty(BarcodeTextBox.Text), "", BarcodeTextBox.Text)) = 0 Then
+                        MessageBox.Show("Both Product name and Barcode are exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        Exit Sub
+                    End If
+
                     invoker = New AddCommand(baseCommand)
                     invoker?.Execute()
                     _subject.NotifyObserver()
                     Me.Close()
+
                 ElseIf _data IsNot Nothing Then
                     If BaseProduct.IdBarcodeExist(_data.Item("id"), BarcodeTextBox.Text) = 1 Then
                         invoker = New UpdateCommand(baseCommand)
@@ -179,10 +195,10 @@ Public Class ProductDialog
                         End If
                     End If
                 Else
-                    MessageBox.Show("Product exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    MessageBox.Show("Product exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
             Else
-                MessageBox.Show("Please fill out all textboxes or provide all valid inputs.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                MessageBox.Show("Please fill out all textboxes or provide all valid inputs.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -190,36 +206,48 @@ Public Class ProductDialog
     End Sub
 
     Private Sub DeleteProductButton_Click(sender As Object, e As EventArgs) Handles DeleteProductButton.Click
-        Dim baseCommand As New BaseProduct(_data)
-        Dim invoker As New DeleteCommand(baseCommand)
-        invoker?.Execute()
-        _subject.NotifyObserver()
-        Me.Close()
+        Try
+            Dim baseCommand As New BaseProduct(_data)
+            Dim invoker As New DeleteCommand(baseCommand)
+            invoker?.Execute()
+            _subject.NotifyObserver()
+            Me.Close()
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub Guna2CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox.CheckedChanged
-        If CheckBox.Checked Then
-            Exp = 1
-            ManufacturerTextBox.Enabled = True
-            StrengthTextBox.Enabled = True
-            DoseComboBox.Enabled = True
-            DosageFormComboBox.Enabled = True
-        Else
-            Exp = 0
-            ManufacturerTextBox.Enabled = False
-            StrengthTextBox.Enabled = False
-            DoseComboBox.Enabled = False
-            DosageFormComboBox.Enabled = False
-        End If
+        Try
+            If CheckBox.Checked Then
+                Exp = 1
+                ManufacturerTextBox.Enabled = True
+                StrengthTextBox.Enabled = True
+                DoseComboBox.Enabled = True
+                DosageFormComboBox.Enabled = True
+            Else
+                Exp = 0
+                ManufacturerTextBox.Enabled = False
+                StrengthTextBox.Enabled = False
+                DoseComboBox.Enabled = False
+                DosageFormComboBox.Enabled = False
+            End If
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub CategoryComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CategoryComboBox.SelectionChangeCommitted
-        Dim dt As DataTable = BaseProduct.Filltite(CategoryComboBox.SelectedItem("id"))
-        SubCategoryComboBox.DataSource = dt.DefaultView
-        SubCategoryComboBox.DisplayMember = "subcategory"
-        SubCategoryComboBox.SelectedItem = "id"
-        If dt.Rows.Count > 0 Then
-            SubCategoryComboBox.SelectedIndex = -1
-        End If
+        Try
+            Dim dt As DataTable = BaseProduct.Filltite(CategoryComboBox.SelectedItem("id"))
+            SubCategoryComboBox.DataSource = dt.DefaultView
+            SubCategoryComboBox.DisplayMember = "subcategory"
+            SubCategoryComboBox.SelectedItem = "id"
+            If dt.Rows.Count > 0 Then
+                SubCategoryComboBox.SelectedIndex = -1
+            End If
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class

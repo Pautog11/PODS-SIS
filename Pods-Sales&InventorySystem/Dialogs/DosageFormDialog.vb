@@ -32,8 +32,19 @@ Public Class DosageFormDialog
                 DataInput.STRING_NAME
             }
             Dim result As New List(Of Object())
+            'For i = 0 To controls.Count - 1
+            '    result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
+            'Next
+
+
             For i = 0 To controls.Count - 1
                 result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
+                Dim validationResult = TryCast(result(i), Object())
+                If validationResult IsNot Nothing AndAlso validationResult.Length > 0 Then
+                    If Not validationResult(0) = True Then
+                        Exit Sub
+                    End If
+                End If
             Next
 
             If Not result.Any(Function(item As Object()) Not item(0)) Then

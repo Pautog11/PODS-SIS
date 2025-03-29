@@ -135,7 +135,7 @@ Partial Class SubCategoryDialog
         Me.SubcategoryNameTextBox.ForeColor = System.Drawing.Color.Black
         Me.SubcategoryNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.SubcategoryNameTextBox.Location = New System.Drawing.Point(26, 91)
-        Me.SubcategoryNameTextBox.MaxLength = 100
+        Me.SubcategoryNameTextBox.MaxLength = 50
         Me.SubcategoryNameTextBox.Name = "SubcategoryNameTextBox"
         Me.SubcategoryNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.SubcategoryNameTextBox.PlaceholderText = "Ex. (Cough and Cold etc.,)"
