@@ -58,32 +58,82 @@ Public Class VendorDialog
                 }
                 Dim baseCommand As New BaseVendor(data)
                 Dim invoker As ICommandInvoker = Nothing
+                'MsgBox(CompanyComboBox.SelectedItem("id"))
+                If BaseVendor.NameExist(CompanyComboBox.SelectedItem("id"), result(1)(1), result(2)(1), result(3)(1)) = 0 AndAlso _data Is Nothing Then
+                    If BaseVendor.ContactNumberExists(result(3)(1)) = 0 Then
 
-                If BaseVendor.ContactNumberExists(result(3)(1)) = 1 Then
-                    If BaseVendor.ContactNumberExistsWithId(_data.Item("id"), result(3)(1)) = 1 Then
-                        'Return
                     Else
-                        MessageBox.Show("Phone number exist!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                        Exit Sub
+                        If BaseVendor.NameWithNumberExists(result(1)(1), result(2)(1), result(3)(1)) = 0 Then
+                            'Else
+                            MessageBox.Show("Phone number exist!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Exit Sub
+                        End If
                     End If
-                End If
 
-                If BaseVendor.Exists(result(1)(1), result(2)(1)) = 0 AndAlso _data Is Nothing Then
                     invoker = New AddCommand(baseCommand)
+                    invoker?.Execute()
+                    _subject.NotifyObserver()
+                    Me.Close()
+
                 ElseIf _data IsNot Nothing Then
+
+
+
+
+
+
+                    If BaseVendor.NameExist(CompanyComboBox.SelectedItem("id"), result(1)(1), result(2)(1), result(3)(1)) = 1 Then
+
+                        If BaseVendor.IdNameExist(_data.Item("id"), CompanyComboBox.SelectedItem("id"), result(1)(1), result(2)(1), result(3)(1)) = 1 Then
+                            If BaseVendor.ContactNumberExists(result(3)(1)) = 0 Then
+
+                            Else
+                                If BaseVendor.NameWithNumberExists(result(1)(1), result(2)(1), result(3)(1)) = 0 Then
+                                Else
+                                    MessageBox.Show("Phone number exist!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                    Exit Sub
+                                End If
+                            End If
+                        Else
+                            MessageBox.Show("Vendor exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                            Exit Sub
+                        End If
+                    Else
+
+
+                        If BaseVendor.ContactNumberExists(result(3)(1)) = 0 Then
+
+                        Else
+                            If BaseVendor.NameWithNumberExists(result(1)(1), result(2)(1), result(3)(1)) = 0 Then
+                            Else
+                                MessageBox.Show("Phone number exist!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                Exit Sub
+                            End If
+                        End If
+
+
+                    End If
+
+
+
+
+
+
+
                     invoker = New UpdateCommand(baseCommand)
+                    invoker?.Execute()
+                    _subject.NotifyObserver()
+                    Me.Close()
                 Else
                     MessageBox.Show("Vendor exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                     Return
                 End If
-                invoker?.Execute()
-                _subject.NotifyObserver()
-                Me.Close()
+
             Else
-                MessageBox.Show("Please provide valid inputs.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                MessageBox.Show("Please provide valid inputs.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Return
             End If
         Catch ex As Exception
-            MsgBox(ex.Message)
         End Try
     End Sub
 End Class

@@ -1,5 +1,4 @@
-﻿
-Imports System.Windows.Forms.TabControl
+﻿Imports System.Windows.Forms.TabControl
 
 Public Class Login
     Private _loginModule As New LoginModule

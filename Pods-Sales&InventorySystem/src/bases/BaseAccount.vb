@@ -204,7 +204,6 @@ Public Class BaseAccount
             Return 0
         End Try
     End Function
-    '_sqlCommand.Parameters.AddWithValue("@password", BCrypt.Net.BCrypt.HashPassword(_data.Item("password")))
 
     Public Shared Function ChangePass(pass As String, id As Integer)
         Try
@@ -218,6 +217,62 @@ Public Class BaseAccount
                 MessageBox.Show("Password has been updated successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
             Return 0
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
+
+    Public Shared Function FirstnameLastnameExist(firstname As String, lastaname As String) As Integer
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblaccounts WHERE LOWER(first_name) = @firstname AND LOWER(last_name) = @lastname", conn)
+            cmd.Parameters.AddWithValue("@firstname", firstname.Trim.ToLower)
+            cmd.Parameters.AddWithValue("@lastname", lastaname.Trim.ToLower)
+
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
+
+    Public Shared Function Phone_numberExists(number As String) As Integer
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblaccounts WHERE phone_number = @number", conn)
+            cmd.Parameters.AddWithValue("@number", number)
+
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
+
+    Public Shared Function IdNumberExists(id As Integer, number As String) As Integer
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblaccounts WHERE id = @id AND phone_number = @number", conn)
+            cmd.Parameters.AddWithValue("@id", id)
+            cmd.Parameters.AddWithValue("@number", number)
+
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
+
+    Public Shared Function IdFirstnameLastnameExist(id As Integer, firstname As String, lastaname As String) As Integer
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblaccounts WHERE id = @id AND LOWER(first_name) = @firstname AND LOWER(last_name) = @lastname", conn)
+            cmd.Parameters.AddWithValue("@id", id)
+            cmd.Parameters.AddWithValue("@firstname", firstname.Trim.ToLower)
+            cmd.Parameters.AddWithValue("@lastname", lastaname.Trim.ToLower)
+
+            Return cmd.ExecuteScalar()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return 0

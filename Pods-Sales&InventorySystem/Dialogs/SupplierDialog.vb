@@ -69,28 +69,36 @@ Public Class SupplierDialog
                 Dim baseCommand As New BaseSupplier(data)
                 Dim invoker As ICommandInvoker = Nothing
 
-                If BaseSupplier.ContactNumberExists(result(1)(1)) = 1 Then
-                    If BaseSupplier.ContactNumberExistsWithId(_data.Item("id"), result(1)(1)) = 1 Then
-                        'Return
-                    Else
-                        MessageBox.Show("Phone number exist!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                        Exit Sub
-                    End If
-                End If
 
                 If BaseSupplier.Exists(result(0)(1)) = 0 AndAlso _data Is Nothing Then
+                    If BaseSupplier.ContactNumberExists(result(1)(1)) = 1 Then
+                        MessageBox.Show("Phone number exist!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        Exit Sub
+                    End If
                     invoker = New AddCommand(baseCommand)
+                    invoker?.Execute()
+                    _subject.NotifyObserver()
+                    Me.Close()
                 ElseIf _data IsNot Nothing Then
+                    If BaseSupplier.ContactNumberExists(result(1)(1)) = 1 Then
+                        If BaseSupplier.ContactNumberExistsWithId(_data.Item("id"), result(1)(1)) = 1 Then
+                            'Return
+                        Else
+                            MessageBox.Show("Phone number exist!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Exit Sub
+                        End If
+                    End If
+
                     invoker = New UpdateCommand(baseCommand)
+                    invoker?.Execute()
+                    _subject.NotifyObserver()
+                    Me.Close()
+                    'Exit Sub
                 Else
-                    MessageBox.Show("Supplier name exists!")
+                    MessageBox.Show("Supplier name exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
-                invoker?.Execute()
-                _subject.NotifyObserver()
-                Me.Close()
-                'Exit Sub
             Else
-                MessageBox.Show("Please fill out all textboxes or provide all valid inputs.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                MessageBox.Show("Please fill out all textboxes or provide all valid inputs.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         Catch ex As Exception
             MsgBox(ex.Message)

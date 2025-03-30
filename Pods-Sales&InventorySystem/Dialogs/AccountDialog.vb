@@ -155,7 +155,19 @@ Public Class AccountDialog
                 }
                 Dim baseCommand As New BaseAccount(data)
                 Dim invoker As ICommandInvoker = Nothing
+
+
                 If BaseAccount.Exists(result(5)(1)) = 0 AndAlso _data Is Nothing Then
+                    If BaseAccount.FirstnameLastnameExist(result(1)(1), result(2)(1)) = 1 Then
+                        MessageBox.Show("Name exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        Exit Sub
+                    End If
+
+                    If BaseAccount.Phone_numberExists(result(3)(1)) = 1 Then
+                        MessageBox.Show("Phone number exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        Exit Sub
+                    End If
+
                     If PasswordTextBox.Text <> Password2TextBox.Text Then
                         MessageBox.Show("Password doesn't match.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         PasswordTextBox.Text = ""
@@ -163,17 +175,41 @@ Public Class AccountDialog
                         Exit Sub
                     Else
                         invoker = New AddCommand(baseCommand)
+                        invoker?.Execute()
+                        _subject.NotifyObserver()
+                        Me.Close()
                     End If
+
                 ElseIf _data IsNot Nothing Then ' AndAlso my.Settings.myId = _data.Item("id") Then 'BaseAccount.Exists(result(4)(1)) = 0 Then
-                    'My.Settings.roleId = BaseAccount.Exists(result(4)(1)) = 0
+
+                    If BaseAccount.FirstnameLastnameExist(result(1)(1), result(2)(1)) = 1 Then
+                        If BaseAccount.IdFirstnameLastnameExist(_data.Item("id"), result(1)(1), result(2)(1)) = 1 Then
+
+                        Else
+                            MessageBox.Show("Name exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                            Exit Sub
+                        End If
+                    End If
+
+
+                    If BaseAccount.Phone_numberExists(result(3)(1)) = 1 Then
+                        If BaseAccount.IdNumberExists(_data.Item("id"), result(3)(1)) = 1 Then
+                            'Return
+                        Else
+                            MessageBox.Show("Phone number exist!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Exit Sub
+                        End If
+
+                    End If
+
                     invoker = New UpdateCommand(baseCommand)
+                    invoker?.Execute()
+                    _subject.NotifyObserver()
+                    Me.Close()
                 Else
                     MessageBox.Show("Username exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                     Return
                 End If
-                invoker?.Execute()
-                _subject.NotifyObserver()
-                Me.Close()
             Else
                 MessageBox.Show("Please provide valid inputs.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
