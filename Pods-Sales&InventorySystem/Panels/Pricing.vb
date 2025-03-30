@@ -5,9 +5,16 @@ Public Class Pricing
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("select product_name, price, cost_price from tblproducts a
-                                    join tbldeliveries_items b on a.id = b.product_id where inventory_quantity != 0
-                                    group by product_name, price, cost_price", conn)
+            cmd = New SqlCommand("SELECT 
+                                        b.id, 
+                                        a.product_name, 
+                                        b.price, 
+                                        b.cost_price
+                                    FROM tblproducts a
+                                    JOIN tbldeliveries_items b ON a.id = b.product_id
+                                    WHERE b.inventory_quantity != 0
+                                    AND b.id = (SELECT MAX(b2.id) FROM tbldeliveries_items b2 WHERE b2.product_id = b.product_id)
+                                    ORDER BY b.id DESC;", conn)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
             adapter.Fill(dTable)

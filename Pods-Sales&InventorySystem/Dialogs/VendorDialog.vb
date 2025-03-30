@@ -70,30 +70,18 @@ Public Class VendorDialog
                         End If
                     End If
 
-                    invoker = New AddCommand(baseCommand)
-                    invoker?.Execute()
-                    _subject.NotifyObserver()
-                    Me.Close()
+                    'invoker = New AddCommand(baseCommand)
+                    'invoker?.Execute()
+                    '_subject.NotifyObserver()
+                    'Me.Close()
 
                 ElseIf _data IsNot Nothing Then
-
-
-
-
 
 
                     If BaseVendor.NameExist(CompanyComboBox.SelectedItem("id"), result(1)(1), result(2)(1), result(3)(1)) = 1 Then
 
                         If BaseVendor.IdNameExist(_data.Item("id"), CompanyComboBox.SelectedItem("id"), result(1)(1), result(2)(1), result(3)(1)) = 1 Then
-                            If BaseVendor.ContactNumberExists(result(3)(1)) = 0 Then
 
-                            Else
-                                If BaseVendor.NameWithNumberExists(result(1)(1), result(2)(1), result(3)(1)) = 0 Then
-                                Else
-                                    MessageBox.Show("Phone number exist!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                                    Exit Sub
-                                End If
-                            End If
                         Else
                             MessageBox.Show("Vendor exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                             Exit Sub
@@ -102,22 +90,19 @@ Public Class VendorDialog
 
 
                         If BaseVendor.ContactNumberExists(result(3)(1)) = 0 Then
-
+                            'pag hindi na eexist yung phone number
                         Else
+
                             If BaseVendor.NameWithNumberExists(result(1)(1), result(2)(1), result(3)(1)) = 0 Then
-                            Else
                                 MessageBox.Show("Phone number exist!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                                 Exit Sub
+                                'Else
+
                             End If
                         End If
 
 
                     End If
-
-
-
-
-
 
 
                     invoker = New UpdateCommand(baseCommand)

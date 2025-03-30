@@ -33,9 +33,9 @@ Partial Class ReturnProductDialog
         Me.BatchComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.ProductTextBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.DateComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.DesiredQuantityTextBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Guna2ComboBox1 = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -205,22 +205,6 @@ Partial Class ReturnProductDialog
         Me.ProductTextBox.Size = New System.Drawing.Size(262, 36)
         Me.ProductTextBox.TabIndex = 43
         '
-        'DateComboBox
-        '
-        Me.DateComboBox.BackColor = System.Drawing.Color.Transparent
-        Me.DateComboBox.BorderRadius = 10
-        Me.DateComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.DateComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.DateComboBox.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DateComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DateComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.DateComboBox.ForeColor = System.Drawing.Color.Black
-        Me.DateComboBox.ItemHeight = 30
-        Me.DateComboBox.Location = New System.Drawing.Point(29, 258)
-        Me.DateComboBox.Name = "DateComboBox"
-        Me.DateComboBox.Size = New System.Drawing.Size(262, 36)
-        Me.DateComboBox.TabIndex = 44
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -254,14 +238,31 @@ Partial Class ReturnProductDialog
         Me.DesiredQuantityTextBox.Size = New System.Drawing.Size(262, 36)
         Me.DesiredQuantityTextBox.TabIndex = 45
         '
+        'Guna2ComboBox1
+        '
+        Me.Guna2ComboBox1.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2ComboBox1.BorderRadius = 10
+        Me.Guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.Guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.Guna2ComboBox1.Enabled = False
+        Me.Guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2ComboBox1.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.Guna2ComboBox1.ForeColor = System.Drawing.Color.Black
+        Me.Guna2ComboBox1.ItemHeight = 30
+        Me.Guna2ComboBox1.Location = New System.Drawing.Point(29, 258)
+        Me.Guna2ComboBox1.Name = "Guna2ComboBox1"
+        Me.Guna2ComboBox1.Size = New System.Drawing.Size(262, 36)
+        Me.Guna2ComboBox1.TabIndex = 47
+        '
         'ReturnProductDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(330, 423)
+        Me.Controls.Add(Me.Guna2ComboBox1)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.DesiredQuantityTextBox)
-        Me.Controls.Add(Me.DateComboBox)
         Me.Controls.Add(Me.ProductTextBox)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label5)
@@ -296,7 +297,7 @@ Partial Class ReturnProductDialog
     Friend WithEvents BatchComboBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents Label6 As Label
     Friend WithEvents ProductTextBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents DateComboBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents Label3 As Label
     Friend WithEvents DesiredQuantityTextBox As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents Guna2ComboBox1 As Guna.UI2.WinForms.Guna2ComboBox
 End Class

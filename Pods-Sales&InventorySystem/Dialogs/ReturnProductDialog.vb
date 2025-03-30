@@ -6,6 +6,7 @@ Public Class ReturnProductDialog
     Private _parent As ReturnCartDialog = Nothing
     Dim delivery_id As Integer = Nothing
     Dim product_id As Integer = Nothing
+    Dim delivery_items_id As Integer = Nothing
     Public Sub New(Optional data As Dictionary(Of String, String) = Nothing,
                    Optional subject As IObservablePanel = Nothing,
                    Optional parent As ReturnCartDialog = Nothing)
@@ -30,9 +31,15 @@ Public Class ReturnProductDialog
                     BatchComboBox.DataSource = dt.DefaultView
                     BatchComboBox.DisplayMember = "batch_number"
 
-                    DateComboBox.DropDownHeight = 5 * DateComboBox.ItemHeight
-                    DateComboBox.DataSource = dt.DefaultView
-                    DateComboBox.DisplayMember = "expiration_date"
+                    Guna2ComboBox1.DropDownHeight = 5 * Guna2ComboBox1.ItemHeight
+                    Guna2ComboBox1.DataSource = dt.DefaultView
+                    Guna2ComboBox1.DisplayMember = "expiration_date"
+
+                    'MsgBox(dt.Rows(0)("delivery_id").ToString())
+                    'Guna2ComboBox1.Text = dt.Rows(0)("expiration_date").ToString()
+
+                    'MsgBox(delivery_id)
+                    'MsgBox(delivery_items_id)
                 End If
             End If
         Catch ex As Exception
@@ -57,8 +64,6 @@ Public Class ReturnProductDialog
                     If Not validationResult(0) = True Then
                         Exit Sub
                     End If
-                Else
-                    Throw New Exception
                 End If
             Next
 
@@ -73,18 +78,29 @@ Public Class ReturnProductDialog
                     {"delivery_id", delivery_id},
                     {"product_id", product_id},
                     {"batch_number", BatchComboBox.Text},
-                    {"expiration_date", DateComboBox.Text},
+                    {"expiration_date", Guna2ComboBox1.Text},
                     {"id", _data.Item("id")}
                 }
                 BaseReturn.Update_deliveries(data)
-                MessageBox.Show("done", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("Successfully added to the inventory.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 _subject.NotifyObserver()
                 Me.Close()
             Else
                 MessageBox.Show("Please provide valid inputs.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
+
         Catch ex As Exception
-            MsgBox(ex.Message)
+
         End Try
+    End Sub
+
+    Private Sub BatchComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles BatchComboBox.SelectionChangeCommitted
+        delivery_items_id = BatchComboBox.SelectedItem("delivery_items_id")
+        delivery_id = BatchComboBox.SelectedItem("delivery_id")
+
+
+        'MsgBox(delivery_id)
+        'MsgBox(delivery_items_id)
+
     End Sub
 End Class

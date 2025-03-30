@@ -209,7 +209,8 @@ Public Class BaseReturn
 										(SELECT TOP 1 id, product_id, price FROM tbldeliveries_items 
 										 WHERE product_id = (SELECT * FROM product_id) ORDER BY id DESC)
 
-	                                SELECT c.id, 
+	                                SELECT e.id as delivery_items_id,
+										   c.id, 
                                            product_name, 
                                            f.price, 
 										   remaining_quantity, 
@@ -221,9 +222,12 @@ Public Class BaseReturn
 									 JOIN tblproducts c ON b.product_id = c.id
 									 JOIN price f ON f.product_id = c.id
 									 JOIN getrev d ON a.transaction_id = d.transaction_id
-									 JOIN tbldeliveries_items e ON d.delivery_id = e.delivery_id
+									 JOIN tbltransaction_items g ON g.transaction_id = a.transaction_id
+									 JOIN tbldeliveries_items e ON d.delivery_id = e.delivery_id 
+									 AND d.delivery_items_id = e.id AND e.product_id = (SELECT * FROM product_id)
 									 WHERE b.id = @id
-									 GROUP BY c.id, 
+									 GROUP BY e.id,
+										      c.id, 
                                               product_name, 
                                               f.price, 
                                               remaining_quantity, 
@@ -251,6 +255,7 @@ Public Class BaseReturn
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
+
             cmd = New SqlCommand("UPDATE tbldeliveries_items SET inventory_quantity = inventory_quantity + @inventory_quantity 
                                   WHERE delivery_id = @delivery_id AND 
                                         product_id = @product_id AND 
@@ -263,11 +268,7 @@ Public Class BaseReturn
             cmd.Parameters.AddWithValue("@expiration_date", _data.item("expiration_date"))
 
             If cmd.ExecuteNonQuery() <= 0 Then
-
-                ''errorr
                 MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                ' Throw New Exception
-
             End If
 
             cmd.Parameters.Clear()
@@ -276,11 +277,6 @@ Public Class BaseReturn
             cmd.Parameters.AddWithValue("@id", _data.item("id"))
 
             If cmd.ExecuteNonQuery() <= 0 Then
-
-
-
-
-                'error
                 MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
 
