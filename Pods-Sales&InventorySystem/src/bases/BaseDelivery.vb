@@ -68,23 +68,6 @@ Public Class BaseDelivery
                                                          WHERE a.delivery_id = @id AND a.id = @id2;", _sqlConnection, transaction)
                     End If
 
-                    '_sqlCommand = New SqlCommand("WITH 
-                    '                             Total_deducted AS (
-                    '                                 SELECT SUM(quantity) AS bought 
-                    '                                 FROM getrev 
-                    '                                 WHERE delivery_id = @id AND product_id = @product_id)
-
-                    '                             UPDATE a SET product_id = @product_id, 
-                    '                                          price = @price, 
-                    '                                          cost_price = @cost_price, 
-                    '                                          a.quantity = @quantity, 
-                    '                                          a.inventory_quantity = @quantity - COALESCE(b.bought, 0),
-                    '                                          batch_number = @batch_number, 
-                    '                                          expiration_date = @expiration_date 
-                    '                             FROM tbldeliveries_items a
-                    '                             LEFT JOIN Total_deducted b ON 1 = 1
-                    '                             WHERE a.delivery_id = @id AND a.id = @id2;", _sqlConnection, transaction)
-
                     _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
                     _sqlCommand.Parameters.AddWithValue("@id2", item("id"))
                     _sqlCommand.Parameters.AddWithValue("@product_id", item("product_id"))
@@ -110,8 +93,6 @@ Public Class BaseDelivery
                     End If
                 End If
 
-
-
             Next
 
             transaction.Commit()
@@ -122,6 +103,9 @@ Public Class BaseDelivery
         End Try
     End Sub
 
+    ''' <summary>
+    ''' 
+    ''' </summary>
     Public Sub Add() Implements ICommandPanel.Add
         Dim transaction As SqlTransaction = SqlConnectionPods.GetInstance.BeginTransaction()
         Try
@@ -171,6 +155,7 @@ Public Class BaseDelivery
         End Try
     End Sub
 
+    '''
     Public Shared Function SelectAllDeliveryItems(delivery_id As Integer) As DataTable
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
@@ -335,7 +320,7 @@ Public Class BaseDelivery
     ''' <summary>
     ''' Get the id of product
     ''' </summary>
-    ''' <param name="id"></param>
+    ''' <param name="product_name"></param>
     ''' <returns></returns>
     Public Shared Function Product_id(product_name As String) As String
         Try
@@ -350,44 +335,12 @@ Public Class BaseDelivery
         End Try
     End Function
 
-    '''' <summary>
-    '''' To add items on item deliveries
-    '''' </summary>
-    '''' <param name="_data"></param>
-    '''' <returns></returns>
-    'Public Shared Function Insert_Items(_data)
-    '    Try
-    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-    '        Dim cmd As SqlCommand
-    '        cmd = New SqlCommand("INSERT INTO tbldeliveries_items (delivery_id, product_id, price, cost_price, quantity, inventory_quantity, batch_number, expiration_date) 
-    '                              VALUES (@delivery_id, @product_id, @price, @cost_price, @quantity, @quantity, @batch_number, @expiration_date)", conn)
-    '        cmd.Parameters.AddWithValue("@delivery_id", _data.item("delivery_id"))
-    '        cmd.Parameters.AddWithValue("@product_id", _data.item("product_id"))
-    '        cmd.Parameters.AddWithValue("@price", _data.item("price"))
-    '        cmd.Parameters.AddWithValue("@cost_price", _data.item("cost_price"))
-    '        cmd.Parameters.AddWithValue("@quantity", _data.item("quantity"))
-    '        If String.IsNullOrEmpty(_data.item("batch_number").ToString()) Then
-    '            cmd.Parameters.AddWithValue("@batch_number", DBNull.Value)
-    '        Else
-    '            cmd.Parameters.AddWithValue("@batch_number", _data.item("batch_number"))
-    '        End If
-
-    '        If String.IsNullOrEmpty(_data.item("expiration_date").ToString()) Then
-    '            cmd.Parameters.AddWithValue("@expiration_date", DBNull.Value)
-    '        Else
-    '            cmd.Parameters.AddWithValue("@expiration_date", _data.item("expiration_date"))
-    '        End If
-
-    '        If cmd.ExecuteNonQuery() <= 0 Then
-    '            MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-    '        End If
-    '        Return Nothing
-    '    Catch ex As Exception
-    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-    '        Return Nothing
-    '    End Try
-    'End Function
-
+    ''' <summary>
+    ''' To get the quantity bought
+    ''' </summary>
+    ''' <param name="delivery_id"></param>
+    ''' <param name="product_id"></param>
+    ''' <returns></returns>
     Public Shared Function Count_bought_quantity(delivery_id As Integer, product_id As Integer) As String
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
@@ -403,6 +356,46 @@ Public Class BaseDelivery
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return 0
+        End Try
+    End Function
+
+    ''' <summary>
+    ''' For pricing
+    ''' </summary>
+    ''' <returns></returns>
+    Public Shared Function Pricing() As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("WITH cost_price AS (
+                                        SELECT a.id, a.product_id, b.product_name, a.cost_price
+                                        FROM tbldeliveries_items a
+                                        JOIN tblproducts b ON a.product_id = b.id
+                                        WHERE a.inventory_quantity != 0
+                                          AND a.cost_price = (SELECT MAX(b2.cost_price)
+                                                              FROM tbldeliveries_items b2
+                                                              WHERE b2.product_id = a.product_id)
+                                    )
+                                    SELECT 
+                                        b.id AS ID, 
+                                        a.product_name AS NAME, 
+                                        b.price AS 'SELLING PRICE',
+                                        c.cost_price AS 'COST PRICE'
+                                    FROM tblproducts a
+                                    JOIN tbldeliveries_items b ON a.id = b.product_id
+                                    JOIN cost_price c ON a.id = c.product_id
+                                    WHERE b.inventory_quantity != 0
+                                      AND b.id = (SELECT MAX(b2.id) 
+                                                  FROM tbldeliveries_items b2 
+                                                  WHERE b2.product_id = b.product_id)
+                                    ORDER BY b.id DESC;", conn)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
         End Try
     End Function
 End Class

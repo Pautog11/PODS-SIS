@@ -1,26 +1,60 @@
 ﻿Imports System.Data.SqlClient
 
 Public Class Pricing
+    Implements IObserverPanel
+    Private _subject As IObservablePanel
+    Dim dt As DataTable
     Private Sub Pricing_Load(sender As Object, e As EventArgs) Handles Me.Load
         Try
-            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT 
-                                        b.id, 
-                                        a.product_name, 
-                                        b.price, 
-                                        b.cost_price
-                                    FROM tblproducts a
-                                    JOIN tbldeliveries_items b ON a.id = b.product_id
-                                    WHERE b.inventory_quantity != 0
-                                    AND b.id = (SELECT MAX(b2.id) FROM tbldeliveries_items b2 WHERE b2.product_id = b.product_id)
-                                    ORDER BY b.id DESC;", conn)
-            Dim dTable As New DataTable
-            Dim adapter As New SqlDataAdapter(cmd)
-            adapter.Fill(dTable)
-            PricingDataGridView.DataSource = dTable
+            _subject = Application.OpenForms.OfType(Of Dashboard).FirstOrDefault
+            _subject?.RegisterObserver(Me)
+            _subject?.NotifyObserver()
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            MessageBox.Show(ex.Message, "Observer Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
+        Try
+            dt = BaseDelivery.Pricing
+            If dt.Rows.Count > 0 Then
+                PricingDataGridView.DataSource = dt.DefaultView
+                PricingDataGridView.Columns.Item("ID").Visible = False
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub PricingDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles PricingDataGridView.CellClick
+        Try
+            If PricingDataGridView.SelectedRows.Count > 0 Then
+                Dim row As DataGridViewRow = PricingDataGridView.SelectedRows(0)
+                Dim data As New Dictionary(Of String, String) From {
+                    {"id", row.Cells(0).Value.ToString()},
+                    {"name", row.Cells(1).Value.ToString()},
+                    {"selling_price", row.Cells(2).Value.ToString()},
+                    {"cost_price", row.Cells(3).Value.ToString()}
+                }
+                Using dialog As New PricingDialog(data:=data, subject:=_subject)
+                    dialog.ShowDialog()
+                End Using
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub ProductSearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles ProductSearchTextBox.TextChanged
+        Try
+            If dt IsNot Nothing Then
+                Dim dv As DataView = dt.DefaultView
+                dv.RowFilter = String.Format("NAME LIKE '%{0}%'", ProductSearchTextBox.Text.Trim().Replace("'", "''"))
+
+                PricingDataGridView.DataSource = dv
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 End Class

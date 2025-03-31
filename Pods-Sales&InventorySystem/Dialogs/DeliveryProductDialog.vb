@@ -95,9 +95,14 @@ Public Class DeliveryProductDialog
             End If
 
             If Val(CostTextBox.Text) >= Val(SellingTextBox.Text) Then
-                MessageBox.Show("The price cannot be less than or equal to the cost price.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                MessageBox.Show("The selling price cannot be less than or equal to the cost price.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Exit Sub
             End If
+
+            'If Val(CostTextBox.Text) + 1 > Val(SellingTextBox.Text) Then
+            '    MsgBox("dapat may piso")
+            '    Exit Sub
+            'End If
 
             If Not result.Any(Function(item As Object()) Not item(0)) Then
                 Dim is_existing As Boolean = False

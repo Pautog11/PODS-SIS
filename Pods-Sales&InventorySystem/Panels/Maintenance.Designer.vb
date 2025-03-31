@@ -24,36 +24,36 @@ Partial Class Maintenance
     Private Sub InitializeComponent()
         Me.MaintenaceTabControl = New Guna.UI2.WinForms.Guna2TabControl()
         Me.Accounts = New System.Windows.Forms.TabPage()
+        Me.Account1 = New Pods_Sales_InventorySystem.Account()
         Me.Categories = New System.Windows.Forms.TabPage()
         Me.ReturnandPulloutTabControl = New Guna.UI2.WinForms.Guna2TabControl()
         Me.Category = New System.Windows.Forms.TabPage()
+        Me.Category1 = New Pods_Sales_InventorySystem.Category()
         Me.Subcategory = New System.Windows.Forms.TabPage()
+        Me.SubCategory1 = New Pods_Sales_InventorySystem.SubCategory()
         Me.Suppliers = New System.Windows.Forms.TabPage()
         Me.SupplierTabControl = New Guna.UI2.WinForms.Guna2TabControl()
         Me.Company = New System.Windows.Forms.TabPage()
+        Me.Supplier1 = New Pods_Sales_InventorySystem.Supplier()
         Me.Vendor = New System.Windows.Forms.TabPage()
+        Me.Vendor1 = New Pods_Sales_InventorySystem.Vendor()
         Me.Vat = New System.Windows.Forms.TabPage()
+        Me.Vat1 = New Pods_Sales_InventorySystem.Vat()
         Me.Discounts = New System.Windows.Forms.TabPage()
+        Me.Discount1 = New Pods_Sales_InventorySystem.Discount()
         Me.Return_Code = New System.Windows.Forms.TabPage()
         Me.Guna2TabControl1 = New Guna.UI2.WinForms.Guna2TabControl()
         Me.customer_return_code = New System.Windows.Forms.TabPage()
+        Me.CustomerReturnCode1 = New Pods_Sales_InventorySystem.CustomerReturnCode()
         Me.supplier_return_code = New System.Windows.Forms.TabPage()
+        Me.ReturnCode1 = New Pods_Sales_InventorySystem.ReturnCode()
         Me.Medicine = New System.Windows.Forms.TabPage()
         Me.Guna2TabControl2 = New Guna.UI2.WinForms.Guna2TabControl()
         Me.Oum = New System.Windows.Forms.TabPage()
-        Me.DosageForm = New System.Windows.Forms.TabPage()
-        Me.Pricing = New System.Windows.Forms.TabPage()
-        Me.Account1 = New Pods_Sales_InventorySystem.Account()
-        Me.Category1 = New Pods_Sales_InventorySystem.Category()
-        Me.SubCategory1 = New Pods_Sales_InventorySystem.SubCategory()
-        Me.Supplier1 = New Pods_Sales_InventorySystem.Supplier()
-        Me.Vendor1 = New Pods_Sales_InventorySystem.Vendor()
-        Me.Vat1 = New Pods_Sales_InventorySystem.Vat()
-        Me.Discount1 = New Pods_Sales_InventorySystem.Discount()
-        Me.CustomerReturnCode1 = New Pods_Sales_InventorySystem.CustomerReturnCode()
-        Me.ReturnCode1 = New Pods_Sales_InventorySystem.ReturnCode()
         Me.Dosage1 = New Pods_Sales_InventorySystem.Dosage()
+        Me.DosageForm = New System.Windows.Forms.TabPage()
         Me.DosageForm1 = New Pods_Sales_InventorySystem.DosageForm()
+        Me.Pricing = New System.Windows.Forms.TabPage()
         Me.Pricing1 = New Pods_Sales_InventorySystem.Pricing()
         Me.MaintenaceTabControl.SuspendLayout()
         Me.Accounts.SuspendLayout()
@@ -126,14 +126,24 @@ Partial Class Maintenance
         Me.Accounts.TabIndex = 12
         Me.Accounts.Text = "Accounts"
         '
+        'Account1
+        '
+        Me.Account1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Account1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Account1.Location = New System.Drawing.Point(0, 0)
+        Me.Account1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Account1.Name = "Account1"
+        Me.Account1.Size = New System.Drawing.Size(1286, 670)
+        Me.Account1.TabIndex = 0
+        '
         'Categories
         '
         Me.Categories.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Categories.Controls.Add(Me.ReturnandPulloutTabControl)
-        Me.Categories.Location = New System.Drawing.Point(4, 84)
+        Me.Categories.Location = New System.Drawing.Point(4, 44)
         Me.Categories.Margin = New System.Windows.Forms.Padding(0)
         Me.Categories.Name = "Categories"
-        Me.Categories.Size = New System.Drawing.Size(1286, 670)
+        Me.Categories.Size = New System.Drawing.Size(1286, 710)
         Me.Categories.TabIndex = 7
         Me.Categories.Text = "Categorization"
         Me.Categories.UseVisualStyleBackColor = True
@@ -180,25 +190,45 @@ Partial Class Maintenance
         Me.Category.Text = "Categories"
         Me.Category.UseVisualStyleBackColor = True
         '
+        'Category1
+        '
+        Me.Category1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Category1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Category1.Location = New System.Drawing.Point(0, 0)
+        Me.Category1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Category1.Name = "Category1"
+        Me.Category1.Size = New System.Drawing.Size(1276, 660)
+        Me.Category1.TabIndex = 0
+        '
         'Subcategory
         '
         Me.Subcategory.Controls.Add(Me.SubCategory1)
         Me.Subcategory.Location = New System.Drawing.Point(4, 44)
         Me.Subcategory.Margin = New System.Windows.Forms.Padding(0)
         Me.Subcategory.Name = "Subcategory"
-        Me.Subcategory.Size = New System.Drawing.Size(1276, 660)
+        Me.Subcategory.Size = New System.Drawing.Size(1276, 620)
         Me.Subcategory.TabIndex = 7
         Me.Subcategory.Text = "Subcategories"
         Me.Subcategory.UseVisualStyleBackColor = True
+        '
+        'SubCategory1
+        '
+        Me.SubCategory1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.SubCategory1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SubCategory1.Location = New System.Drawing.Point(0, 0)
+        Me.SubCategory1.Margin = New System.Windows.Forms.Padding(0)
+        Me.SubCategory1.Name = "SubCategory1"
+        Me.SubCategory1.Size = New System.Drawing.Size(1276, 620)
+        Me.SubCategory1.TabIndex = 0
         '
         'Suppliers
         '
         Me.Suppliers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Suppliers.Controls.Add(Me.SupplierTabControl)
-        Me.Suppliers.Location = New System.Drawing.Point(4, 84)
+        Me.Suppliers.Location = New System.Drawing.Point(4, 44)
         Me.Suppliers.Margin = New System.Windows.Forms.Padding(0)
         Me.Suppliers.Name = "Suppliers"
-        Me.Suppliers.Size = New System.Drawing.Size(1286, 670)
+        Me.Suppliers.Size = New System.Drawing.Size(1286, 710)
         Me.Suppliers.TabIndex = 4
         Me.Suppliers.Text = "Suppliers"
         Me.Suppliers.UseVisualStyleBackColor = True
@@ -245,6 +275,16 @@ Partial Class Maintenance
         Me.Company.Text = "Company"
         Me.Company.UseVisualStyleBackColor = True
         '
+        'Supplier1
+        '
+        Me.Supplier1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Supplier1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Supplier1.Location = New System.Drawing.Point(0, 0)
+        Me.Supplier1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Supplier1.Name = "Supplier1"
+        Me.Supplier1.Size = New System.Drawing.Size(1276, 660)
+        Me.Supplier1.TabIndex = 0
+        '
         'Vendor
         '
         Me.Vendor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -252,39 +292,66 @@ Partial Class Maintenance
         Me.Vendor.Location = New System.Drawing.Point(4, 44)
         Me.Vendor.Margin = New System.Windows.Forms.Padding(0)
         Me.Vendor.Name = "Vendor"
-        Me.Vendor.Size = New System.Drawing.Size(1276, 660)
+        Me.Vendor.Size = New System.Drawing.Size(1276, 620)
         Me.Vendor.TabIndex = 7
         Me.Vendor.Text = "Vendor"
         Me.Vendor.UseVisualStyleBackColor = True
         '
+        'Vendor1
+        '
+        Me.Vendor1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Vendor1.Location = New System.Drawing.Point(0, 0)
+        Me.Vendor1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Vendor1.Name = "Vendor1"
+        Me.Vendor1.Size = New System.Drawing.Size(1274, 618)
+        Me.Vendor1.TabIndex = 0
+        '
         'Vat
         '
         Me.Vat.Controls.Add(Me.Vat1)
-        Me.Vat.Location = New System.Drawing.Point(4, 84)
+        Me.Vat.Location = New System.Drawing.Point(4, 44)
         Me.Vat.Name = "Vat"
-        Me.Vat.Size = New System.Drawing.Size(1286, 670)
+        Me.Vat.Size = New System.Drawing.Size(1286, 710)
         Me.Vat.TabIndex = 8
         Me.Vat.Text = "Vat"
         Me.Vat.UseVisualStyleBackColor = True
         '
+        'Vat1
+        '
+        Me.Vat1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Vat1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Vat1.Location = New System.Drawing.Point(0, 0)
+        Me.Vat1.Name = "Vat1"
+        Me.Vat1.Size = New System.Drawing.Size(1286, 710)
+        Me.Vat1.TabIndex = 0
+        '
         'Discounts
         '
         Me.Discounts.Controls.Add(Me.Discount1)
-        Me.Discounts.Location = New System.Drawing.Point(4, 84)
+        Me.Discounts.Location = New System.Drawing.Point(4, 44)
         Me.Discounts.Name = "Discounts"
-        Me.Discounts.Size = New System.Drawing.Size(1286, 670)
+        Me.Discounts.Size = New System.Drawing.Size(1286, 710)
         Me.Discounts.TabIndex = 9
         Me.Discounts.Text = "Discounts"
         Me.Discounts.UseVisualStyleBackColor = True
+        '
+        'Discount1
+        '
+        Me.Discount1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Discount1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Discount1.Location = New System.Drawing.Point(0, 0)
+        Me.Discount1.Name = "Discount1"
+        Me.Discount1.Size = New System.Drawing.Size(1286, 710)
+        Me.Discount1.TabIndex = 0
         '
         'Return_Code
         '
         Me.Return_Code.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Return_Code.Controls.Add(Me.Guna2TabControl1)
-        Me.Return_Code.Location = New System.Drawing.Point(4, 84)
+        Me.Return_Code.Location = New System.Drawing.Point(4, 44)
         Me.Return_Code.Margin = New System.Windows.Forms.Padding(0)
         Me.Return_Code.Name = "Return_Code"
-        Me.Return_Code.Size = New System.Drawing.Size(1286, 670)
+        Me.Return_Code.Size = New System.Drawing.Size(1286, 710)
         Me.Return_Code.TabIndex = 13
         Me.Return_Code.Text = "Return Code"
         Me.Return_Code.UseVisualStyleBackColor = True
@@ -331,6 +398,15 @@ Partial Class Maintenance
         Me.customer_return_code.Text = "Customer Return Code"
         Me.customer_return_code.UseVisualStyleBackColor = True
         '
+        'CustomerReturnCode1
+        '
+        Me.CustomerReturnCode1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.CustomerReturnCode1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CustomerReturnCode1.Location = New System.Drawing.Point(0, 0)
+        Me.CustomerReturnCode1.Name = "CustomerReturnCode1"
+        Me.CustomerReturnCode1.Size = New System.Drawing.Size(1276, 660)
+        Me.CustomerReturnCode1.TabIndex = 0
+        '
         'supplier_return_code
         '
         Me.supplier_return_code.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -338,18 +414,26 @@ Partial Class Maintenance
         Me.supplier_return_code.Location = New System.Drawing.Point(4, 44)
         Me.supplier_return_code.Margin = New System.Windows.Forms.Padding(0)
         Me.supplier_return_code.Name = "supplier_return_code"
-        Me.supplier_return_code.Size = New System.Drawing.Size(1276, 660)
+        Me.supplier_return_code.Size = New System.Drawing.Size(1276, 620)
         Me.supplier_return_code.TabIndex = 7
         Me.supplier_return_code.Text = "Supplier Return Code"
         Me.supplier_return_code.UseVisualStyleBackColor = True
+        '
+        'ReturnCode1
+        '
+        Me.ReturnCode1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ReturnCode1.Location = New System.Drawing.Point(0, 0)
+        Me.ReturnCode1.Name = "ReturnCode1"
+        Me.ReturnCode1.Size = New System.Drawing.Size(1274, 618)
+        Me.ReturnCode1.TabIndex = 0
         '
         'Medicine
         '
         Me.Medicine.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Medicine.Controls.Add(Me.Guna2TabControl2)
-        Me.Medicine.Location = New System.Drawing.Point(4, 84)
+        Me.Medicine.Location = New System.Drawing.Point(4, 44)
         Me.Medicine.Name = "Medicine"
-        Me.Medicine.Size = New System.Drawing.Size(1286, 670)
+        Me.Medicine.Size = New System.Drawing.Size(1286, 710)
         Me.Medicine.TabIndex = 14
         Me.Medicine.Text = "Concentration & Formulation"
         Me.Medicine.UseVisualStyleBackColor = True
@@ -397,112 +481,6 @@ Partial Class Maintenance
         Me.Oum.TabIndex = 12
         Me.Oum.Text = "Unit of Measurements"
         '
-        'DosageForm
-        '
-        Me.DosageForm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.DosageForm.Controls.Add(Me.DosageForm1)
-        Me.DosageForm.Location = New System.Drawing.Point(4, 44)
-        Me.DosageForm.Margin = New System.Windows.Forms.Padding(0)
-        Me.DosageForm.Name = "DosageForm"
-        Me.DosageForm.Size = New System.Drawing.Size(1276, 660)
-        Me.DosageForm.TabIndex = 7
-        Me.DosageForm.Text = "Dosage Form"
-        Me.DosageForm.UseVisualStyleBackColor = True
-        '
-        'Pricing
-        '
-        Me.Pricing.Controls.Add(Me.Pricing1)
-        Me.Pricing.Location = New System.Drawing.Point(4, 84)
-        Me.Pricing.Name = "Pricing"
-        Me.Pricing.Size = New System.Drawing.Size(1286, 670)
-        Me.Pricing.TabIndex = 15
-        Me.Pricing.Text = "Pricing"
-        Me.Pricing.UseVisualStyleBackColor = True
-        '
-        'Account1
-        '
-        Me.Account1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Account1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Account1.Location = New System.Drawing.Point(0, 0)
-        Me.Account1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Account1.Name = "Account1"
-        Me.Account1.Size = New System.Drawing.Size(1286, 670)
-        Me.Account1.TabIndex = 0
-        '
-        'Category1
-        '
-        Me.Category1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Category1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Category1.Location = New System.Drawing.Point(0, 0)
-        Me.Category1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Category1.Name = "Category1"
-        Me.Category1.Size = New System.Drawing.Size(1276, 660)
-        Me.Category1.TabIndex = 0
-        '
-        'SubCategory1
-        '
-        Me.SubCategory1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.SubCategory1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SubCategory1.Location = New System.Drawing.Point(0, 0)
-        Me.SubCategory1.Margin = New System.Windows.Forms.Padding(0)
-        Me.SubCategory1.Name = "SubCategory1"
-        Me.SubCategory1.Size = New System.Drawing.Size(1276, 620)
-        Me.SubCategory1.TabIndex = 0
-        '
-        'Supplier1
-        '
-        Me.Supplier1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Supplier1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Supplier1.Location = New System.Drawing.Point(0, 0)
-        Me.Supplier1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Supplier1.Name = "Supplier1"
-        Me.Supplier1.Size = New System.Drawing.Size(1276, 660)
-        Me.Supplier1.TabIndex = 0
-        '
-        'Vendor1
-        '
-        Me.Vendor1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Vendor1.Location = New System.Drawing.Point(0, 0)
-        Me.Vendor1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Vendor1.Name = "Vendor1"
-        Me.Vendor1.Size = New System.Drawing.Size(1274, 618)
-        Me.Vendor1.TabIndex = 0
-        '
-        'Vat1
-        '
-        Me.Vat1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Vat1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Vat1.Location = New System.Drawing.Point(0, 0)
-        Me.Vat1.Name = "Vat1"
-        Me.Vat1.Size = New System.Drawing.Size(1286, 710)
-        Me.Vat1.TabIndex = 0
-        '
-        'Discount1
-        '
-        Me.Discount1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Discount1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Discount1.Location = New System.Drawing.Point(0, 0)
-        Me.Discount1.Name = "Discount1"
-        Me.Discount1.Size = New System.Drawing.Size(1286, 710)
-        Me.Discount1.TabIndex = 0
-        '
-        'CustomerReturnCode1
-        '
-        Me.CustomerReturnCode1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.CustomerReturnCode1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.CustomerReturnCode1.Location = New System.Drawing.Point(0, 0)
-        Me.CustomerReturnCode1.Name = "CustomerReturnCode1"
-        Me.CustomerReturnCode1.Size = New System.Drawing.Size(1276, 660)
-        Me.CustomerReturnCode1.TabIndex = 0
-        '
-        'ReturnCode1
-        '
-        Me.ReturnCode1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ReturnCode1.Location = New System.Drawing.Point(0, 0)
-        Me.ReturnCode1.Name = "ReturnCode1"
-        Me.ReturnCode1.Size = New System.Drawing.Size(1274, 618)
-        Me.ReturnCode1.TabIndex = 0
-        '
         'Dosage1
         '
         Me.Dosage1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -511,6 +489,18 @@ Partial Class Maintenance
         Me.Dosage1.Size = New System.Drawing.Size(1274, 658)
         Me.Dosage1.TabIndex = 0
         '
+        'DosageForm
+        '
+        Me.DosageForm.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.DosageForm.Controls.Add(Me.DosageForm1)
+        Me.DosageForm.Location = New System.Drawing.Point(4, 44)
+        Me.DosageForm.Margin = New System.Windows.Forms.Padding(0)
+        Me.DosageForm.Name = "DosageForm"
+        Me.DosageForm.Size = New System.Drawing.Size(1276, 620)
+        Me.DosageForm.TabIndex = 7
+        Me.DosageForm.Text = "Dosage Form"
+        Me.DosageForm.UseVisualStyleBackColor = True
+        '
         'DosageForm1
         '
         Me.DosageForm1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -518,6 +508,16 @@ Partial Class Maintenance
         Me.DosageForm1.Name = "DosageForm1"
         Me.DosageForm1.Size = New System.Drawing.Size(1274, 618)
         Me.DosageForm1.TabIndex = 0
+        '
+        'Pricing
+        '
+        Me.Pricing.Controls.Add(Me.Pricing1)
+        Me.Pricing.Location = New System.Drawing.Point(4, 84)
+        Me.Pricing.Name = "Pricing"
+        Me.Pricing.Size = New System.Drawing.Size(1286, 670)
+        Me.Pricing.TabIndex = 15
+        Me.Pricing.Text = "Pricing Adjustment"
+        Me.Pricing.UseVisualStyleBackColor = True
         '
         'Pricing1
         '

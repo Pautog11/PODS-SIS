@@ -26,7 +26,6 @@ Public Class PullOutProductDialog
             RrcComboBox.DisplayMember = "codedes"
             RrcComboBox.ValueMember = "id"
 
-
             If _data IsNot Nothing Then
                 'MsgBox(_data.Item("id"))
                 dt = BasePullouts.AllProduct(_data.Item("id"))
