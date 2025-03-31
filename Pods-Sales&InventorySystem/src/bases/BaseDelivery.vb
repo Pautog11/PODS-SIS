@@ -43,11 +43,9 @@ Public Class BaseDelivery
                 If item IsNot Nothing AndAlso item.Count > 0 Then
                     _sqlCommand.Parameters.Clear()
 
-
-
                     If item("status") = "NEW" Then
-                        _sqlCommand = New SqlCommand("INSERT INTO tbldeliveries_items (delivery_id, product_id, price, cost_price, quantity, inventory_quantity, batch_number, expiration_date) 
-                                                      VALUES (@id, @id2, @price, @cost_price, @quantity, @inventory_quantity, @batch_number, @expiration_date)", _sqlConnection, transaction)
+                        _sqlCommand = New SqlCommand("INSERT INTO tbldeliveries_items (delivery_id, product_id, price_adjusment, price, cost_price, quantity, inventory_quantity, batch_number, expiration_date) 
+                                                      VALUES (@id, @id2, @price, @price, @cost_price, @quantity, @inventory_quantity, @batch_number, @expiration_date)", _sqlConnection, transaction)
 
                     Else
                         _sqlCommand = New SqlCommand("WITH 
@@ -122,7 +120,7 @@ Public Class BaseDelivery
             For Each item In _item
                 If item IsNot Nothing AndAlso item.Count > 0 Then
                     _sqlCommand.Parameters.Clear()
-                    _sqlCommand = New SqlCommand("INSERT INTO tbldeliveries_items (delivery_id, product_id, price, cost_price, quantity, inventory_quantity, batch_number, expiration_date) VALUES (@delivery_id, @product_id, @price, @cost_price, @quantity,  @inventory_quantity, @batch_number, @expiration_date)", _sqlConnection, transaction)
+                    _sqlCommand = New SqlCommand("INSERT INTO tbldeliveries_items (delivery_id, product_id, price_adjusment, price, cost_price, quantity, inventory_quantity, batch_number, expiration_date) VALUES (@delivery_id, @product_id, @price, @price, @cost_price, @quantity,  @inventory_quantity, @batch_number, @expiration_date)", _sqlConnection, transaction)
                     _sqlCommand.Parameters.AddWithValue("@delivery_id", deliveryId)
                     _sqlCommand.Parameters.AddWithValue("@product_id", item("product_id"))
                     _sqlCommand.Parameters.AddWithValue("@price", item("price"))
@@ -252,7 +250,7 @@ Public Class BaseDelivery
                                                subcategory_id,
                                                product_name, 
                                                ISNULL(cost_price, 0) AS cost_price, 
-                                               ISNULL(price, 0) AS price 
+                                               ISNULL(price_adjusment, 0) AS price 
                                   FROM tblproducts p 
                                   LEFT JOIN tbldeliveries_items di ON p.id = di.product_id WHERE barcode = @barcode
                                   ORDER BY idngdeli DESC", conn)
@@ -280,9 +278,9 @@ Public Class BaseDelivery
                                                subcategory_id, 
                                                product_name, 
                                                ISNULL(cost_price, 0) AS cost_price, 
-                                               ISNULL(price, 0) AS price 
+                                               ISNULL(price_adjusment, 0) AS price 
                                   FROM tblproducts p 
-                                  LEFT JOIN tbldeliveries_items di ON p.id = di.product_id WHERE product_name = @name
+                                  LEFT JOIN tbldeliveries_items di ON p.id = di.product_id WHERE product_name = 'biogesic'
                                   ORDER BY price DESC", conn)
             cmd.Parameters.AddWithValue("@name", name)
             Dim dTable As New DataTable
@@ -356,46 +354,6 @@ Public Class BaseDelivery
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return 0
-        End Try
-    End Function
-
-    ''' <summary>
-    ''' For pricing
-    ''' </summary>
-    ''' <returns></returns>
-    Public Shared Function Pricing() As DataTable
-        Try
-            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As SqlCommand
-            cmd = New SqlCommand("WITH cost_price AS (
-                                        SELECT a.id, a.product_id, b.product_name, a.cost_price
-                                        FROM tbldeliveries_items a
-                                        JOIN tblproducts b ON a.product_id = b.id
-                                        WHERE a.inventory_quantity != 0
-                                          AND a.cost_price = (SELECT MAX(b2.cost_price)
-                                                              FROM tbldeliveries_items b2
-                                                              WHERE b2.product_id = a.product_id)
-                                    )
-                                    SELECT 
-                                        b.id AS ID, 
-                                        a.product_name AS NAME, 
-                                        b.price AS 'SELLING PRICE',
-                                        c.cost_price AS 'COST PRICE'
-                                    FROM tblproducts a
-                                    JOIN tbldeliveries_items b ON a.id = b.product_id
-                                    JOIN cost_price c ON a.id = c.product_id
-                                    WHERE b.inventory_quantity != 0
-                                      AND b.id = (SELECT MAX(b2.id) 
-                                                  FROM tbldeliveries_items b2 
-                                                  WHERE b2.product_id = b.product_id)
-                                    ORDER BY b.id DESC;", conn)
-            Dim dTable As New DataTable
-            Dim adapter As New SqlDataAdapter(cmd)
-            adapter.Fill(dTable)
-            Return dTable
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return New DataTable
         End Try
     End Function
 End Class

@@ -135,7 +135,7 @@ Public Class BaseTransaction
                                         LatestPrice AS (
                                             SELECT 
                                                 b.product_id AS idngprod,
-                                                b.price,
+                                                b.price_adjusment,
 												b.cost_price,
                                                 ROW_NUMBER() OVER (PARTITION BY b.product_id ORDER BY b.id DESC) AS row_num
                                             FROM tbldeliveries_items b
@@ -153,7 +153,7 @@ Public Class BaseTransaction
                                     SELECT 
                                         a.id AS idngprod,
                                         a.product_name,
-                                        lp.price AS price,
+                                        lp.price_adjusment AS price,
                                         tq.total_quantity AS quantity,
 										lp.cost_price AS cost
                                     FROM tblproducts a
@@ -185,7 +185,7 @@ Public Class BaseTransaction
                                         LatestPrice AS (
                                             SELECT 
                                                 b.product_id AS idngprod,
-                                                b.price,
+                                                b.price_adjusment,
 												b.cost_price as cost,
                                                 ROW_NUMBER() OVER (PARTITION BY b.product_id ORDER BY b.id DESC) AS row_num
                                             FROM tbldeliveries_items b
@@ -203,7 +203,7 @@ Public Class BaseTransaction
                                     SELECT 
                                         a.id AS idngprod,
                                         a.product_name,
-                                        lp.price AS price,
+                                        lp.price_adjusment AS price,
                                         tq.total_quantity AS quantity,
 										lp.cost
                                     FROM tblproducts a

@@ -18,6 +18,9 @@ Public Class CashierReport
         CashierNameComboBox.DataSource = dt.DefaultView
         CashierNameComboBox.DisplayMember = "name"
         CashierNameComboBox.ValueMember = "id"
+
+        DatePicker.MaxDate = Date.Now
+        DatePicker.Value = Date.Now
     End Sub
 
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update

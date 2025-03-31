@@ -14,8 +14,8 @@ Public Class FinancialReport
             DateFrom.Value = DateTime.Now
             DateTo.Value = DateTime.Now
 
-            DateFrom.MaxDate = DateTo.Value
-            DateTo.MinDate = DateFrom.Value
+            'DateFrom.MaxDate = DateTo.Value
+            DateTo.MaxDate = DateTime.Now
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Observer Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
@@ -42,17 +42,17 @@ Public Class FinancialReport
         End Try
     End Sub
 
-    'Private Sub DateFrom_ValueChanged(sender As Object, e As EventArgs) Handles DateFrom.ValueChanged
-    '    MsgBox("fucjlkjslkajslkaj")
+    Private Sub DateTo_CloseUp(sender As Object, e As EventArgs) Handles DateTo.CloseUp
+        DateFrom.MaxDate = DateTo.Value
+    End Sub
+
+    'Private Sub DateFrom_TextChanged(sender As Object, e As EventArgs) Handles DateFrom.TextChanged
+    '    MsgBox("text changed")
     'End Sub
 
-    Private Sub DateFrom_TextChanged(sender As Object, e As EventArgs) Handles DateFrom.TextChanged
-        MsgBox("text changed")
-    End Sub
-
-    Private Sub DateFrom_KeyDown(sender As Object, e As KeyEventArgs) Handles DateFrom.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            MsgBox("text enter")
-        End If
-    End Sub
+    'Private Sub DateFrom_KeyDown(sender As Object, e As KeyEventArgs) Handles DateFrom.KeyDown
+    '    If e.KeyCode = Keys.Enter Then
+    '        MsgBox("text enter")
+    '    End If
+    'End Sub
 End Class

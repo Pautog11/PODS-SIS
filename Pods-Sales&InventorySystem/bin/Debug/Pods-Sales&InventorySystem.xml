@@ -726,12 +726,6 @@ Row event argument class
  <param name="product_id"></param>
  <returns></returns>
 </member>
-<member name="M:Pods_Sales_InventorySystem.BaseDelivery.Pricing">
- <summary>
- For pricing
- </summary>
- <returns></returns>
-</member>
 <member name="M:Pods_Sales_InventorySystem.BaseDosage.Search(System.String)">
  <summary>
  Search query
@@ -744,6 +738,12 @@ Row event argument class
  Search query
  </summary>
  <param name="query"></param>
+ <returns></returns>
+</member>
+<member name="M:Pods_Sales_InventorySystem.BasePricing.Pricing">
+ <summary>
+ For pricing
+ </summary>
  <returns></returns>
 </member>
 <member name="M:Pods_Sales_InventorySystem.BasePullouts.AllProduct(System.Int32)">

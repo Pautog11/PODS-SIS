@@ -639,6 +639,7 @@
     <Compile Include="src\bases\BaseDosage.vb" />
     <Compile Include="src\bases\BaseDosageForm.vb" />
     <Compile Include="src\bases\BaseNotifications.vb" />
+    <Compile Include="src\bases\BasePricing.vb" />
     <Compile Include="src\bases\BaseProduct.vb" />
     <Compile Include="src\bases\BasePullouts.vb" />
     <Compile Include="src\bases\BaseReports.vb" />

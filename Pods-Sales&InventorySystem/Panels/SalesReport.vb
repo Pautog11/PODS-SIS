@@ -3,7 +3,6 @@
 Public Class SalesReport
     Implements IObserverPanel
     Private _subject As IObservablePanel
-    Private triggers As Boolean = False
 
     Private Sub SalesReport_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
@@ -17,8 +16,7 @@ Public Class SalesReport
         DateFrom.Value = Date.Now
         DateTo.Value = Date.Now
 
-        DateFrom.MaxDate = Date.Now
-        DateTo.MinDate = DateFrom.Value
+        DateTo.MaxDate = Date.Now
     End Sub
 
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
@@ -45,19 +43,6 @@ Public Class SalesReport
         End Try
     End Sub
 
-    Private Sub DateFrom_ValueChanged(sender As Object, e As EventArgs) Handles DateFrom.ValueChanged
-        DateTo.MinDate = DateFrom.Value
-    End Sub
-
-    Private Sub DateTo_ValueChanged(sender As Object, e As EventArgs) Handles DateTo.ValueChanged
-        If triggers = True Then
-            FetchFuckingData()
-        End If
-    End Sub
-    Private Sub DateTo_Enter(sender As Object, e As EventArgs) Handles DateTo.Enter
-        triggers = True
-    End Sub
-
     Public Sub FetchFuckingData()
         Try
             Dim fuckme As DataTable = BaseReports.GetSalesByDate(DateFrom.Value.ToString("yyyy-MM-dd"), DateTo.Value.ToString("yyyy-MM-dd"))
@@ -65,5 +50,9 @@ Public Class SalesReport
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End Try
+    End Sub
+
+    Private Sub DateTo_CloseUp(sender As Object, e As EventArgs) Handles DateTo.CloseUp
+        DateFrom.MaxDate = DateTo.Value
     End Sub
 End Class
