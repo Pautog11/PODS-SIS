@@ -638,6 +638,7 @@
     <Compile Include="src\bases\BaseDiscount.vb" />
     <Compile Include="src\bases\BaseDosage.vb" />
     <Compile Include="src\bases\BaseDosageForm.vb" />
+    <Compile Include="src\bases\BaseLoginStatus.vb" />
     <Compile Include="src\bases\BaseNotifications.vb" />
     <Compile Include="src\bases\BasePricing.vb" />
     <Compile Include="src\bases\BaseProduct.vb" />

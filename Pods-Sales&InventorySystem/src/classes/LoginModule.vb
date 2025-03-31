@@ -49,6 +49,10 @@ Public Class LoginModule
         My.Settings.myId = ""
         My.Settings.Save()
 
+        'If BaseLoginStatus.Status() = 1 Then
+        '    'Exit class
+        'End If
+
         If _dataSet.Rows.Count > 0 Then
             If BCrypt.Net.BCrypt.Verify(password, _dataSet.Rows(0)(3).ToString()) Then
                 If _dataSet.Rows(0)(2) = 1 Then

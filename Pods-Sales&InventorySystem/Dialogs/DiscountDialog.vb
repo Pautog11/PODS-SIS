@@ -25,7 +25,17 @@ Public Class DiscountDialog
 
     Private Sub AddDiscountButton_Click(sender As Object, e As EventArgs) Handles AddDiscountButton.Click
         Try
-            Dim result As New List(Of Object()) From {InputValidation.ValidateInputString(DiscountTextBox, DataInput.STRING_INTEGER)}
+            'Dim result As New List(Of Object()) From {InputValidation.ValidateInputString(DiscountTextBox, DataInput.STRING_INTEGER)}
+            Dim controls As Object() = {DiscountTextBox}
+            Dim types As DataInput() = {DataInput.STRING_INTEGER}
+
+            Dim result As New List(Of Object())
+            For i = 0 To Controls.Count - 1
+                result.Add(InputValidation.ValidateInputString(Controls(i), types(i)))
+                If Not CType(result(i), Object())(0) AndAlso Not String.IsNullOrEmpty(Controls(i).Text) Then
+                    Exit Sub
+                End If
+            Next
 
             If Not result.Any(Function(item As Object()) Not item(0)) Then
                 Dim data As New Dictionary(Of String, String) From {
@@ -50,6 +60,10 @@ Public Class DiscountDialog
                 If BaseDiscount.Exists(result(0)(1)) = 0 AndAlso _data Is Nothing Then
                     invoker = New AddCommand(baseCommand)
                 ElseIf _data IsNot Nothing AndAlso BaseDiscount.IdExists(_data?.Item("id"), result(0)(1)) = 0 Then
+                    If _data.Item("id") = "12" Then
+                        MessageBox.Show("You can't edit this discount!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        Exit Sub
+                    End If
                     invoker = New UpdateCommand(baseCommand)
                 Else
                     MessageBox.Show("Discount exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)

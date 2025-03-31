@@ -51,21 +51,23 @@ Public Class CategoryDialog
                     {"category", result(0)(1)},
                     {"description", If(String.IsNullOrEmpty(DescriptionTextBox.Text), "", DescriptionTextBox.Text)}
                 }
+
+                baseCommand = New BaseCategory(data)
                 If BaseCategory.Exists(result(0)(1)) = 0 AndAlso _data Is Nothing Then
-                    baseCommand = New BaseCategory(data)
+                    'baseCommand = New BaseCategory(data)
                     invoker = New AddCommand(baseCommand)
-                    Me.Close()
+                    'Me.Close()
                 ElseIf _data IsNot Nothing AndAlso BaseCategory.Exists(result(0)(1)) = 0 Then
-                    baseCommand = New BaseCategory(data)
+                    'baseCommand = New BaseCategory(data)
                     invoker = New UpdateCommand(baseCommand)
-                    Me.Close()
+                    'Me.Close()
                 Else
                     MessageBox.Show("Category exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 End If
                 'baseCommand = New BaseCategory(data)
                 invoker?.Execute()
                 _subject.NotifyObserver()
-                'Me.Close()
+                Me.Close()
             Else
                 MessageBox.Show("Please fill out all textboxes or provide all valid inputs.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If

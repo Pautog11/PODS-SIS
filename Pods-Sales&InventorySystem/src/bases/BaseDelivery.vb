@@ -305,7 +305,7 @@ Public Class BaseDelivery
             Dim cmd As SqlCommand
             cmd = New SqlCommand("SELECT COUNT(*) 
                                   FROM tbldeliveries_items 
-                                  WHERE price > @price AND inventory_quantity != 0 AND product_id = @id", conn)
+                                  WHERE price_adjusment > @price AND inventory_quantity != 0 AND product_id = @id", conn)
             cmd.Parameters.AddWithValue("@price", price)
             cmd.Parameters.AddWithValue("@id", id)
             Return cmd.ExecuteScalar()

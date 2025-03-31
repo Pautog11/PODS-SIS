@@ -64,11 +64,18 @@ Public Class Login
                         dash.DashboardTabControl.TabPages.Remove(dash.Deliveries)
                         'dash.DashboardTabControl.TabPages.Remove(dash.Account)
                 End Select
+
+                If BaseLoginStatus.Status() = 1 Then
+                    MessageBox.Show("Unable to log in at the moment because you are currently logged in on another device. Please log out from the other device or try again later.", "PODS-SIS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Exit Sub
+                End If
+
+                BaseLoginStatus.Login()
                 Me.Hide()
                 dash.Show()
             End If
         Else
-            MessageBox.Show("Login Failed!", "PODS-SIS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show("Login Failed!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
         UsernameTextBox.Text = ""
         PasswordTextBox.Text = ""

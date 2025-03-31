@@ -83,8 +83,6 @@ Public Class EditDeliveryDialog
                     If Not validationResult(0) = True Then
                         Exit Sub
                     End If
-                Else
-                    Throw New Exception
                 End If
             Next
             If Not (BaseDelivery.Pricing(result(1)(1), id) = 0) Then
@@ -111,9 +109,8 @@ Public Class EditDeliveryDialog
                             If item.Cells("price").Value.ToString() <> Decimal.Parse(SellingTextBox.Text).ToString("F2") OrElse item.Cells("cost_price").Value.ToString() <> Decimal.Parse(CostTextBox.Text).ToString("F2") Then
                                 MessageBox.Show("You cannot set a different price for the same product!.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                                 Exit Sub
-                            Else
-                                Exit For
                             End If
+                            Exit For
                         Else
                             MessageBox.Show("You cannot set a different price for the same product!.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                             Exit Sub

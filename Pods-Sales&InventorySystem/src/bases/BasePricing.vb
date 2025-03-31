@@ -59,9 +59,10 @@ Public Class BasePricing
                                     JOIN tbldeliveries_items b ON a.id = b.product_id
                                     JOIN cost_price c ON a.id = c.product_id
                                     WHERE b.inventory_quantity != 0
-                                      AND b.id = (SELECT MAX(b2.id) 
+                                    AND b.id = (SELECT MAX(b2.id) 
                                                   FROM tbldeliveries_items b2 
                                                   WHERE b2.product_id = b.product_id)
+									GROUP BY b.id, a.product_name, b.price_adjusment, c.cost_price
                                     ORDER BY b.id DESC;", conn)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
