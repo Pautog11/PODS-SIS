@@ -23,13 +23,13 @@ Public Class FinancialReportViewer
 
 
 
-            If financialViewData Is Nothing OrElse tite Is Nothing AndAlso tite.Tables.Contains("DT_PulloutReport") Then
-                MessageBox.Show("Failed to load one or more datasets.")
-                Exit Sub
-            End If
+            'If financialViewData Is Nothing OrElse tite Is Nothing OrElse tite.Tables.Contains("DT_PulloutReport") Then
+            '    MessageBox.Show("Failed to load one or more datasets.")
+            '    Exit Sub
+            'End If
 
             ' Check if datasets have the expected tables
-            If financialViewData.Tables.Contains("DT_FinancialReport") AndAlso tite.Tables.Contains("DT_PulloutReport") Then
+            If financialViewData.Tables.Contains("DT_FinancialReport") OrElse tite.Tables.Contains("DT_PulloutReport") Then
 
                 Dim reportDocument As New FinancialRpt()
                 reportDocument.SetDataSource(financialViewData.Tables("DT_FinancialReport"))

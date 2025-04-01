@@ -4082,6 +4082,8 @@ Partial Public Class DSReport
         
         Private columnname As Global.System.Data.DataColumn
         
+        Private columnquantity As Global.System.Data.DataColumn
+        
         Private columnold As Global.System.Data.DataColumn
         
         Private columnnew As Global.System.Data.DataColumn
@@ -4138,6 +4140,14 @@ Partial Public Class DSReport
         Public ReadOnly Property nameColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnname
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property quantityColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnquantity
             End Get
         End Property
         
@@ -4210,9 +4220,9 @@ Partial Public Class DSReport
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddDT_PulloutReportRow(ByVal delivery_number As String, ByVal name As String, ByVal old As String, ByVal _new As String, ByVal totalngpullout As String, ByVal _date As String) As DT_PulloutReportRow
+        Public Overloads Function AddDT_PulloutReportRow(ByVal delivery_number As String, ByVal name As String, ByVal quantity As String, ByVal old As String, ByVal _new As String, ByVal totalngpullout As String, ByVal _date As String) As DT_PulloutReportRow
             Dim rowDT_PulloutReportRow As DT_PulloutReportRow = CType(Me.NewRow,DT_PulloutReportRow)
-            Dim columnValuesArray() As Object = New Object() {delivery_number, name, old, _new, totalngpullout, _date}
+            Dim columnValuesArray() As Object = New Object() {delivery_number, name, quantity, old, _new, totalngpullout, _date}
             rowDT_PulloutReportRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowDT_PulloutReportRow)
             Return rowDT_PulloutReportRow
@@ -4237,6 +4247,7 @@ Partial Public Class DSReport
         Friend Sub InitVars()
             Me.columndelivery_number = MyBase.Columns("delivery_number")
             Me.columnname = MyBase.Columns("name")
+            Me.columnquantity = MyBase.Columns("quantity")
             Me.columnold = MyBase.Columns("old")
             Me.columnnew = MyBase.Columns("new")
             Me.columntotalngpullout = MyBase.Columns("totalngpullout")
@@ -4250,6 +4261,8 @@ Partial Public Class DSReport
             MyBase.Columns.Add(Me.columndelivery_number)
             Me.columnname = New Global.System.Data.DataColumn("name", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnname)
+            Me.columnquantity = New Global.System.Data.DataColumn("quantity", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnquantity)
             Me.columnold = New Global.System.Data.DataColumn("old", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnold)
             Me.columnnew = New Global.System.Data.DataColumn("new", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -6623,6 +6636,21 @@ Partial Public Class DSReport
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property quantity() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableDT_PulloutReport.quantityColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'quantity' in table 'DT_PulloutReport' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableDT_PulloutReport.quantityColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property old() As String
             Get
                 Try 
@@ -6703,6 +6731,18 @@ Partial Public Class DSReport
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetnameNull()
             Me(Me.tableDT_PulloutReport.nameColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsquantityNull() As Boolean
+            Return Me.IsNull(Me.tableDT_PulloutReport.quantityColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetquantityNull()
+            Me(Me.tableDT_PulloutReport.quantityColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

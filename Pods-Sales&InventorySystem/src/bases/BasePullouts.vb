@@ -101,17 +101,19 @@ Public Class BasePullouts
                                                 WHERE id = (SELECT MAX(id) FROM tbldeliveries_items WHERE product_id = @id) 
                                                 AND product_id = @id
                                             )
-                                            INSERT INTO tblpullout_revenue (refference_number, product_id, old, new, total)
+                                            INSERT INTO tblpullout_revenue (refference_number, product_id, quantity, old, new, total)
                                             SELECT 
                                                 a.delivery_id,
                                                 a.product_id, 
+                                                @quantity,
                                                 a.cost_price AS old, 
                                                 b.cost_price AS new, 
-                                                (a.cost_price - b.cost_price) AS rev 
+                                                (b.cost_price - a.cost_price) AS rev 
                                             FROM oldprice a
                                             JOIN newprice b ON a.product_id = b.product_id;", _sqlConnection, transaction)
                 _sqlCommand.Parameters.AddWithValue("@id", item("product_id"))
                 _sqlCommand.Parameters.AddWithValue("@idngitems", item("id"))
+                _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
 
                 If _sqlCommand.ExecuteNonQuery() <= 0 Then
                     MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)

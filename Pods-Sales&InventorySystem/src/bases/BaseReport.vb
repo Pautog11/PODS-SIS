@@ -46,10 +46,17 @@ Public Class BaseReport
     Public Shared Function PulloutReportView(startDate As DateTime, endDate As DateTime) As DataSet
         Try
             Dim conn As New SqlConnection(My.Settings.podsdbConnectionString)
-            Dim cmd As New SqlCommand("select c.delivery_number as delivery_number, 
-                                              b.product_name as name, a.old as old, a.new as new, a.total as totalngpullout, c.date as date from tblpullout_revenue a 
-                                        join tblproducts b on a.product_id = b.id
-                                        JOIN tbldeliveries c ON a.refference_number = c.id", conn)
+            Dim cmd As New SqlCommand("SELECT c.delivery_number AS delivery_number, 
+                                              b.product_name AS name, 
+											  a.quantity,
+                                              a.old AS old, 
+                                              a.new AS new, 
+                                              (a.total * a.quantity) AS totalngpullout, 
+                                              FORMAT(a.date, 'MMM dd yyyy h:mm tt') AS 'date'
+                                        FROM tblpullout_revenue a 
+                                        JOIN tblproducts b ON a.product_id = b.id
+                                        JOIN tbldeliveries c ON a.refference_number = c.id
+                                        WHERE a.date BETWEEN @startDate AND @endDate;", conn)
             cmd.Parameters.AddWithValue("@startDate", startDate)
             cmd.Parameters.AddWithValue("@endDate", endDate)
             Dim dTable As New DataSet

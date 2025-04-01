@@ -22,7 +22,7 @@ Public Class BaseNotifications
             cmd = New SqlCommand("SELECT CONCAT(product_name, ' will be expire on ',expiration_date)
                                   FROM tbldeliveries_items a 
                                   JOIN tblproducts b ON a.product_id = b.id
-                                  WHERE expiration_date BETWEEN GETDATE() AND DATEADD(MONTH, 6, GETDATE());", conn)
+                                  WHERE expiration_date BETWEEN GETDATE() AND DATEADD(MONTH, 6, GETDATE()) AND inventory_quantity != 0;", conn)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
             adapter.Fill(dTable)

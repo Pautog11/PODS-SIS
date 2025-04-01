@@ -16,7 +16,7 @@
     <Shape ID="DesignTable:DT_CashiersReport" ZOrder="4" X="808" Y="587" Height="200" Width="174" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="196" />
     <Shape ID="DesignTable:DT_FinancialReport" ZOrder="3" X="993" Y="588" Height="200" Width="178" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="177" />
     <Shape ID="DesignTable:DT_Inventory" ZOrder="2" X="1122" Y="152" Height="124" Width="150" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="120" />
-    <Shape ID="DesignTable:DT_PulloutReport" ZOrder="1" X="1185" Y="589" Height="143" Width="169" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="139" />
+    <Shape ID="DesignTable:DT_PulloutReport" ZOrder="1" X="1185" Y="589" Height="162" Width="169" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="158" />
   </Shapes>
   <Connectors />
 </DiagramLayout>
