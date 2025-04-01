@@ -44,7 +44,7 @@ Public Class BasePullouts
                     _sqlCommand.Parameters.Clear()
                     _sqlCommand = New SqlCommand("INSERT INTO tbldeliverypullout_items(deliverypullout_id, delivery_id, product_id, atp, expiration_date, batch_number, rrc_id, price, quantity) VALUES (@deliverypullout_id, @delivery_id, @product_id, @atp, @expiration_date, @batch_number, @rrc_id, @price, @quantity)", _sqlConnection, transaction)
                     _sqlCommand.Parameters.AddWithValue("@deliverypullout_id", deliveryId)
-                    _sqlCommand.Parameters.AddWithValue("@delivery_id", item("product_id"))
+                    _sqlCommand.Parameters.AddWithValue("@delivery_id", item("tran_id"))
                     _sqlCommand.Parameters.AddWithValue("@product_id", item("product_id"))
                     _sqlCommand.Parameters.AddWithValue("@atp", item("atp"))
                     _sqlCommand.Parameters.AddWithValue("@expiration_date", item("expiration_date"))
@@ -83,8 +83,43 @@ Public Class BasePullouts
                     End If
                 End If
             Next
+
+            'For Each item In _item
+            '    MsgBox(item("product_id"))
+            'Next
+
+            For Each item In _item
+                _sqlCommand.Parameters.Clear()
+                _sqlCommand = New SqlCommand("WITH oldprice AS (
+                                                SELECT delivery_id, product_id, cost_price 
+                                                FROM tbldeliveries_items 
+                                                WHERE product_id = @id AND id = @idngitems
+                                            ),
+                                            newprice AS (
+                                                SELECT product_id, cost_price 
+                                                FROM tbldeliveries_items 
+                                                WHERE id = (SELECT MAX(id) FROM tbldeliveries_items WHERE product_id = @id) 
+                                                AND product_id = @id
+                                            )
+                                            INSERT INTO tblpullout_revenue (refference_number, product_id, old, new, total)
+                                            SELECT 
+                                                a.delivery_id,
+                                                a.product_id, 
+                                                a.cost_price AS old, 
+                                                b.cost_price AS new, 
+                                                (a.cost_price - b.cost_price) AS rev 
+                                            FROM oldprice a
+                                            JOIN newprice b ON a.product_id = b.product_id;", _sqlConnection, transaction)
+                _sqlCommand.Parameters.AddWithValue("@id", item("product_id"))
+                _sqlCommand.Parameters.AddWithValue("@idngitems", item("id"))
+
+                If _sqlCommand.ExecuteNonQuery() <= 0 Then
+                    MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                End If
+            Next
             transaction.Commit()
             MessageBox.Show("Pullout has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            'transaction.Rollback()
         Catch ex As Exception
             transaction.Rollback()
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)

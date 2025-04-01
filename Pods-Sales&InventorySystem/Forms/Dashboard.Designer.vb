@@ -27,11 +27,11 @@ Partial Class Dashboard
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.DashboardTableLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.Guna2ControlBox2 = New Guna.UI2.WinForms.Guna2ControlBox()
         Me.Guna2ControlBox3 = New Guna.UI2.WinForms.Guna2ControlBox()
         Me.Guna2ControlBox1 = New Guna.UI2.WinForms.Guna2ControlBox()
         Me.SettingButton = New Guna.UI2.WinForms.Guna2ImageButton()
         Me.RefreshButton = New Guna.UI2.WinForms.Guna2ImageButton()
+        Me.Guna2ControlBox2 = New Guna.UI2.WinForms.Guna2ControlBox()
         Me.Guna2ImageButton1 = New Guna.UI2.WinForms.Guna2ImageButton()
         Me.DashboardPanel = New Guna.UI2.WinForms.Guna2Panel()
         Me.DashboardTabControl = New Guna.UI2.WinForms.Guna2TabControl()
@@ -125,11 +125,11 @@ Partial Class Dashboard
         'FlowLayoutPanel1
         '
         Me.FlowLayoutPanel1.BackColor = System.Drawing.Color.White
-        Me.FlowLayoutPanel1.Controls.Add(Me.Guna2ControlBox2)
         Me.FlowLayoutPanel1.Controls.Add(Me.Guna2ControlBox3)
         Me.FlowLayoutPanel1.Controls.Add(Me.Guna2ControlBox1)
         Me.FlowLayoutPanel1.Controls.Add(Me.SettingButton)
         Me.FlowLayoutPanel1.Controls.Add(Me.RefreshButton)
+        Me.FlowLayoutPanel1.Controls.Add(Me.Guna2ControlBox2)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(180, 0)
@@ -138,18 +138,6 @@ Partial Class Dashboard
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1194, 40)
         Me.FlowLayoutPanel1.TabIndex = 1
         '
-        'Guna2ControlBox2
-        '
-        Me.Guna2ControlBox2.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.Guna2ControlBox2.FillColor = System.Drawing.Color.Transparent
-        Me.Guna2ControlBox2.HoverState.FillColor = System.Drawing.Color.Red
-        Me.Guna2ControlBox2.IconColor = System.Drawing.Color.Black
-        Me.Guna2ControlBox2.Location = New System.Drawing.Point(1149, 0)
-        Me.Guna2ControlBox2.Margin = New System.Windows.Forms.Padding(0)
-        Me.Guna2ControlBox2.Name = "Guna2ControlBox2"
-        Me.Guna2ControlBox2.Size = New System.Drawing.Size(45, 37)
-        Me.Guna2ControlBox2.TabIndex = 1
-        '
         'Guna2ControlBox3
         '
         Me.Guna2ControlBox3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -157,8 +145,8 @@ Partial Class Dashboard
         Me.Guna2ControlBox3.FillColor = System.Drawing.Color.Transparent
         Me.Guna2ControlBox3.HoverState.FillColor = System.Drawing.Color.Silver
         Me.Guna2ControlBox3.IconColor = System.Drawing.Color.Black
-        Me.Guna2ControlBox3.Location = New System.Drawing.Point(1104, 0)
-        Me.Guna2ControlBox3.Margin = New System.Windows.Forms.Padding(0)
+        Me.Guna2ControlBox3.Location = New System.Drawing.Point(1139, 0)
+        Me.Guna2ControlBox3.Margin = New System.Windows.Forms.Padding(0, 0, 10, 0)
         Me.Guna2ControlBox3.Name = "Guna2ControlBox3"
         Me.Guna2ControlBox3.Size = New System.Drawing.Size(45, 37)
         Me.Guna2ControlBox3.TabIndex = 2
@@ -170,7 +158,7 @@ Partial Class Dashboard
         Me.Guna2ControlBox1.FillColor = System.Drawing.Color.Transparent
         Me.Guna2ControlBox1.HoverState.FillColor = System.Drawing.Color.Silver
         Me.Guna2ControlBox1.IconColor = System.Drawing.Color.Black
-        Me.Guna2ControlBox1.Location = New System.Drawing.Point(1059, 0)
+        Me.Guna2ControlBox1.Location = New System.Drawing.Point(1094, 0)
         Me.Guna2ControlBox1.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2ControlBox1.Name = "Guna2ControlBox1"
         Me.Guna2ControlBox1.Size = New System.Drawing.Size(45, 37)
@@ -185,7 +173,7 @@ Partial Class Dashboard
         Me.SettingButton.ImageOffset = New System.Drawing.Point(0, 0)
         Me.SettingButton.ImageRotate = 0!
         Me.SettingButton.ImageSize = New System.Drawing.Size(13, 13)
-        Me.SettingButton.Location = New System.Drawing.Point(1020, 0)
+        Me.SettingButton.Location = New System.Drawing.Point(1055, 0)
         Me.SettingButton.Margin = New System.Windows.Forms.Padding(0)
         Me.SettingButton.Name = "SettingButton"
         Me.SettingButton.PressedState.ImageSize = New System.Drawing.Size(13, 13)
@@ -201,12 +189,22 @@ Partial Class Dashboard
         Me.RefreshButton.ImageOffset = New System.Drawing.Point(0, 0)
         Me.RefreshButton.ImageRotate = 0!
         Me.RefreshButton.ImageSize = New System.Drawing.Size(15, 15)
-        Me.RefreshButton.Location = New System.Drawing.Point(981, 0)
+        Me.RefreshButton.Location = New System.Drawing.Point(1016, 0)
         Me.RefreshButton.Margin = New System.Windows.Forms.Padding(0)
         Me.RefreshButton.Name = "RefreshButton"
         Me.RefreshButton.PressedState.ImageSize = New System.Drawing.Size(13, 13)
         Me.RefreshButton.Size = New System.Drawing.Size(39, 37)
         Me.RefreshButton.TabIndex = 5
+        '
+        'Guna2ControlBox2
+        '
+        Me.Guna2ControlBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Guna2ControlBox2.FillColor = System.Drawing.Color.FromArgb(CType(CType(139, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(166, Byte), Integer))
+        Me.Guna2ControlBox2.IconColor = System.Drawing.Color.White
+        Me.Guna2ControlBox2.Location = New System.Drawing.Point(968, 3)
+        Me.Guna2ControlBox2.Name = "Guna2ControlBox2"
+        Me.Guna2ControlBox2.Size = New System.Drawing.Size(45, 29)
+        Me.Guna2ControlBox2.TabIndex = 6
         '
         'Guna2ImageButton1
         '
@@ -841,7 +839,6 @@ Partial Class Dashboard
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Accounts As Label
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
-    Friend WithEvents Guna2ControlBox2 As Guna.UI2.WinForms.Guna2ControlBox
     Friend WithEvents Guna2ControlBox3 As Guna.UI2.WinForms.Guna2ControlBox
     Friend WithEvents Guna2ControlBox1 As Guna.UI2.WinForms.Guna2ControlBox
     Friend WithEvents Activity As TabPage
@@ -884,4 +881,5 @@ Partial Class Dashboard
     Friend WithEvents Pos As TabPage
     Friend WithEvents PosPanel1 As PosPanel
     Friend WithEvents AuditTrail1 As AuditTrail
+    Friend WithEvents Guna2ControlBox2 As Guna.UI2.WinForms.Guna2ControlBox
 End Class

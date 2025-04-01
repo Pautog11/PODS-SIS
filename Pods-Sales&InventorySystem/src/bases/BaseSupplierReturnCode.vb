@@ -78,4 +78,21 @@ Public Class BaseSupplierReturnCode
             Return New pods.viewtblrrcDataTable
         End Try
     End Function
+
+    Public Shared Function FetchRrcByCode(code As String) As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT id AS id, code AS code, CONCAT(code, ' ', '(', ' ', description, ' ', ')') AS codedes FROM tblrrc WHERE code = @code
+                                       UNION ALL 
+                                       SELECT id AS id, code AS code, CONCAT(code, ' ', '(', ' ', description, ' ', ')') AS codedes FROM tblrrc WHERE code != @code", conn)
+            cmd.Parameters.AddWithValue("@code", code)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
+        End Try
+    End Function
 End Class

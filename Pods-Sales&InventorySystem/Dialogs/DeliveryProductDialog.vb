@@ -292,7 +292,7 @@ Public Class DeliveryProductDialog
         Try
             If e.KeyCode = Keys.Enter Then
                 dt = BaseDelivery.NameFetching(ProductTextBox.Text)
-                If BarcodeTextBox.Text.Length <= 13 AndAlso dt.Rows.Count > 0 Then
+                If dt.Rows.Count > 0 Then
                     id = If(String.IsNullOrEmpty(dt.Rows(0).Item("id").ToString()), 0, dt.Rows(0).Item("id").ToString())
                     ProductTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("product_name").ToString()), 0, dt.Rows(0).Item("product_name"))
                     SellingTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("price").ToString()), 0, dt.Rows(0).Item("price").ToString())

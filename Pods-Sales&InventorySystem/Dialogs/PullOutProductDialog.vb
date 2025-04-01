@@ -21,13 +21,17 @@ Public Class PullOutProductDialog
 
     Private Sub PullOutProductDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            Dim rrc As DataTable = BasePullouts.Rrc()
-            RrcComboBox.DataSource = rrc
-            RrcComboBox.DisplayMember = "codedes"
-            RrcComboBox.ValueMember = "id"
-
             If _data IsNot Nothing Then
-                'MsgBox(_data.Item("id"))
+
+                Dim rrc As DataTable = BasePullouts.Rrc()
+                RrcComboBox.DataSource = rrc
+                RrcComboBox.DisplayMember = "codedes"
+                RrcComboBox.ValueMember = "id"
+
+                If rrc.Rows.Count > 0 Then
+                    RrcComboBox.SelectedIndex = -1
+                End If
+
                 dt = BasePullouts.AllProduct(_data.Item("id"))
                 If dt.Rows.Count > 0 Then
                     PulloutDataGridView.DataSource = dt.DefaultView
@@ -56,10 +60,12 @@ Public Class PullOutProductDialog
                 tran_id = _data2.Item("tran_id")
                 p_id = _data2.Item("pid")
 
-
+                Dim dt As DataTable = BaseSupplierReturnCode.FetchRrcByCode(_data2.Item("rrc"))
 
                 'MsgBox(_data2.Item("rrc"))
-
+                RrcComboBox.DataSource = dt.DefaultView
+                RrcComboBox.DisplayMember = "codedes"
+                RrcComboBox.ValueMember = "id"
 
                 TableLayoutPanel1.RowStyles(0).Height = 0
                 TableLayoutPanel1.RowStyles(1).Height = 0
@@ -92,7 +98,7 @@ Public Class PullOutProductDialog
                 StocksTextBox.Text = row.Cells(9).Value?.ToString()
             End If
         Catch ex As Exception
-            MessageBox.Show("Error selecting product: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
@@ -105,7 +111,7 @@ Public Class PullOutProductDialog
                 PulloutDataGridView.DataSource = dv
             End If
         Catch ex As Exception
-            MessageBox.Show("Error filtering products: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
@@ -170,7 +176,7 @@ Public Class PullOutProductDialog
                 MessageBox.Show("Invalid quantity!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
         Catch ex As Exception
-            MsgBox(ex.Message)
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
@@ -185,7 +191,7 @@ Public Class PullOutProductDialog
             _parent.UpdateVisualData()
             Me.Close()
         Catch ex As Exception
-            MsgBox(ex.Message)
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 End Class

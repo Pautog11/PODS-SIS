@@ -280,7 +280,7 @@ Public Class BaseDelivery
                                                ISNULL(cost_price, 0) AS cost_price, 
                                                ISNULL(price_adjusment, 0) AS price 
                                   FROM tblproducts p 
-                                  LEFT JOIN tbldeliveries_items di ON p.id = di.product_id WHERE product_name = 'biogesic'
+                                  LEFT JOIN tbldeliveries_items di ON p.id = di.product_id WHERE product_name = @name
                                   ORDER BY price DESC", conn)
             cmd.Parameters.AddWithValue("@name", name)
             Dim dTable As New DataTable

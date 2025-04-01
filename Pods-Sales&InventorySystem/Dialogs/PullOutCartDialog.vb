@@ -134,7 +134,8 @@ Public Class PullOutCartDialog
                 For Each row As DataGridViewRow In DeliveryPulloutDataGridView.Rows
                     Dim item As New Dictionary(Of String, String) From {
                         {"id", row.Cells(0).Value},
-                        {"product_id", row.Cells(2).Value},
+                        {"tran_id", If(row.Cells(1).Value?.ToString(), "0")},
+                        {"product_id", If(row.Cells(2).Value?.ToString(), "0")},
                         {"atp", If(row.Cells(5).Value?.ToString(), "0")},
                         {"expiration_date", If(row.Cells(6).Value?.ToString(), "0")},
                         {"batch_number", If(row.Cells(7).Value?.ToString(), "0")},

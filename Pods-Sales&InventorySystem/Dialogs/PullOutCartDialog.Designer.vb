@@ -406,21 +406,18 @@ Partial Class PullOutCartDialog
         Me.id.HeaderText = "ID"
         Me.id.Name = "id"
         Me.id.ReadOnly = True
-        Me.id.Visible = False
         '
         'tran_id
         '
         Me.tran_id.HeaderText = "TRANSACTION ID"
         Me.tran_id.Name = "tran_id"
         Me.tran_id.ReadOnly = True
-        Me.tran_id.Visible = False
         '
         'pid
         '
         Me.pid.HeaderText = "PID"
         Me.pid.Name = "pid"
         Me.pid.ReadOnly = True
-        Me.pid.Visible = False
         '
         'delivery_reference
         '
@@ -487,7 +484,6 @@ Partial Class PullOutCartDialog
         Me.target.HeaderText = "TARGET"
         Me.target.Name = "target"
         Me.target.ReadOnly = True
-        Me.target.Visible = False
         '
         'PullOutCartDialog
         '
