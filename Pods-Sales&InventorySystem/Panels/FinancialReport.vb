@@ -22,9 +22,13 @@ Public Class FinancialReport
     End Sub
 
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
-        _tableAapter.Fill(_dataTable)
-        FinancialReportsDataGridView.DataSource = _dataTable
-        FinancialReportsDataGridView.Columns.Item("ID").Visible = False
+        Try
+            _tableAapter.Fill(_dataTable)
+            FinancialReportsDataGridView.DataSource = _dataTable
+            FinancialReportsDataGridView.Columns.Item("ID").Visible = False
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub PrintButton_Click(sender As Object, e As EventArgs) Handles PrintButton.Click

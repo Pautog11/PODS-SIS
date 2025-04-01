@@ -189,6 +189,18 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="DT_PulloutReport" msprop:Generator_TableClassName="DT_PulloutReportDataTable" msprop:Generator_TableVarName="tableDT_PulloutReport" msprop:Generator_RowChangedName="DT_PulloutReportRowChanged" msprop:Generator_TablePropName="DT_PulloutReport" msprop:Generator_RowDeletingName="DT_PulloutReportRowDeleting" msprop:Generator_RowChangingName="DT_PulloutReportRowChanging" msprop:Generator_RowEvHandlerName="DT_PulloutReportRowChangeEventHandler" msprop:Generator_RowDeletedName="DT_PulloutReportRowDeleted" msprop:Generator_RowClassName="DT_PulloutReportRow" msprop:Generator_UserTableName="DT_PulloutReport" msprop:Generator_RowEvArgName="DT_PulloutReportRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="delivery_number" msprop:Generator_ColumnVarNameInTable="columndelivery_number" msprop:Generator_ColumnPropNameInRow="delivery_number" msprop:Generator_ColumnPropNameInTable="delivery_numberColumn" msprop:Generator_UserColumnName="delivery_number" type="xs:string" minOccurs="0" />
+              <xs:element name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" type="xs:string" minOccurs="0" />
+              <xs:element name="old" msprop:Generator_ColumnVarNameInTable="columnold" msprop:Generator_ColumnPropNameInRow="old" msprop:Generator_ColumnPropNameInTable="oldColumn" msprop:Generator_UserColumnName="old" type="xs:string" minOccurs="0" />
+              <xs:element name="new" msprop:Generator_ColumnVarNameInTable="columnnew" msprop:Generator_ColumnPropNameInRow="_new" msprop:Generator_ColumnPropNameInTable="newColumn" msprop:Generator_UserColumnName="new" type="xs:string" minOccurs="0" />
+              <xs:element name="totalngpullout" msprop:Generator_ColumnVarNameInTable="columntotalngpullout" msprop:Generator_ColumnPropNameInRow="totalngpullout" msprop:Generator_ColumnPropNameInTable="totalngpulloutColumn" msprop:Generator_UserColumnName="totalngpullout" type="xs:string" minOccurs="0" />
+              <xs:element name="date" msprop:Generator_ColumnVarNameInTable="columndate" msprop:Generator_ColumnPropNameInRow="_date" msprop:Generator_ColumnPropNameInTable="dateColumn" msprop:Generator_UserColumnName="date" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

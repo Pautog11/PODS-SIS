@@ -15,13 +15,13 @@
                 pota.ShowDialog()
             End If
 
-            AddHandler AppDomain.CurrentDomain.ProcessExit, AddressOf OnProcessExit
+            'AddHandler AppDomain.CurrentDomain.ProcessExit, AddressOf OnProcessExit
             ' AddHandler AppDomain.CurrentDomain.UnhandledException, AddressOf OnUnhandledException
         End Sub
 
         Private Sub OnProcessExit(sender As Object, e As EventArgs)
 
-            MsgBox("on process")
+            'MsgBox("on process")
         End Sub
 
         'Private Sub OnUnhandledException(sender As Object, e As UnhandledExceptionEventArgs)

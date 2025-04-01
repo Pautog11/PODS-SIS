@@ -42,4 +42,23 @@ Public Class BaseReport
             Return New DataSet
         End Try
     End Function
+
+    Public Shared Function PulloutReportView(startDate As DateTime, endDate As DateTime) As DataSet
+        Try
+            Dim conn As New SqlConnection(My.Settings.podsdbConnectionString)
+            Dim cmd As New SqlCommand("select c.delivery_number as delivery_number, 
+                                              b.product_name as name, a.old as old, a.new as new, a.total as totalngpullout, c.date as date from tblpullout_revenue a 
+                                        join tblproducts b on a.product_id = b.id
+                                        JOIN tbldeliveries c ON a.refference_number = c.id", conn)
+            cmd.Parameters.AddWithValue("@startDate", startDate)
+            cmd.Parameters.AddWithValue("@endDate", endDate)
+            Dim dTable As New DataSet
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable, "DT_PulloutReport")
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataSet
+        End Try
+    End Function
 End Class

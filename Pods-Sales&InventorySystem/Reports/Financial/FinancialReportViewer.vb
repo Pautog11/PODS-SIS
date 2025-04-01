@@ -12,13 +12,52 @@ Public Class FinancialReportViewer
     End Sub
     Private Sub FinancialReportViewer_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            FillData()
+            'FillSalesData()
+            'FillPulloutData()
+
+
+
+
+            Dim financialViewData As DataSet = BaseReport.FinancialReportView(_startDate, _endDate)
+            Dim tite As DataSet = BaseReport.PulloutReportView(_startDate, _endDate)
+
+
+
+            If financialViewData Is Nothing OrElse tite Is Nothing AndAlso tite.Tables.Contains("DT_PulloutReport") Then
+                MessageBox.Show("Failed to load one or more datasets.")
+                Exit Sub
+            End If
+
+            ' Check if datasets have the expected tables
+            If financialViewData.Tables.Contains("DT_FinancialReport") AndAlso tite.Tables.Contains("DT_PulloutReport") Then
+
+                Dim reportDocument As New FinancialRpt()
+                reportDocument.SetDataSource(financialViewData.Tables("DT_FinancialReport"))
+
+                Dim subreportSales = reportDocument.Subreports("SalesReportRpt.rpt")
+                'subreportSales.SetDataSource(transactionData.Tables("DT_SalesReport"))
+
+
+
+                Dim ss = reportDocument.Subreports("PulloutRpt.rpt")
+                ss.SetDataSource(tite.Tables("DT_PulloutReport"))
+
+
+
+
+
+                CrystalReportViewer1.ReportSource = reportDocument
+                CrystalReportViewer1.RefreshReport()
+            Else
+                MessageBox.Show("One or more required tables are missing from the datasets.")
+            End If
+
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End Try
     End Sub
 
-    Public Sub FillData()
+    Public Sub FillSalesData()
         Try
             Dim financialViewData As DataSet = BaseReport.FinancialReportView(_startDate, _endDate)
 
@@ -32,6 +71,32 @@ Public Class FinancialReportViewer
 
                 Dim reportDocument As New FinancialRpt()
                 reportDocument.SetDataSource(financialViewData.Tables("DT_FinancialReport"))
+
+                CrystalReportViewer1.ReportSource = reportDocument
+                CrystalReportViewer1.RefreshReport()
+            Else
+                MessageBox.Show("One or more required tables are missing from the datasets.")
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End Try
+    End Sub
+
+
+    Public Sub FillPulloutData()
+        Try
+            Dim financialViewData As DataSet = BaseReport.PulloutReportView(_startDate, _endDate)
+
+            If financialViewData Is Nothing Then
+                MessageBox.Show("Failed to load one or more datasets.")
+                Exit Sub
+            End If
+
+            ' Check if datasets have the expected tables
+            If financialViewData.Tables.Contains("DT_PulloutReport") Then
+
+                Dim reportDocument As New FinancialRpt()
+                reportDocument.SetDataSource(financialViewData.Tables("DT_PulloutReport"))
 
                 CrystalReportViewer1.ReportSource = reportDocument
                 CrystalReportViewer1.RefreshReport()

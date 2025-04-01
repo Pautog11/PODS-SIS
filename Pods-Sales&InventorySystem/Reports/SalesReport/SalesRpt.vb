@@ -134,13 +134,13 @@ Public Class CachedSalesRpt
             '
         End Set
     End Property
-    
+
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
         Dim rpt As SalesRpt = New SalesRpt()
         rpt.Site = Me.Site
         Return rpt
     End Function
-    
+
     Public Overridable Function GetCustomizedCacheKey(ByVal request As RequestContext) As String Implements CrystalDecisions.ReportSource.ICachedReport.GetCustomizedCacheKey
         Dim key As [String] = Nothing
         '// The following is the code used to generate the default
