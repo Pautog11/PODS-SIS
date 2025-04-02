@@ -35,7 +35,7 @@ Public Class Login
                     PasswordTextBox.Text = ""
                     Exit Sub
                 Else
-                    MessageBox.Show("Login Failed!", "PODS-SIS")
+                    MessageBox.Show("Login Failed!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     UsernameTextBox.Text = ""
                     PasswordTextBox.Text = ""
                     Exit Sub

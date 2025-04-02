@@ -25,23 +25,20 @@ Partial Class Server
         Me.ServerLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Guna2HtmlLabel4 = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.CloseControlBox = New Guna.UI2.WinForms.Guna2ControlBox()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.ServerTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2HtmlLabel2 = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.Guna2CheckBox1 = New Guna.UI2.WinForms.Guna2CheckBox()
         Me.UsernameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Guna2HtmlLabel3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.PasswordTextBox = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Guna2HtmlLabel3 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Guna2Button2 = New Guna.UI2.WinForms.Guna2Button()
         Me.TestButton = New Guna.UI2.WinForms.Guna2Button()
-        Me.Guna2CheckBox1 = New Guna.UI2.WinForms.Guna2CheckBox()
         Me.ServerLayoutPanel.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
-        Me.FlowLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -70,7 +67,6 @@ Partial Class Server
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.Guna2HtmlLabel4, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.CloseControlBox, 1, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(1, 1)
         Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
@@ -94,47 +90,27 @@ Partial Class Server
         Me.Guna2HtmlLabel4.TabIndex = 3
         Me.Guna2HtmlLabel4.Text = "Server"
         '
-        'CloseControlBox
-        '
-        Me.CloseControlBox.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CloseControlBox.FillColor = System.Drawing.Color.Transparent
-        Me.CloseControlBox.HoverState.FillColor = System.Drawing.Color.Red
-        Me.CloseControlBox.IconColor = System.Drawing.Color.Black
-        Me.CloseControlBox.Location = New System.Drawing.Point(279, 0)
-        Me.CloseControlBox.Margin = New System.Windows.Forms.Padding(0)
-        Me.CloseControlBox.Name = "CloseControlBox"
-        Me.CloseControlBox.Size = New System.Drawing.Size(45, 29)
-        Me.CloseControlBox.TabIndex = 0
-        '
         'Guna2Panel1
         '
-        Me.Guna2Panel1.Controls.Add(Me.FlowLayoutPanel1)
+        Me.Guna2Panel1.Controls.Add(Me.Guna2HtmlLabel1)
+        Me.Guna2Panel1.Controls.Add(Me.ServerTextBox)
+        Me.Guna2Panel1.Controls.Add(Me.Guna2HtmlLabel2)
+        Me.Guna2Panel1.Controls.Add(Me.Guna2CheckBox1)
+        Me.Guna2Panel1.Controls.Add(Me.UsernameTextBox)
+        Me.Guna2Panel1.Controls.Add(Me.PasswordTextBox)
+        Me.Guna2Panel1.Controls.Add(Me.Guna2HtmlLabel3)
         Me.Guna2Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Guna2Panel1.Location = New System.Drawing.Point(4, 50)
+        Me.Guna2Panel1.Location = New System.Drawing.Point(1, 47)
+        Me.Guna2Panel1.Margin = New System.Windows.Forms.Padding(0)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Size = New System.Drawing.Size(318, 258)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(324, 264)
         Me.Guna2Panel1.TabIndex = 1
-        '
-        'FlowLayoutPanel1
-        '
-        Me.FlowLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.FlowLayoutPanel1.Controls.Add(Me.Guna2HtmlLabel1)
-        Me.FlowLayoutPanel1.Controls.Add(Me.ServerTextBox)
-        Me.FlowLayoutPanel1.Controls.Add(Me.Guna2HtmlLabel2)
-        Me.FlowLayoutPanel1.Controls.Add(Me.UsernameTextBox)
-        Me.FlowLayoutPanel1.Controls.Add(Me.Guna2HtmlLabel3)
-        Me.FlowLayoutPanel1.Controls.Add(Me.PasswordTextBox)
-        Me.FlowLayoutPanel1.Controls.Add(Me.Guna2CheckBox1)
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(52, 10)
-        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(213, 237)
-        Me.FlowLayoutPanel1.TabIndex = 2
         '
         'Guna2HtmlLabel1
         '
         Me.Guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent
         Me.Guna2HtmlLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2HtmlLabel1.Location = New System.Drawing.Point(3, 3)
+        Me.Guna2HtmlLabel1.Location = New System.Drawing.Point(24, 19)
         Me.Guna2HtmlLabel1.Name = "Guna2HtmlLabel1"
         Me.Guna2HtmlLabel1.Size = New System.Drawing.Size(43, 18)
         Me.Guna2HtmlLabel1.TabIndex = 3
@@ -155,23 +131,39 @@ Partial Class Server
         Me.ServerTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.ServerTextBox.ForeColor = System.Drawing.Color.Black
         Me.ServerTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ServerTextBox.Location = New System.Drawing.Point(3, 27)
+        Me.ServerTextBox.Location = New System.Drawing.Point(27, 43)
         Me.ServerTextBox.Name = "ServerTextBox"
-        Me.ServerTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ServerTextBox.PlaceholderText = ""
         Me.ServerTextBox.SelectedText = ""
-        Me.ServerTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.ServerTextBox.Size = New System.Drawing.Size(271, 36)
         Me.ServerTextBox.TabIndex = 6
         '
         'Guna2HtmlLabel2
         '
         Me.Guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent
         Me.Guna2HtmlLabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2HtmlLabel2.Location = New System.Drawing.Point(3, 69)
+        Me.Guna2HtmlLabel2.Location = New System.Drawing.Point(24, 85)
         Me.Guna2HtmlLabel2.Name = "Guna2HtmlLabel2"
         Me.Guna2HtmlLabel2.Size = New System.Drawing.Size(66, 18)
         Me.Guna2HtmlLabel2.TabIndex = 4
         Me.Guna2HtmlLabel2.Text = "Username"
+        '
+        'Guna2CheckBox1
+        '
+        Me.Guna2CheckBox1.AutoSize = True
+        Me.Guna2CheckBox1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.Guna2CheckBox1.CheckedState.BorderRadius = 0
+        Me.Guna2CheckBox1.CheckedState.BorderThickness = 0
+        Me.Guna2CheckBox1.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.Guna2CheckBox1.Location = New System.Drawing.Point(24, 217)
+        Me.Guna2CheckBox1.Name = "Guna2CheckBox1"
+        Me.Guna2CheckBox1.Size = New System.Drawing.Size(101, 17)
+        Me.Guna2CheckBox1.TabIndex = 38
+        Me.Guna2CheckBox1.Text = "Show password"
+        Me.Guna2CheckBox1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
+        Me.Guna2CheckBox1.UncheckedState.BorderRadius = 0
+        Me.Guna2CheckBox1.UncheckedState.BorderThickness = 0
+        Me.Guna2CheckBox1.UncheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
         '
         'UsernameTextBox
         '
@@ -188,23 +180,12 @@ Partial Class Server
         Me.UsernameTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.UsernameTextBox.ForeColor = System.Drawing.Color.Black
         Me.UsernameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.UsernameTextBox.Location = New System.Drawing.Point(3, 93)
+        Me.UsernameTextBox.Location = New System.Drawing.Point(27, 109)
         Me.UsernameTextBox.Name = "UsernameTextBox"
-        Me.UsernameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.UsernameTextBox.PlaceholderText = ""
         Me.UsernameTextBox.SelectedText = ""
-        Me.UsernameTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.UsernameTextBox.Size = New System.Drawing.Size(271, 36)
         Me.UsernameTextBox.TabIndex = 0
-        '
-        'Guna2HtmlLabel3
-        '
-        Me.Guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2HtmlLabel3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Guna2HtmlLabel3.Location = New System.Drawing.Point(3, 135)
-        Me.Guna2HtmlLabel3.Name = "Guna2HtmlLabel3"
-        Me.Guna2HtmlLabel3.Size = New System.Drawing.Size(63, 18)
-        Me.Guna2HtmlLabel3.TabIndex = 5
-        Me.Guna2HtmlLabel3.Text = "Password"
         '
         'PasswordTextBox
         '
@@ -221,13 +202,22 @@ Partial Class Server
         Me.PasswordTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.PasswordTextBox.ForeColor = System.Drawing.Color.Black
         Me.PasswordTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.PasswordTextBox.Location = New System.Drawing.Point(3, 159)
+        Me.PasswordTextBox.Location = New System.Drawing.Point(27, 175)
         Me.PasswordTextBox.Name = "PasswordTextBox"
-        Me.PasswordTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.PasswordTextBox.PlaceholderText = ""
         Me.PasswordTextBox.SelectedText = ""
-        Me.PasswordTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.PasswordTextBox.Size = New System.Drawing.Size(271, 36)
         Me.PasswordTextBox.TabIndex = 1
+        '
+        'Guna2HtmlLabel3
+        '
+        Me.Guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2HtmlLabel3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Guna2HtmlLabel3.Location = New System.Drawing.Point(24, 151)
+        Me.Guna2HtmlLabel3.Name = "Guna2HtmlLabel3"
+        Me.Guna2HtmlLabel3.Size = New System.Drawing.Size(63, 18)
+        Me.Guna2HtmlLabel3.TabIndex = 5
+        Me.Guna2HtmlLabel3.Text = "Password"
         '
         'TableLayoutPanel2
         '
@@ -281,23 +271,6 @@ Partial Class Server
         Me.TestButton.TabIndex = 4
         Me.TestButton.Text = "Test"
         '
-        'Guna2CheckBox1
-        '
-        Me.Guna2CheckBox1.AutoSize = True
-        Me.Guna2CheckBox1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.Guna2CheckBox1.CheckedState.BorderRadius = 0
-        Me.Guna2CheckBox1.CheckedState.BorderThickness = 0
-        Me.Guna2CheckBox1.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.Guna2CheckBox1.Location = New System.Drawing.Point(3, 201)
-        Me.Guna2CheckBox1.Name = "Guna2CheckBox1"
-        Me.Guna2CheckBox1.Size = New System.Drawing.Size(101, 17)
-        Me.Guna2CheckBox1.TabIndex = 38
-        Me.Guna2CheckBox1.Text = "Show password"
-        Me.Guna2CheckBox1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
-        Me.Guna2CheckBox1.UncheckedState.BorderRadius = 0
-        Me.Guna2CheckBox1.UncheckedState.BorderThickness = 0
-        Me.Guna2CheckBox1.UncheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
-        '
         'Server
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -312,17 +285,14 @@ Partial Class Server
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
         Me.Guna2Panel1.ResumeLayout(False)
-        Me.FlowLayoutPanel1.ResumeLayout(False)
-        Me.FlowLayoutPanel1.PerformLayout()
+        Me.Guna2Panel1.PerformLayout()
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents ServerLayoutPanel As TableLayoutPanel
-    Friend WithEvents CloseControlBox As Guna.UI2.WinForms.Guna2ControlBox
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
-    Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents UsernameTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents PasswordTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
