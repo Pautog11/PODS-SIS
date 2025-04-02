@@ -47,7 +47,7 @@ Public Class AccountDialog
                 'RoleComboBox.Enabled = False
                 'End If
 
-                If RoleComboBox.Text = "Super Admin" Then
+                If RoleComboBox.Text = "Owner" Then
                     RoleComboBox.Enabled = False
                     StatusComboBox.Enabled = False
                 Else
@@ -59,7 +59,7 @@ Public Class AccountDialog
                                 Exit For ' Exit the loop once the row is removed
                             End If
                         Else
-                            If RoleComboBox.Text = "Admin" Then
+                            If RoleComboBox.Text = "Staff" Then
                                 RoleComboBox.Enabled = False
                                 StatusComboBox.Enabled = False
                             Else

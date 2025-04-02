@@ -14,6 +14,8 @@ Public Class DosageDialog
             If _data IsNot Nothing Then
                 DoseTextBox.Text = _data.Item("dosage")
                 DescriptionTextBox.Text = _data.Item("description")
+
+                AddDosageButton.Text = "Update"
             End If
         Catch ex As Exception
 
@@ -27,11 +29,14 @@ Public Class DosageDialog
                   DoseTextBox
               }
             Dim types As DataInput() = {
-                DataInput.STRING_STRING
+                DataInput.STRING_DOSAGE
             }
             Dim result As New List(Of Object())
             For i = 0 To controls.Count - 1
                 result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
+                If Not CType(result(i), Object())(0) AndAlso Not String.IsNullOrEmpty(controls(i).Text) Then
+                    Exit Sub
+                End If
             Next
 
             If Not result.Any(Function(item As Object()) Not item(0)) Then
@@ -44,19 +49,34 @@ Public Class DosageDialog
                 Dim invoker As ICommandInvoker = Nothing
                 If BaseDosage.ScalarDose(result(0)(1)) = 0 AndAlso _data Is Nothing Then
                     invoker = New AddCommand(baseCommand)
+                    invoker?.Execute()
+                    _subject.NotifyObserver()
+                    Me.Close()
                 ElseIf _data IsNot Nothing Then
-                    invoker = New UpdateCommand(baseCommand)
+                    If BaseDosage.ScalarDose(result(0)(1)) = 1 Then
+                        If BaseDosage.ScalarDoseWithId(_data.Item("id"), result(0)(1)) = 1 Then
+                            invoker = New UpdateCommand(baseCommand)
+                            invoker?.Execute()
+                            _subject.NotifyObserver()
+                            Me.Close()
+                        Else
+                            MessageBox.Show("Dosage exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Exit Sub
+                        End If
+                    Else
+                        invoker = New UpdateCommand(baseCommand)
+                        invoker?.Execute()
+                        _subject.NotifyObserver()
+                        Me.Close()
+                    End If
                 Else
-                    MessageBox.Show("Dosage exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    MessageBox.Show("Dosage exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
-                invoker?.Execute()
-                _subject.NotifyObserver()
-                Me.Close()
             Else
-                MessageBox.Show("Please fill out all textboxes or provide all valid inputs.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                MessageBox.Show("Please fill out all textboxes or provide all valid inputs.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         Catch ex As Exception
-
+            MsgBox(ex.Message)
         End Try
     End Sub
 End Class

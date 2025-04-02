@@ -111,8 +111,6 @@ Public Class DeliveryCartDialog
                     If Not validationResult(0) = True Then
                         Exit Sub
                     End If
-                Else
-                    Throw New Exception
                 End If
             Next
 

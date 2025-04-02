@@ -16,11 +16,11 @@ Public Class BaseAccountLog
         End Try
     End Function
 
-    Public Shared Function Logout(account_id As Integer, action As String)
+    Public Shared Function Logout(action As String)
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As New SqlCommand("INSERT INTO tblaccount_logs (account_id, action) VALUES (@account_id, @action)", conn)
-            cmd.Parameters.AddWithValue("@account_id", account_id)
+            Dim cmd As New SqlCommand("INSERT INTO tblaudittrail (account_id, action) VALUES (@account_id, @action)", conn)
+            cmd.Parameters.AddWithValue("@account_id", My.Settings.myId)
             cmd.Parameters.AddWithValue("@action", action)
             If cmd.ExecuteNonQuery() <= 0 Then
                 MessageBox.Show("An error occured!")

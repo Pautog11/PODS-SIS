@@ -29,7 +29,7 @@ Public Class DosageFormDialog
                 DosageFormTextBox
             }
             Dim types As DataInput() = {
-                DataInput.STRING_NAME
+                DataInput.STRING_DOSAGE
             }
             Dim result As New List(Of Object())
             'For i = 0 To controls.Count - 1
@@ -57,17 +57,32 @@ Public Class DosageFormDialog
                 Dim invoker As ICommandInvoker = Nothing
                 If BaseDosageForm.Exists(result(0)(1)) = 0 AndAlso _data Is Nothing Then
                     invoker = New AddCommand(baseCommand)
+                    invoker?.Execute()
+                    _subject.NotifyObserver()
+                    Me.Close()
                 ElseIf _data IsNot Nothing Then
-                    invoker = New UpdateCommand(baseCommand)
+                    If BaseDosageForm.Exists(result(0)(1)) = 1 Then
+                        If BaseDosageForm.ExistsWithId(_data.Item("id"), result(0)(1)) = 1 Then
+                            invoker = New UpdateCommand(baseCommand)
+                            invoker?.Execute()
+                            _subject.NotifyObserver()
+                            Me.Close()
+                        Else
+                            MessageBox.Show("Dosage form exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Return
+                        End If
+                    Else
+                        invoker = New UpdateCommand(baseCommand)
+                        invoker?.Execute()
+                        _subject.NotifyObserver()
+                        Me.Close()
+                    End If
                 Else
-                    MessageBox.Show("Dosage form exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    MessageBox.Show("Dosage form exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Return
                 End If
-                invoker?.Execute()
-                _subject.NotifyObserver()
-                Me.Close()
             Else
-                MessageBox.Show("Please fill out all textboxes or provide all valid inputs.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                MessageBox.Show("Please fill out all textboxes or provide all valid inputs.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         Catch ex As Exception
 

@@ -64,6 +64,21 @@ Public Class BaseSupplierReturnCode
         End Try
     End Function
 
+
+    Public Shared Function ExistsWithId(id As Integer, code As String) As String
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblrrc WHERE id = @id AND LOWER(code) = @code", conn)
+            cmd.Parameters.AddWithValue("@id", id)
+            cmd.Parameters.AddWithValue("@code", code.Trim.ToLower)
+
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
+
     Public Shared Function Search(query As String) As pods.viewtblrrcDataTable
         Try
             Dim conn As New SqlConnection(My.Settings.podsdbConnectionString)

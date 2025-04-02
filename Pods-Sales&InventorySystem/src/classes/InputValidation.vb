@@ -44,17 +44,29 @@ Public Class InputValidation
         control.BorderColor = Color.LightGray
         Select Case type
             Case DataInput.STRING_STRING
+                'If Not String.IsNullOrEmpty(stringInput) AndAlso Not String.IsNullOrWhiteSpace(stringInput) Then
+                '    If stringInput.Length > 1 Then
+                '        Dim nameString As String() = stringInput.Split(" ")
+                '        For i = 0 To nameString.Count - 1
+                '            Dim charArr As Char() = nameString(i).ToArray()
+                '            charArr(0) = CStr(charArr(0)).ToUpper
+                '            nameString(i) = String.Join("", charArr)
+                '        Next
+                '        Return {True, String.Join(" ", nameString)}
+                '    End If
+                'End If
+
                 If Not String.IsNullOrEmpty(stringInput) AndAlso Not String.IsNullOrWhiteSpace(stringInput) Then
                     If stringInput.Length > 1 Then
-                        Dim nameString As String() = stringInput.Split(" ")
-                        For i = 0 To nameString.Count - 1
-                            Dim charArr As Char() = nameString(i).ToArray()
-                            charArr(0) = CStr(charArr(0)).ToUpper
-                            nameString(i) = String.Join("", charArr)
+                        Dim cleanedString As String = String.Join(" ", stringInput.Split(New Char() {" "c}, StringSplitOptions.RemoveEmptyEntries))
+                        Dim nameString As String() = cleanedString.Split(" "c)
+                        For i = 0 To nameString.Length - 1
+                            nameString(i) = Char.ToUpper(nameString(i)(0)) & nameString(i).Substring(1).ToLower()
                         Next
                         Return {True, String.Join(" ", nameString)}
                     End If
                 End If
+
 
             Case DataInput.STRING_NAME
                 If stringInput.Count > 1 Then
@@ -149,7 +161,7 @@ Public Class InputValidation
                     If DateTime.TryParseExact(stringInput, "yyyy-M-d", Nothing, Globalization.DateTimeStyles.None, dateValue) Then
                         Return {True, stringInput}
                     Else
-                        MsgBox("The date is not valid.")
+                        ' MsgBox("The date is not valid.")
                         'Return {False, "Invalid date."}
                         Exit Select
                     End If
@@ -222,6 +234,88 @@ Public Class InputValidation
                     End If
                 End If
 
+            Case DataInput.STRING_CODE
+                'If Not String.IsNullOrEmpty(stringInput) AndAlso Not String.IsNullOrWhiteSpace(stringInput) Then
+                '    If stringInput.Length > 1 Then
+                '        Dim cleanedString As String = stringInput.Replace(" ", "")
+                '        If cleanedString.Length > 0 Then
+                '            cleanedString = Char.ToUpper(cleanedString(0)) & cleanedString.Substring(1).ToLower()
+                '        End If
+                '        Return {True, cleanedString}
+                '    End If
+                'End If
+
+                If Not String.IsNullOrEmpty(stringInput) AndAlso Not String.IsNullOrWhiteSpace(stringInput) Then
+                    ' Replace multiple spaces with a single space and trim leading/trailing spaces
+                    Dim cleanedString As String = System.Text.RegularExpressions.Regex.Replace(stringInput, "\s+", " ").Trim()
+
+                    ' Check if the cleaned string contains invalid characters (spaces or any other non-valid input)
+                    If cleanedString.Length > 0 AndAlso System.Text.RegularExpressions.Regex.IsMatch(cleanedString, "^[a-zA-Z0-9\s]+$") Then
+                        ' Capitalize the first letter and make the rest lowercase
+                        cleanedString = Char.ToUpper(cleanedString(0)) & cleanedString.Substring(1).ToLower()
+                        Return {True, cleanedString}
+                    Else
+                        ' Show message box if invalid input (contains characters other than letters, digits, and single spaces)
+                        MessageBox.Show("Invalid input!.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        'Return {False, String.Empty}
+                        Exit Select
+                    End If
+                Else
+                    ' Show message box if the input is empty or only whitespace
+                    MessageBox.Show("Invalid input!.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    'Return {False, String.Empty}
+                    Exit Select
+                End If
+
+
+
+
+            Case DataInput.STRING_DOSAGE
+                'If Not String.IsNullOrEmpty(stringInput) AndAlso Not String.IsNullOrWhiteSpace(stringInput) Then
+                '    ' Remove all special characters and numbers using regex
+                '    Dim cleanedString As String = System.Text.RegularExpressions.Regex.Replace(stringInput, "[^a-zA-Z\s]", "")
+
+                '    ' Trim any extra spaces
+                '    cleanedString = String.Join(" ", cleanedString.Split(New Char() {" "c}, StringSplitOptions.RemoveEmptyEntries))
+
+                '    ' Check if the cleaned string is not empty
+                '    If cleanedString.Length > 0 Then
+                '        Dim nameString As String() = cleanedString.Split(" "c)
+                '        For i = 0 To nameString.Length - 1
+                '            ' Capitalize the first letter and make the rest lowercase
+                '            nameString(i) = Char.ToUpper(nameString(i)(0)) & nameString(i).Substring(1).ToLower()
+                '        Next
+                '        Return {True, String.Join(" ", nameString)}
+                '    End If
+                'End If
+
+                If Not String.IsNullOrEmpty(stringInput) AndAlso Not String.IsNullOrWhiteSpace(stringInput) Then
+                    ' Check for invalid characters (anything other than letters and spaces)
+                    If System.Text.RegularExpressions.Regex.IsMatch(stringInput, "[^a-zA-Z\s]") Then
+                        ' Display a message box if invalid characters are detected
+                        MessageBox.Show("Invalid characters detected", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        Exit Select
+                    End If
+
+                    ' Remove all special characters and numbers using regex
+                    Dim cleanedString As String = System.Text.RegularExpressions.Regex.Replace(stringInput, "[^a-zA-Z\s]", "")
+
+                    ' Trim any extra spaces
+                    cleanedString = String.Join(" ", cleanedString.Split(New Char() {" "c}, StringSplitOptions.RemoveEmptyEntries))
+
+                    ' Check if the cleaned string is not empty
+                    If cleanedString.Length > 0 Then
+                        Dim nameString As String() = cleanedString.Split(" "c)
+                        For i = 0 To nameString.Length - 1
+                            ' Capitalize the first letter and make the rest lowercase
+                            nameString(i) = Char.ToUpper(nameString(i)(0)) & nameString(i).Substring(1).ToLower()
+                        Next
+                        Return {True, String.Join(" ", nameString)}
+                    End If
+                End If
+
+
+
         End Select
         control.BorderColor = Color.Red
         Return {False, stringInput}
@@ -242,4 +336,6 @@ Public Enum DataInput
     STRING_DECIMAL
     STRING_PRODUCTNAME
     STRING_BATCH
+    STRING_CODE
+    STRING_DOSAGE
 End Enum

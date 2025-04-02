@@ -100,4 +100,25 @@ Public Class BaseReports
             Return New DataTable
         End Try
     End Function
+    Public Shared Function GetSalesChart(year As Integer) As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("SELECT FORMAT(date, 'MMM') AS Month, 
+                                     FORMAT(SUM(total), 'N2') AS Sales
+                              FROM tbltransactions
+                              WHERE YEAR(date) = @Year
+                              GROUP BY FORMAT(date, 'MMM'), DATEPART(MONTH, date)
+                              ORDER BY DATEPART(MONTH, date);", conn)
+            cmd.Parameters.AddWithValue("@Year", year)
+
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
+        End Try
+    End Function
 End Class

@@ -45,34 +45,36 @@ Public Class Login
             If res?(0) Then
                 Dim dash As New Dashboard
                 Select Case My.Settings.roleId
-                    Case 1
+                        Case 1
 
-                    Case 2
-                        'main.MaintenaceTabControl.TabPages.Remove(main.Accounts)
-                        ''Dim tabss As TabControl = dash.Maintenance.TabIndex. .TabControlContainer.Items()
-                        ''Dim tabs As TabControl = dash.Maintenance.TabPageControlCollection 'MaintainanceContainer.TabControlContainer.Items(
-                        'dash.DashboardTabControl.TabPages.Remove(dash.Account)
-                        Dim tabs As TabPageCollection = dash.Maintenance1.MaintenaceTabControl.TabPages
-                        tabs.Remove(dash.Maintenance1.Accounts)
-                    Case 3
-                        dash.DashboardTabControl.TabPages.Remove(dash.Products)
-                        dash.DashboardTabControl.TabPages.Remove(dash.Maintenance)
-                        dash.DashboardTabControl.TabPages.Remove(dash.Reports)
-                        'dash.DashboardTabControl.TabPages.Remove(dash.Witdrawal)
-                        dash.DashboardTabControl.TabPages.Remove(dash.Activity)
-                        dash.DashboardTabControl.TabPages.Remove(dash.Inventory)
-                        dash.DashboardTabControl.TabPages.Remove(dash.Deliveries)
-                        'dash.DashboardTabControl.TabPages.Remove(dash.Account)
-                End Select
+                        Case 2
+                            'main.MaintenaceTabControl.TabPages.Remove(main.Accounts)
+                            ''Dim tabss As TabControl = dash.Maintenance.TabIndex. .TabControlContainer.Items()
+                            ''Dim tabs As TabControl = dash.Maintenance.TabPageControlCollection 'MaintainanceContainer.TabControlContainer.Items(
+                            'dash.DashboardTabControl.TabPages.Remove(dash.Account)
+                            Dim tabs As TabPageCollection = dash.Maintenance1.MaintenaceTabControl.TabPages
+                            tabs.Remove(dash.Maintenance1.Accounts)
+                        Case 3
+                            dash.DashboardTabControl.TabPages.Remove(dash.Products)
+                            dash.DashboardTabControl.TabPages.Remove(dash.Maintenance)
+                            dash.DashboardTabControl.TabPages.Remove(dash.Reports)
+                            'dash.DashboardTabControl.TabPages.Remove(dash.Witdrawal)
+                            dash.DashboardTabControl.TabPages.Remove(dash.Activity)
+                            dash.DashboardTabControl.TabPages.Remove(dash.Inventory)
+                            dash.DashboardTabControl.TabPages.Remove(dash.Deliveries)
+                            'dash.DashboardTabControl.TabPages.Remove(dash.Account)
+                    End Select
 
-                If BaseLoginStatus.Status() = 1 Then
-                    MessageBox.Show("Unable to log in at the moment because you are currently logged in on another device. Please log out from the other device or try again later.", "PODS-SIS", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    Exit Sub
-                End If
+                    If BaseLoginStatus.Status() = 1 Then
+                        MessageBox.Show("Unable to log in at the moment because you are currently logged in on another device. Please log out from the other device or try again later.", "PODS-SIS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        Exit Sub
+                    End If
 
-                BaseLoginStatus.Login()
-                Me.Hide()
-                dash.Show()
+                    BaseLoginStatus.Login()
+
+                Using Me
+                    dash.Show()
+                End Using
             End If
         Else
             MessageBox.Show("Login Failed!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)

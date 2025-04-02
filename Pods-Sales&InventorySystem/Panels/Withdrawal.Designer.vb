@@ -23,14 +23,16 @@ Partial Class ReturnAndPullout
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.ReturnandPulloutTabControl = New Guna.UI2.WinForms.Guna2TabControl()
-        Me.Returns = New System.Windows.Forms.TabPage()
-        Me.Returns1 = New Pods_Sales_InventorySystem.Returns()
-        Me.PullOuts = New System.Windows.Forms.TabPage()
-        Me.PullOuts1 = New Pods_Sales_InventorySystem.PullOuts()
         Me.Disposal = New System.Windows.Forms.TabPage()
+        Me.PullOuts = New System.Windows.Forms.TabPage()
+        Me.Returns = New System.Windows.Forms.TabPage()
+        Me.PullOuts1 = New Pods_Sales_InventorySystem.PullOuts()
+        Me.Returns1 = New Pods_Sales_InventorySystem.Returns()
+        Me.Disposal1 = New Pods_Sales_InventorySystem.Disposal()
         Me.ReturnandPulloutTabControl.SuspendLayout()
-        Me.Returns.SuspendLayout()
+        Me.Disposal.SuspendLayout()
         Me.PullOuts.SuspendLayout()
+        Me.Returns.SuspendLayout()
         Me.SuspendLayout()
         '
         'ReturnandPulloutTabControl
@@ -65,26 +67,16 @@ Partial Class ReturnAndPullout
         Me.ReturnandPulloutTabControl.TabMenuBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.ReturnandPulloutTabControl.TabMenuOrientation = Guna.UI2.WinForms.TabMenuOrientation.HorizontalTop
         '
-        'Returns
+        'Disposal
         '
-        Me.Returns.Controls.Add(Me.Returns1)
-        Me.Returns.Location = New System.Drawing.Point(4, 44)
-        Me.Returns.Margin = New System.Windows.Forms.Padding(0)
-        Me.Returns.Name = "Returns"
-        Me.Returns.Size = New System.Drawing.Size(1014, 532)
-        Me.Returns.TabIndex = 6
-        Me.Returns.Text = "Returns"
-        Me.Returns.UseVisualStyleBackColor = True
-        '
-        'Returns1
-        '
-        Me.Returns1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Returns1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Returns1.Location = New System.Drawing.Point(0, 0)
-        Me.Returns1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Returns1.Name = "Returns1"
-        Me.Returns1.Size = New System.Drawing.Size(1014, 532)
-        Me.Returns1.TabIndex = 0
+        Me.Disposal.Controls.Add(Me.Disposal1)
+        Me.Disposal.Location = New System.Drawing.Point(4, 44)
+        Me.Disposal.Margin = New System.Windows.Forms.Padding(0)
+        Me.Disposal.Name = "Disposal"
+        Me.Disposal.Size = New System.Drawing.Size(1014, 532)
+        Me.Disposal.TabIndex = 8
+        Me.Disposal.Text = "Disposal"
+        Me.Disposal.UseVisualStyleBackColor = True
         '
         'PullOuts
         '
@@ -97,6 +89,17 @@ Partial Class ReturnAndPullout
         Me.PullOuts.Text = "Pull Outs"
         Me.PullOuts.UseVisualStyleBackColor = True
         '
+        'Returns
+        '
+        Me.Returns.Controls.Add(Me.Returns1)
+        Me.Returns.Location = New System.Drawing.Point(4, 44)
+        Me.Returns.Margin = New System.Windows.Forms.Padding(0)
+        Me.Returns.Name = "Returns"
+        Me.Returns.Size = New System.Drawing.Size(1014, 532)
+        Me.Returns.TabIndex = 6
+        Me.Returns.Text = "Returns"
+        Me.Returns.UseVisualStyleBackColor = True
+        '
         'PullOuts1
         '
         Me.PullOuts1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
@@ -107,15 +110,25 @@ Partial Class ReturnAndPullout
         Me.PullOuts1.Size = New System.Drawing.Size(1014, 532)
         Me.PullOuts1.TabIndex = 0
         '
-        'Disposal
+        'Returns1
         '
-        Me.Disposal.Location = New System.Drawing.Point(4, 44)
-        Me.Disposal.Name = "Disposal"
-        Me.Disposal.Padding = New System.Windows.Forms.Padding(3)
-        Me.Disposal.Size = New System.Drawing.Size(1014, 532)
-        Me.Disposal.TabIndex = 8
-        Me.Disposal.Text = "Disposal"
-        Me.Disposal.UseVisualStyleBackColor = True
+        Me.Returns1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Returns1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Returns1.Location = New System.Drawing.Point(0, 0)
+        Me.Returns1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Returns1.Name = "Returns1"
+        Me.Returns1.Size = New System.Drawing.Size(1014, 532)
+        Me.Returns1.TabIndex = 0
+        '
+        'Disposal1
+        '
+        Me.Disposal1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Disposal1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Disposal1.Location = New System.Drawing.Point(0, 0)
+        Me.Disposal1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Disposal1.Name = "Disposal1"
+        Me.Disposal1.Size = New System.Drawing.Size(1014, 532)
+        Me.Disposal1.TabIndex = 0
         '
         'ReturnAndPullout
         '
@@ -125,8 +138,9 @@ Partial Class ReturnAndPullout
         Me.Name = "ReturnAndPullout"
         Me.Size = New System.Drawing.Size(1022, 580)
         Me.ReturnandPulloutTabControl.ResumeLayout(False)
-        Me.Returns.ResumeLayout(False)
+        Me.Disposal.ResumeLayout(False)
         Me.PullOuts.ResumeLayout(False)
+        Me.Returns.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -137,4 +151,5 @@ Partial Class ReturnAndPullout
     Friend WithEvents PullOuts1 As PullOuts
     Friend WithEvents Returns1 As Returns
     Friend WithEvents Disposal As TabPage
+    Friend WithEvents Disposal1 As Disposal
 End Class

@@ -63,7 +63,20 @@ Public Class BaseDosage
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tbldosage where lower(dasage) = @sa", conn)
-            cmd.Parameters.AddWithValue("@sa", data)
+            cmd.Parameters.AddWithValue("@sa", data.Trim.ToLower)
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
+
+    Public Shared Function ScalarDoseWithId(id As Integer, data As String) As Integer
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tbldosage WHERE id = @id AND LOWER(dasage) = @sa", conn)
+            cmd.Parameters.AddWithValue("@id", id)
+            cmd.Parameters.AddWithValue("@sa", data.Trim.ToLower)
             Return cmd.ExecuteScalar()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)

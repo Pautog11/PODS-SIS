@@ -24,13 +24,16 @@ Public Class CustomerReturnCodeDialog
     Private Sub AddButton_Click(sender As Object, e As EventArgs) Handles AddButton.Click
         Try
             Dim controls As Object() = {CodeTextBox}
-            Dim types As DataInput() = {DataInput.STRING_STRING}
+            Dim types As DataInput() = {DataInput.STRING_CODE}
 
             Dim result As New List(Of Object())
             For i = 0 To controls.Count - 1
                 result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
-                If Not CType(result(i), Object())(0) AndAlso Not String.IsNullOrEmpty(controls(i).Text) Then
-                    Exit Sub
+                Dim validationResult = TryCast(result(i), Object())
+                If validationResult IsNot Nothing AndAlso validationResult.Length > 0 Then
+                    If Not validationResult(0) = True Then
+                        Exit Sub
+                    End If
                 End If
             Next
 
@@ -43,23 +46,36 @@ Public Class CustomerReturnCodeDialog
                     {"description", If(String.IsNullOrEmpty(DescriptionTextBox.Text), "", DescriptionTextBox.Text)}
                 }
 
-                If BaseCustomerReturnCode.Exists(result(0)(1)) = 0 AndAlso _data Is Nothing Then
-                    baseCommand = New BaseCustomerReturnCode(data)
-                    invoker = New AddCommand(baseCommand)
-                    Me.Close()
-                ElseIf _data IsNot Nothing AndAlso BaseCategory.Exists(result(0)(1)) = 0 Then
-                    baseCommand = New BaseCustomerReturnCode(data)
-                    invoker = New UpdateCommand(baseCommand)
-                    Me.Close()
-                Else
-                    MessageBox.Show("Code exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                End If
+                baseCommand = New BaseCustomerReturnCode(data)
 
-                invoker?.Execute()
-                _subject.NotifyObserver()
-                Me.Close()
+                If BaseCustomerReturnCode.Exists(result(0)(1)) = 0 AndAlso _data Is Nothing Then
+                    invoker = New AddCommand(baseCommand)
+                    invoker?.Execute()
+                    _subject.NotifyObserver()
+                    Me.Close()
+                ElseIf _data IsNot Nothing Then
+                    If BaseCustomerReturnCode.Exists(result(0)(1)) = 1 Then
+                        If BaseCustomerReturnCode.ExistsWithId(_data.Item("id"), result(0)(1)) = 1 Then
+                            invoker = New UpdateCommand(baseCommand)
+                            invoker?.Execute()
+                            _subject.NotifyObserver()
+                            Me.Close()
+                        Else
+                            MessageBox.Show("Code exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Return
+                        End If
+                    Else
+                        invoker = New UpdateCommand(baseCommand)
+                        invoker?.Execute()
+                        _subject.NotifyObserver()
+                        Me.Close()
+                    End If
+                Else
+                    MessageBox.Show("Code exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Return
+                End If
             Else
-                MessageBox.Show("Please fill out all textboxes or provide all valid inputs.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                MessageBox.Show("Please fill out all textboxes or provide all valid inputs.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
