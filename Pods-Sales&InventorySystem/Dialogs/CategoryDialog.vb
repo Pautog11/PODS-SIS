@@ -36,13 +36,6 @@ Public Class CategoryDialog
             Dim types As DataInput() = {DataInput.STRING_STRING}
 
             Dim result As New List(Of Object())
-            'For i = 0 To controls.Count - 1
-            '    result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
-            '    If Not CType(result(i), Object())(0) AndAlso Not String.IsNullOrEmpty(controls(i).Text) Then
-            '        Exit Sub
-            '    End If
-            'Next
-
 
             For i = 0 To controls.Count - 1
                 result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
@@ -65,22 +58,33 @@ Public Class CategoryDialog
 
                 baseCommand = New BaseCategory(data)
                 If BaseCategory.Exists(result(0)(1)) = 0 AndAlso _data Is Nothing Then
-                    'baseCommand = New BaseCategory(data)
                     invoker = New AddCommand(baseCommand)
-                    'Me.Close()
-                ElseIf _data IsNot Nothing AndAlso BaseCategory.Exists(result(0)(1)) = 0 Then
-                    'baseCommand = New BaseCategory(data)
-                    invoker = New UpdateCommand(baseCommand)
-                    'Me.Close()
+                    invoker?.Execute()
+                    _subject.NotifyObserver()
+                    Me.Close()
+                ElseIf _data IsNot Nothing Then
+                    If BaseCategory.Exists(result(0)(1)) = 1 Then
+                        If BaseCategory.ExistsWithId(_data.Item("id"), result(0)(1)) = 1 Then
+                            invoker = New UpdateCommand(baseCommand)
+                            invoker?.Execute()
+                            _subject.NotifyObserver()
+                            Me.Close()
+                        Else
+                            MessageBox.Show("Category exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Exit Sub
+                        End If
+                    Else
+                        invoker = New UpdateCommand(baseCommand)
+                        invoker?.Execute()
+                        _subject.NotifyObserver()
+                        Me.Close()
+                    End If
+
                 Else
-                    MessageBox.Show("Category exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    MessageBox.Show("Category exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
-                'baseCommand = New BaseCategory(data)
-                invoker?.Execute()
-                _subject.NotifyObserver()
-                Me.Close()
             Else
-                MessageBox.Show("Please fill out all textboxes or provide all valid inputs.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                MessageBox.Show("Please fill out all textboxes or provide all valid inputs.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         Catch ex As Exception
             MsgBox(ex.Message)

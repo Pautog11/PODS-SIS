@@ -7,14 +7,13 @@
         Select Case type
             Case InvoiceType.Transaction
                 Return String.Format("PODST-{0}-{1}", dateString, timeString)
-            Case InvoiceType.Recieved
-                Return String.Format("PODSR-{0}-{1}", dateString, timeString)
+            Case InvoiceType.Disposal
+                Return String.Format("DISPO-{0}-{1}", dateString, timeString)
         End Select
         Return Nothing
     End Function
     Enum InvoiceType
         Transaction
-        Recieved
-        Refunded
+        Disposal
     End Enum
 End Module

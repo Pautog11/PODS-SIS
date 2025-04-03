@@ -140,12 +140,14 @@ Public Class BaseSubCategory
         End Try
     End Function
 
-    Public Shared Function Fillsubcategorybyid(id As Integer) As String
+    Public Shared Function CategoryAndSubcategoryWithIdExists(id As Integer, idngcat As Integer, subcategory As String) As Integer
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             'Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblsubcategories WHERE lower(subcategory) = @subcategory", conn)
-            Dim cmd As New SqlCommand("select subcategory from tblsubcategories where id = @id", conn)
+            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblsubcategories WHERE id = @id AND category_id = @category_id AND lower(subcategory) = @subcategory", conn)
             cmd.Parameters.AddWithValue("@id", id)
+            cmd.Parameters.AddWithValue("@category_id", idngcat)
+            cmd.Parameters.AddWithValue("@subcategory", subcategory.Trim.ToLower)
 
             Return cmd.ExecuteScalar()
         Catch ex As Exception
@@ -153,6 +155,20 @@ Public Class BaseSubCategory
             Return 0
         End Try
     End Function
+
+    'Public Shared Function Fillsubcategorybyid(id As Integer) As String
+    '    Try
+    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+    '        'Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblsubcategories WHERE lower(subcategory) = @subcategory", conn)
+    '        Dim cmd As New SqlCommand("select subcategory from tblsubcategories where id = @id", conn)
+    '        cmd.Parameters.AddWithValue("@id", id)
+
+    '        Return cmd.ExecuteScalar()
+    '    Catch ex As Exception
+    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+    '        Return 0
+    '    End Try
+    'End Function
 
     Public Shared Function Search(query As String) As pods.viewtblsubcategoriesDataTable
         Try

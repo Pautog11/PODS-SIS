@@ -29,6 +29,7 @@ Partial Class Disposal
         Me.AddDisposalButton = New Guna.UI2.WinForms.Guna2Button()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.DisposalDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.DisposalSearchTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.AccountHeaderLayoutPanel.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.DisposalDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -39,6 +40,7 @@ Partial Class Disposal
         Me.AccountHeaderLayoutPanel.ColumnCount = 2
         Me.AccountHeaderLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.AccountHeaderLayoutPanel.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.AccountHeaderLayoutPanel.Controls.Add(Me.DisposalSearchTextBox, 0, 0)
         Me.AccountHeaderLayoutPanel.Controls.Add(Me.AddDisposalButton, 1, 0)
         Me.AccountHeaderLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AccountHeaderLayoutPanel.Location = New System.Drawing.Point(3, 3)
@@ -140,6 +142,29 @@ Partial Class Disposal
         Me.DisposalDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DisposalDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         '
+        'DisposalSearchTextBox
+        '
+        Me.DisposalSearchTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.DisposalSearchTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.DisposalSearchTextBox.BorderRadius = 15
+        Me.DisposalSearchTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.DisposalSearchTextBox.DefaultText = ""
+        Me.DisposalSearchTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.DisposalSearchTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.DisposalSearchTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.DisposalSearchTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.DisposalSearchTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DisposalSearchTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.DisposalSearchTextBox.ForeColor = System.Drawing.Color.Black
+        Me.DisposalSearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.DisposalSearchTextBox.Location = New System.Drawing.Point(3, 4)
+        Me.DisposalSearchTextBox.Name = "DisposalSearchTextBox"
+        Me.DisposalSearchTextBox.PlaceholderText = "Search"
+        Me.DisposalSearchTextBox.SelectedText = ""
+        Me.DisposalSearchTextBox.ShortcutsEnabled = False
+        Me.DisposalSearchTextBox.Size = New System.Drawing.Size(200, 36)
+        Me.DisposalSearchTextBox.TabIndex = 4
+        '
         'Disposal
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -158,4 +183,5 @@ Partial Class Disposal
     Friend WithEvents AddDisposalButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents DisposalDataGridView As Guna.UI2.WinForms.Guna2DataGridView
+    Friend WithEvents DisposalSearchTextBox As Guna.UI2.WinForms.Guna2TextBox
 End Class

@@ -67,17 +67,39 @@ Public Class SubCategoryDialog
                 Dim invoker As ICommandInvoker = Nothing
                 If BaseSubCategory.CategoryAndSubcategoryExists(CategoryComboBox.SelectedItem("id"), result(1)(1)) = 0 AndAlso _data Is Nothing Then 'BaseSubCategory.Exists(result(0)(1)) = 0 AndAlso
                     invoker = New AddCommand(baseCommand)
-                ElseIf _data IsNot Nothing AndAlso BaseSubCategory.CategoryAndSubcategoryExists(CategoryComboBox.SelectedItem("id"), result(1)(1)) = 0 Then
-                    invoker = New UpdateCommand(baseCommand)
+                    invoker?.Execute()
+                    _subject.NotifyObserver()
+                    Me.Close()
+                ElseIf _data IsNot Nothing Then
+                    If BaseSubCategory.CategoryAndSubcategoryExists(CategoryComboBox.SelectedItem("id"), result(1)(1)) = 1 Then
+                        If BaseSubCategory.CategoryAndSubcategoryWithIdExists(_data.Item("id"), CategoryComboBox.SelectedItem("id"), result(1)(1)) = 1 Then
+                            invoker = New UpdateCommand(baseCommand)
+                            invoker?.Execute()
+                            _subject.NotifyObserver()
+                            Me.Close()
+                        Else
+                            'invoker = New UpdateCommand(baseCommand)
+                            'invoker?.Execute()
+                            '_subject.NotifyObserver()
+                            'Me.Close()
+                            MessageBox.Show("Subcategory exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                            Return
+                        End If
+
+                    Else
+                        invoker = New UpdateCommand(baseCommand)
+                        invoker?.Execute()
+                        _subject.NotifyObserver()
+                        Me.Close()
+                    End If
+
                 Else
                     MessageBox.Show("Subcategory exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                     Return
                 End If
-                invoker?.Execute()
-                _subject.NotifyObserver()
-                Me.Close()
             Else
                 MessageBox.Show("Please fill out all textboxes or provide all valid inputs.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
             End If
         Catch ex As Exception
 

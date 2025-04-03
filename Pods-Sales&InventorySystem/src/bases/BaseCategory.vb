@@ -83,6 +83,20 @@ Public Class BaseCategory
         End Try
     End Function
 
+    Public Shared Function ExistsWithId(id As Integer, data As String) As Integer
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM viewtblcategories WHERE id = @id AND lower(category) = @data", conn)
+            cmd.Parameters.AddWithValue("@id", id)
+            cmd.Parameters.AddWithValue("@data", data.Trim.ToLower)
+
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+            Return 0
+        End Try
+    End Function
+
     Public Shared Function FillByCategory() As DataTable
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance

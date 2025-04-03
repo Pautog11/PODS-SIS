@@ -11,12 +11,13 @@
             _subject = Application.OpenForms.OfType(Of Dashboard).FirstOrDefault
             _subject?.RegisterObserver(Me)
             _subject?.NotifyObserver()
+
+            DiscountComboBox.Enabled = False
+            _timer.Interval = 1000
+            _timer.Start()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Observer Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
-        DiscountComboBox.Enabled = False
-        _timer.Interval = 1000
-        _timer.Start()
     End Sub
 
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update

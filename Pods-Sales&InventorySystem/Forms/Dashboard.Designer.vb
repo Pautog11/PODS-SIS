@@ -81,7 +81,6 @@ Partial Class Dashboard
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.GunaChart1 = New Guna.Charts.WinForms.GunaChart()
-        Me.cSales = New Guna.Charts.WinForms.GunaLineDataset()
         Me.Maintenance = New System.Windows.Forms.TabPage()
         Me.Products = New System.Windows.Forms.TabPage()
         Me.Deliveries = New System.Windows.Forms.TabPage()
@@ -103,6 +102,7 @@ Partial Class Dashboard
         Me.ReturnAndPullout1 = New Pods_Sales_InventorySystem.ReturnAndPullout()
         Me.Reports1 = New Pods_Sales_InventorySystem.Reports()
         Me.AuditTrail1 = New Pods_Sales_InventorySystem.AuditTrail()
+        Me.cSales = New Guna.Charts.WinForms.GunaLineDataset()
         Me.DashboardTableLayoutPanel.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.DashboardPanel.SuspendLayout()
@@ -748,13 +748,6 @@ Partial Class Dashboard
         Tick3.Font = ChartFont8
         Me.GunaChart1.ZAxes.Ticks = Tick3
         '
-        'cSales
-        '
-        Me.cSales.BorderColor = System.Drawing.Color.Empty
-        Me.cSales.FillColor = System.Drawing.Color.Empty
-        Me.cSales.Label = "Sales"
-        Me.cSales.TargetChart = Me.GunaChart1
-        '
         'Maintenance
         '
         Me.Maintenance.Controls.Add(Me.Maintenance1)
@@ -969,6 +962,13 @@ Partial Class Dashboard
         Me.AuditTrail1.Size = New System.Drawing.Size(1180, 714)
         Me.AuditTrail1.TabIndex = 0
         '
+        'cSales
+        '
+        Me.cSales.BorderColor = System.Drawing.Color.Empty
+        Me.cSales.FillColor = System.Drawing.Color.Empty
+        Me.cSales.Label = "Sales"
+        Me.cSales.TargetChart = Me.GunaChart1
+        '
         'Dashboard
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -977,10 +977,9 @@ Partial Class Dashboard
         Me.Controls.Add(Me.DashboardTableLayoutPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Dashboard"
-        Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide
+        Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Dashboard"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.DashboardTableLayoutPanel.ResumeLayout(False)
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.DashboardPanel.ResumeLayout(False)
@@ -1076,7 +1075,7 @@ Partial Class Dashboard
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents Panel2 As Panel
     Friend WithEvents GunaChart1 As Guna.Charts.WinForms.GunaChart
-    Friend WithEvents cSales As Guna.Charts.WinForms.GunaLineDataset
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents cSales As Guna.Charts.WinForms.GunaLineDataset
 End Class

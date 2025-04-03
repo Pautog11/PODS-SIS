@@ -201,6 +201,12 @@
     <Compile Include="Dialogs\DeliveryCartDialog.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Dialogs\DiposalProductDialog.Designer.vb">
+      <DependentUpon>DiposalProductDialog.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\DiposalProductDialog.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Dialogs\DisposalCartDialog.Designer.vb">
       <DependentUpon>DisposalCartDialog.vb</DependentUpon>
     </Compile>
@@ -654,6 +660,7 @@
     <Compile Include="src\bases\BaseCustomerReturnCode.vb" />
     <Compile Include="src\bases\BaseDelivery.vb" />
     <Compile Include="src\bases\BaseDiscount.vb" />
+    <Compile Include="src\bases\BaseDisposal.vb" />
     <Compile Include="src\bases\BaseDosage.vb" />
     <Compile Include="src\bases\BaseDosageForm.vb" />
     <Compile Include="src\bases\BaseLoginStatus.vb" />
@@ -698,6 +705,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\DeliveryCartDialog.resx">
       <DependentUpon>DeliveryCartDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\DiposalProductDialog.resx">
+      <DependentUpon>DiposalProductDialog.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\DisposalCartDialog.resx">
       <DependentUpon>DisposalCartDialog.vb</DependentUpon>

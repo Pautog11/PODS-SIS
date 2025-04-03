@@ -46,6 +46,8 @@ Public Class Server
             'My.Settings.podsdbConnectionString1 = "Data Source=.;Initial Catalog=podsdb;User ID=admin;Password=password;"
             'My.Settings.podsdbConnectionString = podsconnection
             My.Settings.Save()
+
+            'MsgBox(My.Settings.con)
             Me.Close()
         Catch ex As Exception
             MessageBox.Show(ex.Message)

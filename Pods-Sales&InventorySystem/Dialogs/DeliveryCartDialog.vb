@@ -68,11 +68,12 @@ Public Class DeliveryCartDialog
             Else
                 EditButton.Visible = False
                 DatePicker.MaxDate = DateTime.Now
+                DatePicker.Value = DateTime.Now
             End If
             AddItemButton.Visible = False
             DeliveryDataGridView.Columns.Item("EDIT").Visible = False
         Catch ex As Exception
-
+            MsgBox(ex.Message)
         End Try
     End Sub
 

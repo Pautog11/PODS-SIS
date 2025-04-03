@@ -94,6 +94,22 @@ Public Class BaseVendor
         End Try
     End Function
 
+
+    Public Shared Function NameBelongstoNumber(first_name As String, last_name As String, number As String) As Integer
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblvendor WHERE first_name = @first_name AND last_name = @last_name AND contact_number = @number", conn)
+            cmd.Parameters.AddWithValue("@first_name", first_name.Trim.ToLower)
+            cmd.Parameters.AddWithValue("@last_name", last_name.Trim.ToLower)
+            cmd.Parameters.AddWithValue("@number", number)
+
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
+
     'Public Shared Function ContactNumberExistsWithId(id As Integer, number As String) As Integer
     '    Try
     '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
@@ -108,28 +124,11 @@ Public Class BaseVendor
     '    End Try
     'End Function
 
-    Public Shared Function NameExist(id As Integer, firstname As String, lastname As String, number As String) As Integer
+    Public Shared Function NameExist(id As Integer, firstname As String, lastname As String) As Integer
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblvendor WHERE supplier_id = @id AND LOWER(first_name) = @firstname AND LOWER(last_name) = @lastname AND contact_number = @number", conn)
+            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblvendor WHERE supplier_id = @id AND LOWER(first_name) = @firstname AND LOWER(last_name) = @lastname;", conn)
             cmd.Parameters.AddWithValue("@id", id)
-            cmd.Parameters.AddWithValue("@firstname", firstname.Trim.ToLower)
-            cmd.Parameters.AddWithValue("@lastname", lastname.Trim.ToLower)
-            cmd.Parameters.AddWithValue("@number", number)
-
-            Return cmd.ExecuteScalar()
-        Catch ex As Exception
-            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return 0
-        End Try
-    End Function
-
-    Public Shared Function IdNameExist(id As Integer, supplier_id As Integer, firstname As String, lastname As String, number As String) As Integer
-        Try
-            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblvendor WHERE id = @id AND supplier_id = @supplier_id AND LOWER(first_name) = @firstname AND LOWER(last_name) = @lastname", conn)
-            cmd.Parameters.AddWithValue("@id", id)
-            cmd.Parameters.AddWithValue("@supplier_id", supplier_id)
             cmd.Parameters.AddWithValue("@firstname", firstname.Trim.ToLower)
             cmd.Parameters.AddWithValue("@lastname", lastname.Trim.ToLower)
 
@@ -139,4 +138,37 @@ Public Class BaseVendor
             Return 0
         End Try
     End Function
+
+
+    Public Shared Function IdNameExist(id As Integer, suppid As Integer, firstname As String, lastname As String) As Integer
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblvendor WHERE id = @id AND supplier_id = @supplier_id AND LOWER(first_name) = @firstname AND LOWER(last_name) = @lastname;", conn)
+            cmd.Parameters.AddWithValue("@id", id)
+            cmd.Parameters.AddWithValue("@supplier_id", suppid)
+            cmd.Parameters.AddWithValue("@firstname", firstname.Trim.ToLower)
+            cmd.Parameters.AddWithValue("@lastname", lastname.Trim.ToLower)
+
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
+
+    'Public Shared Function IdNameExist(id As Integer, supplier_id As Integer, firstname As String, lastname As String, number As String) As Integer
+    '    Try
+    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+    '        Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblvendor WHERE id = @id AND supplier_id = @supplier_id AND LOWER(first_name) = @firstname AND LOWER(last_name) = @lastname", conn)
+    '        cmd.Parameters.AddWithValue("@id", id)
+    '        cmd.Parameters.AddWithValue("@supplier_id", supplier_id)
+    '        cmd.Parameters.AddWithValue("@firstname", firstname.Trim.ToLower)
+    '        cmd.Parameters.AddWithValue("@lastname", lastname.Trim.ToLower)
+
+    '        Return cmd.ExecuteScalar()
+    '    Catch ex As Exception
+    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+    '        Return 0
+    '    End Try
+    'End Function
 End Class

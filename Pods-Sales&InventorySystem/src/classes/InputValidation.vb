@@ -56,16 +56,88 @@ Public Class InputValidation
                 '    End If
                 'End If
 
+                'If Not String.IsNullOrEmpty(stringInput) AndAlso Not String.IsNullOrWhiteSpace(stringInput) Then
+                '    If stringInput.Length > 1 Then
+                '        Dim cleanedString As String = String.Join(" ", stringInput.Split(New Char() {" "c}, StringSplitOptions.RemoveEmptyEntries))
+                '        Dim nameString As String() = cleanedString.Split(" "c)
+                '        For i = 0 To nameString.Length - 1
+                '            nameString(i) = Char.ToUpper(nameString(i)(0)) & nameString(i).Substring(1).ToLower()
+                '        Next
+                '        Return {True, String.Join(" ", nameString)}
+                '    End If
+                'End If
+
+                'If Not String.IsNullOrEmpty(stringInput) AndAlso Not String.IsNullOrWhiteSpace(stringInput) Then
+                '    ' Remove any invalid characters (non-alphanumeric and non-space)
+                '    Dim cleanedInput As String = New String(stringInput.Where(Function(c) Char.IsLetterOrDigit(c) OrElse Char.IsWhiteSpace(c)).ToArray())
+
+                '    ' Check if cleanedInput is equal to the original input to ensure only valid characters were present
+                '    If cleanedInput <> stringInput Then
+                '        MessageBox.Show("Input contains invalid characters. Only letters, numbers, and spaces are allowed.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                '        Exit Select
+                '    End If
+
+                '    ' Replace multiple spaces with a single space
+                '    Dim cleanedString As String = String.Join(" ", cleanedInput.Split(New Char() {" "c}, StringSplitOptions.RemoveEmptyEntries))
+
+                '    ' Only process if the cleaned string has more than 1 character
+                '    If cleanedString.Length > 1 Then
+                '        ' Split into words
+                '        Dim nameString As String() = cleanedString.Split(" "c)
+
+                '        ' Capitalize the first letter of each word and ensure the rest are lowercase
+                '        For i = 0 To nameString.Length - 1
+                '            nameString(i) = Char.ToUpper(nameString(i)(0)) & nameString(i).Substring(1).ToLower()
+                '        Next
+
+                '        ' Return the cleaned, properly capitalized string
+                '        Return {True, String.Join(" ", nameString)}
+                '    Else
+                '        MessageBox.Show("Input is too short or invalid. Please provide a valid input.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                '        Exit Select
+                '    End If
+                'Else
+                '    MessageBox.Show("Input is empty or only contains spaces. Please provide a valid input.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                '    Exit Select
+                'End If
+
+
+
                 If Not String.IsNullOrEmpty(stringInput) AndAlso Not String.IsNullOrWhiteSpace(stringInput) Then
-                    If stringInput.Length > 1 Then
-                        Dim cleanedString As String = String.Join(" ", stringInput.Split(New Char() {" "c}, StringSplitOptions.RemoveEmptyEntries))
+                    ' Remove any invalid characters (non-alphanumeric and non-space)
+                    Dim cleanedInput As String = New String(stringInput.Where(Function(c) Char.IsLetterOrDigit(c) OrElse Char.IsWhiteSpace(c)).ToArray())
+
+                    ' Check if the cleaned input contains only numbers (and no letters)
+                    If cleanedInput.All(Function(c) Char.IsDigit(c) OrElse Char.IsWhiteSpace(c)) Then
+                        MessageBox.Show("Input cannot contain numbers only. It must include at least one letter.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Select
+                    End If
+
+                    ' Replace multiple spaces with a single space
+                    Dim cleanedString As String = String.Join(" ", cleanedInput.Split(New Char() {" "c}, StringSplitOptions.RemoveEmptyEntries))
+
+                    ' Only process if the cleaned string has more than 1 character
+                    If cleanedString.Length > 1 Then
+                        ' Split into words
                         Dim nameString As String() = cleanedString.Split(" "c)
+
+                        ' Capitalize the first letter of each word and ensure the rest are lowercase
                         For i = 0 To nameString.Length - 1
                             nameString(i) = Char.ToUpper(nameString(i)(0)) & nameString(i).Substring(1).ToLower()
                         Next
+
+                        ' Return the cleaned, properly capitalized string
                         Return {True, String.Join(" ", nameString)}
+                    Else
+                        MessageBox.Show("Input is too short or invalid. Please provide a valid input.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        Exit Select
                     End If
+                Else
+                    MessageBox.Show("Input is empty or only contains spaces. Please provide a valid input.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Select
                 End If
+
+
 
 
             Case DataInput.STRING_NAME
@@ -192,17 +264,46 @@ Public Class InputValidation
                 End If
 
             Case DataInput.STRING_TEL
+                'If Regex.IsMatch(start_trim_o, "^(?:\+639|09)\d{2}[-\s]?\d{3}[-\s]?\d{4}$|^\d{4}[-\s]?\d{4}$|^\d{2}[-\s]?\d{3}[-\s]?\d{4}$") Then
+                '    start_trim_o = start_trim_o.Trim()
+                '    If start_trim_o.StartsWith("+63") Then
+                '        start_trim_o = "0" & start_trim_o.Substring(3)
+                '    End If
+                '    start_trim_o = Regex.Replace(start_trim_o, "[-\s]", "")
+                '    Return {True, start_trim_o}
+                'Else
+                '    MessageBox.Show("Invalid phone or telephone number.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                '    Exit Select
+                'End If
+
                 If Regex.IsMatch(start_trim_o, "^(?:\+639|09)\d{2}[-\s]?\d{3}[-\s]?\d{4}$|^\d{4}[-\s]?\d{4}$|^\d{2}[-\s]?\d{3}[-\s]?\d{4}$") Then
                     start_trim_o = start_trim_o.Trim()
+
+                    ' Check if the number starts with +63 and remove it, replacing it with 0
                     If start_trim_o.StartsWith("+63") Then
                         start_trim_o = "0" & start_trim_o.Substring(3)
                     End If
+
+                    ' Remove spaces and dashes from the phone number
                     start_trim_o = Regex.Replace(start_trim_o, "[-\s]", "")
-                    Return {True, start_trim_o}
+
+                    ' Check if the phone number is in the form of (02)12345678 and convert it
+                    If start_trim_o.StartsWith("02") AndAlso start_trim_o.Length = 10 Then
+                        start_trim_o = start_trim_o.Substring(1) ' Removes (02)
+                    End If
+
+                    ' If the result is a valid 8-digit or 11-digit number
+                    If (start_trim_o.Length = 8 OrElse start_trim_o.Length = 11) Then
+                        Return {True, start_trim_o}
+                    Else
+                        MessageBox.Show("Invalid phone or telephone number.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        Exit Select
+                    End If
                 Else
                     MessageBox.Show("Invalid phone or telephone number.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Exit Select
                 End If
+
 
             Case DataInput.STRING_DECIMAL
                 If Regex.IsMatch(stringInput, "^\d+(\.\d{1,2})?$") Then
@@ -245,28 +346,46 @@ Public Class InputValidation
                 '    End If
                 'End If
 
-                If Not String.IsNullOrEmpty(stringInput) AndAlso Not String.IsNullOrWhiteSpace(stringInput) Then
-                    ' Replace multiple spaces with a single space and trim leading/trailing spaces
-                    Dim cleanedString As String = System.Text.RegularExpressions.Regex.Replace(stringInput, "\s+", " ").Trim()
+                'If Not String.IsNullOrEmpty(stringInput) AndAlso Not String.IsNullOrWhiteSpace(stringInput) Then
+                '    ' Replace multiple spaces with a single space and trim leading/trailing spaces
+                '    Dim cleanedString As String = System.Text.RegularExpressions.Regex.Replace(stringInput, "\s+", " ").Trim()
 
-                    ' Check if the cleaned string contains invalid characters (spaces or any other non-valid input)
-                    If cleanedString.Length > 0 AndAlso System.Text.RegularExpressions.Regex.IsMatch(cleanedString, "^[a-zA-Z0-9\s]+$") Then
+                '    ' Check if the cleaned string contains invalid characters (spaces or any other non-valid input)
+                '    If cleanedString.Length > 0 AndAlso System.Text.RegularExpressions.Regex.IsMatch(cleanedString, "^[a-zA-Z0-9\s]+$") Then
+                '        ' Capitalize the first letter and make the rest lowercase
+                '        cleanedString = Char.ToUpper(cleanedString(0)) & cleanedString.Substring(1).ToLower()
+                '        Return {True, cleanedString}
+                '    Else
+                '        ' Show message box if invalid input (contains characters other than letters, digits, and single spaces)
+                '        MessageBox.Show("Invalid input!.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                '        'Return {False, String.Empty}
+                '        Exit Select
+                '    End If
+                'Else
+                '    ' Show message box if the input is empty or only whitespace
+                '    MessageBox.Show("Invalid input!.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                '    'Return {False, String.Empty}
+                '    Exit Select
+                'End If
+
+                If Not String.IsNullOrEmpty(stringInput) AndAlso Not String.IsNullOrWhiteSpace(stringInput) Then
+                    ' Remove all spaces and reject any string with special characters
+                    Dim cleanedString As String = System.Text.RegularExpressions.Regex.Replace(stringInput, "\s+", "") ' Remove all spaces
+                    ' Check if the cleaned string contains only valid characters (letters and digits)
+                    If cleanedString.Length > 0 AndAlso System.Text.RegularExpressions.Regex.IsMatch(cleanedString, "^[a-zA-Z0-9]+$") Then
                         ' Capitalize the first letter and make the rest lowercase
                         cleanedString = Char.ToUpper(cleanedString(0)) & cleanedString.Substring(1).ToLower()
                         Return {True, cleanedString}
                     Else
-                        ' Show message box if invalid input (contains characters other than letters, digits, and single spaces)
-                        MessageBox.Show("Invalid input!.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                        'Return {False, String.Empty}
+                        ' Show message box if invalid input (contains characters other than letters and digits)
+                        MessageBox.Show("Invalid input.!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         Exit Select
                     End If
                 Else
                     ' Show message box if the input is empty or only whitespace
-                    MessageBox.Show("Invalid input!.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    'Return {False, String.Empty}
+                    MessageBox.Show("Invalid input.!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Exit Select
                 End If
-
 
 
 

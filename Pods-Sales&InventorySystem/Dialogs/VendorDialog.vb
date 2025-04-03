@@ -59,66 +59,78 @@ Public Class VendorDialog
                 Dim baseCommand As New BaseVendor(data)
                 Dim invoker As ICommandInvoker = Nothing
                 'MsgBox(CompanyComboBox.SelectedItem("id"))
-                If BaseVendor.NameExist(CompanyComboBox.SelectedItem("id"), result(1)(1), result(2)(1), result(3)(1)) = 0 AndAlso _data Is Nothing Then
-                    If BaseVendor.ContactNumberExists(result(3)(1)) = 0 Then
-
-                    Else
-                        If BaseVendor.NameWithNumberExists(result(1)(1), result(2)(1), result(3)(1)) = 0 Then
-                            'Else
-                            MessageBox.Show("Phone number exist!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                            Exit Sub
-                        End If
-                    End If
-
-                    'invoker = New AddCommand(baseCommand)
-                    'invoker?.Execute()
-                    '_subject.NotifyObserver()
-                    'Me.Close()
-
-                ElseIf _data IsNot Nothing Then
-
-
-                    If BaseVendor.NameExist(CompanyComboBox.SelectedItem("id"), result(1)(1), result(2)(1), result(3)(1)) = 1 Then
-
-                        If BaseVendor.IdNameExist(_data.Item("id"), CompanyComboBox.SelectedItem("id"), result(1)(1), result(2)(1), result(3)(1)) = 1 Then
-
-                        Else
-                            MessageBox.Show("Vendor exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                            Exit Sub
-                        End If
-                    Else
-
-
+                If _data Is Nothing Then
+                    If BaseVendor.NameExist(CompanyComboBox.SelectedItem("id"), result(1)(1), result(2)(1)) = 0 Then
                         If BaseVendor.ContactNumberExists(result(3)(1)) = 0 Then
-                            'pag hindi na eexist yung phone number
+                            invoker = New AddCommand(baseCommand)
+                            invoker?.Execute()
+                            _subject.NotifyObserver()
+                            Me.Close()
                         Else
-
                             If BaseVendor.NameWithNumberExists(result(1)(1), result(2)(1), result(3)(1)) = 0 Then
                                 MessageBox.Show("Phone number exist!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                                 Exit Sub
-                                'Else
-
+                            Else
+                                invoker = New AddCommand(baseCommand)
+                                invoker?.Execute()
+                                _subject.NotifyObserver()
+                                Me.Close()
                             End If
                         End If
+                    Else
+                        MessageBox.Show("Vendor exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        Exit Sub
+                    End If
 
+                ElseIf _data IsNot Nothing Then
+
+                    If BaseVendor.NameExist(CompanyComboBox.SelectedItem("id"), result(1)(1), result(2)(1)) = 1 Then
+
+                        If BaseVendor.IdNameExist(_data.Item("id"), CompanyComboBox.SelectedItem("id"), result(1)(1), result(2)(1)) = 1 Then
+                            If BaseVendor.ContactNumberExists(result(3)(1)) = 1 Then
+                                If BaseVendor.NameBelongstoNumber(result(1)(1), result(2)(1), result(3)(0)) = 0 Then
+                                    invoker = New UpdateCommand(baseCommand)
+                                    invoker?.Execute()
+                                    _subject.NotifyObserver()
+                                    Me.Close()
+                                Else
+                                    MessageBox.Show("Phone number exist!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                    Exit Sub
+                                End If
+                            Else
+                                invoker = New UpdateCommand(baseCommand)
+                                invoker?.Execute()
+                                _subject.NotifyObserver()
+                                Me.Close()
+                            End If
+                        Else
+                            MessageBox.Show("Vendor exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Exit Sub
+                        End If
+
+                    Else
+                        If BaseVendor.NameBelongstoNumber(result(1)(1), result(2)(1), result(3)(0)) = 0 Then
+                            MessageBox.Show("Phone number exist!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Exit Sub
+                        Else
+                            invoker = New UpdateCommand(baseCommand)
+                            invoker?.Execute()
+                            _subject.NotifyObserver()
+                            Me.Close()
+                        End If
 
                     End If
 
-
-                    invoker = New UpdateCommand(baseCommand)
-                    invoker?.Execute()
-                    _subject.NotifyObserver()
-                    Me.Close()
                 Else
-                    MessageBox.Show("Vendor exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    MessageBox.Show("Vendor exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Return
                 End If
-
             Else
                 MessageBox.Show("Please provide valid inputs.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Return
             End If
         Catch ex As Exception
+
         End Try
     End Sub
 End Class

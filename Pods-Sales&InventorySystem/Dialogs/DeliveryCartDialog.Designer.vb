@@ -22,9 +22,9 @@ Partial Class DeliveryCartDialog
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.AccountHeaderLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -220,7 +220,6 @@ Partial Class DeliveryCartDialog
         Me.TransactionDeliveryTextBox.Margin = New System.Windows.Forms.Padding(3, 3, 15, 3)
         Me.TransactionDeliveryTextBox.MaxLength = 50
         Me.TransactionDeliveryTextBox.Name = "TransactionDeliveryTextBox"
-        Me.TransactionDeliveryTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.TransactionDeliveryTextBox.PlaceholderText = ""
         Me.TransactionDeliveryTextBox.SelectedText = ""
         Me.TransactionDeliveryTextBox.ShortcutsEnabled = False
@@ -395,25 +394,25 @@ Partial Class DeliveryCartDialog
         Me.DeliveryDataGridView.AllowUserToDeleteRows = False
         Me.DeliveryDataGridView.AllowUserToResizeColumns = False
         Me.DeliveryDataGridView.AllowUserToResizeRows = False
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
-        Me.DeliveryDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle4
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DeliveryDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle7.BackColor = System.Drawing.Color.White
+        Me.DeliveryDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DeliveryDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle8
         Me.DeliveryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.product, Me.expiry_date, Me.batch_number, Me.price, Me.cost_price, Me.quantity, Me.total, Me.target, Me.target2, Me.EDIT})
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DeliveryDataGridView.DefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle9.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DeliveryDataGridView.DefaultCellStyle = DataGridViewCellStyle9
         Me.DeliveryDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DeliveryDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DeliveryDataGridView.Location = New System.Drawing.Point(0, 150)
@@ -579,9 +578,10 @@ Partial Class DeliveryCartDialog
         Me.FlowLayoutPanel3.Controls.Add(Me.Guna2HtmlLabel5)
         Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
-        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(341, 3)
+        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(338, 0)
+        Me.FlowLayoutPanel3.Margin = New System.Windows.Forms.Padding(0)
         Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
-        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(623, 44)
+        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(629, 50)
         Me.FlowLayoutPanel3.TabIndex = 5
         '
         'AddDeductionButton
@@ -596,7 +596,7 @@ Partial Class DeliveryCartDialog
         Me.AddDeductionButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.AddDeductionButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.AddDeductionButton.ForeColor = System.Drawing.Color.White
-        Me.AddDeductionButton.Location = New System.Drawing.Point(470, 7)
+        Me.AddDeductionButton.Location = New System.Drawing.Point(476, 7)
         Me.AddDeductionButton.Margin = New System.Windows.Forms.Padding(10, 7, 3, 3)
         Me.AddDeductionButton.Name = "AddDeductionButton"
         Me.AddDeductionButton.Size = New System.Drawing.Size(150, 35)
@@ -615,7 +615,7 @@ Partial Class DeliveryCartDialog
         Me.Guna2Button1.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.Guna2Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.Guna2Button1.ForeColor = System.Drawing.Color.White
-        Me.Guna2Button1.Location = New System.Drawing.Point(307, 7)
+        Me.Guna2Button1.Location = New System.Drawing.Point(313, 7)
         Me.Guna2Button1.Margin = New System.Windows.Forms.Padding(10, 7, 3, 3)
         Me.Guna2Button1.Name = "Guna2Button1"
         Me.Guna2Button1.Size = New System.Drawing.Size(150, 35)
@@ -635,10 +635,10 @@ Partial Class DeliveryCartDialog
         Me.Guna2TextBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.Guna2TextBox1.ForeColor = System.Drawing.Color.Black
         Me.Guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox1.Location = New System.Drawing.Point(128, 3)
+        Me.Guna2TextBox1.Location = New System.Drawing.Point(134, 6)
+        Me.Guna2TextBox1.Margin = New System.Windows.Forms.Padding(3, 6, 3, 3)
         Me.Guna2TextBox1.MaxLength = 50
         Me.Guna2TextBox1.Name = "Guna2TextBox1"
-        Me.Guna2TextBox1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.Guna2TextBox1.PlaceholderText = ""
         Me.Guna2TextBox1.SelectedText = ""
         Me.Guna2TextBox1.ShortcutsEnabled = False
@@ -649,7 +649,7 @@ Partial Class DeliveryCartDialog
         '
         Me.Guna2HtmlLabel5.Anchor = System.Windows.Forms.AnchorStyles.Left
         Me.Guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2HtmlLabel5.Location = New System.Drawing.Point(53, 15)
+        Me.Guna2HtmlLabel5.Location = New System.Drawing.Point(59, 15)
         Me.Guna2HtmlLabel5.Name = "Guna2HtmlLabel5"
         Me.Guna2HtmlLabel5.Size = New System.Drawing.Size(69, 15)
         Me.Guna2HtmlLabel5.TabIndex = 10
