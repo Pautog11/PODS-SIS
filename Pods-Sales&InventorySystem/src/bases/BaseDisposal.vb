@@ -4,10 +4,20 @@ Public Class BaseDisposal
     Implements ICommandPanel
 
     Private ReadOnly _data As Dictionary(Of String, String)
+    Private _item As IList(Of Dictionary(Of String, String))
 
     Public Sub New(data As Dictionary(Of String, String))
         _data = data
     End Sub
+
+    Public Property Items() As IList(Of Dictionary(Of String, String))
+        Set(value As IList(Of Dictionary(Of String, String)))
+            _item = value
+        End Set
+        Get
+            Return _item
+        End Get
+    End Property
 
     Public Sub Delete() Implements ICommandPanel.Delete
         Throw New NotImplementedException()
@@ -18,16 +28,58 @@ Public Class BaseDisposal
     End Sub
 
     Public Sub Add() Implements ICommandPanel.Add
-        Throw New NotImplementedException()
+        Dim transaction As SqlTransaction = SqlConnectionPods.GetInstance.BeginTransaction()
+        Try
+            _sqlCommand = New SqlCommand("INSERT INTO tbldisposal (reference_number, account_id, total) VALUES (@reference_number, @account_id, @total); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
+            _sqlCommand.Parameters.AddWithValue("@reference_number", _data.Item("reference_number"))
+            _sqlCommand.Parameters.AddWithValue("@account_id", My.Settings.myId)
+            _sqlCommand.Parameters.AddWithValue("@total", _data.Item("total"))
+
+            Dim disposal_id As Integer = Convert.ToInt32(_sqlCommand.ExecuteScalar())
+
+            For Each item In _item
+                If item IsNot Nothing AndAlso item.Count > 0 Then
+                    _sqlCommand.Parameters.Clear()
+                    _sqlCommand = New SqlCommand("INSERT INTO tbldisposal_items (disposal_id, product_id, drc, batch_number, expiration_date, price, quantity) VALUES (@disposal_id, @product_id, @drc, @batch_number, @expiration_date, @price, @quantity)", _sqlConnection, transaction)
+                    _sqlCommand.Parameters.AddWithValue("@disposal_id", disposal_id)
+                    _sqlCommand.Parameters.AddWithValue("@product_id", item("product_id"))
+                    _sqlCommand.Parameters.AddWithValue("@drc", item("drc"))
+                    _sqlCommand.Parameters.AddWithValue("@batch_number", item("batch_number"))
+                    _sqlCommand.Parameters.AddWithValue("@expiration_date", item("expiration_date"))
+                    _sqlCommand.Parameters.AddWithValue("@price", item("price"))
+                    _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
+                    If _sqlCommand.ExecuteNonQuery() <= 0 Then
+                        MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    End If
+                End If
+            Next
+
+            For Each item In _item
+                _sqlCommand.Parameters.Clear()
+                _sqlCommand = New SqlCommand("UPDATE tbldeliveries_items SET inventory_quantity = inventory_quantity - @inventory_quantity WHERE id = @id", _sqlConnection, transaction)
+                _sqlCommand.Parameters.AddWithValue("@inventory_quantity", item("quantity"))
+                _sqlCommand.Parameters.AddWithValue("@id", item("delivery_items_id"))
+
+                If _sqlCommand.ExecuteNonQuery() <= 0 Then
+                    MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                End If
+            Next
+
+            transaction.Commit()
+            MessageBox.Show("Dispose has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Catch ex As Exception
+            transaction.Rollback()
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End Try
     End Sub
 
     Public Shared Function SelectAllProducts() As DataTable
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT a.id as devitemsid AS DEVITEMSID, 
-                                         b.id as devid AS DEVID, 
-                                         c.id as pid AS PID, 
+            cmd = New SqlCommand("SELECT a.id AS DEVITEMSID, 
+                                         b.id AS DEVID, 
+                                         c.id AS PID, 
                                          product_name AS NAME, 
                                          batch_number AS 'BATCH NUMBER', 
                                          FORMAT(expiration_date, 'yyyy-MM-dd') AS 'EXPIRATION DATE',

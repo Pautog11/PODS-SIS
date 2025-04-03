@@ -291,18 +291,6 @@
     <Compile Include="Dialogs\DeliveryProductDialog.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dialogs\DeliveryPulloutCart.Designer.vb">
-      <DependentUpon>DeliveryPulloutCart.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\DeliveryPulloutCart.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialogs\DeliveryPullOutCartView.Designer.vb">
-      <DependentUpon>DeliveryPullOutCartView.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\DeliveryPullOutCartView.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Dialogs\DiscountDialog.Designer.vb">
       <DependentUpon>DiscountDialog.vb</DependentUpon>
     </Compile>
@@ -753,12 +741,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\DeliveryProductDialog.resx">
       <DependentUpon>DeliveryProductDialog.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\DeliveryPulloutCart.resx">
-      <DependentUpon>DeliveryPulloutCart.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dialogs\DeliveryPullOutCartView.resx">
-      <DependentUpon>DeliveryPullOutCartView.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\DiscountDialog.resx">
       <DependentUpon>DiscountDialog.vb</DependentUpon>

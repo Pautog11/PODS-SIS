@@ -8,7 +8,7 @@
             Case InvoiceType.Transaction
                 Return String.Format("PODST-{0}-{1}", dateString, timeString)
             Case InvoiceType.Disposal
-                Return String.Format("DISPO-{0}-{1}", dateString, timeString)
+                Return String.Format("PODSD-{0}-{1}", dateString, timeString)
         End Select
         Return Nothing
     End Function

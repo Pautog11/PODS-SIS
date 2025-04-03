@@ -121,7 +121,6 @@ C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sa
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Transaction.resources
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.ReturnAndPullout.resources
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.TransactionDialog.resources
-C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.DeliveryPulloutCart.resources
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.PullOutProductDialog.resources
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.PullOuts.resources
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\Microsoft.ReportViewer.Common.dll
@@ -184,7 +183,6 @@ C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sa
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Reports.resources
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.VatDialog.resources
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.Discount.resources
-C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.DeliveryPullOutCartView.resources
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\LiveCharts.dll
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\LiveCharts.WinForms.dll
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\LiveCharts.Wpf.dll
