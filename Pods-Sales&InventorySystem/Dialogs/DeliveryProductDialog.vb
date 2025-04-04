@@ -130,6 +130,29 @@ Public Class DeliveryProductDialog
 
                 For Each item As DataGridViewRow In _parent.DeliveryDataGridView.Rows
                     If DateTimePicker.Enabled = True Then
+
+                        If AddDeliveryButton.Text = "Update" Then
+                            If item.Cells("target").Value.ToString() = _data.Item("target").ToString() Then
+                                item.Cells("expiry_date").Value = exd.ToString("yyyy-MM-dd")
+                                item.Cells("batch_number").Value = BatchTextBox.Text
+                                item.Cells("price").Value = Decimal.Parse(SellingTextBox.Text).ToString("F2")
+                                item.Cells("cost_price").Value = Decimal.Parse(CostTextBox.Text).ToString("F2")
+                                item.Cells("quantity").Value = CInt(QuantityTextBox.Text)
+                                item.Cells("total").Value = Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text)
+                                is_existing = True
+                                Exit For
+                            End If
+                        End If
+
+
+                        'MsgBox(_data.Item("target"))
+                        'item.Cells("expiry_date").Value = exd.ToString("yyyy-MM-dd") AndAlso item.Cells("batch_number").Value = BatchTextBox.Text AndAlso
+                        'MsgBox(_data.Item("target"))
+
+                        'If _data.Item("target") Is Nothing Then
+                        '    Exit For
+                        'End If
+                        'item.Cells("target").Value.ToString() = _data.Item("target").ToString()
                         If item.Cells("product").Value.ToString() = ProductTextBox.Text AndAlso item.Cells("expiry_date").Value = exd.ToString("yyyy-MM-dd") AndAlso item.Cells("batch_number").Value = BatchTextBox.Text Then
                             If DateTimePicker.Enabled = True Then
                                 item.Cells("expiry_date").Value = exd.ToString("yyyy-MM-dd")
@@ -151,14 +174,13 @@ Public Class DeliveryProductDialog
                                     item.Cells("cost_price").Value = Decimal.Parse(CostTextBox.Text).ToString("F2")
                                     item.Cells("quantity").Value = quantity
                                     item.Cells("total").Value = Decimal.Parse(CostTextBox.Text) * CInt(quantity)
-
                                     switch = 1
                                 End If
                             Else
                                 'if exist
                                 Dim quantity As Integer = CInt(QuantityTextBox.Text) + item.Cells("quantity").Value
                                 item.Cells("price").Value = Decimal.Parse(SellingTextBox.Text).ToString("F2") 'sellingprice.ToString("F2")
-                                item.Cells("cost_price").Value = Decimal.Parse(CostTextBox.Text).ToString("F2") 'costprice.ToString("F2")
+                                item.Cells("cost_price").Value = Decimal.Parse(CostTextBox.Text).ToString("F2") 'costprice.ToString("F2
                                 item.Cells("quantity").Value = quantity
                                 item.Cells("total").Value = Decimal.Parse(CostTextBox.Text) * CInt(quantity)
                             End If

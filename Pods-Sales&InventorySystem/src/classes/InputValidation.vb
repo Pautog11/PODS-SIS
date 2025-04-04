@@ -109,7 +109,7 @@ Public Class InputValidation
 
                     ' Check if the cleaned input contains only numbers (and no letters)
                     If cleanedInput.All(Function(c) Char.IsDigit(c) OrElse Char.IsWhiteSpace(c)) Then
-                        MessageBox.Show("Input cannot contain numbers only. It must include at least one letter.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        MessageBox.Show("Invalid input!.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         Exit Select
                     End If
 
@@ -129,11 +129,11 @@ Public Class InputValidation
                         ' Return the cleaned, properly capitalized string
                         Return {True, String.Join(" ", nameString)}
                     Else
-                        MessageBox.Show("Input is too short or invalid. Please provide a valid input.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        MessageBox.Show("Invalid input!.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         Exit Select
                     End If
                 Else
-                    MessageBox.Show("Input is empty or only contains spaces. Please provide a valid input.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    MessageBox.Show("Invalid input!.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                     Exit Select
                 End If
 

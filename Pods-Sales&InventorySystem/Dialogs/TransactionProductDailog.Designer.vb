@@ -54,8 +54,8 @@ Partial Class TransactionProductDailog
         Me.QuantityTextBox.ForeColor = System.Drawing.Color.Black
         Me.QuantityTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.QuantityTextBox.Location = New System.Drawing.Point(27, 269)
+        Me.QuantityTextBox.MaxLength = 4
         Me.QuantityTextBox.Name = "QuantityTextBox"
-        Me.QuantityTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.QuantityTextBox.PlaceholderText = "0"
         Me.QuantityTextBox.SelectedText = ""
         Me.QuantityTextBox.ShortcutsEnabled = False
@@ -78,7 +78,6 @@ Partial Class TransactionProductDailog
         Me.PriceTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.PriceTextBox.Location = New System.Drawing.Point(27, 159)
         Me.PriceTextBox.Name = "PriceTextBox"
-        Me.PriceTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.PriceTextBox.PlaceholderText = "0.00"
         Me.PriceTextBox.ReadOnly = True
         Me.PriceTextBox.SelectedText = ""
@@ -121,7 +120,6 @@ Partial Class TransactionProductDailog
         Me.StocksTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.StocksTextBox.Location = New System.Drawing.Point(27, 214)
         Me.StocksTextBox.Name = "StocksTextBox"
-        Me.StocksTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.StocksTextBox.PlaceholderText = "0"
         Me.StocksTextBox.ReadOnly = True
         Me.StocksTextBox.SelectedText = ""
@@ -155,7 +153,6 @@ Partial Class TransactionProductDailog
         Me.BarcodeTextBox.Location = New System.Drawing.Point(27, 30)
         Me.BarcodeTextBox.MaxLength = 13
         Me.BarcodeTextBox.Name = "BarcodeTextBox"
-        Me.BarcodeTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.BarcodeTextBox.PlaceholderText = "Scan Here"
         Me.BarcodeTextBox.SelectedText = ""
         Me.BarcodeTextBox.ShortcutsEnabled = False
@@ -178,7 +175,6 @@ Partial Class TransactionProductDailog
         Me.ProductNameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ProductNameTextBox.Location = New System.Drawing.Point(27, 104)
         Me.ProductNameTextBox.Name = "ProductNameTextBox"
-        Me.ProductNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ProductNameTextBox.PlaceholderText = "Ex. (Biogesic)"
         Me.ProductNameTextBox.ReadOnly = True
         Me.ProductNameTextBox.SelectedText = ""

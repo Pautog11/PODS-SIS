@@ -222,7 +222,6 @@ Partial Class PosPanel
         Me.SubtotalTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.SubtotalTextBox.Location = New System.Drawing.Point(104, 173)
         Me.SubtotalTextBox.Name = "SubtotalTextBox"
-        Me.SubtotalTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.SubtotalTextBox.PlaceholderText = ""
         Me.SubtotalTextBox.ReadOnly = True
         Me.SubtotalTextBox.SelectedText = ""
@@ -255,7 +254,6 @@ Partial Class PosPanel
         Me.VatTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.VatTextBox.Location = New System.Drawing.Point(104, 131)
         Me.VatTextBox.Name = "VatTextBox"
-        Me.VatTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.VatTextBox.PlaceholderText = ""
         Me.VatTextBox.ReadOnly = True
         Me.VatTextBox.SelectedText = ""
@@ -288,7 +286,6 @@ Partial Class PosPanel
         Me.TotalTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TotalTextBox.Location = New System.Drawing.Point(104, 257)
         Me.TotalTextBox.Name = "TotalTextBox"
-        Me.TotalTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.TotalTextBox.PlaceholderText = ""
         Me.TotalTextBox.ReadOnly = True
         Me.TotalTextBox.SelectedText = ""
@@ -320,9 +317,8 @@ Partial Class PosPanel
         Me.CashTextBox.ForeColor = System.Drawing.Color.Black
         Me.CashTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CashTextBox.Location = New System.Drawing.Point(104, 299)
-        Me.CashTextBox.MaxLength = 6
+        Me.CashTextBox.MaxLength = 15
         Me.CashTextBox.Name = "CashTextBox"
-        Me.CashTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CashTextBox.PlaceholderText = ""
         Me.CashTextBox.SelectedText = ""
         Me.CashTextBox.ShortcutsEnabled = False
@@ -354,7 +350,6 @@ Partial Class PosPanel
         Me.ChangeTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ChangeTextBox.Location = New System.Drawing.Point(104, 341)
         Me.ChangeTextBox.Name = "ChangeTextBox"
-        Me.ChangeTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ChangeTextBox.PlaceholderText = ""
         Me.ChangeTextBox.ReadOnly = True
         Me.ChangeTextBox.SelectedText = ""
@@ -377,7 +372,6 @@ Partial Class PosPanel
         Me.VatableTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.VatableTextBox.Location = New System.Drawing.Point(104, 89)
         Me.VatableTextBox.Name = "VatableTextBox"
-        Me.VatableTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.VatableTextBox.PlaceholderText = ""
         Me.VatableTextBox.ReadOnly = True
         Me.VatableTextBox.SelectedText = ""
@@ -448,7 +442,6 @@ Partial Class PosPanel
         Me.SearchTextbox.Location = New System.Drawing.Point(9, 11)
         Me.SearchTextbox.MaxLength = 50
         Me.SearchTextbox.Name = "SearchTextbox"
-        Me.SearchTextbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.SearchTextbox.PlaceholderText = "Search"
         Me.SearchTextbox.SelectedText = ""
         Me.SearchTextbox.ShortcutsEnabled = False

@@ -125,11 +125,12 @@ Partial Class Login
         Me.Guna2CheckBox1.CheckedState.BorderRadius = 0
         Me.Guna2CheckBox1.CheckedState.BorderThickness = 0
         Me.Guna2CheckBox1.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.Guna2CheckBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Guna2CheckBox1.Location = New System.Drawing.Point(27, 197)
         Me.Guna2CheckBox1.Name = "Guna2CheckBox1"
-        Me.Guna2CheckBox1.Size = New System.Drawing.Size(101, 17)
+        Me.Guna2CheckBox1.Size = New System.Drawing.Size(99, 17)
         Me.Guna2CheckBox1.TabIndex = 3
-        Me.Guna2CheckBox1.Text = "Show password"
+        Me.Guna2CheckBox1.Text = "show password"
         Me.Guna2CheckBox1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
         Me.Guna2CheckBox1.UncheckedState.BorderRadius = 0
         Me.Guna2CheckBox1.UncheckedState.BorderThickness = 0
@@ -170,7 +171,6 @@ Partial Class Login
         Me.PasswordTextBox.Location = New System.Drawing.Point(23, 151)
         Me.PasswordTextBox.MaxLength = 50
         Me.PasswordTextBox.Name = "PasswordTextBox"
-        Me.PasswordTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.PasswordTextBox.PlaceholderText = ""
         Me.PasswordTextBox.SelectedText = ""
         Me.PasswordTextBox.ShortcutsEnabled = False
@@ -195,7 +195,6 @@ Partial Class Login
         Me.UsernameTextBox.Location = New System.Drawing.Point(23, 96)
         Me.UsernameTextBox.MaxLength = 50
         Me.UsernameTextBox.Name = "UsernameTextBox"
-        Me.UsernameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.UsernameTextBox.PlaceholderText = ""
         Me.UsernameTextBox.SelectedText = ""
         Me.UsernameTextBox.ShortcutsEnabled = False

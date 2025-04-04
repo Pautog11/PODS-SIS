@@ -11,7 +11,7 @@ Public Class FinancialReport
             _subject?.RegisterObserver(Me)
             _subject?.NotifyObserver()
 
-            DateFrom.Value = DateTime.Now
+            DateFrom.Value = DateTime.Now.AddDays(-1)
             DateTo.Value = DateTime.Now
 
             'DateFrom.MaxDate = DateTo.Value
@@ -34,8 +34,8 @@ Public Class FinancialReport
     Private Sub PrintButton_Click(sender As Object, e As EventArgs) Handles PrintButton.Click
         Try
             PrintButton.Enabled = False
-            Dim startDate As DateTime = DateFrom.Value.ToString("yyyy-MM-dd")
-            Dim endDate As DateTime = DateTo.Value.ToString("yyyy-MM-dd")
+            Dim startDate As DateTime = DateFrom.Value.ToString("MMM dd yyyy")
+            Dim endDate As DateTime = DateTo.Value.ToString("MMM dd yyyy")
             Using dialog As New FinancialReportViewer(startDate, endDate)
                 dialog.ShowDialog()
             End Using

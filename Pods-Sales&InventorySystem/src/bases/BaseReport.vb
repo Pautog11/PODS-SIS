@@ -68,4 +68,22 @@ Public Class BaseReport
             Return New DataSet
         End Try
     End Function
+
+    Public Shared Function GetDisposalByDate(date1 As Date, date2 As Date) As DataSet
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("SELECT reference_number, CONCAT(first_name, ' ', last_name) as name, total, date FROM tbldisposal a
+                                  JOIN tblaccounts b ON a.account_id = b.id", conn)
+            'cmd.Parameters.AddWithValue("@start_date", date1)
+            'cmd.Parameters.AddWithValue("@end_date", date2)
+            Dim dTable As New DataSet
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable, "DT_DisposalReport")
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataSet
+        End Try
+    End Function
 End Class

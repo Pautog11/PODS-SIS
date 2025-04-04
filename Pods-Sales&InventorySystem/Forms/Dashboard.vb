@@ -38,7 +38,7 @@
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
         Try
             Accounts.Text = BaseAccount.ScalarAccount
-            Sales.Text = BaseTransaction.ScalarSales
+            Sales.Text = BaseTransaction.ScalarSales.ToString("N2")
             Label3.Text = BaseTransaction.ScalarTransaction
 
             NotificationDataGridView.Rows.Clear()
@@ -93,7 +93,7 @@
         NotifyObserver()
     End Sub
 
-    Private Sub Guna2ControlBox2_Click(sender As Object, e As EventArgs) Handles Guna2ControlBox2.Click
+    Private Sub Guna2ControlBox2_Click(sender As Object, e As EventArgs) 
         Try
             Application.Exit()
         Catch ex As Exception

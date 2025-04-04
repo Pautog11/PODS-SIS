@@ -93,7 +93,7 @@ Public Class DisposalCartDialog
                 '    MessageBox.Show("Transaction reference is already exist!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 'End If
             Else
-                MessageBox.Show("Please select product first.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                MessageBox.Show("Please select a product first.!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
         Catch ex As Exception
 

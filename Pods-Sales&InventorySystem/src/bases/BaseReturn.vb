@@ -216,7 +216,9 @@ Public Class BaseReturn
 										   remaining_quantity, 
 										   batch_number, 
 							               FORMAT(expiration_date, 'yyyy-MM-dd') AS expiration_date, 
-										   d.delivery_id 
+										   d.delivery_id,
+                                           d.returned,
+                                           a.transaction_id
 									 FROM tblreturns a
                                      JOIN tblreturn_items b ON a.id = b.tblreturn_id
 									 JOIN tblproducts c ON b.product_id = c.id
@@ -233,7 +235,9 @@ Public Class BaseReturn
                                               remaining_quantity, 
                                               batch_number, 
                                               expiration_date, 
-                                              d.delivery_id", conn)
+                                              d.delivery_id,
+                                              d.returned,
+                                              a.transaction_id", conn)
             cmd.Parameters.AddWithValue("@id", id)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
@@ -280,7 +284,18 @@ Public Class BaseReturn
                 MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
 
+            cmd.Parameters.Clear()
+            cmd = New SqlCommand("UPDATE getrev SET returned = returned - @returned WHERE delivery_items_id = @delivery_items_id AND transaction_id = @transaction_id", conn, transaction)
+            cmd.Parameters.AddWithValue("@returned", _data.item("inventory_quantity"))
+            cmd.Parameters.AddWithValue("@delivery_items_id", _data.item("delivery_items_id"))
+            cmd.Parameters.AddWithValue("@transaction_id", _data.item("tran_id"))
+
+            If cmd.ExecuteNonQuery() <= 0 Then
+                MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+
             transaction.Commit()
+            MessageBox.Show("Successfully added to the inventory.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Return Nothing
         Catch ex As Exception
             transaction.Rollback()

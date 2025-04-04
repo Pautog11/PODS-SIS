@@ -150,7 +150,6 @@ Partial Class DeliveryProductDialog
         Me.BatchTextBox.Location = New System.Drawing.Point(29, 291)
         Me.BatchTextBox.MaxLength = 20
         Me.BatchTextBox.Name = "BatchTextBox"
-        Me.BatchTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.BatchTextBox.PlaceholderText = "0"
         Me.BatchTextBox.SelectedText = ""
         Me.BatchTextBox.ShortcutsEnabled = False
@@ -174,7 +173,6 @@ Partial Class DeliveryProductDialog
         Me.ProductTextBox.Location = New System.Drawing.Point(29, 109)
         Me.ProductTextBox.MaxLength = 13
         Me.ProductTextBox.Name = "ProductTextBox"
-        Me.ProductTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ProductTextBox.PlaceholderText = "Ex. Biogesic"
         Me.ProductTextBox.SelectedText = ""
         Me.ProductTextBox.ShortcutsEnabled = False
@@ -219,9 +217,8 @@ Partial Class DeliveryProductDialog
         Me.SellingTextBox.ForeColor = System.Drawing.Color.Black
         Me.SellingTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.SellingTextBox.Location = New System.Drawing.Point(29, 172)
-        Me.SellingTextBox.MaxLength = 13
+        Me.SellingTextBox.MaxLength = 7
         Me.SellingTextBox.Name = "SellingTextBox"
-        Me.SellingTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.SellingTextBox.PlaceholderText = "0.00"
         Me.SellingTextBox.SelectedText = ""
         Me.SellingTextBox.ShortcutsEnabled = False
@@ -309,7 +306,6 @@ Partial Class DeliveryProductDialog
         Me.QuantityTextBox.Location = New System.Drawing.Point(29, 231)
         Me.QuantityTextBox.MaxLength = 3
         Me.QuantityTextBox.Name = "QuantityTextBox"
-        Me.QuantityTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.QuantityTextBox.PlaceholderText = "0"
         Me.QuantityTextBox.SelectedText = ""
         Me.QuantityTextBox.ShortcutsEnabled = False
@@ -331,8 +327,8 @@ Partial Class DeliveryProductDialog
         Me.CostTextBox.ForeColor = System.Drawing.Color.Black
         Me.CostTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CostTextBox.Location = New System.Drawing.Point(168, 172)
+        Me.CostTextBox.MaxLength = 7
         Me.CostTextBox.Name = "CostTextBox"
-        Me.CostTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CostTextBox.PlaceholderText = "0.00"
         Me.CostTextBox.SelectedText = ""
         Me.CostTextBox.ShortcutsEnabled = False
@@ -356,7 +352,6 @@ Partial Class DeliveryProductDialog
         Me.BarcodeTextBox.Location = New System.Drawing.Point(29, 33)
         Me.BarcodeTextBox.MaxLength = 13
         Me.BarcodeTextBox.Name = "BarcodeTextBox"
-        Me.BarcodeTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.BarcodeTextBox.PlaceholderText = "Scan Here"
         Me.BarcodeTextBox.SelectedText = ""
         Me.BarcodeTextBox.ShortcutsEnabled = False

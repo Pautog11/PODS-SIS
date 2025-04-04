@@ -16,4 +16,10 @@
         End If
     End Sub
 
+    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
+        MsgBox(Guna2DateTimePicker1.Value)
+        MsgBox(Guna2DateTimePicker1.Value.ToString("MMM dd yyyy"))
+        'MsgBox(Guna2DateTimePicker1.CustomFormat = "yyyy-MM-dd")
+
+    End Sub
 End Class

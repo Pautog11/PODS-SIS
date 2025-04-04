@@ -100,6 +100,7 @@ Public Class BaseReports
             Return New DataTable
         End Try
     End Function
+
     Public Shared Function GetSalesChart(year As Integer) As DataTable
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance

@@ -10,17 +10,18 @@ Public Class CashierReport
             _subject = Application.OpenForms.OfType(Of Dashboard).FirstOrDefault
             _subject?.RegisterObserver(Me)
             _subject?.NotifyObserver()
+
+            Dim dt As DataTable = BaseReports.FetchAccount
+            CashierNameComboBox.DataSource = dt.DefaultView
+            CashierNameComboBox.DisplayMember = "name"
+            CashierNameComboBox.ValueMember = "id"
+
+            'DatePicker.MaxDate = DateTime.Now
+            'DatePicker.Value = DateTime.Now
+
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Observer Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
-
-        Dim dt As DataTable = BaseReports.FetchAccount
-        CashierNameComboBox.DataSource = dt.DefaultView
-        CashierNameComboBox.DisplayMember = "name"
-        CashierNameComboBox.ValueMember = "id"
-
-        DatePicker.MaxDate = Date.Now
-        DatePicker.Value = Date.Now
     End Sub
 
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
@@ -58,7 +59,7 @@ Public Class CashierReport
                                    FROM tbltransactions t
                                    JOIN tblaccounts a ON t.account_id = a.id
                                    WHERE CONVERT(DATE, t.date) = @startDate AND t.account_id = @cashierNameCmb", conn)
-            cmd.Parameters.AddWithValue("@startDate", DatePicker.Value.ToString("yyyy-MM-dd"))
+            cmd.Parameters.AddWithValue("@startDate", DatePicker.Value.ToString("MMM dd yyyy"))
             cmd.Parameters.AddWithValue("@cashierNameCmb", CashierNameComboBox.SelectedValue)
 
             Dim dTable As New DataTable
@@ -70,9 +71,9 @@ Public Class CashierReport
         End Try
     End Sub
 
-    Private Sub CashierNameComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CashierNameComboBox.SelectionChangeCommitted
-        'MsgBox(CashierNameComboBox.SelectedItem("id"))
-    End Sub
+    'Private Sub CashierNameComboBox_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CashierNameComboBox.SelectionChangeCommitted
+    '    'MsgBox(CashierNameComboBox.SelectedItem("id"))
+    'End Sub
 
     Private Sub PrintButton_Click(sender As Object, e As EventArgs) Handles PrintButton.Click
         Try

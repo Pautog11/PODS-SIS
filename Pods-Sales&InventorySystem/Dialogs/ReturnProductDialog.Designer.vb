@@ -24,11 +24,9 @@ Partial Class ReturnProductDialog
     Private Sub InitializeComponent()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.SaveButton = New Guna.UI2.WinForms.Guna2Button()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PriceTextBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.QuantityTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.BatchComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -36,6 +34,8 @@ Partial Class ReturnProductDialog
         Me.Label3 = New System.Windows.Forms.Label()
         Me.DesiredQuantityTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2ComboBox1 = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Guna2ComboBox2 = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -44,10 +44,10 @@ Partial Class ReturnProductDialog
         Me.FlowLayoutPanel1.Controls.Add(Me.SaveButton)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 372)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 322)
         Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(330, 51)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(314, 51)
         Me.FlowLayoutPanel1.TabIndex = 37
         '
         'SaveButton
@@ -62,26 +62,17 @@ Partial Class ReturnProductDialog
         Me.SaveButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.SaveButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.SaveButton.ForeColor = System.Drawing.Color.White
-        Me.SaveButton.Location = New System.Drawing.Point(175, 7)
+        Me.SaveButton.Location = New System.Drawing.Point(159, 7)
         Me.SaveButton.Margin = New System.Windows.Forms.Padding(3, 7, 5, 3)
         Me.SaveButton.Name = "SaveButton"
         Me.SaveButton.Size = New System.Drawing.Size(150, 35)
         Me.SaveButton.TabIndex = 7
         Me.SaveButton.Text = "Add to Inventory"
         '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(26, 122)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(92, 13)
-        Me.Label4.TabIndex = 36
-        Me.Label4.Text = "Available Quantity"
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(26, 66)
+        Me.Label1.Location = New System.Drawing.Point(24, 66)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(31, 13)
         Me.Label1.TabIndex = 34
@@ -90,7 +81,7 @@ Partial Class ReturnProductDialog
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(26, 12)
+        Me.Label2.Location = New System.Drawing.Point(24, 12)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(44, 13)
         Me.Label2.TabIndex = 33
@@ -110,10 +101,9 @@ Partial Class ReturnProductDialog
         Me.PriceTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.PriceTextBox.ForeColor = System.Drawing.Color.Black
         Me.PriceTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.PriceTextBox.Location = New System.Drawing.Point(29, 82)
+        Me.PriceTextBox.Location = New System.Drawing.Point(27, 82)
         Me.PriceTextBox.MaxLength = 4
         Me.PriceTextBox.Name = "PriceTextBox"
-        Me.PriceTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.PriceTextBox.PlaceholderText = "0.00"
         Me.PriceTextBox.ReadOnly = True
         Me.PriceTextBox.SelectedText = ""
@@ -121,35 +111,10 @@ Partial Class ReturnProductDialog
         Me.PriceTextBox.Size = New System.Drawing.Size(262, 36)
         Me.PriceTextBox.TabIndex = 32
         '
-        'QuantityTextBox
-        '
-        Me.QuantityTextBox.BorderColor = System.Drawing.Color.Gray
-        Me.QuantityTextBox.BorderRadius = 10
-        Me.QuantityTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.QuantityTextBox.DefaultText = ""
-        Me.QuantityTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.QuantityTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.QuantityTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.QuantityTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.QuantityTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.QuantityTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.QuantityTextBox.ForeColor = System.Drawing.Color.Black
-        Me.QuantityTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.QuantityTextBox.Location = New System.Drawing.Point(29, 139)
-        Me.QuantityTextBox.MaxLength = 4
-        Me.QuantityTextBox.Name = "QuantityTextBox"
-        Me.QuantityTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.QuantityTextBox.PlaceholderText = "0"
-        Me.QuantityTextBox.ReadOnly = True
-        Me.QuantityTextBox.SelectedText = ""
-        Me.QuantityTextBox.ShortcutsEnabled = False
-        Me.QuantityTextBox.Size = New System.Drawing.Size(262, 36)
-        Me.QuantityTextBox.TabIndex = 31
-        '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(26, 180)
+        Me.Label5.Location = New System.Drawing.Point(24, 126)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(75, 13)
         Me.Label5.TabIndex = 39
@@ -166,7 +131,7 @@ Partial Class ReturnProductDialog
         Me.BatchComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.BatchComboBox.ForeColor = System.Drawing.Color.Black
         Me.BatchComboBox.ItemHeight = 30
-        Me.BatchComboBox.Location = New System.Drawing.Point(29, 197)
+        Me.BatchComboBox.Location = New System.Drawing.Point(27, 143)
         Me.BatchComboBox.Name = "BatchComboBox"
         Me.BatchComboBox.Size = New System.Drawing.Size(262, 36)
         Me.BatchComboBox.TabIndex = 38
@@ -174,7 +139,7 @@ Partial Class ReturnProductDialog
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(26, 238)
+        Me.Label6.Location = New System.Drawing.Point(24, 184)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(79, 13)
         Me.Label6.TabIndex = 41
@@ -194,10 +159,9 @@ Partial Class ReturnProductDialog
         Me.ProductTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.ProductTextBox.ForeColor = System.Drawing.Color.Black
         Me.ProductTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ProductTextBox.Location = New System.Drawing.Point(29, 28)
+        Me.ProductTextBox.Location = New System.Drawing.Point(27, 28)
         Me.ProductTextBox.MaxLength = 4
         Me.ProductTextBox.Name = "ProductTextBox"
-        Me.ProductTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ProductTextBox.PlaceholderText = ""
         Me.ProductTextBox.ReadOnly = True
         Me.ProductTextBox.SelectedText = ""
@@ -208,7 +172,7 @@ Partial Class ReturnProductDialog
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(26, 297)
+        Me.Label3.Location = New System.Drawing.Point(149, 245)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(46, 13)
         Me.Label3.TabIndex = 46
@@ -228,14 +192,13 @@ Partial Class ReturnProductDialog
         Me.DesiredQuantityTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.DesiredQuantityTextBox.ForeColor = System.Drawing.Color.Black
         Me.DesiredQuantityTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.DesiredQuantityTextBox.Location = New System.Drawing.Point(29, 314)
+        Me.DesiredQuantityTextBox.Location = New System.Drawing.Point(152, 262)
         Me.DesiredQuantityTextBox.MaxLength = 4
         Me.DesiredQuantityTextBox.Name = "DesiredQuantityTextBox"
-        Me.DesiredQuantityTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.DesiredQuantityTextBox.PlaceholderText = "0"
         Me.DesiredQuantityTextBox.SelectedText = ""
         Me.DesiredQuantityTextBox.ShortcutsEnabled = False
-        Me.DesiredQuantityTextBox.Size = New System.Drawing.Size(262, 36)
+        Me.DesiredQuantityTextBox.Size = New System.Drawing.Size(137, 36)
         Me.DesiredQuantityTextBox.TabIndex = 45
         '
         'Guna2ComboBox1
@@ -250,16 +213,44 @@ Partial Class ReturnProductDialog
         Me.Guna2ComboBox1.Font = New System.Drawing.Font("Segoe UI", 10.0!)
         Me.Guna2ComboBox1.ForeColor = System.Drawing.Color.Black
         Me.Guna2ComboBox1.ItemHeight = 30
-        Me.Guna2ComboBox1.Location = New System.Drawing.Point(29, 258)
+        Me.Guna2ComboBox1.Location = New System.Drawing.Point(27, 204)
         Me.Guna2ComboBox1.Name = "Guna2ComboBox1"
         Me.Guna2ComboBox1.Size = New System.Drawing.Size(262, 36)
         Me.Guna2ComboBox1.TabIndex = 47
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(24, 245)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(68, 13)
+        Me.Label7.TabIndex = 49
+        Me.Label7.Text = "Sold quantity"
+        '
+        'Guna2ComboBox2
+        '
+        Me.Guna2ComboBox2.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2ComboBox2.BorderRadius = 10
+        Me.Guna2ComboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.Guna2ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.Guna2ComboBox2.Enabled = False
+        Me.Guna2ComboBox2.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2ComboBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2ComboBox2.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.Guna2ComboBox2.ForeColor = System.Drawing.Color.Black
+        Me.Guna2ComboBox2.ItemHeight = 30
+        Me.Guna2ComboBox2.Location = New System.Drawing.Point(27, 262)
+        Me.Guna2ComboBox2.Name = "Guna2ComboBox2"
+        Me.Guna2ComboBox2.Size = New System.Drawing.Size(119, 36)
+        Me.Guna2ComboBox2.TabIndex = 50
         '
         'ReturnProductDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(330, 423)
+        Me.ClientSize = New System.Drawing.Size(314, 373)
+        Me.Controls.Add(Me.Guna2ComboBox2)
+        Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Guna2ComboBox1)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.DesiredQuantityTextBox)
@@ -268,11 +259,9 @@ Partial Class ReturnProductDialog
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.BatchComboBox)
         Me.Controls.Add(Me.FlowLayoutPanel1)
-        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.PriceTextBox)
-        Me.Controls.Add(Me.QuantityTextBox)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
         Me.MinimizeBox = False
@@ -288,11 +277,9 @@ Partial Class ReturnProductDialog
 
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents SaveButton As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents Label4 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents PriceTextBox As Guna.UI2.WinForms.Guna2TextBox
-    Friend WithEvents QuantityTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents BatchComboBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents Label6 As Label
@@ -300,4 +287,6 @@ Partial Class ReturnProductDialog
     Friend WithEvents Label3 As Label
     Friend WithEvents DesiredQuantityTextBox As Guna.UI2.WinForms.Guna2TextBox
     Friend WithEvents Guna2ComboBox1 As Guna.UI2.WinForms.Guna2ComboBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Guna2ComboBox2 As Guna.UI2.WinForms.Guna2ComboBox
 End Class
