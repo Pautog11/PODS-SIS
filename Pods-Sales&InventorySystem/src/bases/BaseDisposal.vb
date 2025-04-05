@@ -55,15 +55,24 @@ Public Class BaseDisposal
             Next
 
             For Each item In _item
-                _sqlCommand.Parameters.Clear()
-                _sqlCommand = New SqlCommand("UPDATE tbldeliveries_items SET inventory_quantity = inventory_quantity - @inventory_quantity WHERE id = @id", _sqlConnection, transaction)
-                _sqlCommand.Parameters.AddWithValue("@inventory_quantity", item("quantity"))
-                _sqlCommand.Parameters.AddWithValue("@id", item("delivery_items_id"))
+                If item("from") = "INVENTORY" Then
+                    _sqlCommand.Parameters.Clear()
+                    _sqlCommand = New SqlCommand("UPDATE tbldeliveries_items SET inventory_quantity = inventory_quantity - @inventory_quantity WHERE id = @id", _sqlConnection, transaction)
+                    _sqlCommand.Parameters.AddWithValue("@inventory_quantity", item("quantity"))
+                    _sqlCommand.Parameters.AddWithValue("@id", item("delivery_items_id"))
+                Else
+                    _sqlCommand.Parameters.Clear()
+                    _sqlCommand = New SqlCommand("UPDATE tblreturn_items SET remaining_quantity = remaining_quantity - @remaining_quantity WHERE id = @id", _sqlConnection, transaction)
+                    _sqlCommand.Parameters.AddWithValue("@remaining_quantity", item("quantity"))
+                    _sqlCommand.Parameters.AddWithValue("@id", item("delivery_items_id"))
+                End If
 
                 If _sqlCommand.ExecuteNonQuery() <= 0 Then
                     MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 End If
             Next
+
+
 
             transaction.Commit()
             MessageBox.Show("Dispose has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -71,6 +80,7 @@ Public Class BaseDisposal
             transaction.Rollback()
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End Try
+
     End Sub
 
     Public Shared Function SelectAllProducts() As DataTable
@@ -80,15 +90,34 @@ Public Class BaseDisposal
             cmd = New SqlCommand("SELECT a.id AS DEVITEMSID, 
                                          b.id AS DEVID, 
                                          c.id AS PID, 
+										 'INVENTORY' AS 'FROM',
                                          product_name AS NAME, 
                                          batch_number AS 'BATCH NUMBER', 
                                          FORMAT(expiration_date, 'yyyy-MM-dd') AS 'EXPIRATION DATE',
                                          cost_price AS 'COST PRICE',
-                                         inventory_quantity AS INVENTORY
+                                         inventory_quantity AS QUANTITY
                                   FROM tbldeliveries_items a
                                   JOIN tbldeliveries b ON a.delivery_id = b.id
                                   JOIN tblproducts c ON c.id = a.product_id
-                                  WHERE inventory_quantity != 0", conn)
+                                  WHERE inventory_quantity != 0
+
+                                  UNION ALL 
+    
+                                  SELECT b.id, 
+                                         a.id, 
+                                         c.id, 
+                                         'RETURNED' AS 'FROM',
+                                         product_name, 
+                                         batch_number, 
+                                         FORMAT(expiration_date, 'yyyy-MM-dd') AS 'EXPIRATION DATE',
+                                         e.cost_price, 
+                                         a.remaining_quantity
+                                  FROM tblreturn_items a
+                                  JOIN tblreturns b ON a.tblreturn_id = b.id
+                                  JOIN tblproducts c ON a.product_id = c.id
+                                  JOIN getrev d ON b.transaction_id = d.transaction_id
+                                  JOIN tbldeliveries_items e ON d.delivery_items_id = e.id
+                                  WHERE remaining_quantity != 0", conn)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
             adapter.Fill(dTable)

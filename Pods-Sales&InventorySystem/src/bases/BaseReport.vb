@@ -69,14 +69,16 @@ Public Class BaseReport
         End Try
     End Function
 
-    Public Shared Function GetDisposalByDate(date1 As Date, date2 As Date) As DataSet
+    Public Shared Function GetDisposalByDate(date1 As DateTime, date2 As DateTime) As DataSet
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT reference_number, CONCAT(first_name, ' ', last_name) as name, total, date FROM tbldisposal a
-                                  JOIN tblaccounts b ON a.account_id = b.id", conn)
-            'cmd.Parameters.AddWithValue("@start_date", date1)
-            'cmd.Parameters.AddWithValue("@end_date", date2)
+            cmd = New SqlCommand("SELECT reference_number as reference_number, CONCAT(first_name, ' ', last_name) as name, -1 * total as total, FORMAT(date, 'MMM dd yyyy h:mm tt') AS 'date'
+                                  FROM tbldisposal a
+                                  JOIN tblaccounts b ON a.account_id = b.id ", conn)
+            'WHERE date BETWEEN @startDate AND @endDate;", conn)
+            cmd.Parameters.AddWithValue("@startDate", date1)
+            cmd.Parameters.AddWithValue("@endDate", date2)
             Dim dTable As New DataSet
             Dim adapter As New SqlDataAdapter(cmd)
             adapter.Fill(dTable, "DT_DisposalReport")

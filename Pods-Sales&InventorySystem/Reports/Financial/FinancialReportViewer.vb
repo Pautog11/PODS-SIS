@@ -2,14 +2,15 @@
 Imports System.Windows.Forms
 
 Public Class FinancialReportViewer
-    Private _startDate As DateTime
-    Private _endDate As DateTime
+    Private _startDate As Date
+    Private _endDate As Date
 
-    Public Sub New(startDate As DateTime, endDate As DateTime)
+    Public Sub New(startDate As Date, endDate As Date)
         InitializeComponent()
         _startDate = startDate
         _endDate = endDate
     End Sub
+
     Private Sub FinancialReportViewer_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             'FillSalesData()
@@ -22,25 +23,26 @@ Public Class FinancialReportViewer
             Dim tite As DataSet = BaseReport.PulloutReportView(_startDate, _endDate)
             Dim dispose As DataSet = BaseReport.GetDisposalByDate(_startDate, _endDate)
 
-            'If dispose.Tables.Count > 0 Then
+            'If financialViewData.Tables.Count > 0 Then
             '    MsgBox("merom")
             'Else
             '    MsgBox("wala")
             'End If
 
-            'If financialViewData Is Nothing OrElse tite Is Nothing OrElse tite.Tables.Contains("DT_PulloutReport") Then
-            '    MessageBox.Show("Failed to load one or more datasets.")
-            '    Exit Sub
-            'End If
+            If financialViewData Is Nothing OrElse tite Is Nothing OrElse dispose Is Nothing Then
+                MessageBox.Show("Failed to load one or more datasets.")
+                Exit Sub
+            End If
 
             ' Check if datasets have the expected tables
-            If financialViewData.Tables.Contains("DT_FinancialReport") OrElse tite.Tables.Contains("DT_PulloutReport") OrElse dispose.Tables.Contains("DT_DisposalReport") Then
+            If financialViewData.Tables.Contains("DT_FinancialReport") AndAlso tite.Tables.Contains("DT_PulloutReport") AndAlso dispose.Tables.Contains("DT_DisposalReport") Then
 
                 Dim reportDocument As New FinancialRpt()
-                reportDocument.SetDataSource(financialViewData.Tables("DT_FinancialReport"))
+                'reportDocument.SetDataSource(financialViewData.Tables("DT_FinancialReport"))
 
                 Dim subreportSales = reportDocument.Subreports("SalesReportRpt.rpt")
-                'subreportSales.SetDataSource(transactionData.Tables("DT_SalesReport"))
+                subreportSales.SetDataSource(financialViewData.Tables("DT_FinancialReport"))
+                'subreportSales.SetDataSource(financialViewData.Tables("DT_FinancialReport"))
 
 
 

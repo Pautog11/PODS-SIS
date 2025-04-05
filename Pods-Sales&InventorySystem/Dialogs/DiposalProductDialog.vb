@@ -6,6 +6,7 @@ Public Class DiposalProductDialog
     Dim delivery_items_id As Integer = Nothing
     Dim product_id As Integer = Nothing
     Dim num As Integer = 1
+    Dim from As String = Nothing
 
     Public Sub New(Optional data As Dictionary(Of String, String) = Nothing,
                    Optional parent As DisposalCartDialog = Nothing)
@@ -29,11 +30,12 @@ Public Class DiposalProductDialog
                 Dim row As DataGridViewRow = DisposalDataGridView.SelectedRows(0)
                 delivery_items_id = row.Cells(0).Value?.ToString()
                 product_id = row.Cells(2).Value?.ToString()
-                ProductTextBox.Text = row.Cells(3).Value?.ToString()
-                BatchNumberTextBox.Text = row.Cells(4).Value?.ToString()
-                ExpiryDateTextBox.Text = row.Cells(5).Value?.ToString()
-                CostTextBox.Text = row.Cells(6).Value?.ToString()
-                StocksTextBox.Text = row.Cells(7).Value?.ToString()
+                from = row.Cells(3).Value?.ToString()
+                ProductTextBox.Text = row.Cells(4).Value?.ToString()
+                BatchNumberTextBox.Text = row.Cells(5).Value?.ToString()
+                ExpiryDateTextBox.Text = row.Cells(6).Value?.ToString()
+                CostTextBox.Text = row.Cells(7).Value?.ToString()
+                StocksTextBox.Text = row.Cells(8).Value?.ToString()
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -59,6 +61,7 @@ Public Class DiposalProductDialog
                     'MsgBox(tran_id)
                     'MsgBox(p_id)
                     If item.Cells("id").Value.ToString() = delivery_items_id AndAlso item.Cells("pid").Value = product_id Then
+                        item.Cells("from").Value = from
                         item.Cells("product").Value = ProductTextBox.Text
                         item.Cells("drc").Value = 1
                         item.Cells("batch_number").Value = BatchNumberTextBox.Text
@@ -75,6 +78,7 @@ Public Class DiposalProductDialog
                 If Not is_existing Then
                     _parent.DisposalDataGridView.Rows.Add({delivery_items_id,
                                                           product_id,
+                                                          from,
                                                           ProductTextBox.Text,
                                                           1,
                                                           BatchNumberTextBox.Text,

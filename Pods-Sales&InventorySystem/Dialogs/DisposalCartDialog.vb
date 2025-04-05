@@ -73,11 +73,12 @@ Public Class DisposalCartDialog
                     Dim item As New Dictionary(Of String, String) From {
                         {"delivery_items_id", row.Cells(0).Value},
                         {"product_id", row.Cells(1).Value},
+                        {"from", row.Cells(2).Value},
                         {"drc", 1},
-                        {"batch_number", If(row.Cells(4).Value?.ToString(), "0")},
-                        {"expiration_date", If(row.Cells(5).Value?.ToString(), "0")},
-                        {"price", If(row.Cells(6).Value?.ToString(), "0")},
-                        {"quantity", If(row.Cells(7).Value?.ToString(), "0")}
+                        {"batch_number", If(row.Cells(5).Value?.ToString(), "")},
+                        {"expiration_date", If(row.Cells(6).Value?.ToString(), "")},
+                        {"price", If(row.Cells(7).Value?.ToString(), "0")},
+                        {"quantity", If(row.Cells(8).Value?.ToString(), "0")}
                     }
                     items.Add(item)
                 Next
@@ -96,7 +97,7 @@ Public Class DisposalCartDialog
                 MessageBox.Show("Please select a product first.!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
         Catch ex As Exception
-
+            MsgBox(ex.Message)
         End Try
     End Sub
 End Class

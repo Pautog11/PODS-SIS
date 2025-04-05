@@ -11,11 +11,10 @@ Public Class FinancialReport
             _subject?.RegisterObserver(Me)
             _subject?.NotifyObserver()
 
-            DateFrom.Value = DateTime.Now.AddDays(-1)
-            DateTo.Value = DateTime.Now
+            DateFrom.Value = Date.Now.AddDays(-1)
+            DateTo.Value = Date.Now
 
-            'DateFrom.MaxDate = DateTo.Value
-            DateTo.MaxDate = DateTime.Now
+            DateTo.MaxDate = Date.Now
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Observer Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
@@ -34,8 +33,8 @@ Public Class FinancialReport
     Private Sub PrintButton_Click(sender As Object, e As EventArgs) Handles PrintButton.Click
         Try
             PrintButton.Enabled = False
-            Dim startDate As DateTime = DateFrom.Value.ToString("MMM dd yyyy")
-            Dim endDate As DateTime = DateTo.Value.ToString("MMM dd yyyy")
+            Dim startDate As Date = DateFrom.Value.ToString("yyyy-MM-dd")
+            Dim endDate As Date = DateTo.Value.ToString("yyyy-MM-dd")
             Using dialog As New FinancialReportViewer(startDate, endDate)
                 dialog.ShowDialog()
             End Using

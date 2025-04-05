@@ -22,7 +22,7 @@ Public Class Pricing
                 PricingDataGridView.Columns.Item("ID").Visible = False
             End If
         Catch ex As Exception
-
+            MsgBox(ex.Message)
         End Try
     End Sub
 

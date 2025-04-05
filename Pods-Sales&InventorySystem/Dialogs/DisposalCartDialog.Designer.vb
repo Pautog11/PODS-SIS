@@ -42,6 +42,7 @@ Partial Class DisposalCartDialog
         Me.DisposalDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.pid = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.from = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.product = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.drc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.batch_number = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -279,7 +280,7 @@ Partial Class DisposalCartDialog
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DisposalDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.DisposalDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.pid, Me.product, Me.drc, Me.batch_number, Me.expiry_date, Me.cost_price, Me.quantity, Me.total, Me.target, Me.EDIT})
+        Me.DisposalDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.pid, Me.from, Me.product, Me.drc, Me.batch_number, Me.expiry_date, Me.cost_price, Me.quantity, Me.total, Me.target, Me.EDIT})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -332,6 +333,12 @@ Partial Class DisposalCartDialog
         Me.pid.HeaderText = "PID"
         Me.pid.Name = "pid"
         Me.pid.ReadOnly = True
+        '
+        'from
+        '
+        Me.from.HeaderText = "FROM"
+        Me.from.Name = "from"
+        Me.from.ReadOnly = True
         '
         'product
         '
@@ -432,6 +439,7 @@ Partial Class DisposalCartDialog
     Friend WithEvents Panel1 As Panel
     Friend WithEvents ID As DataGridViewTextBoxColumn
     Friend WithEvents pid As DataGridViewTextBoxColumn
+    Friend WithEvents from As DataGridViewTextBoxColumn
     Friend WithEvents product As DataGridViewTextBoxColumn
     Friend WithEvents drc As DataGridViewTextBoxColumn
     Friend WithEvents batch_number As DataGridViewTextBoxColumn

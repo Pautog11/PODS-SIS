@@ -9,24 +9,25 @@ Public Class SalesReport
             _subject = Application.OpenForms.OfType(Of Dashboard).FirstOrDefault
             _subject?.RegisterObserver(Me)
             _subject?.NotifyObserver()
+
+            DateFrom.Value = Date.Now.AddDays(-1)
+            DateTo.Value = Date.Now
+
+            DateTo.MaxDate = Date.Now
+
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Observer Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
-
-        DateFrom.Value = Date.Now.AddDays(-1)
-        DateTo.Value = Date.Now
-
-        DateTo.MaxDate = Date.Now
     End Sub
 
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
-        'Try
-        '    Dim fuckme As DataTable = BaseReports.Getsales
-        '    SalesReportsDataGridView.DataSource = fuckme.DefaultView
-        '    SalesReportsDataGridView.Columns.Item("ID").Visible = False
-        'Catch ex As Exception
+        Try
+            Dim fuckme As DataTable = BaseReports.Getsales
+            SalesReportsDataGridView.DataSource = fuckme.DefaultView
+            SalesReportsDataGridView.Columns.Item("ID").Visible = False
+        Catch ex As Exception
 
-        'End Try
+        End Try
     End Sub
     Private Sub PrintButton_Click(sender As Object, e As EventArgs) Handles PrintButton.Click
         Try

@@ -48,7 +48,7 @@ Public Class BasePricing
                                         WHERE a.inventory_quantity != 0
                                           AND a.cost_price = (SELECT MAX(b2.cost_price)
                                                               FROM tbldeliveries_items b2
-                                                              WHERE b2.product_id = a.product_id)
+                                                              WHERE b2.product_id = a.product_id and b2.inventory_quantity != 0)
                                     )
                                     SELECT 
                                         b.id AS ID, 
@@ -63,7 +63,7 @@ Public Class BasePricing
                                                   FROM tbldeliveries_items b2 
                                                   WHERE b2.product_id = b.product_id)
 									GROUP BY b.id, a.product_name, b.price_adjusment, c.cost_price
-                                    ORDER BY b.id DESC;", conn)
+                                    ORDER BY b.id DESC", conn)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
             adapter.Fill(dTable)
