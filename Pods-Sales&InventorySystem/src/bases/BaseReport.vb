@@ -1,7 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Public Class BaseReport
     Public Shared Function FinancialReportView(startDate As DateTime, endDate As DateTime) As DataSet
-        'Public Shared Function FillByRoles() As DataTable
         Try
             Dim conn As New SqlConnection(My.Settings.podsdbConnectionString)
             Dim cmd As New SqlCommand("WITH FUCK AS (
@@ -75,8 +74,8 @@ Public Class BaseReport
             Dim cmd As SqlCommand
             cmd = New SqlCommand("SELECT reference_number as reference_number, CONCAT(first_name, ' ', last_name) as name, -1 * total as total, FORMAT(date, 'MMM dd yyyy h:mm tt') AS 'date'
                                   FROM tbldisposal a
-                                  JOIN tblaccounts b ON a.account_id = b.id ", conn)
-            'WHERE date BETWEEN @startDate AND @endDate;", conn)
+                                  JOIN tblaccounts b ON a.account_id = b.id 
+                                  WHERE a.date BETWEEN @startDate AND @endDate;", conn)
             cmd.Parameters.AddWithValue("@startDate", date1)
             cmd.Parameters.AddWithValue("@endDate", date2)
             Dim dTable As New DataSet

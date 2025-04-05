@@ -140,7 +140,7 @@ Public Class BaseTransaction
                                                 ROW_NUMBER() OVER (PARTITION BY b.product_id ORDER BY b.id DESC) AS row_num
                                             FROM tbldeliveries_items b
                                             LEFT JOIN tblproducts a ON a.id = b.product_id
-                                            WHERE a.barcode = @barcode and b.inventory_quantity != 0
+                                            WHERE a.barcode = @barcode
                                         ),
                                         TotalQuantity AS (
                                             SELECT 
@@ -190,7 +190,7 @@ Public Class BaseTransaction
                                                 ROW_NUMBER() OVER (PARTITION BY b.product_id ORDER BY b.id DESC) AS row_num
                                             FROM tbldeliveries_items b
                                             LEFT JOIN tblproducts a ON a.id = b.product_id
-                                            WHERE a.product_name = LOWER(@name) AND b.inventory_quantity != 0
+                                            WHERE a.product_name = LOWER(@name)
                                         ),
                                         TotalQuantity AS (
                                             SELECT 
