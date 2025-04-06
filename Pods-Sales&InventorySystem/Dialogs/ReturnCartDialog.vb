@@ -63,7 +63,6 @@ Public Class ReturnCartDialog
                 Dim data As New Dictionary(Of String, String) From {
                     {"account_id", If(String.IsNullOrEmpty(My.Settings.myId), 0, My.Settings.myId)},
                     {"transaction_id", If(String.IsNullOrEmpty(_data.Item("delivery_id")), 0, _data.Item("delivery_id"))},
-                    {"reason", If(String.IsNullOrEmpty(_data.Item("delivery_id")), 0, _data.Item("delivery_id"))},
                     {"total", If(String.IsNullOrEmpty(TotalPrice.Text), 0, TotalPrice.Text)}
                 }
 

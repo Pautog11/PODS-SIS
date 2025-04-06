@@ -30,10 +30,9 @@ Public Class BaseReturn
         Dim transaction As SqlTransaction = SqlConnectionPods.GetInstance.BeginTransaction()
         Try
             ' Prepare and execute the main delivery insertion
-            _sqlCommand = New SqlCommand("INSERT INTO tblreturns (account_id, transaction_id, reason, total) VALUES (@account_id, @transaction_id, @reason, @total); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
+            _sqlCommand = New SqlCommand("INSERT INTO tblreturns (account_id, transaction_id, total) VALUES (@account_id, @transaction_id, @total); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
             _sqlCommand.Parameters.AddWithValue("@account_id", _data.Item("account_id"))
             _sqlCommand.Parameters.AddWithValue("@transaction_id", _data.Item("transaction_id"))
-            _sqlCommand.Parameters.AddWithValue("@reason", _data.Item("reason"))
             _sqlCommand.Parameters.AddWithValue("@total", _data.Item("total"))
 
             Dim deliveryId As Integer = Convert.ToInt32(_sqlCommand.ExecuteScalar())

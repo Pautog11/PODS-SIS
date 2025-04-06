@@ -19,7 +19,6 @@ Public Class CashierViewer
             Exit Sub
         End If
 
-        ' Check if datasets have the expected tables
         If CashierData.Tables.Contains("DT_CashiersReport") Then
             Dim reportDocument As New CashierRpt()
             reportDocument.SetDataSource(CashierData.Tables("DT_CashiersReport"))
@@ -37,26 +36,25 @@ Public Class CashierViewer
             Using con As New SqlConnection(My.Settings.podsdbConnectionString)
                 con.Open()
                 Dim cmd As New SqlCommand("SELECT CONCAT(a.first_name, ' ', a.last_name) AS cashier,
-                                                    t.transaction_number,
-                                                    t.total,
-                                                    t.date,
-                                                    CONVERT(TIME, t.date) AS time,
-                                                    SUM(t.total) OVER () AS total_sales,
-                                                    ISNULL(r.total, 0) AS total_return,
-                                                    SUM(t.total) OVER () - SUM(r.total) OVER () AS overall_total,
-                                                    SUM(r.total) OVER () AS overall_return
-                                                FROM tbltransactions t
-                                                JOIN tblaccounts a ON t.account_id = a.id
-                                                LEFT JOIN tblreturns r ON t.id = r.transaction_id
-                                                JOIN tbltransaction_items ti ON t.id = ti.transaction_id
-                                                JOIN tblproducts p ON ti.product_id = p.id
-                                                WHERE CONVERT(DATE, t.date) = @startDate AND t.account_id = @cashierNameCmb
-                                                GROUP BY 
-                                                    CONCAT(a.first_name, ' ', a.last_name), 
-                                                    t.transaction_number, 
-                                                    t.total, 
-                                                    t.date, 
-                                                    r.total", con)
+                                                      t.transaction_number,
+                                                      t.total AS total,
+                                                      t.date AS DATE,
+                                                      CONVERT(TIME, t.date) AS time
+                                               FROM tbltransactions t
+                                               JOIN tblaccounts a ON t.account_id = a.id
+                                               WHERE CONVERT(DATE, t.date) = @startDate AND t.account_id = @cashierNameCmb
+
+                                               UNION ALL
+
+                                               SELECT CONCAT(first_name, ' ', last_name) AS 'cashier', 
+                                                      transaction_number, 
+                                                      -1 * a.total as total, 
+                                                      a.date, 
+                                                      CONVERT(TIME, a.date) AS time
+                                               FROM tblreturns a 
+                                               JOIN tbltransactions b on a.transaction_id = b.id
+                                               JOIN tblaccounts c on a.account_id = c.id
+                                               WHERE a.account_id = @cashierNameCmb AND CONVERT(DATE, a.date) = @startDate", con)
                 cmd.Parameters.AddWithValue("@startDate", selectedDate)
                 cmd.Parameters.AddWithValue("@cashierNameCmb", cashierName)
                 Dim adapter As New SqlDataAdapter(cmd)

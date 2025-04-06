@@ -1,8 +1,8 @@
 ﻿Public Class Returns
     Implements IObserverPanel
     Private _subject As IObservablePanel
-    Private ReadOnly _tableAapter As New podsTableAdapters.viewtblreturnsTableAdapter 'podsTableAdapters.tblaccountsTableAdapter
-    Private _dataTable As New pods.viewtblreturnsDataTable 'pods.tblaccountsDataTable
+    Private ReadOnly _tableAapter As New podsTableAdapters.viewtblreturnsTableAdapter
+    Private _dataTable As New pods.viewtblreturnsDataTable
 
     Private Sub Returns_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
@@ -17,8 +17,7 @@
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
         _tableAapter.Fill(_dataTable)
         ReturnsDataGridView.DataSource = _dataTable
-        ReturnsDataGridView.Columns.Item("ID").Visible = False
-        ReturnsDataGridView.Columns.Item("REASON").Visible = False
+        'ReturnsDataGridView.Columns.Item("ID").Visible = False
     End Sub
 
     Private Sub ReturnsDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles ReturnsDataGridView.CellClick
@@ -28,8 +27,8 @@
                 Dim row As DataGridViewRow = selectedRows(0)
                 Dim data As New Dictionary(Of String, String) From {
                   {"ref", row.Cells(2).Value.ToString},
-                  {"total", row.Cells(4).Value.ToString},
-                  {"date", row.Cells(5).Value.ToString}
+                  {"total", row.Cells(3).Value.ToString},
+                  {"date", row.Cells(4).Value.ToString}
                 }
                 Dim dialog As New ReturnCartDialog(data2:=data, subject:=_subject)
                 dialog.AddReturnButton.Visible = False

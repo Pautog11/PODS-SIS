@@ -3098,12 +3098,6 @@ Partial Public Class DSReport
         
         Private columntime As Global.System.Data.DataColumn
         
-        Private columntotal_return As Global.System.Data.DataColumn
-        
-        Private columnoverall_total As Global.System.Data.DataColumn
-        
-        Private columnoverall_return As Global.System.Data.DataColumn
-        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -3188,30 +3182,6 @@ Partial Public Class DSReport
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property total_returnColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columntotal_return
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property overall_totalColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnoverall_total
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property overall_returnColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnoverall_return
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -3248,9 +3218,9 @@ Partial Public Class DSReport
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddDT_CashiersReportRow(ByVal transaction_number As String, ByVal total As String, ByVal _date As Date, ByVal cashier As String, ByVal total_sales As String, ByVal time As Date, ByVal total_return As String, ByVal overall_total As String, ByVal overall_return As String) As DT_CashiersReportRow
+        Public Overloads Function AddDT_CashiersReportRow(ByVal transaction_number As String, ByVal total As String, ByVal _date As Date, ByVal cashier As String, ByVal total_sales As String, ByVal time As Date) As DT_CashiersReportRow
             Dim rowDT_CashiersReportRow As DT_CashiersReportRow = CType(Me.NewRow,DT_CashiersReportRow)
-            Dim columnValuesArray() As Object = New Object() {transaction_number, total, _date, cashier, total_sales, time, total_return, overall_total, overall_return}
+            Dim columnValuesArray() As Object = New Object() {transaction_number, total, _date, cashier, total_sales, time}
             rowDT_CashiersReportRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowDT_CashiersReportRow)
             Return rowDT_CashiersReportRow
@@ -3279,9 +3249,6 @@ Partial Public Class DSReport
             Me.columncashier = MyBase.Columns("cashier")
             Me.columntotal_sales = MyBase.Columns("total_sales")
             Me.columntime = MyBase.Columns("time")
-            Me.columntotal_return = MyBase.Columns("total_return")
-            Me.columnoverall_total = MyBase.Columns("overall_total")
-            Me.columnoverall_return = MyBase.Columns("overall_return")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3302,12 +3269,6 @@ Partial Public Class DSReport
             MyBase.Columns.Add(Me.columntotal_sales)
             Me.columntime = New Global.System.Data.DataColumn("time", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columntime)
-            Me.columntotal_return = New Global.System.Data.DataColumn("total_return", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columntotal_return)
-            Me.columnoverall_total = New Global.System.Data.DataColumn("overall_total", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnoverall_total)
-            Me.columnoverall_return = New Global.System.Data.DataColumn("overall_return", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnoverall_return)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6403,51 +6364,6 @@ Partial Public Class DSReport
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property total_return() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDT_CashiersReport.total_returnColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'total_return' in table 'DT_CashiersReport' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDT_CashiersReport.total_returnColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property overall_total() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDT_CashiersReport.overall_totalColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'overall_total' in table 'DT_CashiersReport' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDT_CashiersReport.overall_totalColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property overall_return() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableDT_CashiersReport.overall_returnColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'overall_return' in table 'DT_CashiersReport' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableDT_CashiersReport.overall_returnColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function Istransaction_numberNull() As Boolean
             Return Me.IsNull(Me.tableDT_CashiersReport.transaction_numberColumn)
         End Function
@@ -6516,42 +6432,6 @@ Partial Public Class DSReport
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SettimeNull()
             Me(Me.tableDT_CashiersReport.timeColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Istotal_returnNull() As Boolean
-            Return Me.IsNull(Me.tableDT_CashiersReport.total_returnColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Settotal_returnNull()
-            Me(Me.tableDT_CashiersReport.total_returnColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Isoverall_totalNull() As Boolean
-            Return Me.IsNull(Me.tableDT_CashiersReport.overall_totalColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Setoverall_totalNull()
-            Me(Me.tableDT_CashiersReport.overall_totalColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Isoverall_returnNull() As Boolean
-            Return Me.IsNull(Me.tableDT_CashiersReport.overall_returnColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Setoverall_returnNull()
-            Me(Me.tableDT_CashiersReport.overall_returnColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
