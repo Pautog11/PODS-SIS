@@ -28,6 +28,5 @@ Public Class BaseVat
     End Sub
 
     Public Sub Add() Implements ICommandPanel.Add
-        'Throw New NotImplementedException()
     End Sub
 End Class
