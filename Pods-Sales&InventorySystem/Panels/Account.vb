@@ -53,7 +53,11 @@ Public Class Account
         End If
     End Sub
     Private Sub AccountSearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles AccountSearchTextBox.TextChanged
-        _dataTable = BaseAccount.Search(AccountSearchTextBox.Text)
-        AccountsDataGridView.DataSource = _dataTable
+        Try
+            _dataTable = BaseAccount.Search(AccountSearchTextBox.Text)
+            AccountsDataGridView.DataSource = _dataTable
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class

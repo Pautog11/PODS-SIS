@@ -22,28 +22,28 @@ Public Class ProductDialog
             'SubCategoryComboBox.DisplayMember = "subcategory"
             'SubCategoryComboBox.SelectedItem = "id"
 
-            Dim dt As DataTable = BaseDosage.FetchDosage
-            DoseComboBox.DataSource = dt.DefaultView
-            DoseComboBox.DisplayMember = "dasage"
-            DoseComboBox.SelectedItem = "id"
-            If dt.Rows.Count > 0 Then
-                DoseComboBox.SelectedIndex = -1
-            End If
+            'Dim dt As DataTable = BaseDosage.FetchDosage
+            'DoseComboBox.DataSource = dt.DefaultView
+            'DoseComboBox.DisplayMember = "dasage"
+            'DoseComboBox.SelectedItem = "id"
+            'If dt.Rows.Count > 0 Then
+            '    DoseComboBox.SelectedIndex = -1
+            'End If
 
 
-            Dim df As DataTable = BaseDosageForm.FetchDosageform
-            DosageFormComboBox.DataSource = df.DefaultView
-            DosageFormComboBox.DisplayMember = "dosageform"
-            DosageFormComboBox.SelectedItem = "id"
-            If df.Rows.Count > 0 Then
-                DosageFormComboBox.SelectedIndex = -1
-            End If
+            'Dim df As DataTable = BaseDosageForm.FetchDosageform
+            'DosageFormComboBox.DataSource = df.DefaultView
+            'DosageFormComboBox.DisplayMember = "dosageform"
+            'DosageFormComboBox.SelectedItem = "id"
+            'If df.Rows.Count > 0 Then
+            '    DosageFormComboBox.SelectedIndex = -1
+            'End If
 
             Exp = 0
-            ManufacturerTextBox.Enabled = False
-            StrengthTextBox.Enabled = False
-            DoseComboBox.Enabled = False
-            DosageFormComboBox.Enabled = False
+            'ManufacturerTextBox.Enabled = False
+            'StrengthTextBox.Enabled = False
+            'DoseComboBox.Enabled = False
+            'DosageFormComboBox.Enabled = False
 
             If _data IsNot Nothing Then
                 AddProductButton.Text = "Update"
@@ -60,22 +60,22 @@ Public Class ProductDialog
                 DescriptionTextBox.Text = _data.Item("description")
                 StockLevelTextBox.Text = _data.Item("stock_level")
 
-                Dim productid As DataTable = BaseProduct.Fillproductinfo(_data("id"))
+                'Dim productid As DataTable = BaseProduct.Fillproductinfo(_data("id"))
 
-                If productid.Rows.Count > 0 Then
-                    Dim row As DataRow = productid.Rows(0)
-                    DosageFormComboBox.Text = If(row("dosage_form") Is DBNull.Value, String.Empty, row("dosage_form").ToString())
-                    StrengthTextBox.Text = If(row("strength") Is DBNull.Value, String.Empty, row("strength").ToString())
-                    ManufacturerTextBox.Text = If(row("manufacturer") Is DBNull.Value, String.Empty, row("manufacturer").ToString())
-                    DoseComboBox.Text = If(row("dose") Is DBNull.Value, String.Empty, row("dose").ToString())
-                End If
+                'If productid.Rows.Count > 0 Then
+                '    Dim row As DataRow = productid.Rows(0)
+                '    DosageFormComboBox.Text = If(row("dosage_form") Is DBNull.Value, String.Empty, row("dosage_form").ToString())
+                '    StrengthTextBox.Text = If(row("strength") Is DBNull.Value, String.Empty, row("strength").ToString())
+                '    ManufacturerTextBox.Text = If(row("manufacturer") Is DBNull.Value, String.Empty, row("manufacturer").ToString())
+                '    DoseComboBox.Text = If(row("dose") Is DBNull.Value, String.Empty, row("dose").ToString())
+                'End If
 
                 If BaseDelivery.EnableExp(_data.Item("id")) = 1 Then
                     CheckBox.Checked = True
-                    ManufacturerTextBox.Enabled = True
-                    StrengthTextBox.Enabled = True
-                    DoseComboBox.Enabled = True
-                    DosageFormComboBox.Enabled = True
+                    'ManufacturerTextBox.Enabled = True
+                    'StrengthTextBox.Enabled = True
+                    'DoseComboBox.Enabled = True
+                    'DosageFormComboBox.Enabled = True
                 End If
 
                 'DeleteProductButton.Visible = False
@@ -97,18 +97,18 @@ Public Class ProductDialog
 
     Private Sub AddProductButton_Click(sender As Object, e As EventArgs) Handles AddProductButton.Click
         Try
-            Dim controls As Object() = {CategoryComboBox, SubCategoryComboBox, ProductNameTextBox, StockLevelTextBox, ManufacturerTextBox, StrengthTextBox, DosageFormComboBox, DoseComboBox}
-            Dim types As DataInput() = {DataInput.STRING_STRING, DataInput.STRING_STRING, DataInput.STRING_PRODUCTNAME, DataInput.STRING_INTEGER, DataInput.STRING_STRING, DataInput.STRING_DECIMAL, DataInput.STRING_STRING, DataInput.STRING_STRING}
+            Dim controls As Object() = {CategoryComboBox, SubCategoryComboBox, ProductNameTextBox, StockLevelTextBox} ', ManufacturerTextBox, StrengthTextBox, DosageFormComboBox, DoseComboBox}
+            Dim types As DataInput() = {DataInput.STRING_STRING, DataInput.STRING_STRING, DataInput.STRING_PRODUCTNAME, DataInput.STRING_INTEGER} ', DataInput.STRING_STRING, DataInput.STRING_DECIMAL, DataInput.STRING_STRING, DataInput.STRING_STRING}
             Dim result As New List(Of Object())
             For i = 0 To controls.Count - 1
-                If Not CheckBox.Checked Then
-                    If controls(i) Is ManufacturerTextBox OrElse
-                        controls(i) Is StrengthTextBox OrElse
-                        controls(i) Is DoseComboBox OrElse
-                        controls(i) Is DosageFormComboBox Then
-                        Continue For
-                    End If
-                End If
+                'If Not CheckBox.Checked Then
+                '    If controls(i) Is ManufacturerTextBox OrElse
+                '        controls(i) Is StrengthTextBox OrElse
+                '        controls(i) Is DoseComboBox OrElse
+                '        controls(i) Is DosageFormComboBox Then
+                '        Continue For
+                '    End If
+                'End If
                 result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
                 Dim validationResult = TryCast(result(i), Object())
                 If validationResult IsNot Nothing AndAlso validationResult.Length > 0 Then
@@ -129,10 +129,10 @@ Public Class ProductDialog
                     {"description", If(String.IsNullOrEmpty(DescriptionTextBox.Text), "", DescriptionTextBox.Text)},
                     {"critical_level", result(3)(1)},
                     {"expiration", Exp},
-                    {"dosage_form", DosageFormComboBox.Text},
-                    {"strength", StrengthTextBox.Text},
-                    {"dose", DoseComboBox.Text},
-                    {"manufacturer", ManufacturerTextBox.Text}
+                    {"dosage_form", 1},
+                    {"strength", 1},
+                    {"dose", 1},
+                    {"manufacturer", 1}
                 }
 
                 If Not CheckBox.Checked Then
@@ -221,16 +221,16 @@ Public Class ProductDialog
         Try
             If CheckBox.Checked Then
                 Exp = 1
-                ManufacturerTextBox.Enabled = True
-                StrengthTextBox.Enabled = True
-                DoseComboBox.Enabled = True
-                DosageFormComboBox.Enabled = True
+                'ManufacturerTextBox.Enabled = True
+                'StrengthTextBox.Enabled = True
+                'DoseComboBox.Enabled = True
+                'DosageFormComboBox.Enabled = True
             Else
                 Exp = 0
-                ManufacturerTextBox.Enabled = False
-                StrengthTextBox.Enabled = False
-                DoseComboBox.Enabled = False
-                DosageFormComboBox.Enabled = False
+                'ManufacturerTextBox.Enabled = False
+                'StrengthTextBox.Enabled = False
+                'DoseComboBox.Enabled = False
+                'DosageFormComboBox.Enabled = False
             End If
         Catch ex As Exception
 

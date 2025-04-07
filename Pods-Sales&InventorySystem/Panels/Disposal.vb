@@ -32,4 +32,13 @@
 
         End Try
     End Sub
+
+    Private Sub DisposalSearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles DisposalSearchTextBox.TextChanged
+        Try
+            _dataTable = BaseDisposal.Search(DisposalSearchTextBox.Text)
+            DisposalDataGridView.DataSource = _dataTable
+        Catch ex As Exception
+
+        End Try
+    End Sub
 End Class

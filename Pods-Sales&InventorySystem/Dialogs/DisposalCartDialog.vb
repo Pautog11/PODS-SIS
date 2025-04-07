@@ -14,8 +14,9 @@ Public Class DisposalCartDialog
     Private Sub DisposalCartDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             DiposalRefTextBox.Text = Helpers.GenInvoiceNumber(InvoiceType.Disposal)
+            DatePicker.MaxDate = DateTime.Now
             DatePicker.Value = DateTime.Now
-            DatePicker.Enabled = False
+
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -95,6 +96,31 @@ Public Class DisposalCartDialog
                 'End If
             Else
                 MessageBox.Show("Please select a product first.!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub DisposalDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DisposalDataGridView.CellClick
+        Try
+            If DisposalDataGridView.Rows.Count > 0 Then
+                Dim row As DataGridViewRow = DisposalDataGridView.SelectedRows(0)
+                Dim data As New Dictionary(Of String, String) From {
+                    {"id", If(row.Cells(0).Value?.ToString(), "")},
+                    {"pid", If(row.Cells(1).Value?.ToString(), "")},
+                    {"from", If(row.Cells(2).Value?.ToString(), "")},
+                    {"name", If(row.Cells(3).Value?.ToString(), "")},
+                    {"drc", If(row.Cells(4).Value?.ToString(), "0")},
+                    {"batch_number", If(row.Cells(5).Value?.ToString(), "")},
+                    {"expiry_date", If(row.Cells(6).Value?.ToString(), "")},
+                    {"cost", If(row.Cells(7).Value?.ToString(), "")},
+                    {"quantity", If(row.Cells(8).Value?.ToString(), "0")},
+                    {"total", If(row.Cells(9).Value?.ToString(), "0")},
+                    {"target", If(row.Cells(10).Value?.ToString(), "0")}
+                }
+                Dim dialog As New DiposalProductDialog(data:=data, parent:=Me)
+                dialog.ShowDialog()
             End If
         Catch ex As Exception
             MsgBox(ex.Message)

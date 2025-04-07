@@ -50,7 +50,7 @@ Public Class BaseReturn
                     _sqlCommand.Parameters.AddWithValue("@remaining_quantity", item("quantity"))
 
                     If _sqlCommand.ExecuteNonQuery <= 0 Then
-                        Throw New Exception("Failed to add return items!")
+                        Throw New Exception("An error occured!")
                     End If
                 End If
             Next
@@ -260,18 +260,13 @@ Public Class BaseReturn
             Dim cmd As SqlCommand
 
             cmd = New SqlCommand("UPDATE tbldeliveries_items SET inventory_quantity = inventory_quantity + @inventory_quantity 
-                                  WHERE delivery_id = @delivery_id AND 
-                                        product_id = @product_id AND 
-                                        batch_number = @batch_number AND 
-                                        expiration_date = @expiration_date", conn, transaction)
+                                  WHERE id = @id AND product_id = @product_id", conn, transaction)
             cmd.Parameters.AddWithValue("@inventory_quantity", _data.item("inventory_quantity"))
-            cmd.Parameters.AddWithValue("@delivery_id", _data.item("delivery_id"))
+            cmd.Parameters.AddWithValue("@id", _data.item("delivery_items_id"))
             cmd.Parameters.AddWithValue("@product_id", _data.item("product_id"))
-            cmd.Parameters.AddWithValue("@batch_number", _data.item("batch_number"))
-            cmd.Parameters.AddWithValue("@expiration_date", _data.item("expiration_date"))
 
             If cmd.ExecuteNonQuery() <= 0 Then
-                MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Throw New Exception("An error occurred!")
             End If
 
             cmd.Parameters.Clear()
@@ -280,7 +275,7 @@ Public Class BaseReturn
             cmd.Parameters.AddWithValue("@id", _data.item("id"))
 
             If cmd.ExecuteNonQuery() <= 0 Then
-                MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Throw New Exception("An error occurred!")
             End If
 
             cmd.Parameters.Clear()
@@ -290,7 +285,7 @@ Public Class BaseReturn
             cmd.Parameters.AddWithValue("@transaction_id", _data.item("tran_id"))
 
             If cmd.ExecuteNonQuery() <= 0 Then
-                MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Throw New Exception("An error occurred!")
             End If
 
             transaction.Commit()
@@ -347,6 +342,21 @@ Public Class BaseReturn
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return New DataTable
+        End Try
+    End Function
+
+    Public Shared Function Search(query As String) As pods.viewtblreturnsDataTable
+        Try
+            Dim conn As New SqlConnection(My.Settings.podsdbConnectionString)
+            Dim cmd As New SqlCommand("SELECT * FROM viewtblreturns WHERE id <> 1 AND [TRANSACTION NUMBER] LIKE CONCAT('%', @query, '%') OR [PROCESS BY] LIKE CONCAT('%', @query, '%')", conn)
+            cmd.Parameters.AddWithValue("@query", query)
+            Dim dTable As New pods.viewtblreturnsDataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New pods.viewtblreturnsDataTable
         End Try
     End Function
 End Class

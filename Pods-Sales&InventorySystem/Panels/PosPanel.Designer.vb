@@ -22,7 +22,6 @@ Partial Class PosPanel
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -63,7 +62,7 @@ Partial Class PosPanel
         Me.cost = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Guna2GradientPanel1 = New Guna.UI2.WinForms.Guna2GradientPanel()
         Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.Guna2BorderlessForm1 = New Guna.UI2.WinForms.Guna2BorderlessForm(Me.components)
+        Me.CancelButton = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel2.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -612,6 +611,7 @@ Partial Class PosPanel
         '
         Me.Guna2GradientPanel1.BorderColor = System.Drawing.Color.DarkGray
         Me.Guna2GradientPanel1.BorderThickness = 1
+        Me.Guna2GradientPanel1.Controls.Add(Me.CancelButton)
         Me.Guna2GradientPanel1.Controls.Add(Me.AddTransactionButton)
         Me.Guna2GradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Guna2GradientPanel1.Location = New System.Drawing.Point(659, 613)
@@ -632,11 +632,23 @@ Partial Class PosPanel
         Me.Guna2Panel4.Size = New System.Drawing.Size(350, 55)
         Me.Guna2Panel4.TabIndex = 24
         '
-        'Guna2BorderlessForm1
+        'CancelButton
         '
-        Me.Guna2BorderlessForm1.ContainerControl = Me
-        Me.Guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6R
-        Me.Guna2BorderlessForm1.TransparentWhileDrag = True
+        Me.CancelButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.CancelButton.BackColor = System.Drawing.Color.Transparent
+        Me.CancelButton.BorderRadius = 15
+        Me.CancelButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.CancelButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.CancelButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.CancelButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.CancelButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.CancelButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.CancelButton.ForeColor = System.Drawing.Color.White
+        Me.CancelButton.Location = New System.Drawing.Point(38, 11)
+        Me.CancelButton.Name = "CancelButton"
+        Me.CancelButton.Size = New System.Drawing.Size(150, 35)
+        Me.CancelButton.TabIndex = 8
+        Me.CancelButton.Text = "Cancel order"
         '
         'PosPanel
         '
@@ -690,7 +702,6 @@ Partial Class PosPanel
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Guna2Panel3 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents TransactionDataGridView As Guna.UI2.WinForms.Guna2DataGridView
-    Friend WithEvents Guna2BorderlessForm1 As Guna.UI2.WinForms.Guna2BorderlessForm
     Friend WithEvents Guna2GradientPanel1 As Guna.UI2.WinForms.Guna2GradientPanel
     Friend WithEvents Guna2Panel4 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents ID As DataGridViewTextBoxColumn
@@ -699,4 +710,5 @@ Partial Class PosPanel
     Friend WithEvents quantity As DataGridViewTextBoxColumn
     Friend WithEvents total As DataGridViewTextBoxColumn
     Friend WithEvents cost As DataGridViewTextBoxColumn
+    Friend WithEvents CancelButton As Guna.UI2.WinForms.Guna2Button
 End Class

@@ -42,7 +42,7 @@ Public Class BaseProduct
             _sqlCommand.Parameters.AddWithValue("@critical_level", _data.Item("critical_level"))
             _sqlCommand.Parameters.AddWithValue("@expiration", _data.Item("expiration"))
             If _sqlCommand.ExecuteNonQuery() <= 0 Then
-                Throw New Exception("Failed to update product!")
+                Throw New Exception("An error occured!")
             End If
 
             _sqlCommand.Parameters.Clear()
@@ -53,7 +53,7 @@ Public Class BaseProduct
             _sqlCommand.Parameters.AddWithValue("@dose", If(String.IsNullOrEmpty(_data.Item("dose")), DBNull.Value, _data.Item("dose")))
             _sqlCommand.Parameters.AddWithValue("@manufacturer", If(String.IsNullOrEmpty(_data.Item("manufacturer")), DBNull.Value, _data.Item("manufacturer")))
             If _sqlCommand.ExecuteNonQuery() <= 0 Then
-                Throw New Exception("Failed to update product!")
+                Throw New Exception("An error occured!")
             End If
             MessageBox.Show("Product has been updated successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Transaction.Commit()
@@ -83,7 +83,7 @@ Public Class BaseProduct
             _sqlCommand.Parameters.AddWithValue("@dose", If(String.IsNullOrEmpty(_data.Item("dose")), DBNull.Value, _data.Item("dose")))
             _sqlCommand.Parameters.AddWithValue("@manufacturer", If(String.IsNullOrEmpty(_data.Item("manufacturer")), DBNull.Value, _data.Item("manufacturer")))
             If _sqlCommand.ExecuteNonQuery() <= 0 Then
-                Throw New Exception("Failed to add product!")
+                Throw New Exception("An error occured!")
             End If
 
             MessageBox.Show("Product has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)

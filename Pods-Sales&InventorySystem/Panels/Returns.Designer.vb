@@ -122,7 +122,6 @@ Partial Class Returns
         Me.ReturnsSearchTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ReturnsSearchTextBox.Location = New System.Drawing.Point(3, 4)
         Me.ReturnsSearchTextBox.Name = "ReturnsSearchTextBox"
-        Me.ReturnsSearchTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ReturnsSearchTextBox.PlaceholderText = "Search"
         Me.ReturnsSearchTextBox.SelectedText = ""
         Me.ReturnsSearchTextBox.ShortcutsEnabled = False

@@ -35,7 +35,7 @@ Public Class BaseDelivery
             _sqlCommand.Parameters.AddWithValue("@total", _data.Item("total"))
             _sqlCommand.Parameters.AddWithValue("@date", _data.Item("date"))
             If _sqlCommand.ExecuteNonQuery() <= 0 Then
-                MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Throw New Exception("An error occured!")
             End If
 
             For Each item In _item
@@ -87,7 +87,7 @@ Public Class BaseDelivery
                     End If
 
                     If _sqlCommand.ExecuteNonQuery() <= 0 Then
-                        MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        Throw New Exception("An error occured!")
                     End If
                 End If
 
@@ -140,7 +140,7 @@ Public Class BaseDelivery
                     End If
 
                     If _sqlCommand.ExecuteNonQuery() <= 0 Then
-                        MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        Throw New Exception("An error occured!")
                     End If
                 End If
             Next

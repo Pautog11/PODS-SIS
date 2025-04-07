@@ -10,14 +10,20 @@ Public Class PullOutCartDialog
     End Sub
 
     Private Sub PullOutCartDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim dt As DataTable = BaseSupplier.Fetchsupplier_allow_refund()
-        SupplierNameComboBox.DataSource = dt
-        SupplierNameComboBox.DisplayMember = "name"
-        SupplierNameComboBox.ValueMember = "id"
+        Try
+            Dim dt As DataTable = BaseSupplier.Fetchsupplier_allow_refund()
+            SupplierNameComboBox.DataSource = dt
+            SupplierNameComboBox.DisplayMember = "name"
+            SupplierNameComboBox.ValueMember = "id"
 
-        If dt.Rows.Count > 0 Then
-            SupplierNameComboBox.SelectedIndex = -1
-        End If
+            If dt.Rows.Count > 0 Then
+                SupplierNameComboBox.SelectedIndex = -1
+            End If
+
+            DatePicker.MaxDate = Date.Now
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 
     Private Sub AddProduct_Click(sender As Object, e As EventArgs) Handles AddProduct.Click
@@ -71,8 +77,8 @@ Public Class PullOutCartDialog
                     {"delivery_reference", If(row.Cells(3).Value?.ToString(), "")},
                     {"name", If(row.Cells(4).Value?.ToString(), "")},
                     {"atp_number", If(row.Cells(5).Value?.ToString(), "0")},
-                    {"expiry_date", If(row.Cells(6).Value?.ToString(), "")},
-                    {"batch_number", If(row.Cells(7).Value?.ToString(), "")},
+                    {"batch_number", If(row.Cells(6).Value?.ToString(), "")},
+                    {"expiry_date", If(row.Cells(7).Value?.ToString(), "")},
                     {"rrc", If(row.Cells(8).Value?.ToString(), "")},
                     {"cost", If(row.Cells(9).Value?.ToString(), "0")},
                     {"quantity", If(row.Cells(10).Value?.ToString(), "0")},

@@ -52,8 +52,8 @@ Partial Class PullOutCartDialog
         Me.delivery_reference = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.product = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.atp_number = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.expiry_date = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.batch_number = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.expiry_date = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.rrc = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cost_price = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.quantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -289,7 +289,7 @@ Partial Class PullOutCartDialog
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DeliveryPulloutDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
-        Me.DeliveryPulloutDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.tran_id, Me.pid, Me.delivery_reference, Me.product, Me.atp_number, Me.expiry_date, Me.batch_number, Me.rrc, Me.cost_price, Me.quantity, Me.total, Me.from, Me.target})
+        Me.DeliveryPulloutDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.tran_id, Me.pid, Me.delivery_reference, Me.product, Me.atp_number, Me.batch_number, Me.expiry_date, Me.rrc, Me.cost_price, Me.quantity, Me.total, Me.from, Me.target})
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -385,7 +385,6 @@ Partial Class PullOutCartDialog
         Me.ReferennceTextBox.Location = New System.Drawing.Point(278, 5)
         Me.ReferennceTextBox.MaxLength = 20
         Me.ReferennceTextBox.Name = "ReferennceTextBox"
-        Me.ReferennceTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.ReferennceTextBox.PlaceholderText = ""
         Me.ReferennceTextBox.SelectedText = ""
         Me.ReferennceTextBox.ShortcutsEnabled = False
@@ -406,21 +405,18 @@ Partial Class PullOutCartDialog
         Me.id.HeaderText = "ID"
         Me.id.Name = "id"
         Me.id.ReadOnly = True
-        Me.id.Visible = False
         '
         'tran_id
         '
         Me.tran_id.HeaderText = "TRANSACTION ID"
         Me.tran_id.Name = "tran_id"
         Me.tran_id.ReadOnly = True
-        Me.tran_id.Visible = False
         '
         'pid
         '
         Me.pid.HeaderText = "PID"
         Me.pid.Name = "pid"
         Me.pid.ReadOnly = True
-        Me.pid.Visible = False
         '
         'delivery_reference
         '
@@ -440,17 +436,17 @@ Partial Class PullOutCartDialog
         Me.atp_number.Name = "atp_number"
         Me.atp_number.ReadOnly = True
         '
-        'expiry_date
-        '
-        Me.expiry_date.HeaderText = "EXPIRATION DATE"
-        Me.expiry_date.Name = "expiry_date"
-        Me.expiry_date.ReadOnly = True
-        '
         'batch_number
         '
         Me.batch_number.HeaderText = "BATCH NUMBER"
         Me.batch_number.Name = "batch_number"
         Me.batch_number.ReadOnly = True
+        '
+        'expiry_date
+        '
+        Me.expiry_date.HeaderText = "EXPIRATION DATE"
+        Me.expiry_date.Name = "expiry_date"
+        Me.expiry_date.ReadOnly = True
         '
         'rrc
         '
@@ -487,7 +483,6 @@ Partial Class PullOutCartDialog
         Me.target.HeaderText = "TARGET"
         Me.target.Name = "target"
         Me.target.ReadOnly = True
-        Me.target.Visible = False
         '
         'PullOutCartDialog
         '
@@ -545,8 +540,8 @@ Partial Class PullOutCartDialog
     Friend WithEvents delivery_reference As DataGridViewTextBoxColumn
     Friend WithEvents product As DataGridViewTextBoxColumn
     Friend WithEvents atp_number As DataGridViewTextBoxColumn
-    Friend WithEvents expiry_date As DataGridViewTextBoxColumn
     Friend WithEvents batch_number As DataGridViewTextBoxColumn
+    Friend WithEvents expiry_date As DataGridViewTextBoxColumn
     Friend WithEvents rrc As DataGridViewTextBoxColumn
     Friend WithEvents cost_price As DataGridViewTextBoxColumn
     Friend WithEvents quantity As DataGridViewTextBoxColumn

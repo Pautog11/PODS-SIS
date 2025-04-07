@@ -49,7 +49,7 @@ Public Class BaseDisposal
                     _sqlCommand.Parameters.AddWithValue("@price", item("price"))
                     _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
                     If _sqlCommand.ExecuteNonQuery() <= 0 Then
-                        MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        Throw New Exception("An error occured!")
                     End If
                 End If
             Next
@@ -68,7 +68,7 @@ Public Class BaseDisposal
                 End If
 
                 If _sqlCommand.ExecuteNonQuery() <= 0 Then
-                    MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    Throw New Exception("An error occured!")
                 End If
             Next
 
@@ -125,6 +125,82 @@ Public Class BaseDisposal
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return New DataTable
+        End Try
+    End Function
+
+    Public Shared Function FetchDisposalReasonCode() As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("SELECT * FROM tbldisposal_reason_code", conn)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
+        End Try
+    End Function
+
+    Public Shared Function FetchDisposalReasonCodeByName(code As String) As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("SELECT id, code FROM tbldisposal_reason_code WHERE code = @code
+                                  UNION ALL
+                                  SELECT id, code FROM tbldisposal_reason_code WHERE code != @code", conn)
+            cmd.Parameters.AddWithValue("@code", code.Trim.ToLower)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
+        End Try
+    End Function
+
+    Public Shared Function FetchInvetoryQunatity(id As Integer) As Integer
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("SELECT inventory_quantity FROM tbldeliveries_items WHERE id = @id", conn)
+            cmd.Parameters.AddWithValue("@id", id)
+
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
+
+    Public Shared Function FetchReturnedQunatity(id As Integer) As Integer
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("SELECT remaining_quantity FROM tblreturn_items WHERE id = @id", conn)
+            cmd.Parameters.AddWithValue("@id", id)
+
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
+
+    Public Shared Function Search(query As String) As pods.viewtbldisposalDataTable
+        Try
+            Dim conn As New SqlConnection(My.Settings.podsdbConnectionString)
+            Dim cmd As New SqlCommand("SELECT * FROM viewtbldisposal WHERE id <> 1 AND [REFERENCE NUMBER] LIKE CONCAT('%', @query, '%') OR [PROCESS BY] LIKE CONCAT('%', @query, '%')", conn)
+            cmd.Parameters.AddWithValue("@query", query)
+            Dim dTable As New pods.viewtbldisposalDataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New pods.viewtbldisposalDataTable
         End Try
     End Function
 End Class

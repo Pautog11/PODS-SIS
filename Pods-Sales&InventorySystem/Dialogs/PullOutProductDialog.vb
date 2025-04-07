@@ -9,6 +9,7 @@ Public Class PullOutProductDialog
     Dim num As Integer = 1
     Dim tran_id As Integer = Nothing
     Dim p_id As Integer = Nothing
+    Dim id As Integer = Nothing
 
     Public Sub New(Optional data As Dictionary(Of String, String) = Nothing,
                    Optional data2 As Dictionary(Of String, String) = Nothing,
@@ -25,7 +26,7 @@ Public Class PullOutProductDialog
 
                 Dim rrc As DataTable = BasePullouts.Rrc()
                 RrcComboBox.DataSource = rrc
-                RrcComboBox.DisplayMember = "codedes"
+                RrcComboBox.DisplayMember = "code"
                 RrcComboBox.ValueMember = "id"
 
                 If rrc.Rows.Count > 0 Then
@@ -42,10 +43,10 @@ Public Class PullOutProductDialog
                         num = 1
                     End If
 
-                    PulloutDataGridView.Columns.Item("ID").Visible = False
-                    PulloutDataGridView.Columns.Item("TRAN_ID").Visible = False
-                    PulloutDataGridView.Columns.Item("PID").Visible = False
-                    PulloutDataGridView.Columns.Item("SUPPLIER").Visible = False
+                    'PulloutDataGridView.Columns.Item("ID").Visible = False
+                    'PulloutDataGridView.Columns.Item("TRAN_ID").Visible = False
+                    'PulloutDataGridView.Columns.Item("PID").Visible = False
+                    'PulloutDataGridView.Columns.Item("SUPPLIER").Visible = False
                 End If
                 RemoveButton.Visible = False
             End If
@@ -59,13 +60,20 @@ Public Class PullOutProductDialog
                 QuantityTextBox.Text = _data2.Item("quantity")
                 tran_id = _data2.Item("tran_id")
                 p_id = _data2.Item("pid")
+                id = _data2.Item("id")
 
                 Dim dt As DataTable = BaseSupplierReturnCode.FetchRrcByCode(_data2.Item("rrc"))
-
-                'MsgBox(_data2.Item("rrc"))
                 RrcComboBox.DataSource = dt.DefaultView
-                RrcComboBox.DisplayMember = "codedes"
+                RrcComboBox.DisplayMember = "code"
                 RrcComboBox.ValueMember = "id"
+
+                If _data2.Item("from") = "Inventory" Then
+                    StocksTextBox.Text = BasePullouts.InventoryQuantity(_data2.Item("id"))
+                End If
+
+                If _data2.Item("from") = "Returned" Then
+                    StocksTextBox.Text = BasePullouts.ReturnedQuantity(_data2.Item("id"))
+                End If
 
                 TableLayoutPanel1.RowStyles(0).Height = 0
                 TableLayoutPanel1.RowStyles(1).Height = 0
@@ -86,6 +94,7 @@ Public Class PullOutProductDialog
         Try
             If PulloutDataGridView.Rows.Count > 0 AndAlso PulloutDataGridView.SelectedRows.Count > 0 Then
                 Dim row As DataGridViewRow = PulloutDataGridView.SelectedRows(0)
+                id = row.Cells(0).Value?.ToString()
                 _data.Item("id") = row.Cells(0).Value?.ToString()
                 _data.Item("tran_id") = row.Cells(1).Value?.ToString()
                 _data.Item("inventory_location") = row.Cells(2).Value?.ToString()
@@ -117,33 +126,44 @@ Public Class PullOutProductDialog
 
     Private Sub PullOutProductSaveButton_Click(sender As Object, e As EventArgs) Handles PullOutProductSaveButton.Click
         Try
-            Dim result As New List(Of Object()) From {InputValidation.ValidateInputString(QuantityTextBox, DataInput.STRING_INTEGER)}
-            Dim validationResult = TryCast(result(0), Object())
-            If validationResult IsNot Nothing AndAlso validationResult.Length > 0 Then
-                If Not validationResult(0) = True Then
-                    Exit Sub
+            Dim controls As Object() = {AtpTextBox, RrcComboBox, QuantityTextBox}
+            Dim types As DataInput() = {DataInput.STRING_STRING, DataInput.STRING_STRING, DataInput.STRING_INTEGER}
+
+            Dim result As New List(Of Object())
+
+            For i = 0 To controls.Count - 1
+                result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
+                Dim validationResult = TryCast(result(i), Object())
+                If validationResult IsNot Nothing AndAlso validationResult.Length > 0 Then
+                    If Not validationResult(0) = True Then
+                        Exit Sub
+                    End If
                 End If
-            Else
-                Throw New Exception
+            Next
+
+            If Val(StocksTextBox.Text) < Val(QuantityTextBox.Text) Then
+                MessageBox.Show("Insufficient quantity!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Exit Sub
             End If
 
             Dim is_existing As Boolean = False
-
             If Not result.Any(Function(item As Object()) Not item(0)) Then
                 For Each item As DataGridViewRow In _parent.DeliveryPulloutDataGridView.Rows
                     'MsgBox(tran_id)
                     'MsgBox(p_id)
-                    If item.Cells("tran_id").Value.ToString() = tran_id AndAlso item.Cells("pid").Value = p_id Then
+                    'If item.Cells("tran_id").Value.ToString() = tran_id AndAlso item.Cells("pid").Value = p_id Then
+
+                    If item.Cells("id").Value.ToString() = id Then
                         'item.Cells("id").Value = _data.Item("id")
-                        'item.Cells("tran_id").Value = tran_id
-                        'item.Cells("pid").Value = p_id
-                        item.Cells("delivery_reference").Value = 1111 '_data.Item("delivery_reference")
-                        item.Cells("product").Value = ProductTextBox.Text
+                        item.Cells("tran_id").Value = tran_id
+                        item.Cells("pid").Value = p_id
+                        'item.Cells("delivery_reference").Value = _data.Item("delivery_reference") '_data.Item("delivery_reference")
+                        'item.Cells("product").Value = ProductTextBox.Text
                         item.Cells("atp_number").Value = AtpTextBox.Text
-                        item.Cells("expiry_date").Value = ExpiryDateTextBox.Text
-                        item.Cells("batch_number").Value = BatchNumberTextBox.Text
+                        'item.Cells("batch_number").Value = BatchNumberTextBox.Text
+                        'item.Cells("expiry_date").Value = ExpiryDateTextBox.Text
                         item.Cells("rrc").Value = RrcComboBox.SelectedItem("code")
-                        item.Cells("cost_price").Value = Decimal.Parse(CostTextBox.Text).ToString("F2")
+                        'item.Cells("cost_price").Value = Decimal.Parse(CostTextBox.Text).ToString("F2")
                         item.Cells("quantity").Value = CInt(QuantityTextBox.Text)
                         item.Cells("total").Value = Decimal.Parse(CostTextBox.Text) * CInt(QuantityTextBox.Text)
                         'item.Cells("from").Value = _data.Item("inventory_location")
@@ -159,8 +179,8 @@ Public Class PullOutProductDialog
                                                                  _data.Item("delivery_reference"),
                                                                  ProductTextBox.Text,
                                                                  AtpTextBox.Text,
-                                                                 ExpiryDateTextBox.Text,
                                                                  BatchNumberTextBox.Text,
+                                                                 ExpiryDateTextBox.Text,
                                                                  RrcComboBox.SelectedItem("code"),
                                                                  Decimal.Parse(CostTextBox.Text).ToString("F2"),
                                                                  CInt(QuantityTextBox.Text),
@@ -173,7 +193,7 @@ Public Class PullOutProductDialog
                 _parent.UpdateVisualData()
                 Me.Close()
             Else
-                MessageBox.Show("Invalid quantity!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                MessageBox.Show("Invalid quantity!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Error)

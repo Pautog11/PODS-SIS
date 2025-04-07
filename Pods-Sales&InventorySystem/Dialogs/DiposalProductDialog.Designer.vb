@@ -22,9 +22,9 @@ Partial Class DiposalProductDialog
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.RrcComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.StocksTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.SearchTextBox = New Guna.UI2.WinForms.Guna2TextBox()
@@ -44,7 +44,7 @@ Partial Class DiposalProductDialog
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.DisposalDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.PullOutProductSaveButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.AddButton = New Guna.UI2.WinForms.Guna2Button()
         Me.RemoveButton = New Guna.UI2.WinForms.Guna2Button()
         Me.Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -349,24 +349,24 @@ Partial Class DiposalProductDialog
         Me.DisposalDataGridView.AllowUserToDeleteRows = False
         Me.DisposalDataGridView.AllowUserToResizeColumns = False
         Me.DisposalDataGridView.AllowUserToResizeRows = False
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.White
-        Me.DisposalDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle7
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DisposalDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle8
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle9.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DisposalDataGridView.DefaultCellStyle = DataGridViewCellStyle9
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
+        Me.DisposalDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DisposalDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DisposalDataGridView.DefaultCellStyle = DataGridViewCellStyle3
         Me.DisposalDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DisposalDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DisposalDataGridView.Location = New System.Drawing.Point(0, 50)
@@ -402,7 +402,7 @@ Partial Class DiposalProductDialog
         '
         'FlowLayoutPanel1
         '
-        Me.FlowLayoutPanel1.Controls.Add(Me.PullOutProductSaveButton)
+        Me.FlowLayoutPanel1.Controls.Add(Me.AddButton)
         Me.FlowLayoutPanel1.Controls.Add(Me.RemoveButton)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
@@ -412,24 +412,24 @@ Partial Class DiposalProductDialog
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(698, 51)
         Me.FlowLayoutPanel1.TabIndex = 26
         '
-        'PullOutProductSaveButton
+        'AddButton
         '
-        Me.PullOutProductSaveButton.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.PullOutProductSaveButton.BackColor = System.Drawing.Color.Transparent
-        Me.PullOutProductSaveButton.BorderRadius = 15
-        Me.PullOutProductSaveButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.PullOutProductSaveButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.PullOutProductSaveButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.PullOutProductSaveButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.PullOutProductSaveButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.PullOutProductSaveButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.PullOutProductSaveButton.ForeColor = System.Drawing.Color.White
-        Me.PullOutProductSaveButton.Location = New System.Drawing.Point(538, 8)
-        Me.PullOutProductSaveButton.Margin = New System.Windows.Forms.Padding(3, 8, 10, 3)
-        Me.PullOutProductSaveButton.Name = "PullOutProductSaveButton"
-        Me.PullOutProductSaveButton.Size = New System.Drawing.Size(150, 35)
-        Me.PullOutProductSaveButton.TabIndex = 16
-        Me.PullOutProductSaveButton.Text = "Add"
+        Me.AddButton.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.AddButton.BackColor = System.Drawing.Color.Transparent
+        Me.AddButton.BorderRadius = 15
+        Me.AddButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.AddButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.AddButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.AddButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.AddButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.AddButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.AddButton.ForeColor = System.Drawing.Color.White
+        Me.AddButton.Location = New System.Drawing.Point(538, 8)
+        Me.AddButton.Margin = New System.Windows.Forms.Padding(3, 8, 10, 3)
+        Me.AddButton.Name = "AddButton"
+        Me.AddButton.Size = New System.Drawing.Size(150, 35)
+        Me.AddButton.TabIndex = 16
+        Me.AddButton.Text = "Add"
         '
         'RemoveButton
         '
@@ -490,7 +490,7 @@ Partial Class DiposalProductDialog
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents DisposalDataGridView As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
-    Friend WithEvents PullOutProductSaveButton As Guna.UI2.WinForms.Guna2Button
+    Friend WithEvents AddButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents RemoveButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Label8 As Label
 End Class

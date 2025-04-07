@@ -49,4 +49,13 @@
             MsgBox(ex.Message)
         End Try
     End Sub
+
+    Private Sub ReturnsSearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles ReturnsSearchTextBox.TextChanged
+        Try
+            _dataTable = BaseReturn.Search(ReturnsSearchTextBox.Text)
+            ReturnsDataGridView.DataSource = _dataTable
+        Catch ex As Exception
+
+        End Try
+    End Sub
 End Class

@@ -25,7 +25,6 @@ Public Class ReturnProductDialog
                 If dt.Rows.Count > 0 Then
                     ProductTextBox.Text = dt.Rows(0)("product_name").ToString()
                     PriceTextBox.Text = dt.Rows(0)("price").ToString()
-                    'QuantityTextBox.Text = dt.Rows(0)("remaining_quantity").ToString()
                     delivery_id = dt.Rows(0)("delivery_id").ToString()
                     product_id = dt.Rows(0)("id").ToString()
                     delivery_items_id = dt.Rows(0)("delivery_items_id").ToString()
@@ -35,16 +34,18 @@ Public Class ReturnProductDialog
                     BatchComboBox.DataSource = dt.DefaultView
                     BatchComboBox.DisplayMember = "batch_number"
 
-                    'BatchComboBox.co
-
                     Guna2ComboBox1.DropDownHeight = 5 * Guna2ComboBox1.ItemHeight
                     Guna2ComboBox1.DataSource = dt.DefaultView
                     Guna2ComboBox1.DisplayMember = "expiration_date"
 
-
                     Guna2ComboBox2.DropDownHeight = 5 * Guna2ComboBox2.ItemHeight
                     Guna2ComboBox2.DataSource = dt.DefaultView
-                    Guna2ComboBox2.DisplayMember = "returned"
+                    Guna2ComboBox2.DisplayMember = "remaining_quantity"
+
+                    If BaseDelivery.EnableExp(product_id) = 0 Then
+                        BatchComboBox.Enabled = False
+                        Guna2ComboBox1.Enabled = False
+                    End If
 
 
                     'If dt.Rows.Count > 0 Then
@@ -120,7 +121,5 @@ Public Class ReturnProductDialog
         delivery_items_id = BatchComboBox.SelectedItem("delivery_items_id")
         delivery_id = BatchComboBox.SelectedItem("delivery_id")
         tran_id = BatchComboBox.SelectedItem("transaction_id")
-        'MsgBox(delivery_items_id)
-        'MsgBox(delivery_id)
     End Sub
 End Class

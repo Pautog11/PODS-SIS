@@ -43,10 +43,11 @@ Partial Class Maintenance
         Me.Discount1 = New Pods_Sales_InventorySystem.Discount()
         Me.Return_Code = New System.Windows.Forms.TabPage()
         Me.Guna2TabControl1 = New Guna.UI2.WinForms.Guna2TabControl()
-        Me.customer_return_code = New System.Windows.Forms.TabPage()
-        Me.CustomerReturnCode1 = New Pods_Sales_InventorySystem.CustomerReturnCode()
         Me.supplier_return_code = New System.Windows.Forms.TabPage()
         Me.ReturnCode1 = New Pods_Sales_InventorySystem.ReturnCode()
+        Me.customer_return_code = New System.Windows.Forms.TabPage()
+        Me.CustomerReturnCode1 = New Pods_Sales_InventorySystem.CustomerReturnCode()
+        Me.disposal_code = New System.Windows.Forms.TabPage()
         Me.Medicine = New System.Windows.Forms.TabPage()
         Me.Guna2TabControl2 = New Guna.UI2.WinForms.Guna2TabControl()
         Me.Oum = New System.Windows.Forms.TabPage()
@@ -55,6 +56,7 @@ Partial Class Maintenance
         Me.DosageForm1 = New Pods_Sales_InventorySystem.DosageForm()
         Me.Pricing = New System.Windows.Forms.TabPage()
         Me.Pricing1 = New Pods_Sales_InventorySystem.Pricing()
+        Me.DisposalReasonCode1 = New Pods_Sales_InventorySystem.DisposalReasonCode()
         Me.MaintenaceTabControl.SuspendLayout()
         Me.Accounts.SuspendLayout()
         Me.Categories.SuspendLayout()
@@ -69,8 +71,9 @@ Partial Class Maintenance
         Me.Discounts.SuspendLayout()
         Me.Return_Code.SuspendLayout()
         Me.Guna2TabControl1.SuspendLayout()
-        Me.customer_return_code.SuspendLayout()
         Me.supplier_return_code.SuspendLayout()
+        Me.customer_return_code.SuspendLayout()
+        Me.disposal_code.SuspendLayout()
         Me.Medicine.SuspendLayout()
         Me.Guna2TabControl2.SuspendLayout()
         Me.Oum.SuspendLayout()
@@ -206,7 +209,7 @@ Partial Class Maintenance
         Me.Subcategory.Location = New System.Drawing.Point(4, 44)
         Me.Subcategory.Margin = New System.Windows.Forms.Padding(0)
         Me.Subcategory.Name = "Subcategory"
-        Me.Subcategory.Size = New System.Drawing.Size(1276, 660)
+        Me.Subcategory.Size = New System.Drawing.Size(1276, 620)
         Me.Subcategory.TabIndex = 7
         Me.Subcategory.Text = "Subcategories"
         Me.Subcategory.UseVisualStyleBackColor = True
@@ -218,7 +221,7 @@ Partial Class Maintenance
         Me.SubCategory1.Location = New System.Drawing.Point(0, 0)
         Me.SubCategory1.Margin = New System.Windows.Forms.Padding(0)
         Me.SubCategory1.Name = "SubCategory1"
-        Me.SubCategory1.Size = New System.Drawing.Size(1276, 660)
+        Me.SubCategory1.Size = New System.Drawing.Size(1276, 620)
         Me.SubCategory1.TabIndex = 0
         '
         'Suppliers
@@ -292,7 +295,7 @@ Partial Class Maintenance
         Me.Vendor.Location = New System.Drawing.Point(4, 44)
         Me.Vendor.Margin = New System.Windows.Forms.Padding(0)
         Me.Vendor.Name = "Vendor"
-        Me.Vendor.Size = New System.Drawing.Size(1276, 660)
+        Me.Vendor.Size = New System.Drawing.Size(1276, 620)
         Me.Vendor.TabIndex = 7
         Me.Vendor.Text = "Vendor"
         Me.Vendor.UseVisualStyleBackColor = True
@@ -303,7 +306,7 @@ Partial Class Maintenance
         Me.Vendor1.Location = New System.Drawing.Point(0, 0)
         Me.Vendor1.Margin = New System.Windows.Forms.Padding(0)
         Me.Vendor1.Name = "Vendor1"
-        Me.Vendor1.Size = New System.Drawing.Size(1274, 658)
+        Me.Vendor1.Size = New System.Drawing.Size(1274, 618)
         Me.Vendor1.TabIndex = 0
         '
         'Vat
@@ -346,6 +349,7 @@ Partial Class Maintenance
         '
         'Return_Code
         '
+        Me.Return_Code.BackColor = System.Drawing.Color.White
         Me.Return_Code.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Return_Code.Controls.Add(Me.Guna2TabControl1)
         Me.Return_Code.Location = New System.Drawing.Point(4, 84)
@@ -354,12 +358,12 @@ Partial Class Maintenance
         Me.Return_Code.Size = New System.Drawing.Size(1286, 670)
         Me.Return_Code.TabIndex = 13
         Me.Return_Code.Text = "Return Code"
-        Me.Return_Code.UseVisualStyleBackColor = True
         '
         'Guna2TabControl1
         '
         Me.Guna2TabControl1.Controls.Add(Me.supplier_return_code)
         Me.Guna2TabControl1.Controls.Add(Me.customer_return_code)
+        Me.Guna2TabControl1.Controls.Add(Me.disposal_code)
         Me.Guna2TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Guna2TabControl1.ItemSize = New System.Drawing.Size(180, 40)
         Me.Guna2TabControl1.Location = New System.Drawing.Point(0, 0)
@@ -387,6 +391,26 @@ Partial Class Maintenance
         Me.Guna2TabControl1.TabMenuBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         Me.Guna2TabControl1.TabMenuOrientation = Guna.UI2.WinForms.TabMenuOrientation.HorizontalTop
         '
+        'supplier_return_code
+        '
+        Me.supplier_return_code.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.supplier_return_code.Controls.Add(Me.ReturnCode1)
+        Me.supplier_return_code.Location = New System.Drawing.Point(4, 44)
+        Me.supplier_return_code.Margin = New System.Windows.Forms.Padding(0)
+        Me.supplier_return_code.Name = "supplier_return_code"
+        Me.supplier_return_code.Size = New System.Drawing.Size(1276, 620)
+        Me.supplier_return_code.TabIndex = 7
+        Me.supplier_return_code.Text = "Supplier Return Code"
+        Me.supplier_return_code.UseVisualStyleBackColor = True
+        '
+        'ReturnCode1
+        '
+        Me.ReturnCode1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ReturnCode1.Location = New System.Drawing.Point(0, 0)
+        Me.ReturnCode1.Name = "ReturnCode1"
+        Me.ReturnCode1.Size = New System.Drawing.Size(1274, 618)
+        Me.ReturnCode1.TabIndex = 0
+        '
         'customer_return_code
         '
         Me.customer_return_code.Controls.Add(Me.CustomerReturnCode1)
@@ -407,25 +431,16 @@ Partial Class Maintenance
         Me.CustomerReturnCode1.Size = New System.Drawing.Size(1276, 620)
         Me.CustomerReturnCode1.TabIndex = 0
         '
-        'supplier_return_code
+        'disposal_code
         '
-        Me.supplier_return_code.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.supplier_return_code.Controls.Add(Me.ReturnCode1)
-        Me.supplier_return_code.Location = New System.Drawing.Point(4, 44)
-        Me.supplier_return_code.Margin = New System.Windows.Forms.Padding(0)
-        Me.supplier_return_code.Name = "supplier_return_code"
-        Me.supplier_return_code.Size = New System.Drawing.Size(1276, 620)
-        Me.supplier_return_code.TabIndex = 7
-        Me.supplier_return_code.Text = "Supplier Return Code"
-        Me.supplier_return_code.UseVisualStyleBackColor = True
-        '
-        'ReturnCode1
-        '
-        Me.ReturnCode1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ReturnCode1.Location = New System.Drawing.Point(0, 0)
-        Me.ReturnCode1.Name = "ReturnCode1"
-        Me.ReturnCode1.Size = New System.Drawing.Size(1274, 618)
-        Me.ReturnCode1.TabIndex = 0
+        Me.disposal_code.Controls.Add(Me.DisposalReasonCode1)
+        Me.disposal_code.Location = New System.Drawing.Point(4, 44)
+        Me.disposal_code.Margin = New System.Windows.Forms.Padding(0)
+        Me.disposal_code.Name = "disposal_code"
+        Me.disposal_code.Size = New System.Drawing.Size(1276, 620)
+        Me.disposal_code.TabIndex = 8
+        Me.disposal_code.Text = "Disposal Reason Code"
+        Me.disposal_code.UseVisualStyleBackColor = True
         '
         'Medicine
         '
@@ -496,7 +511,7 @@ Partial Class Maintenance
         Me.DosageForm.Location = New System.Drawing.Point(4, 44)
         Me.DosageForm.Margin = New System.Windows.Forms.Padding(0)
         Me.DosageForm.Name = "DosageForm"
-        Me.DosageForm.Size = New System.Drawing.Size(1276, 660)
+        Me.DosageForm.Size = New System.Drawing.Size(1276, 620)
         Me.DosageForm.TabIndex = 7
         Me.DosageForm.Text = "Dosage Form"
         Me.DosageForm.UseVisualStyleBackColor = True
@@ -506,7 +521,7 @@ Partial Class Maintenance
         Me.DosageForm1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DosageForm1.Location = New System.Drawing.Point(0, 0)
         Me.DosageForm1.Name = "DosageForm1"
-        Me.DosageForm1.Size = New System.Drawing.Size(1274, 658)
+        Me.DosageForm1.Size = New System.Drawing.Size(1274, 618)
         Me.DosageForm1.TabIndex = 0
         '
         'Pricing
@@ -528,10 +543,21 @@ Partial Class Maintenance
         Me.Pricing1.Size = New System.Drawing.Size(1286, 670)
         Me.Pricing1.TabIndex = 0
         '
+        'DisposalReasonCode1
+        '
+        Me.DisposalReasonCode1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.DisposalReasonCode1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DisposalReasonCode1.Location = New System.Drawing.Point(0, 0)
+        Me.DisposalReasonCode1.Margin = New System.Windows.Forms.Padding(0)
+        Me.DisposalReasonCode1.Name = "DisposalReasonCode1"
+        Me.DisposalReasonCode1.Size = New System.Drawing.Size(1276, 620)
+        Me.DisposalReasonCode1.TabIndex = 0
+        '
         'Maintenance
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.White
         Me.Controls.Add(Me.MaintenaceTabControl)
         Me.Name = "Maintenance"
         Me.Size = New System.Drawing.Size(1294, 758)
@@ -549,8 +575,9 @@ Partial Class Maintenance
         Me.Discounts.ResumeLayout(False)
         Me.Return_Code.ResumeLayout(False)
         Me.Guna2TabControl1.ResumeLayout(False)
-        Me.customer_return_code.ResumeLayout(False)
         Me.supplier_return_code.ResumeLayout(False)
+        Me.customer_return_code.ResumeLayout(False)
+        Me.disposal_code.ResumeLayout(False)
         Me.Medicine.ResumeLayout(False)
         Me.Guna2TabControl2.ResumeLayout(False)
         Me.Oum.ResumeLayout(False)
@@ -593,4 +620,6 @@ Partial Class Maintenance
     Friend WithEvents DosageForm1 As DosageForm
     Friend WithEvents Pricing As TabPage
     Friend WithEvents Pricing1 As Pricing
+    Friend WithEvents disposal_code As TabPage
+    Friend WithEvents DisposalReasonCode1 As DisposalReasonCode
 End Class

@@ -42,4 +42,13 @@
         Dim dialog As New PullOutCartDialog(subject:=_subject)
         dialog.ShowDialog()
     End Sub
+
+    Private Sub PulloutSearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles PulloutSearchTextBox.TextChanged
+        Try
+            _dataTable = BasePullouts.Search(PulloutSearchTextBox.Text)
+            PullOutsGridView.DataSource = _dataTable
+        Catch ex As Exception
+
+        End Try
+    End Sub
 End Class

@@ -128,7 +128,6 @@ Partial Class ReturnCartDialog
         Me.TransactionTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TransactionTextBox.Location = New System.Drawing.Point(76, 5)
         Me.TransactionTextBox.Name = "TransactionTextBox"
-        Me.TransactionTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.TransactionTextBox.PlaceholderText = ""
         Me.TransactionTextBox.SelectedText = ""
         Me.TransactionTextBox.ShortcutsEnabled = False
@@ -313,7 +312,6 @@ Partial Class ReturnCartDialog
         Me.ID.HeaderText = "ID"
         Me.ID.Name = "ID"
         Me.ID.ReadOnly = True
-        Me.ID.Visible = False
         '
         'product
         '
@@ -350,7 +348,6 @@ Partial Class ReturnCartDialog
         Me.target.HeaderText = "TARGET"
         Me.target.Name = "target"
         Me.target.ReadOnly = True
-        Me.target.Visible = False
         '
         'ReturnCartDialog
         '

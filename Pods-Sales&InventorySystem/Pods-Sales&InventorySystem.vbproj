@@ -278,6 +278,12 @@
     <Compile Include="Panels\Disposal.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Panels\DisposalReasonCode.Designer.vb">
+      <DependentUpon>DisposalReasonCode.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Panels\DisposalReasonCode.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Panels\PosPanel.Designer.vb">
       <DependentUpon>PosPanel.vb</DependentUpon>
     </Compile>
@@ -734,6 +740,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\Disposal.resx">
       <DependentUpon>Disposal.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Panels\DisposalReasonCode.resx">
+      <DependentUpon>DisposalReasonCode.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Panels\PosPanel.resx">
       <DependentUpon>PosPanel.vb</DependentUpon>

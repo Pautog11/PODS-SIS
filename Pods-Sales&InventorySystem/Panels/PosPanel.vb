@@ -264,4 +264,18 @@
 
         End Try
     End Sub
+
+    Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles CancelButton.Click
+        Try
+            Dim result As DialogResult = MessageBox.Show("Are you sure you want to cancel this transaction?", "PODS", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If result = DialogResult.Yes Then
+                Clear()
+                DiscountComboBox.Enabled = False
+                DiscountComboBox.SelectedIndex = 0
+                Reference_number.Text = Helpers.GenInvoiceNumber(InvoiceType.Transaction)
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
 End Class

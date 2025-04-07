@@ -1184,3 +1184,4 @@ C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\zh-Hant
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\x86\SqlServerSpatial160.dll
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\x64\SqlServerSpatial160.dll
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.DiposalProductDialog.resources
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.DisposalReasonCode.resources

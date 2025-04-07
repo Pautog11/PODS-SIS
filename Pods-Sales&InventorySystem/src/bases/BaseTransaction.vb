@@ -48,7 +48,9 @@ Public Class BaseTransaction
                 _sqlCommand.Parameters.AddWithValue("@id", item("product_id"))
                 _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
                 _sqlCommand.Parameters.AddWithValue("@transaction_id", TransactionID)
-                _sqlCommand.ExecuteNonQuery()
+                If _sqlCommand.ExecuteNonQuery() <= 0 Then
+                    Throw New Exception("An error occured!")
+                End If
             Next
 
             For Each item In _item
@@ -58,7 +60,9 @@ Public Class BaseTransaction
                 _sqlCommand.Parameters.AddWithValue("@product_id", item("product_id"))
                 _sqlCommand.Parameters.AddWithValue("@price", item("price"))
                 _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
-                _sqlCommand.ExecuteNonQuery()
+                If _sqlCommand.ExecuteNonQuery() <= 0 Then
+                    Throw New Exception("An error occured!")
+                End If
             Next
 
             transaction.Commit()
