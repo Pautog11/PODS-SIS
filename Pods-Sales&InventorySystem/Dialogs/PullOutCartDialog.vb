@@ -187,7 +187,7 @@ Public Class PullOutCartDialog
                 invoker = New AddCommand(baseCommand)
                 invoker?.Execute()
                 _subject.NotifyObserver()
-                Me.Close()
+                'Me.Close()
             Else
                 MessageBox.Show("Please select product first.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If

@@ -200,6 +200,12 @@
     <Compile Include="Dialogs\DeliveryCartDialog.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Dialogs\DeliveryPreviousPullout.Designer.vb">
+      <DependentUpon>DeliveryPreviousPullout.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\DeliveryPreviousPullout.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Dialogs\DiposalProductDialog.Designer.vb">
       <DependentUpon>DiposalProductDialog.vb</DependentUpon>
     </Compile>
@@ -698,6 +704,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\DeliveryCartDialog.resx">
       <DependentUpon>DeliveryCartDialog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialogs\DeliveryPreviousPullout.resx">
+      <DependentUpon>DeliveryPreviousPullout.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialogs\DiposalProductDialog.resx">
       <DependentUpon>DiposalProductDialog.vb</DependentUpon>

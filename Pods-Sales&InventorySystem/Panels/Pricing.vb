@@ -17,9 +17,21 @@ Public Class Pricing
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
         Try
             dt = BasePricing.Pricing
+            'If dt.Rows.Count > 0 Then
+            '    PricingDataGridView.DataSource = dt.DefaultView
+            '    PricingDataGridView.Columns.Item("ID").Visible = False
+            'End If
+
             If dt.Rows.Count > 0 Then
-                PricingDataGridView.DataSource = dt.DefaultView
-                PricingDataGridView.Columns.Item("ID").Visible = False
+                'PreviousPulloutDataGridView.DataSource = dt.DefaultView
+                PricingDataGridView.Rows.Clear()
+                For Each i As DataRow In dt.Rows
+
+                    Dim rowData As Object() = i.ItemArray
+
+                    ' Add the row to the DataGridView
+                    PricingDataGridView.Rows.Add(rowData)
+                Next
             End If
         Catch ex As Exception
             MsgBox(ex.Message)

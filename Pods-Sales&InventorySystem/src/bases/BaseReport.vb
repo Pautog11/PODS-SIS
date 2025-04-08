@@ -72,12 +72,15 @@ Public Class BaseReport
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT reference_number as reference_number, CONCAT(first_name, ' ', last_name) as name, -1 * total as total, FORMAT(date, 'MMM dd yyyy h:mm tt') AS 'date'
+            cmd = New SqlCommand("SELECT reference_number as reference_number, 
+                                         CONCAT(first_name, ' ', last_name) as name, 
+                                         -1 * total as total,  
+                                         FORMAT(date, 'MMM dd yyyy h:mm tt') AS 'date'
                                   FROM tbldisposal a
                                   JOIN tblaccounts b ON a.account_id = b.id 
                                   WHERE a.date BETWEEN @startDate AND @endDate;", conn)
             cmd.Parameters.AddWithValue("@startDate", date1)
-            cmd.Parameters.AddWithValue("@endDate", date2)
+            cmd.Parameters.AddWithValue("@endDate", date2.AddDays(+1))
             Dim dTable As New DataSet
             Dim adapter As New SqlDataAdapter(cmd)
             adapter.Fill(dTable, "DT_DisposalReport")

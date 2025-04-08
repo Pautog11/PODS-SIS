@@ -356,4 +356,25 @@ Public Class BaseDelivery
             Return 0
         End Try
     End Function
+
+    ''' <summary>
+    ''' To fetch all previous pullouts
+    ''' </summary>
+    ''' <param name="supplier_id"></param>
+    ''' <returns></returns>
+    Public Shared Function FetchPullout(supplier_id As Integer) As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("SELECT id, reference_number, total, FORMAT(date, 'MMMM d, yyyy') as araw FROM tbldeliverypullouts WHERE supplier_id = @supplier_id", conn)
+            cmd.Parameters.AddWithValue("@supplier_id", supplier_id)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
+        End Try
+    End Function
 End Class

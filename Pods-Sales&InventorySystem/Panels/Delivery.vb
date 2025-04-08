@@ -16,14 +16,22 @@ Public Class Delivery
     End Sub
 
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
-        _tableAapter.Fill(_dataTable)
-        DeliveryDataGridView.DataSource = _dataTable
-        DeliveryDataGridView.Columns.Item("ID").Visible = False
+        Try
+            _tableAapter.Fill(_dataTable)
+            DeliveryDataGridView.DataSource = _dataTable
+            DeliveryDataGridView.Columns.Item("ID").Visible = False
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub AddDeliveryButton_Click(sender As Object, e As EventArgs) Handles AddDeliveryButton.Click
-        Dim dialog As New DeliveryCartDialog(subject:=_subject)
-        dialog.ShowDialog()
+        Try
+            Dim dialog As New DeliveryCartDialog(subject:=_subject)
+            dialog.ShowDialog()
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub DeliveryDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DeliveryDataGridView.CellClick

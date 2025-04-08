@@ -72,11 +72,20 @@ Public Class BaseDisposal
                     _sqlCommand = New SqlCommand("UPDATE tbldeliveries_items SET inventory_quantity = inventory_quantity - @inventory_quantity WHERE id = @id", _sqlConnection, transaction)
                     _sqlCommand.Parameters.AddWithValue("@inventory_quantity", item("quantity"))
                     _sqlCommand.Parameters.AddWithValue("@id", item("delivery_items_id"))
-                Else
+                    'Else
+                    '    _sqlCommand.Parameters.Clear()
+                    '    _sqlCommand = New SqlCommand("UPDATE tblreturn_items SET remaining_quantity = remaining_quantity - @remaining_quantity WHERE id = @id", _sqlConnection, transaction)
+                    '    _sqlCommand.Parameters.AddWithValue("@remaining_quantity", item("quantity"))
+                    '    _sqlCommand.Parameters.AddWithValue("@id", item("delivery_items_id"))
+                End If
+
+                If item("from") = "RETURNED" Then
                     _sqlCommand.Parameters.Clear()
                     _sqlCommand = New SqlCommand("UPDATE tblreturn_items SET remaining_quantity = remaining_quantity - @remaining_quantity WHERE id = @id", _sqlConnection, transaction)
                     _sqlCommand.Parameters.AddWithValue("@remaining_quantity", item("quantity"))
+                    MsgBox(item("quantity"))
                     _sqlCommand.Parameters.AddWithValue("@id", item("delivery_items_id"))
+                    MsgBox(item("delivery_items_id"))
                 End If
 
                 If _sqlCommand.ExecuteNonQuery() <= 0 Then
@@ -115,8 +124,8 @@ Public Class BaseDisposal
 
                                   UNION ALL 
     
-                                  SELECT b.id, 
-                                         a.id, 
+                                  SELECT a.id, 
+                                         b.id, 
                                          c.id, 
                                          'RETURNED' AS 'FROM',
                                          product_name, 

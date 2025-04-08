@@ -37,7 +37,7 @@ Public Class DeliveryCartDialog
                 SaveButton.Visible = False
                 SupplierNameComboBox.Enabled = False
                 DatePicker.Enabled = False
-                AddDeductionButton.Visible = False
+                AddDeducttionButton.Visible = False
                 VendorComboBox.Enabled = False
                 TransactionDeliveryTextBox.Enabled = False
 
@@ -211,8 +211,8 @@ Public Class DeliveryCartDialog
     Private Sub EditButton_Click(sender As Object, e As EventArgs) Handles EditButton.Click
         Try
             If button = 1 Then
-                Dim controls As Object() = {SupplierNameComboBox, TransactionDeliveryTextBox}
-                Dim types As DataInput() = {DataInput.STRING_NAME, DataInput.STRING_STRING}
+                Dim controls As Object() = {SupplierNameComboBox, VendorComboBox, TransactionDeliveryTextBox}
+                Dim types As DataInput() = {DataInput.STRING_NAME, DataInput.STRING_NAME, DataInput.STRING_STRING}
 
                 Dim result As New List(Of Object())
                 For i = 0 To controls.Count - 1
@@ -336,4 +336,31 @@ Public Class DeliveryCartDialog
         End Try
     End Sub
 
+    Private Sub AddDeducttionButton_Click(sender As Object, e As EventArgs) Handles AddDeducttionButton.Click
+        Try
+            Dim controls As Object() = {SupplierNameComboBox, VendorComboBox}
+            Dim types As DataInput() = {DataInput.STRING_NAME, DataInput.STRING_NAME}
+
+            Dim result As New List(Of Object())
+            For i = 0 To controls.Count - 1
+                result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
+                Dim validationResult = TryCast(result(i), Object())
+                If validationResult IsNot Nothing AndAlso validationResult.Length > 0 Then
+                    If Not validationResult(0) = True Then
+                        Exit Sub
+                    End If
+                End If
+            Next
+
+            Dim data As New Dictionary(Of String, String) From {
+                {"supplier_id", If(SupplierNameComboBox.SelectedItem("id"), String.Empty)}
+            }
+
+            Using dialog As New DeliveryPreviousPullout(data:=data, parent:=Me)
+                dialog.ShowDialog()
+            End Using
+        Catch ex As Exception
+
+        End Try
+    End Sub
 End Class

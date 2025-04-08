@@ -95,7 +95,7 @@ Public Class EditDeliveryDialog
                 Exit Sub
             End If
 
-            If QuantityTextBox.Text < BaseDelivery.Count_bought_quantity(_data.Item("transaction_id"), id) Then
+            If Val(QuantityTextBox.Text) < BaseDelivery.Count_bought_quantity(_data.Item("transaction_id"), id) Then
                 MessageBox.Show("You cannot set a quantity lower than the purchased amount!.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 QuantityTextBox.Text = ""
                 Exit Sub

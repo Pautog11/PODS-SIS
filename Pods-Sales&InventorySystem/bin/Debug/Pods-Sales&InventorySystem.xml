@@ -796,6 +796,13 @@ Row event argument class
  <param name="product_id"></param>
  <returns></returns>
 </member>
+<member name="M:Pods_Sales_InventorySystem.BaseDelivery.FetchPullout(System.Int32)">
+ <summary>
+ To fetch all previous pullouts
+ </summary>
+ <param name="supplier_id"></param>
+ <returns></returns>
+</member>
 <member name="M:Pods_Sales_InventorySystem.BaseDosage.Search(System.String)">
  <summary>
  Search query

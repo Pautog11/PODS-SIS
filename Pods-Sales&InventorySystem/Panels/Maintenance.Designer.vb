@@ -539,7 +539,7 @@ Partial Class Maintenance
         Me.Pricing1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Pricing1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Pricing1.Location = New System.Drawing.Point(0, 0)
-        Me.Pricing1.Name = "Pricing1"
+        Me.Pricing1.NAME = "Pricing1"
         Me.Pricing1.Size = New System.Drawing.Size(1286, 670)
         Me.Pricing1.TabIndex = 0
         '

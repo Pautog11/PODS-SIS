@@ -22,9 +22,9 @@ Partial Class DeliveryCartDialog
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.AccountHeaderLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -48,15 +48,6 @@ Partial Class DeliveryCartDialog
         Me.TotalPrice = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.Guna2HtmlLabel1 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.DeliveryDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
-        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.VendorComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
-        Me.Guna2HtmlLabel4 = New Guna.UI2.WinForms.Guna2HtmlLabel()
-        Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.AddDeductionButton = New Guna.UI2.WinForms.Guna2Button()
-        Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
-        Me.Guna2TextBox1 = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Guna2HtmlLabel5 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.product = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.expiry_date = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -68,6 +59,14 @@ Partial Class DeliveryCartDialog
         Me.target = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.target2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EDIT = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.VendorComboBox = New Guna.UI2.WinForms.Guna2ComboBox()
+        Me.Guna2HtmlLabel4 = New Guna.UI2.WinForms.Guna2HtmlLabel()
+        Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.AddDeducttionButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.Guna2TextBox1 = New Guna.UI2.WinForms.Guna2TextBox()
+        Me.Guna2HtmlLabel5 = New Guna.UI2.WinForms.Guna2HtmlLabel()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.AccountHeaderLayoutPanel.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -394,25 +393,25 @@ Partial Class DeliveryCartDialog
         Me.DeliveryDataGridView.AllowUserToDeleteRows = False
         Me.DeliveryDataGridView.AllowUserToResizeColumns = False
         Me.DeliveryDataGridView.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
-        Me.DeliveryDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DeliveryDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle7.BackColor = System.Drawing.Color.White
+        Me.DeliveryDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DeliveryDataGridView.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle8
         Me.DeliveryDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.product, Me.expiry_date, Me.batch_number, Me.price, Me.cost_price, Me.quantity, Me.total, Me.target, Me.target2, Me.EDIT})
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DeliveryDataGridView.DefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle9.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
+        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DeliveryDataGridView.DefaultCellStyle = DataGridViewCellStyle9
         Me.DeliveryDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DeliveryDataGridView.GridColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DeliveryDataGridView.Location = New System.Drawing.Point(0, 150)
@@ -445,143 +444,6 @@ Partial Class DeliveryCartDialog
         Me.DeliveryDataGridView.ThemeStyle.RowsStyle.Height = 22
         Me.DeliveryDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DeliveryDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
-        '
-        'TableLayoutPanel3
-        '
-        Me.TableLayoutPanel3.ColumnCount = 2
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.0!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.0!))
-        Me.TableLayoutPanel3.Controls.Add(Me.Panel2, 0, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.FlowLayoutPanel3, 1, 0)
-        Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(0, 100)
-        Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(0)
-        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
-        Me.TableLayoutPanel3.RowCount = 1
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(967, 50)
-        Me.TableLayoutPanel3.TabIndex = 8
-        '
-        'Panel2
-        '
-        Me.Panel2.Controls.Add(Me.VendorComboBox)
-        Me.Panel2.Controls.Add(Me.Guna2HtmlLabel4)
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel2.Location = New System.Drawing.Point(0, 0)
-        Me.Panel2.Margin = New System.Windows.Forms.Padding(0)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(338, 50)
-        Me.Panel2.TabIndex = 4
-        '
-        'VendorComboBox
-        '
-        Me.VendorComboBox.BackColor = System.Drawing.Color.Transparent
-        Me.VendorComboBox.BorderRadius = 5
-        Me.VendorComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
-        Me.VendorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.VendorComboBox.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.VendorComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.VendorComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.VendorComboBox.ForeColor = System.Drawing.Color.Black
-        Me.VendorComboBox.ItemHeight = 30
-        Me.VendorComboBox.Location = New System.Drawing.Point(94, 6)
-        Me.VendorComboBox.Name = "VendorComboBox"
-        Me.VendorComboBox.Size = New System.Drawing.Size(157, 36)
-        Me.VendorComboBox.TabIndex = 1
-        '
-        'Guna2HtmlLabel4
-        '
-        Me.Guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2HtmlLabel4.Location = New System.Drawing.Point(14, 15)
-        Me.Guna2HtmlLabel4.Name = "Guna2HtmlLabel4"
-        Me.Guna2HtmlLabel4.Size = New System.Drawing.Size(68, 15)
-        Me.Guna2HtmlLabel4.TabIndex = 0
-        Me.Guna2HtmlLabel4.Text = "Vendor Name"
-        '
-        'FlowLayoutPanel3
-        '
-        Me.FlowLayoutPanel3.Controls.Add(Me.AddDeductionButton)
-        Me.FlowLayoutPanel3.Controls.Add(Me.Guna2Button1)
-        Me.FlowLayoutPanel3.Controls.Add(Me.Guna2TextBox1)
-        Me.FlowLayoutPanel3.Controls.Add(Me.Guna2HtmlLabel5)
-        Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.FlowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
-        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(338, 0)
-        Me.FlowLayoutPanel3.Margin = New System.Windows.Forms.Padding(0)
-        Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
-        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(629, 50)
-        Me.FlowLayoutPanel3.TabIndex = 5
-        '
-        'AddDeductionButton
-        '
-        Me.AddDeductionButton.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.AddDeductionButton.BackColor = System.Drawing.Color.Transparent
-        Me.AddDeductionButton.BorderRadius = 15
-        Me.AddDeductionButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.AddDeductionButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.AddDeductionButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.AddDeductionButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.AddDeductionButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.AddDeductionButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.AddDeductionButton.ForeColor = System.Drawing.Color.White
-        Me.AddDeductionButton.Location = New System.Drawing.Point(476, 7)
-        Me.AddDeductionButton.Margin = New System.Windows.Forms.Padding(10, 7, 3, 3)
-        Me.AddDeductionButton.Name = "AddDeductionButton"
-        Me.AddDeductionButton.Size = New System.Drawing.Size(150, 35)
-        Me.AddDeductionButton.TabIndex = 9
-        Me.AddDeductionButton.Text = "Apply"
-        '
-        'Guna2Button1
-        '
-        Me.Guna2Button1.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.Guna2Button1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2Button1.BorderRadius = 15
-        Me.Guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.Guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.Guna2Button1.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.Guna2Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Guna2Button1.ForeColor = System.Drawing.Color.White
-        Me.Guna2Button1.Location = New System.Drawing.Point(313, 7)
-        Me.Guna2Button1.Margin = New System.Windows.Forms.Padding(10, 7, 3, 3)
-        Me.Guna2Button1.Name = "Guna2Button1"
-        Me.Guna2Button1.Size = New System.Drawing.Size(150, 35)
-        Me.Guna2Button1.TabIndex = 10
-        Me.Guna2Button1.Text = "View"
-        '
-        'Guna2TextBox1
-        '
-        Me.Guna2TextBox1.BorderRadius = 5
-        Me.Guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.Guna2TextBox1.DefaultText = ""
-        Me.Guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.Guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.Guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.Guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Guna2TextBox1.ForeColor = System.Drawing.Color.Black
-        Me.Guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox1.Location = New System.Drawing.Point(134, 6)
-        Me.Guna2TextBox1.Margin = New System.Windows.Forms.Padding(3, 6, 3, 3)
-        Me.Guna2TextBox1.MaxLength = 50
-        Me.Guna2TextBox1.Name = "Guna2TextBox1"
-        Me.Guna2TextBox1.PlaceholderText = ""
-        Me.Guna2TextBox1.SelectedText = ""
-        Me.Guna2TextBox1.ShortcutsEnabled = False
-        Me.Guna2TextBox1.Size = New System.Drawing.Size(166, 36)
-        Me.Guna2TextBox1.TabIndex = 6
-        '
-        'Guna2HtmlLabel5
-        '
-        Me.Guna2HtmlLabel5.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2HtmlLabel5.Location = New System.Drawing.Point(59, 15)
-        Me.Guna2HtmlLabel5.Name = "Guna2HtmlLabel5"
-        Me.Guna2HtmlLabel5.Size = New System.Drawing.Size(69, 15)
-        Me.Guna2HtmlLabel5.TabIndex = 10
-        Me.Guna2HtmlLabel5.Text = "Total returned"
         '
         'ID
         '
@@ -652,6 +514,123 @@ Partial Class DeliveryCartDialog
         Me.EDIT.ReadOnly = True
         Me.EDIT.Width = 5
         '
+        'TableLayoutPanel3
+        '
+        Me.TableLayoutPanel3.ColumnCount = 2
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 65.0!))
+        Me.TableLayoutPanel3.Controls.Add(Me.Panel2, 0, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.FlowLayoutPanel3, 1, 0)
+        Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(0, 100)
+        Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(0)
+        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
+        Me.TableLayoutPanel3.RowCount = 1
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(967, 50)
+        Me.TableLayoutPanel3.TabIndex = 8
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.VendorComboBox)
+        Me.Panel2.Controls.Add(Me.Guna2HtmlLabel4)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel2.Location = New System.Drawing.Point(0, 0)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(0)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(338, 50)
+        Me.Panel2.TabIndex = 4
+        '
+        'VendorComboBox
+        '
+        Me.VendorComboBox.BackColor = System.Drawing.Color.Transparent
+        Me.VendorComboBox.BorderRadius = 5
+        Me.VendorComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.VendorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.VendorComboBox.FocusedColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.VendorComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.VendorComboBox.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.VendorComboBox.ForeColor = System.Drawing.Color.Black
+        Me.VendorComboBox.ItemHeight = 30
+        Me.VendorComboBox.Location = New System.Drawing.Point(94, 6)
+        Me.VendorComboBox.Name = "VendorComboBox"
+        Me.VendorComboBox.Size = New System.Drawing.Size(157, 36)
+        Me.VendorComboBox.TabIndex = 1
+        '
+        'Guna2HtmlLabel4
+        '
+        Me.Guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2HtmlLabel4.Location = New System.Drawing.Point(14, 15)
+        Me.Guna2HtmlLabel4.Name = "Guna2HtmlLabel4"
+        Me.Guna2HtmlLabel4.Size = New System.Drawing.Size(68, 15)
+        Me.Guna2HtmlLabel4.TabIndex = 0
+        Me.Guna2HtmlLabel4.Text = "Vendor Name"
+        '
+        'FlowLayoutPanel3
+        '
+        Me.FlowLayoutPanel3.Controls.Add(Me.AddDeducttionButton)
+        Me.FlowLayoutPanel3.Controls.Add(Me.Guna2TextBox1)
+        Me.FlowLayoutPanel3.Controls.Add(Me.Guna2HtmlLabel5)
+        Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FlowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
+        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(338, 0)
+        Me.FlowLayoutPanel3.Margin = New System.Windows.Forms.Padding(0)
+        Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
+        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(629, 50)
+        Me.FlowLayoutPanel3.TabIndex = 5
+        '
+        'AddDeducttionButton
+        '
+        Me.AddDeducttionButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.AddDeducttionButton.BackColor = System.Drawing.Color.Transparent
+        Me.AddDeducttionButton.BorderRadius = 15
+        Me.AddDeducttionButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.AddDeducttionButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.AddDeducttionButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.AddDeducttionButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.AddDeducttionButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.AddDeducttionButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.AddDeducttionButton.ForeColor = System.Drawing.Color.White
+        Me.AddDeducttionButton.Location = New System.Drawing.Point(476, 7)
+        Me.AddDeducttionButton.Margin = New System.Windows.Forms.Padding(10, 7, 3, 3)
+        Me.AddDeducttionButton.Name = "AddDeducttionButton"
+        Me.AddDeducttionButton.Size = New System.Drawing.Size(150, 35)
+        Me.AddDeducttionButton.TabIndex = 10
+        Me.AddDeducttionButton.Text = "View"
+        '
+        'Guna2TextBox1
+        '
+        Me.Guna2TextBox1.BorderRadius = 5
+        Me.Guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.Guna2TextBox1.DefaultText = ""
+        Me.Guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.Guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.Guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.Guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.Guna2TextBox1.ForeColor = System.Drawing.Color.Black
+        Me.Guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.Guna2TextBox1.Location = New System.Drawing.Point(297, 6)
+        Me.Guna2TextBox1.Margin = New System.Windows.Forms.Padding(3, 6, 3, 3)
+        Me.Guna2TextBox1.MaxLength = 50
+        Me.Guna2TextBox1.Name = "Guna2TextBox1"
+        Me.Guna2TextBox1.PlaceholderText = ""
+        Me.Guna2TextBox1.SelectedText = ""
+        Me.Guna2TextBox1.ShortcutsEnabled = False
+        Me.Guna2TextBox1.Size = New System.Drawing.Size(166, 36)
+        Me.Guna2TextBox1.TabIndex = 6
+        '
+        'Guna2HtmlLabel5
+        '
+        Me.Guna2HtmlLabel5.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.Guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2HtmlLabel5.Location = New System.Drawing.Point(222, 15)
+        Me.Guna2HtmlLabel5.Name = "Guna2HtmlLabel5"
+        Me.Guna2HtmlLabel5.Size = New System.Drawing.Size(69, 15)
+        Me.Guna2HtmlLabel5.TabIndex = 10
+        Me.Guna2HtmlLabel5.Text = "Total returned"
+        '
         'DeliveryCartDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -703,15 +682,13 @@ Partial Class DeliveryCartDialog
     Friend WithEvents DatePicker As Guna.UI2.WinForms.Guna2DateTimePicker
     Friend WithEvents EditButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents AddItemButton As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents AddDeductionButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents VendorComboBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents Guna2HtmlLabel4 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents FlowLayoutPanel3 As FlowLayoutPanel
     Friend WithEvents Guna2HtmlLabel5 As Guna.UI2.WinForms.Guna2HtmlLabel
-    Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
-    Friend WithEvents Guna2TextBox1 As Guna.UI2.WinForms.Guna2TextBox
+    Friend WithEvents AddDeducttionButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2HtmlLabel8 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Guna2HtmlLabel9 As Guna.UI2.WinForms.Guna2HtmlLabel
     Friend WithEvents Guna2HtmlLabel6 As Guna.UI2.WinForms.Guna2HtmlLabel
@@ -727,4 +704,5 @@ Partial Class DeliveryCartDialog
     Friend WithEvents target As DataGridViewTextBoxColumn
     Friend WithEvents target2 As DataGridViewTextBoxColumn
     Friend WithEvents EDIT As DataGridViewImageColumn
+    Friend WithEvents Guna2TextBox1 As Guna.UI2.WinForms.Guna2TextBox
 End Class
