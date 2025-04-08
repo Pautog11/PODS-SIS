@@ -408,7 +408,7 @@ Partial Class PullOutCartDialog
         '
         'tran_id
         '
-        Me.tran_id.HeaderText = "TRANSACTION ID"
+        Me.tran_id.HeaderText = "Dev id"
         Me.tran_id.Name = "tran_id"
         Me.tran_id.ReadOnly = True
         '

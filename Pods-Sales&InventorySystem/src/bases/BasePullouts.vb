@@ -42,13 +42,13 @@ Public Class BasePullouts
             For Each item In _item
                 If item IsNot Nothing AndAlso item.Count > 0 Then
                     _sqlCommand.Parameters.Clear()
-                    _sqlCommand = New SqlCommand("INSERT INTO tbldeliverypullout_items(deliverypullout_id, delivery_id, product_id, atp, expiration_date, batch_number, rrc_id, price, quantity) VALUES (@deliverypullout_id, @delivery_id, @product_id, @atp, @expiration_date, @batch_number, @rrc_id, @price, @quantity)", _sqlConnection, transaction)
+                    _sqlCommand = New SqlCommand("INSERT INTO tbldeliverypullout_items(deliverypullout_id, delivery_id, product_id, atp, batch_number, expiration_date, rrc_id, price, quantity) VALUES (@deliverypullout_id, @delivery_id, @product_id, @atp, @batch_number, @expiration_date, @rrc_id, @price, @quantity)", _sqlConnection, transaction)
                     _sqlCommand.Parameters.AddWithValue("@deliverypullout_id", deliveryId)
                     _sqlCommand.Parameters.AddWithValue("@delivery_id", item("tran_id"))
                     _sqlCommand.Parameters.AddWithValue("@product_id", item("product_id"))
                     _sqlCommand.Parameters.AddWithValue("@atp", item("atp"))
-                    _sqlCommand.Parameters.AddWithValue("@expiration_date", item("expiration_date"))
                     _sqlCommand.Parameters.AddWithValue("@batch_number", item("batch_number"))
+                    _sqlCommand.Parameters.AddWithValue("@expiration_date", item("expiration_date"))
                     _sqlCommand.Parameters.AddWithValue("@rrc_id", item("rrc_id"))
                     _sqlCommand.Parameters.AddWithValue("@price", item("price"))
                     _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
@@ -87,16 +87,24 @@ Public Class BasePullouts
             For Each item In _item
                 If item("from") = "Returned" Then
                     _sqlCommand.Parameters.Clear()
-                    _sqlCommand = New SqlCommand("select delivery_items_id from tblreturn_items a
-                                                  join tblreturns b on a.tblreturn_id = b.id
-                                                  join tbltransactions c on b.transaction_id = c.id
-                                                  join getrev d on c.id = d.transaction_id
-                                                  WHERE a.tblreturn_id = @return_id and a.product_id = @product_id", _sqlConnection, transaction)
+                    _sqlCommand = New SqlCommand("SELECT delivery_items_id from tblreturn_items a
+                                                  JOIN tblreturns b ON a.tblreturn_id = b.id
+                                                  JOIN tbltransactions c ON b.transaction_id = c.id
+                                                  JOIN getrev d ON c.id = d.transaction_id
+                                                  WHERE a.id = @return_id", _sqlConnection, transaction)
                     _sqlCommand.Parameters.AddWithValue("@return_id", item("id"))
-                    _sqlCommand.Parameters.AddWithValue("@product_id", item("product_id"))
-                    item("id") = _sqlCommand.ExecuteScalar()
+                    'MsgBox(item("id"))
+                    'MsgBox(item("id"))
+                    '_sqlCommand.Parameters.AddWithValue("@product_id", item("product_id"))
+                    Dim result As Object = _sqlCommand.ExecuteScalar()
+                    'MsgBox(result)
+                    If result IsNot DBNull.Value Then
+                        item("id") = result
+                    Else
+                        Throw New Exception("An error occured!")
+                    End If
+                    'MsgBox(result)
                 End If
-
                 _sqlCommand.Parameters.Clear()
                 _sqlCommand = New SqlCommand("WITH 
                                                     oldprice AS (
@@ -122,12 +130,17 @@ Public Class BasePullouts
                 'MsgBox(item("id"))
                 'MsgBox(item("quantity"))
                 _sqlCommand.Parameters.AddWithValue("@id", item("product_id"))
+                'MsgBox(item("id"))
                 _sqlCommand.Parameters.AddWithValue("@idngitems", item("id"))
                 _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
 
+                'If _sqlCommand.ExecuteNonQuery() <= 0 Then
+                '    Throw New Exception("An error occured!")
+                'End If
                 If _sqlCommand.ExecuteNonQuery() <= 0 Then
-                    Throw New Exception("An error occured!")
+                    Throw New Exception()
                 End If
+
             Next
             transaction.Commit()
             MessageBox.Show("Pullout has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -311,6 +324,37 @@ Public Class BasePullouts
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return New pods.viewtbldeliverypulloutsDataTable
+        End Try
+    End Function
+
+    Public Shared Function FetchPulloutItems(id As Integer) As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("SELECT a.id, 
+                                         delivery_id, 
+                                         a.product_id, 
+                                         c.delivery_number, 
+                                         product_name, 
+                                         atp, 
+                                         expiration_date, 
+                                         batch_number, 
+                                         (SELECT code FROM tblrrc WHERE id = rrc_id), 
+                                         price, 
+                                         quantity, 
+                                         (price * quantity) as total
+                                  FROM tbldeliverypullout_items a
+                                  JOIN tblproducts b ON a.product_id = b.id
+                                  JOIN tbldeliveries c ON a.delivery_id = c.id
+                                  WHERE a.deliverypullout_id = @id", conn)
+            cmd.Parameters.AddWithValue("@id", id)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
         End Try
     End Function
 End Class

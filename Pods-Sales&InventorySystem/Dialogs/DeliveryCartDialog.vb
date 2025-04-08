@@ -65,6 +65,7 @@ Public Class DeliveryCartDialog
                     DeliveryDataGridView.Rows.Add(data.ToArray())
                 Next
 
+
             Else
                 EditButton.Visible = False
                 DatePicker.MaxDate = DateTime.Now

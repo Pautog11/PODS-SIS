@@ -17,30 +17,34 @@
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
         _tableAapter.Fill(_dataTable)
         PullOutsGridView.DataSource = _dataTable
-        PullOutsGridView.Columns.Item("ID").Visible = False
+        'PullOutsGridView.Columns.Item("ID").Visible = False
     End Sub
 
     Private Sub PullOutsGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles PullOutsGridView.CellClick
-        'Try
-        '    If PullOutsGridView.Rows.Count > 0 Then
-        '        Dim row As DataGridViewRow = PullOutsGridView.Rows(0)
-        '        Dim data As New Dictionary(Of String, String) From {
-        '                {"id", row.Cells(0).Value},
-        '                {"delivery_number", row.Cells(2).Value},
-        '                {"total", row.Cells(3).Value},
-        '                {"date", row.Cells(4).Value}
-        '        }
-        '        Dim dialog As New DeliveryPullOutCartView(data:=data)
-        '        dialog.ShowDialog()
-        '    End If
-        'Catch ex As Exception
+        Try
+            If PullOutsGridView.Rows.Count > 0 Then
+                Dim selectedRows As DataGridViewSelectedRowCollection = PullOutsGridView.SelectedRows
+                Dim row As DataGridViewRow = selectedRows(0)
+                Dim data As New Dictionary(Of String, String) From {
+                        {"id", row.Cells(0).Value},
+                        {"delivery_number", row.Cells(1).Value},
+                        {"date", row.Cells(4).Value}
+                }
+                Dim dialog As New PullOutCartDialog(data:=data)
+                dialog.ShowDialog()
+            End If
+        Catch ex As Exception
 
-        'End Try
+        End Try
     End Sub
 
     Private Sub AddProductButton_Click(sender As Object, e As EventArgs) Handles AddProductButton.Click
-        Dim dialog As New PullOutCartDialog(subject:=_subject)
-        dialog.ShowDialog()
+        Try
+            Dim dialog As New PullOutCartDialog(subject:=_subject)
+            dialog.ShowDialog()
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub PulloutSearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles PulloutSearchTextBox.TextChanged

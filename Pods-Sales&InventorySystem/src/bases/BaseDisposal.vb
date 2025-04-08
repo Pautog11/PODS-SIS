@@ -44,10 +44,22 @@ Public Class BaseDisposal
                     _sqlCommand.Parameters.AddWithValue("@disposal_id", disposal_id)
                     _sqlCommand.Parameters.AddWithValue("@product_id", item("product_id"))
                     _sqlCommand.Parameters.AddWithValue("@drc", item("drc"))
-                    _sqlCommand.Parameters.AddWithValue("@batch_number", item("batch_number"))
-                    _sqlCommand.Parameters.AddWithValue("@expiration_date", item("expiration_date"))
+
+                    If String.IsNullOrEmpty(item("batch_number").ToString()) Then
+                        _sqlCommand.Parameters.AddWithValue("@batch_number", DBNull.Value)
+                    Else
+                        _sqlCommand.Parameters.AddWithValue("@batch_number", item("batch_number"))
+                    End If
+
+                    If String.IsNullOrEmpty(item("expiration_date").ToString()) Then
+                        _sqlCommand.Parameters.AddWithValue("@expiration_date", DBNull.Value)
+                    Else
+                        _sqlCommand.Parameters.AddWithValue("@expiration_date", item("expiration_date"))
+                    End If
+
                     _sqlCommand.Parameters.AddWithValue("@price", item("price"))
                     _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
+
                     If _sqlCommand.ExecuteNonQuery() <= 0 Then
                         Throw New Exception("An error occured!")
                     End If
@@ -201,6 +213,34 @@ Public Class BaseDisposal
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return New pods.viewtbldisposalDataTable
+        End Try
+    End Function
+
+    Public Shared Function FetchDisposedItems(id As Integer) As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("SELECT a.id, 
+                                         product_id, 
+                                         'Disposed',
+                                         product_name, 
+                                         (select code from tbldisposal_reason_code WHERE id = drc) AS drc, 
+                                         batch_number, 
+                                         expiration_date, 
+                                         price, 
+                                         quantity,
+                                         (price * quantity)
+                                  FROM tbldisposal_items a
+                                  JOIN tblproducts b ON a.product_id = b.id
+                                  WHERE disposal_id = @id", conn)
+            cmd.Parameters.AddWithValue("@id", id)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
         End Try
     End Function
 End Class

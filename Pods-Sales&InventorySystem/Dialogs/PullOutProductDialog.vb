@@ -96,10 +96,10 @@ Public Class PullOutProductDialog
                 Dim row As DataGridViewRow = PulloutDataGridView.SelectedRows(0)
                 id = row.Cells(0).Value?.ToString()
                 _data.Item("id") = row.Cells(0).Value?.ToString()
-                _data.Item("tran_id") = row.Cells(1).Value?.ToString()
+                tran_id = row.Cells(1).Value?.ToString()
                 _data.Item("inventory_location") = row.Cells(2).Value?.ToString()
                 _data.Item("delivery_reference") = row.Cells(3).Value?.ToString()
-                _data.Item("pid") = row.Cells(4).Value?.ToString()
+                p_id = row.Cells(4).Value?.ToString()
                 ProductTextBox.Text = row.Cells(5).Value?.ToString()
                 BatchNumberTextBox.Text = row.Cells(6).Value?.ToString()
                 ExpiryDateTextBox.Text = row.Cells(7).Value?.ToString()
@@ -174,8 +174,8 @@ Public Class PullOutProductDialog
 
                 If Not is_existing Then
                     _parent.DeliveryPulloutDataGridView.Rows.Add({_data.Item("id"),
-                                                                 _data.Item("tran_id"),
-                                                                 _data.Item("pid"),
+                                                                 tran_id,
+                                                                 p_id,
                                                                  _data.Item("delivery_reference"),
                                                                  ProductTextBox.Text,
                                                                  AtpTextBox.Text,

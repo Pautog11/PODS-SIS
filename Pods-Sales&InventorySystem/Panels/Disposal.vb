@@ -18,7 +18,7 @@
         Try
             _tableAapter.Fill(_dataTable)
             DisposalDataGridView.DataSource = _dataTable
-            DisposalDataGridView.Columns.Item("ID").Visible = False
+            'DisposalDataGridView.Columns.Item("ID").Visible = False
         Catch ex As Exception
 
         End Try
@@ -37,6 +37,23 @@
         Try
             _dataTable = BaseDisposal.Search(DisposalSearchTextBox.Text)
             DisposalDataGridView.DataSource = _dataTable
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub DisposalDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DisposalDataGridView.CellClick
+        Try
+            If DisposalDataGridView.Rows.Count > 0 Then
+                Dim row As DataGridViewRow = DisposalDataGridView.SelectedRows(0)
+                Dim data As New Dictionary(Of String, String) From {
+                    {"id", If(row.Cells(0).Value?.ToString(), "0")},
+                    {"ref", If(row.Cells(1).Value?.ToString(), "")},
+                    {"date", If(row.Cells(4).Value?.ToString(), "")}
+                }
+                Dim dialog As New DisposalCartDialog(data:=data, parent:=Me)
+                dialog.ShowDialog()
+            End If
         Catch ex As Exception
 
         End Try

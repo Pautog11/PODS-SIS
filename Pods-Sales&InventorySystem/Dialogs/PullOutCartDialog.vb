@@ -3,21 +3,50 @@
 Public Class PullOutCartDialog
     Private _subject As IObservablePanel
     Public _itemSource As DataTable
+    Private ReadOnly _data As Dictionary(Of String, String)
 
-    Public Sub New(Optional subject As IObservablePanel = Nothing)
+    Public Sub New(Optional subject As IObservablePanel = Nothing,
+                   Optional data As Dictionary(Of String, String) = Nothing)
         InitializeComponent()
         _subject = subject
+        _data = data
     End Sub
 
     Private Sub PullOutCartDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            Dim dt As DataTable = BaseSupplier.Fetchsupplier_allow_refund()
-            SupplierNameComboBox.DataSource = dt
-            SupplierNameComboBox.DisplayMember = "name"
-            SupplierNameComboBox.ValueMember = "id"
+            If _data IsNot Nothing Then
+                ReferennceTextBox.Text = _data.Item("delivery_number")
 
-            If dt.Rows.Count > 0 Then
-                SupplierNameComboBox.SelectedIndex = -1
+                MsgBox(_data.Item("id"))
+                DeliveryPulloutDataGridView.Rows.Clear()
+                Dim DeliveryItems As DataTable = BasePullouts.FetchPulloutItems(_data.Item("id"))
+                For Each row As DataRow In DeliveryItems.Rows
+                    Dim data As New List(Of Object)()
+                    For Each column As DataColumn In DeliveryItems.Columns
+                        If row(column) IsNot DBNull.Value AndAlso TypeOf row(column) Is DateTime Then
+                            data.Add(CType(row(column), DateTime).ToString("yyyy-MM-dd"))
+                        Else
+                            data.Add(row(column))
+                        End If
+                        'data.Add(row(column))
+
+                    Next
+                    DeliveryPulloutDataGridView.Rows.Add(data.ToArray())
+                Next
+
+                UpdateVisualData()
+
+                AddProduct.Visible = False
+                ReferennceTextBox.ReadOnly = True
+            Else
+                Dim dt As DataTable = BaseSupplier.Fetchsupplier_allow_refund()
+                SupplierNameComboBox.DataSource = dt
+                SupplierNameComboBox.DisplayMember = "name"
+                SupplierNameComboBox.ValueMember = "id"
+
+                If dt.Rows.Count > 0 Then
+                    SupplierNameComboBox.SelectedIndex = -1
+                End If
             End If
 
             DatePicker.MaxDate = Date.Now
@@ -143,8 +172,8 @@ Public Class PullOutCartDialog
                         {"tran_id", If(row.Cells(1).Value?.ToString(), "0")},
                         {"product_id", If(row.Cells(2).Value?.ToString(), "0")},
                         {"atp", If(row.Cells(5).Value?.ToString(), "0")},
-                        {"expiration_date", If(row.Cells(6).Value?.ToString(), "0")},
-                        {"batch_number", If(row.Cells(7).Value?.ToString(), "0")},
+                        {"batch_number", If(row.Cells(6).Value?.ToString(), "")},
+                        {"expiration_date", If(row.Cells(7).Value?.ToString(), "")},
                         {"rrc_id", BasePullouts.SupplierIdRrc(If(row.Cells(8).Value?.ToString(), ""))},
                         {"price", If(row.Cells(9).Value?.ToString(), "0")},
                         {"quantity", If(row.Cells(10).Value?.ToString(), "0")},
