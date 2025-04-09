@@ -6,9 +6,20 @@ Public Class BaseDelivery
 
     Private ReadOnly _data As Dictionary(Of String, String)
     Private _item As IList(Of Dictionary(Of String, String))
+    Private _ids As IList(Of Dictionary(Of String, String))
+
     Public Sub New(data As Dictionary(Of String, String))
         _data = data
     End Sub
+
+    Public Property Ids() As IList(Of Dictionary(Of String, String))
+        Set(value As IList(Of Dictionary(Of String, String)))
+            _ids = value
+        End Set
+        Get
+            Return _ids
+        End Get
+    End Property
 
     Public Property Items() As IList(Of Dictionary(Of String, String))
         Set(value As IList(Of Dictionary(Of String, String)))
@@ -138,6 +149,31 @@ Public Class BaseDelivery
                     Else
                         _sqlCommand.Parameters.AddWithValue("@expiration_date", item("expiration_date"))
                     End If
+
+                    If _sqlCommand.ExecuteNonQuery() <= 0 Then
+                        Throw New Exception("An error occured!")
+                    End If
+                End If
+            Next
+
+            For Each i In Ids
+                If i.Count > 0 Then
+                    _sqlCommand.Parameters.Clear()
+                    _sqlCommand = New SqlCommand("INSERT INTO tbldelivery_deduction (delivery_id, delivery_pullout_id) VALUES (@delivery_id, @delivery_pullout_id)", _sqlConnection, transaction)
+                    _sqlCommand.Parameters.AddWithValue("@delivery_id", deliveryId)
+                    _sqlCommand.Parameters.AddWithValue("@delivery_pullout_id", i("id"))
+
+                    If _sqlCommand.ExecuteNonQuery() <= 0 Then
+                        Throw New Exception("An error occured!")
+                    End If
+                End If
+            Next
+
+            For Each i In Ids
+                If i.Count > 0 Then
+                    _sqlCommand.Parameters.Clear()
+                    _sqlCommand = New SqlCommand("UPDATE tbldeliverypullouts SET status = 0 WHERE id = @id", _sqlConnection, transaction)
+                    _sqlCommand.Parameters.AddWithValue("@id", i("id"))
 
                     If _sqlCommand.ExecuteNonQuery() <= 0 Then
                         Throw New Exception("An error occured!")
@@ -366,7 +402,7 @@ Public Class BaseDelivery
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT id, reference_number, total, FORMAT(date, 'MMMM d, yyyy') as araw FROM tbldeliverypullouts WHERE supplier_id = @supplier_id", conn)
+            cmd = New SqlCommand("SELECT id, reference_number, total, FORMAT(date, 'MMMM d, yyyy') as araw FROM tbldeliverypullouts WHERE supplier_id = @supplier_id AND status = 1", conn)
             cmd.Parameters.AddWithValue("@supplier_id", supplier_id)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
