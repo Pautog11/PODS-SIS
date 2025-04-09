@@ -97,8 +97,8 @@ Public Class ProductDialog
 
     Private Sub AddProductButton_Click(sender As Object, e As EventArgs) Handles AddProductButton.Click
         Try
-            Dim controls As Object() = {CategoryComboBox, SubCategoryComboBox, ProductNameTextBox, StockLevelTextBox} ', ManufacturerTextBox, StrengthTextBox, DosageFormComboBox, DoseComboBox}
-            Dim types As DataInput() = {DataInput.STRING_STRING, DataInput.STRING_STRING, DataInput.STRING_PRODUCTNAME, DataInput.STRING_INTEGER} ', DataInput.STRING_STRING, DataInput.STRING_DECIMAL, DataInput.STRING_STRING, DataInput.STRING_STRING}
+            Dim controls As Object() = {CategoryComboBox, SubCategoryComboBox, ProductNameTextBox, StockLevelTextBox, BarcodeTextBox} ', ManufacturerTextBox, StrengthTextBox, DosageFormComboBox, DoseComboBox}
+            Dim types As DataInput() = {DataInput.STRING_STRING, DataInput.STRING_STRING, DataInput.STRING_PRODUCTNAME, DataInput.STRING_INTEGER, DataInput.STRING_INTEGER} ', DataInput.STRING_STRING, DataInput.STRING_DECIMAL, DataInput.STRING_STRING, DataInput.STRING_STRING}
             Dim result As New List(Of Object())
             For i = 0 To controls.Count - 1
                 'If Not CheckBox.Checked Then
@@ -109,6 +109,10 @@ Public Class ProductDialog
                 '        Continue For
                 '    End If
                 'End If
+                If controls(i) Is BarcodeTextBox AndAlso String.IsNullOrEmpty(BarcodeTextBox.Text) Then
+                    Continue For ' Skip validation for BarcodeTextBox if it's empty
+                End If
+
                 result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
                 Dim validationResult = TryCast(result(i), Object())
                 If validationResult IsNot Nothing AndAlso validationResult.Length > 0 Then
@@ -167,6 +171,11 @@ Public Class ProductDialog
                     Me.Close()
 
                 ElseIf _data IsNot Nothing Then
+                    If BaseProduct.CheckProductnameWithID(_data.Item("id"), result(2)(1)) = 0 Then
+                        MessageBox.Show("Product exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        Exit Sub
+                    End If
+
                     If BaseProduct.IdBarcodeExist(_data.Item("id"), BarcodeTextBox.Text) = 1 Then
                         invoker = New UpdateCommand(baseCommand)
                         invoker?.Execute()
@@ -174,6 +183,7 @@ Public Class ProductDialog
                         Me.Close()
                         Exit Sub
                     End If
+
                     If BaseProduct.Exists(result(1)(1), If(String.IsNullOrEmpty(BarcodeTextBox.Text), "", BarcodeTextBox.Text)) = 0 Then
                         If Not String.IsNullOrEmpty(BarcodeTextBox.Text) Then
                             If BaseProduct.BarcodeExist(BarcodeTextBox.Text) = 0 Then

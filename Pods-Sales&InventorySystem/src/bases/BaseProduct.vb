@@ -267,6 +267,20 @@ Public Class BaseProduct
         End Try
     End Function
 
+    Public Shared Function CheckProductnameWithID(id As Integer, name As String) As String
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblproducts WHERE id = @id AND LOWER(product_name) = @product_name", conn)
+            cmd.Parameters.AddWithValue("@id", id)
+            cmd.Parameters.AddWithValue("@product_name", name.Trim.ToLower)
+
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
+
     Public Shared Function Getname(id As Integer) As String
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance

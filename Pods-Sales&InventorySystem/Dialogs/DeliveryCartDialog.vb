@@ -83,7 +83,7 @@ Public Class DeliveryCartDialog
 
             Else
                 EditButton.Visible = False
-
+                ViewdeductionButton.Visible = False
                 Guna2DateTimePicker1.MaxDate = DateTime.Now.Date
                 Guna2DateTimePicker1.Value = DateTime.Now.Date
             End If
