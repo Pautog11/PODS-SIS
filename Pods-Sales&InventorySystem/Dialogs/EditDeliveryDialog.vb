@@ -8,6 +8,7 @@ Public Class EditDeliveryDialog
     Dim id As Integer = Nothing
     Dim tite As Integer = Nothing
     Dim num As Integer = 1
+    Dim total_pulled_out As Decimal = Nothing
     Public Sub New(Optional parent As DeliveryCartDialog = Nothing,
                    Optional data As Dictionary(Of String, String) = Nothing,
                    Optional data2 As Dictionary(Of String, String) = Nothing)
@@ -26,7 +27,10 @@ Public Class EditDeliveryDialog
                 CostTextBox.Text = _data.Item("cost_price")
                 BatchTextBox.Text = _data.Item("batch_number")
                 QuantityTextBox.Text = _data.Item("quantity")
-                Txite()
+
+                total_pulled_out = BaseDelivery.FetchTotalPullout(_data.Item("transaction_id"))
+                'MsgBox(_data.Item("transaction_id"))
+                'Txite()
 
                 If _data.Item("date") <> "" Then
                     DateTimePicker.Value = _data.Item("date")
@@ -136,6 +140,7 @@ Public Class EditDeliveryDialog
                         Exit For
                     End If
                 Next
+                _parent.pullout_total = total_pulled_out
                 _parent.UpdateVisualData()
                 Me.Close()
             Else
@@ -216,6 +221,7 @@ Public Class EditDeliveryDialog
                                                       })
 
                 num += 1
+                _parent.pullout_total = total_pulled_out
                 _parent.UpdateVisualData()
                 Me.Close()
             End If
@@ -306,6 +312,7 @@ Public Class EditDeliveryDialog
                     Exit Sub
                 End If
             Next
+            _parent.pullout_total = total_pulled_out
             _parent.UpdateVisualData()
             Me.Close()
         Catch ex As Exception

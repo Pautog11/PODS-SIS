@@ -118,12 +118,13 @@ Public Class BaseDelivery
     Public Sub Add() Implements ICommandPanel.Add
         Dim transaction As SqlTransaction = SqlConnectionPods.GetInstance.BeginTransaction()
         Try
-            _sqlCommand = New SqlCommand("INSERT INTO tbldeliveries (delivery_number, account_id, supplier_id, vendor_id, total, date) VALUES (@delivery_number, @account_id, @supplier_id, @vendor_id, @total, @date); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
+            _sqlCommand = New SqlCommand("INSERT INTO tbldeliveries (delivery_number, account_id, supplier_id, vendor_id, total, deduction, date) VALUES (@delivery_number, @account_id, @supplier_id, @vendor_id, @total, @deduction, @date); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
             _sqlCommand.Parameters.AddWithValue("@delivery_number", _data.Item("delivery_number"))
             _sqlCommand.Parameters.AddWithValue("@account_id", My.Settings.myId)
             _sqlCommand.Parameters.AddWithValue("@supplier_id", _data.Item("supplier_id"))
             _sqlCommand.Parameters.AddWithValue("@vendor_id", _data.Item("vendor_id"))
             _sqlCommand.Parameters.AddWithValue("@total", _data.Item("total"))
+            _sqlCommand.Parameters.AddWithValue("@deduction", _data.Item("deduction"))
             _sqlCommand.Parameters.AddWithValue("@date", _data.Item("date"))
 
             Dim deliveryId As Integer = Convert.ToInt32(_sqlCommand.ExecuteScalar())
@@ -404,6 +405,75 @@ Public Class BaseDelivery
             Dim cmd As SqlCommand
             cmd = New SqlCommand("SELECT id, reference_number, total, FORMAT(date, 'MMMM d, yyyy') as araw FROM tbldeliverypullouts WHERE supplier_id = @supplier_id AND status = 1", conn)
             cmd.Parameters.AddWithValue("@supplier_id", supplier_id)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
+        End Try
+    End Function
+
+    Public Shared Function FetchVendor(supplier_id As Integer, id As Integer) As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("SELECT id, CONCAT(first_name, ' ', last_name) as name from tblvendor WHERE supplier_id = @supplier_id AND id = @id
+                                  UNION ALL
+                                  SELECT id, CONCAT(first_name, ' ', last_name) as name from tblvendor WHERE supplier_id = @supplier_id AND id != @id", conn)
+            cmd.Parameters.AddWithValue("@supplier_id", supplier_id)
+            cmd.Parameters.AddWithValue("@id", id)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
+        End Try
+    End Function
+
+    Public Shared Function FetchSupplierId(company_name As String) As String
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("SELECT id FROM tblsuppliers WHERE company_name = @company_name", conn)
+            cmd.Parameters.AddWithValue("@company_name", company_name.Trim.ToLower())
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
+
+    Public Shared Function FetchTotalPullout(id As Integer) As String
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("SELECT ISNULL(SUM(b.total), 0) FROM tbldelivery_deduction a
+                                  JOIN tbldeliverypullouts b ON a.delivery_pullout_id = b.id
+                                  WHERE a.delivery_id = @id", conn)
+            cmd.Parameters.AddWithValue("@id", id)
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
+
+    Public Shared Function FetchappliedPullout(id As Integer) As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("SELECT b.id, 
+                                         b.reference_number, 
+                                         b.total as total, 
+                                         FORMAT(b.date, 'MMMM d yyyy')
+                                  FROM tbldelivery_deduction a
+                                  JOIN tbldeliverypullouts b ON a.delivery_pullout_id = b.id
+                                  WHERE a.delivery_id = @id", conn)
+            cmd.Parameters.AddWithValue("@id", id)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
             adapter.Fill(dTable)

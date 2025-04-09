@@ -49,13 +49,23 @@ Public Class DeliveryCartDialog
 
                 SupplierNameComboBox.Text = _data.Item("supplier_id")
                 TotalPrice.Text = _data.Item("total")
+                Guna2HtmlLabel6.Text = _data.Item("deduction")
                 Guna2DateTimePicker1.Value = _data.Item("date")
                 TransactionDeliveryTextBox.Text = _data.Item("delivery_number")
 
-                Dim dt As DataTable = BaseVendor.GetVendorBySupplierId(SupplierNameComboBox.SelectedItem("id"))
-                VendorComboBox.DataSource = dt.DefaultView
+                Dim vendor As DataTable = BaseDelivery.FetchVendor(BaseDelivery.FetchSupplierId(_data.Item("supplier_id")), _data.Item("vendor_id"))
+                VendorComboBox.DataSource = vendor.DefaultView
                 VendorComboBox.DisplayMember = "name"
                 VendorComboBox.SelectedItem = "id"
+
+                Dim gtotal As Decimal = 0
+                gtotal = Val(_data.Item("total")) - Val(_data.Item("deduction"))
+                Grandtotal.Text = gtotal.ToString("F2")
+
+                'Dim dt As DataTable = BaseVendor.GetVendorBySupplierId(SupplierNameComboBox.SelectedItem("id"))
+                'VendorComboBox.DataSource = dt.DefaultView
+                'VendorComboBox.DisplayMember = "name"
+                'VendorComboBox.SelectedItem = "id"
 
                 DeliveryDataGridView.Rows.Clear()
                 Dim DeliveryItems As DataTable = BaseDelivery.SelectAllDeliveryItems(_data.Item("id"))
@@ -138,6 +148,11 @@ Public Class DeliveryCartDialog
                 End If
             Next
 
+            If Val(TotalPrice.Text) < Val(Guna2HtmlLabel6.Text) Then
+                MessageBox.Show("The subtotal must be higher than the total of the pulled-out items.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Exit Sub
+            End If
+
             If DeliveryDataGridView.Rows.Count > 0 AndAlso Not result.Any(Function(item As Object()) Not item(0)) Then
                 Dim items As New List(Of Dictionary(Of String, String))()
                 Dim baseCommand As ICommandPanel
@@ -148,6 +163,7 @@ Public Class DeliveryCartDialog
                     {"supplier_id", If(DirectCast(SupplierNameComboBox.SelectedItem, DataRowView)("id"), String.Empty)},
                     {"vendor_id", If(DirectCast(VendorComboBox.SelectedItem, DataRowView)("id"), String.Empty)},
                     {"total", If(String.IsNullOrEmpty(TotalPrice.Text) OrElse TotalPrice.Text = "", 0, TotalPrice.Text)},
+                    {"deduction", If(String.IsNullOrEmpty(Guna2HtmlLabel6.Text) OrElse Guna2HtmlLabel6.Text = "", 0, Guna2HtmlLabel6.Text)},
                     {"date", Guna2DateTimePicker1.Value.ToString("MMM dd yyyy")}
                 }
 
@@ -174,25 +190,6 @@ Public Class DeliveryCartDialog
                     Next
                 End If
 
-                'Dim items As New List(Of Dictionary(Of String, String))()
-                'Dim ids As New Dictionary(Of String, String)()
-
-                'If sample.Rows.Count > 0 Then
-                '    For Each i In sample.Rows
-                '        Dim idValue As String = i("id").ToString()
-                '        Dim idDict As New Dictionary(Of String, String) From {
-                '            {"id", idValue}
-                '        }
-                '        items.Add(idDict)
-
-                '        ' Optionally collect all ids in a single dictionary (e.g., using index or key)
-                '        ' For simplicity, let's just collect with a unique key
-                '        If Not ids.ContainsKey(idValue) Then
-                '            ids.Add(idValue, idValue)
-                '        End If
-                '    Next
-                'End If
-
                 baseCommand = New BaseDelivery(data) With {.Items = items, .Ids = allids}
 
                 If BaseDelivery.Exists(result(2)(1)) = 0 Then
@@ -201,10 +198,12 @@ Public Class DeliveryCartDialog
                     _subject.NotifyObserver()
                     Me.Close()
                 Else
-                    MessageBox.Show("Transaction reference is already exist!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    MessageBox.Show("Transaction reference is already exist!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Exit Sub
                 End If
             Else
-                MessageBox.Show("Please select product first.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                MessageBox.Show("Please select product first.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Exit Sub
             End If
         Catch ex As Exception
 
@@ -285,7 +284,7 @@ Public Class DeliveryCartDialog
                     Dim invoker As ICommandInvoker
                     Dim data As New Dictionary(Of String, String) From {
                         {"id", If(_data.Item("id"), String.Empty)},
-                        {"delivery_number", result(1)(1)},
+                        {"delivery_number", result(2)(1)},
                         {"supplier_id", If(DirectCast(SupplierNameComboBox.SelectedItem, DataRowView)("id"), String.Empty)},
                         {"vendor_id", If(DirectCast(VendorComboBox.SelectedItem, DataRowView)("id"), String.Empty)},
                         {"total", If(String.IsNullOrEmpty(TotalPrice.Text) OrElse TotalPrice.Text = "", 0, TotalPrice.Text)},
@@ -309,8 +308,8 @@ Public Class DeliveryCartDialog
 
                     baseCommand = New BaseDelivery(data) With {.Items = items}
 
-                    If BaseDelivery.Exists(result(1)(1)) = 1 Then
-                        If BaseDelivery.IdExist(_data.Item("id"), result(1)(1)) = 1 Then
+                    If BaseDelivery.Exists(result(2)(1)) = 1 Then
+                        If BaseDelivery.IdExist(_data.Item("id"), result(2)(1)) = 1 Then
                             invoker = New UpdateCommand(baseCommand)
                             invoker?.Execute()
                             _subject.NotifyObserver()
@@ -425,7 +424,7 @@ Public Class DeliveryCartDialog
         End Try
     End Sub
 
-    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
+    Private Sub Guna2Button1_Click(sender As Object, e As EventArgs)
         Try
             If sample.Rows.Count > 0 Then
                 For Each row As DataRow In sample.Rows
@@ -434,6 +433,19 @@ Public Class DeliveryCartDialog
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub ViewdeductionButton_Click(sender As Object, e As EventArgs) Handles ViewdeductionButton.Click
+        Try
+            Dim data As New Dictionary(Of String, String) From {
+                {"id", If(_data.Item("id"), String.Empty)}
+            }
+
+            Dim dialog As New DeliveryPreviousPullout(data2:=data)
+            dialog.ShowDialog()
+        Catch ex As Exception
+
         End Try
     End Sub
 End Class

@@ -2,14 +2,17 @@
 
 Public Class DeliveryPreviousPullout
     Private ReadOnly _data As Dictionary(Of String, String)
+    Private ReadOnly _data2 As Dictionary(Of String, String)
     Private ReadOnly _parent As DeliveryCartDialog = Nothing
     Public check As New DataTable
 
     Public Sub New(Optional data As Dictionary(Of String, String) = Nothing,
+                   Optional data2 As Dictionary(Of String, String) = Nothing,
                    Optional checked As DataTable = Nothing,
                    Optional parent As DeliveryCartDialog = Nothing)
         InitializeComponent()
         _data = data
+        _data2 = data2
         _parent = parent
         check = checked
     End Sub
@@ -18,7 +21,6 @@ Public Class DeliveryPreviousPullout
         Try
             If _data IsNot Nothing Then
                 Dim dt As DataTable = BaseDelivery.FetchPullout(_data.Item("supplier_id"))
-
                 If dt.Rows.Count > 0 Then
                     PreviousPulloutDataGridView.Rows.Clear()
                     For Each i As DataRow In dt.Rows
@@ -27,22 +29,31 @@ Public Class DeliveryPreviousPullout
                         PreviousPulloutDataGridView.Rows.Add(rowData)
                     Next
                 End If
-            End If
 
-            If check.Rows.Count > 0 Then
-                For Each row As DataGridViewRow In PreviousPulloutDataGridView.Rows
-                    Dim rowId As String = row.Cells("id").Value.ToString()
+                If check.Rows.Count > 0 Then
+                    For Each row As DataGridViewRow In PreviousPulloutDataGridView.Rows
+                        Dim rowId As String = row.Cells("id").Value.ToString()
 
-                    For Each checkRow As DataRow In check.Rows
-                        If checkRow("id").ToString() = rowId Then
-                            row.Cells("checkbox").Value = True
-                            Exit For
-                        End If
+                        For Each checkRow As DataRow In check.Rows
+                            If checkRow("id").ToString() = rowId Then
+                                row.Cells("checkbox").Value = True
+                                Exit For
+                            End If
+                        Next
                     Next
-                Next
-                '    MsgBox("meron")
-                'Else
-                '    MsgBox("wala")
+                End If
+            Else
+                Dim dt As DataTable = BaseDelivery.FetchappliedPullout(_data2.Item("id"))
+                If dt.Rows.Count > 0 Then
+                    PreviousPulloutDataGridView.Rows.Clear()
+                    For Each i As DataRow In dt.Rows
+                        Dim rowData As Object() = i.ItemArray
+                        PreviousPulloutDataGridView.Rows.Add(rowData)
+                    Next
+                End If
+                PreviousPulloutDataGridView.Columns.Item("checkbox").Visible = False
+                ApplyButton.Visible = False
+                Updatevisualdata2()
             End If
 
         Catch ex As Exception
@@ -68,7 +79,19 @@ Public Class DeliveryPreviousPullout
                 End If
             End If
         Next
+        TotalLabel.Text = total.ToString("F2")
+    End Sub
 
+    Private Sub Updatevisualdata2()
+        Dim total As Decimal = 0D
+        For Each row As DataGridViewRow In PreviousPulloutDataGridView.Rows
+            'If Convert.ToBoolean(row.Cells("checkbox").Value) Then
+            Dim rowTotal As Decimal
+            If Decimal.TryParse(row.Cells("total").Value.ToString(), rowTotal) Then
+                total += rowTotal
+            End If
+            'End If
+        Next
         TotalLabel.Text = total.ToString("F2")
     End Sub
 
@@ -81,10 +104,8 @@ Public Class DeliveryPreviousPullout
                     _parent.sample.Rows.Add(id)
                 End If
             Next
-
             _parent.pullout_total = TotalLabel.Text
             _parent.Totalpullout()
-
             Me.Close()
         Catch ex As Exception
             MessageBox.Show("An error occurred: " & ex.Message)
