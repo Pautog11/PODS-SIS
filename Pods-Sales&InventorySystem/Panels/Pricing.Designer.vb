@@ -155,6 +155,7 @@ Partial Class Pricing
         Me.id.HeaderText = "ID"
         Me.id.Name = "id"
         Me.id.ReadOnly = True
+        Me.id.Visible = False
         '
         'pangalan
         '

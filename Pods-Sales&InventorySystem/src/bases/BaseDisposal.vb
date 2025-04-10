@@ -83,9 +83,9 @@ Public Class BaseDisposal
                     _sqlCommand.Parameters.Clear()
                     _sqlCommand = New SqlCommand("UPDATE tblreturn_items SET remaining_quantity = remaining_quantity - @remaining_quantity WHERE id = @id", _sqlConnection, transaction)
                     _sqlCommand.Parameters.AddWithValue("@remaining_quantity", item("quantity"))
-                    MsgBox(item("quantity"))
+                    ' MsgBox(item("quantity"))
                     _sqlCommand.Parameters.AddWithValue("@id", item("delivery_items_id"))
-                    MsgBox(item("delivery_items_id"))
+                    'MsgBox(item("delivery_items_id"))
                 End If
 
                 If _sqlCommand.ExecuteNonQuery() <= 0 Then
@@ -97,6 +97,7 @@ Public Class BaseDisposal
 
             transaction.Commit()
             MessageBox.Show("Dispose has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            BaseAuditTrail.AuditLogin(My.Settings.myId, "Add an disposal")
         Catch ex As Exception
             transaction.Rollback()
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)

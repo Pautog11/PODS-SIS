@@ -17,6 +17,7 @@ Public Class BaseCategory
                 MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
                 MessageBox.Show("Category has been deleted successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                'BaseAuditTrail.AuditLogin(My.Settings.myId, "Add category")
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
@@ -33,6 +34,7 @@ Public Class BaseCategory
                 MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
                 MessageBox.Show("Category has been updated successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                BaseAuditTrail.AuditLogin(My.Settings.myId, "Update category")
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -48,6 +50,7 @@ Public Class BaseCategory
                 MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
                 MessageBox.Show("Category has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                BaseAuditTrail.AuditLogin(My.Settings.myId, "Add category")
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)

@@ -24,6 +24,7 @@ Public Class BaseSupplierReturnCode
                 MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
                 MessageBox.Show("Return Code has been updated successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                BaseAuditTrail.AuditLogin(My.Settings.myId, "Update a return code")
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -40,6 +41,7 @@ Public Class BaseSupplierReturnCode
                 MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
                 MessageBox.Show("Return Code has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                BaseAuditTrail.AuditLogin(My.Settings.myId, "Add a return code")
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)

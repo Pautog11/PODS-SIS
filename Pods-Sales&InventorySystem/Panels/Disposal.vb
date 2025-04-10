@@ -18,7 +18,7 @@
         Try
             _tableAapter.Fill(_dataTable)
             DisposalDataGridView.DataSource = _dataTable
-            'DisposalDataGridView.Columns.Item("ID").Visible = False
+            DisposalDataGridView.Columns.Item("ID").Visible = False
         Catch ex As Exception
 
         End Try

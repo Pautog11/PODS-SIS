@@ -57,6 +57,7 @@ Public Class BaseReturn
 
             transaction.Commit()
             MessageBox.Show("Return has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            BaseAuditTrail.AuditLogin(My.Settings.myId, "Add an return")
         Catch ex As Exception
             transaction.Rollback()
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)

@@ -17,7 +17,7 @@
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
         _tableAapter.Fill(_dataTable)
         ReturnsDataGridView.DataSource = _dataTable
-        'ReturnsDataGridView.Columns.Item("ID").Visible = False
+        ReturnsDataGridView.Columns.Item("ID").Visible = False
     End Sub
 
     Private Sub ReturnsDataGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles ReturnsDataGridView.CellClick

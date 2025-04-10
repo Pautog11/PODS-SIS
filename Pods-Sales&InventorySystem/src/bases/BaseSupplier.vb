@@ -17,6 +17,7 @@ Public Class BaseSupplier
                 MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
                 MessageBox.Show("Supplier has been deleted successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                BaseAuditTrail.AuditLogin(My.Settings.myId, "delete a supllier")
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -35,6 +36,7 @@ Public Class BaseSupplier
                 MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
                 MessageBox.Show("Supplier has been updated successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                BaseAuditTrail.AuditLogin(My.Settings.myId, "Update a supplier")
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -52,27 +54,30 @@ Public Class BaseSupplier
                 MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
                 MessageBox.Show("Supplier has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                BaseAuditTrail.AuditLogin(My.Settings.myId, "Add a supplier")
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End Try
     End Sub
 
-    'Public Shared Function Fetchsupplier() As DataTable
-    '    Try
-    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-    '        Dim cmd As SqlCommand
-    '        cmd = New SqlCommand("SELECT * FROM tblsuppliers", conn)
-    '        Dim dTable As New DataTable
-    '        Dim adapter As New SqlDataAdapter(cmd)
-    '        adapter.Fill(dTable)
-    '        Return dTable
-    '    Catch ex As Exception
-    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-    '        Return New DataTable
-    '        Return New DataTable
-    '    End Try
-    'End Function
+    Public Shared Function Fetchsupplier(id As Integer) As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("SELECT id, company_name as name FROM tblsuppliers where id = @id", conn)
+            cmd.Parameters.AddWithValue("@id", id)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
+            Return New DataTable
+        End Try
+    End Function
+
     Public Shared Function Exists(company_name As String) As Integer
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance

@@ -327,12 +327,14 @@ Partial Class DisposalCartDialog
         Me.ID.HeaderText = "ID"
         Me.ID.Name = "ID"
         Me.ID.ReadOnly = True
+        Me.ID.Visible = False
         '
         'pid
         '
         Me.pid.HeaderText = "PID"
         Me.pid.Name = "pid"
         Me.pid.ReadOnly = True
+        Me.pid.Visible = False
         '
         'from
         '
@@ -387,6 +389,7 @@ Partial Class DisposalCartDialog
         Me.target.HeaderText = "TARGET"
         Me.target.Name = "target"
         Me.target.ReadOnly = True
+        Me.target.Visible = False
         '
         'EDIT
         '
@@ -395,6 +398,7 @@ Partial Class DisposalCartDialog
         Me.EDIT.Image = Global.Pods_Sales_InventorySystem.My.Resources.Resources.edit
         Me.EDIT.Name = "EDIT"
         Me.EDIT.ReadOnly = True
+        Me.EDIT.Visible = False
         Me.EDIT.Width = 5
         '
         'DisposalCartDialog

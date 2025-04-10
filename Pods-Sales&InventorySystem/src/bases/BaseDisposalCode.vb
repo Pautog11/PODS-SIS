@@ -25,6 +25,7 @@ Public Class BaseDisposalCode
                 MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
                 MessageBox.Show("Disposal Code has been updated successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                BaseAuditTrail.AuditLogin(My.Settings.myId, "Update disposal reason code")
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -41,6 +42,7 @@ Public Class BaseDisposalCode
                 MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
                 MessageBox.Show("Disposal Code has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                BaseAuditTrail.AuditLogin(My.Settings.myId, "Add disposal reason code")
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)

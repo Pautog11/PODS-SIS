@@ -120,7 +120,7 @@
                 End If
             End If
         Catch ex As Exception
-            MsgBox(ex.Message)
+
         End Try
     End Sub
 
@@ -143,7 +143,7 @@
                 MessageBox.Show("Insufficient funds", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Exit Sub
             End If
-
+            'MsgBox(Totalcost)
             If Val(Totalcost) >= Val(TotalTextBox.Text) Then
                 MessageBox.Show("Invalid discount", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Exit Sub
@@ -249,19 +249,21 @@
             If TransactionDataGridView.Rows.Count > 0 Then
                 Dim row As DataGridViewRow = TransactionDataGridView.SelectedRows(0)
                 Dim dt As DataTable = BaseTransaction.FetchByID(If(row.Cells(0).Value?.ToString(), ""))
+                'MsgBox(row.Cells(0).Value?.ToString())
                 If dt.Rows.Count > 0 Then
                     Dim data As New Dictionary(Of String, String) From {
                         {"id", If(String.IsNullOrEmpty(dt.Rows(0).Item("idngprod").ToString()), 0, dt.Rows(0).Item("idngprod").ToString())},
                         {"product_name", If(String.IsNullOrEmpty(dt.Rows(0).Item("product_name").ToString()), 0, dt.Rows(0).Item("product_name").ToString())},
                         {"price", If(String.IsNullOrEmpty(dt.Rows(0).Item("price").ToString()), 0, dt.Rows(0).Item("price").ToString())},
-                        {"stocks", If(String.IsNullOrEmpty(dt.Rows(0).Item("quantity").ToString()), 0, dt.Rows(0).Item("quantity").ToString())}
+                        {"stocks", If(String.IsNullOrEmpty(dt.Rows(0).Item("quantity").ToString()), 0, dt.Rows(0).Item("quantity").ToString())},
+                        {"cost", If(String.IsNullOrEmpty(dt.Rows(0).Item("cost").ToString()), 0, dt.Rows(0).Item("cost").ToString())}
                     }
                     Dim dialog As New TransactionProductDailog(data:=data, parent:=Me)
                     dialog.ShowDialog()
                 End If
             End If
         Catch ex As Exception
-
+            MsgBox(ex.Message)
         End Try
     End Sub
 

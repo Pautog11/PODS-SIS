@@ -16,8 +16,16 @@ Public Class PullOutCartDialog
         Try
             If _data IsNot Nothing Then
                 ReferennceTextBox.Text = _data.Item("delivery_number")
+                Dim dt As DataTable = BaseVendor.GetVendorById(_data.Item("vendid"))
+                VendorComboBox.DataSource = dt
+                VendorComboBox.DisplayMember = "name"
+                VendorComboBox.ValueMember = "id"
 
-                MsgBox(_data.Item("id"))
+                Dim fuckingsales As DataTable = BaseSupplier.Fetchsupplier(_data.Item("supid"))
+                SupplierNameComboBox.DataSource = fuckingsales
+                SupplierNameComboBox.DisplayMember = "name"
+                SupplierNameComboBox.ValueMember = "id"
+
                 DeliveryPulloutDataGridView.Rows.Clear()
                 Dim DeliveryItems As DataTable = BasePullouts.FetchPulloutItems(_data.Item("id"))
                 For Each row As DataRow In DeliveryItems.Rows
@@ -37,7 +45,11 @@ Public Class PullOutCartDialog
                 UpdateVisualData()
 
                 AddProduct.Visible = False
+                SaveButton.Visible = False
                 ReferennceTextBox.ReadOnly = True
+                VendorComboBox.Enabled = False
+                SupplierNameComboBox.Enabled = False
+                DeliveryPulloutDataGridView.Columns.Item("FROM").Visible = False
             Else
                 Dim dt As DataTable = BaseSupplier.Fetchsupplier_allow_refund()
                 SupplierNameComboBox.DataSource = dt
@@ -48,10 +60,10 @@ Public Class PullOutCartDialog
                     SupplierNameComboBox.SelectedIndex = -1
                 End If
             End If
-
+            'DateTime.Now.Date
             DatePicker.MaxDate = Date.Now
         Catch ex As Exception
-            MsgBox(ex.Message)
+
         End Try
     End Sub
 
@@ -187,12 +199,12 @@ Public Class PullOutCartDialog
                 invoker = New AddCommand(baseCommand)
                 invoker?.Execute()
                 _subject.NotifyObserver()
-                'Me.Close()
+                Me.Close()
             Else
                 MessageBox.Show("Please select product first.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
         Catch ex As Exception
-            MsgBox(ex.Message)
+
         End Try
     End Sub
 End Class

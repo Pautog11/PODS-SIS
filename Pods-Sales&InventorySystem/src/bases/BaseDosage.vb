@@ -23,6 +23,7 @@ Public Class BaseDosage
                 MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
                 MessageBox.Show("Dosage has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                BaseAuditTrail.AuditLogin(My.Settings.myId, "Update dosage form")
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)

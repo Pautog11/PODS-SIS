@@ -203,6 +203,12 @@ Public Class ProductDialog
                             Me.Close()
                             Exit Sub
                         End If
+                    Else
+                        invoker = New UpdateCommand(baseCommand)
+                        invoker?.Execute()
+                        _subject.NotifyObserver()
+                        Me.Close()
+                        Exit Sub
                     End If
                 Else
                     MessageBox.Show("Product exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)

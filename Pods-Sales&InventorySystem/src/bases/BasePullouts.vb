@@ -87,24 +87,20 @@ Public Class BasePullouts
             For Each item In _item
                 If item("from") = "Returned" Then
                     _sqlCommand.Parameters.Clear()
-                    _sqlCommand = New SqlCommand("SELECT delivery_items_id from tblreturn_items a
+                    _sqlCommand = New SqlCommand("SELECT TOP 1 delivery_items_id from tblreturn_items a
                                                   JOIN tblreturns b ON a.tblreturn_id = b.id
                                                   JOIN tbltransactions c ON b.transaction_id = c.id
                                                   JOIN getrev d ON c.id = d.transaction_id
-                                                  WHERE a.id = @return_id", _sqlConnection, transaction)
+                                                  WHERE a.id = @return_id AND d.delivery_id = @tran_id AND d.product_id = @product_id", _sqlConnection, transaction)
                     _sqlCommand.Parameters.AddWithValue("@return_id", item("id"))
-                    'MsgBox(item("id"))
-                    'MsgBox(item("id"))
-                    '_sqlCommand.Parameters.AddWithValue("@product_id", item("product_id"))
-                    MsgBox(item("id"))
+                    _sqlCommand.Parameters.AddWithValue("@tran_id", item("tran_id"))
+                    _sqlCommand.Parameters.AddWithValue("@product_id", item("product_id"))
                     Dim result As Object = _sqlCommand.ExecuteScalar()
-                    'MsgBox(result)
                     If result IsNot DBNull.Value Then
                         item("id") = result
                     Else
                         Throw New Exception("An error occured!")
                     End If
-                    MsgBox(result)
                 End If
                 '_sqlCommand.Parameters.Clear()
                 _sqlCommand = New SqlCommand("WITH 
@@ -126,120 +122,18 @@ Public Class BasePullouts
                                                            (b.cost_price - a.cost_price) AS rev 
                                                     FROM oldprice a
                                                     JOIN newprice b ON a.product_id = b.product_id;", _sqlConnection, transaction)
-
-                'MsgBox(item("product_id"))
-                'MsgBox(item("id"))
-                'MsgBox(item("quantity"))
                 _sqlCommand.Parameters.AddWithValue("@id", item("product_id"))
-                MsgBox(item("id"))
                 _sqlCommand.Parameters.AddWithValue("@idngitems", item("id"))
                 _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
 
-                'If _sqlCommand.ExecuteNonQuery() <= 0 Then
-                '    Throw New Exception("An error occured!")
-                'End If
                 If _sqlCommand.ExecuteNonQuery() <= 0 Then
                     Throw New Exception()
                 End If
-
-                '_sqlCommand.ExecuteNonQuery()
             Next
-
-
-
-
-
-
-
-
-
-            'For Each item In _item
-            '    If item("from") = "Returned" Then
-            '        Try
-            '            ' First query to retrieve delivery_items_id
-            '            _sqlCommand.Parameters.Clear() ' Ensure that previous parameters are cleared
-            '            _sqlCommand = New SqlCommand("SELECT delivery_items_id 
-            '                              FROM tblreturn_items a
-            '                              JOIN tblreturns b ON a.tblreturn_id = b.id
-            '                              JOIN tbltransactions c ON b.transaction_id = c.id
-            '                              JOIN getrev d ON c.id = d.transaction_id
-            '                              WHERE a.id = @return_id", _sqlConnection, transaction)
-            '            _sqlCommand.Parameters.AddWithValue("@return_id", item("id"))
-
-            '            Dim result As Object = _sqlCommand.ExecuteScalar()
-            '            ' Check if result is not DBNull and assign it
-            '            If result IsNot DBNull.Value Then
-            '                item("id") = result
-            '            Else
-            '                Throw New Exception("No matching record found in tblreturn_items")
-            '            End If
-            '            'MsgBox(result)
-            '        Catch ex As Exception
-            '            ' Handle exception and display message
-            '            MsgBox("Error during first query: " & ex.Message)
-            '            Continue For ' Skip the current iteration if error occurs
-            '        End Try
-            '    End If
-
-            '    Try
-            '        ' Second query for pulling out revenue
-            '        _sqlCommand.Parameters.Clear() ' Clear parameters for new query
-            '        _sqlCommand = New SqlCommand("WITH oldprice AS (
-            '                                        SELECT delivery_id, product_id, cost_price 
-            '                                        FROM tbldeliveries_items 
-            '                                        WHERE product_id = @id AND id = @idngitems),
-            '                                     newprice AS (
-            '                                        SELECT product_id, cost_price 
-            '                                        FROM tbldeliveries_items 
-            '                                        WHERE id = (SELECT MAX(id) FROM tbldeliveries_items WHERE product_id = @id) 
-            '                                        AND product_id = @id)
-            '                                     INSERT INTO tblpullout_revenue (refference_number, product_id, quantity, old, new, total)
-            '                                     SELECT a.delivery_id,
-            '                                            a.product_id, 
-            '                                            @quantity,
-            '                                            a.cost_price AS old, 
-            '                                            b.cost_price AS new, 
-            '                                            (b.cost_price - a.cost_price) AS rev 
-            '                                     FROM oldprice a
-            '                                     JOIN newprice b ON a.product_id = b.product_id;", _sqlConnection, transaction)
-
-            '        ' Adding parameters for the second query
-            '        _sqlCommand.Parameters.AddWithValue("@id", item("product_id"))
-            '        _sqlCommand.Parameters.AddWithValue("@idngitems", item("id"))
-            '        _sqlCommand.Parameters.AddWithValue("@quantity", item("quantity"))
-
-            '        ' Execute the second query and check if it affected any rows
-            '        If _sqlCommand.ExecuteNonQuery() <= 0 Then
-            '            Throw New Exception("No rows affected during the second query.")
-            '        End If
-            '    Catch ex As Exception
-            '        ' Handle exception and display message
-            '        MsgBox("Error during second query: " & ex.Message)
-            '        Continue For ' Skip the current iteration if error occurs
-            '    End Try
-            'Next
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             transaction.Commit()
             MessageBox.Show("Pullout has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            BaseAuditTrail.AuditLogin(My.Settings.myId, "Add a pullout")
             'transaction.Rollback()
         Catch ex As Exception
             transaction.Rollback()

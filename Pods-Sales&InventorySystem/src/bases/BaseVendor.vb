@@ -26,6 +26,7 @@ Public Class BaseVendor
                 MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
                 MessageBox.Show("Vendor has been updated successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                BaseAuditTrail.AuditLogin(My.Settings.myId, "Update a vendor")
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -44,6 +45,7 @@ Public Class BaseVendor
                 MessageBox.Show("An error occured!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Else
                 MessageBox.Show("Vendor has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                BaseAuditTrail.AuditLogin(My.Settings.myId, "Add a vendor")
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -71,6 +73,22 @@ Public Class BaseVendor
             Dim cmd As SqlCommand
             cmd = New SqlCommand("SELECT id, CONCAT(first_name, ' ', last_name) AS 'name' FROM tblvendor WHERE supplier_id = @supplier_id", conn)
             cmd.Parameters.AddWithValue("@supplier_id", supplier_id)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
+        End Try
+    End Function
+
+    Public Shared Function GetVendorById(supplier_id As Integer) As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("SELECT id, CONCAT(first_name, ' ', last_name) as name FROM tblvendor where id = @id", conn)
+            cmd.Parameters.AddWithValue("@id", supplier_id)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
             adapter.Fill(dTable)

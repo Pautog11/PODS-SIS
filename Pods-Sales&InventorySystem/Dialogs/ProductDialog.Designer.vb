@@ -40,7 +40,6 @@ Partial Class ProductDialog
         Me.DescriptionTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.ProductNameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.BarcodeTextBox = New Guna.UI2.WinForms.Guna2TextBox()
-        Me.Guna2CheckBox1 = New Guna.UI2.WinForms.Guna2CheckBox()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.Guna2Panel1.SuspendLayout()
@@ -113,7 +112,6 @@ Partial Class ProductDialog
         '
         'Guna2Panel1
         '
-        Me.Guna2Panel1.Controls.Add(Me.Guna2CheckBox1)
         Me.Guna2Panel1.Controls.Add(Me.CheckBox)
         Me.Guna2Panel1.Controls.Add(Me.Label8)
         Me.Guna2Panel1.Controls.Add(Me.CategoryComboBox)
@@ -332,23 +330,6 @@ Partial Class ProductDialog
         Me.BarcodeTextBox.Size = New System.Drawing.Size(225, 36)
         Me.BarcodeTextBox.TabIndex = 3
         '
-        'Guna2CheckBox1
-        '
-        Me.Guna2CheckBox1.AutoSize = True
-        Me.Guna2CheckBox1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2CheckBox1.CheckedState.BorderRadius = 0
-        Me.Guna2CheckBox1.CheckedState.BorderThickness = 0
-        Me.Guna2CheckBox1.CheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2CheckBox1.Location = New System.Drawing.Point(281, 200)
-        Me.Guna2CheckBox1.Name = "Guna2CheckBox1"
-        Me.Guna2CheckBox1.Size = New System.Drawing.Size(147, 17)
-        Me.Guna2CheckBox1.TabIndex = 32
-        Me.Guna2CheckBox1.Text = "Expiration date is required"
-        Me.Guna2CheckBox1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
-        Me.Guna2CheckBox1.UncheckedState.BorderRadius = 0
-        Me.Guna2CheckBox1.UncheckedState.BorderThickness = 0
-        Me.Guna2CheckBox1.UncheckedState.FillColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(137, Byte), Integer), CType(CType(149, Byte), Integer))
-        '
         'ProductDialog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -387,5 +368,4 @@ Partial Class ProductDialog
     Friend WithEvents Label8 As Label
     Friend WithEvents CategoryComboBox As Guna.UI2.WinForms.Guna2ComboBox
     Friend WithEvents CheckBox As Guna.UI2.WinForms.Guna2CheckBox
-    Friend WithEvents Guna2CheckBox1 As Guna.UI2.WinForms.Guna2CheckBox
 End Class

@@ -17,6 +17,7 @@ Public Class BaseProduct
                 MessageBox.Show("An error occured!")
             Else
                 MessageBox.Show("Product has been deleted successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                BaseAuditTrail.AuditLogin(My.Settings.myId, "Delete a product")
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -56,7 +57,8 @@ Public Class BaseProduct
                 Throw New Exception("An error occured!")
             End If
             MessageBox.Show("Product has been updated successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Transaction.Commit()
+            transaction.Commit()
+            BaseAuditTrail.AuditLogin(My.Settings.myId, "Update a discount")
         Catch ex As Exception
             Transaction.Rollback()
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -88,6 +90,7 @@ Public Class BaseProduct
 
             MessageBox.Show("Product has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
             transaction.Commit()
+            BaseAuditTrail.AuditLogin(My.Settings.myId, "Add a product")
             'Dim pname As String = _data("product_name").ToString()
             'Dim manuname As String = If(_item?.ContainsKey("manufacturer"), _item("manufacturer").ToString(), "Unknown Manufacturer")
             'BaseAuditTrail.AddProduct(My.Settings.myId, $"Added a product {pname} - {manuname}")

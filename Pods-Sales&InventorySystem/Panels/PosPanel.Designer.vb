@@ -54,15 +54,15 @@ Partial Class PosPanel
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Guna2Panel3 = New Guna.UI2.WinForms.Guna2Panel()
         Me.TransactionDataGridView = New Guna.UI2.WinForms.Guna2DataGridView()
+        Me.Guna2GradientPanel1 = New Guna.UI2.WinForms.Guna2GradientPanel()
+        Me.CancelButton = New Guna.UI2.WinForms.Guna2Button()
+        Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
         Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.product = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.price = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.quantity = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.total = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.cost = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Guna2GradientPanel1 = New Guna.UI2.WinForms.Guna2GradientPanel()
-        Me.Guna2Panel4 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.CancelButton = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel2.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -570,6 +570,49 @@ Partial Class PosPanel
         Me.TransactionDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.TransactionDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(71, Byte), Integer), CType(CType(69, Byte), Integer), CType(CType(94, Byte), Integer))
         '
+        'Guna2GradientPanel1
+        '
+        Me.Guna2GradientPanel1.BorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2GradientPanel1.BorderThickness = 1
+        Me.Guna2GradientPanel1.Controls.Add(Me.CancelButton)
+        Me.Guna2GradientPanel1.Controls.Add(Me.AddTransactionButton)
+        Me.Guna2GradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Guna2GradientPanel1.Location = New System.Drawing.Point(659, 613)
+        Me.Guna2GradientPanel1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Guna2GradientPanel1.Name = "Guna2GradientPanel1"
+        Me.Guna2GradientPanel1.Size = New System.Drawing.Size(350, 55)
+        Me.Guna2GradientPanel1.TabIndex = 23
+        '
+        'CancelButton
+        '
+        Me.CancelButton.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.CancelButton.BackColor = System.Drawing.Color.Transparent
+        Me.CancelButton.BorderRadius = 15
+        Me.CancelButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.CancelButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.CancelButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.CancelButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.CancelButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
+        Me.CancelButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.CancelButton.ForeColor = System.Drawing.Color.White
+        Me.CancelButton.Location = New System.Drawing.Point(38, 11)
+        Me.CancelButton.Name = "CancelButton"
+        Me.CancelButton.Size = New System.Drawing.Size(150, 35)
+        Me.CancelButton.TabIndex = 8
+        Me.CancelButton.Text = "Cancel order"
+        '
+        'Guna2Panel4
+        '
+        Me.Guna2Panel4.BorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Panel4.BorderThickness = 1
+        Me.Guna2Panel4.Controls.Add(Me.Guna2ImageButton2)
+        Me.Guna2Panel4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Guna2Panel4.Location = New System.Drawing.Point(659, 0)
+        Me.Guna2Panel4.Margin = New System.Windows.Forms.Padding(0)
+        Me.Guna2Panel4.Name = "Guna2Panel4"
+        Me.Guna2Panel4.Size = New System.Drawing.Size(350, 55)
+        Me.Guna2Panel4.TabIndex = 24
+        '
         'ID
         '
         Me.ID.HeaderText = "ID"
@@ -606,49 +649,6 @@ Partial Class PosPanel
         Me.cost.Name = "cost"
         Me.cost.ReadOnly = True
         Me.cost.Visible = False
-        '
-        'Guna2GradientPanel1
-        '
-        Me.Guna2GradientPanel1.BorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2GradientPanel1.BorderThickness = 1
-        Me.Guna2GradientPanel1.Controls.Add(Me.CancelButton)
-        Me.Guna2GradientPanel1.Controls.Add(Me.AddTransactionButton)
-        Me.Guna2GradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Guna2GradientPanel1.Location = New System.Drawing.Point(659, 613)
-        Me.Guna2GradientPanel1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Guna2GradientPanel1.Name = "Guna2GradientPanel1"
-        Me.Guna2GradientPanel1.Size = New System.Drawing.Size(350, 55)
-        Me.Guna2GradientPanel1.TabIndex = 23
-        '
-        'Guna2Panel4
-        '
-        Me.Guna2Panel4.BorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2Panel4.BorderThickness = 1
-        Me.Guna2Panel4.Controls.Add(Me.Guna2ImageButton2)
-        Me.Guna2Panel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Guna2Panel4.Location = New System.Drawing.Point(659, 0)
-        Me.Guna2Panel4.Margin = New System.Windows.Forms.Padding(0)
-        Me.Guna2Panel4.Name = "Guna2Panel4"
-        Me.Guna2Panel4.Size = New System.Drawing.Size(350, 55)
-        Me.Guna2Panel4.TabIndex = 24
-        '
-        'CancelButton
-        '
-        Me.CancelButton.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.CancelButton.BackColor = System.Drawing.Color.Transparent
-        Me.CancelButton.BorderRadius = 15
-        Me.CancelButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.CancelButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.CancelButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.CancelButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.CancelButton.FillColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
-        Me.CancelButton.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.CancelButton.ForeColor = System.Drawing.Color.White
-        Me.CancelButton.Location = New System.Drawing.Point(38, 11)
-        Me.CancelButton.Name = "CancelButton"
-        Me.CancelButton.Size = New System.Drawing.Size(150, 35)
-        Me.CancelButton.TabIndex = 8
-        Me.CancelButton.Text = "Cancel order"
         '
         'PosPanel
         '
@@ -704,11 +704,11 @@ Partial Class PosPanel
     Friend WithEvents TransactionDataGridView As Guna.UI2.WinForms.Guna2DataGridView
     Friend WithEvents Guna2GradientPanel1 As Guna.UI2.WinForms.Guna2GradientPanel
     Friend WithEvents Guna2Panel4 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents CancelButton As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents ID As DataGridViewTextBoxColumn
     Friend WithEvents product As DataGridViewTextBoxColumn
     Friend WithEvents price As DataGridViewTextBoxColumn
     Friend WithEvents quantity As DataGridViewTextBoxColumn
     Friend WithEvents total As DataGridViewTextBoxColumn
     Friend WithEvents cost As DataGridViewTextBoxColumn
-    Friend WithEvents CancelButton As Guna.UI2.WinForms.Guna2Button
 End Class

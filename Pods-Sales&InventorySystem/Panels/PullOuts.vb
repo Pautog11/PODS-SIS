@@ -15,9 +15,15 @@
     End Sub
 
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
-        _tableAapter.Fill(_dataTable)
-        PullOutsGridView.DataSource = _dataTable
-        'PullOutsGridView.Columns.Item("ID").Visible = False
+        Try
+            _tableAapter.Fill(_dataTable)
+            PullOutsGridView.DataSource = _dataTable
+            PullOutsGridView.Columns.Item("ID").Visible = False
+            PullOutsGridView.Columns.Item("SUPID").Visible = False
+            PullOutsGridView.Columns.Item("VENID").Visible = False
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Private Sub PullOutsGridView_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles PullOutsGridView.CellClick
@@ -28,7 +34,9 @@
                 Dim data As New Dictionary(Of String, String) From {
                         {"id", row.Cells(0).Value},
                         {"delivery_number", row.Cells(1).Value},
-                        {"date", row.Cells(4).Value}
+                        {"date", row.Cells(4).Value},
+                        {"supid", row.Cells(5).Value},
+                        {"vendid", row.Cells(6).Value}
                 }
                 Dim dialog As New PullOutCartDialog(data:=data)
                 dialog.ShowDialog()

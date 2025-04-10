@@ -9,6 +9,7 @@ Public Class TransactionProductDailog
     Private ReadOnly _parent As PosPanel = Nothing
     Dim id As Integer = Nothing
     Dim cost As Decimal = Nothing
+
     Public Sub New(Optional subject As IObservablePanel = Nothing,
                    Optional parent As PosPanel = Nothing,
                    Optional data As Dictionary(Of String, String) = Nothing,
@@ -26,6 +27,7 @@ Public Class TransactionProductDailog
                 ProductNameTextBox.Text = _data.Item("product_name")
                 PriceTextBox.Text = _data.Item("price")
                 StocksTextBox.Text = _data.Item("stocks")
+                cost = _data.Item("cost")
                 'Else
                 '    VoidButton.Visible = False
                 AddTransactionButton.Text = "Update"
@@ -77,6 +79,7 @@ Public Class TransactionProductDailog
                             item.Cells("PRICE").Value = Decimal.Parse(PriceTextBox.Text)
                             item.Cells("QUANTITY").Value = CInt(QuantityTextBox.Text)
                             item.Cells("TOTAL").Value = Decimal.Parse(PriceTextBox.Text) * CInt(QuantityTextBox.Text)
+                            item.Cells("COST").Value = If(String.IsNullOrEmpty(CDec(QuantityTextBox.Text) * CDec(cost)), 0, CDec(QuantityTextBox.Text) * CDec(cost))
                             is_existing = True
                             Exit For
                         End If

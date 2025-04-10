@@ -19,7 +19,10 @@ Public Class Delivery
         Try
             _tableAapter.Fill(_dataTable)
             DeliveryDataGridView.DataSource = _dataTable
-            'DeliveryDataGridView.Columns.Item("ID").Visible = False
+            DeliveryDataGridView.Columns.Item("ID").Visible = False
+            DeliveryDataGridView.Columns.Item("VENDOR").Visible = False
+            DeliveryDataGridView.Columns.Item("SUBTOTAL").Visible = False
+            DeliveryDataGridView.Columns.Item("DEDUCTED").Visible = False
         Catch ex As Exception
 
         End Try
@@ -46,7 +49,7 @@ Public Class Delivery
                     {"vendor_id", row.Cells(4).Value.ToString()},
                     {"total", row.Cells(5).Value.ToString()},
                     {"deduction", row.Cells(6).Value.ToString()},
-                    {"date", row.Cells(7).Value.ToString()}
+                    {"date", row.Cells(8).Value.ToString()}
                 }
                 Dim Dialog As New DeliveryCartDialog(data:=data, subject:=_subject)
                 Dialog.ShowDialog()

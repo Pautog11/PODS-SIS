@@ -67,6 +67,7 @@ Public Class BaseTransaction
 
             transaction.Commit()
             MessageBox.Show("Transaction has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            BaseAuditTrail.AuditLogin(My.Settings.myId, "Add an Transaction")
             Dim reslt As DialogResult = MessageBox.Show("Do you want to print a receipt?", "PODS", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If reslt = DialogResult.Yes Then
                 Using dialog As New ReceiptViewer(TransactionID)
@@ -153,16 +154,21 @@ Public Class BaseTransaction
                                             FROM tbldeliveries_items b
                                             WHERE b.product_id IN (SELECT id FROM tblproducts WHERE barcode = @barcode)
                                             GROUP BY b.product_id
-                                        )
+                                        ),
+										maxcost as (
+											SELECT product_id, max(cost_price) as cost
+                                            FROM tbldeliveries_items where product_id = (select id from tblproducts where barcode = @barcode) and inventory_quantity != 0
+											group by product_id)
                                     SELECT 
                                         a.id AS idngprod,
                                         a.product_name,
                                         lp.price_adjusment AS price,
                                         tq.total_quantity AS quantity,
-										lp.cost_price AS cost
+										c.cost
                                     FROM tblproducts a
                                     LEFT JOIN LatestPrice lp ON lp.idngprod = a.id AND lp.row_num = 1
                                     LEFT JOIN TotalQuantity tq ON tq.idngprod = a.id
+									left join maxcost c on c.product_id = a.id
                                     WHERE a.barcode = @barcode
                                     ORDER BY idngprod DESC;", conn)
             cmd.Parameters.AddWithValue("@barcode", barcode)
@@ -196,6 +202,10 @@ Public Class BaseTransaction
                                             LEFT JOIN tblproducts a ON a.id = b.product_id
                                             WHERE a.product_name = LOWER(@name)
                                         ),
+										maxcost as (
+											SELECT product_id, max(cost_price) as cost
+                                            FROM tbldeliveries_items where product_id = (select id from tblproducts where product_name = @name) and inventory_quantity != 0
+											group by product_id),
                                         TotalQuantity AS (
                                             SELECT 
                                                 b.product_id AS idngprod,
@@ -209,10 +219,11 @@ Public Class BaseTransaction
                                         a.product_name,
                                         lp.price_adjusment AS price,
                                         tq.total_quantity AS quantity,
-										lp.cost
+										c.cost
                                     FROM tblproducts a
                                     LEFT JOIN LatestPrice lp ON lp.idngprod = a.id AND lp.row_num = 1
                                     LEFT JOIN TotalQuantity tq ON tq.idngprod = a.id
+									left join maxcost c on a.id = c.product_id
                                     WHERE a.product_name = LOWER(@name)
                                     ORDER BY idngprod DESC;", conn)
             cmd.Parameters.AddWithValue("@name", name.Trim.ToLower)
@@ -239,7 +250,7 @@ Public Class BaseTransaction
                                         LatestPrice AS (
                                             SELECT 
                                                 b.product_id AS idngprod,
-                                                b.price,
+                                                b.price_adjusment,
                                                 ROW_NUMBER() OVER (PARTITION BY b.product_id ORDER BY b.id DESC) AS row_num
                                             FROM tbldeliveries_items b
                                             LEFT JOIN tblproducts a ON a.id = b.product_id
@@ -252,15 +263,22 @@ Public Class BaseTransaction
                                             FROM tbldeliveries_items b
                                             WHERE b.product_id IN (SELECT id FROM tblproducts WHERE id = @id)
                                             GROUP BY b.product_id
-                                        )
+                                        ),
+										maxcost as (
+											SELECT product_id, max(cost_price) as cost
+                                            FROM tbldeliveries_items where product_id = @id and inventory_quantity != 0
+											group by product_id
+										)
                                     SELECT 
                                         a.id AS idngprod,
                                         a.product_name,
-                                        lp.price AS price,
-                                        tq.total_quantity AS quantity
+                                        lp.price_adjusment AS price,
+                                        tq.total_quantity AS quantity,
+										c.cost
                                     FROM tblproducts a
                                     LEFT JOIN LatestPrice lp ON lp.idngprod = a.id AND lp.row_num = 1
                                     LEFT JOIN TotalQuantity tq ON tq.idngprod = a.id
+									left join maxcost c on a.id = c.product_id
                                     WHERE a.id = @id
                                     ORDER BY idngprod DESC;", conn)
             cmd.Parameters.AddWithValue("@id", id)
