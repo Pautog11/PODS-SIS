@@ -1186,3 +1186,4 @@ C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\bin\Debug\x64\Sql
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.DiposalProductDialog.resources
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.DisposalReasonCode.resources
 C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.DeliveryPreviousPullout.resources
+C:\Users\Christian\Desktop\PODS-SIS\Pods-Sales&InventorySystem\obj\Debug\Pods_Sales_InventorySystem.DisposalCodeDialog.resources

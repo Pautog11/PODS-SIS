@@ -22,7 +22,7 @@ Public Class ReturnDialog
             If _data IsNot Nothing Then
                 Dim rrc As DataTable = BaseReturn.ReturnCode
                 RrcComboBox.DataSource = rrc
-                RrcComboBox.DisplayMember = "codedes"
+                RrcComboBox.DisplayMember = "code"
                 RrcComboBox.ValueMember = "id"
 
                 If rrc.Rows.Count > 0 Then

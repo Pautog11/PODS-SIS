@@ -24,6 +24,7 @@ Partial Class SupplierDialog
     Private Sub InitializeComponent()
         Me.CompanyNameTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.CompanyAddressTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.CheckBox = New Guna.UI2.WinForms.Guna2CheckBox()
         Me.CPTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -33,7 +34,6 @@ Partial Class SupplierDialog
         Me.FooterLayoutPanel = New System.Windows.Forms.FlowLayoutPanel()
         Me.DeleteSupplierButton = New Guna.UI2.WinForms.Guna2Button()
         Me.AddSupplierButton = New Guna.UI2.WinForms.Guna2Button()
-        Me.CompanyAddressTextBox = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Guna2Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.FooterLayoutPanel.SuspendLayout()
@@ -56,7 +56,6 @@ Partial Class SupplierDialog
         Me.CompanyNameTextBox.Location = New System.Drawing.Point(24, 37)
         Me.CompanyNameTextBox.MaxLength = 50
         Me.CompanyNameTextBox.Name = "CompanyNameTextBox"
-        Me.CompanyNameTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
         Me.CompanyNameTextBox.PlaceholderText = "Ex. Unilab"
         Me.CompanyNameTextBox.SelectedText = ""
         Me.CompanyNameTextBox.ShortcutsEnabled = False
@@ -78,6 +77,30 @@ Partial Class SupplierDialog
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.Size = New System.Drawing.Size(362, 262)
         Me.Guna2Panel1.TabIndex = 7
+        '
+        'CompanyAddressTextBox
+        '
+        Me.CompanyAddressTextBox.BorderColor = System.Drawing.Color.Gray
+        Me.CompanyAddressTextBox.BorderRadius = 10
+        Me.CompanyAddressTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.CompanyAddressTextBox.DefaultText = ""
+        Me.CompanyAddressTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
+        Me.CompanyAddressTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
+        Me.CompanyAddressTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.CompanyAddressTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
+        Me.CompanyAddressTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CompanyAddressTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.CompanyAddressTextBox.ForeColor = System.Drawing.Color.Black
+        Me.CompanyAddressTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CompanyAddressTextBox.Location = New System.Drawing.Point(24, 147)
+        Me.CompanyAddressTextBox.MaxLength = 150
+        Me.CompanyAddressTextBox.Multiline = True
+        Me.CompanyAddressTextBox.Name = "CompanyAddressTextBox"
+        Me.CompanyAddressTextBox.PlaceholderText = ""
+        Me.CompanyAddressTextBox.SelectedText = ""
+        Me.CompanyAddressTextBox.ShortcutsEnabled = False
+        Me.CompanyAddressTextBox.Size = New System.Drawing.Size(311, 64)
+        Me.CompanyAddressTextBox.TabIndex = 33
         '
         'CheckBox
         '
@@ -113,8 +136,7 @@ Partial Class SupplierDialog
         Me.CPTextBox.Location = New System.Drawing.Point(24, 92)
         Me.CPTextBox.MaxLength = 13
         Me.CPTextBox.Name = "CPTextBox"
-        Me.CPTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.CPTextBox.PlaceholderText = "Ex. +012-345-6789"
+        Me.CPTextBox.PlaceholderText = "Ex. +63 950 685 6985"
         Me.CPTextBox.SelectedText = ""
         Me.CPTextBox.ShortcutsEnabled = False
         Me.CPTextBox.Size = New System.Drawing.Size(311, 36)
@@ -134,9 +156,9 @@ Partial Class SupplierDialog
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(21, 76)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(98, 13)
+        Me.Label1.Size = New System.Drawing.Size(78, 13)
         Me.Label1.TabIndex = 19
-        Me.Label1.Text = "Telephone Number"
+        Me.Label1.Text = "Phone Number"
         '
         'Label2
         '
@@ -211,31 +233,6 @@ Partial Class SupplierDialog
         Me.AddSupplierButton.Size = New System.Drawing.Size(128, 37)
         Me.AddSupplierButton.TabIndex = 5
         Me.AddSupplierButton.Text = "Add"
-        '
-        'CompanyAddressTextBox
-        '
-        Me.CompanyAddressTextBox.BorderColor = System.Drawing.Color.Gray
-        Me.CompanyAddressTextBox.BorderRadius = 10
-        Me.CompanyAddressTextBox.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.CompanyAddressTextBox.DefaultText = ""
-        Me.CompanyAddressTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer), CType(CType(208, Byte), Integer))
-        Me.CompanyAddressTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer), CType(CType(226, Byte), Integer))
-        Me.CompanyAddressTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.CompanyAddressTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer), CType(CType(138, Byte), Integer))
-        Me.CompanyAddressTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CompanyAddressTextBox.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.CompanyAddressTextBox.ForeColor = System.Drawing.Color.Black
-        Me.CompanyAddressTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CompanyAddressTextBox.Location = New System.Drawing.Point(24, 147)
-        Me.CompanyAddressTextBox.MaxLength = 150
-        Me.CompanyAddressTextBox.Multiline = True
-        Me.CompanyAddressTextBox.Name = "CompanyAddressTextBox"
-        Me.CompanyAddressTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
-        Me.CompanyAddressTextBox.PlaceholderText = ""
-        Me.CompanyAddressTextBox.SelectedText = ""
-        Me.CompanyAddressTextBox.ShortcutsEnabled = False
-        Me.CompanyAddressTextBox.Size = New System.Drawing.Size(311, 64)
-        Me.CompanyAddressTextBox.TabIndex = 33
         '
         'SupplierDialog
         '

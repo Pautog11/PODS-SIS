@@ -42,7 +42,11 @@
     End Sub
 
     Private Sub SearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles SearchTextBox.TextChanged
-        _dataTable = BaseCustomerReturnCode.Search(SearchTextBox.Text)
-        CustomerRrcDataGridView.DataSource = _dataTable
+        Try
+            _dataTable = BaseCustomerReturnCode.Search(SearchTextBox.Text)
+            CustomerRrcDataGridView.DataSource = _dataTable
+        Catch ex As Exception
+
+        End Try
     End Sub
 End Class
