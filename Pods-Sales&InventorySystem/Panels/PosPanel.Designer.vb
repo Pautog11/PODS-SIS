@@ -648,7 +648,6 @@ Partial Class PosPanel
         Me.cost.HeaderText = "COST"
         Me.cost.Name = "cost"
         Me.cost.ReadOnly = True
-        Me.cost.Visible = False
         '
         'PosPanel
         '

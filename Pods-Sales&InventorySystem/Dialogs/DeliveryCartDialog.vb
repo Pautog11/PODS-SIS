@@ -12,6 +12,7 @@ Public Class DeliveryCartDialog
     Public sample As New DataTable
     Public pullout_total As Decimal = Nothing
     Dim subtotal As Decimal = 0
+    Dim profit As Decimal = 0
 
     Public Sub New(Optional subject As IObservablePanel = Nothing,
                    Optional data As Dictionary(Of String, String) = Nothing)
@@ -49,7 +50,7 @@ Public Class DeliveryCartDialog
 
                 SupplierNameComboBox.Text = _data.Item("supplier_id")
                 TotalPrice.Text = _data.Item("total")
-                Guna2HtmlLabel6.Text = _data.Item("deduction")
+                pulloutTotal.Text = _data.Item("deduction")
                 Guna2DateTimePicker1.Value = _data.Item("date")
                 TransactionDeliveryTextBox.Text = _data.Item("delivery_number")
 
@@ -81,11 +82,13 @@ Public Class DeliveryCartDialog
                     DeliveryDataGridView.Rows.Add(data.ToArray())
                 Next
 
+                'ViewdeductionButton.Enabled = False
             Else
                 EditButton.Visible = False
                 ViewdeductionButton.Visible = False
                 Guna2DateTimePicker1.MaxDate = DateTime.Now.Date
                 Guna2DateTimePicker1.Value = DateTime.Now.Date
+                AddDeducttionButton.Enabled = False
             End If
 
             AddItemButton.Visible = False
@@ -98,24 +101,72 @@ Public Class DeliveryCartDialog
     Public Sub UpdateVisualData()
         Try
             DeliveryDataGridView.DataSource = _itemSource?.DefaultView
-            'Dim total As Decimal = 0
-            For i = 0 To DeliveryDataGridView?.Rows.Count - 1
-                subtotal += DeliveryDataGridView.Rows(i).Cells("TOTAL").Value
-            Next
-            TotalPrice.Text = subtotal.ToString("F2")
-            Totalpullout()
-        Catch ex As Exception
+            Dim subtotal As Decimal = 0D
+            Dim gtotal As Decimal = 0D
+            Dim selling As Decimal = 0D
+            Dim cost As Decimal = 0D
+            If DeliveryDataGridView.Rows.Count > 0 Then
+                For i As Integer = 0 To DeliveryDataGridView.Rows.Count - 1
+                    Dim cellValue = DeliveryDataGridView.Rows(i).Cells("TOTAL").Value
 
+                    If cellValue IsNot Nothing AndAlso IsNumeric(cellValue) Then
+                        subtotal += Convert.ToDecimal(cellValue)
+                    End If
+                Next
+
+                For s As Integer = 0 To DeliveryDataGridView.Rows.Count - 1
+                    Dim priceCell = DeliveryDataGridView.Rows(s).Cells("price").Value
+                    Dim quantityCell = DeliveryDataGridView.Rows(s).Cells("quantity").Value
+
+                    If priceCell IsNot Nothing AndAlso quantityCell IsNot Nothing AndAlso
+                       IsNumeric(priceCell) AndAlso IsNumeric(quantityCell) Then
+
+                        Dim price As Decimal = Convert.ToDecimal(priceCell)
+                        Dim quantity As Decimal = Convert.ToDecimal(quantityCell)
+
+                        selling += price * quantity
+                    End If
+                Next
+
+                For c As Integer = 0 To DeliveryDataGridView.Rows.Count - 1
+                    Dim costpriceCell = DeliveryDataGridView.Rows(c).Cells("cost_price").Value
+                    Dim costquantityCell = DeliveryDataGridView.Rows(c).Cells("quantity").Value
+
+                    If costpriceCell IsNot Nothing AndAlso costquantityCell IsNot Nothing AndAlso
+                       IsNumeric(costpriceCell) AndAlso IsNumeric(costquantityCell) Then
+
+                        Dim price As Decimal = Convert.ToDecimal(costpriceCell)
+                        Dim quantity As Decimal = Convert.ToDecimal(costquantityCell)
+
+                        cost += price * quantity
+                    End If
+                Next
+
+            End If
+
+            'Label1.Text = selling.ToString("F2")
+            'Label2.Text = cost.ToString("F2")
+            Label3.Text = Val(selling.ToString("F2")) - Val(cost.ToString("F2"))
+
+            TotalPrice.Text = subtotal.ToString("F2")
+            gtotal = Val(subtotal.ToString("F2")) - Val(pulloutTotal.Text)
+            Grandtotal.Text = gtotal.ToString("F2")
+
+            AddDeducttionButton.Enabled = True
+            If Val(subtotal) = 0 Then
+                AddDeducttionButton.Enabled = False
+                sample.Rows.Clear()
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
         End Try
     End Sub
 
     Public Sub Totalpullout()
         Try
             Dim grndtotal As Decimal = 0
-            'MsgBox(pullout_total.ToString("F2"))
-            Guna2HtmlLabel6.Text = pullout_total.ToString("F2")
-
-            grndtotal = subtotal.ToString("F2") - Val(Guna2HtmlLabel6.Text)
+            pulloutTotal.Text = pullout_total.ToString("F2")
+            grndtotal = Val(TotalPrice.Text) - Val(pulloutTotal.Text)
             Grandtotal.Text = grndtotal.ToString("F2")
         Catch ex As Exception
 
@@ -133,12 +184,16 @@ Public Class DeliveryCartDialog
 
     Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click
         Try
-            Dim controls As Object() = {SupplierNameComboBox, VendorComboBox, TransactionDeliveryTextBox}
+            Dim controls As Object() = {SupplierNameComboBox, VendorComboBox, TransactionDeliveryTextBox, VatTextBox}
 
-            Dim types As DataInput() = {DataInput.STRING_STRING, DataInput.STRING_STRING, DataInput.STRING_STRING}
+            Dim types As DataInput() = {DataInput.STRING_STRING, DataInput.STRING_STRING, DataInput.STRING_INTEGER, DataInput.STRING_INTEGER}
 
             Dim result As New List(Of Object())
             For i = 0 To controls.Count - 1
+                If controls(i) Is VatTextBox AndAlso String.IsNullOrEmpty(VatTextBox.Text) Then
+                    Continue For ' Skip validation for BarcodeTextBox if it's empty
+                End If
+
                 result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
                 Dim validationResult = TryCast(result(i), Object())
                 If validationResult IsNot Nothing AndAlso validationResult.Length > 0 Then
@@ -148,8 +203,18 @@ Public Class DeliveryCartDialog
                 End If
             Next
 
-            If Val(TotalPrice.Text) < Val(Guna2HtmlLabel6.Text) Then
-                MessageBox.Show("The subtotal must be higher than the total of the pulled-out items.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            If Val(VatTextBox.Text) >= Val(Label3.Text) Then
+                MessageBox.Show("No profit can be made from this transaction.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Exit Sub
+            End If
+
+            If DeliveryDataGridView.Rows.Count > 0 AndAlso Not result.Any(Function(item As Object()) Not item(0)) Then
+                If Val(TotalPrice.Text) < Val(pulloutTotal.Text) Then
+                    MessageBox.Show("The subtotal must exceed the total pulled-out amount.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Exit Sub
+                End If
+            Else
+                MessageBox.Show("Please select product first.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Exit Sub
             End If
 
@@ -163,10 +228,10 @@ Public Class DeliveryCartDialog
                     {"supplier_id", If(DirectCast(SupplierNameComboBox.SelectedItem, DataRowView)("id"), String.Empty)},
                     {"vendor_id", If(DirectCast(VendorComboBox.SelectedItem, DataRowView)("id"), String.Empty)},
                     {"total", If(String.IsNullOrEmpty(TotalPrice.Text) OrElse TotalPrice.Text = "", 0, TotalPrice.Text)},
-                    {"deduction", If(String.IsNullOrEmpty(Guna2HtmlLabel6.Text) OrElse Guna2HtmlLabel6.Text = "", 0, Guna2HtmlLabel6.Text)},
-                    {"date", Guna2DateTimePicker1.Value.ToString("MMM dd yyyy")}
+                    {"deduction", If(String.IsNullOrEmpty(pulloutTotal.Text) OrElse pulloutTotal.Text = "", 0, pulloutTotal.Text)},
+                    {"date", Guna2DateTimePicker1.Value.ToString("MMM dd yyyy")},
+                    {"vat", If(String.IsNullOrEmpty(VatTextBox.Text) OrElse VatTextBox.Text = "", 0, VatTextBox.Text)}
                 }
-
                 For Each row As DataGridViewRow In DeliveryDataGridView.Rows
                     Dim item As New Dictionary(Of String, String) From {
                         {"product_id", row.Cells(0).Value},
@@ -262,11 +327,14 @@ Public Class DeliveryCartDialog
     Private Sub EditButton_Click(sender As Object, e As EventArgs) Handles EditButton.Click
         Try
             If button = 1 Then
-                Dim controls As Object() = {SupplierNameComboBox, VendorComboBox, TransactionDeliveryTextBox}
-                Dim types As DataInput() = {DataInput.STRING_NAME, DataInput.STRING_NAME, DataInput.STRING_STRING}
+                Dim controls As Object() = {SupplierNameComboBox, VendorComboBox, TransactionDeliveryTextBox, VatTextBox}
+                Dim types As DataInput() = {DataInput.STRING_NAME, DataInput.STRING_NAME, DataInput.STRING_INTEGER, DataInput.STRING_INTEGER}
 
                 Dim result As New List(Of Object())
                 For i = 0 To controls.Count - 1
+                    If controls(i) Is VatTextBox AndAlso String.IsNullOrEmpty(VatTextBox.Text) Then
+                        Continue For ' Skip validation for BarcodeTextBox if it's empty
+                    End If
                     result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
                     Dim validationResult = TryCast(result(i), Object())
                     If validationResult IsNot Nothing AndAlso validationResult.Length > 0 Then
@@ -288,7 +356,8 @@ Public Class DeliveryCartDialog
                         {"supplier_id", If(DirectCast(SupplierNameComboBox.SelectedItem, DataRowView)("id"), String.Empty)},
                         {"vendor_id", If(DirectCast(VendorComboBox.SelectedItem, DataRowView)("id"), String.Empty)},
                         {"total", If(String.IsNullOrEmpty(TotalPrice.Text) OrElse TotalPrice.Text = "", 0, TotalPrice.Text)},
-                        {"date", Guna2DateTimePicker1.Value.ToString("MMM dd yyyy")}
+                        {"date", Guna2DateTimePicker1.Value.ToString("MMM dd yyyy")},
+                        {"vat", If(String.IsNullOrEmpty(VatTextBox.Text) OrElse VatTextBox.Text = "", 0, VatTextBox.Text)}
                     }
 
                     For Each row As DataGridViewRow In DeliveryDataGridView.Rows
@@ -448,5 +517,29 @@ Public Class DeliveryCartDialog
 
         End Try
     End Sub
+
+    'Private Sub VatTextBox_TextChanged(sender As Object, e As EventArgs) Handles VatTextBox.TextChanged
+    '    'Try
+    '    '    Dim value As Decimal
+    '    '    Dim gtotal As Decimal
+    '    '    Dim bgtotal As Decimal
+
+    '    '    If Not Decimal.TryParse(VatTextBox.Text, value) Then
+    '    '        value = 0D
+    '    '    End If
+
+    '    '    If Decimal.TryParse(VatTextBox.Text, value) Then
+    '    '        bgtotal = Val(Grandtotal.Text)
+    '    '        gtotal = Val(Grandtotal.Text) + Val(value)
+    '    '        Grandtotal.Text = gtotal.ToString("F2")
+    '    '    Else
+    '    '        value = 0D
+    '    '        Grandtotal.Text = bgtotal.ToString("F2")
+    '    '    End If
+
+    '    'Catch ex As Exception
+
+    '    'End Try
+    'End Sub
 End Class
 

@@ -129,9 +129,9 @@ Partial Class DeliveryProductDialog
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(33, 273)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(73, 13)
+        Me.Label2.Size = New System.Drawing.Size(145, 13)
         Me.Label2.TabIndex = 40
-        Me.Label2.Text = "Batch number"
+        Me.Label2.Text = "Batch Number or Lot Number"
         '
         'BatchTextBox
         '

@@ -37,7 +37,7 @@ Public Class BaseDelivery
     Public Sub Update() Implements ICommandPanel.Update
         Dim transaction As SqlTransaction = SqlConnectionPods.GetInstance.BeginTransaction()
         Try
-            _sqlCommand = New SqlCommand("UPDATE tbldeliveries SET delivery_number = @delivery_number, account_id = @account_id, supplier_id = @supplier_id, vendor_id = @vendor_id, total = @total, date = @date WHERE id = @id;", _sqlConnection, transaction)
+            _sqlCommand = New SqlCommand("UPDATE tbldeliveries SET delivery_number = @delivery_number, account_id = @account_id, supplier_id = @supplier_id, vendor_id = @vendor_id, total = @total, date = @date, vat = @vat WHERE id = @id;", _sqlConnection, transaction)
             _sqlCommand.Parameters.AddWithValue("@id", _data.Item("id"))
             _sqlCommand.Parameters.AddWithValue("@delivery_number", _data.Item("delivery_number"))
             _sqlCommand.Parameters.AddWithValue("@account_id", My.Settings.myId)
@@ -45,6 +45,7 @@ Public Class BaseDelivery
             _sqlCommand.Parameters.AddWithValue("@vendor_id", _data.Item("vendor_id"))
             _sqlCommand.Parameters.AddWithValue("@total", _data.Item("total"))
             _sqlCommand.Parameters.AddWithValue("@date", _data.Item("date"))
+            _sqlCommand.Parameters.AddWithValue("@vat", _data.Item("vat"))
             If _sqlCommand.ExecuteNonQuery() <= 0 Then
                 Throw New Exception("An error occured!")
             End If
@@ -119,7 +120,7 @@ Public Class BaseDelivery
     Public Sub Add() Implements ICommandPanel.Add
         Dim transaction As SqlTransaction = SqlConnectionPods.GetInstance.BeginTransaction()
         Try
-            _sqlCommand = New SqlCommand("INSERT INTO tbldeliveries (delivery_number, account_id, supplier_id, vendor_id, total, deduction, date) VALUES (@delivery_number, @account_id, @supplier_id, @vendor_id, @total, @deduction, @date); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
+            _sqlCommand = New SqlCommand("INSERT INTO tbldeliveries (delivery_number, account_id, supplier_id, vendor_id, total, deduction, date, vat) VALUES (@delivery_number, @account_id, @supplier_id, @vendor_id, @total, @deduction, @date, @vat); SELECT SCOPE_IDENTITY()", _sqlConnection, transaction)
             _sqlCommand.Parameters.AddWithValue("@delivery_number", _data.Item("delivery_number"))
             _sqlCommand.Parameters.AddWithValue("@account_id", My.Settings.myId)
             _sqlCommand.Parameters.AddWithValue("@supplier_id", _data.Item("supplier_id"))
@@ -127,6 +128,7 @@ Public Class BaseDelivery
             _sqlCommand.Parameters.AddWithValue("@total", _data.Item("total"))
             _sqlCommand.Parameters.AddWithValue("@deduction", _data.Item("deduction"))
             _sqlCommand.Parameters.AddWithValue("@date", _data.Item("date"))
+            _sqlCommand.Parameters.AddWithValue("@vat", _data.Item("vat"))
 
             Dim deliveryId As Integer = Convert.ToInt32(_sqlCommand.ExecuteScalar())
 
@@ -313,14 +315,14 @@ Public Class BaseDelivery
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT top 1 p.id AS id, 
+            cmd = New SqlCommand("SELECT top 1 di.id, p.id AS id, 
                                                subcategory_id, 
                                                product_name, 
                                                ISNULL(cost_price, 0) AS cost_price, 
                                                ISNULL(price_adjusment, 0) AS price 
                                   FROM tblproducts p 
                                   LEFT JOIN tbldeliveries_items di ON p.id = di.product_id WHERE product_name = @name
-                                  ORDER BY price DESC", conn)
+                                  ORDER BY di.id DESC", conn)
             cmd.Parameters.AddWithValue("@name", name)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)

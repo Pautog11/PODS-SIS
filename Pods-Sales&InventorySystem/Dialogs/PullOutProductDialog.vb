@@ -43,10 +43,10 @@ Public Class PullOutProductDialog
                         num = 1
                     End If
 
-                    'PulloutDataGridView.Columns.Item("ID").Visible = False
-                    'PulloutDataGridView.Columns.Item("TRAN_ID").Visible = False
-                    'PulloutDataGridView.Columns.Item("PID").Visible = False
-                    'PulloutDataGridView.Columns.Item("SUPPLIER").Visible = False
+                    PulloutDataGridView.Columns.Item("ID").Visible = False
+                    PulloutDataGridView.Columns.Item("TRAN_ID").Visible = False
+                    PulloutDataGridView.Columns.Item("PID").Visible = False
+                    PulloutDataGridView.Columns.Item("SUPPLIER").Visible = False
                 End If
                 RemoveButton.Visible = False
             End If

@@ -42,29 +42,32 @@ Public Class BasePricing
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
             Dim cmd As SqlCommand
-            cmd = New SqlCommand("WITH cost_price AS (
-                                        SELECT a.id, a.product_id, b.product_name, a.cost_price
+            cmd = New SqlCommand("WITH max_cost_price AS (
+                                        SELECT 
+                                            a.product_id,
+                                            MAX(a.cost_price) AS cost_price
                                         FROM tbldeliveries_items a
-                                        JOIN tblproducts b ON a.product_id = b.id
                                         WHERE a.inventory_quantity != 0
-                                          AND a.cost_price = (SELECT MAX(b2.cost_price)
-                                                              FROM tbldeliveries_items b2
-                                                              WHERE b2.product_id = a.product_id and b2.inventory_quantity != 0)
+                                        GROUP BY a.product_id
+                                    ),
+                                    latest_delivery AS (
+                                        SELECT 
+                                            a.product_id,
+                                            MAX(a.id) AS latest_delivery_id
+                                        FROM tbldeliveries_items a
+                                        WHERE a.inventory_quantity != 0
+                                        GROUP BY a.product_id
                                     )
                                     SELECT 
-                                        b.id AS ID, 
-                                        a.product_name AS NAME, 
-                                        b.price_adjusment AS 'SELLING PRICE',
-                                        c.cost_price AS 'COST PRICE'
-                                    FROM tblproducts a
-                                    JOIN tbldeliveries_items b ON a.id = b.product_id
-                                    JOIN cost_price c ON a.id = c.product_id
-                                    WHERE b.inventory_quantity != 0
-                                    AND b.id = (SELECT MAX(b2.id) 
-                                                  FROM tbldeliveries_items b2 
-                                                  WHERE b2.product_id = b.product_id)
-									GROUP BY b.id, a.product_name, b.price_adjusment, c.cost_price
-                                    ORDER BY b.id DESC", conn)
+                                        d.id AS ID,
+                                        p.product_name AS NAME,
+                                        d.price_adjusment AS 'SELLING PRICE',
+                                        m.cost_price AS 'COST PRICE'
+                                    FROM latest_delivery l
+                                    JOIN tbldeliveries_items d ON d.id = l.latest_delivery_id
+                                    JOIN tblproducts p ON p.id = d.product_id
+                                    JOIN max_cost_price m ON m.product_id = d.product_id
+                                    ORDER BY d.product_id;", conn)
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
             adapter.Fill(dTable)

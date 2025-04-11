@@ -151,7 +151,7 @@ Public Class PullOutCartDialog
         Try
             Dim controls As Object() = {SupplierNameComboBox, VendorComboBox, ReferennceTextBox}
 
-            Dim types As DataInput() = {DataInput.STRING_STRING, DataInput.STRING_STRING, DataInput.STRING_STRING}
+            Dim types As DataInput() = {DataInput.STRING_STRING, DataInput.STRING_STRING, DataInput.STRING_INTEGER}
 
             Dim result As New List(Of Object())
             For i = 0 To controls.Count - 1

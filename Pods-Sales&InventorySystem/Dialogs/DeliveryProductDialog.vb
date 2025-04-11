@@ -52,7 +52,7 @@ Public Class DeliveryProductDialog
             ProductTextBox.AutoCompleteCustomSource = BaseProduct.PopulateAutoCompleteList()
 
         Catch ex As Exception
-            MsgBox(ex.Message)
+            'MsgBox(ex.Message)
         End Try
     End Sub
 
@@ -109,11 +109,33 @@ Public Class DeliveryProductDialog
                 Dim exd As Date = DateTimePicker.Value.Date
                 Dim switch As Integer = 0
 
+
+                Dim count As Integer = 0
                 For Each item As DataGridViewRow In _parent.DeliveryDataGridView.Rows
+                    Dim cellValue = item.Cells("id").Value
+                    If cellValue IsNot Nothing AndAlso Not IsDBNull(cellValue) Then
+                        'If AddDeliveryButton.Text = "Add" Then
+
+                        'End If
+                        If CInt(item.Cells("id").Value) = id Then
+                            count += 1
+                        End If
+                    End If
+                Next
+                'MsgBox(count)
+                For Each item As DataGridViewRow In _parent.DeliveryDataGridView.Rows
+                    If count = 0 Then
+                        Exit For
+                    End If
+
+                    If count = 1 Then
+                        If AddDeliveryButton.Text = "Update" Then
+                            Exit For
+                        End If
+                    End If
                     If CInt(item.Cells("id").Value) = id Then
                         If item.Cells("price").Value.ToString() <> Decimal.Parse(SellingTextBox.Text).ToString("F2") OrElse item.Cells("cost_price").Value.ToString() <> Decimal.Parse(CostTextBox.Text).ToString("F2") Then
                             If AddDeliveryButton.Text = "Update" Then
-                                'MsgBox("update")
                                 If item.Cells("price").Value.ToString() <> Decimal.Parse(SellingTextBox.Text).ToString("F2") OrElse item.Cells("cost_price").Value.ToString() <> Decimal.Parse(CostTextBox.Text).ToString("F2") Then
                                     MessageBox.Show("You cannot set a different price for the same product!.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                                     Exit Sub
@@ -144,15 +166,6 @@ Public Class DeliveryProductDialog
                             End If
                         End If
 
-
-                        'MsgBox(_data.Item("target"))
-                        'item.Cells("expiry_date").Value = exd.ToString("yyyy-MM-dd") AndAlso item.Cells("batch_number").Value = BatchTextBox.Text AndAlso
-                        'MsgBox(_data.Item("target"))
-
-                        'If _data.Item("target") Is Nothing Then
-                        '    Exit For
-                        'End If
-                        'item.Cells("target").Value.ToString() = _data.Item("target").ToString()
                         If item.Cells("product").Value.ToString() = ProductTextBox.Text AndAlso item.Cells("expiry_date").Value = exd.ToString("yyyy-MM-dd") AndAlso item.Cells("batch_number").Value = BatchTextBox.Text Then
                             If DateTimePicker.Enabled = True Then
                                 item.Cells("expiry_date").Value = exd.ToString("yyyy-MM-dd")
