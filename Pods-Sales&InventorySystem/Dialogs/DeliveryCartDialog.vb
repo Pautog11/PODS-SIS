@@ -47,12 +47,14 @@ Public Class DeliveryCartDialog
                 AddDeducttionButton.Visible = False
                 VendorComboBox.Enabled = False
                 TransactionDeliveryTextBox.Enabled = False
+                VatTextBox.Enabled = False
 
                 SupplierNameComboBox.Text = _data.Item("supplier_id")
                 TotalPrice.Text = _data.Item("total")
                 pulloutTotal.Text = _data.Item("deduction")
                 Guna2DateTimePicker1.Value = _data.Item("date")
                 TransactionDeliveryTextBox.Text = _data.Item("delivery_number")
+                VatTextBox.Text = _data.Item("vat")
 
                 Dim vendor As DataTable = BaseDelivery.FetchVendor(BaseDelivery.FetchSupplierId(_data.Item("supplier_id")), _data.Item("vendor_id"))
                 VendorComboBox.DataSource = vendor.DefaultView

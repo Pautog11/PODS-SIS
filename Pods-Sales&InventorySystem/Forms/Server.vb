@@ -7,10 +7,10 @@ Public Class Server
     Private Sub TestButton_Click(sender As Object, e As EventArgs) Handles TestButton.Click
         Try
             Dim controls As Object() = {
-                ServerTextBox, UsernameTextBox, PasswordTextBox
+                UsernameTextBox, PasswordTextBox
             }
             Dim types As DataInput() = {
-                DataInput.STRING_STRING, DataInput.STRING_STRING, DataInput.STRING_STRING
+                DataInput.STRING_STRING, DataInput.STRING_STRING
             }
             Dim result As New List(Of Object())
             For i = 0 To controls.Count - 1
