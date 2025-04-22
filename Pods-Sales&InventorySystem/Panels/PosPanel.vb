@@ -97,6 +97,13 @@
         Try
             If e.KeyCode = Keys.Enter Then
                 Dim res As New List(Of Object()) From {InputValidation.ValidateInputString(SearchTextbox, DataInput.STRING_STRING)}
+                Dim validationResult = TryCast(res(0), Object())
+                If validationResult IsNot Nothing AndAlso validationResult.Length > 0 Then
+                    If Not validationResult(0) = True Then
+                        Exit Sub
+                    End If
+                End If
+
                 If Not res.Any(Function(item As Object()) Not item(0)) Then
                     Dim dt As DataTable = BaseTransaction.FetchByName(SearchTextbox.Text)
                     If dt.Rows.Count > 0 Then
@@ -143,6 +150,7 @@
                 MessageBox.Show("Insufficient funds", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Exit Sub
             End If
+
             'MsgBox(Totalcost)
             If Val(Totalcost) >= Val(TotalTextBox.Text) Then
                 MessageBox.Show("Invalid discount", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)

@@ -113,6 +113,13 @@ Public Class TransactionProductDailog
         Try
             If e.KeyCode = Keys.Enter Then
                 Dim res As New List(Of Object()) From {InputValidation.ValidateInputString(BarcodeTextBox, DataInput.STRING_INTEGER)}
+                Dim validationResult = TryCast(res(0), Object())
+                If validationResult IsNot Nothing AndAlso validationResult.Length > 0 Then
+                    If Not validationResult(0) = True Then
+                        Exit Sub
+                    End If
+                End If
+
                 If Not res.Any(Function(item As Object()) Not item(0)) Then
                     Dim dt As DataTable = BaseTransaction.FetchByBarcode(BarcodeTextBox.Text)
                     If BarcodeTextBox.Text AndAlso dt.Rows.Count > 0 Then

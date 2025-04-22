@@ -180,7 +180,13 @@ Public Class AccountDialog
                         Me.Close()
                     End If
 
-                ElseIf _data IsNot Nothing Then ' AndAlso my.Settings.myId = _data.Item("id") Then 'BaseAccount.Exists(result(4)(1)) = 0 Then
+                ElseIf _data IsNot Nothing Then 'AndAlso my.Settings.myId = _data.Item("id") Then 'BaseAccount.Exists(result(4)(1)) = 0 Then
+                    If BaseAccount.Exists(result(5)(1)) = 1 Then
+                        If BaseAccount.ExistsWithId(_data.Item("id"), result(5)(1)) = 0 Then
+                            MessageBox.Show("Username exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                            Return
+                        End If
+                    End If
 
                     If BaseAccount.FirstnameLastnameExist(result(1)(1), result(2)(1)) = 1 Then
                         If BaseAccount.IdFirstnameLastnameExist(_data.Item("id"), result(1)(1), result(2)(1)) = 1 Then
@@ -199,7 +205,6 @@ Public Class AccountDialog
                             MessageBox.Show("Phone number exist!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
                             Exit Sub
                         End If
-
                     End If
 
                     invoker = New UpdateCommand(baseCommand)

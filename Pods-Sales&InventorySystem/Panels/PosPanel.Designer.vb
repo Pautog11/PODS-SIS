@@ -519,7 +519,7 @@ Partial Class PosPanel
         Me.TransactionDataGridView.AllowUserToResizeRows = False
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.White
         Me.TransactionDataGridView.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.TransactionDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
+        Me.TransactionDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(12, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(121, Byte), Integer))
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -648,6 +648,7 @@ Partial Class PosPanel
         Me.cost.HeaderText = "COST"
         Me.cost.Name = "cost"
         Me.cost.ReadOnly = True
+        Me.cost.Visible = False
         '
         'PosPanel
         '

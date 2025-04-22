@@ -179,6 +179,20 @@ Public Class BaseAccount
         End Try
     End Function
 
+    Public Shared Function ExistsWithId(id As Integer, data As String) As Integer
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As New SqlCommand("SELECT COUNT(*) FROM tblaccounts WHERE id = @id AND lower(username) = @data", conn)
+            cmd.Parameters.AddWithValue("@data", data.Trim.ToLower)
+            cmd.Parameters.AddWithValue("@id", id)
+
+            Return cmd.ExecuteScalar()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return 0
+        End Try
+    End Function
+
     Public Shared Function Search(query As String) As pods.viewtblaccountsDataTable 'pods.tblaccountsDataTable
         Try
             Dim conn As New SqlConnection(My.Settings.podsdbConnectionString)
