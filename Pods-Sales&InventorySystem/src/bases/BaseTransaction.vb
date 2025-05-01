@@ -67,7 +67,7 @@ Public Class BaseTransaction
 
             transaction.Commit()
             MessageBox.Show("Transaction has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            BaseAuditTrail.AuditLogin(My.Settings.myId, "Add an Transaction")
+            BaseAuditTrail.AuditLogin(My.Settings.myId, $"Add a Transaction with Ref number {_data.Item("transaction_number")}")
             Dim reslt As DialogResult = MessageBox.Show("Do you want to print a receipt?", "PODS", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If reslt = DialogResult.Yes Then
                 Using dialog As New ReceiptViewer(TransactionID)

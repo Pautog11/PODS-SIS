@@ -19,10 +19,11 @@ Public Class Delivery
         Try
             _tableAapter.Fill(_dataTable)
             DeliveryDataGridView.DataSource = _dataTable
-            'DeliveryDataGridView.Columns.Item("ID").Visible = False
-            'DeliveryDataGridView.Columns.Item("VENDOR").Visible = False
-            'DeliveryDataGridView.Columns.Item("SUBTOTAL").Visible = False
-            'DeliveryDataGridView.Columns.Item("DEDUCTED").Visible = False
+            DeliveryDataGridView.Columns.Item("ID").Visible = False
+            DeliveryDataGridView.Columns.Item("VENDOR").Visible = False
+            DeliveryDataGridView.Columns.Item("SUBTOTAL").Visible = False
+            DeliveryDataGridView.Columns.Item("DEDUCTED").Visible = False
+            DeliveryDataGridView.Columns.Item("VAT").Visible = False
         Catch ex As Exception
 
         End Try

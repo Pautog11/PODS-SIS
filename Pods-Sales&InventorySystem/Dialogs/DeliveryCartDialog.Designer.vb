@@ -319,6 +319,7 @@ Partial Class DeliveryCartDialog
         Me.Guna2HtmlLabel6.Size = New System.Drawing.Size(68, 15)
         Me.Guna2HtmlLabel6.TabIndex = 15
         Me.Guna2HtmlLabel6.Text = "Possible profit"
+        Me.Guna2HtmlLabel6.Visible = False
         '
         'Label3
         '
@@ -330,6 +331,7 @@ Partial Class DeliveryCartDialog
         Me.Label3.Size = New System.Drawing.Size(28, 15)
         Me.Label3.TabIndex = 14
         Me.Label3.Text = "0.00"
+        Me.Label3.Visible = False
         '
         'Guna2DateTimePicker1
         '
@@ -382,9 +384,9 @@ Partial Class DeliveryCartDialog
         Me.Guna2HtmlLabel7.BackColor = System.Drawing.Color.Transparent
         Me.Guna2HtmlLabel7.Location = New System.Drawing.Point(121, 18)
         Me.Guna2HtmlLabel7.Name = "Guna2HtmlLabel7"
-        Me.Guna2HtmlLabel7.Size = New System.Drawing.Size(76, 15)
+        Me.Guna2HtmlLabel7.Size = New System.Drawing.Size(61, 15)
         Me.Guna2HtmlLabel7.TabIndex = 6
-        Me.Guna2HtmlLabel7.Text = "Total pulled out"
+        Me.Guna2HtmlLabel7.Text = "Total pullout"
         '
         'Guna2HtmlLabel3
         '

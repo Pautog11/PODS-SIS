@@ -11,8 +11,8 @@ Public Class PasswordDialog
         _parent = parent
         _subject = subject
         _id = id
-
     End Sub
+
     Private Sub PasswordDialog_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         PasswordTextBox.UseSystemPasswordChar = True
         Guna2TextBox1.UseSystemPasswordChar = True

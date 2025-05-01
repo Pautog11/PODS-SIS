@@ -107,7 +107,7 @@ Public Class BaseDelivery
 
             transaction.Commit()
             MessageBox.Show("Delivery has been updated successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            BaseAuditTrail.AuditLogin(My.Settings.myId, "Update delivery")
+            BaseAuditTrail.AuditLogin(My.Settings.myId, $"Update delivery with Ref number {_data.Item("delivery_number")}")
         Catch ex As Exception
             transaction.Rollback()
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -187,7 +187,7 @@ Public Class BaseDelivery
 
             transaction.Commit()
             MessageBox.Show("Delivery has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            BaseAuditTrail.AuditLogin(My.Settings.myId, "Add delivery")
+            BaseAuditTrail.AuditLogin(My.Settings.myId, $"Add a delivery with Ref number {_data.Item("delivery_number")}")
         Catch ex As Exception
             transaction.Rollback()
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)

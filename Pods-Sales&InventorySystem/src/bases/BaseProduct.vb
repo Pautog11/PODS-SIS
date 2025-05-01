@@ -58,7 +58,7 @@ Public Class BaseProduct
             End If
             MessageBox.Show("Product has been updated successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
             transaction.Commit()
-            BaseAuditTrail.AuditLogin(My.Settings.myId, "Update a discount")
+            BaseAuditTrail.AuditLogin(My.Settings.myId, $"Update the product {_data.Item("product_name")}")
         Catch ex As Exception
             Transaction.Rollback()
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -90,10 +90,7 @@ Public Class BaseProduct
 
             MessageBox.Show("Product has been added successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
             transaction.Commit()
-            BaseAuditTrail.AuditLogin(My.Settings.myId, "Add a product")
-            'Dim pname As String = _data("product_name").ToString()
-            'Dim manuname As String = If(_item?.ContainsKey("manufacturer"), _item("manufacturer").ToString(), "Unknown Manufacturer")
-            'BaseAuditTrail.AddProduct(My.Settings.myId, $"Added a product {pname} - {manuname}")
+            BaseAuditTrail.AuditLogin(My.Settings.myId, $"Add a product {_data.Item("product_name")}")
         Catch ex As Exception
             transaction.Rollback()
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -167,19 +164,6 @@ Public Class BaseProduct
             Return 0
         End Try
     End Function
-
-    'Public Shared Function ScalarCategoryId(category As String) As Integer
-    '    Try
-    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-    '        Dim cmd As New SqlCommand("SELECT id FROM tblcategories WHERE category = @category", conn)
-    '        cmd.Parameters.AddWithValue("@category", category)
-
-    '        Return cmd.ExecuteScalar()
-    '    Catch ex As Exception
-    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-    '        Return 0
-    '    End Try
-    'End Function
 
     Public Shared Function BarcodeExist(barcode As String) As String
         Try

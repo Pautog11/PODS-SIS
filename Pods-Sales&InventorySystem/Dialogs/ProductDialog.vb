@@ -171,9 +171,12 @@ Public Class ProductDialog
                     Me.Close()
 
                 ElseIf _data IsNot Nothing Then
-                    If BaseProduct.CheckProductnameWithID(_data.Item("id"), result(2)(1)) = 0 Then
-                        MessageBox.Show("Product exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                        Exit Sub
+
+                    If BaseProduct.CheckProductname(result(2)(1)) = 1 Then
+                        If BaseProduct.CheckProductnameWithID(_data.Item("id"), result(2)(1)) = 0 Then
+                            MessageBox.Show("Product exists!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            Exit Sub
+                        End If
                     End If
 
                     If BaseProduct.IdBarcodeExist(_data.Item("id"), BarcodeTextBox.Text) = 1 Then

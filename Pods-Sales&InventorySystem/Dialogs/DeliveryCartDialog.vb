@@ -334,10 +334,13 @@ Public Class DeliveryCartDialog
 
                 Dim result As New List(Of Object())
                 For i = 0 To controls.Count - 1
-                    If controls(i) Is VatTextBox AndAlso String.IsNullOrEmpty(VatTextBox.Text) Then
+                    If controls(i) Is VatTextBox AndAlso Not VatTextBox.Enabled OrElse String.IsNullOrEmpty(VatTextBox.Text) Then
+                        'If TypeOf controls(i) Is VatTextBox AndAlso String.IsNullOrEmpty(CType(controls(i), VatTextBox).Text) AndAlso CType(controls(i), VatTextBox).Enabled Then
                         Continue For ' Skip validation for BarcodeTextBox if it's empty
+                    Else
+                        result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
                     End If
-                    result.Add(InputValidation.ValidateInputString(controls(i), types(i)))
+
                     Dim validationResult = TryCast(result(i), Object())
                     If validationResult IsNot Nothing AndAlso validationResult.Length > 0 Then
                         If Not validationResult(0) = True Then
