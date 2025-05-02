@@ -115,9 +115,12 @@ Public Class InputValidation
 
 
             Case DataInput.STRING_PASSWORD
-                'if Regex.IsMatch(stringInput, "^(?=.*[0-9])(?= .*[@#$%^&+=]).{8,}$") Then
-                Return {True, stringInput}
-                'End If
+                If Regex.IsMatch(stringInput, "^.{8,}$") Then
+                    Return {True, stringInput}
+                Else
+                    MessageBox.Show("Password must be at least 8 characters long.", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Exit Select
+                End If
 
             Case DataInput.STRING_PHONE
                 start_trim_o = start_trim_o.Trim()
@@ -265,11 +268,7 @@ Public Class InputValidation
                     Exit Select
                 End If
 
-
-
-
             Case DataInput.STRING_DOSAGE
-
                 If Not String.IsNullOrEmpty(stringInput) AndAlso Not String.IsNullOrWhiteSpace(stringInput) Then
                     If System.Text.RegularExpressions.Regex.IsMatch(stringInput, "[^a-zA-Z\s]") Then
                         MessageBox.Show("Invalid characters detected", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)

@@ -39,7 +39,7 @@ Public Class BaseAccount
                 MessageBox.Show("An error occured!")
             Else
                 MessageBox.Show("Account has been updated successfully!", "PODS", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                BaseAuditTrail.AuditLogin(My.Settings.myId, "Update an account")
+                BaseAuditTrail.AuditLogin(My.Settings.myId, $"{_data.Item("last_name")}'s account has been updated.")
             End If
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)

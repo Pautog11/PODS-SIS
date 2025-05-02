@@ -461,7 +461,7 @@ Public Class BaseTransaction
         Try
             Dim conn As New SqlConnection(My.Settings.podsdbConnectionString)
             Dim cmd As New SqlCommand("SELECT * FROM viewtbltransactions 
-                                       WHERE id <> 1 AND (PROCESS_BY LIKE CONCAT('%', @query, '%') 
+                                       WHERE id <> 1 AND ([PROCESS BY] LIKE CONCAT('%', @query, '%') 
                                        OR [REFERENCE NUMBER] LIKE CONCAT('%', @query, '%'))", conn)  'OR CAST([DATE] AS DATE) = CAST(@query AS DATE)
             cmd.Parameters.AddWithValue("@query", query)
             Dim dTable As New pods.viewtbltransactionsDataTable
