@@ -17,33 +17,7 @@ Public Class ProductDialog
             CategoryComboBox.DisplayMember = "category"
             CategoryComboBox.SelectedItem = "id"
 
-            'Dim sc As DataTable = BaseProduct.FillBySubCategory(_data.Item("subcategory_id"))
-            'SubCategoryComboBox.DataSource = sc.DefaultView
-            'SubCategoryComboBox.DisplayMember = "subcategory"
-            'SubCategoryComboBox.SelectedItem = "id"
-
-            'Dim dt As DataTable = BaseDosage.FetchDosage
-            'DoseComboBox.DataSource = dt.DefaultView
-            'DoseComboBox.DisplayMember = "dasage"
-            'DoseComboBox.SelectedItem = "id"
-            'If dt.Rows.Count > 0 Then
-            '    DoseComboBox.SelectedIndex = -1
-            'End If
-
-
-            'Dim df As DataTable = BaseDosageForm.FetchDosageform
-            'DosageFormComboBox.DataSource = df.DefaultView
-            'DosageFormComboBox.DisplayMember = "dosageform"
-            'DosageFormComboBox.SelectedItem = "id"
-            'If df.Rows.Count > 0 Then
-            '    DosageFormComboBox.SelectedIndex = -1
-            'End If
-
             Exp = 0
-            'ManufacturerTextBox.Enabled = False
-            'StrengthTextBox.Enabled = False
-            'DoseComboBox.Enabled = False
-            'DosageFormComboBox.Enabled = False
 
             If _data IsNot Nothing Then
                 AddProductButton.Text = "Update"
@@ -60,22 +34,8 @@ Public Class ProductDialog
                 DescriptionTextBox.Text = _data.Item("description")
                 StockLevelTextBox.Text = _data.Item("stock_level")
 
-                'Dim productid As DataTable = BaseProduct.Fillproductinfo(_data("id"))
-
-                'If productid.Rows.Count > 0 Then
-                '    Dim row As DataRow = productid.Rows(0)
-                '    DosageFormComboBox.Text = If(row("dosage_form") Is DBNull.Value, String.Empty, row("dosage_form").ToString())
-                '    StrengthTextBox.Text = If(row("strength") Is DBNull.Value, String.Empty, row("strength").ToString())
-                '    ManufacturerTextBox.Text = If(row("manufacturer") Is DBNull.Value, String.Empty, row("manufacturer").ToString())
-                '    DoseComboBox.Text = If(row("dose") Is DBNull.Value, String.Empty, row("dose").ToString())
-                'End If
-
                 If BaseDelivery.EnableExp(_data.Item("id")) = 1 Then
                     CheckBox.Checked = True
-                    'ManufacturerTextBox.Enabled = True
-                    'StrengthTextBox.Enabled = True
-                    'DoseComboBox.Enabled = True
-                    'DosageFormComboBox.Enabled = True
                 End If
 
                 'DeleteProductButton.Visible = False

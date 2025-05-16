@@ -334,6 +334,29 @@ Public Class BaseDelivery
         End Try
     End Function
 
+    Public Shared Function NameFetching2(name As String) As DataTable
+        Try
+            Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+            Dim cmd As SqlCommand
+            cmd = New SqlCommand("SELECT top 1 p.id AS id, 
+                                               subcategory_id, 
+                                               product_name, 
+                                               ISNULL(cost_price, 0) AS cost_price, 
+                                               ISNULL(price_adjusment, 0) AS price 
+                                  FROM tblproducts p 
+                                  LEFT JOIN tbldeliveries_items di ON p.id = di.product_id WHERE product_name = @name
+                                  ORDER BY di.id DESC", conn)
+            cmd.Parameters.AddWithValue("@name", name)
+            Dim dTable As New DataTable
+            Dim adapter As New SqlDataAdapter(cmd)
+            adapter.Fill(dTable)
+            Return dTable
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return New DataTable
+        End Try
+    End Function
+
     ''' <summary>
     ''' Price check shoild not lower than from the current price
     ''' </summary>

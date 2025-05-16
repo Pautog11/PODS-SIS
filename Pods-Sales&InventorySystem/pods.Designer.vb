@@ -7371,9 +7371,9 @@ Partial Public Class pods
         
         Private columnTOTAL As Global.System.Data.DataColumn
         
-        Private columndate As Global.System.Data.DataColumn
+        Private columnDATE As Global.System.Data.DataColumn
         
-        Private columncash As Global.System.Data.DataColumn
+        Private columnCASH As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -7468,17 +7468,17 @@ Partial Public Class pods
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property dateColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property DATEColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columndate
+                Return Me.columnDATE
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property cashColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property CASHColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columncash
+                Return Me.columnCASH
             End Get
         End Property
         
@@ -7519,9 +7519,9 @@ Partial Public Class pods
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddviewtbltransactionsRow(ByVal ID As Integer, ByVal PROCESS_BY As String, ByVal REFERENCE_NUMBER As String, ByVal SUBTOTAL As Decimal, ByVal VAT As Double, ByVal DISCOUNT As Double, ByVal TOTAL As Decimal, ByVal _date As Date, ByVal cash As Decimal) As viewtbltransactionsRow
+        Public Overloads Function AddviewtbltransactionsRow(ByVal ID As Integer, ByVal PROCESS_BY As String, ByVal REFERENCE_NUMBER As String, ByVal SUBTOTAL As Decimal, ByVal VAT As Double, ByVal DISCOUNT As Double, ByVal TOTAL As Decimal, ByVal _DATE As Date, ByVal CASH As Decimal) As viewtbltransactionsRow
             Dim rowviewtbltransactionsRow As viewtbltransactionsRow = CType(Me.NewRow,viewtbltransactionsRow)
-            Dim columnValuesArray() As Object = New Object() {ID, PROCESS_BY, REFERENCE_NUMBER, SUBTOTAL, VAT, DISCOUNT, TOTAL, _date, cash}
+            Dim columnValuesArray() As Object = New Object() {ID, PROCESS_BY, REFERENCE_NUMBER, SUBTOTAL, VAT, DISCOUNT, TOTAL, _DATE, CASH}
             rowviewtbltransactionsRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowviewtbltransactionsRow)
             Return rowviewtbltransactionsRow
@@ -7557,8 +7557,8 @@ Partial Public Class pods
             Me.columnVAT = MyBase.Columns("VAT")
             Me.columnDISCOUNT = MyBase.Columns("DISCOUNT")
             Me.columnTOTAL = MyBase.Columns("TOTAL")
-            Me.columndate = MyBase.Columns("date")
-            Me.columncash = MyBase.Columns("cash")
+            Me.columnDATE = MyBase.Columns("DATE")
+            Me.columnCASH = MyBase.Columns("CASH")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7578,13 +7578,13 @@ Partial Public Class pods
             MyBase.Columns.Add(Me.columnDISCOUNT)
             Me.columnTOTAL = New Global.System.Data.DataColumn("TOTAL", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTOTAL)
-            Me.columndate = New Global.System.Data.DataColumn("date", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            Me.columndate.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "dateColumn")
-            Me.columndate.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columndate")
-            Me.columndate.ExtendedProperties.Add("Generator_UserColumnName", "date")
-            MyBase.Columns.Add(Me.columndate)
-            Me.columncash = New Global.System.Data.DataColumn("cash", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columncash)
+            Me.columnDATE = New Global.System.Data.DataColumn("DATE", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnDATE.ExtendedProperties.Add("Generator_ColumnPropNameInTable", "DATEColumn")
+            Me.columnDATE.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "columnDATE")
+            Me.columnDATE.ExtendedProperties.Add("Generator_UserColumnName", "DATE")
+            MyBase.Columns.Add(Me.columnDATE)
+            Me.columnCASH = New Global.System.Data.DataColumn("CASH", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnCASH)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnID}, true))
             Me.columnID.AllowDBNull = false
             Me.columnID.Unique = true
@@ -7596,7 +7596,7 @@ Partial Public Class pods
             Me.columnVAT.AllowDBNull = false
             Me.columnDISCOUNT.AllowDBNull = false
             Me.columnTOTAL.AllowDBNull = false
-            Me.columncash.AllowDBNull = false
+            Me.columnCASH.AllowDBNull = false
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -10103,27 +10103,27 @@ Partial Public Class pods
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property _date() As Date
+        Public Property _DATE() As Date
             Get
                 Try 
-                    Return CType(Me(Me.tableviewtbltransactions.dateColumn),Date)
+                    Return CType(Me(Me.tableviewtbltransactions.DATEColumn),Date)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'date' in table 'viewtbltransactions' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'DATE' in table 'viewtbltransactions' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableviewtbltransactions.dateColumn) = value
+                Me(Me.tableviewtbltransactions.DATEColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property cash() As Decimal
+        Public Property CASH() As Decimal
             Get
-                Return CType(Me(Me.tableviewtbltransactions.cashColumn),Decimal)
+                Return CType(Me(Me.tableviewtbltransactions.CASHColumn),Decimal)
             End Get
             Set
-                Me(Me.tableviewtbltransactions.cashColumn) = value
+                Me(Me.tableviewtbltransactions.CASHColumn) = value
             End Set
         End Property
         
@@ -10141,14 +10141,14 @@ Partial Public Class pods
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function Is_dateNull() As Boolean
-            Return Me.IsNull(Me.tableviewtbltransactions.dateColumn)
+        Public Function Is_DATENull() As Boolean
+            Return Me.IsNull(Me.tableviewtbltransactions.DATEColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub Set_dateNull()
-            Me(Me.tableviewtbltransactions.dateColumn) = Global.System.Convert.DBNull
+        Public Sub Set_DATENull()
+            Me(Me.tableviewtbltransactions.DATEColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -14592,8 +14592,8 @@ Namespace podsTableAdapters
             tableMapping.ColumnMappings.Add("VAT", "VAT")
             tableMapping.ColumnMappings.Add("DISCOUNT", "DISCOUNT")
             tableMapping.ColumnMappings.Add("TOTAL", "TOTAL")
-            tableMapping.ColumnMappings.Add("date", "date")
-            tableMapping.ColumnMappings.Add("cash", "cash")
+            tableMapping.ColumnMappings.Add("DATE", "DATE")
+            tableMapping.ColumnMappings.Add("CASH", "CASH")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -14610,8 +14610,8 @@ Namespace podsTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT ID, [PROCESS BY], [REFERENCE NUMBER], SUBTOTAL, VAT, DISCOUNT, TOTAL, date"& _ 
-                ", cash FROM dbo.viewtbltransactions"
+            Me._commandCollection(0).CommandText = "SELECT ID, [PROCESS BY], [REFERENCE NUMBER], SUBTOTAL, VAT, DISCOUNT, TOTAL, DATE"& _ 
+                ", CASH FROM dbo.viewtbltransactions"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         

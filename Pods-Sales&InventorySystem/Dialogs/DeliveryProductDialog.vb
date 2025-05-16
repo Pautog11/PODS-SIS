@@ -326,7 +326,7 @@ Public Class DeliveryProductDialog
     Private Sub ProductTextBox_KeyDown(sender As Object, e As KeyEventArgs) Handles ProductTextBox.KeyDown
         Try
             If e.KeyCode = Keys.Enter Then
-                dt = BaseDelivery.NameFetching(ProductTextBox.Text)
+                dt = BaseDelivery.NameFetching2(ProductTextBox.Text)
                 If dt.Rows.Count > 0 Then
                     id = If(String.IsNullOrEmpty(dt.Rows(0).Item("id").ToString()), 0, dt.Rows(0).Item("id").ToString())
                     ProductTextBox.Text = If(String.IsNullOrEmpty(dt.Rows(0).Item("product_name").ToString()), 0, dt.Rows(0).Item("product_name"))
@@ -341,7 +341,7 @@ Public Class DeliveryProductDialog
                 Txite()
             End If
         Catch ex As Exception
-
+            MsgBox(ex.Message)
         End Try
     End Sub
 End Class

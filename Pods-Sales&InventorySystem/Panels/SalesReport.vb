@@ -22,11 +22,13 @@ Public Class SalesReport
 
     Private Sub IObserverPanel_Update() Implements IObserverPanel.Update
         Try
-            Dim fuckme As DataTable = BaseReports.Getsales
+            Dim startDate As DateTime = DateFrom.Value.ToString("MMM dd yyyy")
+            Dim endDate As DateTime = DateTo.Value.ToString("MMM dd yyyy")
+            Dim fuckme As DataTable = BaseReports.Getsales(startDate, endDate)
             SalesReportsDataGridView.DataSource = fuckme.DefaultView
             SalesReportsDataGridView.Columns.Item("ID").Visible = False
         Catch ex As Exception
-
+            MsgBox(ex.Message)
         End Try
     End Sub
     Private Sub PrintButton_Click(sender As Object, e As EventArgs) Handles PrintButton.Click
@@ -44,16 +46,15 @@ Public Class SalesReport
         End Try
     End Sub
 
-    'Public Sub FetchFuckingData()
-    '    Try
-    '        Dim fuckme As DataTable = BaseReports.GetSalesByDate(DateFrom.Value.ToString("MMM dd yyyy"), DateTo.Value.ToString("MMM dd yyyy"))
-    '        SalesReportsDataGridView.DataSource = fuckme.DefaultView
-    '    Catch ex As Exception
-    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-    '    End Try
-    'End Sub
-
     Private Sub DateTo_CloseUp(sender As Object, e As EventArgs) Handles DateTo.CloseUp
-        DateFrom.MaxDate = DateTo.Value
+        Try
+            Dim startDate As DateTime = DateFrom.Value.ToString("MMM dd yyyy")
+            Dim endDate As DateTime = DateTo.Value.ToString("MMM dd yyyy")
+            Dim fuckme As DataTable = BaseReports.Getsales(startDate, endDate)
+            SalesReportsDataGridView.DataSource = fuckme.DefaultView
+            SalesReportsDataGridView.Columns.Item("ID").Visible = False
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 End Class

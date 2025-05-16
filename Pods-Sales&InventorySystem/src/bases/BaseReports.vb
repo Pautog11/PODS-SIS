@@ -15,40 +15,86 @@ Public Class BaseReports
         End Try
     End Function
 
-    Public Shared Function Getsales() As DataTable
+    'Public Shared Function Getsales(date1 As Date, date2 As Date) As DataTable
+    '    Try
+    '        Dim conn As SqlConnection = SqlConnectionPods.GetInstance
+    '        Dim cmd As SqlCommand
+    '        cmd = New SqlCommand("SELECT a.id AS ID, 
+    '                                              CONCAT(first_name, ' ', last_name) AS CASHIER, 
+    '                                              transaction_number AS 'TRANSACTION NUMBER', 
+    '                                              total AS TOTAL, 
+    '                                              a.date AS DATE
+    '                                       FROM tbltransactions a 
+    '                                       JOIN tblaccounts b ON a.account_id = b.id 
+    '                                       WHERE CAST(a.date AS DATE) >= @startDate
+    '                                       AND CAST(a.date AS DATE) <= @endDate
+
+    '                                       UNION ALL
+
+    '                                      SELECT a.transaction_id AS ID, 
+    '                                             CONCAT(first_name, ' ', last_name) AS CASHIER, 
+    '                                             transaction_number AS 'TRANSACTION NUMBER', 
+    '                                             -1 * a.total AS TOTAL, 
+    '								 a.date AS DATE
+    '                                      FROM tblreturns a
+    '                                      JOIN tbltransactions b ON a.transaction_id = b.id
+    '                                      JOIN tblaccounts c ON a.account_id = c.id
+    '                                      WHERE a.transaction_id IN (SELECT id FROM tbltransactions) 
+    '                                      AND CAST(a.date AS DATE) >= @startDate
+    '                                      AND CAST(a.date AS DATE) <= @endDate
+    '                                      ORDER BY transaction_number, 
+    '                                               total DESC", conn)
+    '        cmd.Parameters.AddWithValue("@start_date", date1)
+    '        cmd.Parameters.AddWithValue("@end_date", date2)
+    '        Dim dTable As New DataTable
+    '        Dim adapter As New SqlDataAdapter(cmd)
+    '        adapter.Fill(dTable)
+    '        Return dTable
+    '    Catch ex As Exception
+    '        MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+    '        Return New DataTable
+    '    End Try
+    'End Function
+
+
+    Public Shared Function Getsales(date1 As Date, date2 As Date) As DataTable
         Try
             Dim conn As SqlConnection = SqlConnectionPods.GetInstance
-            Dim cmd As SqlCommand
-            cmd = New SqlCommand("SELECT a.id, 
-                                                  CONCAT(first_name, ' ', last_name) AS cashier, 
-                                                  transaction_number, 
-                                                  total, 
-                                                  a.date
-                                           FROM tbltransactions a 
-                                           JOIN tblaccounts b ON a.account_id = b.id 
-                                           -- WHERE CAST(a.date AS DATE) >= @startDate
-                                           -- AND CAST(a.date AS DATE) <= @endDate
-   
-                                           UNION ALL
- 
-                                          SELECT a.transaction_id, 
-                                                 CONCAT(first_name, ' ', last_name) AS cashier, 
-                                                 transaction_number, 
-                                                 -1 * a.total, a.date
-                                          FROM tblreturns a
-                                          JOIN tbltransactions b ON a.transaction_id = b.id
-                                          JOIN tblaccounts c ON a.account_id = c.id
-                                          WHERE a.transaction_id IN (SELECT id FROM tbltransactions) 
-                                                -- AND CAST(a.date AS DATE) >= @startDate
-                                                -- AND CAST(a.date AS DATE) <= @endDate
-                                          ORDER BY transaction_number, 
-                                                   total DESC;", conn)
-            'cmd.Parameters.AddWithValue("@start_date", date1)
-            'cmd.Parameters.AddWithValue("@end_date", date2)
+            Dim cmd As New SqlCommand("SELECT 
+                                            a.id AS ID, 
+                                            CONCAT(first_name, ' ', last_name) AS CASHIER, 
+                                            transaction_number AS 'TRANSACTION NUMBER', 
+                                            total AS TOTAL, 
+                                            a.date AS DATE
+                                        FROM tbltransactions a 
+                                        JOIN tblaccounts b ON a.account_id = b.id 
+                                        WHERE CAST(a.date AS DATE) >= @startDate
+                                          AND CAST(a.date AS DATE) <= @endDate
+
+                                        UNION ALL
+
+                                        SELECT 
+                                            a.transaction_id AS ID, 
+                                            CONCAT(first_name, ' ', last_name) AS CASHIER, 
+                                            transaction_number AS 'TRANSACTION NUMBER', 
+                                            -1 * a.total AS TOTAL, 
+                                            a.date AS DATE
+                                        FROM tblreturns a
+                                        JOIN tbltransactions b ON a.transaction_id = b.id
+                                        JOIN tblaccounts c ON a.account_id = c.id
+                                        WHERE CAST(a.date AS DATE) >= @startDate
+                                          AND CAST(a.date AS DATE) <= @endDate
+
+                                        ORDER BY [TRANSACTION NUMBER], TOTAL DESC", conn)
+
+            cmd.Parameters.AddWithValue("@startDate", date1)
+            cmd.Parameters.AddWithValue("@endDate", date2)
+
             Dim dTable As New DataTable
             Dim adapter As New SqlDataAdapter(cmd)
             adapter.Fill(dTable)
             Return dTable
+
         Catch ex As Exception
             MessageBox.Show(ex.Message, "PODS", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return New DataTable

@@ -262,7 +262,7 @@ Partial Class DiposalProductDialog
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(24, 13)
         Me.Label7.TabIndex = 30
-        Me.Label7.Text = "Rrc"
+        Me.Label7.Text = "Drc"
         '
         'CostTextBox
         '
